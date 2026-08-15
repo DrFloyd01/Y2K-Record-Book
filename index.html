@@ -672,7 +672,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260815_02"></script>
+  <script src="leagueData.js?v=20260815_03"></script>
 
   <!-- Application Logic -->
   <script>
@@ -1270,6 +1270,49 @@
         return allStreaks.slice(0, 5);
       }
 
+      if (metricKey === 'dumpsterFire') {
+        matchups.sort((a,b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
+        const ownerGames = {};
+        matchups.forEach(m => {
+          const h = m.homeOwner, a = m.awayOwner;
+          if (!ownerGames[h]) ownerGames[h] = [];
+          if (!ownerGames[a]) ownerGames[a] = [];
+          ownerGames[h].push({ year: m.seasonYear, week: m.weekNumber, loss: m.homeScore < m.awayScore, team: m.homeTeam });
+          ownerGames[a].push({ year: m.seasonYear, week: m.weekNumber, loss: m.awayScore < m.homeScore, team: m.awayTeam });
+        });
+
+        const allStreaks = [];
+        Object.keys(ownerGames).forEach(owner => {
+          const games = ownerGames[owner];
+          let curCount = 0, startG = null, endG = null, lastTeam = '';
+          games.forEach((g, i) => {
+            if (g.loss) {
+              if (curCount === 0) startG = g;
+              curCount++;
+              endG = g;
+              lastTeam = g.team;
+              if (i === games.length - 1 || !games[i+1].loss) {
+                const yrSpan = startG.year === endG.year ? `${startG.year} W${startG.week}-W${endG.week}` : `${startG.year} W${startG.week} - ${endG.year} W${endG.week}`;
+                allStreaks.push({
+                  owner: owner,
+                  team: lastTeam,
+                  streak: curCount,
+                  valStr: `${curCount} LOSSES`,
+                  sub: yrSpan,
+                  endYear: endG.year
+                });
+                curCount = 0;
+              }
+            } else {
+              curCount = 0;
+            }
+          });
+        });
+
+        allStreaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
+        return allStreaks.slice(0, 5);
+      }
+
       const list = [];
       matchups.forEach(m => {
         const yr = m.seasonYear, wk = m.weekNumber;
@@ -1313,38 +1356,6 @@
     function buildStatCardTop5Popover(cardTitle, metricKey, season) {
       const seasonLabel = season === 'allTime' ? 'ALL-TIME' : `${season}`;
       
-      if (metricKey === 'dumpsterFire') {
-        const rowsHtml = `
-          <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
-            <div>
-              <span class="font-bold text-red-400">#1 Dustin</span>
-              <span class="text-[10px] text-emerald-600 block">2025 Weeks 3-8 (Dusty's Dingleberries)</span>
-            </div>
-            <span class="font-extrabold text-red-400 bg-red-950 px-1.5 py-0.5 border border-red-700 text-[10px]">6 LOSSES</span>
-          </div>
-          <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
-            <div>
-              <span class="font-bold text-red-400">#2 Boaz</span>
-              <span class="text-[10px] text-emerald-600 block">2024 Weeks 2-6 (Aaron codger)</span>
-            </div>
-            <span class="font-extrabold text-red-400 bg-red-950 px-1.5 py-0.5 border border-red-700 text-[10px]">5 LOSSES</span>
-          </div>
-          <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
-            <div>
-              <span class="font-bold text-red-400">#3 Ryan</span>
-              <span class="text-[10px] text-emerald-600 block">2025 Weeks 1-5 (Bad team not good...)</span>
-            </div>
-            <span class="font-extrabold text-red-400 bg-red-950 px-1.5 py-0.5 border border-red-700 text-[10px]">5 LOSSES</span>
-          </div>
-        `;
-        return `
-          <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-mono z-50 w-72">
-            <div class="font-bold text-red-400 border-b border-emerald-800 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
-            ${rowsHtml}
-          </div>
-        `;
-      }
-
       const top5 = getStatCardTop5(metricKey, season);
       const rowsHtml = top5.map((item, i) => `
         <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
@@ -1388,6 +1399,7 @@
         const topGut = getStatCardTop5('gutpunch', currentSeason)[0];
         const topCrim = getStatCardTop5('criminal', currentSeason)[0];
         const topVic = getStatCardTop5('victoryLap', currentSeason)[0];
+        const topDump = getStatCardTop5('dumpsterFire', currentSeason)[0];
 
         const cardDefs = [
           { 
@@ -1420,7 +1432,7 @@
           },
           { 
             title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Longest loss streak', 
-            data: records.dumpsterFire ? { val: `${records.dumpsterFire.length} LOSSES`, owner: records.dumpsterFire.owner, team: records.dumpsterFire.team, sub: records.dumpsterFire.weeks } : null 
+            data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null 
           }
         ];
 
