@@ -674,7 +674,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_05"></script>
+  <script src="prideGuysData.js?v=20260816_06"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1192,12 +1192,12 @@
           }
         });
 
-        const consList = Object.values(consStats).sort((a, b) => (-a.wins) || (-a.pf));
+        const consList = Object.values(consStats).sort((a, b) => (b.wins - a.wins) || (b.pf - a.pf));
         let consTableRows = '';
         consList.forEach((c, idx) => {
           consTableRows += `
             <tr class="border-b border-emerald-950 text-xs">
-              <td class="p-2 font-bold text-amber-400">#${idx + 7}</td>
+              <td class="p-2 font-bold text-amber-400">Pick #${idx + 1}</td>
               <td class="p-2 font-bold text-emerald-300">${c.team} <span class="text-[10px] text-emerald-600">(${c.owner})</span></td>
               <td class="p-2 text-center font-mono">${c.wins}-${c.losses}</td>
               <td class="p-2 text-right font-mono font-bold text-emerald-300">${c.pf.toFixed(2)}</td>
@@ -1255,10 +1255,10 @@
                 <table class="w-full text-left">
                   <thead>
                     <tr class="border-b border-emerald-800 text-[10px] text-emerald-500 uppercase">
-                      <th class="p-1.5">POS</th>
+                      <th class="p-1.5">DRAFT SLOT</th>
                       <th class="p-1.5">TEAM</th>
-                      <th class="p-1.5 text-center">REC</th>
-                      <th class="p-1.5 text-right">PF</th>
+                      <th class="p-1.5 text-center">CONS REC</th>
+                      <th class="p-1.5 text-right">CONS PF</th>
                     </tr>
                   </thead>
                   <tbody>${consTableRows}</tbody>
