@@ -191,9 +191,9 @@
       </div>
 
       <!-- Desktop Sliding Indicator Navigation Bar -->
-      <nav class="hidden lg:flex items-center relative bg-purple-950/60 p-1.5 rounded-2xl border border-pink-500/30 backdrop-blur" id="desktop-nav">
+      <nav class="hidden lg:flex items-center relative bg-purple-950/80 p-1.5 rounded-2xl border border-pink-500/40 backdrop-blur shadow-inner overflow-hidden" id="desktop-nav">
         <!-- Sliding Indicator Pill -->
-        <div id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 shadow-md shadow-pink-500/40 transition-all duration-300 ease-out z-0"></div>
+        <div id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 shadow-lg shadow-pink-500/50 transition-all duration-300 ease-out z-0 pointer-events-none opacity-0" style="left: 0;"></div>
 
         <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-white">📅 SEASONS</button>
         <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-300 hover:text-white">⚔️ H2H</button>
@@ -211,6 +211,60 @@
       </div>
     </div>
   </header>
+  <!-- Top Fabulous Pride Hero Banner & Tagline Rotator -->
+  <section class="max-w-7xl mx-auto mt-4 mb-6 p-5 sm:p-6 bg-purple-950/70 border border-pink-500/40 rounded-2xl shadow-2xl backdrop-blur-xl relative overflow-hidden">
+    <div class="absolute -right-16 -top-16 w-60 h-60 bg-pink-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -left-16 -bottom-16 w-60 h-60 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+      <!-- Title & Branding -->
+      <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-400 shadow-xl shadow-pink-500/30 flex-shrink-0 animate-pulse">
+          <img src="pride_guys_hero.jpg" alt="Pride Guys Emblem" class="w-full h-full object-cover rounded-xl border border-white/20 shadow">
+        </div>
+
+        <div>
+          <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5 flex-wrap">
+            <span class="px-3 py-0.5 rounded-full text-xs font-fredoka font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white uppercase tracking-wider shadow">
+              🦄 FABULOUS FANTASY FOOTBALL 🌈
+            </span>
+            <span class="text-xs text-pink-300 font-bold flex items-center gap-1">
+              ✨ Slaying Fantasy &amp; Serving Championship Realness Since 2017 💅
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-outfit tracking-tight rainbow-shimmer-text flex items-center justify-center sm:justify-start gap-3">
+            <span>PRIDE GUYS FANTASY LEAGUE</span>
+            <span class="text-2xl sm:text-3xl">🦄</span>
+          </h1>
+
+          <!-- Kitschy Rotating Tagline Banner -->
+          <div class="text-sm sm:text-base font-fredoka text-purple-200 mt-2 flex items-center justify-center sm:justify-start gap-2 min-h-[28px]">
+            <span>✨</span>
+            <span class="italic text-pink-300 transition-opacity duration-300 font-bold" id="tagline-text">Slay the Competition, Wear the Crown! 👑</span>
+            <span>✨</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
+        <div class="bg-purple-900/60 border border-pink-500/40 rounded-xl px-4 py-2 text-center backdrop-blur shadow">
+          <div class="text-[10px] uppercase font-bold text-pink-400">COMMISSIONER</div>
+          <div class="text-sm font-extrabold text-amber-300 flex items-center justify-center gap-1">
+            <span>👑 Trace Bakulich</span>
+          </div>
+        </div>
+
+        <div class="bg-purple-900/60 border border-cyan-500/40 rounded-xl px-4 py-2 text-center backdrop-blur shadow">
+          <div class="text-[10px] uppercase font-bold text-cyan-400">DEFENDING CHAMPION</div>
+          <div class="text-sm font-extrabold text-cyan-200 flex items-center justify-center gap-1">
+            <span>🏆 Dylan Soth (2025)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Main Container -->
   <main id="main-content" class="container mx-auto px-4 py-5 grow pb-24 lg:pb-8 font-sans">
@@ -737,7 +791,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_13"></script>
+  <script src="prideGuysData.js?v=20260816_14"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2760,7 +2814,7 @@
             </div>
 
             <div class="mb-3">
-              <span class="text-[10px] uppercase font-bold text-purple-300/80 block">🏆 NEBUCHADNEZZAR WINNER</span>
+              <span class="text-[10px] uppercase font-bold text-purple-300/80 block">🏆 THE PRIDE CUP WINNER</span>
               <span class="text-base font-black text-purple-200 block">${c.firstTeam}</span>
               <span class="text-xs text-pink-300">[${c.firstOwner}]</span>
             </div>
