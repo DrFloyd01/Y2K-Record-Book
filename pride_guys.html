@@ -105,8 +105,8 @@
     .popover-scrollbar::-webkit-scrollbar-track { background: #fdf2f8; }
     .popover-scrollbar::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 3px; }
 
-    /* Tooltip Styles */
-    .tooltip-trigger { position: relative; }
+        /* Tooltip Popover Styles */
+    .tooltip-trigger { position: relative; display: inline-block; }
     .tooltip-content {
       display: none;
       position: absolute;
@@ -116,9 +116,16 @@
       transform: translateX(-50%);
       pointer-events: auto;
       max-height: 380px;
+      width: max-content;
+      max-width: 280px;
       overflow-y: auto;
+      white-space: normal;
+      box-shadow: 0 15px 30px -5px rgba(244, 114, 182, 0.3);
+      border-radius: 1rem;
     }
     .tooltip-trigger:hover .tooltip-content { display: block; }
+    .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
+    .tooltip-right .tooltip-content { right: 0; left: auto; transform: translateX(0); }
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-pink-100/90 selection:text-purple-900">
@@ -743,7 +750,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_15"></script>
+  <script src="prideGuysData.js?v=20260816_16"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2611,14 +2618,15 @@
         if (totB !== totA) return totB - totA;
         return b.winPct - a.winPct;
       });
+
       leaderboard.forEach((entry, idx) => {
         const owner = entry.ownerName;
         const c = entry.championships;
         const total = c['1st'] + c['2nd'] + c['3rd'];
         const scTitles = c.scoringTitles || 0;
 
-        // 1. Build 1st Place Tooltip (No scrollbar)
-        let firstsHtml = `<span class="text-pink-600/40 font-bold">0</span>`;
+        // 1. Build 1st Place Tooltip
+        let firstsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['1st'] > 0) {
           const firstChamps = window.LEAGUE_DATA.championships.filter(ch => ch.firstOwner === owner);
           const listStr = firstChamps.map(ch => {
@@ -2629,22 +2637,22 @@
               const lS = m.homeScore > m.awayScore ? m.awayScore : m.homeScore;
               scoreDetail = ` (${wS.toFixed(1)} - ${lS.toFixed(1)}) vs ${ch.secondTeam}`;
             }
-            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-amber-300">${ch.firstTeam}</span>${scoreDetail}</div>`;
+            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-amber-700">${ch.firstTeam}</span>${scoreDetail}</div>`;
           }).join('');
 
           firstsHtml = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-black border border-amber-400 crt-glow-pink-pink-amber text-xs">${c['1st']}</span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl">
-                <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🏆 ${owner}'s Championship Final Titles (${c['1st']})</div>
+            <div class="tooltip-trigger tooltip-left inline-block cursor-pointer">
+              <span class="px-2 py-0.5 bg-amber-100 text-amber-900 font-extrabold border-2 border-amber-300 rounded-lg text-xs shadow-sm">${c['1st']}</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-amber-300 text-xs shadow-xl">
+                <div class="font-bold text-amber-800 border-b border-amber-200 pb-1 mb-1">🏆 ${owner}'s Championship Titles (${c['1st']})</div>
                 ${listStr}
               </div>
             </div>
           `;
         }
 
-        // 2. Build 2nd Place Tooltip (No scrollbar)
-        let secondsHtml = `<span class="text-pink-600/40 font-bold">0</span>`;
+        // 2. Build 2nd Place Tooltip
+        let secondsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['2nd'] > 0) {
           const secondChamps = window.LEAGUE_DATA.championships.filter(ch => ch.secondOwner === owner);
           const listStr = secondChamps.map(ch => {
@@ -2653,24 +2661,24 @@
             if (m) {
               const wS = m.homeScore > m.awayScore ? m.homeScore : m.awayScore;
               const lS = m.homeScore > m.awayScore ? m.awayScore : m.homeScore;
-              scoreDetail = ` (${lS.toFixed(1)} - ${wS.toFixed(1)}) vs ${ch.firstTeam}`;
+              scoreDetail = ` (${wS.toFixed(1)} - ${lS.toFixed(1)}) vs ${ch.firstTeam}`;
             }
             return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.secondTeam}</span>${scoreDetail}</div>`;
           }).join('');
 
           secondsHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-300 text-xs">${c['2nd']}</span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl">
-                <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🥈 ${owner}'s 2nd Place Finishes (${c['2nd']})</div>
+              <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-bold border-2 border-pink-200 rounded-lg text-xs shadow-sm">${c['2nd']}</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-200 text-xs shadow-xl">
+                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🥈 ${owner}'s 2nd Place Finishes (${c['2nd']})</div>
                 ${listStr}
               </div>
             </div>
           `;
         }
 
-        // 3. Build 3rd Place Tooltip (No scrollbar)
-        let thirdsHtml = `<span class="text-pink-600/40 font-bold">0</span>`;
+        // 3. Build 3rd Place Tooltip
+        let thirdsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['3rd'] > 0) {
           const thirdChamps = window.LEAGUE_DATA.championships.filter(ch => ch.thirdOwner === owner);
           const listStr = thirdChamps.map(ch => {
@@ -2682,33 +2690,33 @@
               const oppS = isHome ? m.awayScore : m.homeScore;
               scoreDetail = ` (${oS.toFixed(1)} - ${oppS.toFixed(1)})`;
             }
-            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-amber-500">${ch.thirdTeam}</span>${scoreDetail}</div>`;
+            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-amber-800">${ch.thirdTeam}</span>${scoreDetail}</div>`;
           }).join('');
 
           thirdsHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs">${c['3rd']}</span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-amber-600 text-xs shadow-2xl">
-                <div class="font-bold text-amber-500 border-b border-amber-800 pb-1 mb-1">🥉 ${owner}'s 3rd Place Finishes (${c['3rd']})</div>
+              <span class="px-2 py-0.5 bg-amber-50 text-amber-800 font-bold border-2 border-amber-200 rounded-lg text-xs shadow-sm">${c['3rd']}</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-amber-300 text-xs shadow-xl">
+                <div class="font-bold text-amber-800 border-b border-amber-200 pb-1 mb-1">🥉 ${owner}'s 3rd Place Finishes (${c['3rd']})</div>
                 ${listStr}
               </div>
             </div>
           `;
         }
 
-        // 4. Build Scoring Titles Tooltip (No scrollbar)
-        let scHtml = `<span class="text-pink-600/40 font-bold">0</span>`;
+        // 4. Build Scoring Titles Tooltip
+        let scHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (scTitles > 0) {
           const scChamps = window.LEAGUE_DATA.championships.filter(ch => ch.scoringChampOwner === owner);
           const listStr = scChamps.map(ch => {
-            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} Regular Season PF)</div>`;
+            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} PF)</div>`;
           }).join('');
 
           scHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-100/90 text-pink-700 font-black border border-pink-400 text-xs">🎯 ${scTitles}</span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl">
-                <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Regular Season Scoring Titles (${scTitles})</div>
+              <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-black border-2 border-pink-300 rounded-lg text-xs shadow-sm">🎯 ${scTitles}</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl">
+                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
                 ${listStr}
               </div>
             </div>
@@ -2716,17 +2724,17 @@
         }
 
         // 5. Build Playoff % Tooltip
-        let playoffHtml = `<span class="font-bold text-pink-700">${entry.playoffPct}%</span>`;
+        let playoffHtml = `<span class="font-bold text-purple-900">${entry.playoffPct}%</span>`;
         if (entry.playoffYears && entry.playoffYears.length > 0) {
           const listStr = entry.playoffYears.map(yr => {
             return `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`;
           }).join('');
 
           playoffHtml = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-300 text-xs">${entry.playoffPct}%</span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl">
-                <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🏈 ${owner}'s Playoff Appearances (${entry.playoffApps}/${entry.seasonsCount})</div>
+            <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
+              <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
+                <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Appearances (${entry.playoffApps}/${entry.seasonsCount})</div>
                 ${listStr}
               </div>
             </div>
@@ -2734,21 +2742,22 @@
         }
 
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/20';
+        tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold text-pink-600">${idx + 1}</td>
-          <td class="p-2.5 font-bold text-pink-700">${entry.ownerName}</td>
-          <td class="p-2.5 text-center">${firstsHtml}</td>
-          <td class="p-2.5 text-center">${secondsHtml}</td>
-          <td class="p-2.5 text-center">${thirdsHtml}</td>
-          <td class="p-2.5 text-center">${scHtml}</td>
-          <td class="p-2.5 text-center font-bold text-pink-700">${total}</td>
-          <td class="p-2.5 text-center">${playoffHtml}</td>
-          <td class="p-2.5 text-center font-bold text-pink-600">${entry.winPct}%</td>
+          <td class="p-3 text-center font-bold text-pink-600">${idx + 1}</td>
+          <td class="p-3 font-bold text-purple-950">${entry.ownerName}</td>
+          <td class="p-3 text-center">${firstsHtml}</td>
+          <td class="p-3 text-center">${secondsHtml}</td>
+          <td class="p-3 text-center">${thirdsHtml}</td>
+          <td class="p-3 text-center">${scHtml}</td>
+          <td class="p-3 text-center font-black text-purple-950">${total}</td>
+          <td class="p-3 text-center">${playoffHtml}</td>
+          <td class="p-3 text-center font-bold text-pink-600">${entry.winPct}%</td>
         `;
         tbody.appendChild(tr);
       });
 
+      // Yearly Cards: Podium Finishers (1st, 2nd, 3rd) first, then Scoring Champ BELOW them!
       const champs = [...window.LEAGUE_DATA.championships].reverse();
       champs.forEach(c => {
         const yr = c.seasonYear;
@@ -2757,42 +2766,45 @@
         const scPF = c.scoringChampPF ? c.scoringChampPF.toFixed(1) : '-';
 
         const div = document.createElement('div');
-        div.className = 'crt-box p-3 rounded flex flex-col justify-between';
+        div.className = 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
 
         div.innerHTML = `
           <div>
-            <div class="flex items-center justify-between mb-2 border-b border-pink-200 pb-1.5">
-              <span class="text-xl font-black text-amber-400 crt-glow-pink-pink-amber">${yr}</span>
+            <div class="flex items-center justify-between mb-3 border-b-2 border-pink-100 pb-2">
+              <span class="text-2xl font-black font-fredoka rainbow-text">${yr}</span>
+              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-[10px]">🏆 Season ${yr}</span>
             </div>
 
-            <div class="mb-3">
-              <span class="text-[10px] uppercase font-bold text-purple-700 block">🏆 THE PRIDE CUP WINNER</span>
-              <span class="text-base font-black text-purple-900 block">${c.firstTeam}</span>
-              <span class="text-xs text-pink-600">[${c.firstOwner}]</span>
+            <!-- 1st Place / Pride Cup Champion -->
+            <div class="mb-3 p-3 bg-amber-50/90 border-2 border-amber-300 rounded-xl">
+              <span class="text-[10px] uppercase font-bold text-amber-800 block">🥇 THE PRIDE CUP CHAMPION</span>
+              <span class="text-base font-black text-purple-950 block mt-0.5">${c.firstTeam}</span>
+              <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
             </div>
 
-            <div class="mb-3 p-2 bg-pink-50/90/60 border border-purple-200/80 rounded">
+            <!-- 2nd and 3rd Podium Finishers -->
+            <div class="space-y-1.5 text-xs border-t border-b border-pink-100 py-2.5 my-2 text-purple-950">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-600 font-bold">🥈 2nd Place:</span>
+                <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span></span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-amber-800 font-bold">🥉 3rd Place:</span>
+                <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span></span>
+              </div>
+            </div>
+
+            <!-- BELOW Podium Finishers: Regular Season Scoring Champ -->
+            <div class="p-2.5 bg-pink-50/90 border-2 border-pink-200 rounded-xl mt-3">
               <span class="text-[10px] uppercase font-bold text-pink-600 block">🎯 REGULAR SEASON SCORING CHAMP</span>
-              <span class="text-xs font-bold text-purple-900 block mt-0.5">${scTeam}</span>
+              <span class="text-xs font-bold text-purple-950 block mt-0.5">${scTeam}</span>
               <span class="text-[10px] text-pink-600 font-sans">[${scOwner}] • ${scPF} Regular Season PF</span>
-            </div>
-
-            <div class="space-y-1 text-[11px] border-t border-pink-100 pt-2 text-pink-600">
-              <div class="flex justify-between">
-                <span>🥈 2nd Place:</span>
-                <span class="font-bold text-pink-700">${c.secondTeam} [${c.secondOwner}]</span>
-              </div>
-              <div class="flex justify-between">
-                <span>🥉 3rd Place:</span>
-                <span class="font-bold text-pink-700">${c.thirdTeam} [${c.thirdOwner}]</span>
-              </div>
             </div>
           </div>
         `;
         grid.appendChild(div);
       });
     }
-
 
     // TAB 5: TEAMS / FRANCHISE PROFILES
     function initTeamOwnerSelect() {
