@@ -750,7 +750,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_18"></script>
+  <script src="prideGuysData.js?v=20260816_19"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2363,7 +2363,37 @@
                 ? '<span class="text-amber-600 font-bold text-xs">🥉 #3</span>'
                 : `<span class="text-pink-600 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
-          const streakBadge = `<span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm crt-glow-pink-pink">${s.streak} WINS</span>`;
+          let gameScoreListHtml = '';
+          if (s.games && s.games.length > 0) {
+            gameScoreListHtml = s.games.map(g => {
+              const stgTag = g.isPlayoff ? formatPlayoffStageTag(g.stage, g.year) : `W${g.week}`;
+              const hIsW = g.homeScore >= g.awayScore;
+              const wS = hIsW ? g.homeScore : g.awayScore;
+              const lS = hIsW ? g.awayScore : g.homeScore;
+              return `<div class="py-1 border-b border-pink-100 flex items-center justify-between text-xs">
+                <span class="font-bold text-pink-700">${g.year} ${stgTag}</span>
+                <span class="font-mono text-purple-900 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+              </div>`;
+            }).join('');
+          } else {
+            gameScoreListHtml = `<div class="text-xs text-purple-700 italic">Game scores recorded in database.</div>`;
+          }
+
+          const streakBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm rounded shadow-sm hover:bg-pink-100 transition-all">${s.streak} WINS</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl text-left min-w-[260px] z-50">
+                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
+                  <span class="text-[10px] text-pink-500">vs ${s.loser}</span>
+                </div>
+                ${gameScoreListHtml}
+                <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
+                  🏈 Game-by-game scores for this streak
+                </div>
+              </div>
+            </div>
+          `;
 
           const statusBadge = s.active 
             ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-800 border border-amber-300 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
