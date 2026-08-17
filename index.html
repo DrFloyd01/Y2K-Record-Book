@@ -117,8 +117,9 @@
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
     }
     .tooltip-trigger:hover .tooltip-content { display: block; }
-    .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
+        .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
     .tooltip-right .tooltip-content { right: 0; left: auto; transform: translateX(0); }
+    .tooltip-bottom .tooltip-content { top: 125%; bottom: auto; }
       /* Table Horizontal Scroll Container for Mobile Portrait View */
     .table-scroll-container {
       overflow-x: auto;
@@ -711,7 +712,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260817_13"></script>
+  <script src="leagueData.js?v=20260817_14"></script>
 
   <!-- Application Logic -->
   <script>
@@ -742,6 +743,34 @@
       if (lower.includes('3rd')) return `3rd'${yy}`;
       return `${stage}'${yy}`;
     }
+
+        // Global Smart Tooltip Auto-Flip to Prevent Container / Viewport Clipping
+    document.addEventListener('mouseover', (e) => {
+      const trigger = e.target.closest('.tooltip-trigger');
+      if (trigger) {
+        const content = trigger.querySelector('.tooltip-content');
+        if (content) {
+          const rect = trigger.getBoundingClientRect();
+          if (rect.top < 320) {
+            content.style.bottom = 'auto';
+            content.style.top = '125%';
+          } else {
+            content.style.bottom = '125%';
+            content.style.top = 'auto';
+          }
+          
+          if (rect.left < 160) {
+            content.style.left = '0';
+            content.style.right = 'auto';
+            content.style.transform = 'translateX(0)';
+          } else if (window.innerWidth - rect.right < 160) {
+            content.style.left = 'auto';
+            content.style.right = '0';
+            content.style.transform = 'translateX(0)';
+          }
+        }
+      }
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
       initSeasonSelector();
