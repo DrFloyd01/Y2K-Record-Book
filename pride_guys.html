@@ -791,7 +791,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260817_14"></script>
+  <script src="prideGuysData.js?v=20260817_15"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -3417,7 +3417,7 @@
       `;
     }
 
-    function filterPlayerDraftPicks() {
+        function filterPlayerDraftPicks() {
       const pTbody = document.getElementById('player-draft-table-body');
       const searchInput = document.getElementById('draft-search-input');
       const roundSel = document.getElementById('draft-round-select');
@@ -3453,23 +3453,27 @@
 
       filtered.forEach(p => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/20 tooltip-trigger cursor-pointer';
+        tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
 
         const isRound1 = p.round === 1;
         const roundBadge = isRound1 
-          ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs">R${p.round}P${p.pickInRound}</span>`
-          : `<span class="px-2 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-200 text-xs">R${p.round}P${p.pickInRound}</span>`;
+          ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
+          : `<span class="px-2 py-0.5 bg-pink-100 text-pink-700 font-bold border border-pink-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`;
 
         const popoverHtml = getPlayerLifetimeDraftPopover(p.player);
 
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-black text-pink-700 crt-glow-pink-pink">Pick #${p.overallPick}</td>
+          <td class="p-2.5 text-center font-black text-pink-700">Pick #${p.overallPick}</td>
           <td class="p-2.5 text-center">${roundBadge}</td>
-          <td class="p-2.5 font-bold text-purple-900">${p.player}</td>
+          <td class="p-2.5 font-bold text-purple-950">
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="hover:underline hover:text-pink-600 transition-colors">${p.player} 🔍</span>
+              ${popoverHtml}
+            </div>
+          </td>
           <td class="p-2.5">
-            <span class="font-bold text-pink-700">${p.teamName}</span>
-            <span class="text-[10px] text-purple-700 block">[${p.ownerName}]</span>
-            ${popoverHtml}
+            <span class="font-bold text-purple-950">${p.teamName}</span>
+            <span class="text-[10px] text-pink-600 block font-bold">[${p.ownerName}]</span>
           </td>
         `;
         pTbody.appendChild(tr);
