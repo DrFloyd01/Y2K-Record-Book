@@ -567,13 +567,6 @@
         <p class="text-xs text-pink-600 mt-1 font-sans">10 Seasons of Pride Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
       </div>
 
-      <!-- Single-Game & Streak Record Holders in Champs Tab -->
-      <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ ALL-TIME_DYNASTY_RECORDS</div>
-        <h3 class="text-lg font-black text-pink-700 font-fredoka mb-3">SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
-      </div>
-
       <div class="crt-box rounded overflow-visible mb-6">
         <div class="crt-box-header px-4 py-2 font-bold text-xs">
           &gt;_ DYNASTY_LEADERBOARD
@@ -757,7 +750,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_22"></script>
+  <script src="prideGuysData.js?v=20260816_23"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -949,12 +942,143 @@
       renderStandings();
     }
 
-    function renderStandings() {
+        function renderStandings() {
       const container = document.getElementById('seasons-view-container');
       
-      if (currentSeasonsSubTab === 'playoff' && currentSeason !== 'allTime') {
-        renderPlayoffBracketView(container);
-        return;
+      if (currentSeasonsSubTab === 'playoff') {
+        if (currentSeason !== 'allTime') {
+          renderPlayoffBracketView(container);
+          return;
+        } else {
+          // In All-Time context, Playoff Bracket tab surfaces the full Dynasty Leaderboard
+          container.innerHTML = `
+            <div class="crt-box rounded p-4 mb-6">
+              <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ ALL-TIME_DYNASTY_STANDINGS</div>
+              <h2 class="text-2xl font-black text-pink-700 font-fredoka">THE PRIDE CUP &amp; DYNASTY LEADERBOARD</h2>
+              <p class="text-xs text-pink-600 mt-1 font-sans">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
+            </div>
+            <div class="crt-box rounded overflow-visible mb-8">
+              <div class="w-full overflow-visible">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
+                    <tr>
+                      <th class="p-3 text-center">Rank</th>
+                      <th class="p-3 text-left">Manager</th>
+                      <th class="p-3 text-center">Active</th>
+                      <th class="p-3 text-center">Playoff W-L</th>
+                      <th class="p-3 text-center">Playoff %</th>
+                      <th class="p-3 text-center">🥇 1st</th>
+                      <th class="p-3 text-center">🥈 2nd</th>
+                      <th class="p-3 text-center">🥉 3rd</th>
+                      <th class="p-3 text-center">4th</th>
+                      <th class="p-3 text-center">5th-6th</th>
+                      <th class="p-3 text-center">7th-12th</th>
+                      <th class="p-3 text-center">🎯 Scoring Titles</th>
+                    </tr>
+                  </thead>
+                  <tbody id="champs-leaderboard-body-seasons"></tbody>
+                </table>
+              </div>
+            </div>
+          `;
+          
+          const tbody = document.getElementById('champs-leaderboard-body-seasons');
+          const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
+          leaderboard.sort((a, b) => {
+            const cA = a.championships || {}, cB = b.championships || {};
+            if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
+            if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
+            if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
+            if ((cB['4th'] || 0) !== (cA['4th'] || 0)) return (cB['4th'] || 0) - (cA['4th'] || 0);
+            if ((b.playoffWins || 0) !== (a.playoffWins || 0)) return (b.playoffWins || 0) - (a.playoffWins || 0);
+            return b.winPct - a.winPct;
+          });
+
+          leaderboard.forEach((entry, idx) => {
+            const owner = entry.ownerName;
+            const c = entry.championships || {};
+            const finishes = entry.finishes || {};
+            const scTitles = c.scoringTitles || 0;
+
+            function formatBinTooltip(title, binKey, badgeColor, borderColor) {
+              const list = finishes[binKey] || [];
+              const count = list.length;
+              if (count === 0) return `<span class="text-pink-400/40 font-bold">0</span>`;
+
+              const listStr = list.map(item => `
+                <div class="py-0.5">• ${item.year}: <span class="font-bold text-purple-950">${item.teamName || owner}</span> <span class="text-[10px] text-pink-600">(${item.rank}${item.rank === 1 ? 'st' : (item.rank === 2 ? 'nd' : (item.rank === 3 ? 'rd' : 'th'))} Place)</span></div>
+              `).join('');
+
+              return `
+                <div class="tooltip-trigger inline-block cursor-pointer">
+                  <span class="px-2 py-0.5 ${badgeColor} font-extrabold border-2 ${borderColor} rounded-lg text-xs shadow-sm">${count}</span>
+                  <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 ${borderColor} text-xs shadow-xl text-left min-w-[220px] z-50">
+                    <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">${title} (${count})</div>
+                    ${listStr}
+                  </div>
+                </div>
+              `;
+            }
+
+            const firstsHtml = formatBinTooltip('🏆 1st Place Championships', '1st', 'bg-amber-100 text-amber-900', 'border-amber-300');
+            const secondsHtml = formatBinTooltip('🥈 2nd Place Runner-Up', '2nd', 'bg-slate-100 text-slate-800', 'border-slate-300');
+            const thirdsHtml = formatBinTooltip('🥉 3rd Place Finishes', '3rd', 'bg-amber-50 text-amber-800', 'border-amber-200');
+            const fourthsHtml = formatBinTooltip('🏅 4th Place Finishes', '4th', 'bg-pink-50 text-pink-800', 'border-pink-200');
+            const fifthSixthHtml = formatBinTooltip('⭐ 5th/6th Place Finishes', '5th_6th', 'bg-purple-50 text-purple-800', 'border-purple-200');
+            const seventhTwelfthHtml = formatBinTooltip('📉 7th-12th Place (Consolation/Drought)', '7th_12th', 'bg-rose-50 text-rose-800', 'border-rose-200');
+
+            let scHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
+            if (scTitles > 0) {
+              const scChamps = window.LEAGUE_DATA.championships.filter(ch => ch.scoringChampOwner === owner);
+              const listStr = scChamps.map(ch => `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} PF)</div>`).join('');
+              scHtml = `
+                <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
+                  <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-black border-2 border-pink-300 rounded-lg text-xs shadow-sm">🎯 ${scTitles}</span>
+                  <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl text-left min-w-[220px]">
+                    <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
+                    ${listStr}
+                  </div>
+                </div>
+              `;
+            }
+
+            let playoffHtml = `<span class="font-bold text-purple-900">${entry.playoffPct}%</span>`;
+            if (entry.playoffYears && entry.playoffYears.length > 0) {
+              const listStr = entry.playoffYears.map(yr => `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`).join('');
+              playoffHtml = `
+                <div class="tooltip-trigger inline-block cursor-pointer">
+                  <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
+                  <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
+                    <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
+                    ${listStr}
+                  </div>
+                </div>
+              `;
+            }
+
+            const pWlStr = entry.playoffRecord || `${entry.playoffWins || 0}-${entry.playoffLosses || 0}`;
+            const pWinPct = entry.playoffWinPct || 0;
+
+            const tr = document.createElement('tr');
+            tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
+            tr.innerHTML = `
+              <td class="p-3 text-center font-bold text-pink-600">${idx + 1}</td>
+              <td class="p-3 font-bold text-purple-950 cursor-pointer hover:underline" onclick="selectManagerProfile('${owner}')">${entry.ownerName}</td>
+              <td class="p-3 text-center text-xs text-purple-700 font-medium">${entry.seasonsCount} Yrs</td>
+              <td class="p-3 text-center font-bold text-pink-700">${pWlStr} <span class="text-[10px] text-pink-500 font-normal block">${pWinPct}%</span></td>
+              <td class="p-3 text-center">${playoffHtml}</td>
+              <td class="p-3 text-center">${firstsHtml}</td>
+              <td class="p-3 text-center">${secondsHtml}</td>
+              <td class="p-3 text-center">${thirdsHtml}</td>
+              <td class="p-3 text-center">${fourthsHtml}</td>
+              <td class="p-3 text-center">${fifthSixthHtml}</td>
+              <td class="p-3 text-center">${seventhTwelfthHtml}</td>
+              <td class="p-3 text-center">${scHtml}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+          return;
+        }
       }
 
       container.innerHTML = `
@@ -1438,8 +1562,30 @@
     }
 
     function getStatCardTop5(metricKey, season) {
+      if (season === 'allTime') {
+        const atRecords = (window.LEAGUE_DATA.seasonData && window.LEAGUE_DATA.seasonData.allTime && window.LEAGUE_DATA.seasonData.allTime.statRecords) || window.LEAGUE_DATA.allTimeStatRecords || {};
+        if ((metricKey === 'victoryLap' || metricKey === 'victory') && atRecords.victoryLapList) {
+          return atRecords.victoryLapList.map(item => ({
+            owner: item.owner,
+            team: item.team || item.owner,
+            streak: item.streak,
+            valStr: item.valStr || `${item.streak} Seasons`,
+            sub: item.sub || `${item.streak} Consecutive Apps`
+          }));
+        }
+        if ((metricKey === 'dumpsterFire' || metricKey === 'dumpster') && atRecords.dumpsterFireList) {
+          return atRecords.dumpsterFireList.map(item => ({
+            owner: item.owner,
+            team: item.team || item.owner,
+            streak: item.streak,
+            valStr: item.valStr || `${item.streak} Seasons`,
+            sub: item.sub || `${item.streak} Consecutive Misses`
+          }));
+        }
+      }
+
       let matchups = window.LEAGUE_DATA.allMatchups || [];
-      matchups = matchups.filter(m => !m.isPlayoff);
+      matchups = matchups.filter(m => !m.isPlayoff && m.homeScore > 0 && m.awayScore > 0);
 
       if (season !== 'allTime') {
         matchups = matchups.filter(m => m.seasonYear === parseInt(season));
@@ -1486,7 +1632,7 @@
           });
         });
 
-        allStreaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : a.endYear - b.endYear);
+        allStreaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
         return allStreaks.slice(0, 5);
       }
 
@@ -1542,17 +1688,17 @@
         const margin = Math.round(Math.abs(hS - aS) * 100) / 100;
         const yrPrefix = season === 'allTime' ? `${yr} ` : '';
 
-        if (metricKey === 'juggernaut') {
+        if (metricKey === 'juggernaut' || metricKey === 'apex') {
           list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
           list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
-        } else if (metricKey === 'featherweight') {
+        } else if (metricKey === 'featherweight' || metricKey === 'potato') {
           list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
           list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
         } else if (hS !== aS) {
           const wS = hS > aS ? hS : aS, wO = hS > aS ? hO : aO, wT = hS > aS ? hT : aT;
           const lS = hS > aS ? aS : hS, lO = hS > aS ? aO : hO, lT = hS > aS ? aT : hT;
 
-          if (metricKey === 'cakewalk') {
+          if (metricKey === 'cakewalk' || metricKey === 'massacre') {
             list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
           } else if (metricKey === 'nailbiter') {
             list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
@@ -1564,9 +1710,9 @@
         }
       });
 
-      if (metricKey === 'juggernaut') list.sort((a, b) => b.score - a.score);
-      else if (metricKey === 'featherweight') list.sort((a, b) => a.score - b.score);
-      else if (metricKey === 'cakewalk') list.sort((a, b) => b.margin - a.margin);
+      if (metricKey === 'juggernaut' || metricKey === 'apex') list.sort((a, b) => b.score - a.score);
+      else if (metricKey === 'featherweight' || metricKey === 'potato') list.sort((a, b) => a.score - b.score);
+      else if (metricKey === 'cakewalk' || metricKey === 'massacre') list.sort((a, b) => b.margin - a.margin);
       else if (metricKey === 'nailbiter') list.sort((a, b) => a.margin - b.margin);
       else if (metricKey === 'gutpunch') list.sort((a, b) => b.score - a.score);
       else if (metricKey === 'criminal') list.sort((a, b) => a.score - b.score);
@@ -2660,32 +2806,179 @@
       return sData.playoffMatchups.find(m => m.stage === stage);
     }
 
-        function renderChamps() {
+            function renderChamps() {
       const tbody = document.getElementById('champs-leaderboard-body');
       const grid = document.getElementById('champs-timeline-grid');
       const statGrid = document.getElementById('champs-stat-records-grid');
-      tbody.innerHTML = ''; grid.innerHTML = '';
+      if (tbody) tbody.innerHTML = '';
+      if (grid) grid.innerHTML = '';
       if (statGrid) statGrid.innerHTML = '';
 
-      // Populate Single-Game & Streak Record Cards in Champs Tab
-      if (statGrid) {
-        const atStats = (window.LEAGUE_DATA.seasonData && window.LEAGUE_DATA.seasonData.allTime) 
-          ? window.LEAGUE_DATA.seasonData.allTime.statRecords 
-          : (window.LEAGUE_DATA.allTimeStatRecords || {});
+      // Filter out 1-year managers and sort Dynasty Leaderboard
+      const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
+      leaderboard.sort((a, b) => {
+        const cA = a.championships || {}, cB = b.championships || {};
+        if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
+        if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
+        if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
+        if ((cB['4th'] || 0) !== (cA['4th'] || 0)) return (cB['4th'] || 0) - (cA['4th'] || 0);
+        if ((b.playoffWins || 0) !== (a.playoffWins || 0)) return (b.playoffWins || 0) - (a.playoffWins || 0);
+        return b.winPct - a.winPct;
+      });
 
-        const topApex = atStats.highestScore;
-        const topPotato = atStats.lowestScore;
-        const topMass = atStats.biggestBlowout;
-        const topNail = atStats.closestMargin;
-        const topGut = atStats.highestLoss;
-        const topCrim = atStats.lowestWin;
-        const topVic = atStats.victoryLap;
-        const topDump = atStats.dumpsterFire;
+      if (tbody) {
+        leaderboard.forEach((entry, idx) => {
+          const owner = entry.ownerName;
+          const c = entry.championships || {};
+          const finishes = entry.finishes || {};
+          const scTitles = c.scoringTitles || 0;
+
+          function formatBinTooltip(title, binKey, badgeColor, borderColor) {
+            const list = finishes[binKey] || [];
+            const count = list.length;
+            if (count === 0) return `<span class="text-pink-400/40 font-bold">0</span>`;
+
+            const listStr = list.map(item => `
+              <div class="py-0.5">• ${item.year}: <span class="font-bold text-purple-950">${item.teamName || owner}</span> <span class="text-[10px] text-pink-600">(${item.rank}${item.rank === 1 ? 'st' : (item.rank === 2 ? 'nd' : (item.rank === 3 ? 'rd' : 'th'))} Place)</span></div>
+            `).join('');
+
+            return `
+              <div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 ${badgeColor} font-extrabold border-2 ${borderColor} rounded-lg text-xs shadow-sm">${count}</span>
+                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 ${borderColor} text-xs shadow-xl text-left min-w-[220px] z-50">
+                  <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">${title} (${count})</div>
+                  ${listStr}
+                </div>
+              </div>
+            `;
+          }
+
+          const firstsHtml = formatBinTooltip('🏆 1st Place Championships', '1st', 'bg-amber-100 text-amber-900', 'border-amber-300');
+          const secondsHtml = formatBinTooltip('🥈 2nd Place Runner-Up', '2nd', 'bg-slate-100 text-slate-800', 'border-slate-300');
+          const thirdsHtml = formatBinTooltip('🥉 3rd Place Finishes', '3rd', 'bg-amber-50 text-amber-800', 'border-amber-200');
+          const fourthsHtml = formatBinTooltip('🏅 4th Place Finishes', '4th', 'bg-pink-50 text-pink-800', 'border-pink-200');
+          const fifthSixthHtml = formatBinTooltip('⭐ 5th/6th Place Finishes', '5th_6th', 'bg-purple-50 text-purple-800', 'border-purple-200');
+          const seventhTwelfthHtml = formatBinTooltip('📉 7th-12th Place (Consolation/Drought)', '7th_12th', 'bg-rose-50 text-rose-800', 'border-rose-200');
+
+          let scHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
+          if (scTitles > 0) {
+            const scChamps = window.LEAGUE_DATA.championships.filter(ch => ch.scoringChampOwner === owner);
+            const listStr = scChamps.map(ch => `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} PF)</div>`).join('');
+            scHtml = `
+              <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-black border-2 border-pink-300 rounded-lg text-xs shadow-sm">🎯 ${scTitles}</span>
+                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl text-left min-w-[220px]">
+                  <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
+                  ${listStr}
+                </div>
+              </div>
+            `;
+          }
+
+          let playoffHtml = `<span class="font-bold text-purple-900">${entry.playoffPct}%</span>`;
+          if (entry.playoffYears && entry.playoffYears.length > 0) {
+            const listStr = entry.playoffYears.map(yr => `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`).join('');
+            playoffHtml = `
+              <div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
+                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
+                  <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
+                  ${listStr}
+                </div>
+              </div>
+            `;
+          }
+
+          const pWlStr = entry.playoffRecord || `${entry.playoffWins || 0}-${entry.playoffLosses || 0}`;
+          const pWinPct = entry.playoffWinPct || 0;
+
+          const tr = document.createElement('tr');
+          tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
+          tr.innerHTML = `
+            <td class="p-3 text-center font-bold text-pink-600">${idx + 1}</td>
+            <td class="p-3 font-bold text-purple-950 cursor-pointer hover:underline" onclick="selectManagerProfile('${owner}')">${entry.ownerName}</td>
+            <td class="p-3 text-center text-xs text-purple-700 font-medium">${entry.seasonsCount} Yrs</td>
+            <td class="p-3 text-center font-bold text-pink-700">${pWlStr} <span class="text-[10px] text-pink-500 font-normal block">${pWinPct}%</span></td>
+            <td class="p-3 text-center">${playoffHtml}</td>
+            <td class="p-3 text-center">${firstsHtml}</td>
+            <td class="p-3 text-center">${secondsHtml}</td>
+            <td class="p-3 text-center">${thirdsHtml}</td>
+            <td class="p-3 text-center">${fourthsHtml}</td>
+            <td class="p-3 text-center">${fifthSixthHtml}</td>
+            <td class="p-3 text-center">${seventhTwelfthHtml}</td>
+            <td class="p-3 text-center">${scHtml}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Yearly Cards
+      if (grid) {
+        const champs = [...window.LEAGUE_DATA.championships].reverse();
+        champs.forEach(c => {
+          const yr = c.seasonYear;
+          const scOwner = c.scoringChampOwner || '-';
+          const scTeam = c.scoringChampTeam || '-';
+          const scPF = c.scoringChampPF ? c.scoringChampPF.toFixed(1) : '-';
+
+          const div = document.createElement('div');
+          div.className = 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
+
+          div.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-3 border-b-2 border-pink-100 pb-2">
+                <span class="text-2xl font-black font-fredoka rainbow-text">${yr}</span>
+                <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-[10px]">🏆 Season ${yr}</span>
+              </div>
+
+              <!-- 1st Place / Pride Cup Champion -->
+              <div class="mb-3 p-3 bg-amber-50/90 border-2 border-amber-300 rounded-xl">
+                <span class="text-[10px] uppercase font-bold text-amber-800 block">🥇 THE PRIDE CUP CHAMPION</span>
+                <span class="text-base font-black text-purple-950 block mt-0.5">${c.firstTeam}</span>
+                <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
+              </div>
+
+              <!-- 2nd and 3rd Podium Finishers -->
+              <div class="space-y-1.5 text-xs border-t border-b border-pink-100 py-2.5 my-2 text-purple-950">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-600 font-bold">🥈 2nd Place:</span>
+                  <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span></span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-amber-800 font-bold">🥉 3rd Place:</span>
+                  <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span></span>
+                </div>
+              </div>
+
+              <!-- Regular Season Scoring Champion (Below the Podium) -->
+              <div class="mt-2.5 p-2.5 bg-pink-50/80 border border-pink-300 rounded-xl text-xs flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-extrabold text-pink-700 block">🎯 SCORING CHAMPION</span>
+                  <span class="font-bold text-purple-950 text-xs">${scTeam} <span class="text-[10px] text-pink-600 font-normal">[${scOwner}]</span></span>
+                </div>
+                <span class="font-mono font-black text-pink-700 text-sm">${scPF} pts</span>
+              </div>
+            </div>
+          `;
+          grid.appendChild(div);
+        });
+      }
+
+            // Populate Single-Game & Streak Record Cards at bottom of Champs Tab
+      if (statGrid) {
+        const topApex = getStatCardTop5('juggernaut', 'allTime')[0];
+        const topPotato = getStatCardTop5('featherweight', 'allTime')[0];
+        const topMass = getStatCardTop5('cakewalk', 'allTime')[0];
+        const topNail = getStatCardTop5('nailbiter', 'allTime')[0];
+        const topGut = getStatCardTop5('gutpunch', 'allTime')[0];
+        const topCrim = getStatCardTop5('criminal', 'allTime')[0];
+        const topVic = getStatCardTop5('victoryLap', 'allTime')[0];
+        const topDump = getStatCardTop5('dumpsterFire', 'allTime')[0];
 
         const cardDefs = [
-          { title: 'APEX PREDATOR', key: 'apex', subtitle: 'Highest score', data: topApex ? { val: topApex.score.toFixed(2), owner: topApex.owner, team: topApex.team, sub: `Wk ${topApex.week}, ${topApex.year}` } : null },
-          { title: 'POTATO BOWL', key: 'potato', subtitle: 'Lowest score', data: topPotato ? { val: topPotato.score.toFixed(2), owner: topPotato.owner, team: topPotato.team, sub: `Wk ${topPotato.week}, ${topPotato.year}` } : null },
-          { title: 'MASSACRE', key: 'massacre', subtitle: 'Largest blowout', data: topMass ? { val: `+${topMass.margin.toFixed(2)}`, owner: topMass.winner, team: topMass.scoreStr, sub: `Wk ${topMass.week}, ${topMass.year}` } : null },
+          { title: 'APEX PREDATOR', key: 'juggernaut', subtitle: 'Highest score', data: topApex ? { val: topApex.valStr, owner: topApex.owner, team: topApex.team, sub: topApex.sub } : null },
+          { title: 'POTATO BOWL', key: 'featherweight', subtitle: 'Lowest score', data: topPotato ? { val: topPotato.valStr, owner: topPotato.owner, team: topPotato.team, sub: topPotato.sub } : null },
+          { title: 'MASSACRE', key: 'cakewalk', subtitle: 'Largest blowout', data: topMass ? { val: topMass.valStr, owner: topMass.owner, team: topMass.team, sub: topMass.sub } : null },
           { title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win', data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null },
           { title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score', data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null },
           { title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win', data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null },
@@ -2717,152 +3010,6 @@
           statGrid.appendChild(div);
         });
       }
-
-      // Filter out 1-year managers and sort Dynasty Leaderboard
-      const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
-      leaderboard.sort((a, b) => {
-        const cA = a.championships || {}, cB = b.championships || {};
-        if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
-        if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
-        if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
-        if ((cB['4th'] || 0) !== (cA['4th'] || 0)) return (cB['4th'] || 0) - (cA['4th'] || 0);
-        if ((b.playoffWins || 0) !== (a.playoffWins || 0)) return (b.playoffWins || 0) - (a.playoffWins || 0);
-        return b.winPct - a.winPct;
-      });
-
-      leaderboard.forEach((entry, idx) => {
-        const owner = entry.ownerName;
-        const c = entry.championships || {};
-        const finishes = entry.finishes || {};
-        const scTitles = c.scoringTitles || 0;
-
-        function formatBinTooltip(title, binKey, badgeColor, borderColor) {
-          const list = finishes[binKey] || [];
-          const count = list.length;
-          if (count === 0) return `<span class="text-pink-400/40 font-bold">0</span>`;
-
-          const listStr = list.map(item => `
-            <div class="py-0.5">• ${item.year}: <span class="font-bold text-purple-950">${item.teamName || owner}</span> <span class="text-[10px] text-pink-600">(${item.rank}${item.rank === 1 ? 'st' : (item.rank === 2 ? 'nd' : (item.rank === 3 ? 'rd' : 'th'))} Place)</span></div>
-          `).join('');
-
-          return `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 ${badgeColor} font-extrabold border-2 ${borderColor} rounded-lg text-xs shadow-sm">${count}</span>
-              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 ${borderColor} text-xs shadow-xl text-left min-w-[220px] z-50">
-                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">${title} (${count})</div>
-                ${listStr}
-              </div>
-            </div>
-          `;
-        }
-
-        const firstsHtml = formatBinTooltip('🏆 1st Place Championships', '1st', 'bg-amber-100 text-amber-900', 'border-amber-300');
-        const secondsHtml = formatBinTooltip('🥈 2nd Place Runner-Up', '2nd', 'bg-slate-100 text-slate-800', 'border-slate-300');
-        const thirdsHtml = formatBinTooltip('🥉 3rd Place Finishes', '3rd', 'bg-amber-50 text-amber-800', 'border-amber-200');
-        const fourthsHtml = formatBinTooltip('🏅 4th Place Finishes', '4th', 'bg-pink-50 text-pink-800', 'border-pink-200');
-        const fifthSixthHtml = formatBinTooltip('⭐ 5th/6th Place Finishes', '5th_6th', 'bg-purple-50 text-purple-800', 'border-purple-200');
-        const seventhTwelfthHtml = formatBinTooltip('📉 7th-12th Place (Consolation/Drought)', '7th_12th', 'bg-rose-50 text-rose-800', 'border-rose-200');
-
-        let scHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
-        if (scTitles > 0) {
-          const scChamps = window.LEAGUE_DATA.championships.filter(ch => ch.scoringChampOwner === owner);
-          const listStr = scChamps.map(ch => `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-700">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} PF)</div>`).join('');
-          scHtml = `
-            <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-black border-2 border-pink-300 rounded-lg text-xs shadow-sm">🎯 ${scTitles}</span>
-              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl text-left min-w-[220px] z-50">
-                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
-                ${listStr}
-              </div>
-            </div>
-          `;
-        }
-
-        let playoffHtml = `<span class="font-bold text-purple-900">${entry.playoffPct}%</span>`;
-        if (entry.playoffYears && entry.playoffYears.length > 0) {
-          const listStr = entry.playoffYears.map(yr => `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`).join('');
-          playoffHtml = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
-              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
-                <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
-                ${listStr}
-              </div>
-            </div>
-          `;
-        }
-
-        const pWlStr = entry.playoffRecord || `${entry.playoffWins || 0}-${entry.playoffLosses || 0}`;
-        const pWinPct = entry.playoffWinPct || 0;
-
-        const tr = document.createElement('tr');
-        tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
-        tr.innerHTML = `
-          <td class="p-3 text-center font-bold text-pink-600">${idx + 1}</td>
-          <td class="p-3 font-bold text-purple-950 cursor-pointer hover:underline" onclick="selectManagerProfile('${owner}')">${entry.ownerName}</td>
-          <td class="p-3 text-center text-xs text-purple-700 font-medium">${entry.seasonsCount} Yrs</td>
-          <td class="p-3 text-center font-bold text-pink-700">${pWlStr} <span class="text-[10px] text-pink-500 font-normal block">${pWinPct}%</span></td>
-          <td class="p-3 text-center">${playoffHtml}</td>
-          <td class="p-3 text-center">${firstsHtml}</td>
-          <td class="p-3 text-center">${secondsHtml}</td>
-          <td class="p-3 text-center">${thirdsHtml}</td>
-          <td class="p-3 text-center">${fourthsHtml}</td>
-          <td class="p-3 text-center">${fifthSixthHtml}</td>
-          <td class="p-3 text-center">${seventhTwelfthHtml}</td>
-          <td class="p-3 text-center">${scHtml}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-
-      // Yearly Cards
-      const champs = [...window.LEAGUE_DATA.championships].reverse();
-      champs.forEach(c => {
-        const yr = c.seasonYear;
-        const scOwner = c.scoringChampOwner || '-';
-        const scTeam = c.scoringChampTeam || '-';
-        const scPF = c.scoringChampPF ? c.scoringChampPF.toFixed(1) : '-';
-
-        const div = document.createElement('div');
-        div.className = 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
-
-        div.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-3 border-b-2 border-pink-100 pb-2">
-              <span class="text-2xl font-black font-fredoka rainbow-text">${yr}</span>
-              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-[10px]">🏆 Season ${yr}</span>
-            </div>
-
-            <!-- 1st Place / Pride Cup Champion -->
-            <div class="mb-3 p-3 bg-amber-50/90 border-2 border-amber-300 rounded-xl">
-              <span class="text-[10px] uppercase font-bold text-amber-800 block">🥇 THE PRIDE CUP CHAMPION</span>
-              <span class="text-base font-black text-purple-950 block mt-0.5">${c.firstTeam}</span>
-              <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
-            </div>
-
-            <!-- 2nd and 3rd Podium Finishers -->
-            <div class="space-y-1.5 text-xs border-t border-b border-pink-100 py-2.5 my-2 text-purple-950">
-              <div class="flex justify-between items-center">
-                <span class="text-slate-600 font-bold">🥈 2nd Place:</span>
-                <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-amber-800 font-bold">🥉 3rd Place:</span>
-                <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span></span>
-              </div>
-            </div>
-
-            <!-- Regular Season Scoring Champion (Below the Podium) -->
-            <div class="mt-2.5 p-2.5 bg-pink-50/80 border border-pink-300 rounded-xl text-xs flex items-center justify-between">
-              <div>
-                <span class="text-[10px] font-extrabold text-pink-700 block">🎯 SCORING CHAMPION</span>
-                <span class="font-bold text-purple-950 text-xs">${scTeam} <span class="text-[10px] text-pink-600 font-normal">[${scOwner}]</span></span>
-              </div>
-              <span class="font-mono font-black text-pink-700 text-sm">${scPF} pts</span>
-            </div>
-          </div>
-        `;
-        grid.appendChild(div);
-      });
     }
 
     // TAB 5: TEAMS / FRANCHISE PROFILES
