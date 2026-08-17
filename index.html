@@ -664,7 +664,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260816_04"></script>
+  <script src="leagueData.js?v=20260816_05"></script>
 
   <!-- Application Logic -->
   <script>
@@ -2071,7 +2071,7 @@
       tbody.innerHTML = '';
 
       document.querySelectorAll('.streak-filter-btn').forEach(btn => {
-        btn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs';
+        btn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 text-xs';
       });
       const activeBtn = document.getElementById(`streak-filter-${filterType}`);
       if (activeBtn) {
@@ -2091,7 +2091,7 @@
       }
 
       if (streaks.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-emerald-600 italic">No head-to-head streaks recorded for this filter.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-emerald-500 italic font-mono">No head-to-head streaks recorded for this filter.</td></tr>`;
         return;
       }
 
@@ -2107,7 +2107,6 @@
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
         const countWithVal = j - i;
 
-        // ALWAYS expand if tied for #1 (rankNumber === 1), or if group fits within top 10
         if (rankNumber === 1 || countWithVal <= 2 || rows.length + countWithVal <= 10) {
           for (let k = i; k < j; k++) {
             const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
@@ -2127,15 +2126,15 @@
 
         if (r.type === 'single') {
           const s = r.item;
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 cursor-pointer transition-colors';
-          tr.onclick = () => selectH2HMatchup(s.winner, s.loser);
+          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
 
-          const rankBadge = r.rank === 1 
-            ? '<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 #1</span>'
+          const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
+          const rankBadge = (r.rank === 1 || isTied1st) 
+            ? `<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
             : (r.rank === 2 
-              ? '<span class="text-slate-300 font-bold text-xs">🥈 #2</span>'
+              ? `<span class="text-slate-300 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
               : (r.rank === 3 
-                ? '<span class="text-amber-600 font-bold text-xs">🥉 #3</span>'
+                ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
                 : `<span class="text-emerald-500 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
           let gameScoreListHtml = '';
@@ -2153,34 +2152,7 @@
               </div>`;
             }).join('');
           } else {
-            gameScoreListHtml = `<div class="text-xs text-emerald-600 italic">Game scores recorded in database.</div>`;
-          }
-
-          const streakBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow hover:bg-emerald-900 transition-all">${s.streak} WINS</span>
-              <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[260px] z-50">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
-                  <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
-                  <span class="text-[10px] text-emerald-500">vs ${s.loser}</span>
-                </div>
-                ${gameScoreListHtml}
-                <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
-                  🏈 Game-by-game scores for this streak
-                </div>
-              </div>
-            </div>
-          `;
-              const hIsW = g.homeScore >= g.awayScore;
-              const wS = hIsW ? g.homeScore : g.awayScore;
-              const lS = hIsW ? g.awayScore : g.homeScore;
-              return `<div class="py-1 border-b border-emerald-900/60 flex items-center justify-between text-xs">
-                <span class="font-bold text-emerald-400">${g.year} ${stgTag}</span>
-                <span class="font-mono text-emerald-300 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
-              </div>`;
-            }).join('');
-          } else {
-            gameScoreListHtml = `<div class="text-xs text-emerald-600 italic">Game scores recorded in database.</div>`;
+            gameScoreListHtml = `<div class="text-xs text-emerald-600 italic font-mono">Game scores recorded in database.</div>`;
           }
 
           const streakBadge = `
@@ -2207,8 +2179,8 @@
 
           tr.innerHTML = `
             <td class="p-2.5 text-center">${rankBadge}</td>
-            <td class="p-2.5 font-extrabold text-emerald-300">${s.winner}</td>
-            <td class="p-2.5 font-bold text-emerald-500">${s.loser}</td>
+            <td class="p-2.5 font-extrabold text-emerald-300 cursor-pointer hover:underline" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">${s.winner}</td>
+            <td class="p-2.5 font-bold text-emerald-500 cursor-pointer hover:underline" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">${s.loser}</td>
             <td class="p-2.5 text-center">${streakBadge}</td>
             <td class="p-2.5 text-center font-mono text-emerald-400">${spanStr}</td>
             <td class="p-2.5 text-center">${statusBadge}</td>
@@ -2227,13 +2199,29 @@
             </div>
           `).join('');
 
+          const multiStreakBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-black text-xs rounded hover:bg-emerald-800 transition-all">${r.streakVal} WINS EACH</span>
+              <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[280px] z-50">
+                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
+                  <span class="text-[10px] text-emerald-500">Rank #${r.rank}</span>
+                </div>
+                ${popoverListHtml}
+                <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
+                  🔍 Hover / Click any rivalry to view game log
+                </div>
+              </div>
+            </div>
+          `;
+
           tr.innerHTML = `
             <td class="p-2.5 text-center"><span class="text-emerald-500 font-bold text-xs">#${r.rank}</span></td>
             <td class="p-2.5 font-bold text-emerald-300" colspan="2">
-              <div class="inline-block">
+              <div class="tooltip-trigger inline-block cursor-pointer">
                 <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
                 <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
-                  <div class="font-bold text-amber-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
+                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
                     <span class="text-[9px] text-emerald-500">Rank #${r.rank}</span>
                   </div>
@@ -2244,9 +2232,7 @@
                 </div>
               </div>
             </td>
-            <td class="p-2.5 text-center">
-              <span class="px-2 py-0.5 border border-emerald-600 bg-emerald-950 text-emerald-300 font-black text-xs crt-glow">${r.streakVal} WINS EACH</span>
-            </td>
+            <td class="p-2.5 text-center">${multiStreakBadge}</td>
             <td class="p-2.5 text-center font-mono text-emerald-500 text-[11px]">${r.count} Rivals Tied</td>
             <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400 font-bold text-[10px]">🤝 MULTI-TIE</span></td>
           `;

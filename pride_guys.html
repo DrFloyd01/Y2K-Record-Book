@@ -750,7 +750,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_20"></script>
+  <script src="prideGuysData.js?v=20260816_21"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2332,7 +2332,6 @@
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
         const countWithVal = j - i;
 
-        // ALWAYS expand if tied for #1 (rankNumber === 1), or if group fits within top 10
         if (rankNumber === 1 || countWithVal <= 2 || rows.length + countWithVal <= 10) {
           for (let k = i; k < j; k++) {
             const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
@@ -2352,15 +2351,15 @@
 
         if (r.type === 'single') {
           const s = r.item;
-          tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/40 cursor-pointer transition-colors';
-          tr.onclick = () => selectH2HMatchup(s.winner, s.loser);
+          tr.className = 'border-b border-pink-100 hover:bg-pink-50/90 transition-colors';
 
-          const rankBadge = r.rank === 1 
-            ? '<span class="text-amber-400 font-black crt-glow-pink-pink-amber text-sm">🥇 #1</span>'
+          const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
+          const rankBadge = (r.rank === 1 || isTied1st) 
+            ? `<span class="text-amber-400 font-black crt-glow-pink-pink-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
             : (r.rank === 2 
-              ? '<span class="text-slate-300 font-bold text-xs">🥈 #2</span>'
+              ? `<span class="text-slate-300 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
               : (r.rank === 3 
-                ? '<span class="text-amber-600 font-bold text-xs">🥉 #3</span>'
+                ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
                 : `<span class="text-pink-600 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
           let gameScoreListHtml = '';
@@ -2378,34 +2377,7 @@
               </div>`;
             }).join('');
           } else {
-            gameScoreListHtml = `<div class="text-xs text-purple-700 italic">Game scores recorded in database.</div>`;
-          }
-
-          const streakBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm rounded shadow-sm hover:bg-pink-100 transition-all">${s.streak} WINS</span>
-              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl text-left min-w-[260px] z-50">
-                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
-                  <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
-                  <span class="text-[10px] text-pink-500">vs ${s.loser}</span>
-                </div>
-                ${gameScoreListHtml}
-                <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
-                  🏈 Game-by-game scores for this streak
-                </div>
-              </div>
-            </div>
-          `;
-              const hIsW = g.homeScore >= g.awayScore;
-              const wS = hIsW ? g.homeScore : g.awayScore;
-              const lS = hIsW ? g.awayScore : g.homeScore;
-              return `<div class="py-1 border-b border-pink-100 flex items-center justify-between text-xs">
-                <span class="font-bold text-pink-700">${g.year} ${stgTag}</span>
-                <span class="font-mono text-purple-900 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
-              </div>`;
-            }).join('');
-          } else {
-            gameScoreListHtml = `<div class="text-xs text-purple-700 italic">Game scores recorded in database.</div>`;
+            gameScoreListHtml = `<div class="text-xs text-purple-700 italic font-sans">Game-by-game scores recorded in database.</div>`;
           }
 
           const streakBadge = `
@@ -2432,8 +2404,8 @@
 
           tr.innerHTML = `
             <td class="p-2.5 text-center">${rankBadge}</td>
-            <td class="p-2.5 font-extrabold text-pink-700">${s.winner}</td>
-            <td class="p-2.5 font-bold text-pink-600">${s.loser}</td>
+            <td class="p-2.5 font-extrabold text-pink-700 cursor-pointer hover:underline" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">${s.winner}</td>
+            <td class="p-2.5 font-bold text-pink-600 cursor-pointer hover:underline" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">${s.loser}</td>
             <td class="p-2.5 text-center">${streakBadge}</td>
             <td class="p-2.5 text-center font-sans text-pink-600">${spanStr}</td>
             <td class="p-2.5 text-center">${statusBadge}</td>
@@ -2442,7 +2414,7 @@
           tr.className = 'border-b border-pink-100 hover:bg-pink-50/90 transition-colors';
           
           const popoverListHtml = r.items.map(s => `
-            <div class="py-1 border-b border-pink-200/40 flex items-center justify-between text-xs cursor-pointer hover:bg-pink-50/90/60 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
+            <div class="py-1 border-b border-pink-200/40 flex items-center justify-between text-xs cursor-pointer hover:bg-pink-100 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
               <div>
                 <span class="font-bold text-pink-700">${s.winner}</span>
                 <span class="text-[10px] text-pink-600"> vs ${s.loser}</span>
@@ -2452,26 +2424,40 @@
             </div>
           `).join('');
 
+          const multiStreakBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 border border-pink-400 bg-pink-100 text-pink-700 font-black text-xs rounded shadow-sm hover:bg-pink-200 transition-all">${r.streakVal} WINS EACH</span>
+              <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl text-left min-w-[280px] z-50">
+                <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
+                  <span class="text-[10px] text-pink-500">Rank #${r.rank}</span>
+                </div>
+                ${popoverListHtml}
+                <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
+                  🔍 Hover / Click any rivalry to view game log
+                </div>
+              </div>
+            </div>
+          `;
+
           tr.innerHTML = `
             <td class="p-2.5 text-center"><span class="text-pink-600 font-bold text-xs">#${r.rank}</span></td>
             <td class="p-2.5 font-bold text-pink-700" colspan="2">
-              <div class="inline-block">
+              <div class="tooltip-trigger inline-block cursor-pointer">
                 <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
-                <div class="tooltip-content p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
-                  <div class="font-bold text-amber-400 border-b border-pink-200 pb-1 mb-1 flex items-center justify-between">
+                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
+                  <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
                     <span class="text-[9px] text-pink-600">Rank #${r.rank}</span>
                   </div>
                   ${popoverListHtml}
-                  <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-pink-200 text-center">
+                  <div class="text-[10px] text-amber-600 font-bold pt-1 border-t border-pink-200 text-center">
                     🔍 Hover / Click any streak to inspect game log
                   </div>
                 </div>
               </div>
             </td>
-            <td class="p-2.5 text-center">
-              <span class="px-2 py-0.5 border border-pink-300 bg-pink-50/90 text-pink-700 font-black text-xs crt-glow-pink-pink">${r.streakVal} WINS EACH</span>
-            </td>
+            <td class="p-2.5 text-center">${multiStreakBadge}</td>
             <td class="p-2.5 text-center font-sans text-pink-600 text-[11px]">${r.count} Rivals Tied</td>
             <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-white border border-pink-200 text-pink-600 font-bold text-[10px]">🤝 MULTI-TIE</span></td>
           `;
