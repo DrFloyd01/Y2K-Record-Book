@@ -429,8 +429,15 @@
 
       <!-- 2. LIFETIME H2H GRID MATRIX -->
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs flex items-center justify-between">
-          <span>&gt;_ LIFETIME_H2H_GRID_MATRIX</span>
+        <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-3">
+            <span>&gt;_ LIFETIME_H2H_GRID_MATRIX</span>
+            <div class="flex gap-1" id="h2h-matrix-filter-buttons">
+              <button id="matrix-filter-all" onclick="filterH2HMatrix('all')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
+              <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
+              <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
+            </div>
+          </div>
           <span class="text-[10px] text-emerald-400 font-normal">Click any cell to query H2H matchup breakdown &amp; game log</span>
         </div>
         <div class="p-3 overflow-visible">
@@ -674,7 +681,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_08"></script>
+  <script src="prideGuysData.js?v=20260816_09"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2380,9 +2387,14 @@
         tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
         
         const winnerBadge = g.winner === 'Tie' ? '<span class="text-emerald-700">Tie</span>' : `<span class="font-bold text-emerald-300">${g.winner}</span>`;
-        const typeBadge = g.isPlayoff 
-          ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-600 text-[10px]">PLAYOFF</span>`
-          : `<span class="px-1.5 py-0.5 bg-emerald-950 text-emerald-500 font-bold border border-emerald-800 text-[10px]">REG SEASON</span>`;
+        let typeBadge = '';
+        if (g.stage === 'Consolation Round Robin' || g.stage === 'Consolation Matchup' || (g.rawTier && g.rawTier.includes('LOSERS'))) {
+          typeBadge = `<span class="px-1.5 py-0.5 bg-zinc-900 text-amber-400 font-bold border border-zinc-700 text-[10px]">RR</span>`;
+        } else if (g.isPlayoff) {
+          typeBadge = `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-600 text-[10px]">${g.stage === '3rd Place Game' ? '3RD PLACE' : (g.stage === '5th Place Game' ? '5TH PLACE' : 'PLAYOFF')}</span>`;
+        } else {
+          typeBadge = `<span class="px-1.5 py-0.5 bg-emerald-950 text-emerald-500 font-bold border border-emerald-800 text-[10px]">REG SEASON</span>`;
+        }
 
         tr.innerHTML = `
           <td class="p-2 text-center font-bold text-emerald-400">${g.year}</td>
@@ -2411,10 +2423,26 @@
       }
     }
 
-    function renderH2HMatrix() {
+    let currentMatrixFilter = 'all';
+
+    function filterH2HMatrix(filterType = 'all') {
+      currentMatrixFilter = filterType;
+      renderH2HMatrix(filterType);
+    }
+
+    function renderH2HMatrix(filterType = currentMatrixFilter) {
       const header = document.getElementById('h2h-matrix-header');
       const tbody = document.getElementById('h2h-matrix-body');
+      if (!header || !tbody) return;
       header.innerHTML = ''; tbody.innerHTML = '';
+
+      document.querySelectorAll('.matrix-filter-btn').forEach(btn => {
+        btn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]';
+      });
+      const activeBtn = document.getElementById(`matrix-filter-${filterType}`);
+      if (activeBtn) {
+        activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]';
+      }
 
       const owners = window.LEAGUE_DATA.allTimeStandings
         .map(s => s.ownerName)
@@ -2434,8 +2462,12 @@
           } else {
             const b = getH2HBreakdown(o1, o2);
             if (b) {
-              const cellTotalStr = `${b.totW1}-${b.totW2}`;
-              const winClass = b.totW1 > b.totW2 ? 'text-emerald-300 font-bold' : (b.totW1 < b.totW2 ? 'text-red-500' : 'text-emerald-700');
+              let w1 = b.totW1, w2 = b.totW2;
+              if (filterType === 'regular') { w1 = b.regW1; w2 = b.regW2; }
+              else if (filterType === 'playoff') { w1 = b.playW1; w2 = b.playW2; }
+
+              const cellTotalStr = `${w1}-${w2}`;
+              const winClass = w1 > w2 ? 'text-emerald-300 font-bold' : (w1 < w2 ? 'text-red-500' : 'text-emerald-700');
 
               tr += `
                 <td class="p-1.5 ${winClass} cursor-pointer hover:bg-emerald-900/50 transition-colors" onclick="selectH2HMatchup('${o1}', '${o2}')">
