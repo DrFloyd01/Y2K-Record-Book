@@ -12,7 +12,7 @@
       theme: {
         extend: {
           fontFamily: {
-            mono: ['"Courier Prime"', '"Courier New"', 'monospace']
+            mono: ['"JetBrains Mono"', '"Courier Prime"', 'monospace']
           },
           colors: {
             crt: {
@@ -31,10 +31,10 @@
       }
     }
   </script>
-  <!-- Google Fonts: Courier Prime & VT323 -->
+  <!-- Google Fonts: JetBrains Mono & VT323 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Chart.js CDN for Analytics -->
@@ -42,30 +42,36 @@
   
   <style>
     body {
-      font-family: 'Courier Prime', 'Courier New', monospace;
-      background-color: #040d06;
-      color: #00ff66;
-      background-image: radial-gradient(circle at 50% 50%, #0a1f0f 0%, #030a04 100%);
+      font-family: 'JetBrains Mono', 'Courier Prime', monospace;
+      background-color: #020704;
+      color: #e2fce8;
+      background-image: radial-gradient(circle at 50% 25%, #081d0f 0%, #010502 100%);
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
     }
 
-    /* P1 Phosphor Text Styling */
+    /* Crisp Phosphor Text Highlights */
     .crt-glow {
-      text-shadow: 0 0 4px rgba(0, 255, 102, 0.5);
+      text-shadow: 0 0 5px rgba(0, 255, 102, 0.45);
     }
     .crt-glow-amber {
-      text-shadow: 0 0 4px rgba(255, 183, 0, 0.5);
+      text-shadow: 0 0 5px rgba(255, 183, 0, 0.45);
     }
 
-    /* Retro CRT Terminal Box */
+    /* Retro CRT Terminal Surfaces with Higher Contrast */
     .crt-box {
-      border: 1px solid #00aa44;
-      box-shadow: 0 0 8px rgba(0, 255, 102, 0.1);
-      background-color: rgba(8, 23, 11, 0.95);
+      border: 1px solid #00bb4a;
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.08);
+      background-color: rgba(3, 14, 7, 0.96);
     }
     .crt-box-header {
-      background-color: #003314;
-      border-bottom: 1px solid #00aa44;
-      color: #00ff66;
+      background-color: #052611;
+      border-bottom: 1px solid #00bb4a;
+      color: #34d399;
+      font-weight: 700;
     }
 
     /* Hide scrollbars inside container boxes (Retro CRT Terminal feel) */
@@ -106,8 +112,9 @@
       left: 50%;
       transform: translateX(-50%);
       pointer-events: auto;
-      max-height: 380px;
+      max-height: 400px;
       overflow-y: auto;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
     }
     .tooltip-trigger:hover .tooltip-content { display: block; }
     .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
@@ -153,9 +160,9 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_DATABASE // FANTASY RECORD BOOK</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_DATABASE // FANTASY RECORD BOOK</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STANDINGS &amp; ARCHIVES</h2>
-            <p class="text-xs text-emerald-500 mt-1" id="champion-banner">
+            <p class="text-xs text-emerald-300 mt-1" id="champion-banner">
               &gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">Globo Gym</span> (2025 Nebuchadnezzar Cup Winner - Dylan)
             </p>
           </div>
@@ -217,7 +224,7 @@
                     <th onclick="sortWeeklyBadges('weeklyWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
                         <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡ Weekly Wins (WW)</span>
-                        <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl font-normal text-left">
+                        <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
                           ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a regular season week
                         </div>
                       </div>
@@ -225,7 +232,7 @@
                     <th onclick="sortWeeklyBadges('luckiestWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
                         <span class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 Luckiest Wins (LW)</span>
-                        <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl font-normal text-left">
+                        <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
                           🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in a regular season week
                         </div>
                       </div>
@@ -269,9 +276,9 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STAT LEADERBOARDS</h2>
-            <p class="text-xs text-emerald-500 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
+            <p class="text-xs text-emerald-300 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
           </div>
 
           <div class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
@@ -327,9 +334,9 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">WEEKLY MATCHUP HUBS</h2>
-            <p class="text-xs text-emerald-500 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
+            <p class="text-xs text-emerald-300 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
           </div>
 
           <!-- Controls: Season, Mode Toggle -->
@@ -380,9 +387,9 @@
     <!-- TAB 3: HEAD TO HEAD -->
     <div id="tab-h2h" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">HEAD-TO-HEAD RECORDS</h2>
-        <p class="text-xs text-emerald-500 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
+        <p class="text-xs text-emerald-300 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
       </div>
 
       <!-- 1. H2H WINNING STREAKS LEADERBOARD -->
@@ -476,9 +483,9 @@
     <!-- TAB 4: CHAMPS -->
     <div id="tab-champs" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">NEBUCHADNEZZAR CUP &amp; DYNASTY ARCHIVES</h2>
-        <p class="text-xs text-emerald-600 mt-1 font-mono">8 Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
+        <p class="text-xs text-emerald-300/80 mt-1 font-mono">8 Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
       </div>
 
       <!-- 1. Dynasty Leaderboard -->
@@ -489,7 +496,7 @@
         </div>
         <div class="overflow-visible">
           <table class="w-full text-xs text-left border-collapse font-mono">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+            <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
               <tr>
                 <th class="p-3 text-center">RANK</th>
                 <th class="p-3 text-left">MANAGER</th>
@@ -512,13 +519,13 @@
 
       <!-- 2. Yearly Champions Timeline Grid -->
       <div class="mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="champs-timeline-grid"></div>
       </div>
 
       <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ ALL-TIME_PLAYOFF_RECORDS</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ ALL-TIME_PLAYOFF_RECORDS</div>
         <h3 class="text-lg font-black text-emerald-300 crt-glow font-mono mb-3">PLAYOFF SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
       </div>
@@ -528,9 +535,9 @@
     <!-- TAB 5: TEAMS -->
     <div id="tab-teams" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">FRANCHISE PROFILES &amp; HISTORY</h2>
-        <p class="text-xs text-emerald-500 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
+        <p class="text-xs text-emerald-300 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
       </div>
 
       <div class="crt-box rounded p-4 mb-6">
@@ -547,9 +554,9 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">OFFICIAL DRAFT ORDER HISTORY</h2>
-            <p class="text-xs text-emerald-500 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
+            <p class="text-xs text-emerald-300 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
           </div>
 
           <div class="flex items-center gap-1 flex-wrap justify-center" id="draft-season-selector"></div>
@@ -608,9 +615,9 @@
     <!-- TAB 7: ANALYTICS -->
     <div id="tab-analytics" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_ANALYTICS</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_ANALYTICS</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">ADVANCED ANALYTICS PORTAL</h2>
-        <p class="text-xs text-emerald-500 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter Analysis.</p>
+        <p class="text-xs text-emerald-300 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter Analysis.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
@@ -680,7 +687,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260816_09"></script>
+  <script src="leagueData.js?v=20260817_10"></script>
 
   <!-- Application Logic -->
   <script>
@@ -855,14 +862,14 @@
           // In All-Time context, Playoff Bracket tab surfaces the full Dynasty Leaderboard
           container.innerHTML = `
             <div class="crt-box rounded p-4 mb-6">
-              <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ ALL-TIME_DYNASTY_STANDINGS</div>
+              <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ ALL-TIME_DYNASTY_STANDINGS</div>
               <h2 class="text-2xl font-black text-emerald-300 crt-glow">NEBUCHADNEZZAR CUP &amp; DYNASTY LEADERBOARD</h2>
-              <p class="text-xs text-emerald-600 mt-1 font-mono">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
+              <p class="text-xs text-emerald-300/80 mt-1 font-mono">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
             </div>
             <div class="crt-box rounded overflow-visible mb-8">
               <div class="w-full overflow-visible">
                 <table class="w-full text-xs text-left border-collapse font-mono">
-                  <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                     <tr>
                       <th class="p-3 text-center">RANK</th>
                       <th class="p-3 text-left">MANAGER</th>
@@ -936,7 +943,7 @@
               scHtml = `
                 <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
                   <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-black border border-emerald-500 rounded text-xs shadow-sm">🎯 ${scTitles}</span>
-                  <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[220px] z-50">
+                  <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[220px] z-50">
                     <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
                     ${listStr}
                   </div>
@@ -950,7 +957,7 @@
               playoffHtml = `
                 <div class="tooltip-trigger inline-block cursor-pointer">
                   <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 rounded text-xs shadow-sm">${entry.playoffPct}%</span>
-                  <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl z-50">
+                  <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 z-50">
                     <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
                     ${listStr}
                   </div>
@@ -1075,7 +1082,7 @@
         <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">⚡ WW</span>
-            <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-normal">
               ⚡ <span class="font-bold text-emerald-400">WW (Weekly Wins):</span> Highest scoring team in a regular season week
             </div>
           </div>
@@ -1083,7 +1090,7 @@
         <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 LW</span>
-            <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-normal">
               🍀 <span class="font-bold text-emerald-400">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
             </div>
           </div>
@@ -1128,7 +1135,7 @@
         const luckVal = item.luck || 0;
         const luckBadge = luckVal > 0 
           ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
-          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-700">0</span>`);
+          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-400">0</span>`);
 
         // 1. WW Badge
         let wwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
@@ -1142,7 +1149,7 @@
           wwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs">${wwCount}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
+              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -1162,7 +1169,7 @@
           lwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs">${lwCount}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
+              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -1533,7 +1540,7 @@
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-mono z-50 w-72">
+        <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
           <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
           ${rowsHtml || '<div class="text-emerald-600 italic">No data records found</div>'}
         </div>
@@ -1678,7 +1685,7 @@
               <span class="px-2.5 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs hover:bg-emerald-800 hover:border-emerald-300 transition-all cursor-help">
                 ${wwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -1699,7 +1706,7 @@
               <span class="px-2.5 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs hover:bg-emerald-900 hover:border-emerald-400 transition-all cursor-help">
                 ${lwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -1936,7 +1943,7 @@
               </div>
               <div class="w-full overflow-visible">
                 <table class="w-full text-xs text-left border-collapse">
-                  <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
               <tr>
                 <th class="p-3 text-center">RANK</th>
                 <th class="p-3 text-left">MANAGER</th>
@@ -1964,7 +1971,7 @@
               </div>
               <div class="w-full overflow-visible">
                 <table class="w-full text-xs text-left border-collapse">
-                  <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                     <tr>
                       <th class="p-2 text-center">Rank</th>
                       <th class="p-2">Winner</th>
@@ -2336,7 +2343,7 @@
           const streakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow hover:bg-emerald-900 transition-all">${s.streak} WINS</span>
-              <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[260px] z-50">
+              <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[260px] z-50">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
                   <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
                   <span class="text-[10px] text-emerald-500">vs ${s.loser}</span>
@@ -2380,7 +2387,7 @@
           const multiStreakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-black text-xs rounded hover:bg-emerald-800 transition-all">${r.streakVal} WINS EACH</span>
-              <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[280px] z-50">
+              <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[280px] z-50">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
                   <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
                   <span class="text-[10px] text-emerald-500">Rank #${r.rank}</span>
@@ -2398,7 +2405,7 @@
             <td class="p-2.5 font-bold text-emerald-300" colspan="2">
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
-                <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
+                <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 space-y-1.5 text-left min-w-[280px] z-50">
                   <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
                     <span class="text-[9px] text-emerald-500">Rank #${r.rank}</span>
@@ -2483,7 +2490,7 @@
         const tr = document.createElement('tr');
         tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
         
-        const winnerBadge = g.winner === 'Tie' ? '<span class="text-emerald-700">Tie</span>' : `<span class="font-bold text-emerald-300">${g.winner}</span>`;
+        const winnerBadge = g.winner === 'Tie' ? '<span class="text-emerald-400">Tie</span>' : `<span class="font-bold text-emerald-300">${g.winner}</span>`;
         const typeBadge = g.isPlayoff 
           ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-600 text-[10px]">PLAYOFF</span>`
           : `<span class="px-1.5 py-0.5 bg-emerald-950 text-emerald-500 font-bold border border-emerald-800 text-[10px]">REG SEASON</span>`;
@@ -2565,7 +2572,7 @@
                 <td class="p-1.5 ${winClass} cursor-pointer hover:bg-emerald-900/50 transition-colors" onclick="selectH2HMatchup('${o1}', '${o2}')">
                   <div class="tooltip-trigger inline-block">
                     <span>${cellTotalStr}</span>
-                    <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
+                    <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 space-y-1 text-left min-w-[240px]">
                       <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
                       <div class="text-xs text-emerald-300">• <span class="font-bold text-emerald-400">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
                       <div class="text-xs text-amber-300">• <span class="font-bold text-amber-400">Playoffs:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
@@ -2662,7 +2669,7 @@
             scHtml = `
               <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
                 <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-black border border-emerald-500 rounded text-xs shadow-sm">🎯 ${scTitles}</span>
-                <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[220px] z-50">
+                <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[220px] z-50">
                   <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
                   ${listStr}
                 </div>
@@ -2676,7 +2683,7 @@
             playoffHtml = `
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 rounded text-xs shadow-sm">${entry.playoffPct}%</span>
-                <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl z-50">
+                <div class="tooltip-content p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 z-50">
                   <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
                   ${listStr}
                 </div>
@@ -2934,7 +2941,7 @@
           </div>
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse font-mono">
-              <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+              <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                 <tr>
                   <th class="p-2.5">YEAR</th>
                   <th class="p-2.5">TEAM NAME</th>
@@ -3129,7 +3136,7 @@
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-mono z-50 w-72">
+        <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
           <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
             <span>🏈 ${playerName}</span>
             <span class="text-[10px] text-amber-400 font-bold">${history.length}x Drafted</span>
@@ -3545,7 +3552,7 @@
             <div class="mt-3 p-3 bg-black border border-emerald-700 rounded flex justify-between items-center flex-wrap gap-2 font-mono">
               <div class="flex items-center gap-3">
                 <span class="${isWinner1 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
-                <span class="text-emerald-700">vs</span>
+                <span class="text-emerald-400">vs</span>
                 <span class="${isWinner2 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
               </div>
               <div class="text-right">
