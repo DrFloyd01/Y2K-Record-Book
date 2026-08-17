@@ -31,99 +31,142 @@
       }
     }
   </script>
-  <!-- Google Fonts: Courier Prime & VT323 -->
+    <!-- Google Fonts: Outfit, Fredoka, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Chart.js CDN for Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <style>
+    :root {
+      --pride-gradient: linear-gradient(135deg, #ff007f, #ff7b00, #ffea00, #00e5ff, #bd00ff);
+      --rainbow-text: linear-gradient(90deg, #ff66b2, #ffb366, #fffa70, #70f3ff, #e285ff);
+    }
+
     body {
-      font-family: 'Courier Prime', 'Courier New', monospace;
-      background-color: #040d06;
-      color: #00ff66;
-      background-image: radial-gradient(circle at 50% 50%, #0a1f0f 0%, #030a04 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #090314;
+      color: #f1f5f9;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 0, 127, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(189, 0, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #0d051f 0%, #06020c 100%);
+      background-attachment: fixed;
     }
 
-    /* P1 Phosphor Text Styling */
-    .crt-glow {
-      text-shadow: 0 0 4px rgba(0, 255, 102, 0.5);
-    }
-    .crt-glow-amber {
-      text-shadow: 0 0 4px rgba(255, 183, 0, 0.5);
+    h1, h2, h3, h4, .font-outfit {
+      font-family: 'Outfit', sans-serif;
     }
 
-    /* Retro CRT Terminal Box */
+    .font-fredoka {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+
+    /* Floating Sparkles & Rainbow Micro-animations */
+    @keyframes floatSparkle {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+      50% { transform: translateY(-8px) rotate(15deg) scale(1.1); }
+    }
+    .animate-sparkle {
+      animation: floatSparkle 4s ease-in-out infinite;
+    }
+
+    @keyframes rainbowShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .rainbow-shimmer-text {
+      background: linear-gradient(90deg, #ff007f, #ff7b00, #ffea00, #00e5ff, #bd00ff, #ff007f);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowShimmer 6s ease infinite;
+    }
+
+    .rainbow-border-glow {
+      position: relative;
+      background: rgba(18, 8, 38, 0.85);
+      backdrop-filter: blur(16px);
+      border-radius: 1rem;
+    }
+    .rainbow-border-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: 1.05rem;
+      background: linear-gradient(135deg, rgba(255,0,127,0.6), rgba(255,123,0,0.6), rgba(255,234,0,0.6), rgba(0,229,255,0.6), rgba(189,0,255,0.6));
+      z-index: -1;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    .rainbow-border-glow:hover::before {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px rgba(255,0,127,0.5));
+    }
+
+    /* Glassmorphism Containers */
     .crt-box {
-      border: 1px solid #00aa44;
-      box-shadow: 0 0 8px rgba(0, 255, 102, 0.1);
-      background-color: rgba(8, 23, 11, 0.95);
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      box-shadow: 0 10px 30px -10px rgba(189, 0, 255, 0.2);
+      background: rgba(18, 8, 38, 0.85);
+      backdrop-filter: blur(16px);
+      border-radius: 0.75rem;
     }
     .crt-box-header {
-      background-color: #003314;
-      border-bottom: 1px solid #00aa44;
-      color: #00ff66;
+      background: linear-gradient(90deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15), rgba(59, 130, 246, 0.15));
+      border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+      color: #f472b6;
+      border-top-left-radius: 0.7rem;
+      border-top-right-radius: 0.7rem;
     }
 
-    /* Hide scrollbars inside container boxes (Retro CRT Terminal feel) */
+    /* Glowing Text Effects */
+    .crt-glow {
+      text-shadow: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+    .crt-glow-amber {
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Hide Scrollbars */
     .custom-scrollbar {
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
     .custom-scrollbar::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
+      display: none; width: 0; height: 0;
     }
 
-    /* Popover scrollbar styling */
+    /* Popover Scrollbars */
     .popover-scrollbar {
       scrollbar-width: thin;
-      scrollbar-color: #00aa44 #040d06;
+      scrollbar-color: #ec4899 #0f081d;
     }
     .popover-scrollbar::-webkit-scrollbar {
-      height: 6px;
-      width: 6px;
+      height: 6px; width: 6px;
     }
-    .popover-scrollbar::-webkit-scrollbar-track {
-      background: #040d06;
-    }
-    .popover-scrollbar::-webkit-scrollbar-thumb {
-      background: #00aa44;
-      border-radius: 2px;
-    }
+    .popover-scrollbar::-webkit-scrollbar-track { background: #0f081d; }
+    .popover-scrollbar::-webkit-scrollbar-thumb { background: #ec4899; border-radius: 3px; }
 
     /* Tooltip Styles */
-    .tooltip-trigger {
-      position: relative;
-    }
+    .tooltip-trigger { position: relative; }
     .tooltip-content {
-      visibility: hidden;
-      opacity: 0;
+      display: none;
       position: absolute;
-      top: 100%;
+      z-index: 99999;
+      bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
-      margin-top: 4px;
-      transition: opacity 0.15s, visibility 0.15s;
-      z-index: 999;
-      white-space: normal;
-      width: 18rem;
-      max-width: 80vw;
+      pointer-events: auto;
+      max-height: 380px;
+      overflow-y: auto;
     }
-    .tooltip-content-right {
-      left: auto !important;
-      right: 0 !important;
-      transform: none !important;
-    }
-    .tooltip-trigger:hover .tooltip-content,
-    .tooltip-trigger:focus .tooltip-content {
-      visibility: visible;
-      opacity: 1;
-    }
+    .tooltip-trigger:hover .tooltip-content { display: block; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-900 selection:text-emerald-200">
@@ -139,15 +182,14 @@
       </div>
 
       <!-- Desktop Navigation Tabs -->
-      <nav class="hidden lg:flex items-center space-x-1" id="desktop-nav">
-        <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-500 bg-emerald-900/60 text-emerald-300">SEASONS</button>
-        <!-- STATS tab hidden as per request -->
-        <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">H2H</button>
-        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">MATCHUPS</button>
-        <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">CHAMPS</button>
-        <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">TEAMS</button>
-        <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">DRAFT</button>
-        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">ANALYTICS</button>
+      <nav class="hidden lg:flex items-center space-x-1.5" id="desktop-nav">
+        <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg shadow-pink-500/30">📅 SEASONS 🦄</button>
+        <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">⚔️ H2H 🌈</button>
+        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">🏈 MATCHUPS ✨</button>
+        <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">👑 CHAMPS 🏆</button>
+        <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">💅 TEAMS 💖</button>
+        <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">📜 DRAFT 🎯</button>
+        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">📊 ANALYTICS 📈</button>
       </nav>
 
       <div class="text-xs text-emerald-500 font-mono flex items-center gap-2">
@@ -681,7 +723,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_10"></script>
+  <script src="prideGuysData.js?v=20260816_11"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -728,6 +770,29 @@
       renderStatsTable();
       initDraftTab();
       initMatchupsTab();
+
+    // Kitschy Taglines Rotator
+    const TAGLINES = [
+      "Slay the Competition, Wear the Crown! 👑✨",
+      "Pride, Football & Absolute Fabulousness 🌈🏈",
+      "Serving Touchdowns & Pure Drag Excellence Since 2017 💅",
+      "Sparkle Hard, Play Harder 💖🦄",
+      "The Most Fabulous Record Book in Fantasy Sports 🏆✨",
+      "Category Is: Fantasy Championship Realness 💅🔥"
+    ];
+    let taglineIndex = 0;
+    setInterval(() => {
+      taglineIndex = (taglineIndex + 1) % TAGLINES.length;
+      const el = document.getElementById('tagline-text');
+      if (el) {
+        el.style.opacity = '0';
+        setTimeout(() => {
+          el.innerText = TAGLINES[taglineIndex];
+          el.style.opacity = '1';
+        }, 300);
+      }
+    }, 4500);
+
     });
 
     function switchTab(tabId) {
