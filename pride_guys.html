@@ -674,7 +674,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_03"></script>
+  <script src="prideGuysData.js?v=20260816_04"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1110,11 +1110,12 @@
       const pMatchups = sData.playoffMatchups || [];
       const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === currentSeason);
 
-      const stageOrder = ['Wild Card', 'Semi-Finals', 'Championship Final', '3rd Place Game'];
-      const stages = stageOrder.filter(stg => pMatchups.some(m => m.stage === stg));
+      // Separate Championship Bracket vs Consolation Matchups
+      const champStageOrder = ['Wild Card', 'Semi-Finals', 'Championship Final', '3rd Place Game', '5th Place Game'];
+      const champStages = champStageOrder.filter(stg => pMatchups.some(m => m.stage === stg));
 
       let pCardsHtml = '';
-      stages.forEach(stg => {
+      champStages.forEach(stg => {
         const stgMatchups = pMatchups.filter(m => m.stage === stg);
         let mListHtml = '';
 
@@ -1124,13 +1125,14 @@
 
           let cardBorder = 'border-emerald-800';
           if (stg === 'Championship Final') cardBorder = 'border-2 border-amber-500 bg-amber-950/20';
-          else if (stg === '3rd Place Game') cardBorder = 'border-2 border-amber-700/60 bg-amber-950/10';
+          else if (stg === '3rd Place Game') cardBorder = 'border-2 border-amber-600/70 bg-amber-950/20';
+          else if (stg === '5th Place Game') cardBorder = 'border-2 border-emerald-700 bg-emerald-950/20';
 
           mListHtml += `
             <div class="bg-black/90 p-3 rounded border ${cardBorder}">
               <div class="text-[10px] font-bold tracking-wider text-emerald-500 mb-2 flex justify-between uppercase">
                 <span>[${m.stage}]</span>
-                <span>WEEK ${m.week}</span>
+                <span>WEEK ${m.weekNumber || m.week}</span>
               </div>
               <div class="space-y-1.5 text-xs">
                 <div class="flex justify-between items-center p-1.5 rounded ${isHomeWinner ? 'bg-emerald-950/80 border border-emerald-500 font-bold' : ''}">
@@ -1155,16 +1157,17 @@
           `;
         });
 
-        let headerTitle = stg === 'Championship Final' ? '🏆 NEBUCHADNEZZAR CUP' : stg.toUpperCase();
+        let headerTitle = stg === 'Championship Final' ? '🏆 CHAMPIONSHIP FINAL' : stg.toUpperCase();
         let headerColor = 'text-emerald-300';
         if (stg === 'Championship Final') headerColor = 'text-amber-400 crt-glow-amber font-black';
-        else if (stg === '3rd Place Game') headerColor = 'text-amber-600 font-bold';
+        else if (stg === '3rd Place Game') headerColor = 'text-amber-500 font-bold';
+        else if (stg === '5th Place Game') headerColor = 'text-emerald-400 font-bold';
 
         pCardsHtml += `
           <div class="crt-box rounded p-4">
             <h3 class="text-sm font-bold ${headerColor} border-b border-emerald-800 pb-2 mb-3 flex items-center justify-between">
               <span>${headerTitle}</span>
-              <span class="text-xs font-normal text-emerald-600">WEEK ${stgMatchups[0].week}</span>
+              <span class="text-xs font-normal text-emerald-600">WEEK ${stgMatchups[0].weekNumber || stgMatchups[0].week}</span>
             </h3>
             <div class="space-y-3">
               ${mListHtml}
@@ -1172,6 +1175,104 @@
           </div>
         `;
       });
+
+      // Consolation Bracket Round Robin
+      const consolationMatchups = pMatchups.filter(m => m.stage === 'Consolation Round Robin' || m.stage === 'Consolation Matchup' || (m.rawTier && m.rawTier.includes('LOSERS')));
+      let consolationHtml = '';
+
+      if (consolationMatchups.length > 0) {
+        // Calculate Consolation Standings across Weeks 15-17
+        const consStats = {};
+        consolationMatchups.forEach(m => {
+          for (const [o, t, s, oppS] of [[m.homeOwner, m.homeTeam, m.homeScore, m.awayScore], [m.awayOwner, m.awayTeam, m.awayScore, m.homeScore]]) {
+            if (!consStats[o]) consStats[o] = { owner: o, team: t, wins: 0, losses: 0, pf: 0.0, seed: m.homeOwner === o ? m.homeSeed : m.awaySeed };
+            consStats[o].pf += s;
+            if (s > oppS) consStats[o].wins += 1;
+            else if (s < oppS) consStats[o].losses += 1;
+          }
+        });
+
+        const consList = Object.values(consStats).sort((a, b) => (-a.wins) || (-a.pf));
+        let consTableRows = '';
+        consList.forEach((c, idx) => {
+          consTableRows += `
+            <tr class="border-b border-emerald-950 text-xs">
+              <td class="p-2 font-bold text-amber-400">#${idx + 7}</td>
+              <td class="p-2 font-bold text-emerald-300">${c.team} <span class="text-[10px] text-emerald-600">(${c.owner})</span></td>
+              <td class="p-2 text-center font-mono">${c.wins}-${c.losses}</td>
+              <td class="p-2 text-right font-mono font-bold text-emerald-300">${c.pf.toFixed(2)}</td>
+            </tr>
+          `;
+        });
+
+        // Group Consolation Games by Week
+        const consByWk = {};
+        consolationMatchups.forEach(m => {
+          const wk = m.weekNumber || m.week;
+          if (!consByWk[wk]) consByWk[wk] = [];
+          consByWk[wk].push(m);
+        });
+
+        let consGamesHtml = '';
+        Object.keys(consByWk).sort((a, b) => Number(a) - Number(b)).forEach(wk => {
+          let wkListHtml = '';
+          consByWk[wk].forEach(m => {
+            const isHomeWin = m.homeScore > m.awayScore;
+            const isAwayWin = m.awayScore > m.homeScore;
+            wkListHtml += `
+              <div class="bg-black/90 p-2.5 rounded border border-emerald-900/60 text-xs">
+                <div class="flex justify-between items-center mb-1 ${isHomeWin ? 'font-bold text-emerald-300' : 'text-emerald-600'}">
+                  <span>#${m.homeSeed} ${m.homeTeam}</span>
+                  <span class="font-mono">${m.homeScore.toFixed(2)}</span>
+                </div>
+                <div class="flex justify-between items-center ${isAwayWin ? 'font-bold text-emerald-300' : 'text-emerald-600'}">
+                  <span>#${m.awaySeed} ${m.awayTeam}</span>
+                  <span class="font-mono">${m.awayScore.toFixed(2)}</span>
+                </div>
+              </div>
+            `;
+          });
+
+          consGamesHtml += `
+            <div class="bg-emerald-950/20 p-3 rounded border border-emerald-900">
+              <div class="text-[11px] font-bold text-amber-400 mb-2 uppercase">CONSOLATION WEEK ${wk}</div>
+              <div class="space-y-2">${wkListHtml}</div>
+            </div>
+          `;
+        });
+
+        consolationHtml = `
+          <div class="crt-box p-4 rounded mb-6 border-emerald-800">
+            <h3 class="text-sm font-bold text-amber-400 border-b border-emerald-800 pb-2 mb-3 flex items-center justify-between">
+              <span>💩 CONSOLATION TOURNAMENT / DRAFT ORDER ROUND ROBIN (SEEDS #7-#10)</span>
+              <span class="text-xs text-emerald-500 font-normal">TIEBREAKER: TOTAL PF IN WEEKS 15-17</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <!-- Consolation Standings Table -->
+              <div class="lg:col-span-1 bg-black/80 p-3 rounded border border-emerald-900">
+                <div class="text-[11px] font-bold text-emerald-400 mb-2 uppercase">&gt;_ DRAFT_DETERMINATION_STANDINGS</div>
+                <table class="w-full text-left">
+                  <thead>
+                    <tr class="border-b border-emerald-800 text-[10px] text-emerald-500 uppercase">
+                      <th class="p-1.5">POS</th>
+                      <th class="p-1.5">TEAM</th>
+                      <th class="p-1.5 text-center">REC</th>
+                      <th class="p-1.5 text-right">PF</th>
+                    </tr>
+                  </thead>
+                  <tbody>${consTableRows}</tbody>
+                </table>
+              </div>
+
+              <!-- Consolation Games by Week -->
+              <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                ${consGamesHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      }
 
       let podiumHtml = '';
       if (champ) {
@@ -1182,7 +1283,7 @@
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
               <div class="bg-amber-950/40 border border-amber-500 p-3 rounded">
-                <span class="text-[10px] uppercase font-bold text-amber-400 block">🏆 1st (Championship Final Winner)</span>
+                <span class="text-[10px] uppercase font-bold text-amber-400 block">🏆 1st (Championship Winner)</span>
                 <span class="text-base font-black text-white block mt-1">${champ.firstTeam}</span>
                 <span class="text-xs text-amber-300 block">[${champ.firstOwner}]</span>
               </div>
@@ -1203,9 +1304,15 @@
 
       container.innerHTML = `
         ${podiumHtml}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-          ${pCardsHtml}
+        <div class="mb-4">
+          <h3 class="text-sm font-bold text-emerald-300 tracking-wider uppercase mb-3 flex items-center gap-2">
+            <span>🏆 CHAMPIONSHIP BRACKET &amp; PLACEMENT MATCHUPS (SEEDS #1-#6)</span>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            ${pCardsHtml}
+          </div>
         </div>
+        ${consolationHtml}
       `;
     }
 
