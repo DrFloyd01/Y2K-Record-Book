@@ -126,10 +126,10 @@
     }
 
     /* Glowing Text Effects */
-    .crt-glow {
+    .crt-glow-pink {
       text-shadow: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
     }
-    .crt-glow-amber {
+    .crt-glow-pink-amber {
       text-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
     }
 
@@ -169,15 +169,15 @@
     .tooltip-trigger:hover .tooltip-content { display: block; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-emerald-900 selection:text-emerald-200">
+<body class="min-h-screen flex flex-col selection:bg-pink-950/60 selection:text-purple-200">
 
   <!-- Terminal Top Header Bar -->
-  <header class="bg-black border-b border-emerald-600 shadow-lg sticky top-0 z-40">
+  <header class="bg-black border-b border-pink-500/50 shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-4 py-2.5 flex items-center justify-between font-mono">
       <div class="flex items-center gap-3">
-        <span class="text-xs bg-emerald-950 text-emerald-400 px-2 py-0.5 border border-emerald-600 font-bold crt-glow">P1_PHOSPHOR://SYSTEM_READY</span>
-        <h1 class="text-base font-bold text-emerald-400 crt-glow tracking-wider hidden sm:block">
-          PRIDE GUYS FANTASY LEAGUE <span class="text-xs text-emerald-600">[BUILD_2026.08]</span>
+        <span class="text-xs bg-purple-950/70 text-pink-400 px-2 py-0.5 border border-pink-500/50 font-bold crt-glow-pink">P1_PHOSPHOR://SYSTEM_READY</span>
+        <h1 class="text-base font-bold text-pink-400 crt-glow-pink tracking-wider hidden sm:block">
+          PRIDE GUYS FANTASY LEAGUE <span class="text-xs text-purple-300/80">[BUILD_2026.08]</span>
         </h1>
       </div>
 
@@ -192,8 +192,8 @@
         <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn px-3.5 py-1.5 text-xs font-bold font-fredoka rounded-lg transition-all text-purple-300 hover:text-white hover:bg-purple-900/40">📊 ANALYTICS 📈</button>
       </nav>
 
-      <div class="text-xs text-emerald-500 font-mono flex items-center gap-2">
-        <span class="animate-pulse text-emerald-400">●</span> ONLINE
+      <div class="text-xs text-pink-300 font-mono flex items-center gap-2">
+        <span class="animate-pulse text-pink-400">●</span> ONLINE
       </div>
     </div>
   </header>
@@ -207,10 +207,10 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_DATABASE // FANTASY RECORD BOOK</div>
-            <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STANDINGS &amp; ARCHIVES</h2>
-            <p class="text-xs text-emerald-500 mt-1" id="champion-banner">
-              &gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">Globo Gym</span> (2025 Championship Final Winner - Dylan)
+            <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">✨ LEAGUE DATABASE // FANTASY RECORD BOOK ✨</div>
+            <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">LEAGUE STANDINGS &amp; ARCHIVES</h2>
+            <p class="text-xs text-pink-300 mt-1" id="champion-banner">
+              &gt; ACTIVE_CHAMPION: <span class="font-bold text-pink-200 crt-glow-pink">Globo Gym</span> (2025 Championship Final Winner - Dylan)
             </p>
           </div>
 
@@ -221,11 +221,11 @@
 
       <!-- Sub-Navigation Toggles (Actual Standings / Playoff Bracket) -->
       <div class="flex justify-center mb-4">
-        <div class="inline-flex bg-black p-1 border border-emerald-700">
-          <button onclick="switchSeasonsSubTab('actual')" id="subnav-actual" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
+        <div class="inline-flex bg-black p-1 border border-purple-500/40">
+          <button onclick="switchSeasonsSubTab('actual')" id="subnav-actual" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all bg-pink-950/60 text-pink-200 border border-pink-400">
             [+] ACTUAL STANDINGS
           </button>
-          <button onclick="switchSeasonsSubTab('playoff')" id="subnav-playoff" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
+          <button onclick="switchSeasonsSubTab('playoff')" id="subnav-playoff" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all text-purple-300/80 hover:text-pink-200">
             [+] PLAYOFF BRACKET
           </button>
         </div>
@@ -235,7 +235,7 @@
         <div class="crt-box rounded overflow-visible mb-8">
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse">
-              <thead class="crt-box-header font-bold border-b border-emerald-600">
+              <thead class="crt-box-header font-bold border-b border-pink-500/50">
                 <tr id="standings-table-header"></tr>
               </thead>
               <tbody id="standings-table-body"></tbody>
@@ -248,54 +248,54 @@
       <div id="stat-records-section" class="crt-box rounded overflow-visible mb-8">
         <div class="crt-box-header px-4 py-2.5 font-bold text-sm flex items-center justify-between">
           <span>&gt;_ SEASONAL_RECORDS_LOG</span>
-          <span class="text-xs text-emerald-400 font-normal" id="records-season-label">2025 Season</span>
+          <span class="text-xs text-pink-400 font-normal" id="records-season-label">2025 Season</span>
         </div>
         <div class="p-4 space-y-6">
           <!-- Single-Game Record Cards Grid -->
           <div>
-            <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">&gt; SINGLE-GAME &amp; STREAK RECORD HOLDERS:</h3>
+            <h3 class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-3">&gt; SINGLE-GAME &amp; STREAK RECORD HOLDERS:</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="stat-cards-grid"></div>
           </div>
 
           <!-- Weekly Badges & Bad Luck Tally Table -->
-          <div class="border-t border-emerald-800 pt-4">
+          <div class="border-t border-pink-500/40 pt-4">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 mb-3">
-              <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK TALLY:</h3>
-              <span class="text-[11px] text-emerald-600 font-normal italic">Hover over any count badge or header to inspect details &amp; definitions</span>
+              <h3 class="text-xs font-bold text-pink-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK TALLY:</h3>
+              <span class="text-[11px] text-purple-300/80 font-normal italic">Hover over any count badge or header to inspect details &amp; definitions</span>
             </div>
             <div class="w-full overflow-visible">
               <table class="w-full text-xs text-left border-collapse">
-                <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+                <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
                   <tr>
-                    <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-emerald-900">Franchise Owner</th>
-                    <th onclick="sortWeeklyBadges('weeklyWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-pink-950/60">Franchise Owner</th>
+                    <th onclick="sortWeeklyBadges('weeklyWins')" class="p-2 text-center cursor-pointer hover:bg-pink-950/60">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡ Weekly Wins (WW)</span>
-                        <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl font-normal text-left">
-                          ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a regular season week
+                        <span class="px-2.5 py-1 bg-purple-950/70 text-pink-200 font-bold border border-pink-400 rounded text-xs hover:bg-pink-950/60 transition-all inline-block shadow-sm">⚡ Weekly Wins (WW)</span>
+                        <div class="tooltip-content p-2 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl font-normal text-left">
+                          ⚡ <span class="font-bold text-pink-400">Weekly Wins (WW):</span> Highest scoring team in a regular season week
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('luckiestWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('luckiestWins')" class="p-2 text-center cursor-pointer hover:bg-pink-950/60">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 Luckiest Wins (LW)</span>
-                        <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl font-normal text-left">
-                          🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in a regular season week
+                        <span class="px-2.5 py-1 bg-purple-950/70 text-pink-400 font-bold border border-pink-500/50 rounded text-xs hover:bg-pink-950/60 transition-all inline-block shadow-sm">🍀 Luckiest Wins (LW)</span>
+                        <div class="tooltip-content p-2 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl font-normal text-left">
+                          🍀 <span class="font-bold text-pink-400">Luckiest Wins (LW):</span> Lowest winning score in a regular season week
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('heartbreaks')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('heartbreaks')" class="p-2 text-center cursor-pointer hover:bg-pink-950/60">
                       <div class="tooltip-trigger inline-block cursor-pointer">
                         <span class="px-2.5 py-1 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔 Heartbreaks (HB)</span>
-                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
+                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-pink-200 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
                           💔 <span class="font-bold text-red-400">Heartbreaks (HB):</span> Smallest point margin loss in a regular season week (losing by a hair)
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('toughestLosses')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('toughestLosses')" class="p-2 text-center cursor-pointer hover:bg-pink-950/60">
                       <div class="tooltip-trigger inline-block cursor-pointer">
                         <span class="px-2.5 py-1 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕 Toughest Losses (TL)</span>
-                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
+                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-pink-200 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
                           🤕 <span class="font-bold text-amber-400">Toughest Losses (TL):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
                         </div>
                       </div>
@@ -311,7 +311,7 @@
 
       <!-- Rule Note (Placed at bottom of page) -->
       <div class="text-center mt-6 mb-4" id="standings-rule-note">
-        <span class="text-xs text-emerald-500 bg-emerald-950/60 px-3.5 py-1.5 border border-emerald-800 inline-block shadow-sm">
+        <span class="text-xs text-pink-300 bg-purple-950/70/60 px-3.5 py-1.5 border border-pink-500/40 inline-block shadow-sm">
           &gt; RULE_NOTE: Top 6 teams qualify for playoffs (Seeds #1 &amp; #2 Bye). Consolation Bracket playoff games count toward determining next year's draft order!
         </span>
       </div>
@@ -323,16 +323,16 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
-            <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STAT LEADERBOARDS</h2>
-            <p class="text-xs text-emerald-500 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
+            <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
+            <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">LEAGUE STAT LEADERBOARDS</h2>
+            <p class="text-xs text-pink-300 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
+          <div class="flex flex-col sm:flex-row items-center gap-3 bg-purple-950/70/80 p-2.5 border border-purple-500/40 rounded">
             <!-- Stage Segment Filter -->
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; STAGE:</label>
-              <select id="stats-stage-select" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <label class="text-xs font-bold uppercase text-pink-400 whitespace-nowrap">&gt; STAGE:</label>
+              <select id="stats-stage-select" onchange="renderStatsTable()" class="bg-black border border-pink-500/50 text-pink-200 text-xs p-1 font-mono font-bold">
                 <option value="combined" selected>COMBINED (ALL GAMES)</option>
                 <option value="regular">REGULAR SEASON ONLY</option>
                 <option value="playoffs">PLAYOFFS ONLY</option>
@@ -341,8 +341,8 @@
 
             <!-- Year Filter -->
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; YEAR:</label>
-              <select id="stats-season-select" onchange="onStatsSeasonChange()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <label class="text-xs font-bold uppercase text-pink-400 whitespace-nowrap">&gt; YEAR:</label>
+              <select id="stats-season-select" onchange="onStatsSeasonChange()" class="bg-black border border-pink-500/50 text-pink-200 text-xs p-1 font-mono font-bold">
                 <option value="allTime" selected>ALL TIME (2018-2025)</option>
                 <option value="2025">2025 SEASON</option>
                 <option value="2024">2024 SEASON</option>
@@ -355,10 +355,10 @@
                 <option value="custom">CUSTOM RANGE...</option>
               </select>
 
-              <div id="stats-custom-range" class="hidden items-center gap-1 text-xs text-emerald-400">
-                <select id="stats-from-year" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
+              <div id="stats-custom-range" class="hidden items-center gap-1 text-xs text-pink-400">
+                <select id="stats-from-year" onchange="renderStatsTable()" class="bg-black border border-pink-500/50 text-pink-200 text-xs p-1 font-mono"></select>
                 <span>to</span>
-                <select id="stats-to-year" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
+                <select id="stats-to-year" onchange="renderStatsTable()" class="bg-black border border-pink-500/50 text-pink-200 text-xs p-1 font-mono"></select>
               </div>
             </div>
           </div>
@@ -366,10 +366,10 @@
       </div>
 
       <div class="flex items-center gap-2 flex-wrap mb-5">
-        <button onclick="filterStats('singleGameHigh')" id="stat-filter-singleGameHigh" class="stat-filter-btn px-3 py-1.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-bold text-xs">SINGLE-GAME HIGHS</button>
-        <button onclick="filterStats('singleGameLow')" id="stat-filter-singleGameLow" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">SINGLE-GAME LOWS</button>
-        <button onclick="filterStats('seasonHigh')" id="stat-filter-seasonHigh" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">MOST POINTS SEASON</button>
-        <button onclick="filterStats('margins')" id="stat-filter-margins" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">BLOWOUTS &amp; NAILBITERS</button>
+        <button onclick="filterStats('singleGameHigh')" id="stat-filter-singleGameHigh" class="stat-filter-btn px-3 py-1.5 border border-pink-400 bg-pink-950/60 text-pink-200 font-bold text-xs">SINGLE-GAME HIGHS</button>
+        <button onclick="filterStats('singleGameLow')" id="stat-filter-singleGameLow" class="stat-filter-btn px-3 py-1.5 border border-pink-500/40 text-pink-300 hover:bg-purple-950/70 font-bold text-xs">SINGLE-GAME LOWS</button>
+        <button onclick="filterStats('seasonHigh')" id="stat-filter-seasonHigh" class="stat-filter-btn px-3 py-1.5 border border-pink-500/40 text-pink-300 hover:bg-purple-950/70 font-bold text-xs">MOST POINTS SEASON</button>
+        <button onclick="filterStats('margins')" id="stat-filter-margins" class="stat-filter-btn px-3 py-1.5 border border-pink-500/40 text-pink-300 hover:bg-purple-950/70 font-bold text-xs">BLOWOUTS &amp; NAILBITERS</button>
       </div>
 
       <div id="stats-leaderboard-container"></div>
@@ -381,27 +381,27 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
-            <h2 class="text-2xl font-black text-emerald-300 crt-glow">WEEKLY MATCHUP HUBS</h2>
-            <p class="text-xs text-emerald-500 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
+            <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
+            <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">WEEKLY MATCHUP HUBS</h2>
+            <p class="text-xs text-pink-300 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
           </div>
 
           <!-- Controls: Season, Mode Toggle -->
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
+          <div class="flex flex-col sm:flex-row items-center gap-3 bg-purple-950/70/80 p-2.5 border border-purple-500/40 rounded">
             <!-- Mode Toggle -->
-            <div class="inline-flex bg-black p-1 border border-emerald-700">
-              <button onclick="switchMatchupMode('preview')" id="matchup-mode-preview" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
+            <div class="inline-flex bg-black p-1 border border-purple-500/40">
+              <button onclick="switchMatchupMode('preview')" id="matchup-mode-preview" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-950/60 text-pink-200 border border-pink-400">
                 🏈 PREVIEW
               </button>
-              <button onclick="switchMatchupMode('recap')" id="matchup-mode-recap" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
+              <button onclick="switchMatchupMode('recap')" id="matchup-mode-recap" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-300/80 hover:text-pink-200">
                 📊 RECAP
               </button>
             </div>
 
             <!-- Season Selector -->
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; SEASON:</label>
-              <select id="matchup-season-select" onchange="onMatchupSeasonChange()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <label class="text-xs font-bold uppercase text-pink-400 whitespace-nowrap">&gt; SEASON:</label>
+              <select id="matchup-season-select" onchange="onMatchupSeasonChange()" class="bg-black border border-pink-500/50 text-pink-200 text-xs p-1 font-mono font-bold">
                 <option value="allTime">ALL-TIME (2017-2025)</option>
                 <option value="2026">2026 SEASON</option>
                 <option value="2025" selected>2025 SEASON</option>
@@ -419,13 +419,13 @@
         </div>
 
         <!-- Week Selector Pills -->
-        <div class="mt-4 pt-3 border-t border-emerald-900/60 flex items-center gap-1.5 flex-wrap justify-center" id="matchup-week-pills-container"></div>
+        <div class="mt-4 pt-3 border-t border-pink-500/30/60 flex items-center gap-1.5 flex-wrap justify-center" id="matchup-week-pills-container"></div>
       </div>
 
       <!-- Matchups Grid Header Banner -->
-      <div id="matchup-header-banner" class="crt-box rounded p-3 mb-4 bg-emerald-950/40 flex justify-between items-center flex-wrap gap-2">
-        <span id="matchup-title-heading" class="text-sm font-black text-emerald-300 crt-glow"></span>
-        <span id="matchup-mode-badge" class="px-2 py-0.5 bg-black border border-emerald-600 text-emerald-400 font-bold text-xs"></span>
+      <div id="matchup-header-banner" class="crt-box rounded p-3 mb-4 bg-purple-950/70/40 flex justify-between items-center flex-wrap gap-2">
+        <span id="matchup-title-heading" class="text-sm font-black text-pink-200 crt-glow-pink"></span>
+        <span id="matchup-mode-badge" class="px-2 py-0.5 bg-black border border-pink-500/50 text-pink-400 font-bold text-xs"></span>
       </div>
 
       <!-- Matchup Cards Container -->
@@ -436,9 +436,9 @@
     <!-- TAB 3: HEAD TO HEAD -->
     <div id="tab-h2h" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
-        <h2 class="text-2xl font-black text-emerald-300 crt-glow">HEAD-TO-HEAD RECORDS</h2>
-        <p class="text-xs text-emerald-500 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
+        <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
+        <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">HEAD-TO-HEAD RECORDS</h2>
+        <p class="text-xs text-pink-300 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
       </div>
 
       <!-- 1. H2H WINNING STREAKS LEADERBOARD -->
@@ -446,15 +446,15 @@
         <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span>&gt;_ H2H_WINNING_STREAKS_LEADERBOARD</span>
           <div class="flex items-center gap-1 flex-wrap justify-center">
-            <button onclick="filterH2HStreaks('all')" id="streak-filter-all" class="streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs">ALL STREAKS</button>
-            <button onclick="filterH2HStreaks('active')" id="streak-filter-active" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">🔥 ACTIVE ONLY</button>
-            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">REGULAR SEASON</button>
-            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
+            <button onclick="filterH2HStreaks('all')" id="streak-filter-all" class="streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-950/60 text-pink-200 font-bold text-xs">ALL STREAKS</button>
+            <button onclick="filterH2HStreaks('active')" id="streak-filter-active" class="streak-filter-btn px-2.5 py-1 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-xs">🔥 ACTIVE ONLY</button>
+            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular" class="streak-filter-btn px-2.5 py-1 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-xs">REGULAR SEASON</button>
+            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-xs">PLAYOFFS</button>
           </div>
         </div>
         <div class="w-full overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700 sticky top-0 bg-black">
+            <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40 sticky top-0 bg-black">
               <tr>
                 <th class="p-2.5 text-center">Rank</th>
                 <th class="p-2.5">Dominant Manager</th>
@@ -475,12 +475,12 @@
           <div class="flex items-center gap-3">
             <span>&gt;_ LIFETIME_H2H_GRID_MATRIX</span>
             <div class="flex gap-1" id="h2h-matrix-filter-buttons">
-              <button id="matrix-filter-all" onclick="filterH2HMatrix('all')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
-              <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
-              <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
+              <button id="matrix-filter-all" onclick="filterH2HMatrix('all')" class="matrix-filter-btn px-2 py-0.5 border border-pink-400 bg-pink-950/60 text-pink-200 font-bold text-[10px]">ALL</button>
+              <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')" class="matrix-filter-btn px-2 py-0.5 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-[10px]">REGULAR</button>
+              <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')" class="matrix-filter-btn px-2 py-0.5 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-[10px]">PLAYOFFS</button>
             </div>
           </div>
-          <span class="text-[10px] text-emerald-400 font-normal">Click any cell to query H2H matchup breakdown &amp; game log</span>
+          <span class="text-[10px] text-pink-400 font-normal">Click any cell to query H2H matchup breakdown &amp; game log</span>
         </div>
         <div class="p-3 overflow-visible">
           <table class="w-full text-xs text-center border-collapse">
@@ -494,16 +494,16 @@
       <div id="h2h-compare-section" class="crt-box rounded p-4 mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <div>
-            <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT OWNER 1:</label>
-            <select id="h2h-owner-1" onchange="renderH2HComparison()" class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+            <label class="block text-xs font-bold text-pink-400 mb-1">&gt; SELECT OWNER 1:</label>
+            <select id="h2h-owner-1" onchange="renderH2HComparison()" class="w-full bg-black border border-pink-500/50 p-2 text-xs font-bold text-pink-200"></select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT OWNER 2:</label>
-            <select id="h2h-owner-2" onchange="renderH2HComparison()" class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+            <label class="block text-xs font-bold text-pink-400 mb-1">&gt; SELECT OWNER 2:</label>
+            <select id="h2h-owner-2" onchange="renderH2HComparison()" class="w-full bg-black border border-pink-500/50 p-2 text-xs font-bold text-pink-200"></select>
           </div>
         </div>
 
-        <div id="h2h-summary-banner" class="mt-4 p-4 bg-black border border-emerald-600"></div>
+        <div id="h2h-summary-banner" class="mt-4 p-4 bg-black border border-pink-500/50"></div>
       </div>
 
       <!-- 4. MATCHUP HISTORY LOG -->
@@ -514,7 +514,7 @@
         </div>
         <div class="w-full overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+            <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
               <tr>
                 <th class="p-2 text-center">Season</th>
                 <th class="p-2 text-center">Week</th>
@@ -535,9 +535,9 @@
     <!-- TAB 4: CHAMPS -->
     <div id="tab-champs" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
-        <h2 class="text-2xl font-black text-emerald-300 crt-glow">NEBUCHADNEZZAR CUP &amp; SCORING ARCHIVES</h2>
-        <p class="text-xs text-emerald-500 mt-1">Hover over any owner's 🏆 1st, 🥈 2nd, 🥉 3rd, or 🎯 Scoring Titles on the Dynasty Leaderboard below to inspect exact matchup game results!</p>
+        <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
+        <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">NEBUCHADNEZZAR CUP &amp; SCORING ARCHIVES</h2>
+        <p class="text-xs text-pink-300 mt-1">Hover over any owner's 🏆 1st, 🥈 2nd, 🥉 3rd, or 🎯 Scoring Titles on the Dynasty Leaderboard below to inspect exact matchup game results!</p>
       </div>
 
       <div class="crt-box rounded overflow-visible mb-6">
@@ -546,7 +546,7 @@
         </div>
         <div class="overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+            <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
               <tr>
                 <th class="p-2 text-center">#</th>
                 <th class="p-2">Owner</th>
@@ -571,14 +571,14 @@
     <!-- TAB 5: TEAMS -->
     <div id="tab-teams" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
-        <h2 class="text-2xl font-black text-emerald-300 crt-glow">FRANCHISE PROFILES &amp; HISTORY</h2>
-        <p class="text-xs text-emerald-500 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
+        <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
+        <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">FRANCHISE PROFILES &amp; HISTORY</h2>
+        <p class="text-xs text-pink-300 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
       </div>
 
       <div class="crt-box rounded p-4 mb-6">
-        <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT FRANCHISE OWNER:</label>
-        <select id="team-owner-select" onchange="renderFranchiseProfile()" class="w-full md:w-1/2 bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+        <label class="block text-xs font-bold text-pink-400 mb-1">&gt; SELECT FRANCHISE OWNER:</label>
+        <select id="team-owner-select" onchange="renderFranchiseProfile()" class="w-full md:w-1/2 bg-black border border-pink-500/50 p-2 text-xs font-bold text-pink-200"></select>
       </div>
 
       <div id="franchise-profile-card"></div>
@@ -590,9 +590,9 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
-            <h2 class="text-2xl font-black text-emerald-300 crt-glow">OFFICIAL DRAFT ORDER HISTORY</h2>
-            <p class="text-xs text-emerald-500 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
+            <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
+            <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">OFFICIAL DRAFT ORDER HISTORY</h2>
+            <p class="text-xs text-pink-300 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
           </div>
 
           <div class="flex items-center gap-1 flex-wrap justify-center" id="draft-season-selector"></div>
@@ -608,7 +608,7 @@
         </div>
         <div class="w-full overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+            <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
               <tr>
                 <th class="p-2.5 text-center">Pick #</th>
                 <th class="p-2.5">Drafting Franchise</th>
@@ -625,15 +625,15 @@
         <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span id="player-draft-title">&gt;_ PLAYER_DRAFT_RESULTS</span>
           <div class="flex items-center gap-2 w-full md:w-auto">
-            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()" placeholder="Search player or owner..." class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded w-full md:w-48">
-            <select id="draft-round-select" onchange="filterPlayerDraftPicks()" class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded">
+            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()" placeholder="Search player or owner..." class="bg-black border border-purple-500/40 px-2 py-1 text-xs text-pink-200 rounded w-full md:w-48">
+            <select id="draft-round-select" onchange="filterPlayerDraftPicks()" class="bg-black border border-purple-500/40 px-2 py-1 text-xs text-pink-200 rounded">
               <option value="all">All Rounds</option>
             </select>
           </div>
         </div>
         <div class="w-full overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700 sticky top-0 bg-black">
+            <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40 sticky top-0 bg-black">
               <tr>
                 <th class="p-2.5 text-center">Overall Pick #</th>
                 <th class="p-2.5 text-center">Round Pick</th>
@@ -651,18 +651,18 @@
     <!-- TAB 7: ANALYTICS -->
     <div id="tab-analytics" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_ANALYTICS</div>
-        <h2 class="text-2xl font-black text-emerald-300 crt-glow">ADVANCED ANALYTICS PORTAL</h2>
-        <p class="text-xs text-emerald-500 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter Analysis.</p>
+        <div class="text-xs text-pink-300 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_ANALYTICS</div>
+        <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">ADVANCED ANALYTICS PORTAL</h2>
+        <p class="text-xs text-pink-300 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter Analysis.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <div class="crt-box rounded p-4">
-          <h3 class="text-base font-bold text-emerald-300 mb-2 crt-glow">&gt;_ ALL_TIME_LUCK_INDEX</h3>
-          <p class="text-xs text-emerald-500 mb-3">Positive luck rating = actual wins exceeding expected wins based on weekly score rank.</p>
+          <h3 class="text-base font-bold text-pink-200 mb-2 crt-glow-pink">&gt;_ ALL_TIME_LUCK_INDEX</h3>
+          <p class="text-xs text-pink-300 mb-3">Positive luck rating = actual wins exceeding expected wins based on weekly score rank.</p>
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse">
-              <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+              <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
                 <tr>
                   <th class="p-2">Owner</th>
                   <th class="p-2 text-center">Actual W</th>
@@ -676,7 +676,7 @@
         </div>
 
         <div class="crt-box rounded p-4 flex flex-col justify-center">
-          <h3 class="text-base font-bold text-emerald-300 mb-2 crt-glow">&gt;_ LUCK_RATING_BAR_CHART</h3>
+          <h3 class="text-base font-bold text-pink-200 mb-2 crt-glow-pink">&gt;_ LUCK_RATING_BAR_CHART</h3>
           <div class="relative h-64">
             <canvas id="luckChart"></canvas>
           </div>
@@ -684,8 +684,8 @@
       </div>
 
       <div class="crt-box rounded p-4">
-        <h3 class="text-base font-bold text-emerald-300 mb-1 crt-glow">&gt;_ PER_GAME_SCORING_SCATTER (PF/G vs PA/G)</h3>
-        <p class="text-xs text-emerald-500 mb-3">Standardized by total games played across active seasons.</p>
+        <h3 class="text-base font-bold text-pink-200 mb-1 crt-glow-pink">&gt;_ PER_GAME_SCORING_SCATTER (PF/G vs PA/G)</h3>
+        <p class="text-xs text-pink-300 mb-3">Standardized by total games played across active seasons.</p>
         <div class="relative h-80">
           <canvas id="pfPaChart"></canvas>
         </div>
@@ -695,35 +695,35 @@
   </main>
 
   <!-- Mobile Bottom Navigation Bar -->
-  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-black border-t border-emerald-600 shadow-2xl z-40">
+  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-black border-t border-pink-500/50 shadow-2xl z-40">
     <div class="flex justify-around items-center h-14 font-mono text-[10px]">
-      <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-400 font-bold">
+      <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-400 font-bold">
         <span>SEASONS</span>
       </button>
       <!-- STATS tab hidden as per request -->
-      <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>H2H</span>
       </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>WEEKLY</span>
       </button>
-      <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>CHAMPS</span>
       </button>
-      <button onclick="switchTab('teams')" id="mobile-nav-teams" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('teams')" id="mobile-nav-teams" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>TEAMS</span>
       </button>
-      <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>DRAFT</span>
       </button>
-      <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-300/60">
         <span>ANALYTICS</span>
       </button>
     </div>
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_11"></script>
+  <script src="prideGuysData.js?v=20260816_12"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -801,23 +801,23 @@
       document.getElementById(`tab-${tabId}`).classList.remove('hidden');
 
       document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
-        btn.classList.add('text-emerald-500', 'border-emerald-800');
+        btn.classList.remove('bg-pink-950/60/60', 'text-pink-200', 'border-pink-400');
+        btn.classList.add('text-pink-300', 'border-pink-500/40');
       });
       const activeNav = document.getElementById(`nav-${tabId}`);
       if (activeNav) {
-        activeNav.classList.add('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
-        activeNav.classList.remove('text-emerald-500', 'border-emerald-800');
+        activeNav.classList.add('bg-pink-950/60/60', 'text-pink-200', 'border-pink-400');
+        activeNav.classList.remove('text-pink-300', 'border-pink-500/40');
       }
 
       document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
-        btn.classList.remove('text-emerald-400', 'font-bold');
-        btn.classList.add('text-emerald-700');
+        btn.classList.remove('text-pink-400', 'font-bold');
+        btn.classList.add('text-purple-300/60');
       });
       const activeMobileNav = document.getElementById(`mobile-nav-${tabId}`);
       if (activeMobileNav) {
-        activeMobileNav.classList.add('text-emerald-400', 'font-bold');
-        activeMobileNav.classList.remove('text-emerald-700');
+        activeMobileNav.classList.add('text-pink-400', 'font-bold');
+        activeMobileNav.classList.remove('text-purple-300/60');
       }
 
       if (tabId === 'stats') {
@@ -840,7 +840,7 @@
         const btn = document.createElement('button');
         btn.id = `btn-season-${yr}`;
         btn.onclick = () => selectSeason(yr);
-        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`;
+        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentSeason ? 'bg-pink-950/60 text-pink-200 border-pink-400' : 'bg-black text-purple-300/80 border-pink-500/30 hover:border-purple-500/40'}`;
         btn.innerText = yr;
         container.appendChild(btn);
       });
@@ -848,7 +848,7 @@
       const allTimeBtn = document.createElement('button');
       allTimeBtn.id = 'btn-season-allTime';
       allTimeBtn.onclick = () => selectSeason('allTime');
-      allTimeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+      allTimeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-purple-300/80 border-pink-500/30 hover:border-purple-500/40';
       allTimeBtn.innerText = 'ALL_TIME';
       container.appendChild(allTimeBtn);
     }
@@ -856,26 +856,26 @@
     function selectSeason(yr) {
       currentSeason = yr;
       document.querySelectorAll('#season-selector-container button').forEach(btn => {
-        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-purple-300/80 border-pink-500/30 hover:border-purple-500/40';
       });
       const activeBtn = document.getElementById(`btn-season-${yr}`);
       if (activeBtn) {
-        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400';
+        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-pink-950/60 text-pink-200 border-pink-400';
       }
 
       const banner = document.getElementById('champion-banner');
       if (yr === 'allTime') {
         standingsSortField = 'winPct';
         standingsSortAsc = false;
-        banner.innerHTML = `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">All-Time Cumulative League Standings</span>`;
+        banner.innerHTML = `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-200 crt-glow-pink">All-Time Cumulative League Standings</span>`;
       } else {
         standingsSortField = 'rank';
         standingsSortAsc = true;
         const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === yr);
         if (champ) {
-          banner.innerHTML = `&gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">${champ.firstTeam}</span> (${yr} Championship Final Winner - ${champ.firstOwner})`;
+          banner.innerHTML = `&gt; ACTIVE_CHAMPION: <span class="font-bold text-pink-200 crt-glow-pink">${champ.firstTeam}</span> (${yr} Championship Final Winner - ${champ.firstOwner})`;
         } else {
-          banner.innerHTML = `&gt; SEASON_VIEW: <span class="font-bold text-emerald-300">${yr} Season</span>`;
+          banner.innerHTML = `&gt; SEASON_VIEW: <span class="font-bold text-pink-200">${yr} Season</span>`;
         }
       }
 
@@ -886,13 +886,13 @@
     function switchSeasonsSubTab(subTab) {
       currentSeasonsSubTab = subTab;
       document.querySelectorAll('.subnav-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
-        btn.classList.add('text-emerald-600');
+        btn.classList.remove('bg-pink-950/60', 'text-pink-200', 'border', 'border-pink-400');
+        btn.classList.add('text-purple-300/80');
       });
       const activeSub = document.getElementById(`subnav-${subTab}`);
       if (activeSub) {
-        activeSub.classList.add('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
-        activeSub.classList.remove('text-emerald-600');
+        activeSub.classList.add('bg-pink-950/60', 'text-pink-200', 'border', 'border-pink-400');
+        activeSub.classList.remove('text-purple-300/80');
       }
       renderStandings();
     }
@@ -925,7 +925,7 @@
         <div class="crt-box rounded overflow-visible mb-8">
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse">
-              <thead class="crt-box-header font-bold border-b border-emerald-600">
+              <thead class="crt-box-header font-bold border-b border-pink-500/50">
                 <tr id="standings-table-header"></tr>
               </thead>
               <tbody id="standings-table-body"></tbody>
@@ -1004,84 +1004,84 @@
       });
 
       headerTr.innerHTML = `
-        <th onclick="sortStandings('rank')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">#</th>
-        <th onclick="sortStandings('teamName')" class="p-2.5 cursor-pointer hover:bg-emerald-900">FRANCHISE_TEAM</th>
-        <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">W-L</th>
+        <th onclick="sortStandings('rank')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">#</th>
+        <th onclick="sortStandings('teamName')" class="p-2.5 cursor-pointer hover:bg-pink-950/60">FRANCHISE_TEAM</th>
+        <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">W-L</th>
         <th class="p-2.5 text-center">FORM</th>
-        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">LUCK</th>
-        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">OVR_W-L</th>
-        <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">LUCK</th>
+        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">OVR_W-L</th>
+        <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">
           <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">⚡ WW</span>
-            <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal">
-              ⚡ <span class="font-bold text-emerald-400">WW (Weekly Wins):</span> Highest scoring team in a regular season week
+            <span class="px-2 py-0.5 bg-purple-950/70 text-pink-200 font-bold border border-pink-400 rounded text-xs hover:bg-purple-900/60 transition-all inline-block shadow-sm">⚡ WW</span>
+            <div class="tooltip-content p-2 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal">
+              ⚡ <span class="font-bold text-pink-400">WW (Weekly Wins):</span> Highest scoring team in a regular season week
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+        <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">
           <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 LW</span>
-            <div class="tooltip-content p-2 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal">
-              🍀 <span class="font-bold text-emerald-400">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
+            <span class="px-2 py-0.5 bg-purple-950/70 text-pink-400 font-bold border border-pink-500/50 rounded text-xs hover:bg-pink-950/60 transition-all inline-block shadow-sm">🍀 LW</span>
+            <div class="tooltip-content p-2 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal">
+              🍀 <span class="font-bold text-pink-400">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('heartbreaks')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+        <th onclick="sortStandings('heartbreaks')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔 HB</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-right p-2 bg-black text-pink-200 rounded border border-red-600 text-xs shadow-2xl text-left font-normal">
               💔 <span class="font-bold text-red-400">HB (Heartbreaks):</span> Smallest point margin loss in a regular season week (losing by a hair)
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('toughestLosses')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+        <th onclick="sortStandings('toughestLosses')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕 TL</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-right p-2 bg-black text-pink-200 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal">
               🤕 <span class="font-bold text-amber-400">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">PF</th>
-        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">PA</th>
+        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">PF</th>
+        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-950/60">PA</th>
       `;
 
       list.forEach((item, idx) => {
         const tr = document.createElement('tr');
         const isTop3 = idx < 3;
-        tr.className = `border-b border-emerald-950 transition-colors ${isTop3 ? 'bg-emerald-950/40 font-bold' : 'hover:bg-emerald-950/20'}`;
+        tr.className = `border-b border-purple-950/60 transition-colors ${isTop3 ? 'bg-purple-950/70/40 font-bold' : 'hover:bg-purple-950/70/20'}`;
 
         let formHtml = '<div class="flex gap-1 justify-center font-mono font-bold text-[11px]">';
         if (item.form && item.form.length > 0) {
           item.form.forEach(f => {
             formHtml += (f === 'W') 
-              ? `<span class="text-emerald-400">W</span>`
+              ? `<span class="text-pink-400">W</span>`
               : `<span class="text-red-500">L</span>`;
           });
         } else {
-          formHtml += `<span class="text-emerald-800">-</span>`;
+          formHtml += `<span class="text-pink-400/40">-</span>`;
         }
         formHtml += '</div>';
 
         const luckVal = item.luck || 0;
         const luckBadge = luckVal > 0 
-          ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
-          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-700">0</span>`);
+          ? `<span class="text-pink-400 font-bold">+${luckVal} W</span>`
+          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-purple-300/60">0</span>`);
 
         // 1. WW Badge
-        let wwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let wwBadge = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         const wwCount = item.weeklyWins || 0;
         if (wwCount > 0 && item.wwDetails) {
           let tooltipList = item.wwDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span></div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-200">${d.score.toFixed(1)} PF</span></div>`;
           }).join('');
 
           wwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs">${wwCount}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
+              <span class="px-2 py-0.5 bg-pink-950/60 text-pink-200 font-bold border border-pink-400 text-xs">${wwCount}</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
             </div>
@@ -1089,19 +1089,19 @@
         }
 
         // 2. LW Badge
-        let lwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let lwBadge = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         const lwCount = item.luckiestWins || 0;
         if (lwCount > 0 && item.lwDetails) {
           let tooltipList = item.lwDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-200">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
           }).join('');
 
           lwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs">${lwCount}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
+              <span class="px-2 py-0.5 bg-purple-950/70 text-pink-400 font-bold border border-pink-500/50 text-xs">${lwCount}</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
             </div>
@@ -1109,7 +1109,7 @@
         }
 
         // 3. HB Badge
-        let hbBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let hbBadge = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         const hbCount = item.heartbreaks || 0;
         if (hbCount > 0 && item.hbDetails) {
           let tooltipList = item.hbDetails.map(d => {
@@ -1120,7 +1120,7 @@
           hbBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs">${hbCount}</span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-pink-200 rounded border border-red-600 text-xs shadow-2xl">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -1129,7 +1129,7 @@
         }
 
         // 4. TL Badge
-        let tlBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let tlBadge = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         const tlCount = item.toughestLosses || 0;
         if (tlCount > 0 && item.tlDetails) {
           let tooltipList = item.tlDetails.map(d => {
@@ -1140,7 +1140,7 @@
           tlBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs">${tlCount}</span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-pink-200 rounded border border-amber-500 text-xs shadow-2xl">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -1149,18 +1149,18 @@
         }
 
         const wlCell = currentSeason === 'allTime' 
-          ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>` 
+          ? `<span class="font-black text-pink-200">${item.wins}-${item.losses}</span> <span class="text-[10px] text-pink-400 font-normal">(${item.winPct}%)</span>` 
           : `${item.wins}-${item.losses}`;
 
         const ovrCell = currentSeason === 'allTime' 
-          ? `<span class="text-emerald-400 font-bold">${item.ovrRecord}</span> <span class="text-[10px] text-emerald-500 font-normal">(${item.ovrWinPct}%)</span>` 
+          ? `<span class="text-pink-400 font-bold">${item.ovrRecord}</span> <span class="text-[10px] text-pink-300 font-normal">(${item.ovrWinPct}%)</span>` 
           : item.ovrRecord;
 
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold text-emerald-300">${item.rank || (idx + 1)}</td>
+          <td class="p-2.5 text-center font-bold text-pink-200">${item.rank || (idx + 1)}</td>
           <td class="p-2.5">
-            <span class="font-bold block text-emerald-300 hover:underline cursor-pointer" onclick="selectFranchiseByName('${item.ownerName}')"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
-            <span class="text-[11px] text-emerald-600">[${item.ownerName}]</span>
+            <span class="font-bold block text-pink-200 hover:underline cursor-pointer" onclick="selectFranchiseByName('${item.ownerName}')"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
+            <span class="text-[11px] text-purple-300/80">[${item.ownerName}]</span>
           </td>
           <td class="p-2.5 text-center">${wlCell}</td>
           <td class="p-2.5 text-center">${formHtml}</td>
@@ -1170,8 +1170,8 @@
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-300">${item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-          <td class="p-2.5 text-center text-emerald-500">${item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center font-bold text-pink-200">${item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center text-pink-300">${item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -1197,34 +1197,34 @@
           const isHomeWinner = m.homeScore > m.awayScore;
           const isAwayWinner = m.awayScore > m.homeScore;
 
-          let cardBorder = 'border-emerald-800';
+          let cardBorder = 'border-pink-500/40';
           if (stg === 'Championship Final') cardBorder = 'border-2 border-amber-500 bg-amber-950/20';
           else if (stg === '3rd Place Game') cardBorder = 'border-2 border-amber-600/70 bg-amber-950/20';
-          else if (stg === '5th Place Game') cardBorder = 'border-2 border-emerald-700 bg-emerald-950/20';
+          else if (stg === '5th Place Game') cardBorder = 'border-2 border-purple-500/40 bg-purple-950/70/20';
 
           mListHtml += `
             <div class="bg-black/90 p-3 rounded border ${cardBorder}">
-              <div class="text-[10px] font-bold tracking-wider text-emerald-500 mb-2 flex justify-between uppercase">
+              <div class="text-[10px] font-bold tracking-wider text-pink-300 mb-2 flex justify-between uppercase">
                 <span>[${m.stage}]</span>
                 <span>WEEK ${m.weekNumber || m.week}</span>
               </div>
               <div class="space-y-1.5 text-xs">
-                <div class="flex justify-between items-center p-1.5 rounded ${isHomeWinner ? 'bg-emerald-950/80 border border-emerald-500 font-bold' : ''}">
+                <div class="flex justify-between items-center p-1.5 rounded ${isHomeWinner ? 'bg-purple-950/70/80 border border-pink-400 font-bold' : ''}">
                   <div class="flex items-center gap-1.5">
-                    <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-emerald-900 text-emerald-300 border border-emerald-700">#${m.homeSeed}</span>
-                    <span class="${isHomeWinner ? 'text-emerald-300 crt-glow' : 'text-emerald-600'}">${m.homeTeam}</span>
-                    <span class="text-[10px] text-emerald-700 font-normal">[${m.homeOwner}]</span>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-pink-950/60 text-pink-200 border border-purple-500/40">#${m.homeSeed}</span>
+                    <span class="${isHomeWinner ? 'text-pink-200 crt-glow-pink' : 'text-purple-300/80'}">${m.homeTeam}</span>
+                    <span class="text-[10px] text-purple-300/60 font-normal">[${m.homeOwner}]</span>
                   </div>
-                  <span class="font-mono font-bold ${isHomeWinner ? 'text-emerald-300 crt-glow' : 'text-emerald-600'}">${m.homeScore.toFixed(2)}</span>
+                  <span class="font-mono font-bold ${isHomeWinner ? 'text-pink-200 crt-glow-pink' : 'text-purple-300/80'}">${m.homeScore.toFixed(2)}</span>
                 </div>
 
-                <div class="flex justify-between items-center p-1.5 rounded ${isAwayWinner ? 'bg-emerald-950/80 border border-emerald-500 font-bold' : ''}">
+                <div class="flex justify-between items-center p-1.5 rounded ${isAwayWinner ? 'bg-purple-950/70/80 border border-pink-400 font-bold' : ''}">
                   <div class="flex items-center gap-1.5">
-                    <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-emerald-900 text-emerald-300 border border-emerald-700">#${m.awaySeed}</span>
-                    <span class="${isAwayWinner ? 'text-emerald-300 crt-glow' : 'text-emerald-600'}">${m.awayTeam}</span>
-                    <span class="text-[10px] text-emerald-700 font-normal">[${m.awayOwner}]</span>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-pink-950/60 text-pink-200 border border-purple-500/40">#${m.awaySeed}</span>
+                    <span class="${isAwayWinner ? 'text-pink-200 crt-glow-pink' : 'text-purple-300/80'}">${m.awayTeam}</span>
+                    <span class="text-[10px] text-purple-300/60 font-normal">[${m.awayOwner}]</span>
                   </div>
-                  <span class="font-mono font-bold ${isAwayWinner ? 'text-emerald-300 crt-glow' : 'text-emerald-600'}">${m.awayScore.toFixed(2)}</span>
+                  <span class="font-mono font-bold ${isAwayWinner ? 'text-pink-200 crt-glow-pink' : 'text-purple-300/80'}">${m.awayScore.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -1232,16 +1232,16 @@
         });
 
         let headerTitle = stg === 'Championship Final' ? '🏆 CHAMPIONSHIP FINAL' : stg.toUpperCase();
-        let headerColor = 'text-emerald-300';
-        if (stg === 'Championship Final') headerColor = 'text-amber-400 crt-glow-amber font-black';
+        let headerColor = 'text-pink-200';
+        if (stg === 'Championship Final') headerColor = 'text-amber-400 crt-glow-pink-amber font-black';
         else if (stg === '3rd Place Game') headerColor = 'text-amber-500 font-bold';
-        else if (stg === '5th Place Game') headerColor = 'text-emerald-400 font-bold';
+        else if (stg === '5th Place Game') headerColor = 'text-pink-400 font-bold';
 
         pCardsHtml += `
           <div class="crt-box rounded p-4">
-            <h3 class="text-sm font-bold ${headerColor} border-b border-emerald-800 pb-2 mb-3 flex items-center justify-between">
+            <h3 class="text-sm font-bold ${headerColor} border-b border-pink-500/40 pb-2 mb-3 flex items-center justify-between">
               <span>${headerTitle}</span>
-              <span class="text-xs font-normal text-emerald-600">WEEK ${stgMatchups[0].weekNumber || stgMatchups[0].week}</span>
+              <span class="text-xs font-normal text-purple-300/80">WEEK ${stgMatchups[0].weekNumber || stgMatchups[0].week}</span>
             </h3>
             <div class="space-y-3">
               ${mListHtml}
@@ -1270,11 +1270,11 @@
         let consTableRows = '';
         consList.forEach((c, idx) => {
           consTableRows += `
-            <tr class="border-b border-emerald-950 text-xs">
+            <tr class="border-b border-purple-950/60 text-xs">
               <td class="p-2 font-bold text-amber-400">Pick #${idx + 1}</td>
-              <td class="p-2 font-bold text-emerald-300">${c.team} <span class="text-[10px] text-emerald-600">(${c.owner})</span></td>
+              <td class="p-2 font-bold text-pink-200">${c.team} <span class="text-[10px] text-purple-300/80">(${c.owner})</span></td>
               <td class="p-2 text-center font-mono">${c.wins}-${c.losses}</td>
-              <td class="p-2 text-right font-mono font-bold text-emerald-300">${c.pf.toFixed(2)}</td>
+              <td class="p-2 text-right font-mono font-bold text-pink-200">${c.pf.toFixed(2)}</td>
             </tr>
           `;
         });
@@ -1294,12 +1294,12 @@
             const isHomeWin = m.homeScore > m.awayScore;
             const isAwayWin = m.awayScore > m.homeScore;
             wkListHtml += `
-              <div class="bg-black/90 p-2.5 rounded border border-emerald-900/60 text-xs">
-                <div class="flex justify-between items-center mb-1 ${isHomeWin ? 'font-bold text-emerald-300' : 'text-emerald-600'}">
+              <div class="bg-black/90 p-2.5 rounded border border-pink-500/30/60 text-xs">
+                <div class="flex justify-between items-center mb-1 ${isHomeWin ? 'font-bold text-pink-200' : 'text-purple-300/80'}">
                   <span>#${m.homeSeed} ${m.homeTeam}</span>
                   <span class="font-mono">${m.homeScore.toFixed(2)}</span>
                 </div>
-                <div class="flex justify-between items-center ${isAwayWin ? 'font-bold text-emerald-300' : 'text-emerald-600'}">
+                <div class="flex justify-between items-center ${isAwayWin ? 'font-bold text-pink-200' : 'text-purple-300/80'}">
                   <span>#${m.awaySeed} ${m.awayTeam}</span>
                   <span class="font-mono">${m.awayScore.toFixed(2)}</span>
                 </div>
@@ -1308,7 +1308,7 @@
           });
 
           consGamesHtml += `
-            <div class="bg-emerald-950/20 p-3 rounded border border-emerald-900">
+            <div class="bg-purple-950/70/20 p-3 rounded border border-pink-500/30">
               <div class="text-[11px] font-bold text-amber-400 mb-2 uppercase">CONSOLATION WEEK ${wk}</div>
               <div class="space-y-2">${wkListHtml}</div>
             </div>
@@ -1316,19 +1316,19 @@
         });
 
         consolationHtml = `
-          <div class="crt-box p-4 rounded mb-6 border-emerald-800">
-            <h3 class="text-sm font-bold text-amber-400 border-b border-emerald-800 pb-2 mb-3 flex items-center justify-between">
+          <div class="crt-box p-4 rounded mb-6 border-pink-500/40">
+            <h3 class="text-sm font-bold text-amber-400 border-b border-pink-500/40 pb-2 mb-3 flex items-center justify-between">
               <span>💩 CONSOLATION TOURNAMENT / DRAFT ORDER ROUND ROBIN (SEEDS #7-#10)</span>
-              <span class="text-xs text-emerald-500 font-normal">TIEBREAKER: TOTAL PF IN WEEKS 15-17</span>
+              <span class="text-xs text-pink-300 font-normal">TIEBREAKER: TOTAL PF IN WEEKS 15-17</span>
             </h3>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
               <!-- Consolation Standings Table -->
-              <div class="lg:col-span-1 bg-black/80 p-3 rounded border border-emerald-900">
-                <div class="text-[11px] font-bold text-emerald-400 mb-2 uppercase">&gt;_ DRAFT_DETERMINATION_STANDINGS</div>
+              <div class="lg:col-span-1 bg-black/80 p-3 rounded border border-pink-500/30">
+                <div class="text-[11px] font-bold text-pink-400 mb-2 uppercase">💖 DRAFT DETERMINATION STANDINGS</div>
                 <table class="w-full text-left">
                   <thead>
-                    <tr class="border-b border-emerald-800 text-[10px] text-emerald-500 uppercase">
+                    <tr class="border-b border-pink-500/40 text-[10px] text-pink-300 uppercase">
                       <th class="p-1.5">DRAFT SLOT</th>
                       <th class="p-1.5">TEAM</th>
                       <th class="p-1.5 text-center">CONS REC</th>
@@ -1352,7 +1352,7 @@
       if (champ) {
         podiumHtml = `
           <div class="crt-box p-4 rounded mb-6 border-amber-500 bg-black">
-            <h3 class="text-sm font-black text-center text-amber-400 crt-glow-amber mb-3">
+            <h3 class="text-sm font-black text-center text-amber-400 crt-glow-pink-amber mb-3">
               🏆 ${currentSeason} PLAYOFF PODIUM FINISHERS
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
@@ -1361,14 +1361,14 @@
                 <span class="text-base font-black text-white block mt-1">${champ.firstTeam}</span>
                 <span class="text-xs text-amber-300 block">[${champ.firstOwner}]</span>
               </div>
-              <div class="bg-emerald-950/40 border border-emerald-700 p-3 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-400 block">🥈 2nd Place Runner-Up</span>
-                <span class="text-base font-black text-emerald-200 block mt-1">${champ.secondTeam}</span>
-                <span class="text-xs text-emerald-400 block">[${champ.secondOwner}]</span>
+              <div class="bg-purple-950/70/40 border border-purple-500/40 p-3 rounded">
+                <span class="text-[10px] uppercase font-bold text-pink-400 block">🥈 2nd Place Runner-Up</span>
+                <span class="text-base font-black text-purple-200 block mt-1">${champ.secondTeam}</span>
+                <span class="text-xs text-pink-400 block">[${champ.secondOwner}]</span>
               </div>
               <div class="bg-amber-950/20 border border-amber-700 p-3 rounded">
                 <span class="text-[10px] uppercase font-bold text-amber-600 block">🥉 3rd Place Winner</span>
-                <span class="text-base font-black text-emerald-200 block mt-1">${champ.thirdTeam}</span>
+                <span class="text-base font-black text-purple-200 block mt-1">${champ.thirdTeam}</span>
                 <span class="text-xs text-amber-500 block">[${champ.thirdOwner}]</span>
               </div>
             </div>
@@ -1379,7 +1379,7 @@
       container.innerHTML = `
         ${podiumHtml}
         <div class="mb-4">
-          <h3 class="text-sm font-bold text-emerald-300 tracking-wider uppercase mb-3 flex items-center gap-2">
+          <h3 class="text-sm font-bold text-pink-200 tracking-wider uppercase mb-3 flex items-center gap-2">
             <span>🏆 CHAMPIONSHIP BRACKET &amp; PLACEMENT MATCHUPS (SEEDS #1-#6)</span>
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -1543,19 +1543,19 @@
       
       const top5 = getStatCardTop5(metricKey, season);
       const rowsHtml = top5.map((item, i) => `
-        <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
+        <div class="py-1 border-b border-pink-500/30/40 flex items-center justify-between text-[11px]">
           <div>
-            <span class="font-bold text-emerald-300">#${i+1} ${item.owner}</span>
-            <span class="text-[10px] text-emerald-600 block">${item.sub}</span>
+            <span class="font-bold text-pink-200">#${i+1} ${item.owner}</span>
+            <span class="text-[10px] text-purple-300/80 block">${item.sub}</span>
           </div>
-          <span class="font-extrabold text-emerald-400 bg-emerald-950 px-1.5 py-0.5 border border-emerald-700 text-[10px]">${item.valStr}</span>
+          <span class="font-extrabold text-pink-400 bg-purple-950/70 px-1.5 py-0.5 border border-purple-500/40 text-[10px]">${item.valStr}</span>
         </div>
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-mono z-50 w-72">
-          <div class="font-bold text-amber-400 border-b border-emerald-800 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
-          ${rowsHtml || '<div class="text-emerald-600 italic">No data records found</div>'}
+        <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl text-left font-mono z-50 w-72">
+          <div class="font-bold text-amber-400 border-b border-pink-500/40 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
+          ${rowsHtml || '<div class="text-purple-300/80 italic">No data records found</div>'}
         </div>
       `;
     }
@@ -1623,7 +1623,7 @@
 
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
-          div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-emerald-400 transition-all shadow-md';
+          div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-pink-400 transition-all shadow-md';
           
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
@@ -1636,13 +1636,13 @@
           }
 
           div.innerHTML = `
-            <div class="text-[11px] font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-2 flex items-center justify-between">
+            <div class="text-[11px] font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-2 flex items-center justify-between">
               <span>&gt; ${card.title}</span>
-              <span class="text-[9px] text-emerald-600 font-normal">Hover Top 5 🔍</span>
+              <span class="text-[9px] text-purple-300/80 font-normal">Hover Top 5 🔍</span>
             </div>
-            <p class="text-xl font-black text-emerald-300 crt-glow">${val}</p>
-            <p class="text-xs font-bold text-emerald-200 truncate mt-1">${team} <span class="text-[10px] text-emerald-500 font-normal">[${owner}]</span></p>
-            <p class="text-[10px] text-emerald-400 italic mt-0.5 truncate">${sub}</p>
+            <p class="text-xl font-black text-pink-200 crt-glow-pink">${val}</p>
+            <p class="text-xs font-bold text-purple-200 truncate mt-1">${team} <span class="text-[10px] text-pink-300 font-normal">[${owner}]</span></p>
+            <p class="text-[10px] text-pink-400 italic mt-0.5 truncate">${sub}</p>
             ${popoverHtml}
           `;
           container.appendChild(div);
@@ -1678,7 +1678,7 @@
 
       list.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/30 font-mono';
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/30 font-mono';
 
         const wwCount = item.weeklyWins || 0;
         const lwCount = item.luckiestWins || 0;
@@ -1686,20 +1686,20 @@
         const tlCount = item.toughestLosses || 0;
 
         // 1. WW Tooltip
-        let wwCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let wwCell = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         if (wwCount > 0 && item.wwDetails) {
           const tooltipList = item.wwDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span></div>`;
+            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-200">${d.score.toFixed(1)} PF</span></div>`;
           }).join('');
 
           wwCell = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs hover:bg-emerald-800 hover:border-emerald-300 transition-all cursor-help">
+              <span class="px-2.5 py-0.5 bg-pink-950/60 text-pink-200 font-bold border border-pink-400 text-xs hover:bg-purple-900/60 hover:border-pink-300 transition-all cursor-help">
                 ${wwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl w-64 text-left">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
             </div>
@@ -1707,20 +1707,20 @@
         }
 
         // 2. LW Tooltip
-        let lwCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let lwCell = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         if (lwCount > 0 && item.lwDetails) {
           const tooltipList = item.lwDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
+            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-200">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
           }).join('');
 
           lwCell = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs hover:bg-emerald-900 hover:border-emerald-400 transition-all cursor-help">
+              <span class="px-2.5 py-0.5 bg-purple-950/70 text-pink-400 font-bold border border-pink-500/50 text-xs hover:bg-pink-950/60 hover:border-pink-400 transition-all cursor-help">
                 ${lwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl w-64 text-left">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
             </div>
@@ -1728,7 +1728,7 @@
         }
 
         // 3. HB Tooltip
-        let hbCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let hbCell = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         if (hbCount > 0 && item.hbDetails) {
           const tooltipList = item.hbDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
@@ -1740,7 +1740,7 @@
               <span class="px-2.5 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs hover:bg-red-900 hover:border-red-500 transition-all cursor-help">
                 ${hbCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-pink-200 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.ownerName} Heartbreak Losses (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -1749,7 +1749,7 @@
         }
 
         // 4. TL Tooltip
-        let tlCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let tlCell = `<span class="px-2 py-0.5 bg-black/60 text-purple-300/80 font-bold border border-pink-500/30/60 text-xs">0</span>`;
         if (tlCount > 0 && item.tlDetails) {
           const tooltipList = item.tlDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
@@ -1761,7 +1761,7 @@
               <span class="px-2.5 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs hover:bg-amber-900 hover:border-amber-400 transition-all cursor-help">
                 ${tlCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-pink-200 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.ownerName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -1771,7 +1771,7 @@
 
         const rankBadge = item.rank ? `<span class="text-amber-400 font-bold mr-1.5 text-xs">#${item.rank}</span>` : '';
         tr.innerHTML = `
-          <td class="p-2 font-bold text-emerald-300">${rankBadge}${item.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${item.ownerName}]</span></td>
+          <td class="p-2 font-bold text-pink-200">${rankBadge}${item.teamName} <span class="text-[10px] text-purple-300/80 font-normal">[${item.ownerName}]</span></td>
           <td class="p-2 text-center">${wwCell}</td>
           <td class="p-2 text-center">${lwCell}</td>
           <td class="p-2 text-center">${hbCell}</td>
@@ -1852,13 +1852,13 @@
     function filterStats(type) {
       currentStatFilter = type;
       document.querySelectorAll('.stat-filter-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
-        btn.classList.add('text-emerald-500', 'border-emerald-800');
+        btn.classList.remove('bg-pink-950/60', 'text-pink-200', 'border-pink-400');
+        btn.classList.add('text-pink-300', 'border-pink-500/40');
       });
       const active = document.getElementById(`stat-filter-${type}`);
       if (active) {
-        active.classList.add('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
-        active.classList.remove('text-emerald-500', 'border-emerald-800');
+        active.classList.add('bg-pink-950/60', 'text-pink-200', 'border-pink-400');
+        active.classList.remove('text-pink-300', 'border-pink-500/40');
       }
       renderStatsTable();
     }
@@ -1919,13 +1919,13 @@
             : `${g.yr} W${g.wk}`;
 
           return `
-            <tr class="border-b border-emerald-950 hover:bg-emerald-950/30">
-              <td class="p-2 text-center font-bold text-emerald-400">#${idx + 1}</td>
-              <td class="p-2 font-bold text-emerald-300">${g.winner.t} <span class="text-[10px] text-emerald-600">[${g.winner.o}]</span></td>
-              <td class="p-2 text-emerald-600">${g.loser.t} <span class="text-[10px] text-emerald-700">[${g.loser.o}]</span></td>
-              <td class="p-2 text-center font-black text-emerald-300">+${g.margin.toFixed(2)}</td>
-              <td class="p-2 text-center font-mono text-emerald-500">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
-              <td class="p-2 text-center text-emerald-600">${gameBadge}</td>
+            <tr class="border-b border-purple-950/60 hover:bg-purple-950/70/30">
+              <td class="p-2 text-center font-bold text-pink-400">#${idx + 1}</td>
+              <td class="p-2 font-bold text-pink-200">${g.winner.t} <span class="text-[10px] text-purple-300/80">[${g.winner.o}]</span></td>
+              <td class="p-2 text-purple-300/80">${g.loser.t} <span class="text-[10px] text-purple-300/60">[${g.loser.o}]</span></td>
+              <td class="p-2 text-center font-black text-pink-200">+${g.margin.toFixed(2)}</td>
+              <td class="p-2 text-center font-mono text-pink-300">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
+              <td class="p-2 text-center text-purple-300/80">${gameBadge}</td>
             </tr>
           `;
         }).join('');
@@ -1936,13 +1936,13 @@
             : `${g.yr} W${g.wk}`;
 
           return `
-            <tr class="border-b border-emerald-950 hover:bg-emerald-950/30">
+            <tr class="border-b border-purple-950/60 hover:bg-purple-950/70/30">
               <td class="p-2 text-center font-bold text-amber-400">#${idx + 1}</td>
-              <td class="p-2 font-bold text-amber-300">${g.winner.t} <span class="text-[10px] text-emerald-600">[${g.winner.o}]</span></td>
-              <td class="p-2 text-emerald-600">${g.loser.t} <span class="text-[10px] text-emerald-700">[${g.loser.o}]</span></td>
+              <td class="p-2 font-bold text-amber-300">${g.winner.t} <span class="text-[10px] text-purple-300/80">[${g.winner.o}]</span></td>
+              <td class="p-2 text-purple-300/80">${g.loser.t} <span class="text-[10px] text-purple-300/60">[${g.loser.o}]</span></td>
               <td class="p-2 text-center font-black text-amber-300">+${g.margin.toFixed(2)}</td>
-              <td class="p-2 text-center font-mono text-emerald-500">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
-              <td class="p-2 text-center text-emerald-600">${gameBadge}</td>
+              <td class="p-2 text-center font-mono text-pink-300">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
+              <td class="p-2 text-center text-purple-300/80">${gameBadge}</td>
             </tr>
           `;
         }).join('');
@@ -1952,11 +1952,11 @@
             <div class="crt-box rounded overflow-visible">
               <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
                 <span>💥 TOP 5 BIGGEST BLOWOUTS</span>
-                <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                <span class="font-normal text-pink-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
               </div>
               <div class="w-full overflow-visible">
                 <table class="w-full text-xs text-left border-collapse">
-                  <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+                  <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-pink-500/40">
                     <tr>
                       <th class="p-2 text-center">Rank</th>
                       <th class="p-2">Winner</th>
@@ -1974,11 +1974,11 @@
             <div class="crt-box rounded overflow-visible">
               <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
                 <span>🔍 TOP 5 CLOSEST NAILBITERS</span>
-                <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                <span class="font-normal text-pink-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
               </div>
               <div class="w-full overflow-visible">
                 <table class="w-full text-xs text-left border-collapse">
-                  <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
+                  <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-pink-500/40">
                     <tr>
                       <th class="p-2 text-center">Rank</th>
                       <th class="p-2">Winner</th>
@@ -2001,7 +2001,7 @@
         <div class="crt-box rounded overflow-visible">
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse">
-              <thead class="crt-box-header font-bold border-b border-emerald-600">
+              <thead class="crt-box-header font-bold border-b border-pink-500/50">
                 <tr id="stats-table-header"></tr>
               </thead>
               <tbody id="stats-table-body"></tbody>
@@ -2032,21 +2032,21 @@
         games.sort((a, b) => currentStatFilter === 'singleGameHigh' ? b.score - a.score : a.score - b.score);
         games.slice(0, 15).forEach((g, idx) => {
           const tr = document.createElement('tr');
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+          tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
 
           const stageBadge = g.isPlayoff 
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">Playoffs W${g.wk}</span>`
-            : `<span class="text-emerald-500 text-xs">Week ${g.wk}</span>`;
+            : `<span class="text-pink-300 text-xs">Week ${g.wk}</span>`;
 
           tr.innerHTML = `
-            <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-            <td class="p-2.5 font-bold text-emerald-300">
-              ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+            <td class="p-2.5 text-center font-bold text-pink-400">${idx + 1}</td>
+            <td class="p-2.5 font-bold text-pink-200">
+              ${g.team} <span class="text-[10px] text-purple-300/80 font-normal">[${g.owner}]</span>
             </td>
-            <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.score.toFixed(2)}</td>
-            <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
+            <td class="p-2.5 text-center font-black text-sm text-pink-200 crt-glow-pink">${g.score.toFixed(2)}</td>
+            <td class="p-2.5 text-center text-pink-300">${g.yr}</td>
             <td class="p-2.5 text-center">${stageBadge}</td>
-            <td class="p-2.5 text-emerald-600">vs ${g.opp}</td>
+            <td class="p-2.5 text-purple-300/80">vs ${g.opp}</td>
           `;
           tbody.appendChild(tr);
         });
@@ -2079,15 +2079,15 @@
           list.sort((a, b) => b.pf - a.pf);
           list.slice(0, 15).forEach((g, idx) => {
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+            tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
             tr.innerHTML = `
-              <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+              <td class="p-2.5 text-center font-bold text-pink-400">${idx + 1}</td>
+              <td class="p-2.5 font-bold text-pink-200">
+                ${g.team} <span class="text-[10px] text-purple-300/80 font-normal">[${g.owner}]</span>
               </td>
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
-              <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
-              <td class="p-2.5 text-center font-bold text-emerald-400">Regular Season</td>
+              <td class="p-2.5 text-center font-black text-sm text-pink-200 crt-glow-pink">${g.pf.toFixed(1)}</td>
+              <td class="p-2.5 text-center text-pink-300">${g.yr}</td>
+              <td class="p-2.5 text-center font-bold text-pink-400">Regular Season</td>
             `;
             tbody.appendChild(tr);
           });
@@ -2111,15 +2111,15 @@
           const list = Object.values(seasonTotals).sort((a, b) => b.pf - a.pf);
           list.slice(0, 15).forEach((g, idx) => {
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+            tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
             tr.innerHTML = `
-              <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+              <td class="p-2.5 text-center font-bold text-pink-400">${idx + 1}</td>
+              <td class="p-2.5 font-bold text-pink-200">
+                ${g.team} <span class="text-[10px] text-purple-300/80 font-normal">[${g.owner}]</span>
               </td>
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
-              <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
-              <td class="p-2.5 text-center font-bold text-emerald-400">${g.games} ${currentStatsStage === 'playoffs' ? 'Playoff' : 'Reg'} GP</td>
+              <td class="p-2.5 text-center font-black text-sm text-pink-200 crt-glow-pink">${g.pf.toFixed(1)}</td>
+              <td class="p-2.5 text-center text-pink-300">${g.yr}</td>
+              <td class="p-2.5 text-center font-bold text-pink-400">${g.games} ${currentStatsStage === 'playoffs' ? 'Playoff' : 'Reg'} GP</td>
             `;
             tbody.appendChild(tr);
           });
@@ -2267,11 +2267,11 @@
       tbody.innerHTML = '';
 
       document.querySelectorAll('.streak-filter-btn').forEach(btn => {
-        btn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs';
+        btn.className = 'streak-filter-btn px-2.5 py-1 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-xs';
       });
       const activeBtn = document.getElementById(`streak-filter-${filterType}`);
       if (activeBtn) {
-        activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs';
+        activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-950/60 text-pink-200 font-bold text-xs';
       }
 
       let streaks = window.LEAGUE_DATA.h2hStreaks || [];
@@ -2287,7 +2287,7 @@
       }
 
       if (streaks.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-emerald-600 italic">No head-to-head streaks recorded for this filter.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-purple-300/80 italic">No head-to-head streaks recorded for this filter.</td></tr>`;
         return;
       }
 
@@ -2320,69 +2320,69 @@
 
         if (r.type === 'single') {
           const s = r.item;
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 cursor-pointer transition-colors';
+          tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/40 cursor-pointer transition-colors';
           tr.onclick = () => selectH2HMatchup(s.winner, s.loser);
 
           const rankBadge = r.rank === 1 
-            ? '<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 #1</span>'
+            ? '<span class="text-amber-400 font-black crt-glow-pink-amber text-sm">🥇 #1</span>'
             : (r.rank === 2 
               ? '<span class="text-slate-300 font-bold text-xs">🥈 #2</span>'
               : (r.rank === 3 
                 ? '<span class="text-amber-600 font-bold text-xs">🥉 #3</span>'
-                : `<span class="text-emerald-500 font-bold text-xs">#${r.rank}</span>`));
+                : `<span class="text-pink-300 font-bold text-xs">#${r.rank}</span>`));
 
-          const streakBadge = `<span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow">${s.streak} WINS</span>`;
+          const streakBadge = `<span class="px-2 py-0.5 border border-pink-400 bg-purple-950/70 text-pink-200 font-black text-sm crt-glow-pink">${s.streak} WINS</span>`;
 
           const statusBadge = s.active 
             ? `<span class="px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-600 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
-            : `<span class="text-emerald-700 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
+            : `<span class="text-purple-300/60 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
 
           const spanStr = `${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}`;
 
           tr.innerHTML = `
             <td class="p-2.5 text-center">${rankBadge}</td>
-            <td class="p-2.5 font-extrabold text-emerald-300">${s.winner}</td>
-            <td class="p-2.5 font-bold text-emerald-500">${s.loser}</td>
+            <td class="p-2.5 font-extrabold text-pink-200">${s.winner}</td>
+            <td class="p-2.5 font-bold text-pink-300">${s.loser}</td>
             <td class="p-2.5 text-center">${streakBadge}</td>
-            <td class="p-2.5 text-center font-mono text-emerald-400">${spanStr}</td>
+            <td class="p-2.5 text-center font-mono text-pink-400">${spanStr}</td>
             <td class="p-2.5 text-center">${statusBadge}</td>
           `;
         } else {
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 cursor-pointer transition-colors tooltip-trigger';
+          tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/40 cursor-pointer transition-colors tooltip-trigger';
           
           const popoverListHtml = r.items.map(s => `
-            <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/60 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
+            <div class="py-1 border-b border-pink-500/30/40 flex items-center justify-between text-xs cursor-pointer hover:bg-purple-950/70/60 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
               <div>
-                <span class="font-bold text-emerald-300">${s.winner}</span>
-                <span class="text-[10px] text-emerald-500"> vs ${s.loser}</span>
-                <span class="text-[10px] text-emerald-600 block">${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}</span>
+                <span class="font-bold text-pink-200">${s.winner}</span>
+                <span class="text-[10px] text-pink-300"> vs ${s.loser}</span>
+                <span class="text-[10px] text-purple-300/80 block">${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}</span>
               </div>
               ${s.active ? '<span class="text-[9px] bg-amber-950 text-amber-400 border border-amber-700 px-1 font-bold">🔥 ACTIVE</span>' : ''}
             </div>
           `).join('');
 
           tr.innerHTML = `
-            <td class="p-2.5 text-center"><span class="text-emerald-500 font-bold text-xs">#${r.rank}</span></td>
-            <td class="p-2.5 font-bold text-emerald-300" colspan="2">
+            <td class="p-2.5 text-center"><span class="text-pink-300 font-bold text-xs">#${r.rank}</span></td>
+            <td class="p-2.5 font-bold text-pink-200" colspan="2">
               <div class="inline-block">
                 <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
-                <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
-                  <div class="font-bold text-amber-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
+                <div class="tooltip-content p-3 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
+                  <div class="font-bold text-amber-400 border-b border-pink-500/40 pb-1 mb-1 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
-                    <span class="text-[9px] text-emerald-500">Rank #${r.rank}</span>
+                    <span class="text-[9px] text-pink-300">Rank #${r.rank}</span>
                   </div>
                   ${popoverListHtml}
-                  <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-emerald-900 text-center">
+                  <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-pink-500/30 text-center">
                     🔍 Hover / Click any streak to inspect game log
                   </div>
                 </div>
               </div>
             </td>
             <td class="p-2.5 text-center">
-              <span class="px-2 py-0.5 border border-emerald-600 bg-emerald-950 text-emerald-300 font-black text-xs crt-glow">${r.streakVal} WINS EACH</span>
+              <span class="px-2 py-0.5 border border-pink-500/50 bg-purple-950/70 text-pink-200 font-black text-xs crt-glow-pink">${r.streakVal} WINS EACH</span>
             </td>
-            <td class="p-2.5 text-center font-mono text-emerald-500 text-[11px]">${r.count} Rivals Tied</td>
-            <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400 font-bold text-[10px]">🤝 MULTI-TIE</span></td>
+            <td class="p-2.5 text-center font-mono text-pink-300 text-[11px]">${r.count} Rivals Tied</td>
+            <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-black border border-pink-500/40 text-pink-400 font-bold text-[10px]">🤝 MULTI-TIE</span></td>
           `;
         }
         tbody.appendChild(tr);
@@ -2404,41 +2404,41 @@
 
       const b = getH2HBreakdown(o1, o2);
       if (!b) {
-        banner.innerHTML = `<p class="text-emerald-600 italic text-center">&gt; NO MATCHUP HISTORY FOUND BETWEEN ${o1} AND ${o2}.</p>`;
+        banner.innerHTML = `<p class="text-purple-300/80 italic text-center">&gt; NO MATCHUP HISTORY FOUND BETWEEN ${o1} AND ${o2}.</p>`;
         tbody.innerHTML = ''; label.innerText = '0 Games';
         return;
       }
 
       const maxStreakStr = b.maxStreak.streak > 0 
-        ? `<span class="font-bold text-emerald-300">${b.maxStreak.winner} (${b.maxStreak.streak} Wins)</span> <span class="text-[9px] text-emerald-600 block">${b.maxStreak.span}</span>`
+        ? `<span class="font-bold text-pink-200">${b.maxStreak.winner} (${b.maxStreak.streak} Wins)</span> <span class="text-[9px] text-purple-300/80 block">${b.maxStreak.span}</span>`
         : '-';
 
       banner.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-5 gap-2 items-center text-center font-mono">
-          <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-            <span class="text-[10px] uppercase font-bold text-emerald-600 block">REGULAR SEASON H2H</span>
-            <span class="text-lg font-black text-emerald-300 crt-glow">${b.o1} ${b.regW1} - ${b.regW2} ${b.o2}</span>
-            <span class="text-[10px] text-emerald-500 block mt-0.5">Streak: <span class="font-bold text-emerald-400">${b.regStreak}</span></span>
+          <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
+            <span class="text-[10px] uppercase font-bold text-purple-300/80 block">REGULAR SEASON H2H</span>
+            <span class="text-lg font-black text-pink-200 crt-glow-pink">${b.o1} ${b.regW1} - ${b.regW2} ${b.o2}</span>
+            <span class="text-[10px] text-pink-300 block mt-0.5">Streak: <span class="font-bold text-pink-400">${b.regStreak}</span></span>
           </div>
 
-          <div class="bg-black/60 p-2 border border-emerald-900 rounded">
+          <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
             <span class="text-[10px] uppercase font-bold text-amber-500 block">PLAYOFF H2H</span>
-            <span class="text-lg font-black text-amber-400 crt-glow-amber">${b.o1} ${b.playW1} - ${b.playW2} ${b.o2}</span>
+            <span class="text-lg font-black text-amber-400 crt-glow-pink-amber">${b.o1} ${b.playW1} - ${b.playW2} ${b.o2}</span>
             <span class="text-[10px] text-amber-500 block mt-0.5">Streak: <span class="font-bold text-amber-300">${b.playStreak}</span></span>
           </div>
 
-          <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-            <span class="text-[10px] uppercase font-bold text-emerald-400 block">TOTAL LIFETIME RECORD</span>
-            <span class="text-lg font-black text-emerald-300 crt-glow">${b.o1} ${b.totW1} - ${b.totW2} ${b.o2}</span>
-            <span class="text-[10px] text-emerald-600 block mt-0.5">${b.games.length} Total Games</span>
+          <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
+            <span class="text-[10px] uppercase font-bold text-pink-400 block">TOTAL LIFETIME RECORD</span>
+            <span class="text-lg font-black text-pink-200 crt-glow-pink">${b.o1} ${b.totW1} - ${b.totW2} ${b.o2}</span>
+            <span class="text-[10px] text-purple-300/80 block mt-0.5">${b.games.length} Total Games</span>
           </div>
 
-          <div class="bg-emerald-950/80 p-2 border border-emerald-600 rounded">
-            <span class="text-[10px] uppercase font-bold text-emerald-400 block">🔥 ACTIVE STREAK</span>
-            <span class="text-base font-black text-emerald-300 crt-glow block mt-0.5">${b.ovrStreak}</span>
+          <div class="bg-purple-950/70/80 p-2 border border-pink-500/50 rounded">
+            <span class="text-[10px] uppercase font-bold text-pink-400 block">🔥 ACTIVE STREAK</span>
+            <span class="text-base font-black text-pink-200 crt-glow-pink block mt-0.5">${b.ovrStreak}</span>
           </div>
 
-          <div class="bg-emerald-950/80 p-2 border border-emerald-600 rounded">
+          <div class="bg-purple-950/70/80 p-2 border border-pink-500/50 rounded">
             <span class="text-[10px] uppercase font-bold text-amber-400 block">👑 LONGEST H2H STREAK</span>
             <span class="text-xs font-bold block mt-1">${maxStreakStr}</span>
           </div>
@@ -2451,19 +2451,19 @@
       const games = [...b.games].sort((a, b) => b.year !== a.year ? b.year - a.year : b.week - a.week);
       games.forEach(g => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
         
-        const winnerBadge = g.winner === 'Tie' ? '<span class="text-emerald-700">Tie</span>' : `<span class="font-bold text-emerald-300">${g.winner}</span>`;
+        const winnerBadge = g.winner === 'Tie' ? '<span class="text-purple-300/60">Tie</span>' : `<span class="font-bold text-pink-200">${g.winner}</span>`;
         const stageText = g.stage || (g.isPlayoff ? 'Playoffs' : 'Regular Season');
-        const stageColor = g.isPlayoff ? 'text-amber-400 font-medium text-xs' : 'text-emerald-500 font-medium text-xs';
+        const stageColor = g.isPlayoff ? 'text-amber-400 font-medium text-xs' : 'text-pink-300 font-medium text-xs';
 
         tr.innerHTML = `
-          <td class="p-2 text-center font-bold text-emerald-400">${g.year}</td>
-          <td class="p-2 text-center text-emerald-600">W${g.week}</td>
+          <td class="p-2 text-center font-bold text-pink-400">${g.year}</td>
+          <td class="p-2 text-center text-purple-300/80">W${g.week}</td>
           <td class="p-2 text-center ${stageColor}">${stageText}</td>
-          <td class="p-2 text-right text-emerald-300 font-bold">${g.homeTeam} <span class="text-[10px] text-emerald-600 font-normal">[${g.homeOwner}]</span></td>
-          <td class="p-2 text-center font-bold font-mono text-emerald-300">${g.homeScore.toFixed(2)} - ${g.awayScore.toFixed(2)}</td>
-          <td class="p-2 text-left text-emerald-300 font-bold">${g.awayTeam} <span class="text-[10px] text-emerald-600 font-normal">[${g.awayOwner}]</span></td>
+          <td class="p-2 text-right text-pink-200 font-bold">${g.homeTeam} <span class="text-[10px] text-purple-300/80 font-normal">[${g.homeOwner}]</span></td>
+          <td class="p-2 text-center font-bold font-mono text-pink-200">${g.homeScore.toFixed(2)} - ${g.awayScore.toFixed(2)}</td>
+          <td class="p-2 text-left text-pink-200 font-bold">${g.awayTeam} <span class="text-[10px] text-purple-300/80 font-normal">[${g.awayOwner}]</span></td>
           <td class="p-2 text-center">${winnerBadge}</td>
         `;
         tbody.appendChild(tr);
@@ -2498,11 +2498,11 @@
       header.innerHTML = ''; tbody.innerHTML = '';
 
       document.querySelectorAll('.matrix-filter-btn').forEach(btn => {
-        btn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]';
+        btn.className = 'matrix-filter-btn px-2 py-0.5 border border-pink-500/30 text-pink-300 hover:border-purple-500/40 bg-black font-bold text-[10px]';
       });
       const activeBtn = document.getElementById(`matrix-filter-${filterType}`);
       if (activeBtn) {
-        activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]';
+        activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-pink-400 bg-pink-950/60 text-pink-200 font-bold text-[10px]';
       }
 
       const owners = window.LEAGUE_DATA.allTimeStandings
@@ -2510,16 +2510,16 @@
         .filter(o => !isOneYearManager(o))
         .sort();
 
-      let headerTr = '<tr class="bg-emerald-950 text-emerald-400 font-bold"><th class="p-2 text-left">OWNER</th>';
+      let headerTr = '<tr class="bg-purple-950/70 text-pink-400 font-bold"><th class="p-2 text-left">OWNER</th>';
       owners.forEach(o => { headerTr += `<th class="p-1.5 text-center">${o.slice(0,4)}</th>`; });
       headerTr += '</tr>';
       header.innerHTML = headerTr;
 
       owners.forEach(o1 => {
-        let tr = `<tr class="border-b border-emerald-950"><td class="p-1.5 font-bold text-left text-emerald-300 bg-black/60">${o1}</td>`;
+        let tr = `<tr class="border-b border-purple-950/60"><td class="p-1.5 font-bold text-left text-pink-200 bg-black/60">${o1}</td>`;
         owners.forEach(o2 => {
           if (o1 === o2) {
-            tr += `<td class="p-1.5 text-emerald-800 bg-black">-</td>`;
+            tr += `<td class="p-1.5 text-pink-400/40 bg-black">-</td>`;
           } else {
             const b = getH2HBreakdown(o1, o2);
             if (b) {
@@ -2528,24 +2528,24 @@
               else if (filterType === 'playoff') { w1 = b.playW1; w2 = b.playW2; }
 
               const cellTotalStr = `${w1}-${w2}`;
-              const winClass = w1 > w2 ? 'text-emerald-300 font-bold' : (w1 < w2 ? 'text-red-500' : 'text-emerald-700');
+              const winClass = w1 > w2 ? 'text-pink-200 font-bold' : (w1 < w2 ? 'text-red-500' : 'text-purple-300/60');
 
               tr += `
-                <td class="p-1.5 ${winClass} cursor-pointer hover:bg-emerald-900/50 transition-colors" onclick="selectH2HMatchup('${o1}', '${o2}')">
+                <td class="p-1.5 ${winClass} cursor-pointer hover:bg-pink-950/60/50 transition-colors" onclick="selectH2HMatchup('${o1}', '${o2}')">
                   <div class="tooltip-trigger inline-block">
                     <span>${cellTotalStr}</span>
-                    <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
-                      <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
-                      <div class="text-xs text-emerald-300">• <span class="font-bold text-emerald-400">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
+                    <div class="tooltip-content p-3 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
+                      <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
+                      <div class="text-xs text-pink-200">• <span class="font-bold text-pink-400">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
                       <div class="text-xs text-amber-300">• <span class="font-bold text-amber-400">Playoffs &amp; RR:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
-                      <div class="text-xs text-emerald-400 font-bold">• <span class="text-emerald-200">Total Lifetime:</span> ${o1} ${b.totW1} - ${b.totW2} ${o2}</div>
-                      <div class="pt-1 border-t border-emerald-900 text-xs text-emerald-400 font-bold">
-                        🔥 <span class="text-emerald-300">Active Win Streak:</span> <span class="text-amber-300">${b.ovrStreak}</span>
+                      <div class="text-xs text-pink-400 font-bold">• <span class="text-purple-200">Total Lifetime:</span> ${o1} ${b.totW1} - ${b.totW2} ${o2}</div>
+                      <div class="pt-1 border-t border-pink-500/30 text-xs text-pink-400 font-bold">
+                        🔥 <span class="text-pink-200">Active Win Streak:</span> <span class="text-amber-300">${b.ovrStreak}</span>
                       </div>
-                      <div class="text-[11px] text-emerald-600">
+                      <div class="text-[11px] text-purple-300/80">
                         (Reg: ${b.regStreak} | Playoff/RR: ${b.playStreak})
                       </div>
-                      <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-emerald-900 text-center">
+                      <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-pink-500/30 text-center">
                         🔍 Click cell to query full game log
                       </div>
                     </div>
@@ -2553,7 +2553,7 @@
                 </td>
               `;
             } else {
-              tr += `<td class="p-1.5 text-emerald-800">0-0</td>`;
+              tr += `<td class="p-1.5 text-pink-400/40">0-0</td>`;
             }
           }
         });
@@ -2596,7 +2596,7 @@
         const scTitles = c.scoringTitles || 0;
 
         // 1. Build 1st Place Tooltip (No scrollbar)
-        let firstsHtml = `<span class="text-emerald-800 font-bold">0</span>`;
+        let firstsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['1st'] > 0) {
           const firstChamps = window.LEAGUE_DATA.championships.filter(ch => ch.firstOwner === owner);
           const listStr = firstChamps.map(ch => {
@@ -2612,8 +2612,8 @@
 
           firstsHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-amber-950 text-amber-400 font-black border border-amber-500 crt-glow-amber text-xs">${c['1st']}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
+              <span class="px-2 py-0.5 bg-amber-950 text-amber-400 font-black border border-amber-500 crt-glow-pink-amber text-xs">${c['1st']}</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-amber-500 text-xs shadow-2xl">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🏆 ${owner}'s Championship Final Titles (${c['1st']})</div>
                 ${listStr}
               </div>
@@ -2622,7 +2622,7 @@
         }
 
         // 2. Build 2nd Place Tooltip (No scrollbar)
-        let secondsHtml = `<span class="text-emerald-800 font-bold">0</span>`;
+        let secondsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['2nd'] > 0) {
           const secondChamps = window.LEAGUE_DATA.championships.filter(ch => ch.secondOwner === owner);
           const listStr = secondChamps.map(ch => {
@@ -2633,14 +2633,14 @@
               const lS = m.homeScore > m.awayScore ? m.awayScore : m.homeScore;
               scoreDetail = ` (${lS.toFixed(1)} - ${wS.toFixed(1)}) vs ${ch.firstTeam}`;
             }
-            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-emerald-300">${ch.secondTeam}</span>${scoreDetail}</div>`;
+            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-200">${ch.secondTeam}</span>${scoreDetail}</div>`;
           }).join('');
 
           secondsHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 text-xs">${c['2nd']}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🥈 ${owner}'s 2nd Place Finishes (${c['2nd']})</div>
+              <span class="px-2 py-0.5 bg-purple-950/70 text-pink-200 font-bold border border-pink-500/50 text-xs">${c['2nd']}</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">🥈 ${owner}'s 2nd Place Finishes (${c['2nd']})</div>
                 ${listStr}
               </div>
             </div>
@@ -2648,7 +2648,7 @@
         }
 
         // 3. Build 3rd Place Tooltip (No scrollbar)
-        let thirdsHtml = `<span class="text-emerald-800 font-bold">0</span>`;
+        let thirdsHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (c['3rd'] > 0) {
           const thirdChamps = window.LEAGUE_DATA.championships.filter(ch => ch.thirdOwner === owner);
           const listStr = thirdChamps.map(ch => {
@@ -2666,7 +2666,7 @@
           thirdsHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-amber-950/40 text-amber-500 font-bold border border-amber-700 text-xs">${c['3rd']}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-amber-600 text-xs shadow-2xl">
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-amber-600 text-xs shadow-2xl">
                 <div class="font-bold text-amber-500 border-b border-amber-800 pb-1 mb-1">🥉 ${owner}'s 3rd Place Finishes (${c['3rd']})</div>
                 ${listStr}
               </div>
@@ -2675,18 +2675,18 @@
         }
 
         // 4. Build Scoring Titles Tooltip (No scrollbar)
-        let scHtml = `<span class="text-emerald-800 font-bold">0</span>`;
+        let scHtml = `<span class="text-pink-400/40 font-bold">0</span>`;
         if (scTitles > 0) {
           const scChamps = window.LEAGUE_DATA.championships.filter(ch => ch.scoringChampOwner === owner);
           const listStr = scChamps.map(ch => {
-            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-emerald-300">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} Regular Season PF)</div>`;
+            return `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold text-pink-200">${ch.scoringChampTeam}</span> (${ch.scoringChampPF.toFixed(1)} Regular Season PF)</div>`;
           }).join('');
 
           scHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-black border border-emerald-500 text-xs">🎯 ${scTitles}</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🎯 ${owner}'s Regular Season Scoring Titles (${scTitles})</div>
+              <span class="px-2 py-0.5 bg-pink-950/60 text-pink-200 font-black border border-pink-400 text-xs">🎯 ${scTitles}</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">🎯 ${owner}'s Regular Season Scoring Titles (${scTitles})</div>
                 ${listStr}
               </div>
             </div>
@@ -2694,7 +2694,7 @@
         }
 
         // 5. Build Playoff % Tooltip
-        let playoffHtml = `<span class="font-bold text-emerald-300">${entry.playoffPct}%</span>`;
+        let playoffHtml = `<span class="font-bold text-pink-200">${entry.playoffPct}%</span>`;
         if (entry.playoffYears && entry.playoffYears.length > 0) {
           const listStr = entry.playoffYears.map(yr => {
             return `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`;
@@ -2702,9 +2702,9 @@
 
           playoffHtml = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 text-xs">${entry.playoffPct}%</span>
-              <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🏈 ${owner}'s Playoff Appearances (${entry.playoffApps}/${entry.seasonsCount})</div>
+              <span class="px-2 py-0.5 bg-purple-950/70 text-pink-200 font-bold border border-pink-500/50 text-xs">${entry.playoffPct}%</span>
+              <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl">
+                <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1">🏈 ${owner}'s Playoff Appearances (${entry.playoffApps}/${entry.seasonsCount})</div>
                 ${listStr}
               </div>
             </div>
@@ -2712,17 +2712,17 @@
         }
 
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-          <td class="p-2.5 font-bold text-emerald-300">${entry.ownerName}</td>
+          <td class="p-2.5 text-center font-bold text-pink-400">${idx + 1}</td>
+          <td class="p-2.5 font-bold text-pink-200">${entry.ownerName}</td>
           <td class="p-2.5 text-center">${firstsHtml}</td>
           <td class="p-2.5 text-center">${secondsHtml}</td>
           <td class="p-2.5 text-center">${thirdsHtml}</td>
           <td class="p-2.5 text-center">${scHtml}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-300">${total}</td>
+          <td class="p-2.5 text-center font-bold text-pink-200">${total}</td>
           <td class="p-2.5 text-center">${playoffHtml}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-400">${entry.winPct}%</td>
+          <td class="p-2.5 text-center font-bold text-pink-400">${entry.winPct}%</td>
         `;
         tbody.appendChild(tr);
       });
@@ -2739,30 +2739,30 @@
 
         div.innerHTML = `
           <div>
-            <div class="flex items-center justify-between mb-2 border-b border-emerald-800 pb-1.5">
-              <span class="text-xl font-black text-amber-400 crt-glow-amber">${yr}</span>
+            <div class="flex items-center justify-between mb-2 border-b border-pink-500/40 pb-1.5">
+              <span class="text-xl font-black text-amber-400 crt-glow-pink-amber">${yr}</span>
             </div>
 
             <div class="mb-3">
-              <span class="text-[10px] uppercase font-bold text-emerald-600 block">🏆 NEBUCHADNEZZAR WINNER</span>
-              <span class="text-base font-black text-emerald-200 block">${c.firstTeam}</span>
-              <span class="text-xs text-emerald-500">[${c.firstOwner}]</span>
+              <span class="text-[10px] uppercase font-bold text-purple-300/80 block">🏆 NEBUCHADNEZZAR WINNER</span>
+              <span class="text-base font-black text-purple-200 block">${c.firstTeam}</span>
+              <span class="text-xs text-pink-300">[${c.firstOwner}]</span>
             </div>
 
-            <div class="mb-3 p-2 bg-emerald-950/60 border border-emerald-700/80 rounded">
-              <span class="text-[10px] uppercase font-bold text-emerald-400 block">🎯 REGULAR SEASON SCORING CHAMP</span>
-              <span class="text-xs font-bold text-emerald-200 block mt-0.5">${scTeam}</span>
-              <span class="text-[10px] text-emerald-400 font-mono">[${scOwner}] • ${scPF} Regular Season PF</span>
+            <div class="mb-3 p-2 bg-purple-950/70/60 border border-purple-500/40/80 rounded">
+              <span class="text-[10px] uppercase font-bold text-pink-400 block">🎯 REGULAR SEASON SCORING CHAMP</span>
+              <span class="text-xs font-bold text-purple-200 block mt-0.5">${scTeam}</span>
+              <span class="text-[10px] text-pink-400 font-mono">[${scOwner}] • ${scPF} Regular Season PF</span>
             </div>
 
-            <div class="space-y-1 text-[11px] border-t border-emerald-950 pt-2 text-emerald-500">
+            <div class="space-y-1 text-[11px] border-t border-purple-950/60 pt-2 text-pink-300">
               <div class="flex justify-between">
                 <span>🥈 2nd Place:</span>
-                <span class="font-bold text-emerald-300">${c.secondTeam} [${c.secondOwner}]</span>
+                <span class="font-bold text-pink-200">${c.secondTeam} [${c.secondOwner}]</span>
               </div>
               <div class="flex justify-between">
                 <span>🥉 3rd Place:</span>
-                <span class="font-bold text-emerald-300">${c.thirdTeam} [${c.thirdOwner}]</span>
+                <span class="font-bold text-pink-200">${c.thirdTeam} [${c.thirdOwner}]</span>
               </div>
             </div>
           </div>
@@ -2822,11 +2822,11 @@
 
       let historyRows = '';
       teamNames.forEach(tn => {
-        const scBadge = tn.isScoringChamp ? `<span class="px-1.5 py-0.5 bg-emerald-900 border border-emerald-500 text-emerald-300 font-bold text-[10px]">🎯 Scoring Champ</span>` : '<span class="text-emerald-800">-</span>';
+        const scBadge = tn.isScoringChamp ? `<span class="px-1.5 py-0.5 bg-pink-950/60 border border-pink-400 text-pink-200 font-bold text-[10px]">🎯 Scoring Champ</span>` : '<span class="text-pink-400/40">-</span>';
         historyRows += `
-          <tr class="border-b border-emerald-950">
-            <td class="p-2 font-bold text-emerald-400">${tn.yr}</td>
-            <td class="p-2 font-bold text-emerald-300">${tn.name}</td>
+          <tr class="border-b border-purple-950/60">
+            <td class="p-2 font-bold text-pink-400">${tn.yr}</td>
+            <td class="p-2 font-bold text-pink-200">${tn.name}</td>
             <td class="p-2 text-center font-bold">${tn.rank}</td>
             <td class="p-2 text-center">${tn.rec}</td>
             <td class="p-2 text-center font-mono text-xs">${tn.pf.toFixed(1)}</td>
@@ -2838,32 +2838,32 @@
       card.innerHTML = `
         <div class="crt-box rounded p-4 mb-6">
           <div class="flex flex-col md:flex-row items-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-emerald-950 border-2 border-emerald-500 flex items-center justify-center font-black text-2xl text-emerald-300 crt-glow shrink-0">
+            <div class="w-16 h-16 rounded-full bg-purple-950/70 border-2 border-pink-400 flex items-center justify-center font-black text-2xl text-pink-200 crt-glow-pink shrink-0">
               ${owner.slice(0,2).toUpperCase()}
             </div>
             <div class="text-center md:text-left grow">
-              <h2 class="text-2xl font-black text-emerald-300 crt-glow">${owner}</h2>
-              <p class="text-emerald-500 font-bold text-xs mt-0.5">${st.teamName} • ${st.seasonsCount} Seasons Active</p>
+              <h2 class="text-2xl font-black text-pink-200 crt-glow-pink">${owner}</h2>
+              <p class="text-pink-300 font-bold text-xs mt-0.5">${st.teamName} • ${st.seasonsCount} Seasons Active</p>
               <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mt-3 text-center">
-                <div class="bg-black border border-emerald-800 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">RECORD</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.wins}-${st.losses}</span>
+                <div class="bg-black border border-pink-500/40 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-purple-300/80 block">RECORD</span>
+                  <span class="text-base font-extrabold text-pink-200">${st.wins}-${st.losses}</span>
                 </div>
-                <div class="bg-black border border-emerald-800 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">WIN %</span>
-                  <span class="text-base font-extrabold text-emerald-400">${st.winPct}%</span>
+                <div class="bg-black border border-pink-500/40 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-purple-300/80 block">WIN %</span>
+                  <span class="text-base font-extrabold text-pink-400">${st.winPct}%</span>
                 </div>
-                <div class="bg-black border border-emerald-800 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOTAL PF</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.pointsFor.toLocaleString()}</span>
+                <div class="bg-black border border-pink-500/40 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-purple-300/80 block">TOTAL PF</span>
+                  <span class="text-base font-extrabold text-pink-200">${st.pointsFor.toLocaleString()}</span>
                 </div>
-                <div class="bg-black border border-emerald-800 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">TITLES</span>
-                  <span class="text-base font-extrabold text-amber-400 crt-glow-amber">🏆 ${st.championships['1st']}</span>
+                <div class="bg-black border border-pink-500/40 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-purple-300/80 block">TITLES</span>
+                  <span class="text-base font-extrabold text-amber-400 crt-glow-pink-amber">🏆 ${st.championships['1st']}</span>
                 </div>
-                <div class="bg-black border border-emerald-800 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">SCORING TITLES</span>
-                  <span class="text-base font-extrabold text-emerald-300 crt-glow">🎯 ${scCount}</span>
+                <div class="bg-black border border-pink-500/40 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-purple-300/80 block">SCORING TITLES</span>
+                  <span class="text-base font-extrabold text-pink-200 crt-glow-pink">🎯 ${scCount}</span>
                 </div>
               </div>
             </div>
@@ -2876,7 +2876,7 @@
           </div>
           <div class="w-full overflow-visible">
             <table class="w-full text-xs text-left border-collapse">
-              <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+              <thead class="bg-purple-950/70 text-pink-400 font-bold border-b border-purple-500/40">
                 <tr>
                   <th class="p-2 font-bold">Season</th>
                   <th class="p-2">Team Name Used</th>
@@ -2907,7 +2907,7 @@
         const btn = document.createElement('button');
         btn.id = `btn-draft-${yr}`;
         btn.onclick = () => selectDraftSeason(yr);
-        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentDraftSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`;
+        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentDraftSeason ? 'bg-pink-950/60 text-pink-200 border-pink-400' : 'bg-black text-purple-300/80 border-pink-500/30 hover:border-purple-500/40'}`;
         btn.innerText = yr;
         container.appendChild(btn);
       });
@@ -2918,11 +2918,11 @@
     function selectDraftSeason(yr) {
       currentDraftSeason = yr;
       document.querySelectorAll('#draft-season-selector button').forEach(btn => {
-        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-purple-300/80 border-pink-500/30 hover:border-purple-500/40';
       });
       const activeBtn = document.getElementById(`btn-draft-${yr}`);
       if (activeBtn) {
-        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400';
+        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-pink-950/60 text-pink-200 border-pink-400';
       }
       renderDraftPage();
     }
@@ -2941,21 +2941,21 @@
           const sStandings = window.LEAGUE_DATA.seasonData['2018'].standings;
           grid.innerHTML = `
             <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
-              <span class="text-[10px] uppercase font-bold text-emerald-400 block">🏁 INAUGURAL LEAGUE DRAFT (2018)</span>
-              <span class="text-xs text-emerald-500 block mt-1">League founding season draft. Pick #1 overall: David Johnson.</span>
+              <span class="text-[10px] uppercase font-bold text-pink-400 block">🏁 INAUGURAL LEAGUE DRAFT (2018)</span>
+              <span class="text-xs text-pink-300 block mt-1">League founding season draft. Pick #1 overall: David Johnson.</span>
             </div>
           `;
           const picksR1 = window.LEAGUE_DATA.seasonData['2018'].draftPicks ? window.LEAGUE_DATA.seasonData['2018'].draftPicks.slice(0, 10) : [];
           picksR1.forEach(p => {
             const st = sStandings.find(s => s.ownerName === p.ownerName);
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+            tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
             tr.innerHTML = `
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">Pick #${p.pickInRound}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${p.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${p.ownerName}]</span>
+              <td class="p-2.5 text-center font-black text-sm text-pink-200 crt-glow-pink">Pick #${p.pickInRound}</td>
+              <td class="p-2.5 font-bold text-pink-200">
+                ${p.teamName} <span class="text-[10px] text-purple-300/80 font-normal">[${p.ownerName}]</span>
               </td>
-              <td class="p-2.5 text-center"><span class="text-emerald-400 font-bold">Inaugural Draft</span></td>
+              <td class="p-2.5 text-center"><span class="text-pink-400 font-bold">Inaugural Draft</span></td>
               <td class="p-2.5 text-center font-bold">#${st ? st.rank : '-'} (${st ? st.wins + '-' + st.losses : '-'})</td>
             `;
             tbody.appendChild(tr);
@@ -2964,7 +2964,7 @@
           grid.innerHTML = `
             <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
               <span class="text-[10px] uppercase font-bold text-amber-400 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
-              <span class="text-xs text-emerald-500 block mt-1">Official standings & matchup history intact.</span>
+              <span class="text-xs text-pink-300 block mt-1">Official standings & matchup history intact.</span>
             </div>
           `;
         }
@@ -2983,24 +2983,24 @@
 
       grid.innerHTML = `
         <div class="crt-box p-3 rounded text-center col-span-1 sm:col-span-3">
-          <span class="text-[10px] uppercase font-bold text-emerald-600 block">🏆 CHAMPION DRAFT SLOT</span>
-          <span class="text-sm font-extrabold text-amber-400 crt-glow-amber block mt-1">${champDraftPick}</span>
-          <span class="text-[10px] text-emerald-600 italic">${currentDraftSeason} Championship Final Winner</span>
+          <span class="text-[10px] uppercase font-bold text-purple-300/80 block">🏆 CHAMPION DRAFT SLOT</span>
+          <span class="text-sm font-extrabold text-amber-400 crt-glow-pink-amber block mt-1">${champDraftPick}</span>
+          <span class="text-[10px] text-purple-300/80 italic">${currentDraftSeason} Championship Final Winner</span>
         </div>
       `;
 
       draftList.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
 
         const prevFinishStr = (item.prevRank === 'New')
-          ? '<span class="text-emerald-400 font-bold">New Expansion Team</span>'
+          ? '<span class="text-pink-400 font-bold">New Expansion Team</span>'
           : `<span class="font-bold">#${item.prevRank} in ${prevYear} (${item.prevRecord})</span>`;
 
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">Pick #${item.pick}</td>
-          <td class="p-2.5 font-bold text-emerald-300">
-            ${item.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${item.ownerName}]</span>
+          <td class="p-2.5 text-center font-black text-sm text-pink-200 crt-glow-pink">Pick #${item.pick}</td>
+          <td class="p-2.5 font-bold text-pink-200">
+            ${item.teamName} <span class="text-[10px] text-purple-300/80 font-normal">[${item.ownerName}]</span>
           </td>
           <td class="p-2.5 text-center">${prevFinishStr}</td>
           <td class="p-2.5 text-center font-bold">#${item.curRank} (${item.curRecord})</td>
@@ -3055,25 +3055,25 @@
       if (history.length === 0) return '';
 
       const rowsHtml = history.map(h => `
-        <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-[11px]">
+        <div class="py-1 border-b border-pink-500/30/40 flex items-center justify-between text-[11px]">
           <div>
             <span class="font-bold text-amber-400">${h.year} Round ${h.round}</span>
-            <span class="text-[10px] text-emerald-500 block">Pick #${h.overallPick} (R${h.round}P${h.pickInRound})</span>
+            <span class="text-[10px] text-pink-300 block">Pick #${h.overallPick} (R${h.round}P${h.pickInRound})</span>
           </div>
           <div class="text-right">
-            <span class="font-bold text-emerald-300">${h.ownerName}</span>
-            <span class="text-[9px] text-emerald-600 block">${h.teamName}</span>
+            <span class="font-bold text-pink-200">${h.ownerName}</span>
+            <span class="text-[9px] text-purple-300/80 block">${h.teamName}</span>
           </div>
         </div>
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-mono z-50 w-72">
-          <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
+        <div class="tooltip-content p-2.5 bg-black text-pink-200 rounded border border-pink-400 text-xs shadow-2xl text-left font-mono z-50 w-72">
+          <div class="font-bold text-pink-400 border-b border-pink-500/40 pb-1 mb-1 flex items-center justify-between">
             <span>🏈 ${playerName}</span>
             <span class="text-[10px] text-amber-400 font-bold">${history.length}x Drafted</span>
           </div>
-          <div class="text-[10px] text-emerald-600 mb-1">Lifetime League Draft History:</div>
+          <div class="text-[10px] text-purple-300/80 mb-1">Lifetime League Draft History:</div>
           ${rowsHtml}
         </div>
       `;
@@ -3093,7 +3093,7 @@
       const picks = (sData && sData.draftPicks) ? sData.draftPicks : [];
 
       if (picks.length === 0) {
-        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No player draft records ingested for ${currentDraftSeason}.</td></tr>`;
+        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-purple-300/80 italic">No player draft records ingested for ${currentDraftSeason}.</td></tr>`;
         return;
       }
 
@@ -3109,28 +3109,28 @@
       });
 
       if (filtered.length === 0) {
-        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No picks matching filter query.</td></tr>`;
+        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-purple-300/80 italic">No picks matching filter query.</td></tr>`;
         return;
       }
 
       filtered.forEach(p => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20 tooltip-trigger cursor-pointer';
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20 tooltip-trigger cursor-pointer';
 
         const isRound1 = p.round === 1;
         const roundBadge = isRound1 
           ? `<span class="px-2 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs">R${p.round}P${p.pickInRound}</span>`
-          : `<span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-800 text-xs">R${p.round}P${p.pickInRound}</span>`;
+          : `<span class="px-2 py-0.5 bg-purple-950/70 text-pink-400 font-bold border border-pink-500/40 text-xs">R${p.round}P${p.pickInRound}</span>`;
 
         const popoverHtml = getPlayerLifetimeDraftPopover(p.player);
 
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-black text-emerald-300 crt-glow">Pick #${p.overallPick}</td>
+          <td class="p-2.5 text-center font-black text-pink-200 crt-glow-pink">Pick #${p.overallPick}</td>
           <td class="p-2.5 text-center">${roundBadge}</td>
-          <td class="p-2.5 font-bold text-emerald-200">${p.player}</td>
+          <td class="p-2.5 font-bold text-purple-200">${p.player}</td>
           <td class="p-2.5">
-            <span class="font-bold text-emerald-300">${p.teamName}</span>
-            <span class="text-[10px] text-emerald-600 block">[${p.ownerName}]</span>
+            <span class="font-bold text-pink-200">${p.teamName}</span>
+            <span class="text-[10px] text-purple-300/80 block">[${p.ownerName}]</span>
             ${popoverHtml}
           </td>
         `;
@@ -3157,12 +3157,12 @@
       list.sort((a, b) => b.luck - a.luck);
       list.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-        const luckColor = item.luck > 0 ? 'text-emerald-400 font-bold' : (item.luck < 0 ? 'text-red-500 font-bold' : 'text-emerald-700');
+        tr.className = 'border-b border-purple-950/60 hover:bg-purple-950/70/20';
+        const luckColor = item.luck > 0 ? 'text-pink-400 font-bold' : (item.luck < 0 ? 'text-red-500 font-bold' : 'text-purple-300/60');
         tr.innerHTML = `
-          <td class="p-2 font-bold text-emerald-300">${item.owner}</td>
-          <td class="p-2 text-center font-bold text-emerald-300">${item.actualW}</td>
-          <td class="p-2 text-center text-emerald-600">${item.expW}</td>
+          <td class="p-2 font-bold text-pink-200">${item.owner}</td>
+          <td class="p-2 text-center font-bold text-pink-200">${item.actualW}</td>
+          <td class="p-2 text-center text-purple-300/80">${item.expW}</td>
           <td class="p-2 text-center ${luckColor}">${item.luck > 0 ? '+' + item.luck : item.luck}</td>
         `;
         tbody.appendChild(tr);
@@ -3281,11 +3281,11 @@
     function switchMatchupMode(mode) {
       currentMatchupMode = mode;
       document.querySelectorAll('.matchup-mode-btn').forEach(btn => {
-        btn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300';
+        btn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-300/80 hover:text-pink-200';
       });
       const activeBtn = document.getElementById(`matchup-mode-${mode}`);
       if (activeBtn) {
-        activeBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+        activeBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-950/60 text-pink-200 border border-pink-400';
       }
       renderMatchupsTab();
     }
@@ -3303,8 +3303,8 @@
         const isPlayoff = sData && w > sData.settings.regularSeasonWeeks;
         
         const activeClass = isActive 
-          ? 'bg-emerald-900 text-emerald-300 border-emerald-400 font-black shadow-[0_0_8px_rgba(52,211,153,0.5)]' 
-          : 'bg-black/80 text-emerald-600 hover:text-emerald-300 border-emerald-900 font-bold';
+          ? 'bg-pink-950/60 text-pink-200 border-pink-400 font-black shadow-[0_0_12px_rgba(236,72,153,0.6)]' 
+          : 'bg-black/80 text-purple-300/80 hover:text-pink-200 border-pink-500/30 font-bold';
 
         const label = isPlayoff ? `P-W${w}` : `W${w}`;
         html += `<button onclick="switchMatchupWeek(${w})" class="px-2 py-1 text-xs border rounded transition-all font-mono ${activeClass}">${label}</button>`;
@@ -3328,7 +3328,7 @@
       }
       if (badge) {
         badge.innerHTML = currentMatchupMode === 'preview' 
-          ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>` 
+          ? `<span class="text-pink-400">⚡ PRE-GAME PREVIEW</span>` 
           : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
       }
 
@@ -3342,11 +3342,11 @@
 
       if (mList.length === 0) {
         container.innerHTML = `
-          <div class="crt-box rounded p-8 text-center border border-emerald-800 bg-emerald-950/20">
-            <div class="text-amber-400 font-black text-base mb-2 crt-glow">
+          <div class="crt-box rounded p-8 text-center border border-pink-500/40 bg-purple-950/70/20">
+            <div class="text-amber-400 font-black text-base mb-2 crt-glow-pink">
               &gt; NO MATCHUPS RECORDED FOR ${currentMatchupSeason} WEEK ${currentMatchupWeek}
             </div>
-            <p class="text-xs text-emerald-400 max-w-md mx-auto leading-relaxed">
+            <p class="text-xs text-pink-400 max-w-md mx-auto leading-relaxed">
               No game results or editorial write-ups exist for ${currentMatchupSeason} Week ${currentMatchupWeek}.
             </p>
           </div>
@@ -3481,14 +3481,14 @@
         let recapBox = '';
         if (currentMatchupMode === 'recap') {
           recapBox = `
-            <div class="mt-3 p-3 bg-black border border-emerald-700 rounded flex justify-between items-center flex-wrap gap-2 font-mono">
+            <div class="mt-3 p-3 bg-black border border-purple-500/40 rounded flex justify-between items-center flex-wrap gap-2 font-mono">
               <div class="flex items-center gap-3">
-                <span class="${isWinner1 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
-                <span class="text-emerald-700">vs</span>
-                <span class="${isWinner2 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
+                <span class="${isWinner1 ? 'text-amber-300 font-black text-lg crt-glow-pink' : 'text-purple-300/80 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
+                <span class="text-purple-300/60">vs</span>
+                <span class="${isWinner2 ? 'text-amber-300 font-black text-lg crt-glow-pink' : 'text-purple-300/80 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
               </div>
               <div class="text-right">
-                <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 font-bold text-xs block">
+                <span class="px-2 py-0.5 bg-purple-950/70 text-pink-200 border border-pink-500/50 font-bold text-xs block">
                   🏆 WINNER: ${isWinner1 ? o1 : o2} (+${margin.toFixed(2)} pts)
                 </span>
               </div>
@@ -3500,43 +3500,43 @@
         let writeupBox = '';
         if (writeupText) {
           writeupBox = `
-            <div class="mt-3 p-3 bg-black/90 border border-emerald-600 rounded font-mono text-xs text-emerald-300 leading-relaxed">
-              <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider block mb-1">&gt; EDITOR_COMMENTARY:</span>
+            <div class="mt-3 p-3 bg-black/90 border border-pink-500/50 rounded font-mono text-xs text-pink-200 leading-relaxed">
+              <span class="text-[10px] text-pink-400 font-bold uppercase tracking-wider block mb-1">&gt; EDITOR_COMMENTARY:</span>
               ${writeupText}
             </div>
           `;
         } else {
           writeupBox = `
-            <div class="mt-3 p-2.5 bg-black/40 border border-emerald-950 rounded font-mono text-xs text-emerald-600 italic">
+            <div class="mt-3 p-2.5 bg-black/40 border border-purple-950/60 rounded font-mono text-xs text-purple-300/80 italic">
               &gt; NO EDITORIAL WRITE-UP RECORDED FOR THIS MATCHUP.
             </div>
           `;
         }
 
         cardsHtml += `
-          <div class="crt-box rounded p-4 border border-emerald-800 hover:border-emerald-500 transition-all">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-emerald-900 pb-2.5">
-              <h3 class="text-base font-extrabold text-emerald-300 crt-glow">
+          <div class="crt-box rounded p-4 border border-pink-500/40 hover:border-pink-400 transition-all">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-pink-500/30 pb-2.5">
+              <h3 class="text-base font-extrabold text-pink-200 crt-glow-pink">
                 ${titleStr}
               </h3>
-              <div class="text-xs text-emerald-500 font-bold">
+              <div class="text-xs text-pink-300 font-bold">
                 [${o1} vs ${o2}]
               </div>
             </div>
 
             <!-- Stats Bar -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3 text-xs font-mono">
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">SEASON H2H</span>
-                <span class="font-bold text-emerald-300">${regW1}-${regW2}</span>
+              <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
+                <span class="text-[10px] uppercase font-bold text-purple-300/80 block">SEASON H2H</span>
+                <span class="font-bold text-pink-200">${regW1}-${regW2}</span>
               </div>
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">CURRENT STREAK</span>
-                <span class="font-bold text-emerald-300">${streakStr}</span>
+              <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
+                <span class="text-[10px] uppercase font-bold text-purple-300/80 block">CURRENT STREAK</span>
+                <span class="font-bold text-pink-200">${streakStr}</span>
               </div>
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">PLAYOFFS H2H</span>
-                <span class="font-bold text-emerald-300">${playH2HStr}</span>
+              <div class="bg-black/60 p-2 border border-pink-500/30 rounded">
+                <span class="text-[10px] uppercase font-bold text-purple-300/80 block">PLAYOFFS H2H</span>
+                <span class="font-bold text-pink-200">${playH2HStr}</span>
               </div>
             </div>
 
