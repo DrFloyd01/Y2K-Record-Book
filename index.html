@@ -2107,15 +2107,16 @@
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
         const countWithVal = j - i;
 
-        if (countWithVal > 1 && (rows.length + countWithVal > 10 || countWithVal >= 3)) {
-          const tiedGroup = streaks.slice(i, j);
-          rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: tiedGroup.length, items: tiedGroup });
-          rankNumber += countWithVal;
-        } else {
+        // ALWAYS expand if tied for #1 (rankNumber === 1), or if group fits within top 10
+        if (rankNumber === 1 || countWithVal <= 2 || rows.length + countWithVal <= 10) {
           for (let k = i; k < j; k++) {
             const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
             rows.push({ type: 'single', rank: rankNumber, displayRank: displayRank, item: streaks[k] });
           }
+          rankNumber += countWithVal;
+        } else {
+          const tiedGroup = streaks.slice(i, j);
+          rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: tiedGroup.length, items: tiedGroup });
           rankNumber += countWithVal;
         }
         i = j;
