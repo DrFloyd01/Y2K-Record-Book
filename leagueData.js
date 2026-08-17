@@ -338,7 +338,10 @@ window.LEAGUE_DATA = {
         "1st": 2,
         "2nd": 2,
         "3rd": 3,
-        "scoringTitles": 2
+        "scoringTitles": 2,
+        "4th": 1,
+        "5th_6th": 0,
+        "7th_12th": 0
       },
       "playoffApps": 8,
       "playoffYears": [
@@ -929,7 +932,63 @@ window.LEAGUE_DATA = {
       "ovrLosses": 297,
       "ovrWinPct": 64.6,
       "ovrRecord": "543-297",
-      "rank": 1
+      "rank": 1,
+      "playoffWins": 10,
+      "playoffLosses": 7,
+      "playoffRecord": "10-7",
+      "playoffWinPct": 58.8,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2018,
+            "rank": 1,
+            "teamName": "Show Me Dem TDS"
+          },
+          {
+            "year": 2020,
+            "rank": 1,
+            "teamName": "Ho Chi Win City"
+          }
+        ],
+        "2nd": [
+          {
+            "year": 2023,
+            "rank": 2,
+            "teamName": "Ho Chi Win City"
+          },
+          {
+            "year": 2025,
+            "rank": 2,
+            "teamName": "Ho Chi Win City"
+          }
+        ],
+        "3rd": [
+          {
+            "year": 2019,
+            "rank": 3,
+            "teamName": "Bak2Bak"
+          },
+          {
+            "year": 2021,
+            "rank": 3,
+            "teamName": "Ho Chi Win City"
+          },
+          {
+            "year": 2024,
+            "rank": 3,
+            "teamName": "Ho Chi Win City"
+          }
+        ],
+        "4th": [
+          {
+            "year": 2022,
+            "rank": 4,
+            "teamName": "Ho Chi Win City"
+          }
+        ],
+        "5th_6th": [],
+        "7th_12th": []
+      }
     },
     {
       "ownerName": "Jasper",
@@ -945,7 +1004,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 1,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 1,
+        "5th_6th": 1,
+        "7th_12th": 1
       },
       "playoffApps": 3,
       "playoffYears": [
@@ -1135,7 +1197,43 @@ window.LEAGUE_DATA = {
       "ovrLosses": 295,
       "ovrWinPct": 44.5,
       "ovrRecord": "237-295",
-      "rank": 2
+      "rank": 2,
+      "playoffWins": 3,
+      "playoffLosses": 4,
+      "playoffRecord": "3-4",
+      "playoffWinPct": 42.9,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [
+          {
+            "year": 2025,
+            "rank": 3,
+            "teamName": "Blue's Balls"
+          }
+        ],
+        "4th": [
+          {
+            "year": 2023,
+            "rank": 4,
+            "teamName": "Blue's Balls"
+          }
+        ],
+        "5th_6th": [
+          {
+            "year": 2022,
+            "rank": 5,
+            "teamName": "Blue's Balls"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2024,
+            "rank": 7,
+            "teamName": "Blue's Balls"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Ryan",
@@ -1151,7 +1249,10 @@ window.LEAGUE_DATA = {
         "1st": 1,
         "2nd": 2,
         "3rd": 1,
-        "scoringTitles": 2
+        "scoringTitles": 2,
+        "4th": 0,
+        "5th_6th": 1,
+        "7th_12th": 3
       },
       "playoffApps": 4,
       "playoffYears": [
@@ -1656,7 +1757,64 @@ window.LEAGUE_DATA = {
       "ovrLosses": 414,
       "ovrWinPct": 50.7,
       "ovrRecord": "426-414",
-      "rank": 3
+      "rank": 3,
+      "playoffWins": 5,
+      "playoffLosses": 3,
+      "playoffRecord": "5-3",
+      "playoffWinPct": 62.5,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2021,
+            "rank": 1,
+            "teamName": "LIBYA rip Gaddafi"
+          }
+        ],
+        "2nd": [
+          {
+            "year": 2019,
+            "rank": 2,
+            "teamName": "The Mamluks"
+          },
+          {
+            "year": 2020,
+            "rank": 2,
+            "teamName": "The Janissaries"
+          }
+        ],
+        "3rd": [
+          {
+            "year": 2022,
+            "rank": 3,
+            "teamName": "Rats!"
+          }
+        ],
+        "4th": [],
+        "5th_6th": [
+          {
+            "year": 2018,
+            "rank": 5,
+            "teamName": "The Mongol Horde"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2023,
+            "rank": 8,
+            "teamName": "Trilobite Terror"
+          },
+          {
+            "year": 2024,
+            "rank": 9,
+            "teamName": "Old Leech"
+          },
+          {
+            "year": 2025,
+            "rank": 10,
+            "teamName": "Bad team not good at football"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Dylan",
@@ -1672,7 +1830,10 @@ window.LEAGUE_DATA = {
         "1st": 2,
         "2nd": 1,
         "3rd": 0,
-        "scoringTitles": 1
+        "scoringTitles": 1,
+        "4th": 3,
+        "5th_6th": 0,
+        "7th_12th": 2
       },
       "playoffApps": 6,
       "playoffYears": [
@@ -2195,7 +2356,63 @@ window.LEAGUE_DATA = {
       "ovrLosses": 391,
       "ovrWinPct": 53.5,
       "ovrRecord": "449-391",
-      "rank": 4
+      "rank": 4,
+      "playoffWins": 6,
+      "playoffLosses": 7,
+      "playoffRecord": "6-7",
+      "playoffWinPct": 46.2,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2024,
+            "rank": 1,
+            "teamName": "Globo Gym"
+          },
+          {
+            "year": 2025,
+            "rank": 1,
+            "teamName": "Globo Gym"
+          }
+        ],
+        "2nd": [
+          {
+            "year": 2021,
+            "rank": 2,
+            "teamName": "#BrainTrauma"
+          }
+        ],
+        "3rd": [],
+        "4th": [
+          {
+            "year": 2018,
+            "rank": 4,
+            "teamName": "The Waterboys"
+          },
+          {
+            "year": 2019,
+            "rank": 4,
+            "teamName": "Hood Phenomenons"
+          },
+          {
+            "year": 2020,
+            "rank": 4,
+            "teamName": "#2020BrainTrauma"
+          }
+        ],
+        "5th_6th": [],
+        "7th_12th": [
+          {
+            "year": 2022,
+            "rank": 8,
+            "teamName": "The Dawn of Man-Ape"
+          },
+          {
+            "year": 2023,
+            "rank": 7,
+            "teamName": "Zaza Zealots"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Dustin",
@@ -2211,7 +2428,10 @@ window.LEAGUE_DATA = {
         "1st": 1,
         "2nd": 1,
         "3rd": 0,
-        "scoringTitles": 2
+        "scoringTitles": 2,
+        "4th": 0,
+        "5th_6th": 1,
+        "7th_12th": 2
       },
       "playoffApps": 3,
       "playoffYears": [
@@ -2529,7 +2749,48 @@ window.LEAGUE_DATA = {
       "ovrLosses": 270,
       "ovrWinPct": 57.1,
       "ovrRecord": "360-270",
-      "rank": 5
+      "rank": 5,
+      "playoffWins": 3,
+      "playoffLosses": 2,
+      "playoffRecord": "3-2",
+      "playoffWinPct": 60.0,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2023,
+            "rank": 1,
+            "teamName": "Dusty Dynasty \ud83c\udfc6"
+          }
+        ],
+        "2nd": [
+          {
+            "year": 2024,
+            "rank": 2,
+            "teamName": "Dusty Dynasty \ud83c\udfc6"
+          }
+        ],
+        "3rd": [],
+        "4th": [],
+        "5th_6th": [
+          {
+            "year": 2021,
+            "rank": 6,
+            "teamName": "#MOONGANG \ud83d\ude80\ud83c\udf1a"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2022,
+            "rank": 9,
+            "teamName": "Let\u2019s Ride \ud83d\ude24"
+          },
+          {
+            "year": 2025,
+            "rank": 9,
+            "teamName": "Dusty\u2019s Dingleberries"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Tess",
@@ -2545,7 +2806,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 0,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 1,
+        "5th_6th": 0,
+        "7th_12th": 1
       },
       "playoffApps": 1,
       "playoffYears": [
@@ -2630,7 +2894,31 @@ window.LEAGUE_DATA = {
       "ovrLosses": 124,
       "ovrWinPct": 50.8,
       "ovrRecord": "128-124",
-      "rank": 6
+      "rank": 6,
+      "playoffWins": 1,
+      "playoffLosses": 2,
+      "playoffRecord": "1-2",
+      "playoffWinPct": 33.3,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [],
+        "4th": [
+          {
+            "year": 2025,
+            "rank": 4,
+            "teamName": "Tess Finesse"
+          }
+        ],
+        "5th_6th": [],
+        "7th_12th": [
+          {
+            "year": 2024,
+            "rank": 8,
+            "teamName": "Tess Finesse"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Boaz",
@@ -2646,7 +2934,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 0,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 0,
+        "5th_6th": 4,
+        "7th_12th": 1
       },
       "playoffApps": 4,
       "playoffYears": [
@@ -2973,7 +3264,46 @@ window.LEAGUE_DATA = {
       "ovrLosses": 317,
       "ovrWinPct": 49.7,
       "ovrRecord": "313-317",
-      "rank": 7
+      "rank": 7,
+      "playoffWins": 0,
+      "playoffLosses": 4,
+      "playoffRecord": "0-4",
+      "playoffWinPct": 0.0,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [],
+        "4th": [],
+        "5th_6th": [
+          {
+            "year": 2021,
+            "rank": 5,
+            "teamName": "No I\u2019m gonna win UR gay"
+          },
+          {
+            "year": 2022,
+            "rank": 6,
+            "teamName": "No I\u2019m gonna win UR gay"
+          },
+          {
+            "year": 2023,
+            "rank": 6,
+            "teamName": "No I\u2019m gonna win UR gay"
+          },
+          {
+            "year": 2024,
+            "rank": 6,
+            "teamName": "No I\u2019m gonna win UR gay"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2025,
+            "rank": 8,
+            "teamName": "Aaron codger"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Cooper",
@@ -2989,7 +3319,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 1,
         "3rd": 0,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 0,
+        "5th_6th": 0,
+        "7th_12th": 1
       },
       "playoffApps": 1,
       "playoffYears": [
@@ -3104,7 +3437,31 @@ window.LEAGUE_DATA = {
       "ovrLosses": 147,
       "ovrWinPct": 47.5,
       "ovrRecord": "133-147",
-      "rank": 8
+      "rank": 8,
+      "playoffWins": 2,
+      "playoffLosses": 1,
+      "playoffRecord": "2-1",
+      "playoffWinPct": 66.7,
+      "finishes": {
+        "1st": [],
+        "2nd": [
+          {
+            "year": 2022,
+            "rank": 2,
+            "teamName": "coop\u2019s shit"
+          }
+        ],
+        "3rd": [],
+        "4th": [],
+        "5th_6th": [],
+        "7th_12th": [
+          {
+            "year": 2023,
+            "rank": 11,
+            "teamName": "coop\u2019s shit"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Casey",
@@ -3120,7 +3477,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 1,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 0,
+        "5th_6th": 5,
+        "7th_12th": 2
       },
       "playoffApps": 4,
       "playoffYears": [
@@ -3673,7 +4033,62 @@ window.LEAGUE_DATA = {
       "ovrLosses": 422,
       "ovrWinPct": 49.8,
       "ovrRecord": "418-422",
-      "rank": 9
+      "rank": 9,
+      "playoffWins": 1,
+      "playoffLosses": 4,
+      "playoffRecord": "1-4",
+      "playoffWinPct": 20.0,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [
+          {
+            "year": 2018,
+            "rank": 3,
+            "teamName": "Good football team!!"
+          }
+        ],
+        "4th": [],
+        "5th_6th": [
+          {
+            "year": 2019,
+            "rank": 5,
+            "teamName": "FUNdamentals"
+          },
+          {
+            "year": 2020,
+            "rank": 5,
+            "teamName": "CUBA"
+          },
+          {
+            "year": 2023,
+            "rank": 5,
+            "teamName": "Awesome Baller-Winners"
+          },
+          {
+            "year": 2024,
+            "rank": 5,
+            "teamName": "Skibidi Football"
+          },
+          {
+            "year": 2025,
+            "rank": 6,
+            "teamName": "AARPFL"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2021,
+            "rank": 7,
+            "teamName": "Just pain"
+          },
+          {
+            "year": 2022,
+            "rank": 7,
+            "teamName": "The Mr. Unlimited\u2019s"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Trace",
@@ -3689,7 +4104,10 @@ window.LEAGUE_DATA = {
         "1st": 1,
         "2nd": 1,
         "3rd": 1,
-        "scoringTitles": 1
+        "scoringTitles": 1,
+        "4th": 0,
+        "5th_6th": 2,
+        "7th_12th": 3
       },
       "playoffApps": 4,
       "playoffYears": [
@@ -4318,7 +4736,64 @@ window.LEAGUE_DATA = {
       "ovrLosses": 456,
       "ovrWinPct": 45.7,
       "ovrRecord": "384-456",
-      "rank": 10
+      "rank": 10,
+      "playoffWins": 5,
+      "playoffLosses": 3,
+      "playoffRecord": "5-3",
+      "playoffWinPct": 62.5,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2022,
+            "rank": 1,
+            "teamName": "Gl Hf (you\u2019re gay)"
+          }
+        ],
+        "2nd": [
+          {
+            "year": 2018,
+            "rank": 2,
+            "teamName": "Trace's Team"
+          }
+        ],
+        "3rd": [
+          {
+            "year": 2020,
+            "rank": 3,
+            "teamName": "Poopy Butt"
+          }
+        ],
+        "4th": [],
+        "5th_6th": [
+          {
+            "year": 2019,
+            "rank": 6,
+            "teamName": "#1 CumBoy"
+          },
+          {
+            "year": 2025,
+            "rank": 5,
+            "teamName": "Gl Hf (you\u2019re gay)"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2021,
+            "rank": 8,
+            "teamName": "I'm gonna win you're gay"
+          },
+          {
+            "year": 2023,
+            "rank": 12,
+            "teamName": "Gl Hf (you\u2019re gay)"
+          },
+          {
+            "year": 2024,
+            "rank": 10,
+            "teamName": "Gl Hf (you\u2019re gay)"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Mike",
@@ -4334,7 +4809,10 @@ window.LEAGUE_DATA = {
         "1st": 1,
         "2nd": 0,
         "3rd": 1,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 2,
+        "5th_6th": 2,
+        "7th_12th": 2
       },
       "playoffApps": 4,
       "playoffYears": [
@@ -4785,7 +5263,64 @@ window.LEAGUE_DATA = {
       "ovrLosses": 495,
       "ovrWinPct": 41.1,
       "ovrRecord": "345-495",
-      "rank": 11
+      "rank": 11,
+      "playoffWins": 6,
+      "playoffLosses": 5,
+      "playoffRecord": "6-5",
+      "playoffWinPct": 54.5,
+      "finishes": {
+        "1st": [
+          {
+            "year": 2019,
+            "rank": 1,
+            "teamName": "RonnyMan2"
+          }
+        ],
+        "2nd": [],
+        "3rd": [
+          {
+            "year": 2023,
+            "rank": 3,
+            "teamName": "Justin Time"
+          }
+        ],
+        "4th": [
+          {
+            "year": 2021,
+            "rank": 4,
+            "teamName": "Matt's Team"
+          },
+          {
+            "year": 2024,
+            "rank": 4,
+            "teamName": "Team Chaos"
+          }
+        ],
+        "5th_6th": [
+          {
+            "year": 2018,
+            "rank": 6,
+            "teamName": "Ronny Man"
+          },
+          {
+            "year": 2020,
+            "rank": 6,
+            "teamName": "Pacific Islanders"
+          }
+        ],
+        "7th_12th": [
+          {
+            "year": 2022,
+            "rank": 10,
+            "teamName": "Ouchie"
+          },
+          {
+            "year": 2025,
+            "rank": 7,
+            "teamName": "Jelqaida"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Torin",
@@ -4801,7 +5336,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 0,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 0,
+        "5th_6th": 0,
+        "7th_12th": 1
       },
       "playoffApps": 0,
       "playoffYears": [],
@@ -4863,7 +5401,25 @@ window.LEAGUE_DATA = {
       "ovrLosses": 109,
       "ovrWinPct": 29.2,
       "ovrRecord": "45-109",
-      "rank": 12
+      "rank": 12,
+      "playoffWins": 0,
+      "playoffLosses": 0,
+      "playoffRecord": "0-0",
+      "playoffWinPct": 0.0,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [],
+        "4th": [],
+        "5th_6th": [],
+        "7th_12th": [
+          {
+            "year": 2023,
+            "rank": 9,
+            "teamName": "Can I Hit Your Vape?"
+          }
+        ]
+      }
     },
     {
       "ownerName": "Nick",
@@ -4879,7 +5435,10 @@ window.LEAGUE_DATA = {
         "1st": 0,
         "2nd": 0,
         "3rd": 0,
-        "scoringTitles": 0
+        "scoringTitles": 0,
+        "4th": 0,
+        "5th_6th": 0,
+        "7th_12th": 1
       },
       "playoffApps": 0,
       "playoffYears": [],
@@ -4921,7 +5480,25 @@ window.LEAGUE_DATA = {
       "ovrLosses": 99,
       "ovrWinPct": 35.7,
       "ovrRecord": "55-99",
-      "rank": 13
+      "rank": 13,
+      "playoffWins": 0,
+      "playoffLosses": 0,
+      "playoffRecord": "0-0",
+      "playoffWinPct": 0.0,
+      "finishes": {
+        "1st": [],
+        "2nd": [],
+        "3rd": [],
+        "4th": [],
+        "5th_6th": [],
+        "7th_12th": [
+          {
+            "year": 2023,
+            "rank": 10,
+            "teamName": "nick's Great Team"
+          }
+        ]
+      }
     }
   ],
   "seasonData": {
@@ -5063,7 +5640,11 @@ window.LEAGUE_DATA = {
               "week": 12
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2018,
@@ -5163,7 +5744,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2018,
@@ -5307,7 +5892,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2018,
@@ -5463,7 +6052,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 0,
+          "playoffLosses": 2,
+          "playoffRecord": "0-2",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2018,
@@ -5561,7 +6154,11 @@ window.LEAGUE_DATA = {
               "week": 1
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2018,
@@ -5631,7 +6228,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -6659,7 +7260,11 @@ window.LEAGUE_DATA = {
               "week": 8
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2019,
@@ -6757,7 +7362,11 @@ window.LEAGUE_DATA = {
               "week": 7
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2019,
@@ -6871,7 +7480,11 @@ window.LEAGUE_DATA = {
               "week": 10
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2019,
@@ -6989,7 +7602,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 2,
+          "playoffRecord": "0-2",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2019,
@@ -7102,7 +7719,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2019,
@@ -7230,7 +7851,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -8234,7 +8859,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2020,
@@ -8348,7 +8977,11 @@ window.LEAGUE_DATA = {
               "week": 8
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2020,
@@ -8514,7 +9147,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2020,
@@ -8595,7 +9232,11 @@ window.LEAGUE_DATA = {
               "week": 9
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 2,
+          "playoffRecord": "0-2",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2020,
@@ -8739,7 +9380,11 @@ window.LEAGUE_DATA = {
               "week": 5
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2020,
@@ -8828,7 +9473,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -9816,7 +10465,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2021,
@@ -9874,7 +10527,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7
         },
         {
           "seasonYear": 2021,
@@ -10006,7 +10663,11 @@ window.LEAGUE_DATA = {
               "week": 7
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2021,
@@ -10117,7 +10778,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 2,
+          "playoffRecord": "1-2",
+          "playoffWinPct": 33.3
         },
         {
           "seasonYear": 2021,
@@ -10197,7 +10862,11 @@ window.LEAGUE_DATA = {
               "week": 8
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2021,
@@ -10291,7 +10960,11 @@ window.LEAGUE_DATA = {
               "week": 9
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2021,
@@ -10371,7 +11044,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2021,
@@ -10485,7 +11162,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -11759,7 +12440,11 @@ window.LEAGUE_DATA = {
               "week": 12
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 3,
+          "playoffLosses": 0,
+          "playoffRecord": "3-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2022,
@@ -11823,7 +12508,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7
         },
         {
           "seasonYear": 2022,
@@ -11908,7 +12597,11 @@ window.LEAGUE_DATA = {
               "week": 10
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2022,
@@ -12014,7 +12707,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 0,
+          "playoffLosses": 2,
+          "playoffRecord": "0-2",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12085,7 +12782,11 @@ window.LEAGUE_DATA = {
               "week": 5
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12186,7 +12887,11 @@ window.LEAGUE_DATA = {
               "week": 4
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12256,7 +12961,11 @@ window.LEAGUE_DATA = {
               "week": 9
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12327,7 +13036,11 @@ window.LEAGUE_DATA = {
               "week": 3
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12405,7 +13118,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2022,
@@ -12486,7 +13203,11 @@ window.LEAGUE_DATA = {
               "week": 6
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -13992,7 +14713,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2023,
@@ -14044,7 +14769,11 @@ window.LEAGUE_DATA = {
           "hbDetails": [],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2023,
@@ -14079,7 +14808,11 @@ window.LEAGUE_DATA = {
           "hbDetails": [],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7
         },
         {
           "seasonYear": 2023,
@@ -14131,7 +14864,11 @@ window.LEAGUE_DATA = {
               "week": 9
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 2,
+          "playoffRecord": "1-2",
+          "playoffWinPct": 33.3
         },
         {
           "seasonYear": 2023,
@@ -14212,7 +14949,11 @@ window.LEAGUE_DATA = {
               "week": 6
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14326,7 +15067,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14414,7 +15159,11 @@ window.LEAGUE_DATA = {
               "week": 3
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14471,7 +15220,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14541,7 +15294,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14591,7 +15348,11 @@ window.LEAGUE_DATA = {
               "week": 4
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14678,7 +15439,11 @@ window.LEAGUE_DATA = {
               "week": 7
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2023,
@@ -14799,7 +15564,11 @@ window.LEAGUE_DATA = {
               "week": 5
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -16595,7 +17364,11 @@ window.LEAGUE_DATA = {
               "week": 1
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2024,
@@ -16684,7 +17457,11 @@ window.LEAGUE_DATA = {
               "week": 8
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2024,
@@ -16765,7 +17542,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7
         },
         {
           "seasonYear": 2024,
@@ -16842,7 +17623,11 @@ window.LEAGUE_DATA = {
               "week": 10
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 2,
+          "playoffRecord": "1-2",
+          "playoffWinPct": 33.3
         },
         {
           "seasonYear": 2024,
@@ -16915,7 +17700,11 @@ window.LEAGUE_DATA = {
               "week": 12
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2024,
@@ -17015,7 +17804,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2024,
@@ -17065,7 +17858,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2024,
@@ -17128,7 +17925,11 @@ window.LEAGUE_DATA = {
               "week": 11
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2024,
@@ -17249,7 +18050,11 @@ window.LEAGUE_DATA = {
               "week": 7
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2024,
@@ -17309,7 +18114,11 @@ window.LEAGUE_DATA = {
               "week": 5
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -18824,7 +19633,11 @@ window.LEAGUE_DATA = {
               "week": 2
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 0,
+          "playoffRecord": "2-0",
+          "playoffWinPct": 100.0
         },
         {
           "seasonYear": 2025,
@@ -18923,7 +19736,11 @@ window.LEAGUE_DATA = {
               "week": 7
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 1,
+          "playoffRecord": "1-1",
+          "playoffWinPct": 50.0
         },
         {
           "seasonYear": 2025,
@@ -19033,7 +19850,11 @@ window.LEAGUE_DATA = {
               "week": 3
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7
         },
         {
           "seasonYear": 2025,
@@ -19091,7 +19912,11 @@ window.LEAGUE_DATA = {
           "hbDetails": [],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 1,
+          "playoffLosses": 2,
+          "playoffRecord": "1-2",
+          "playoffWinPct": 33.3
         },
         {
           "seasonYear": 2025,
@@ -19166,7 +19991,11 @@ window.LEAGUE_DATA = {
               "week": 13
             }
           ],
-          "isScoringChamp": true
+          "isScoringChamp": true,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2025,
@@ -19233,7 +20062,11 @@ window.LEAGUE_DATA = {
               "week": 14
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 1,
+          "playoffRecord": "0-1",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2025,
@@ -19313,7 +20146,11 @@ window.LEAGUE_DATA = {
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2025,
@@ -19370,7 +20207,11 @@ window.LEAGUE_DATA = {
               "week": 9
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2025,
@@ -19490,7 +20331,11 @@ window.LEAGUE_DATA = {
               "week": 12
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         },
         {
           "seasonYear": 2025,
@@ -19560,7 +20405,11 @@ window.LEAGUE_DATA = {
               "week": 10
             }
           ],
-          "isScoringChamp": false
+          "isScoringChamp": false,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0
         }
       ],
       "statRecords": {
@@ -22194,6 +23043,5280 @@ window.LEAGUE_DATA = {
           "stage": "Regular Season"
         }
       ]
+    },
+    "allTime": {
+      "settings": {},
+      "standings": [
+        {
+          "ownerName": "Phillip",
+          "teamName": "Ho Chi Win City",
+          "wins": 72,
+          "losses": 40,
+          "winPct": 64.3,
+          "pointsFor": 16214.5,
+          "pointsAgainst": 15106.8,
+          "avgPF": 2026.8,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 2,
+            "2nd": 2,
+            "3rd": 3,
+            "scoringTitles": 2,
+            "4th": 1,
+            "5th_6th": 0,
+            "7th_12th": 0
+          },
+          "playoffApps": 8,
+          "playoffYears": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "playoffPct": 100.0,
+          "weeklyWins": 28,
+          "wwDetails": [
+            {
+              "year": 2018,
+              "week": 3,
+              "score": 151.97,
+              "teamName": "Show Me Dem TDS"
+            },
+            {
+              "year": 2018,
+              "week": 7,
+              "score": 201.27,
+              "teamName": "Show Me Dem TDS"
+            },
+            {
+              "year": 2018,
+              "week": 11,
+              "score": 188.68,
+              "teamName": "Show Me Dem TDS"
+            },
+            {
+              "year": 2018,
+              "week": 14,
+              "score": 170.9,
+              "teamName": "Show Me Dem TDS"
+            },
+            {
+              "year": 2019,
+              "week": 12,
+              "score": 186.92,
+              "teamName": "Bak2Bak"
+            },
+            {
+              "year": 2019,
+              "week": 14,
+              "score": 173.33,
+              "teamName": "Bak2Bak"
+            },
+            {
+              "year": 2020,
+              "week": 2,
+              "score": 163.82,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2020,
+              "week": 10,
+              "score": 138.41,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2020,
+              "week": 14,
+              "score": 164.87,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2021,
+              "week": 3,
+              "score": 139.27,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2021,
+              "week": 9,
+              "score": 167.35,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2021,
+              "week": 11,
+              "score": 166.85,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2021,
+              "week": 12,
+              "score": 138.74,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2021,
+              "week": 13,
+              "score": 154.71,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2022,
+              "week": 1,
+              "score": 201.48,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2022,
+              "week": 4,
+              "score": 183.84,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2022,
+              "week": 7,
+              "score": 162.03,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2022,
+              "week": 10,
+              "score": 177.68,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2023,
+              "week": 1,
+              "score": 158.31,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2023,
+              "week": 7,
+              "score": 174.9,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2024,
+              "week": 5,
+              "score": 199.76,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2024,
+              "week": 10,
+              "score": 154.08,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2024,
+              "week": 12,
+              "score": 175.78,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2024,
+              "week": 13,
+              "score": 169.74,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2024,
+              "week": 14,
+              "score": 196.38,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2025,
+              "week": 3,
+              "score": 161.28,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2025,
+              "week": 9,
+              "score": 186.72,
+              "teamName": "Ho Chi Win City"
+            },
+            {
+              "year": 2025,
+              "week": 12,
+              "score": 194.82,
+              "teamName": "Ho Chi Win City"
+            }
+          ],
+          "luckiestWins": 13,
+          "lwDetails": [
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 138.33,
+              "oppOwner": "Mike",
+              "oppScore": 122.14,
+              "margin": 16.190000000000012,
+              "year": 2018,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 171.48,
+              "oppOwner": "Dylan",
+              "oppScore": 150.87,
+              "margin": 20.609999999999985,
+              "year": 2018,
+              "week": 6
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 174.93,
+              "oppOwner": "Mike",
+              "oppScore": 154.48,
+              "margin": 20.450000000000017,
+              "year": 2019,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 172.05,
+              "oppOwner": "Trace",
+              "oppScore": 151.33,
+              "margin": 20.72,
+              "year": 2019,
+              "week": 8
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 129.71,
+              "oppOwner": "Dylan",
+              "oppScore": 95.43,
+              "margin": 34.28,
+              "year": 2020,
+              "week": 1
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 106.17,
+              "oppOwner": "Mike",
+              "oppScore": 93.75,
+              "margin": 12.420000000000002,
+              "year": 2020,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 95.22,
+              "oppOwner": "Casey",
+              "oppScore": 93.17,
+              "margin": 2.049999999999997,
+              "year": 2020,
+              "week": 9
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 145.72,
+              "oppOwner": "Mike",
+              "oppScore": 98.92,
+              "margin": 46.8,
+              "year": 2021,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 137.51,
+              "oppOwner": "Dylan",
+              "oppScore": 134.83,
+              "margin": 2.6799999999999784,
+              "year": 2022,
+              "week": 2
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 133.64,
+              "oppOwner": "Jasper",
+              "oppScore": 89.1,
+              "margin": 44.53999999999999,
+              "year": 2022,
+              "week": 3
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 126.34,
+              "oppOwner": "Trace",
+              "oppScore": 119.03,
+              "margin": 7.310000000000002,
+              "year": 2022,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 116.86,
+              "oppOwner": "Cooper",
+              "oppScore": 112.44,
+              "margin": 4.420000000000002,
+              "year": 2023,
+              "week": 10
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 123.88,
+              "oppOwner": "Ryan",
+              "oppScore": 110.9,
+              "margin": 12.97999999999999,
+              "year": 2024,
+              "week": 2
+            }
+          ],
+          "heartbreaks": 11,
+          "hbDetails": [
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 140.55,
+              "oppOwner": "Trace",
+              "oppScore": 156.53,
+              "margin": 15.97999999999999,
+              "year": 2018,
+              "week": 9
+            },
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 111.52,
+              "oppOwner": "Mike",
+              "oppScore": 140.68,
+              "margin": 29.16000000000001,
+              "year": 2018,
+              "week": 10
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 89.1,
+              "oppOwner": "Trace",
+              "oppScore": 134.5,
+              "margin": 45.400000000000006,
+              "year": 2019,
+              "week": 3
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 152.02,
+              "oppOwner": "Mike",
+              "oppScore": 158.03,
+              "margin": 6.009999999999991,
+              "year": 2019,
+              "week": 10
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 113.21,
+              "oppOwner": "Trace",
+              "oppScore": 113.97,
+              "margin": 0.7600000000000051,
+              "year": 2020,
+              "week": 13
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 140.23,
+              "oppOwner": "Dylan",
+              "oppScore": 144.2,
+              "margin": 3.969999999999999,
+              "year": 2021,
+              "week": 1
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 129.29,
+              "oppOwner": "Casey",
+              "oppScore": 138.5,
+              "margin": 9.210000000000008,
+              "year": 2021,
+              "week": 4
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 137.4,
+              "oppOwner": "Jasper",
+              "oppScore": 144.54,
+              "margin": 7.139999999999986,
+              "year": 2022,
+              "week": 12
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 126.0,
+              "oppOwner": "Tess",
+              "oppScore": 130.76,
+              "margin": 4.759999999999991,
+              "year": 2024,
+              "week": 3
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 158.72,
+              "oppOwner": "Casey",
+              "oppScore": 161.84,
+              "margin": 3.1200000000000045,
+              "year": 2025,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 112.64,
+              "oppOwner": "Ryan",
+              "oppScore": 117.62,
+              "margin": 4.980000000000004,
+              "year": 2025,
+              "week": 11
+            }
+          ],
+          "toughestLosses": 15,
+          "tlDetails": [
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 157.36,
+              "oppOwner": "Trace",
+              "oppScore": 190.48,
+              "margin": 33.119999999999976,
+              "year": 2018,
+              "week": 4
+            },
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 140.55,
+              "oppOwner": "Trace",
+              "oppScore": 156.53,
+              "margin": 15.97999999999999,
+              "year": 2018,
+              "week": 9
+            },
+            {
+              "owner": "Phillip",
+              "team": "Show Me Dem TDS",
+              "score": 144.05,
+              "oppOwner": "Ryan",
+              "oppScore": 169.17,
+              "margin": 25.119999999999976,
+              "year": 2018,
+              "week": 12
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 142.78,
+              "oppOwner": "Ryan",
+              "oppScore": 161.77,
+              "margin": 18.99000000000001,
+              "year": 2019,
+              "week": 2
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 159.03,
+              "oppOwner": "Casey",
+              "oppScore": 165.12,
+              "margin": 6.090000000000003,
+              "year": 2019,
+              "week": 9
+            },
+            {
+              "owner": "Phillip",
+              "team": "Bak2Bak",
+              "score": 152.02,
+              "oppOwner": "Mike",
+              "oppScore": 158.03,
+              "margin": 6.009999999999991,
+              "year": 2019,
+              "week": 10
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 113.21,
+              "oppOwner": "Trace",
+              "oppScore": 113.97,
+              "margin": 0.7600000000000051,
+              "year": 2020,
+              "week": 13
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 140.23,
+              "oppOwner": "Dylan",
+              "oppScore": 144.2,
+              "margin": 3.969999999999999,
+              "year": 2021,
+              "week": 1
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 129.29,
+              "oppOwner": "Casey",
+              "oppScore": 138.5,
+              "margin": 9.210000000000008,
+              "year": 2021,
+              "week": 4
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 141.83,
+              "oppOwner": "Ryan",
+              "oppScore": 164.59,
+              "margin": 22.75999999999999,
+              "year": 2021,
+              "week": 6
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 130.62,
+              "oppOwner": "Boaz",
+              "oppScore": 139.56,
+              "margin": 8.939999999999998,
+              "year": 2021,
+              "week": 7
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 123.57,
+              "oppOwner": "Trace",
+              "oppScore": 134.7,
+              "margin": 11.129999999999995,
+              "year": 2022,
+              "week": 14
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 158.72,
+              "oppOwner": "Casey",
+              "oppScore": 161.84,
+              "margin": 3.1200000000000045,
+              "year": 2025,
+              "week": 5
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 142.12,
+              "oppOwner": "Trace",
+              "oppScore": 161.24,
+              "margin": 19.120000000000005,
+              "year": 2025,
+              "week": 6
+            },
+            {
+              "owner": "Phillip",
+              "team": "Ho Chi Win City",
+              "score": 141.5,
+              "oppOwner": "Dylan",
+              "oppScore": 178.46,
+              "margin": 36.96000000000001,
+              "year": 2025,
+              "week": 7
+            }
+          ],
+          "expWins": 71,
+          "expRecord": "71-41",
+          "luck": 1,
+          "ovrWins": 543,
+          "ovrLosses": 297,
+          "ovrWinPct": 64.6,
+          "ovrRecord": "543-297",
+          "rank": 1,
+          "playoffWins": 10,
+          "playoffLosses": 7,
+          "playoffRecord": "10-7",
+          "playoffWinPct": 58.8,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2018,
+                "rank": 1,
+                "teamName": "Show Me Dem TDS"
+              },
+              {
+                "year": 2020,
+                "rank": 1,
+                "teamName": "Ho Chi Win City"
+              }
+            ],
+            "2nd": [
+              {
+                "year": 2023,
+                "rank": 2,
+                "teamName": "Ho Chi Win City"
+              },
+              {
+                "year": 2025,
+                "rank": 2,
+                "teamName": "Ho Chi Win City"
+              }
+            ],
+            "3rd": [
+              {
+                "year": 2019,
+                "rank": 3,
+                "teamName": "Bak2Bak"
+              },
+              {
+                "year": 2021,
+                "rank": 3,
+                "teamName": "Ho Chi Win City"
+              },
+              {
+                "year": 2024,
+                "rank": 3,
+                "teamName": "Ho Chi Win City"
+              }
+            ],
+            "4th": [
+              {
+                "year": 2022,
+                "rank": 4,
+                "teamName": "Ho Chi Win City"
+              }
+            ],
+            "5th_6th": [],
+            "7th_12th": []
+          }
+        },
+        {
+          "ownerName": "Jasper",
+          "teamName": "Blue's Balls",
+          "wins": 32,
+          "losses": 24,
+          "winPct": 57.1,
+          "pointsFor": 7329.9,
+          "pointsAgainst": 7502.3,
+          "avgPF": 1832.5,
+          "seasonsCount": 4,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 1,
+            "scoringTitles": 0,
+            "4th": 1,
+            "5th_6th": 1,
+            "7th_12th": 1
+          },
+          "playoffApps": 3,
+          "playoffYears": [
+            2022,
+            2023,
+            2025
+          ],
+          "playoffPct": 75.0,
+          "weeklyWins": 2,
+          "wwDetails": [
+            {
+              "year": 2023,
+              "week": 2,
+              "score": 159.24,
+              "teamName": "Blue's Balls"
+            },
+            {
+              "year": 2023,
+              "week": 12,
+              "score": 193.14,
+              "teamName": "Blue's Balls"
+            }
+          ],
+          "luckiestWins": 10,
+          "lwDetails": [
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 112.33,
+              "oppOwner": "Mike",
+              "oppScore": 91.86,
+              "margin": 20.47,
+              "year": 2022,
+              "week": 11
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 144.54,
+              "oppOwner": "Phillip",
+              "oppScore": 137.4,
+              "margin": 7.139999999999986,
+              "year": 2022,
+              "week": 12
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 113.36,
+              "oppOwner": "Ryan",
+              "oppScore": 108.84,
+              "margin": 4.519999999999996,
+              "year": 2024,
+              "week": 12
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 120.6,
+              "oppOwner": "Trace",
+              "oppScore": 118.58,
+              "margin": 2.019999999999996,
+              "year": 2025,
+              "week": 1
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 120.82,
+              "oppOwner": "Mike",
+              "oppScore": 118.06,
+              "margin": 2.759999999999991,
+              "year": 2025,
+              "week": 2
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 135.76,
+              "oppOwner": "Ryan",
+              "oppScore": 130.94,
+              "margin": 4.819999999999993,
+              "year": 2025,
+              "week": 4
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 142.78,
+              "oppOwner": "Dustin",
+              "oppScore": 125.22,
+              "margin": 17.560000000000002,
+              "year": 2025,
+              "week": 5
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 149.94,
+              "oppOwner": "Casey",
+              "oppScore": 136.08,
+              "margin": 13.859999999999985,
+              "year": 2025,
+              "week": 7
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 114.74,
+              "oppOwner": "Tess",
+              "oppScore": 94.56,
+              "margin": 20.179999999999993,
+              "year": 2025,
+              "week": 9
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 127.3,
+              "oppOwner": "Ryan",
+              "oppScore": 118.22,
+              "margin": 9.079999999999998,
+              "year": 2025,
+              "week": 13
+            }
+          ],
+          "heartbreaks": 1,
+          "hbDetails": [
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 166.51,
+              "oppOwner": "Ryan",
+              "oppScore": 166.84,
+              "margin": 0.3300000000000125,
+              "year": 2022,
+              "week": 5
+            }
+          ],
+          "toughestLosses": 4,
+          "tlDetails": [
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 166.51,
+              "oppOwner": "Ryan",
+              "oppScore": 166.84,
+              "margin": 0.3300000000000125,
+              "year": 2022,
+              "week": 5
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 124.96,
+              "oppOwner": "Casey",
+              "oppScore": 130.65,
+              "margin": 5.690000000000012,
+              "year": 2023,
+              "week": 9
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 152.88,
+              "oppOwner": "Phillip",
+              "oppScore": 169.74,
+              "margin": 16.860000000000014,
+              "year": 2024,
+              "week": 13
+            },
+            {
+              "owner": "Jasper",
+              "team": "Blue's Balls",
+              "score": 142.78,
+              "oppOwner": "Phillip",
+              "oppScore": 161.28,
+              "margin": 18.5,
+              "year": 2025,
+              "week": 3
+            }
+          ],
+          "expWins": 25,
+          "expRecord": "25-31",
+          "luck": 7,
+          "ovrWins": 237,
+          "ovrLosses": 295,
+          "ovrWinPct": 44.5,
+          "ovrRecord": "237-295",
+          "rank": 2,
+          "playoffWins": 3,
+          "playoffLosses": 4,
+          "playoffRecord": "3-4",
+          "playoffWinPct": 42.9,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [
+              {
+                "year": 2025,
+                "rank": 3,
+                "teamName": "Blue's Balls"
+              }
+            ],
+            "4th": [
+              {
+                "year": 2023,
+                "rank": 4,
+                "teamName": "Blue's Balls"
+              }
+            ],
+            "5th_6th": [
+              {
+                "year": 2022,
+                "rank": 5,
+                "teamName": "Blue's Balls"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2024,
+                "rank": 7,
+                "teamName": "Blue's Balls"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Ryan",
+          "teamName": "Bad team not good at football",
+          "wins": 60,
+          "losses": 52,
+          "winPct": 53.6,
+          "pointsFor": 15179.4,
+          "pointsAgainst": 15010.9,
+          "avgPF": 1897.4,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 1,
+            "2nd": 2,
+            "3rd": 1,
+            "scoringTitles": 2,
+            "4th": 0,
+            "5th_6th": 1,
+            "7th_12th": 3
+          },
+          "playoffApps": 4,
+          "playoffYears": [
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 16,
+          "wwDetails": [
+            {
+              "year": 2018,
+              "week": 10,
+              "score": 199.63,
+              "teamName": "The Mongol Horde"
+            },
+            {
+              "year": 2019,
+              "week": 2,
+              "score": 161.77,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2019,
+              "week": 5,
+              "score": 208.0,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2019,
+              "week": 6,
+              "score": 172.47,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2019,
+              "week": 8,
+              "score": 186.21,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2019,
+              "week": 9,
+              "score": 202.1,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2019,
+              "week": 11,
+              "score": 162.08,
+              "teamName": "The Mamluks"
+            },
+            {
+              "year": 2020,
+              "week": 6,
+              "score": 127.24,
+              "teamName": "The Janissaries"
+            },
+            {
+              "year": 2020,
+              "week": 7,
+              "score": 158.52,
+              "teamName": "The Janissaries"
+            },
+            {
+              "year": 2021,
+              "week": 2,
+              "score": 164.48,
+              "teamName": "LIBYA rip Gaddafi"
+            },
+            {
+              "year": 2021,
+              "week": 6,
+              "score": 164.59,
+              "teamName": "LIBYA rip Gaddafi"
+            },
+            {
+              "year": 2022,
+              "week": 5,
+              "score": 166.84,
+              "teamName": "Rats!"
+            },
+            {
+              "year": 2022,
+              "week": 6,
+              "score": 169.63,
+              "teamName": "Rats!"
+            },
+            {
+              "year": 2022,
+              "week": 11,
+              "score": 159.99,
+              "teamName": "Rats!"
+            },
+            {
+              "year": 2022,
+              "week": 12,
+              "score": 179.1,
+              "teamName": "Rats!"
+            },
+            {
+              "year": 2023,
+              "week": 11,
+              "score": 161.23,
+              "teamName": "Trilobite Terror"
+            }
+          ],
+          "luckiestWins": 15,
+          "lwDetails": [
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 131.22,
+              "oppOwner": "Mike",
+              "oppScore": 82.41,
+              "margin": 48.81,
+              "year": 2018,
+              "week": 3
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 113.15,
+              "oppOwner": "Mike",
+              "oppScore": 72.58,
+              "margin": 40.57000000000001,
+              "year": 2018,
+              "week": 8
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 134.83,
+              "oppOwner": "Mike",
+              "oppScore": 107.0,
+              "margin": 27.830000000000013,
+              "year": 2018,
+              "week": 13
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mamluks",
+              "score": 148.17,
+              "oppOwner": "Trace",
+              "oppScore": 140.88,
+              "margin": 7.289999999999992,
+              "year": 2019,
+              "week": 4
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 140.21,
+              "oppOwner": "Mike",
+              "oppScore": 118.85,
+              "margin": 21.360000000000014,
+              "year": 2020,
+              "week": 3
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 105.65,
+              "oppOwner": "Trace",
+              "oppScore": 87.22,
+              "margin": 18.430000000000007,
+              "year": 2020,
+              "week": 4
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 116.67,
+              "oppOwner": "Casey",
+              "oppScore": 73.02,
+              "margin": 43.650000000000006,
+              "year": 2020,
+              "week": 11
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 107.73,
+              "oppOwner": "Mike",
+              "oppScore": 99.17,
+              "margin": 8.560000000000002,
+              "year": 2020,
+              "week": 13
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 144.32,
+              "oppOwner": "Trace",
+              "oppScore": 120.04,
+              "margin": 24.279999999999987,
+              "year": 2020,
+              "week": 14
+            },
+            {
+              "owner": "Ryan",
+              "team": "LIBYA rip Gaddafi",
+              "score": 106.96,
+              "oppOwner": "Dustin",
+              "oppScore": 103.16,
+              "margin": 3.799999999999997,
+              "year": 2021,
+              "week": 10
+            },
+            {
+              "owner": "Ryan",
+              "team": "LIBYA rip Gaddafi",
+              "score": 117.97,
+              "oppOwner": "Trace",
+              "oppScore": 113.27,
+              "margin": 4.700000000000003,
+              "year": 2021,
+              "week": 14
+            },
+            {
+              "owner": "Ryan",
+              "team": "Rats!",
+              "score": 132.78,
+              "oppOwner": "Mike",
+              "oppScore": 119.48,
+              "margin": 13.299999999999997,
+              "year": 2022,
+              "week": 8
+            },
+            {
+              "owner": "Ryan",
+              "team": "Trilobite Terror",
+              "score": 95.5,
+              "oppOwner": "Trace",
+              "oppScore": 84.29,
+              "margin": 11.209999999999994,
+              "year": 2023,
+              "week": 4
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 127.2,
+              "oppOwner": "Trace",
+              "oppScore": 112.5,
+              "margin": 14.700000000000003,
+              "year": 2024,
+              "week": 4
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 135.5,
+              "oppOwner": "Mike",
+              "oppScore": 114.38,
+              "margin": 21.120000000000005,
+              "year": 2024,
+              "week": 9
+            }
+          ],
+          "heartbreaks": 13,
+          "hbDetails": [
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 167.17,
+              "oppOwner": "Trace",
+              "oppScore": 172.33,
+              "margin": 5.160000000000025,
+              "year": 2018,
+              "week": 1
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 132.13,
+              "oppOwner": "Casey",
+              "oppScore": 133.23,
+              "margin": 1.0999999999999943,
+              "year": 2018,
+              "week": 4
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mamluks",
+              "score": 156.03,
+              "oppOwner": "Phillip",
+              "oppScore": 161.38,
+              "margin": 5.349999999999994,
+              "year": 2019,
+              "week": 7
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 123.01,
+              "oppOwner": "Mike",
+              "oppScore": 128.31,
+              "margin": 5.299999999999997,
+              "year": 2020,
+              "week": 8
+            },
+            {
+              "owner": "Ryan",
+              "team": "LIBYA rip Gaddafi",
+              "score": 149.82,
+              "oppOwner": "Phillip",
+              "oppScore": 154.71,
+              "margin": 4.890000000000015,
+              "year": 2021,
+              "week": 13
+            },
+            {
+              "owner": "Ryan",
+              "team": "Trilobite Terror",
+              "score": 118.87,
+              "oppOwner": "Phillip",
+              "oppScore": 130.88,
+              "margin": 12.009999999999991,
+              "year": 2023,
+              "week": 14
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 110.9,
+              "oppOwner": "Phillip",
+              "oppScore": 123.88,
+              "margin": 12.97999999999999,
+              "year": 2024,
+              "week": 2
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 126.82,
+              "oppOwner": "Boaz",
+              "oppScore": 139.36,
+              "margin": 12.54000000000002,
+              "year": 2024,
+              "week": 5
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 144.14,
+              "oppOwner": "Dylan",
+              "oppScore": 145.04,
+              "margin": 0.9000000000000057,
+              "year": 2024,
+              "week": 6
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 146.92,
+              "oppOwner": "Dustin",
+              "oppScore": 148.3,
+              "margin": 1.3800000000000239,
+              "year": 2024,
+              "week": 7
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 108.84,
+              "oppOwner": "Jasper",
+              "oppScore": 113.36,
+              "margin": 4.519999999999996,
+              "year": 2024,
+              "week": 12
+            },
+            {
+              "owner": "Ryan",
+              "team": "Bad team not good at football",
+              "score": 120.1,
+              "oppOwner": "Dylan",
+              "oppScore": 130.02,
+              "margin": 9.920000000000016,
+              "year": 2025,
+              "week": 3
+            },
+            {
+              "owner": "Ryan",
+              "team": "Bad team not good at football",
+              "score": 135.53,
+              "oppOwner": "Casey",
+              "oppScore": 138.0,
+              "margin": 2.469999999999999,
+              "year": 2025,
+              "week": 10
+            }
+          ],
+          "toughestLosses": 10,
+          "tlDetails": [
+            {
+              "owner": "Ryan",
+              "team": "The Mongol Horde",
+              "score": 167.17,
+              "oppOwner": "Trace",
+              "oppScore": 172.33,
+              "margin": 5.160000000000025,
+              "year": 2018,
+              "week": 1
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Mamluks",
+              "score": 156.03,
+              "oppOwner": "Phillip",
+              "oppScore": 161.38,
+              "margin": 5.349999999999994,
+              "year": 2019,
+              "week": 7
+            },
+            {
+              "owner": "Ryan",
+              "team": "The Janissaries",
+              "score": 123.01,
+              "oppOwner": "Mike",
+              "oppScore": 128.31,
+              "margin": 5.299999999999997,
+              "year": 2020,
+              "week": 8
+            },
+            {
+              "owner": "Ryan",
+              "team": "LIBYA rip Gaddafi",
+              "score": 149.82,
+              "oppOwner": "Phillip",
+              "oppScore": 154.71,
+              "margin": 4.890000000000015,
+              "year": 2021,
+              "week": 13
+            },
+            {
+              "owner": "Ryan",
+              "team": "Rats!",
+              "score": 153.18,
+              "oppOwner": "Phillip",
+              "oppScore": 201.48,
+              "margin": 48.29999999999998,
+              "year": 2022,
+              "week": 1
+            },
+            {
+              "owner": "Ryan",
+              "team": "Rats!",
+              "score": 137.33,
+              "oppOwner": "Phillip",
+              "oppScore": 177.68,
+              "margin": 40.349999999999994,
+              "year": 2022,
+              "week": 10
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 144.14,
+              "oppOwner": "Dylan",
+              "oppScore": 145.04,
+              "margin": 0.9000000000000057,
+              "year": 2024,
+              "week": 6
+            },
+            {
+              "owner": "Ryan",
+              "team": "Old Leech",
+              "score": 146.92,
+              "oppOwner": "Dustin",
+              "oppScore": 148.3,
+              "margin": 1.3800000000000239,
+              "year": 2024,
+              "week": 7
+            },
+            {
+              "owner": "Ryan",
+              "team": "Bad team not good at football",
+              "score": 129.32,
+              "oppOwner": "Casey",
+              "oppScore": 182.67,
+              "margin": 53.349999999999994,
+              "year": 2025,
+              "week": 1
+            },
+            {
+              "owner": "Ryan",
+              "team": "Bad team not good at football",
+              "score": 135.53,
+              "oppOwner": "Casey",
+              "oppScore": 138.0,
+              "margin": 2.469999999999999,
+              "year": 2025,
+              "week": 10
+            }
+          ],
+          "expWins": 58,
+          "expRecord": "58-54",
+          "luck": 2,
+          "ovrWins": 426,
+          "ovrLosses": 414,
+          "ovrWinPct": 50.7,
+          "ovrRecord": "426-414",
+          "rank": 3,
+          "playoffWins": 5,
+          "playoffLosses": 3,
+          "playoffRecord": "5-3",
+          "playoffWinPct": 62.5,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2021,
+                "rank": 1,
+                "teamName": "LIBYA rip Gaddafi"
+              }
+            ],
+            "2nd": [
+              {
+                "year": 2019,
+                "rank": 2,
+                "teamName": "The Mamluks"
+              },
+              {
+                "year": 2020,
+                "rank": 2,
+                "teamName": "The Janissaries"
+              }
+            ],
+            "3rd": [
+              {
+                "year": 2022,
+                "rank": 3,
+                "teamName": "Rats!"
+              }
+            ],
+            "4th": [],
+            "5th_6th": [
+              {
+                "year": 2018,
+                "rank": 5,
+                "teamName": "The Mongol Horde"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2023,
+                "rank": 8,
+                "teamName": "Trilobite Terror"
+              },
+              {
+                "year": 2024,
+                "rank": 9,
+                "teamName": "Old Leech"
+              },
+              {
+                "year": 2025,
+                "rank": 10,
+                "teamName": "Bad team not good at football"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Dylan",
+          "teamName": "Globo Gym",
+          "wins": 57,
+          "losses": 55,
+          "winPct": 50.9,
+          "pointsFor": 15576.9,
+          "pointsAgainst": 15045.5,
+          "avgPF": 1947.1,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 2,
+            "2nd": 1,
+            "3rd": 0,
+            "scoringTitles": 1,
+            "4th": 3,
+            "5th_6th": 0,
+            "7th_12th": 2
+          },
+          "playoffApps": 6,
+          "playoffYears": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2024,
+            2025
+          ],
+          "playoffPct": 75.0,
+          "weeklyWins": 12,
+          "wwDetails": [
+            {
+              "year": 2018,
+              "week": 2,
+              "score": 162.97,
+              "teamName": "The Waterboys"
+            },
+            {
+              "year": 2018,
+              "week": 4,
+              "score": 228.42,
+              "teamName": "The Waterboys"
+            },
+            {
+              "year": 2018,
+              "week": 12,
+              "score": 169.82,
+              "teamName": "The Waterboys"
+            },
+            {
+              "year": 2018,
+              "week": 13,
+              "score": 200.92,
+              "teamName": "The Waterboys"
+            },
+            {
+              "year": 2019,
+              "week": 3,
+              "score": 228.5,
+              "teamName": "Hood Phenomenons"
+            },
+            {
+              "year": 2021,
+              "week": 1,
+              "score": 144.2,
+              "teamName": "#BrainTrauma"
+            },
+            {
+              "year": 2021,
+              "week": 7,
+              "score": 159.5,
+              "teamName": "#BrainTrauma"
+            },
+            {
+              "year": 2021,
+              "week": 10,
+              "score": 153.18,
+              "teamName": "#BrainTrauma"
+            },
+            {
+              "year": 2023,
+              "week": 5,
+              "score": 247.56,
+              "teamName": "Zaza Zealots"
+            },
+            {
+              "year": 2024,
+              "week": 8,
+              "score": 193.08,
+              "teamName": "Globo Gym"
+            },
+            {
+              "year": 2025,
+              "week": 4,
+              "score": 196.14,
+              "teamName": "Globo Gym"
+            },
+            {
+              "year": 2025,
+              "week": 14,
+              "score": 158.57,
+              "teamName": "Globo Gym"
+            }
+          ],
+          "luckiestWins": 12,
+          "lwDetails": [
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 140.71,
+              "oppOwner": "Mike",
+              "oppScore": 136.63,
+              "margin": 4.0800000000000125,
+              "year": 2018,
+              "week": 14
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 149.65,
+              "oppOwner": "Phillip",
+              "oppScore": 136.95,
+              "margin": 12.700000000000017,
+              "year": 2019,
+              "week": 1
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 161.08,
+              "oppOwner": "Trace",
+              "oppScore": 115.53,
+              "margin": 45.55000000000001,
+              "year": 2019,
+              "week": 7
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 111.85,
+              "oppOwner": "Mike",
+              "oppScore": 111.37,
+              "margin": 0.47999999999998977,
+              "year": 2019,
+              "week": 9
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 159.85,
+              "oppOwner": "Trace",
+              "oppScore": 116.16,
+              "margin": 43.69,
+              "year": 2019,
+              "week": 12
+            },
+            {
+              "owner": "Dylan",
+              "team": "#2020BrainTrauma",
+              "score": 111.19,
+              "oppOwner": "Trace",
+              "oppScore": 108.25,
+              "margin": 2.9399999999999977,
+              "year": 2020,
+              "week": 12
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Dawn of Man-Ape",
+              "score": 124.11,
+              "oppOwner": "Dustin",
+              "oppScore": 101.38,
+              "margin": 22.730000000000004,
+              "year": 2022,
+              "week": 7
+            },
+            {
+              "owner": "Dylan",
+              "team": "Zaza Zealots",
+              "score": 108.56,
+              "oppOwner": "Torin",
+              "oppScore": 101.18,
+              "margin": 7.3799999999999955,
+              "year": 2023,
+              "week": 9
+            },
+            {
+              "owner": "Dylan",
+              "team": "Zaza Zealots",
+              "score": 123.28,
+              "oppOwner": "Cooper",
+              "oppScore": 106.99,
+              "margin": 16.290000000000006,
+              "year": 2023,
+              "week": 11
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 130.7,
+              "oppOwner": "Dustin",
+              "oppScore": 115.04,
+              "margin": 15.659999999999982,
+              "year": 2024,
+              "week": 3
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 130.02,
+              "oppOwner": "Ryan",
+              "oppScore": 120.1,
+              "margin": 9.920000000000016,
+              "year": 2025,
+              "week": 3
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 149.48,
+              "oppOwner": "Casey",
+              "oppScore": 96.78,
+              "margin": 52.69999999999999,
+              "year": 2025,
+              "week": 8
+            }
+          ],
+          "heartbreaks": 18,
+          "hbDetails": [
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 142.93,
+              "oppOwner": "Ryan",
+              "oppScore": 158.06,
+              "margin": 15.129999999999995,
+              "year": 2018,
+              "week": 5
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 150.87,
+              "oppOwner": "Phillip",
+              "oppScore": 171.48,
+              "margin": 20.609999999999985,
+              "year": 2018,
+              "week": 6
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 174.31,
+              "oppOwner": "Trace",
+              "oppScore": 184.92,
+              "margin": 10.609999999999985,
+              "year": 2018,
+              "week": 8
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 182.57,
+              "oppOwner": "Phillip",
+              "oppScore": 188.68,
+              "margin": 6.110000000000014,
+              "year": 2018,
+              "week": 11
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 144.18,
+              "oppOwner": "Phillip",
+              "oppScore": 151.77,
+              "margin": 7.590000000000003,
+              "year": 2019,
+              "week": 6
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 140.58,
+              "oppOwner": "Casey",
+              "oppScore": 141.25,
+              "margin": 0.6699999999999875,
+              "year": 2019,
+              "week": 13
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 145.33,
+              "oppOwner": "Mike",
+              "oppScore": 149.78,
+              "margin": 4.449999999999989,
+              "year": 2019,
+              "week": 14
+            },
+            {
+              "owner": "Dylan",
+              "team": "#2020BrainTrauma",
+              "score": 115.77,
+              "oppOwner": "Trace",
+              "oppScore": 142.13,
+              "margin": 26.36,
+              "year": 2020,
+              "week": 7
+            },
+            {
+              "owner": "Dylan",
+              "team": "#2020BrainTrauma",
+              "score": 93.44,
+              "oppOwner": "Phillip",
+              "oppScore": 117.84,
+              "margin": 24.400000000000006,
+              "year": 2020,
+              "week": 11
+            },
+            {
+              "owner": "Dylan",
+              "team": "#BrainTrauma",
+              "score": 83.37,
+              "oppOwner": "Trace",
+              "oppScore": 97.82,
+              "margin": 14.449999999999989,
+              "year": 2021,
+              "week": 9
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Dawn of Man-Ape",
+              "score": 134.83,
+              "oppOwner": "Phillip",
+              "oppScore": 137.51,
+              "margin": 2.6799999999999784,
+              "year": 2022,
+              "week": 2
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Dawn of Man-Ape",
+              "score": 133.57,
+              "oppOwner": "Mike",
+              "oppScore": 133.93,
+              "margin": 0.36000000000001364,
+              "year": 2022,
+              "week": 10
+            },
+            {
+              "owner": "Dylan",
+              "team": "Zaza Zealots",
+              "score": 158.3,
+              "oppOwner": "Trace",
+              "oppScore": 162.52,
+              "margin": 4.219999999999999,
+              "year": 2023,
+              "week": 3
+            },
+            {
+              "owner": "Dylan",
+              "team": "Zaza Zealots",
+              "score": 115.07,
+              "oppOwner": "Casey",
+              "oppScore": 124.3,
+              "margin": 9.230000000000004,
+              "year": 2023,
+              "week": 13
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 139.74,
+              "oppOwner": "Boaz",
+              "oppScore": 139.92,
+              "margin": 0.1799999999999784,
+              "year": 2024,
+              "week": 1
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 130.34,
+              "oppOwner": "Boaz",
+              "oppScore": 139.26,
+              "margin": 8.919999999999987,
+              "year": 2024,
+              "week": 10
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 121.12,
+              "oppOwner": "Casey",
+              "oppScore": 131.0,
+              "margin": 9.879999999999995,
+              "year": 2024,
+              "week": 13
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 136.46,
+              "oppOwner": "Mike",
+              "oppScore": 151.16,
+              "margin": 14.699999999999989,
+              "year": 2024,
+              "week": 14
+            }
+          ],
+          "toughestLosses": 12,
+          "tlDetails": [
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 142.93,
+              "oppOwner": "Ryan",
+              "oppScore": 158.06,
+              "margin": 15.129999999999995,
+              "year": 2018,
+              "week": 5
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 150.87,
+              "oppOwner": "Phillip",
+              "oppScore": 171.48,
+              "margin": 20.609999999999985,
+              "year": 2018,
+              "week": 6
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 174.31,
+              "oppOwner": "Trace",
+              "oppScore": 184.92,
+              "margin": 10.609999999999985,
+              "year": 2018,
+              "week": 8
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 162.76,
+              "oppOwner": "Ryan",
+              "oppScore": 199.63,
+              "margin": 36.870000000000005,
+              "year": 2018,
+              "week": 10
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Waterboys",
+              "score": 182.57,
+              "oppOwner": "Phillip",
+              "oppScore": 188.68,
+              "margin": 6.110000000000014,
+              "year": 2018,
+              "week": 11
+            },
+            {
+              "owner": "Dylan",
+              "team": "Hood Phenomenons",
+              "score": 140.58,
+              "oppOwner": "Casey",
+              "oppScore": 141.25,
+              "margin": 0.6699999999999875,
+              "year": 2019,
+              "week": 13
+            },
+            {
+              "owner": "Dylan",
+              "team": "#2020BrainTrauma",
+              "score": 115.77,
+              "oppOwner": "Trace",
+              "oppScore": 142.13,
+              "margin": 26.36,
+              "year": 2020,
+              "week": 7
+            },
+            {
+              "owner": "Dylan",
+              "team": "#2020BrainTrauma",
+              "score": 133.78,
+              "oppOwner": "Mike",
+              "oppScore": 152.41,
+              "margin": 18.629999999999995,
+              "year": 2020,
+              "week": 9
+            },
+            {
+              "owner": "Dylan",
+              "team": "The Dawn of Man-Ape",
+              "score": 138.74,
+              "oppOwner": "Ryan",
+              "oppScore": 141.92,
+              "margin": 3.1799999999999784,
+              "year": 2022,
+              "week": 3
+            },
+            {
+              "owner": "Dylan",
+              "team": "Zaza Zealots",
+              "score": 158.3,
+              "oppOwner": "Trace",
+              "oppScore": 162.52,
+              "margin": 4.219999999999999,
+              "year": 2023,
+              "week": 3
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 139.74,
+              "oppOwner": "Boaz",
+              "oppScore": 139.92,
+              "margin": 0.1799999999999784,
+              "year": 2024,
+              "week": 1
+            },
+            {
+              "owner": "Dylan",
+              "team": "Globo Gym",
+              "score": 174.48,
+              "oppOwner": "Trace",
+              "oppScore": 178.78,
+              "margin": 4.300000000000011,
+              "year": 2025,
+              "week": 2
+            }
+          ],
+          "expWins": 59,
+          "expRecord": "59-53",
+          "luck": -2,
+          "ovrWins": 449,
+          "ovrLosses": 391,
+          "ovrWinPct": 53.5,
+          "ovrRecord": "449-391",
+          "rank": 4,
+          "playoffWins": 6,
+          "playoffLosses": 7,
+          "playoffRecord": "6-7",
+          "playoffWinPct": 46.2,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2024,
+                "rank": 1,
+                "teamName": "Globo Gym"
+              },
+              {
+                "year": 2025,
+                "rank": 1,
+                "teamName": "Globo Gym"
+              }
+            ],
+            "2nd": [
+              {
+                "year": 2021,
+                "rank": 2,
+                "teamName": "#BrainTrauma"
+              }
+            ],
+            "3rd": [],
+            "4th": [
+              {
+                "year": 2018,
+                "rank": 4,
+                "teamName": "The Waterboys"
+              },
+              {
+                "year": 2019,
+                "rank": 4,
+                "teamName": "Hood Phenomenons"
+              },
+              {
+                "year": 2020,
+                "rank": 4,
+                "teamName": "#2020BrainTrauma"
+              }
+            ],
+            "5th_6th": [],
+            "7th_12th": [
+              {
+                "year": 2022,
+                "rank": 8,
+                "teamName": "The Dawn of Man-Ape"
+              },
+              {
+                "year": 2023,
+                "rank": 7,
+                "teamName": "Zaza Zealots"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Dustin",
+          "teamName": "Dusty\u2019s Dingleberries",
+          "wins": 35,
+          "losses": 35,
+          "winPct": 50.0,
+          "pointsFor": 9702.2,
+          "pointsAgainst": 9244.2,
+          "avgPF": 1940.4,
+          "seasonsCount": 5,
+          "championships": {
+            "1st": 1,
+            "2nd": 1,
+            "3rd": 0,
+            "scoringTitles": 2,
+            "4th": 0,
+            "5th_6th": 1,
+            "7th_12th": 2
+          },
+          "playoffApps": 3,
+          "playoffYears": [
+            2021,
+            2023,
+            2024
+          ],
+          "playoffPct": 60.0,
+          "weeklyWins": 10,
+          "wwDetails": [
+            {
+              "year": 2021,
+              "week": 5,
+              "score": 191.96,
+              "teamName": "#MOONGANG \ud83d\ude80\ud83c\udf1a"
+            },
+            {
+              "year": 2021,
+              "week": 14,
+              "score": 162.61,
+              "teamName": "#MOONGANG \ud83d\ude80\ud83c\udf1a"
+            },
+            {
+              "year": 2022,
+              "week": 8,
+              "score": 193.15,
+              "teamName": "Let\u2019s Ride \ud83d\ude24"
+            },
+            {
+              "year": 2023,
+              "week": 4,
+              "score": 170.2,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2023,
+              "week": 8,
+              "score": 178.98,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2023,
+              "week": 10,
+              "score": 200.36,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2023,
+              "week": 13,
+              "score": 169.93,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2024,
+              "week": 1,
+              "score": 169.76,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2024,
+              "week": 2,
+              "score": 181.12,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            },
+            {
+              "year": 2024,
+              "week": 6,
+              "score": 159.68,
+              "teamName": "Dusty Dynasty \ud83c\udfc6"
+            }
+          ],
+          "luckiestWins": 3,
+          "lwDetails": [
+            {
+              "owner": "Dustin",
+              "team": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+              "score": 106.15,
+              "oppOwner": "Ryan",
+              "oppScore": 105.08,
+              "margin": 1.0700000000000074,
+              "year": 2021,
+              "week": 3
+            },
+            {
+              "owner": "Dustin",
+              "team": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+              "score": 96.41,
+              "oppOwner": "Casey",
+              "oppScore": 93.88,
+              "margin": 2.530000000000001,
+              "year": 2021,
+              "week": 6
+            },
+            {
+              "owner": "Dustin",
+              "team": "Let\u2019s Ride \ud83d\ude24",
+              "score": 126.03,
+              "oppOwner": "Mike",
+              "oppScore": 119.84,
+              "margin": 6.189999999999998,
+              "year": 2022,
+              "week": 14
+            }
+          ],
+          "heartbreaks": 10,
+          "hbDetails": [
+            {
+              "owner": "Dustin",
+              "team": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+              "score": 101.97,
+              "oppOwner": "Mike",
+              "oppScore": 104.94,
+              "margin": 2.969999999999999,
+              "year": 2021,
+              "week": 8
+            },
+            {
+              "owner": "Dustin",
+              "team": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+              "score": 103.16,
+              "oppOwner": "Ryan",
+              "oppScore": 106.96,
+              "margin": 3.799999999999997,
+              "year": 2021,
+              "week": 10
+            },
+            {
+              "owner": "Dustin",
+              "team": "Let\u2019s Ride \ud83d\ude24",
+              "score": 153.92,
+              "oppOwner": "Ryan",
+              "oppScore": 159.99,
+              "margin": 6.070000000000022,
+              "year": 2022,
+              "week": 11
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty Dynasty \ud83c\udfc6",
+              "score": 145.24,
+              "oppOwner": "Tess",
+              "oppScore": 151.2,
+              "margin": 5.9599999999999795,
+              "year": 2024,
+              "week": 4
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty Dynasty \ud83c\udfc6",
+              "score": 167.68,
+              "oppOwner": "Phillip",
+              "oppScore": 171.54,
+              "margin": 3.859999999999985,
+              "year": 2024,
+              "week": 8
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 160.24,
+              "oppOwner": "Phillip",
+              "oppScore": 161.42,
+              "margin": 1.1799999999999784,
+              "year": 2025,
+              "week": 4
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 130.44,
+              "oppOwner": "Tess",
+              "oppScore": 131.38,
+              "margin": 0.9399999999999977,
+              "year": 2025,
+              "week": 6
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 159.2,
+              "oppOwner": "Trace",
+              "oppScore": 160.58,
+              "margin": 1.3800000000000239,
+              "year": 2025,
+              "week": 8
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 134.14,
+              "oppOwner": "Mike",
+              "oppScore": 136.45,
+              "margin": 2.3100000000000023,
+              "year": 2025,
+              "week": 12
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 121.74,
+              "oppOwner": "Phillip",
+              "oppScore": 128.6,
+              "margin": 6.859999999999999,
+              "year": 2025,
+              "week": 13
+            }
+          ],
+          "toughestLosses": 10,
+          "tlDetails": [
+            {
+              "owner": "Dustin",
+              "team": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+              "score": 100.54,
+              "oppOwner": "Phillip",
+              "oppScore": 167.35,
+              "margin": 66.80999999999999,
+              "year": 2021,
+              "week": 9
+            },
+            {
+              "owner": "Dustin",
+              "team": "Let\u2019s Ride \ud83d\ude24",
+              "score": 153.92,
+              "oppOwner": "Ryan",
+              "oppScore": 159.99,
+              "margin": 6.070000000000022,
+              "year": 2022,
+              "week": 11
+            },
+            {
+              "owner": "Dustin",
+              "team": "Let\u2019s Ride \ud83d\ude24",
+              "score": 173.14,
+              "oppOwner": "Cooper",
+              "oppScore": 182.48,
+              "margin": 9.340000000000003,
+              "year": 2022,
+              "week": 13
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty Dynasty \ud83c\udfc6",
+              "score": 125.74,
+              "oppOwner": "Ryan",
+              "oppScore": 161.23,
+              "margin": 35.489999999999995,
+              "year": 2023,
+              "week": 11
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty Dynasty \ud83c\udfc6",
+              "score": 145.24,
+              "oppOwner": "Tess",
+              "oppScore": 151.2,
+              "margin": 5.9599999999999795,
+              "year": 2024,
+              "week": 4
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty Dynasty \ud83c\udfc6",
+              "score": 167.68,
+              "oppOwner": "Phillip",
+              "oppScore": 171.54,
+              "margin": 3.859999999999985,
+              "year": 2024,
+              "week": 8
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 160.24,
+              "oppOwner": "Phillip",
+              "oppScore": 161.42,
+              "margin": 1.1799999999999784,
+              "year": 2025,
+              "week": 4
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 159.2,
+              "oppOwner": "Trace",
+              "oppScore": 160.58,
+              "margin": 1.3800000000000239,
+              "year": 2025,
+              "week": 8
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 123.0,
+              "oppOwner": "Casey",
+              "oppScore": 156.3,
+              "margin": 33.30000000000001,
+              "year": 2025,
+              "week": 11
+            },
+            {
+              "owner": "Dustin",
+              "team": "Dusty\u2019s Dingleberries",
+              "score": 134.14,
+              "oppOwner": "Mike",
+              "oppScore": 136.45,
+              "margin": 2.3100000000000023,
+              "year": 2025,
+              "week": 12
+            }
+          ],
+          "expWins": 40,
+          "expRecord": "40-30",
+          "luck": -5,
+          "ovrWins": 360,
+          "ovrLosses": 270,
+          "ovrWinPct": 57.1,
+          "ovrRecord": "360-270",
+          "rank": 5,
+          "playoffWins": 3,
+          "playoffLosses": 2,
+          "playoffRecord": "3-2",
+          "playoffWinPct": 60.0,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2023,
+                "rank": 1,
+                "teamName": "Dusty Dynasty \ud83c\udfc6"
+              }
+            ],
+            "2nd": [
+              {
+                "year": 2024,
+                "rank": 2,
+                "teamName": "Dusty Dynasty \ud83c\udfc6"
+              }
+            ],
+            "3rd": [],
+            "4th": [],
+            "5th_6th": [
+              {
+                "year": 2021,
+                "rank": 6,
+                "teamName": "#MOONGANG \ud83d\ude80\ud83c\udf1a"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2022,
+                "rank": 9,
+                "teamName": "Let\u2019s Ride \ud83d\ude24"
+              },
+              {
+                "year": 2025,
+                "rank": 9,
+                "teamName": "Dusty\u2019s Dingleberries"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Tess",
+          "teamName": "Tess Finesse",
+          "wins": 14,
+          "losses": 14,
+          "winPct": 50.0,
+          "pointsFor": 3997.2,
+          "pointsAgainst": 3922.7,
+          "avgPF": 1998.6,
+          "seasonsCount": 2,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 0,
+            "scoringTitles": 0,
+            "4th": 1,
+            "5th_6th": 0,
+            "7th_12th": 1
+          },
+          "playoffApps": 1,
+          "playoffYears": [
+            2025
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 5,
+          "wwDetails": [
+            {
+              "year": 2024,
+              "week": 4,
+              "score": 151.2,
+              "teamName": "Tess Finesse"
+            },
+            {
+              "year": 2024,
+              "week": 9,
+              "score": 186.28,
+              "teamName": "Tess Finesse"
+            },
+            {
+              "year": 2025,
+              "week": 7,
+              "score": 183.18,
+              "teamName": "Tess Finesse"
+            },
+            {
+              "year": 2025,
+              "week": 11,
+              "score": 182.4,
+              "teamName": "Tess Finesse"
+            },
+            {
+              "year": 2025,
+              "week": 13,
+              "score": 187.74,
+              "teamName": "Tess Finesse"
+            }
+          ],
+          "luckiestWins": 2,
+          "lwDetails": [
+            {
+              "owner": "Tess",
+              "team": "Tess Finesse",
+              "score": 123.12,
+              "oppOwner": "Ryan",
+              "oppScore": 108.62,
+              "margin": 14.5,
+              "year": 2024,
+              "week": 10
+            },
+            {
+              "owner": "Tess",
+              "team": "Tess Finesse",
+              "score": 131.38,
+              "oppOwner": "Dustin",
+              "oppScore": 130.44,
+              "margin": 0.9399999999999977,
+              "year": 2025,
+              "week": 6
+            }
+          ],
+          "heartbreaks": 0,
+          "hbDetails": [],
+          "toughestLosses": 1,
+          "tlDetails": [
+            {
+              "owner": "Tess",
+              "team": "Tess Finesse",
+              "score": 160.64,
+              "oppOwner": "Dylan",
+              "oppScore": 177.88,
+              "margin": 17.24000000000001,
+              "year": 2024,
+              "week": 11
+            }
+          ],
+          "expWins": 14,
+          "expRecord": "14-14",
+          "luck": 0,
+          "ovrWins": 128,
+          "ovrLosses": 124,
+          "ovrWinPct": 50.8,
+          "ovrRecord": "128-124",
+          "rank": 6,
+          "playoffWins": 1,
+          "playoffLosses": 2,
+          "playoffRecord": "1-2",
+          "playoffWinPct": 33.3,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [],
+            "4th": [
+              {
+                "year": 2025,
+                "rank": 4,
+                "teamName": "Tess Finesse"
+              }
+            ],
+            "5th_6th": [],
+            "7th_12th": [
+              {
+                "year": 2024,
+                "rank": 8,
+                "teamName": "Tess Finesse"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Boaz",
+          "teamName": "Aaron codger",
+          "wins": 34,
+          "losses": 36,
+          "winPct": 48.6,
+          "pointsFor": 9219.4,
+          "pointsAgainst": 9591.6,
+          "avgPF": 1843.9,
+          "seasonsCount": 5,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 0,
+            "scoringTitles": 0,
+            "4th": 0,
+            "5th_6th": 4,
+            "7th_12th": 1
+          },
+          "playoffApps": 4,
+          "playoffYears": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "playoffPct": 80.0,
+          "weeklyWins": 3,
+          "wwDetails": [
+            {
+              "year": 2023,
+              "week": 6,
+              "score": 158.72,
+              "teamName": "No I\u2019m gonna win UR gay"
+            },
+            {
+              "year": 2023,
+              "week": 9,
+              "score": 171.26,
+              "teamName": "No I\u2019m gonna win UR gay"
+            },
+            {
+              "year": 2025,
+              "week": 8,
+              "score": 162.3,
+              "teamName": "Aaron codger"
+            }
+          ],
+          "luckiestWins": 11,
+          "lwDetails": [
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 112.28,
+              "oppOwner": "Trace",
+              "oppScore": 105.26,
+              "margin": 7.019999999999996,
+              "year": 2021,
+              "week": 1
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 110.86,
+              "oppOwner": "Casey",
+              "oppScore": 99.34,
+              "margin": 11.519999999999996,
+              "year": 2021,
+              "week": 2
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 113.87,
+              "oppOwner": "Ryan",
+              "oppScore": 111.41,
+              "margin": 2.460000000000008,
+              "year": 2021,
+              "week": 11
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 120.54,
+              "oppOwner": "Casey",
+              "oppScore": 116.82,
+              "margin": 3.720000000000013,
+              "year": 2022,
+              "week": 1
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 127.03,
+              "oppOwner": "Mike",
+              "oppScore": 117.82,
+              "margin": 9.210000000000008,
+              "year": 2022,
+              "week": 6
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 122.39,
+              "oppOwner": "Jasper",
+              "oppScore": 105.51,
+              "margin": 16.879999999999995,
+              "year": 2022,
+              "week": 9
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 117.75,
+              "oppOwner": "Torin",
+              "oppScore": 104.79,
+              "margin": 12.959999999999994,
+              "year": 2023,
+              "week": 5
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 139.36,
+              "oppOwner": "Ryan",
+              "oppScore": 126.82,
+              "margin": 12.54000000000002,
+              "year": 2024,
+              "week": 5
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 127.02,
+              "oppOwner": "Phillip",
+              "oppScore": 107.25,
+              "margin": 19.769999999999996,
+              "year": 2024,
+              "week": 6
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 129.92,
+              "oppOwner": "Jasper",
+              "oppScore": 101.02,
+              "margin": 28.89999999999999,
+              "year": 2024,
+              "week": 7
+            },
+            {
+              "owner": "Boaz",
+              "team": "Aaron codger",
+              "score": 133.54,
+              "oppOwner": "Mike",
+              "oppScore": 119.77,
+              "margin": 13.769999999999996,
+              "year": 2025,
+              "week": 10
+            }
+          ],
+          "heartbreaks": 4,
+          "hbDetails": [
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 138.51,
+              "oppOwner": "Dustin",
+              "oppScore": 140.91,
+              "margin": 2.4000000000000057,
+              "year": 2022,
+              "week": 3
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 149.79,
+              "oppOwner": "Ryan",
+              "oppScore": 150.32,
+              "margin": 0.5300000000000011,
+              "year": 2022,
+              "week": 4
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 129.81,
+              "oppOwner": "Ryan",
+              "oppScore": 133.77,
+              "margin": 3.960000000000008,
+              "year": 2022,
+              "week": 13
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 131.88,
+              "oppOwner": "Nick",
+              "oppScore": 156.73,
+              "margin": 24.849999999999994,
+              "year": 2023,
+              "week": 12
+            }
+          ],
+          "toughestLosses": 13,
+          "tlDetails": [
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 156.24,
+              "oppOwner": "Dustin",
+              "oppScore": 191.96,
+              "margin": 35.72,
+              "year": 2021,
+              "week": 5
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 110.64,
+              "oppOwner": "Trace",
+              "oppScore": 130.55,
+              "margin": 19.91000000000001,
+              "year": 2021,
+              "week": 8
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 149.79,
+              "oppOwner": "Ryan",
+              "oppScore": 150.32,
+              "margin": 0.5300000000000011,
+              "year": 2022,
+              "week": 4
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 149.25,
+              "oppOwner": "Nick",
+              "oppScore": 151.74,
+              "margin": 2.490000000000009,
+              "year": 2023,
+              "week": 1
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 151.23,
+              "oppOwner": "Dylan",
+              "oppScore": 162.23,
+              "margin": 11.0,
+              "year": 2023,
+              "week": 8
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 124.62,
+              "oppOwner": "Mike",
+              "oppScore": 159.15,
+              "margin": 34.53,
+              "year": 2023,
+              "week": 10
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 131.88,
+              "oppOwner": "Nick",
+              "oppScore": 156.73,
+              "margin": 24.849999999999994,
+              "year": 2023,
+              "week": 12
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 129.49,
+              "oppOwner": "Cooper",
+              "oppScore": 158.86,
+              "margin": 29.370000000000005,
+              "year": 2023,
+              "week": 14
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 155.68,
+              "oppOwner": "Dustin",
+              "oppScore": 181.12,
+              "margin": 25.439999999999998,
+              "year": 2024,
+              "week": 2
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 149.74,
+              "oppOwner": "Casey",
+              "oppScore": 176.98,
+              "margin": 27.23999999999998,
+              "year": 2024,
+              "week": 3
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 129.6,
+              "oppOwner": "Tess",
+              "oppScore": 186.28,
+              "margin": 56.68000000000001,
+              "year": 2024,
+              "week": 9
+            },
+            {
+              "owner": "Boaz",
+              "team": "No I\u2019m gonna win UR gay",
+              "score": 145.22,
+              "oppOwner": "Ryan",
+              "oppScore": 171.44,
+              "margin": 26.22,
+              "year": 2024,
+              "week": 14
+            },
+            {
+              "owner": "Boaz",
+              "team": "Aaron codger",
+              "score": 140.54,
+              "oppOwner": "Phillip",
+              "oppScore": 186.72,
+              "margin": 46.18000000000001,
+              "year": 2025,
+              "week": 9
+            }
+          ],
+          "expWins": 34,
+          "expRecord": "34-36",
+          "luck": 0,
+          "ovrWins": 313,
+          "ovrLosses": 317,
+          "ovrWinPct": 49.7,
+          "ovrRecord": "313-317",
+          "rank": 7,
+          "playoffWins": 0,
+          "playoffLosses": 4,
+          "playoffRecord": "0-4",
+          "playoffWinPct": 0.0,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [],
+            "4th": [],
+            "5th_6th": [
+              {
+                "year": 2021,
+                "rank": 5,
+                "teamName": "No I\u2019m gonna win UR gay"
+              },
+              {
+                "year": 2022,
+                "rank": 6,
+                "teamName": "No I\u2019m gonna win UR gay"
+              },
+              {
+                "year": 2023,
+                "rank": 6,
+                "teamName": "No I\u2019m gonna win UR gay"
+              },
+              {
+                "year": 2024,
+                "rank": 6,
+                "teamName": "No I\u2019m gonna win UR gay"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2025,
+                "rank": 8,
+                "teamName": "Aaron codger"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Cooper",
+          "teamName": "coop\u2019s shit",
+          "wins": 13,
+          "losses": 15,
+          "winPct": 46.4,
+          "pointsFor": 3711.0,
+          "pointsAgainst": 3745.1,
+          "avgPF": 1855.5,
+          "seasonsCount": 2,
+          "championships": {
+            "1st": 0,
+            "2nd": 1,
+            "3rd": 0,
+            "scoringTitles": 0,
+            "4th": 0,
+            "5th_6th": 0,
+            "7th_12th": 1
+          },
+          "playoffApps": 1,
+          "playoffYears": [
+            2022
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 5,
+          "wwDetails": [
+            {
+              "year": 2022,
+              "week": 2,
+              "score": 209.97,
+              "teamName": "coop\u2019s shit"
+            },
+            {
+              "year": 2022,
+              "week": 3,
+              "score": 142.12,
+              "teamName": "coop\u2019s shit"
+            },
+            {
+              "year": 2022,
+              "week": 13,
+              "score": 182.48,
+              "teamName": "coop\u2019s shit"
+            },
+            {
+              "year": 2022,
+              "week": 14,
+              "score": 149.72,
+              "teamName": "coop\u2019s shit"
+            },
+            {
+              "year": 2023,
+              "week": 14,
+              "score": 158.86,
+              "teamName": "coop\u2019s shit"
+            }
+          ],
+          "luckiestWins": 0,
+          "lwDetails": [],
+          "heartbreaks": 5,
+          "hbDetails": [
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 119.85,
+              "oppOwner": "Dylan",
+              "oppScore": 134.36,
+              "margin": 14.51000000000002,
+              "year": 2022,
+              "week": 9
+            },
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 134.43,
+              "oppOwner": "Casey",
+              "oppScore": 138.98,
+              "margin": 4.549999999999983,
+              "year": 2023,
+              "week": 7
+            },
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 115.87,
+              "oppOwner": "Trace",
+              "oppScore": 118.62,
+              "margin": 2.75,
+              "year": 2023,
+              "week": 8
+            },
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 112.44,
+              "oppOwner": "Phillip",
+              "oppScore": 116.86,
+              "margin": 4.420000000000002,
+              "year": 2023,
+              "week": 10
+            },
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 106.99,
+              "oppOwner": "Dylan",
+              "oppScore": 123.28,
+              "margin": 16.290000000000006,
+              "year": 2023,
+              "week": 11
+            }
+          ],
+          "toughestLosses": 1,
+          "tlDetails": [
+            {
+              "owner": "Cooper",
+              "team": "coop\u2019s shit",
+              "score": 134.43,
+              "oppOwner": "Casey",
+              "oppScore": 138.98,
+              "margin": 4.549999999999983,
+              "year": 2023,
+              "week": 7
+            }
+          ],
+          "expWins": 14,
+          "expRecord": "14-14",
+          "luck": -1,
+          "ovrWins": 133,
+          "ovrLosses": 147,
+          "ovrWinPct": 47.5,
+          "ovrRecord": "133-147",
+          "rank": 8,
+          "playoffWins": 2,
+          "playoffLosses": 1,
+          "playoffRecord": "2-1",
+          "playoffWinPct": 66.7,
+          "finishes": {
+            "1st": [],
+            "2nd": [
+              {
+                "year": 2022,
+                "rank": 2,
+                "teamName": "coop\u2019s shit"
+              }
+            ],
+            "3rd": [],
+            "4th": [],
+            "5th_6th": [],
+            "7th_12th": [
+              {
+                "year": 2023,
+                "rank": 11,
+                "teamName": "coop\u2019s shit"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Casey",
+          "teamName": "AARPFL",
+          "wins": 50,
+          "losses": 62,
+          "winPct": 44.6,
+          "pointsFor": 14902.8,
+          "pointsAgainst": 15361.9,
+          "avgPF": 1862.8,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 1,
+            "scoringTitles": 0,
+            "4th": 0,
+            "5th_6th": 5,
+            "7th_12th": 2
+          },
+          "playoffApps": 4,
+          "playoffYears": [
+            2018,
+            2023,
+            2024,
+            2025
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 9,
+          "wwDetails": [
+            {
+              "year": 2018,
+              "week": 5,
+              "score": 186.35,
+              "teamName": "Good football team!!"
+            },
+            {
+              "year": 2018,
+              "week": 9,
+              "score": 187.33,
+              "teamName": "Good football team!!"
+            },
+            {
+              "year": 2019,
+              "week": 10,
+              "score": 173.07,
+              "teamName": "FUNdamentals"
+            },
+            {
+              "year": 2019,
+              "week": 13,
+              "score": 141.25,
+              "teamName": "FUNdamentals"
+            },
+            {
+              "year": 2020,
+              "week": 3,
+              "score": 150.54,
+              "teamName": "CUBA"
+            },
+            {
+              "year": 2020,
+              "week": 13,
+              "score": 114.24,
+              "teamName": "CUBA"
+            },
+            {
+              "year": 2024,
+              "week": 3,
+              "score": 176.98,
+              "teamName": "Skibidi Football"
+            },
+            {
+              "year": 2024,
+              "week": 7,
+              "score": 150.32,
+              "teamName": "Skibidi Football"
+            },
+            {
+              "year": 2025,
+              "week": 1,
+              "score": 182.67,
+              "teamName": "AARPFL"
+            }
+          ],
+          "luckiestWins": 11,
+          "lwDetails": [
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 157.83,
+              "oppOwner": "Mike",
+              "oppScore": 131.93,
+              "margin": 25.900000000000006,
+              "year": 2018,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 133.23,
+              "oppOwner": "Ryan",
+              "oppScore": 132.13,
+              "margin": 1.0999999999999943,
+              "year": 2018,
+              "week": 4
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 124.84,
+              "oppOwner": "Mike",
+              "oppScore": 86.62,
+              "margin": 38.22,
+              "year": 2020,
+              "week": 2
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 128.76,
+              "oppOwner": "Mike",
+              "oppScore": 93.08,
+              "margin": 35.67999999999999,
+              "year": 2020,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 127.74,
+              "oppOwner": "Dylan",
+              "oppScore": 85.07,
+              "margin": 42.67,
+              "year": 2020,
+              "week": 8
+            },
+            {
+              "owner": "Casey",
+              "team": "Just pain",
+              "score": 81.96,
+              "oppOwner": "Trace",
+              "oppScore": 78.61,
+              "margin": 3.3499999999999943,
+              "year": 2021,
+              "week": 12
+            },
+            {
+              "owner": "Casey",
+              "team": "Awesome Baller-Winners",
+              "score": 138.98,
+              "oppOwner": "Cooper",
+              "oppScore": 134.43,
+              "margin": 4.549999999999983,
+              "year": 2023,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "Awesome Baller-Winners",
+              "score": 142.99,
+              "oppOwner": "Trace",
+              "oppScore": 102.92,
+              "margin": 40.07000000000001,
+              "year": 2023,
+              "week": 12
+            },
+            {
+              "owner": "Casey",
+              "team": "Awesome Baller-Winners",
+              "score": 124.3,
+              "oppOwner": "Dylan",
+              "oppScore": 115.07,
+              "margin": 9.230000000000004,
+              "year": 2023,
+              "week": 13
+            },
+            {
+              "owner": "Casey",
+              "team": "Skibidi Football",
+              "score": 116.76,
+              "oppOwner": "Trace",
+              "oppScore": 111.82,
+              "margin": 4.940000000000012,
+              "year": 2024,
+              "week": 11
+            },
+            {
+              "owner": "Casey",
+              "team": "Skibidi Football",
+              "score": 131.0,
+              "oppOwner": "Dylan",
+              "oppScore": 121.12,
+              "margin": 9.879999999999995,
+              "year": 2024,
+              "week": 13
+            }
+          ],
+          "heartbreaks": 18,
+          "hbDetails": [
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 154.63,
+              "oppOwner": "Dylan",
+              "oppScore": 162.97,
+              "margin": 8.340000000000003,
+              "year": 2018,
+              "week": 2
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 128.37,
+              "oppOwner": "Phillip",
+              "oppScore": 151.97,
+              "margin": 23.599999999999994,
+              "year": 2018,
+              "week": 3
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 139.93,
+              "oppOwner": "Dylan",
+              "oppScore": 145.6,
+              "margin": 5.6699999999999875,
+              "year": 2018,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 136.95,
+              "oppOwner": "Phillip",
+              "oppScore": 148.18,
+              "margin": 11.230000000000018,
+              "year": 2018,
+              "week": 13
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 156.65,
+              "oppOwner": "Ryan",
+              "oppScore": 168.0,
+              "margin": 11.349999999999994,
+              "year": 2019,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 140.38,
+              "oppOwner": "Mike",
+              "oppScore": 182.68,
+              "margin": 42.30000000000001,
+              "year": 2019,
+              "week": 12
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 130.87,
+              "oppOwner": "Ryan",
+              "oppScore": 138.54,
+              "margin": 7.6699999999999875,
+              "year": 2020,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 130.05,
+              "oppOwner": "Trace",
+              "oppScore": 133.5,
+              "margin": 3.4499999999999886,
+              "year": 2020,
+              "week": 5
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 93.17,
+              "oppOwner": "Phillip",
+              "oppScore": 95.22,
+              "margin": 2.049999999999997,
+              "year": 2020,
+              "week": 9
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 79.04,
+              "oppOwner": "Trace",
+              "oppScore": 85.23,
+              "margin": 6.189999999999998,
+              "year": 2020,
+              "week": 10
+            },
+            {
+              "owner": "Casey",
+              "team": "Just pain",
+              "score": 99.34,
+              "oppOwner": "Boaz",
+              "oppScore": 110.86,
+              "margin": 11.519999999999996,
+              "year": 2021,
+              "week": 2
+            },
+            {
+              "owner": "Casey",
+              "team": "Just pain",
+              "score": 140.09,
+              "oppOwner": "Trace",
+              "oppScore": 153.8,
+              "margin": 13.710000000000008,
+              "year": 2021,
+              "week": 5
+            },
+            {
+              "owner": "Casey",
+              "team": "Just pain",
+              "score": 93.88,
+              "oppOwner": "Dustin",
+              "oppScore": 96.41,
+              "margin": 2.530000000000001,
+              "year": 2021,
+              "week": 6
+            },
+            {
+              "owner": "Casey",
+              "team": "Just pain",
+              "score": 117.29,
+              "oppOwner": "Mike",
+              "oppScore": 120.18,
+              "margin": 2.8900000000000006,
+              "year": 2021,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "The Mr. Unlimited\u2019s",
+              "score": 140.89,
+              "oppOwner": "Ryan",
+              "oppScore": 148.09,
+              "margin": 7.200000000000017,
+              "year": 2022,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "Awesome Baller-Winners",
+              "score": 93.38,
+              "oppOwner": "Trace",
+              "oppScore": 94.97,
+              "margin": 1.5900000000000034,
+              "year": 2023,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "AARPFL",
+              "score": 136.08,
+              "oppOwner": "Jasper",
+              "oppScore": 149.94,
+              "margin": 13.859999999999985,
+              "year": 2025,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "AARPFL",
+              "score": 132.89,
+              "oppOwner": "Phillip",
+              "oppScore": 134.22,
+              "margin": 1.3300000000000125,
+              "year": 2025,
+              "week": 14
+            }
+          ],
+          "toughestLosses": 18,
+          "tlDetails": [
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 154.63,
+              "oppOwner": "Dylan",
+              "oppScore": 162.97,
+              "margin": 8.340000000000003,
+              "year": 2018,
+              "week": 2
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 128.37,
+              "oppOwner": "Phillip",
+              "oppScore": 151.97,
+              "margin": 23.599999999999994,
+              "year": 2018,
+              "week": 3
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 139.93,
+              "oppOwner": "Dylan",
+              "oppScore": 145.6,
+              "margin": 5.6699999999999875,
+              "year": 2018,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "Good football team!!",
+              "score": 136.95,
+              "oppOwner": "Phillip",
+              "oppScore": 148.18,
+              "margin": 11.230000000000018,
+              "year": 2018,
+              "week": 13
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 156.65,
+              "oppOwner": "Ryan",
+              "oppScore": 168.0,
+              "margin": 11.349999999999994,
+              "year": 2019,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 159.57,
+              "oppOwner": "Dylan",
+              "oppScore": 228.5,
+              "margin": 68.93,
+              "year": 2019,
+              "week": 3
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 148.65,
+              "oppOwner": "Ryan",
+              "oppScore": 172.47,
+              "margin": 23.819999999999993,
+              "year": 2019,
+              "week": 6
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 140.38,
+              "oppOwner": "Mike",
+              "oppScore": 182.68,
+              "margin": 42.30000000000001,
+              "year": 2019,
+              "week": 12
+            },
+            {
+              "owner": "Casey",
+              "team": "FUNdamentals",
+              "score": 149.18,
+              "oppOwner": "Phillip",
+              "oppScore": 173.33,
+              "margin": 24.150000000000006,
+              "year": 2019,
+              "week": 14
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 130.87,
+              "oppOwner": "Ryan",
+              "oppScore": 138.54,
+              "margin": 7.6699999999999875,
+              "year": 2020,
+              "week": 1
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 97.36,
+              "oppOwner": "Phillip",
+              "oppScore": 158.27,
+              "margin": 60.91000000000001,
+              "year": 2020,
+              "week": 4
+            },
+            {
+              "owner": "Casey",
+              "team": "CUBA",
+              "score": 130.05,
+              "oppOwner": "Trace",
+              "oppScore": 133.5,
+              "margin": 3.4499999999999886,
+              "year": 2020,
+              "week": 5
+            },
+            {
+              "owner": "Casey",
+              "team": "The Mr. Unlimited\u2019s",
+              "score": 171.17,
+              "oppOwner": "Cooper",
+              "oppScore": 209.97,
+              "margin": 38.80000000000001,
+              "year": 2022,
+              "week": 2
+            },
+            {
+              "owner": "Casey",
+              "team": "The Mr. Unlimited\u2019s",
+              "score": 140.89,
+              "oppOwner": "Ryan",
+              "oppScore": 148.09,
+              "margin": 7.200000000000017,
+              "year": 2022,
+              "week": 7
+            },
+            {
+              "owner": "Casey",
+              "team": "The Mr. Unlimited\u2019s",
+              "score": 136.22,
+              "oppOwner": "Dustin",
+              "oppScore": 152.42,
+              "margin": 16.19999999999999,
+              "year": 2022,
+              "week": 9
+            },
+            {
+              "owner": "Casey",
+              "team": "Awesome Baller-Winners",
+              "score": 133.7,
+              "oppOwner": "Boaz",
+              "oppScore": 158.72,
+              "margin": 25.02000000000001,
+              "year": 2023,
+              "week": 6
+            },
+            {
+              "owner": "Casey",
+              "team": "Skibidi Football",
+              "score": 148.53,
+              "oppOwner": "Boaz",
+              "oppScore": 163.7,
+              "margin": 15.169999999999987,
+              "year": 2024,
+              "week": 12
+            },
+            {
+              "owner": "Casey",
+              "team": "AARPFL",
+              "score": 132.89,
+              "oppOwner": "Phillip",
+              "oppScore": 134.22,
+              "margin": 1.3300000000000125,
+              "year": 2025,
+              "week": 14
+            }
+          ],
+          "expWins": 55,
+          "expRecord": "55-57",
+          "luck": -5,
+          "ovrWins": 418,
+          "ovrLosses": 422,
+          "ovrWinPct": 49.8,
+          "ovrRecord": "418-422",
+          "rank": 9,
+          "playoffWins": 1,
+          "playoffLosses": 4,
+          "playoffRecord": "1-4",
+          "playoffWinPct": 20.0,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [
+              {
+                "year": 2018,
+                "rank": 3,
+                "teamName": "Good football team!!"
+              }
+            ],
+            "4th": [],
+            "5th_6th": [
+              {
+                "year": 2019,
+                "rank": 5,
+                "teamName": "FUNdamentals"
+              },
+              {
+                "year": 2020,
+                "rank": 5,
+                "teamName": "CUBA"
+              },
+              {
+                "year": 2023,
+                "rank": 5,
+                "teamName": "Awesome Baller-Winners"
+              },
+              {
+                "year": 2024,
+                "rank": 5,
+                "teamName": "Skibidi Football"
+              },
+              {
+                "year": 2025,
+                "rank": 6,
+                "teamName": "AARPFL"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2021,
+                "rank": 7,
+                "teamName": "Just pain"
+              },
+              {
+                "year": 2022,
+                "rank": 7,
+                "teamName": "The Mr. Unlimited\u2019s"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Trace",
+          "teamName": "Gl Hf (you\u2019re gay)",
+          "wins": 50,
+          "losses": 62,
+          "winPct": 44.6,
+          "pointsFor": 14741.4,
+          "pointsAgainst": 15006.7,
+          "avgPF": 1842.7,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 1,
+            "2nd": 1,
+            "3rd": 1,
+            "scoringTitles": 1,
+            "4th": 0,
+            "5th_6th": 2,
+            "7th_12th": 3
+          },
+          "playoffApps": 4,
+          "playoffYears": [
+            2018,
+            2020,
+            2022,
+            2025
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 15,
+          "wwDetails": [
+            {
+              "year": 2018,
+              "week": 1,
+              "score": 172.33,
+              "teamName": "Trace's Team"
+            },
+            {
+              "year": 2018,
+              "week": 6,
+              "score": 196.02,
+              "teamName": "Trace's Team"
+            },
+            {
+              "year": 2018,
+              "week": 8,
+              "score": 184.92,
+              "teamName": "Trace's Team"
+            },
+            {
+              "year": 2019,
+              "week": 1,
+              "score": 180.78,
+              "teamName": "#1 CumBoy"
+            },
+            {
+              "year": 2020,
+              "week": 1,
+              "score": 153.59,
+              "teamName": "Poopy Butt"
+            },
+            {
+              "year": 2020,
+              "week": 5,
+              "score": 133.5,
+              "teamName": "Poopy Butt"
+            },
+            {
+              "year": 2020,
+              "week": 8,
+              "score": 149.26,
+              "teamName": "Poopy Butt"
+            },
+            {
+              "year": 2020,
+              "week": 11,
+              "score": 137.3,
+              "teamName": "Poopy Butt"
+            },
+            {
+              "year": 2021,
+              "week": 4,
+              "score": 149.21,
+              "teamName": "I'm gonna win you're gay"
+            },
+            {
+              "year": 2021,
+              "week": 8,
+              "score": 130.55,
+              "teamName": "I'm gonna win you're gay"
+            },
+            {
+              "year": 2022,
+              "week": 9,
+              "score": 186.21,
+              "teamName": "Gl Hf (you\u2019re gay)"
+            },
+            {
+              "year": 2025,
+              "week": 2,
+              "score": 178.78,
+              "teamName": "Gl Hf (you\u2019re gay)"
+            },
+            {
+              "year": 2025,
+              "week": 5,
+              "score": 219.32,
+              "teamName": "Gl Hf (you\u2019re gay)"
+            },
+            {
+              "year": 2025,
+              "week": 6,
+              "score": 161.24,
+              "teamName": "Gl Hf (you\u2019re gay)"
+            },
+            {
+              "year": 2025,
+              "week": 10,
+              "score": 198.24,
+              "teamName": "Gl Hf (you\u2019re gay)"
+            }
+          ],
+          "luckiestWins": 14,
+          "lwDetails": [
+            {
+              "owner": "Trace",
+              "team": "Trace's Team",
+              "score": 126.47,
+              "oppOwner": "Mike",
+              "oppScore": 84.05,
+              "margin": 42.42,
+              "year": 2018,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "Trace's Team",
+              "score": 108.81,
+              "oppOwner": "Mike",
+              "oppScore": 98.35,
+              "margin": 10.460000000000008,
+              "year": 2018,
+              "week": 7
+            },
+            {
+              "owner": "Trace",
+              "team": "Trace's Team",
+              "score": 156.53,
+              "oppOwner": "Phillip",
+              "oppScore": 140.55,
+              "margin": 15.97999999999999,
+              "year": 2018,
+              "week": 9
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 140.27,
+              "oppOwner": "Dylan",
+              "oppScore": 109.45,
+              "margin": 30.820000000000007,
+              "year": 2019,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 134.5,
+              "oppOwner": "Phillip",
+              "oppScore": 89.1,
+              "margin": 45.400000000000006,
+              "year": 2019,
+              "week": 3
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 122.21,
+              "oppOwner": "Mike",
+              "oppScore": 120.24,
+              "margin": 1.9699999999999989,
+              "year": 2020,
+              "week": 6
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 85.23,
+              "oppOwner": "Casey",
+              "oppScore": 79.04,
+              "margin": 6.189999999999998,
+              "year": 2020,
+              "week": 10
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 118.36,
+              "oppOwner": "Ryan",
+              "oppScore": 94.07,
+              "margin": 24.290000000000006,
+              "year": 2021,
+              "week": 7
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 97.82,
+              "oppOwner": "Dylan",
+              "oppScore": 83.37,
+              "margin": 14.449999999999989,
+              "year": 2021,
+              "week": 9
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 113.5,
+              "oppOwner": "Mike",
+              "oppScore": 87.73,
+              "margin": 25.769999999999996,
+              "year": 2021,
+              "week": 13
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 145.74,
+              "oppOwner": "Mike",
+              "oppScore": 127.4,
+              "margin": 18.340000000000003,
+              "year": 2022,
+              "week": 4
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 124.85,
+              "oppOwner": "Mike",
+              "oppScore": 105.47,
+              "margin": 19.379999999999995,
+              "year": 2022,
+              "week": 13
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 94.97,
+              "oppOwner": "Casey",
+              "oppScore": 93.38,
+              "margin": 1.5900000000000034,
+              "year": 2023,
+              "week": 1
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 118.62,
+              "oppOwner": "Cooper",
+              "oppScore": 115.87,
+              "margin": 2.75,
+              "year": 2023,
+              "week": 8
+            }
+          ],
+          "heartbreaks": 22,
+          "hbDetails": [
+            {
+              "owner": "Trace",
+              "team": "Trace's Team",
+              "score": 135.48,
+              "oppOwner": "Mike",
+              "oppScore": 140.57,
+              "margin": 5.090000000000003,
+              "year": 2018,
+              "week": 12
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 140.88,
+              "oppOwner": "Ryan",
+              "oppScore": 148.17,
+              "margin": 7.289999999999992,
+              "year": 2019,
+              "week": 4
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 179.6,
+              "oppOwner": "Casey",
+              "oppScore": 195.88,
+              "margin": 16.28,
+              "year": 2019,
+              "week": 5
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 151.33,
+              "oppOwner": "Phillip",
+              "oppScore": 172.05,
+              "margin": 20.72,
+              "year": 2019,
+              "week": 8
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 123.2,
+              "oppOwner": "Mike",
+              "oppScore": 123.6,
+              "margin": 0.3999999999999915,
+              "year": 2019,
+              "week": 11
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 116.05,
+              "oppOwner": "Dylan",
+              "oppScore": 129.28,
+              "margin": 13.230000000000004,
+              "year": 2020,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 138.85,
+              "oppOwner": "Phillip",
+              "oppScore": 144.32,
+              "margin": 5.469999999999999,
+              "year": 2020,
+              "week": 3
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 87.22,
+              "oppOwner": "Ryan",
+              "oppScore": 105.65,
+              "margin": 18.430000000000007,
+              "year": 2020,
+              "week": 4
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 108.25,
+              "oppOwner": "Dylan",
+              "oppScore": 111.19,
+              "margin": 2.9399999999999977,
+              "year": 2020,
+              "week": 12
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 120.04,
+              "oppOwner": "Ryan",
+              "oppScore": 144.32,
+              "margin": 24.279999999999987,
+              "year": 2020,
+              "week": 14
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 128.79,
+              "oppOwner": "Dustin",
+              "oppScore": 129.6,
+              "margin": 0.8100000000000023,
+              "year": 2021,
+              "week": 11
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 78.61,
+              "oppOwner": "Casey",
+              "oppScore": 81.96,
+              "margin": 3.3499999999999943,
+              "year": 2021,
+              "week": 12
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 113.27,
+              "oppOwner": "Ryan",
+              "oppScore": 117.97,
+              "margin": 4.700000000000003,
+              "year": 2021,
+              "week": 14
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 157.01,
+              "oppOwner": "Casey",
+              "oppScore": 161.0,
+              "margin": 3.990000000000009,
+              "year": 2022,
+              "week": 8
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 129.48,
+              "oppOwner": "Phillip",
+              "oppScore": 130.15,
+              "margin": 0.6700000000000159,
+              "year": 2023,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 84.29,
+              "oppOwner": "Ryan",
+              "oppScore": 95.5,
+              "margin": 11.209999999999994,
+              "year": 2023,
+              "week": 4
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 145.57,
+              "oppOwner": "Mike",
+              "oppScore": 154.19,
+              "margin": 8.620000000000005,
+              "year": 2023,
+              "week": 5
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 111.36,
+              "oppOwner": "Nick",
+              "oppScore": 112.94,
+              "margin": 1.5799999999999983,
+              "year": 2023,
+              "week": 6
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 111.9,
+              "oppOwner": "Dustin",
+              "oppScore": 116.74,
+              "margin": 4.839999999999989,
+              "year": 2023,
+              "week": 9
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 120.84,
+              "oppOwner": "Dylan",
+              "oppScore": 141.0,
+              "margin": 20.159999999999997,
+              "year": 2024,
+              "week": 9
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 111.82,
+              "oppOwner": "Casey",
+              "oppScore": 116.76,
+              "margin": 4.940000000000012,
+              "year": 2024,
+              "week": 11
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 118.58,
+              "oppOwner": "Jasper",
+              "oppScore": 120.6,
+              "margin": 2.019999999999996,
+              "year": 2025,
+              "week": 1
+            }
+          ],
+          "toughestLosses": 15,
+          "tlDetails": [
+            {
+              "owner": "Trace",
+              "team": "Trace's Team",
+              "score": 143.17,
+              "oppOwner": "Phillip",
+              "oppScore": 170.9,
+              "margin": 27.730000000000018,
+              "year": 2018,
+              "week": 14
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 140.88,
+              "oppOwner": "Ryan",
+              "oppScore": 148.17,
+              "margin": 7.289999999999992,
+              "year": 2019,
+              "week": 4
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 179.6,
+              "oppOwner": "Casey",
+              "oppScore": 195.88,
+              "margin": 16.28,
+              "year": 2019,
+              "week": 5
+            },
+            {
+              "owner": "Trace",
+              "team": "#1 CumBoy",
+              "score": 123.2,
+              "oppOwner": "Mike",
+              "oppScore": 123.6,
+              "margin": 0.3999999999999915,
+              "year": 2019,
+              "week": 11
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 116.05,
+              "oppOwner": "Dylan",
+              "oppScore": 129.28,
+              "margin": 13.230000000000004,
+              "year": 2020,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 138.85,
+              "oppOwner": "Phillip",
+              "oppScore": 144.32,
+              "margin": 5.469999999999999,
+              "year": 2020,
+              "week": 3
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 108.25,
+              "oppOwner": "Dylan",
+              "oppScore": 111.19,
+              "margin": 2.9399999999999977,
+              "year": 2020,
+              "week": 12
+            },
+            {
+              "owner": "Trace",
+              "team": "Poopy Butt",
+              "score": 120.04,
+              "oppOwner": "Ryan",
+              "oppScore": 144.32,
+              "margin": 24.279999999999987,
+              "year": 2020,
+              "week": 14
+            },
+            {
+              "owner": "Trace",
+              "team": "I'm gonna win you're gay",
+              "score": 128.79,
+              "oppOwner": "Dustin",
+              "oppScore": 129.6,
+              "margin": 0.8100000000000023,
+              "year": 2021,
+              "week": 11
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 157.01,
+              "oppOwner": "Casey",
+              "oppScore": 161.0,
+              "margin": 3.990000000000009,
+              "year": 2022,
+              "week": 8
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 162.15,
+              "oppOwner": "Cooper",
+              "oppScore": 174.45,
+              "margin": 12.299999999999983,
+              "year": 2022,
+              "week": 12
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 129.48,
+              "oppOwner": "Phillip",
+              "oppScore": 130.15,
+              "margin": 0.6700000000000159,
+              "year": 2023,
+              "week": 2
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 145.57,
+              "oppOwner": "Mike",
+              "oppScore": 154.19,
+              "margin": 8.620000000000005,
+              "year": 2023,
+              "week": 5
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 140.2,
+              "oppOwner": "Phillip",
+              "oppScore": 199.76,
+              "margin": 59.56,
+              "year": 2024,
+              "week": 5
+            },
+            {
+              "owner": "Trace",
+              "team": "Gl Hf (you\u2019re gay)",
+              "score": 159.72,
+              "oppOwner": "Tess",
+              "oppScore": 187.74,
+              "margin": 28.02000000000001,
+              "year": 2025,
+              "week": 13
+            }
+          ],
+          "expWins": 52,
+          "expRecord": "52-60",
+          "luck": -2,
+          "ovrWins": 384,
+          "ovrLosses": 456,
+          "ovrWinPct": 45.7,
+          "ovrRecord": "384-456",
+          "rank": 10,
+          "playoffWins": 5,
+          "playoffLosses": 3,
+          "playoffRecord": "5-3",
+          "playoffWinPct": 62.5,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2022,
+                "rank": 1,
+                "teamName": "Gl Hf (you\u2019re gay)"
+              }
+            ],
+            "2nd": [
+              {
+                "year": 2018,
+                "rank": 2,
+                "teamName": "Trace's Team"
+              }
+            ],
+            "3rd": [
+              {
+                "year": 2020,
+                "rank": 3,
+                "teamName": "Poopy Butt"
+              }
+            ],
+            "4th": [],
+            "5th_6th": [
+              {
+                "year": 2019,
+                "rank": 6,
+                "teamName": "#1 CumBoy"
+              },
+              {
+                "year": 2025,
+                "rank": 5,
+                "teamName": "Gl Hf (you\u2019re gay)"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2021,
+                "rank": 8,
+                "teamName": "I'm gonna win you're gay"
+              },
+              {
+                "year": 2023,
+                "rank": 12,
+                "teamName": "Gl Hf (you\u2019re gay)"
+              },
+              {
+                "year": 2024,
+                "rank": 10,
+                "teamName": "Gl Hf (you\u2019re gay)"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Mike",
+          "teamName": "Jelqaida",
+          "wins": 49,
+          "losses": 63,
+          "winPct": 43.8,
+          "pointsFor": 14096.8,
+          "pointsAgainst": 14732.9,
+          "avgPF": 1762.1,
+          "seasonsCount": 8,
+          "championships": {
+            "1st": 1,
+            "2nd": 0,
+            "3rd": 1,
+            "scoringTitles": 0,
+            "4th": 2,
+            "5th_6th": 2,
+            "7th_12th": 2
+          },
+          "playoffApps": 4,
+          "playoffYears": [
+            2019,
+            2021,
+            2023,
+            2024
+          ],
+          "playoffPct": 50.0,
+          "weeklyWins": 7,
+          "wwDetails": [
+            {
+              "year": 2019,
+              "week": 4,
+              "score": 172.32,
+              "teamName": "RonnyMan2"
+            },
+            {
+              "year": 2019,
+              "week": 7,
+              "score": 163.6,
+              "teamName": "RonnyMan2"
+            },
+            {
+              "year": 2020,
+              "week": 4,
+              "score": 173.57,
+              "teamName": "Pacific Islanders"
+            },
+            {
+              "year": 2020,
+              "week": 9,
+              "score": 152.41,
+              "teamName": "Pacific Islanders"
+            },
+            {
+              "year": 2020,
+              "week": 12,
+              "score": 159.11,
+              "teamName": "Pacific Islanders"
+            },
+            {
+              "year": 2023,
+              "week": 3,
+              "score": 178.43,
+              "teamName": "Justin Time"
+            },
+            {
+              "year": 2024,
+              "week": 11,
+              "score": 198.64,
+              "teamName": "Team Chaos"
+            }
+          ],
+          "luckiestWins": 17,
+          "lwDetails": [
+            {
+              "owner": "Mike",
+              "team": "Ronny Man",
+              "score": 140.68,
+              "oppOwner": "Phillip",
+              "oppScore": 111.52,
+              "margin": 29.16000000000001,
+              "year": 2018,
+              "week": 10
+            },
+            {
+              "owner": "Mike",
+              "team": "Ronny Man",
+              "score": 146.57,
+              "oppOwner": "Casey",
+              "oppScore": 137.97,
+              "margin": 8.599999999999994,
+              "year": 2018,
+              "week": 11
+            },
+            {
+              "owner": "Mike",
+              "team": "Ronny Man",
+              "score": 140.57,
+              "oppOwner": "Trace",
+              "oppScore": 135.48,
+              "margin": 5.090000000000003,
+              "year": 2018,
+              "week": 12
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 147.72,
+              "oppOwner": "Trace",
+              "oppScore": 128.48,
+              "margin": 19.24000000000001,
+              "year": 2019,
+              "week": 6
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 158.03,
+              "oppOwner": "Phillip",
+              "oppScore": 152.02,
+              "margin": 6.009999999999991,
+              "year": 2019,
+              "week": 10
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 123.6,
+              "oppOwner": "Trace",
+              "oppScore": 123.2,
+              "margin": 0.3999999999999915,
+              "year": 2019,
+              "week": 11
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 127.8,
+              "oppOwner": "Ryan",
+              "oppScore": 106.45,
+              "margin": 21.349999999999994,
+              "year": 2019,
+              "week": 13
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 149.78,
+              "oppOwner": "Dylan",
+              "oppScore": 145.33,
+              "margin": 4.449999999999989,
+              "year": 2019,
+              "week": 14
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 124.46,
+              "oppOwner": "Dylan",
+              "oppScore": 74.93,
+              "margin": 49.52999999999999,
+              "year": 2021,
+              "week": 4
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 104.94,
+              "oppOwner": "Dustin",
+              "oppScore": 101.97,
+              "margin": 2.969999999999999,
+              "year": 2021,
+              "week": 8
+            },
+            {
+              "owner": "Mike",
+              "team": "Ouchie",
+              "score": 133.93,
+              "oppOwner": "Dylan",
+              "oppScore": 133.57,
+              "margin": 0.36000000000001364,
+              "year": 2022,
+              "week": 10
+            },
+            {
+              "owner": "Mike",
+              "team": "Team Chaos",
+              "score": 131.96,
+              "oppOwner": "Phillip",
+              "oppScore": 108.52,
+              "margin": 23.440000000000012,
+              "year": 2024,
+              "week": 1
+            },
+            {
+              "owner": "Mike",
+              "team": "Team Chaos",
+              "score": 124.73,
+              "oppOwner": "Tess",
+              "oppScore": 116.52,
+              "margin": 8.210000000000008,
+              "year": 2024,
+              "week": 8
+            },
+            {
+              "owner": "Mike",
+              "team": "Team Chaos",
+              "score": 151.16,
+              "oppOwner": "Dylan",
+              "oppScore": 136.46,
+              "margin": 14.699999999999989,
+              "year": 2024,
+              "week": 14
+            },
+            {
+              "owner": "Mike",
+              "team": "Jelqaida",
+              "score": 105.66,
+              "oppOwner": "Jasper",
+              "oppScore": 95.34,
+              "margin": 10.319999999999993,
+              "year": 2025,
+              "week": 11
+            },
+            {
+              "owner": "Mike",
+              "team": "Jelqaida",
+              "score": 136.45,
+              "oppOwner": "Dustin",
+              "oppScore": 134.14,
+              "margin": 2.3100000000000023,
+              "year": 2025,
+              "week": 12
+            },
+            {
+              "owner": "Mike",
+              "team": "Jelqaida",
+              "score": 123.63,
+              "oppOwner": "Trace",
+              "oppScore": 112.08,
+              "margin": 11.549999999999997,
+              "year": 2025,
+              "week": 14
+            }
+          ],
+          "heartbreaks": 10,
+          "hbDetails": [
+            {
+              "owner": "Mike",
+              "team": "Ronny Man",
+              "score": 136.63,
+              "oppOwner": "Dylan",
+              "oppScore": 140.71,
+              "margin": 4.0800000000000125,
+              "year": 2018,
+              "week": 14
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 138.94,
+              "oppOwner": "Casey",
+              "oppScore": 144.65,
+              "margin": 5.710000000000008,
+              "year": 2019,
+              "week": 2
+            },
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 111.37,
+              "oppOwner": "Dylan",
+              "oppScore": 111.85,
+              "margin": 0.47999999999998977,
+              "year": 2019,
+              "week": 9
+            },
+            {
+              "owner": "Mike",
+              "team": "Pacific Islanders",
+              "score": 120.24,
+              "oppOwner": "Trace",
+              "oppScore": 122.21,
+              "margin": 1.9699999999999989,
+              "year": 2020,
+              "week": 6
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 109.5,
+              "oppOwner": "Boaz",
+              "oppScore": 110.28,
+              "margin": 0.7800000000000011,
+              "year": 2021,
+              "week": 3
+            },
+            {
+              "owner": "Mike",
+              "team": "Ouchie",
+              "score": 133.08,
+              "oppOwner": "Dylan",
+              "oppScore": 133.32,
+              "margin": 0.23999999999998067,
+              "year": 2022,
+              "week": 1
+            },
+            {
+              "owner": "Mike",
+              "team": "Ouchie",
+              "score": 117.82,
+              "oppOwner": "Boaz",
+              "oppScore": 127.03,
+              "margin": 9.210000000000008,
+              "year": 2022,
+              "week": 6
+            },
+            {
+              "owner": "Mike",
+              "team": "Ouchie",
+              "score": 119.84,
+              "oppOwner": "Dustin",
+              "oppScore": 126.03,
+              "margin": 6.189999999999998,
+              "year": 2022,
+              "week": 14
+            },
+            {
+              "owner": "Mike",
+              "team": "Jelqaida",
+              "score": 118.06,
+              "oppOwner": "Jasper",
+              "oppScore": 120.82,
+              "margin": 2.759999999999991,
+              "year": 2025,
+              "week": 2
+            },
+            {
+              "owner": "Mike",
+              "team": "Jelqaida",
+              "score": 140.42,
+              "oppOwner": "Dylan",
+              "oppScore": 141.31,
+              "margin": 0.8900000000000148,
+              "year": 2025,
+              "week": 9
+            }
+          ],
+          "toughestLosses": 11,
+          "tlDetails": [
+            {
+              "owner": "Mike",
+              "team": "RonnyMan2",
+              "score": 159.27,
+              "oppOwner": "Ryan",
+              "oppScore": 186.21,
+              "margin": 26.939999999999998,
+              "year": 2019,
+              "week": 8
+            },
+            {
+              "owner": "Mike",
+              "team": "Pacific Islanders",
+              "score": 120.24,
+              "oppOwner": "Trace",
+              "oppScore": 122.21,
+              "margin": 1.9699999999999989,
+              "year": 2020,
+              "week": 6
+            },
+            {
+              "owner": "Mike",
+              "team": "Pacific Islanders",
+              "score": 96.98,
+              "oppOwner": "Phillip",
+              "oppScore": 138.41,
+              "margin": 41.42999999999999,
+              "year": 2020,
+              "week": 10
+            },
+            {
+              "owner": "Mike",
+              "team": "Pacific Islanders",
+              "score": 110.37,
+              "oppOwner": "Trace",
+              "oppScore": 137.3,
+              "margin": 26.930000000000007,
+              "year": 2020,
+              "week": 11
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 113.32,
+              "oppOwner": "Ryan",
+              "oppScore": 164.48,
+              "margin": 51.16,
+              "year": 2021,
+              "week": 2
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 109.5,
+              "oppOwner": "Boaz",
+              "oppScore": 110.28,
+              "margin": 0.7800000000000011,
+              "year": 2021,
+              "week": 3
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 116.5,
+              "oppOwner": "Boaz",
+              "oppScore": 137.05,
+              "margin": 20.55000000000001,
+              "year": 2021,
+              "week": 10
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 119.25,
+              "oppOwner": "Phillip",
+              "oppScore": 138.74,
+              "margin": 19.49000000000001,
+              "year": 2021,
+              "week": 12
+            },
+            {
+              "owner": "Mike",
+              "team": "Matt's Team",
+              "score": 117.88,
+              "oppOwner": "Casey",
+              "oppScore": 152.33,
+              "margin": 34.45000000000002,
+              "year": 2021,
+              "week": 14
+            },
+            {
+              "owner": "Mike",
+              "team": "Ouchie",
+              "score": 117.82,
+              "oppOwner": "Boaz",
+              "oppScore": 127.03,
+              "margin": 9.210000000000008,
+              "year": 2022,
+              "week": 6
+            },
+            {
+              "owner": "Mike",
+              "team": "Team Chaos",
+              "score": 141.34,
+              "oppOwner": "Phillip",
+              "oppScore": 154.08,
+              "margin": 12.740000000000009,
+              "year": 2024,
+              "week": 10
+            }
+          ],
+          "expWins": 44,
+          "expRecord": "44-68",
+          "luck": 5,
+          "ovrWins": 345,
+          "ovrLosses": 495,
+          "ovrWinPct": 41.1,
+          "ovrRecord": "345-495",
+          "rank": 11,
+          "playoffWins": 6,
+          "playoffLosses": 5,
+          "playoffRecord": "6-5",
+          "playoffWinPct": 54.5,
+          "finishes": {
+            "1st": [
+              {
+                "year": 2019,
+                "rank": 1,
+                "teamName": "RonnyMan2"
+              }
+            ],
+            "2nd": [],
+            "3rd": [
+              {
+                "year": 2023,
+                "rank": 3,
+                "teamName": "Justin Time"
+              }
+            ],
+            "4th": [
+              {
+                "year": 2021,
+                "rank": 4,
+                "teamName": "Matt's Team"
+              },
+              {
+                "year": 2024,
+                "rank": 4,
+                "teamName": "Team Chaos"
+              }
+            ],
+            "5th_6th": [
+              {
+                "year": 2018,
+                "rank": 6,
+                "teamName": "Ronny Man"
+              },
+              {
+                "year": 2020,
+                "rank": 6,
+                "teamName": "Pacific Islanders"
+              }
+            ],
+            "7th_12th": [
+              {
+                "year": 2022,
+                "rank": 10,
+                "teamName": "Ouchie"
+              },
+              {
+                "year": 2025,
+                "rank": 7,
+                "teamName": "Jelqaida"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Torin",
+          "teamName": "Can I Hit Your Vape?",
+          "wins": 5,
+          "losses": 9,
+          "winPct": 35.7,
+          "pointsFor": 1628.5,
+          "pointsAgainst": 1781.4,
+          "avgPF": 1628.5,
+          "seasonsCount": 1,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 0,
+            "scoringTitles": 0,
+            "4th": 0,
+            "5th_6th": 0,
+            "7th_12th": 1
+          },
+          "playoffApps": 0,
+          "playoffYears": [],
+          "playoffPct": 0.0,
+          "weeklyWins": 0,
+          "wwDetails": [],
+          "luckiestWins": 3,
+          "lwDetails": [
+            {
+              "owner": "Torin",
+              "team": "Can I Hit Your Vape?",
+              "score": 121.11,
+              "oppOwner": "Dustin",
+              "oppScore": 118.87,
+              "margin": 2.239999999999995,
+              "year": 2023,
+              "week": 2
+            },
+            {
+              "owner": "Torin",
+              "team": "Can I Hit Your Vape?",
+              "score": 119.67,
+              "oppOwner": "Nick",
+              "oppScore": 71.41,
+              "margin": 48.260000000000005,
+              "year": 2023,
+              "week": 3
+            },
+            {
+              "owner": "Torin",
+              "team": "Can I Hit Your Vape?",
+              "score": 117.74,
+              "oppOwner": "Nick",
+              "oppScore": 98.67,
+              "margin": 19.069999999999993,
+              "year": 2023,
+              "week": 14
+            }
+          ],
+          "heartbreaks": 0,
+          "hbDetails": [],
+          "toughestLosses": 1,
+          "tlDetails": [
+            {
+              "owner": "Torin",
+              "team": "Can I Hit Your Vape?",
+              "score": 124.89,
+              "oppOwner": "Dustin",
+              "oppScore": 169.93,
+              "margin": 45.040000000000006,
+              "year": 2023,
+              "week": 13
+            }
+          ],
+          "expWins": 4,
+          "expRecord": "4-10",
+          "luck": 1,
+          "ovrWins": 45,
+          "ovrLosses": 109,
+          "ovrWinPct": 29.2,
+          "ovrRecord": "45-109",
+          "rank": 12,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [],
+            "4th": [],
+            "5th_6th": [],
+            "7th_12th": [
+              {
+                "year": 2023,
+                "rank": 9,
+                "teamName": "Can I Hit Your Vape?"
+              }
+            ]
+          }
+        },
+        {
+          "ownerName": "Nick",
+          "teamName": "nick's Great Team",
+          "wins": 5,
+          "losses": 9,
+          "winPct": 35.7,
+          "pointsFor": 1627.6,
+          "pointsAgainst": 1875.3,
+          "avgPF": 1627.6,
+          "seasonsCount": 1,
+          "championships": {
+            "1st": 0,
+            "2nd": 0,
+            "3rd": 0,
+            "scoringTitles": 0,
+            "4th": 0,
+            "5th_6th": 0,
+            "7th_12th": 1
+          },
+          "playoffApps": 0,
+          "playoffYears": [],
+          "playoffPct": 0.0,
+          "weeklyWins": 0,
+          "wwDetails": [],
+          "luckiestWins": 1,
+          "lwDetails": [
+            {
+              "owner": "Nick",
+              "team": "nick's Great Team",
+              "score": 112.94,
+              "oppOwner": "Trace",
+              "oppScore": 111.36,
+              "margin": 1.5799999999999983,
+              "year": 2023,
+              "week": 6
+            }
+          ],
+          "heartbreaks": 0,
+          "hbDetails": [],
+          "toughestLosses": 1,
+          "tlDetails": [
+            {
+              "owner": "Nick",
+              "team": "nick's Great Team",
+              "score": 122.25,
+              "oppOwner": "Jasper",
+              "oppScore": 151.23,
+              "margin": 28.97999999999999,
+              "year": 2023,
+              "week": 4
+            }
+          ],
+          "expWins": 5,
+          "expRecord": "5-9",
+          "luck": 0,
+          "ovrWins": 55,
+          "ovrLosses": 99,
+          "ovrWinPct": 35.7,
+          "ovrRecord": "55-99",
+          "rank": 13,
+          "playoffWins": 0,
+          "playoffLosses": 0,
+          "playoffRecord": "0-0",
+          "playoffWinPct": 0.0,
+          "finishes": {
+            "1st": [],
+            "2nd": [],
+            "3rd": [],
+            "4th": [],
+            "5th_6th": [],
+            "7th_12th": [
+              {
+                "year": 2023,
+                "rank": 10,
+                "teamName": "nick's Great Team"
+              }
+            ]
+          }
+        }
+      ],
+      "statRecords": {
+        "victoryLap": {
+          "owner": "Phillip",
+          "streak": 8,
+          "valStr": "8 Seasons",
+          "team": "Phillip",
+          "sub": "2018-2025 (8 Straight Apps)"
+        },
+        "victoryLapList": [
+          {
+            "owner": "Phillip",
+            "streak": 8,
+            "valStr": "8 Seasons",
+            "team": "Phillip",
+            "sub": "2018-2025 (8 Straight Apps)"
+          },
+          {
+            "owner": "Dylan",
+            "streak": 4,
+            "valStr": "4 Seasons",
+            "team": "Dylan",
+            "sub": "2018-2021 (4 Straight Apps)"
+          },
+          {
+            "owner": "Ryan",
+            "streak": 4,
+            "valStr": "4 Seasons",
+            "team": "Ryan",
+            "sub": "2019-2022 (4 Straight Apps)"
+          },
+          {
+            "owner": "Boaz",
+            "streak": 4,
+            "valStr": "4 Seasons",
+            "team": "Boaz",
+            "sub": "2021-2024 (4 Straight Apps)"
+          },
+          {
+            "owner": "Casey",
+            "streak": 3,
+            "valStr": "3 Seasons",
+            "team": "Casey",
+            "sub": "2023-2025 (3 Straight Apps)"
+          }
+        ],
+        "dumpsterFire": {
+          "owner": "Casey",
+          "streak": 4,
+          "valStr": "4 Seasons",
+          "team": "Casey",
+          "sub": "2019-2022 (4 Straight Misses)"
+        },
+        "dumpsterFireList": [
+          {
+            "owner": "Casey",
+            "streak": 4,
+            "valStr": "4 Seasons",
+            "team": "Casey",
+            "sub": "2019-2022 (4 Straight Misses)"
+          },
+          {
+            "owner": "Ryan",
+            "streak": 3,
+            "valStr": "3 Seasons",
+            "team": "Ryan",
+            "sub": "2023-2025 (3 Straight Misses)"
+          },
+          {
+            "owner": "Trace",
+            "streak": 2,
+            "valStr": "2 Seasons",
+            "team": "Trace",
+            "sub": "2023-2024 (2 Straight Misses)"
+          },
+          {
+            "owner": "Dylan",
+            "streak": 2,
+            "valStr": "2 Seasons",
+            "team": "Dylan",
+            "sub": "2022-2023 (2 Straight Misses)"
+          },
+          {
+            "owner": "Mike",
+            "streak": 1,
+            "valStr": "1 Seasons",
+            "team": "Mike",
+            "sub": "2018 (1 Straight Misses)"
+          }
+        ]
+      },
+      "playoffMatchups": [],
+      "scoringChampion": null,
+      "draftPicks": []
     }
   },
   "draftOrders": {
@@ -48426,5 +54549,95 @@ window.LEAGUE_DATA = {
         ]
       }
     }
+  },
+  "allTimeStatRecords": {
+    "victoryLap": {
+      "owner": "Phillip",
+      "streak": 8,
+      "valStr": "8 Seasons",
+      "team": "Phillip",
+      "sub": "2018-2025 (8 Straight Apps)"
+    },
+    "victoryLapList": [
+      {
+        "owner": "Phillip",
+        "streak": 8,
+        "valStr": "8 Seasons",
+        "team": "Phillip",
+        "sub": "2018-2025 (8 Straight Apps)"
+      },
+      {
+        "owner": "Dylan",
+        "streak": 4,
+        "valStr": "4 Seasons",
+        "team": "Dylan",
+        "sub": "2018-2021 (4 Straight Apps)"
+      },
+      {
+        "owner": "Ryan",
+        "streak": 4,
+        "valStr": "4 Seasons",
+        "team": "Ryan",
+        "sub": "2019-2022 (4 Straight Apps)"
+      },
+      {
+        "owner": "Boaz",
+        "streak": 4,
+        "valStr": "4 Seasons",
+        "team": "Boaz",
+        "sub": "2021-2024 (4 Straight Apps)"
+      },
+      {
+        "owner": "Casey",
+        "streak": 3,
+        "valStr": "3 Seasons",
+        "team": "Casey",
+        "sub": "2023-2025 (3 Straight Apps)"
+      }
+    ],
+    "dumpsterFire": {
+      "owner": "Casey",
+      "streak": 4,
+      "valStr": "4 Seasons",
+      "team": "Casey",
+      "sub": "2019-2022 (4 Straight Misses)"
+    },
+    "dumpsterFireList": [
+      {
+        "owner": "Casey",
+        "streak": 4,
+        "valStr": "4 Seasons",
+        "team": "Casey",
+        "sub": "2019-2022 (4 Straight Misses)"
+      },
+      {
+        "owner": "Ryan",
+        "streak": 3,
+        "valStr": "3 Seasons",
+        "team": "Ryan",
+        "sub": "2023-2025 (3 Straight Misses)"
+      },
+      {
+        "owner": "Trace",
+        "streak": 2,
+        "valStr": "2 Seasons",
+        "team": "Trace",
+        "sub": "2023-2024 (2 Straight Misses)"
+      },
+      {
+        "owner": "Dylan",
+        "streak": 2,
+        "valStr": "2 Seasons",
+        "team": "Dylan",
+        "sub": "2022-2023 (2 Straight Misses)"
+      },
+      {
+        "owner": "Mike",
+        "streak": 1,
+        "valStr": "1 Seasons",
+        "team": "Mike",
+        "sub": "2018 (1 Straight Misses)"
+      }
+    ]
   }
 };
