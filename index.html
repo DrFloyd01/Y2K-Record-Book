@@ -481,23 +481,28 @@
         <p class="text-xs text-emerald-600 mt-1 font-mono">8 Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
       </div>
 
+      <!-- 1. Dynasty Leaderboard -->
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs">
-          &gt;_ DYNASTY_LEADERBOARD
+        <div class="crt-box-header px-4 py-2 font-bold text-xs flex items-center justify-between font-mono">
+          <span>&gt;_ DYNASTY_LEADERBOARD</span>
+          <span class="text-[10px] font-normal text-emerald-500">Sorted by 1st ➔ 2nd ➔ 3rd ➔ 4th ➔ Playoff Wins</span>
         </div>
         <div class="overflow-visible">
-          <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
+          <table class="w-full text-xs text-left border-collapse font-mono">
+            <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-800">
               <tr>
-                <th class="p-2 text-center">#</th>
-                <th class="p-2">Owner</th>
-                <th class="p-2 text-center">🏆 1st</th>
-                <th class="p-2 text-center">🥈 2nd</th>
-                <th class="p-2 text-center">🥉 3rd</th>
-                <th class="p-2 text-center">🎯 Scoring Titles</th>
-                <th class="p-2 text-center">Podiums</th>
-                <th class="p-2 text-center">Playoff %</th>
-                <th class="p-2 text-center">Win %</th>
+                <th class="p-3 text-center">RANK</th>
+                <th class="p-3 text-left">MANAGER</th>
+                <th class="p-3 text-center">ACTIVE</th>
+                <th class="p-3 text-center">PLAYOFF W-L</th>
+                <th class="p-3 text-center">PLAYOFF %</th>
+                <th class="p-3 text-center">🥇 1st</th>
+                <th class="p-3 text-center">🥈 2nd</th>
+                <th class="p-3 text-center">🥉 3rd</th>
+                <th class="p-3 text-center">4th</th>
+                <th class="p-3 text-center">5th-6th</th>
+                <th class="p-3 text-center">7th-12th</th>
+                <th class="p-3 text-center">🎯 SCORING TITLES</th>
               </tr>
             </thead>
             <tbody id="champs-leaderboard-body"></tbody>
@@ -505,7 +510,18 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3" id="champs-timeline-grid"></div>
+      <!-- 2. Yearly Champions Timeline Grid -->
+      <div class="mb-6">
+        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="champs-timeline-grid"></div>
+      </div>
+
+      <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="text-xs text-emerald-500 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ ALL-TIME_DYNASTY_RECORDS</div>
+        <h3 class="text-lg font-black text-emerald-300 crt-glow font-mono mb-3">SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
+      </div>
     </div>
 
 
@@ -664,7 +680,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260816_07"></script>
+  <script src="leagueData.js?v=20260816_08"></script>
 
   <!-- Application Logic -->
   <script>

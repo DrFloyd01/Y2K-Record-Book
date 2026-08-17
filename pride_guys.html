@@ -567,23 +567,28 @@
         <p class="text-xs text-pink-600 mt-1 font-sans">10 Seasons of Pride Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
       </div>
 
+      <!-- 1. Dynasty Leaderboard -->
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs">
-          &gt;_ DYNASTY_LEADERBOARD
+        <div class="crt-box-header px-4 py-2 font-bold text-xs flex items-center justify-between">
+          <span>&gt;_ DYNASTY_LEADERBOARD</span>
+          <span class="text-[10px] font-normal text-pink-600">Sorted by 1st ➔ 2nd ➔ 3rd ➔ 4th ➔ Playoff Wins</span>
         </div>
         <div class="overflow-visible">
           <table class="w-full text-xs text-left border-collapse">
-            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200">
+            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
               <tr>
-                <th class="p-2 text-center">#</th>
-                <th class="p-2">Owner</th>
-                <th class="p-2 text-center">🏆 1st</th>
-                <th class="p-2 text-center">🥈 2nd</th>
-                <th class="p-2 text-center">🥉 3rd</th>
-                <th class="p-2 text-center">🎯 Scoring Titles</th>
-                <th class="p-2 text-center">Podiums</th>
-                <th class="p-2 text-center">Playoff %</th>
-                <th class="p-2 text-center">Win %</th>
+                <th class="p-3 text-center">Rank</th>
+                <th class="p-3 text-left">Manager</th>
+                <th class="p-3 text-center">Active</th>
+                <th class="p-3 text-center">Playoff W-L</th>
+                <th class="p-3 text-center">Playoff %</th>
+                <th class="p-3 text-center">🥇 1st</th>
+                <th class="p-3 text-center">🥈 2nd</th>
+                <th class="p-3 text-center">🥉 3rd</th>
+                <th class="p-3 text-center">4th</th>
+                <th class="p-3 text-center">5th-6th</th>
+                <th class="p-3 text-center">7th-12th</th>
+                <th class="p-3 text-center">🎯 Scoring Titles</th>
               </tr>
             </thead>
             <tbody id="champs-leaderboard-body"></tbody>
@@ -591,7 +596,18 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3" id="champs-timeline-grid"></div>
+      <!-- 2. Yearly Champions Timeline Grid -->
+      <div class="mb-6">
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="champs-timeline-grid"></div>
+      </div>
+
+      <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ ALL-TIME_DYNASTY_RECORDS</div>
+        <h3 class="text-lg font-black text-pink-700 font-fredoka mb-3">SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
+      </div>
     </div>
 
 
@@ -750,7 +766,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_23"></script>
+  <script src="prideGuysData.js?v=20260816_24"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
