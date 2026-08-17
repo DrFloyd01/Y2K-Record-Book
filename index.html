@@ -2107,14 +2107,16 @@
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
         const countWithVal = j - i;
 
-        if (rows.length + countWithVal <= 10) {
-          for (let k = i; k < j; k++) {
-            rows.push({ type: 'single', rank: rankNumber++, item: streaks[k] });
-          }
-        } else {
+        if (countWithVal > 1 && (rows.length + countWithVal > 10 || countWithVal >= 3)) {
           const tiedGroup = streaks.slice(i, j);
           rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: tiedGroup.length, items: tiedGroup });
-          break;
+          rankNumber += countWithVal;
+        } else {
+          for (let k = i; k < j; k++) {
+            const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
+            rows.push({ type: 'single', rank: rankNumber, displayRank: displayRank, item: streaks[k] });
+          }
+          rankNumber += countWithVal;
         }
         i = j;
       }
@@ -2133,7 +2135,7 @@
               ? '<span class="text-slate-300 font-bold text-xs">🥈 #2</span>'
               : (r.rank === 3 
                 ? '<span class="text-amber-600 font-bold text-xs">🥉 #3</span>'
-                : `<span class="text-emerald-500 font-bold text-xs">#${r.rank}</span>`));
+                : `<span class="text-emerald-500 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
           const streakBadge = `<span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow">${s.streak} WINS</span>`;
 
@@ -2152,7 +2154,7 @@
             <td class="p-2.5 text-center">${statusBadge}</td>
           `;
         } else {
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 cursor-pointer transition-colors tooltip-trigger';
+          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
           
           const popoverListHtml = r.items.map(s => `
             <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/60 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
