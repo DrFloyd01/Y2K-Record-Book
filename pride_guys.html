@@ -766,7 +766,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_25"></script>
+  <script src="prideGuysData.js?v=20260817_11"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1310,7 +1310,7 @@
         if (tlCount > 0 && item.tlDetails) {
           let tooltipList = item.tlDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-amber-300">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-amber-800">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
           }).join('');
 
           tlBadge = `
@@ -1527,25 +1527,25 @@
       let podiumHtml = '';
       if (champ) {
         podiumHtml = `
-          <div class="crt-box p-4 rounded mb-6 border-amber-500 bg-white">
-            <h3 class="text-sm font-black text-center text-amber-400 crt-glow-pink-pink-amber mb-3">
+          <div class="crt-box p-4 rounded-2xl mb-6 border-2 border-amber-400 bg-white shadow-md">
+            <h3 class="text-sm font-black text-center text-amber-800 font-fredoka mb-3">
               🏆 ${currentSeason} PLAYOFF PODIUM FINISHERS
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-              <div class="bg-amber-50 border border-amber-500 p-3 rounded">
-                <span class="text-[10px] uppercase font-bold text-amber-400 block">🏆 1st (Championship Winner)</span>
-                <span class="text-base font-black text-white block mt-1">${champ.firstTeam}</span>
-                <span class="text-xs text-amber-300 block">[${champ.firstOwner}]</span>
+              <div class="bg-amber-50 border-2 border-amber-300 p-3 rounded-xl">
+                <span class="text-[10px] uppercase font-bold text-amber-800 block">🏆 1st (The Pride Cup Winner)</span>
+                <span class="text-base font-black text-purple-950 block mt-1">${champ.firstTeam}</span>
+                <span class="text-xs text-pink-600 font-bold block mt-0.5">[${champ.firstOwner}]</span>
               </div>
-              <div class="bg-pink-50/90/40 border border-purple-200 p-3 rounded">
-                <span class="text-[10px] uppercase font-bold text-pink-600 block">🥈 2nd Place Runner-Up</span>
-                <span class="text-base font-black text-purple-900 block mt-1">${champ.secondTeam}</span>
-                <span class="text-xs text-pink-600 block">[${champ.secondOwner}]</span>
+              <div class="bg-pink-50/80 border-2 border-pink-200 p-3 rounded-xl">
+                <span class="text-[10px] uppercase font-bold text-pink-700 block">🥈 2nd Place Runner-Up</span>
+                <span class="text-base font-black text-purple-950 block mt-1">${champ.secondTeam}</span>
+                <span class="text-xs text-pink-600 font-bold block mt-0.5">[${champ.secondOwner}]</span>
               </div>
-              <div class="bg-amber-50/80 border border-amber-700 p-3 rounded">
-                <span class="text-[10px] uppercase font-bold text-amber-600 block">🥉 3rd Place Winner</span>
-                <span class="text-base font-black text-purple-900 block mt-1">${champ.thirdTeam}</span>
-                <span class="text-xs text-amber-500 block">[${champ.thirdOwner}]</span>
+              <div class="bg-amber-50/60 border-2 border-amber-200 p-3 rounded-xl">
+                <span class="text-[10px] uppercase font-bold text-amber-800 block">🥉 3rd Place Winner</span>
+                <span class="text-base font-black text-purple-950 block mt-1">${champ.thirdTeam}</span>
+                <span class="text-xs text-pink-600 font-bold block mt-0.5">[${champ.thirdOwner}]</span>
               </div>
             </div>
           </div>
@@ -1954,7 +1954,7 @@
         if (tlCount > 0 && item.tlDetails) {
           const tooltipList = item.tlDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-amber-300">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
+            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-amber-800">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
           }).join('');
 
           tlCell = `
@@ -2139,9 +2139,9 @@
           return `
             <tr class="border-b border-pink-100 hover:bg-pink-50/90/30">
               <td class="p-2 text-center font-bold text-amber-400">#${idx + 1}</td>
-              <td class="p-2 font-bold text-amber-300">${g.winner.t} <span class="text-[10px] text-purple-700">[${g.winner.o}]</span></td>
+              <td class="p-2 font-bold text-amber-800">${g.winner.t} <span class="text-[10px] text-purple-700">[${g.winner.o}]</span></td>
               <td class="p-2 text-purple-700">${g.loser.t} <span class="text-[10px] text-purple-800/60">[${g.loser.o}]</span></td>
-              <td class="p-2 text-center font-black text-amber-300">+${g.margin.toFixed(2)}</td>
+              <td class="p-2 text-center font-black text-amber-800">+${g.margin.toFixed(2)}</td>
               <td class="p-2 text-center font-sans text-pink-600">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
               <td class="p-2 text-center text-purple-700">${gameBadge}</td>
             </tr>
@@ -2679,7 +2679,7 @@
           <div class="bg-white/60 p-2 border border-pink-200 rounded">
             <span class="text-[10px] uppercase font-bold text-amber-500 block">PLAYOFF H2H</span>
             <span class="text-lg font-black text-amber-400 crt-glow-pink-pink-amber">${b.o1} ${b.playW1} - ${b.playW2} ${b.o2}</span>
-            <span class="text-[10px] text-amber-500 block mt-0.5">Streak: <span class="font-bold text-amber-300">${b.playStreak}</span></span>
+            <span class="text-[10px] text-amber-500 block mt-0.5">Streak: <span class="font-bold text-amber-800">${b.playStreak}</span></span>
           </div>
 
           <div class="bg-white/60 p-2 border border-pink-200 rounded">
@@ -2792,10 +2792,10 @@
                     <div class="tooltip-content p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
                       <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
                       <div class="text-xs text-pink-700">• <span class="font-bold text-pink-600">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
-                      <div class="text-xs text-amber-300">• <span class="font-bold text-amber-400">Playoffs &amp; RR:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
+                      <div class="text-xs text-amber-800">• <span class="font-bold text-amber-400">Playoffs &amp; RR:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
                       <div class="text-xs text-pink-600 font-bold">• <span class="text-purple-900">Total Lifetime:</span> ${o1} ${b.totW1} - ${b.totW2} ${o2}</div>
                       <div class="pt-1 border-t border-pink-200 text-xs text-pink-600 font-bold">
-                        🔥 <span class="text-pink-700">Active Win Streak:</span> <span class="text-amber-300">${b.ovrStreak}</span>
+                        🔥 <span class="text-pink-700">Active Win Streak:</span> <span class="text-amber-800">${b.ovrStreak}</span>
                       </div>
                       <div class="text-[11px] text-purple-700">
                         (Reg: ${b.regStreak} | Playoff/RR: ${b.playStreak})
@@ -3768,9 +3768,9 @@
           recapBox = `
             <div class="mt-3 p-3 bg-white border border-purple-200 rounded flex justify-between items-center flex-wrap gap-2 font-sans">
               <div class="flex items-center gap-3">
-                <span class="${isWinner1 ? 'text-amber-300 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
+                <span class="${isWinner1 ? 'text-amber-800 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
                 <span class="text-purple-800/60">vs</span>
-                <span class="${isWinner2 ? 'text-amber-300 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
+                <span class="${isWinner2 ? 'text-amber-800 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
               </div>
               <div class="text-right">
                 <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 border border-pink-300 font-bold text-xs block">
