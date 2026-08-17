@@ -119,6 +119,30 @@
     .tooltip-trigger:hover .tooltip-content { display: block; }
     .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
     .tooltip-right .tooltip-content { right: 0; left: auto; transform: translateX(0); }
+      /* Table Horizontal Scroll Container for Mobile Portrait View */
+    .table-scroll-container {
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 255, 102, 0.4) transparent;
+      max-width: 100%;
+    }
+    .table-scroll-container::-webkit-scrollbar {
+      height: 5px;
+    }
+    .table-scroll-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .table-scroll-container::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 255, 102, 0.4);
+      border-radius: 9999px;
+    }
+    
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-900 selection:text-emerald-200">
@@ -186,8 +210,8 @@
 
       <div id="seasons-view-container">
         <div class="crt-box rounded overflow-visible mb-8">
-          <div class="w-full overflow-visible">
-            <table class="w-full text-xs text-left border-collapse">
+          <div class="table-scroll-container">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="crt-box-header font-bold border-b border-emerald-600">
                 <tr id="standings-table-header"></tr>
               </thead>
@@ -216,8 +240,8 @@
               <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK TALLY:</h3>
               <span class="text-[11px] text-emerald-600 font-normal italic">Hover over any count badge or header to inspect details &amp; definitions</span>
             </div>
-            <div class="w-full overflow-visible">
-              <table class="w-full text-xs text-left border-collapse">
+            <div class="table-scroll-container">
+              <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
                 <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
                   <tr>
                     <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-emerald-900">Franchise Owner</th>
@@ -403,8 +427,8 @@
             <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
           </div>
         </div>
-        <div class="w-full overflow-visible">
-          <table class="w-full text-xs text-left border-collapse">
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
             <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700 sticky top-0 bg-black">
               <tr>
                 <th class="p-2.5 text-center">Rank</th>
@@ -430,7 +454,7 @@
             <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
           </div>
         </div>
-        <div class="p-3 overflow-visible">
+        <div class="p-3 table-scroll-container">
           <table class="w-full text-xs text-center border-collapse">
             <thead id="h2h-matrix-header"></thead>
             <tbody id="h2h-matrix-body"></tbody>
@@ -460,8 +484,8 @@
           <span>&gt;_ MATCHUP_HISTORY_LOG</span>
           <span class="text-xs font-normal" id="h2h-matchup-count-label">0 Games</span>
         </div>
-        <div class="w-full overflow-visible">
-          <table class="w-full text-xs text-left border-collapse">
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
             <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
               <tr>
                 <th class="p-2 text-center">Season</th>
@@ -494,8 +518,8 @@
           <span>&gt;_ DYNASTY_LEADERBOARD</span>
           <span class="text-[10px] font-normal text-emerald-500">Sorted by 1st ➔ 2nd ➔ 3rd ➔ 4th ➔ Playoff Wins</span>
         </div>
-        <div class="overflow-visible">
-          <table class="w-full text-xs text-left border-collapse font-mono">
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
             <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
               <tr>
                 <th class="p-3 text-center">RANK</th>
@@ -570,8 +594,8 @@
           <span id="draft-table-title">2025 Draft Order</span>
           <span class="text-xs font-normal">Reverse Previous Season Finish</span>
         </div>
-        <div class="w-full overflow-visible">
-          <table class="w-full text-xs text-left border-collapse">
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
             <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
               <tr>
                 <th class="p-2.5 text-center">Pick #</th>
@@ -595,8 +619,8 @@
             </select>
           </div>
         </div>
-        <div class="w-full overflow-visible">
-          <table class="w-full text-xs text-left border-collapse">
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
             <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700 sticky top-0 bg-black">
               <tr>
                 <th class="p-2.5 text-center">Overall Pick #</th>
@@ -624,8 +648,8 @@
         <div class="crt-box rounded p-4">
           <h3 class="text-base font-bold text-emerald-300 mb-2 crt-glow">&gt;_ ALL_TIME_LUCK_INDEX</h3>
           <p class="text-xs text-emerald-500 mb-3">Positive luck rating = actual wins exceeding expected wins based on weekly score rank.</p>
-          <div class="w-full overflow-visible">
-            <table class="w-full text-xs text-left border-collapse">
+          <div class="table-scroll-container">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
                 <tr>
                   <th class="p-2">Owner</th>
@@ -687,7 +711,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260817_10"></script>
+  <script src="leagueData.js?v=20260817_12"></script>
 
   <!-- Application Logic -->
   <script>
@@ -867,8 +891,8 @@
               <p class="text-xs text-emerald-300/80 mt-1 font-mono">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
             </div>
             <div class="crt-box rounded overflow-visible mb-8">
-              <div class="w-full overflow-visible">
-                <table class="w-full text-xs text-left border-collapse font-mono">
+              <div class="table-scroll-container">
+                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
                   <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                     <tr>
                       <th class="p-3 text-center">RANK</th>
@@ -992,8 +1016,8 @@
 
       container.innerHTML = `
         <div class="crt-box rounded overflow-visible mb-8">
-          <div class="w-full overflow-visible">
-            <table class="w-full text-xs text-left border-collapse">
+          <div class="table-scroll-container">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="crt-box-header font-bold border-b border-emerald-600">
                 <tr id="standings-table-header"></tr>
               </thead>
@@ -1941,8 +1965,8 @@
                 <span>💥 TOP 5 BIGGEST BLOWOUTS</span>
                 <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
               </div>
-              <div class="w-full overflow-visible">
-                <table class="w-full text-xs text-left border-collapse">
+              <div class="table-scroll-container">
+                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
                   <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
               <tr>
                 <th class="p-3 text-center">RANK</th>
@@ -1969,8 +1993,8 @@
                 <span>🔍 TOP 5 CLOSEST NAILBITERS</span>
                 <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
               </div>
-              <div class="w-full overflow-visible">
-                <table class="w-full text-xs text-left border-collapse">
+              <div class="table-scroll-container">
+                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
                   <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                     <tr>
                       <th class="p-2 text-center">Rank</th>
@@ -1992,8 +2016,8 @@
 
       container.innerHTML = `
         <div class="crt-box rounded overflow-visible">
-          <div class="w-full overflow-visible">
-            <table class="w-full text-xs text-left border-collapse">
+          <div class="table-scroll-container">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="crt-box-header font-bold border-b border-emerald-600">
                 <tr id="stats-table-header"></tr>
               </thead>
@@ -2939,8 +2963,8 @@
           <div class="crt-box-header px-4 py-2 font-bold text-xs font-mono">
             &gt;_ FRANCHISE_HISTORY_EVOLUTION
           </div>
-          <div class="w-full overflow-visible">
-            <table class="w-full text-xs text-left border-collapse font-mono">
+          <div class="table-scroll-container">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                 <tr>
                   <th class="p-2.5">YEAR</th>
