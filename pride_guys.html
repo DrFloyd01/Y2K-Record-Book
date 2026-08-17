@@ -674,7 +674,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_06"></script>
+  <script src="prideGuysData.js?v=20260816_07"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2162,6 +2162,7 @@
     function initH2HSelects() {
       const o1 = document.getElementById('h2h-owner-1');
       const o2 = document.getElementById('h2h-owner-2');
+      if (!o1 || !o2) return;
       o1.innerHTML = ''; o2.innerHTML = '';
 
       const owners = window.LEAGUE_DATA.allTimeStandings
@@ -2169,9 +2170,12 @@
         .filter(o => !isOneYearManager(o))
         .sort();
 
+      const defaultO1 = owners.find(o => o.includes('Dylan')) || owners[0] || '';
+      const defaultO2 = owners.find(o => o.includes('Phillip') || o.includes('Trace')) || owners[1] || '';
+
       owners.forEach(o => {
-        o1.innerHTML += `<option value="${o}" ${o === 'Dylan' ? 'selected' : ''}>${o}</option>`;
-        o2.innerHTML += `<option value="${o}" ${o === 'Phillip' ? 'selected' : ''}>${o}</option>`;
+        o1.innerHTML += `<option value="${o}" ${o === defaultO1 ? 'selected' : ''}>${o}</option>`;
+        o2.innerHTML += `<option value="${o}" ${o === defaultO2 ? 'selected' : ''}>${o}</option>`;
       });
 
       renderH2HComparison();
