@@ -604,8 +604,8 @@
 
       <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ ALL-TIME_DYNASTY_RECORDS</div>
-        <h3 class="text-lg font-black text-pink-700 font-fredoka mb-3">SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ ALL-TIME_PLAYOFF_RECORDS</div>
+        <h3 class="text-lg font-black text-pink-700 font-fredoka mb-3">PLAYOFF SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
       </div>
     </div>
@@ -766,7 +766,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260816_24"></script>
+  <script src="prideGuysData.js?v=20260816_25"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1578,7 +1578,7 @@
     }
 
     function getStatCardTop5(metricKey, season) {
-      if (season === 'allTime') {
+      if (season === 'allTime' || season === 'playoffs') {
         const atRecords = (window.LEAGUE_DATA.seasonData && window.LEAGUE_DATA.seasonData.allTime && window.LEAGUE_DATA.seasonData.allTime.statRecords) || window.LEAGUE_DATA.allTimeStatRecords || {};
         if ((metricKey === 'victoryLap' || metricKey === 'victory') && atRecords.victoryLapList) {
           return atRecords.victoryLapList.map(item => ({
@@ -1601,12 +1601,14 @@
       }
 
       let matchups = window.LEAGUE_DATA.allMatchups || [];
-      matchups = matchups.filter(m => !m.isPlayoff && m.homeScore > 0 && m.awayScore > 0);
-
-      if (season !== 'allTime') {
-        matchups = matchups.filter(m => m.seasonYear === parseInt(season));
-      } else {
+      if (season === 'playoffs') {
+        matchups = matchups.filter(m => m.isPlayoff && m.homeScore > 0 && m.awayScore > 0);
         matchups = matchups.filter(m => !isOneYearManager(m.homeOwner) && !isOneYearManager(m.awayOwner));
+      } else if (season === 'allTime') {
+        matchups = matchups.filter(m => !m.isPlayoff && m.homeScore > 0 && m.awayScore > 0);
+        matchups = matchups.filter(m => !isOneYearManager(m.homeOwner) && !isOneYearManager(m.awayOwner));
+      } else {
+        matchups = matchups.filter(m => !m.isPlayoff && m.homeScore > 0 && m.awayScore > 0 && m.seasonYear === parseInt(season));
       }
 
       if (metricKey === 'victoryLap') {
@@ -1702,26 +1704,27 @@
         const hO = m.homeOwner, aO = m.awayOwner;
         const hT = m.homeTeam, aT = m.awayTeam;
         const margin = Math.round(Math.abs(hS - aS) * 100) / 100;
-        const yrPrefix = season === 'allTime' ? `${yr} ` : '';
+        const stageStr = m.stage ? ` (${m.stage})` : '';
+        const yrPrefix = (season === 'allTime' || season === 'playoffs') ? `${yr} ` : '';
 
         if (metricKey === 'juggernaut' || metricKey === 'apex') {
-          list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
-          list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
+          list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
+          list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
         } else if (metricKey === 'featherweight' || metricKey === 'potato') {
-          list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
-          list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
+          list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
+          list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
         } else if (hS !== aS) {
           const wS = hS > aS ? hS : aS, wO = hS > aS ? hO : aO, wT = hS > aS ? hT : aT;
           const lS = hS > aS ? aS : hS, lO = hS > aS ? aO : hO, lT = hS > aS ? aT : hT;
 
           if (metricKey === 'cakewalk' || metricKey === 'massacre') {
-            list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
+            list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
           } else if (metricKey === 'nailbiter') {
-            list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
+            list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
           } else if (metricKey === 'gutpunch') {
-            list.push({ owner: lO, team: lT, score: lS, valStr: `${lS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${wO} (Lost ${lS.toFixed(1)}-${wS.toFixed(1)})` });
+            list.push({ owner: lO, team: lT, score: lS, valStr: `${lS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${wO} (Lost ${lS.toFixed(1)}-${wS.toFixed(1)})` });
           } else if (metricKey === 'criminal') {
-            list.push({ owner: wO, team: wT, score: wS, valStr: `${wS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk} vs ${lO} (Won ${wS.toFixed(1)}-${lS.toFixed(1)})` });
+            list.push({ owner: wO, team: wT, score: wS, valStr: `${wS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (Won ${wS.toFixed(1)}-${lS.toFixed(1)})` });
           }
         }
       });
@@ -1737,7 +1740,7 @@
     }
 
     function buildStatCardTop5Popover(cardTitle, metricKey, season) {
-      const seasonLabel = season === 'allTime' ? 'ALL-TIME' : `${season}`;
+      const seasonLabel = season === 'allTime' ? 'ALL-TIME REGULAR' : (season === 'playoffs' ? 'ALL-TIME PLAYOFFS' : `${season} SEASON`);
       
       const top5 = getStatCardTop5(metricKey, season);
       const rowsHtml = top5.map((item, i) => `
@@ -1752,7 +1755,7 @@
 
       return `
         <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
-          <div class="font-bold text-amber-400 border-b border-pink-200 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
+          <div class="font-bold text-amber-500 border-b border-pink-200 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
           ${rowsHtml || '<div class="text-purple-700 italic">No data records found</div>'}
         </div>
       `;
@@ -2980,24 +2983,24 @@
         });
       }
 
-            // Populate Single-Game & Streak Record Cards at bottom of Champs Tab
+                  // Populate Playoff Single-Game & Streak Record Cards at bottom of Champs Tab
       if (statGrid) {
-        const topApex = getStatCardTop5('juggernaut', 'allTime')[0];
-        const topPotato = getStatCardTop5('featherweight', 'allTime')[0];
-        const topMass = getStatCardTop5('cakewalk', 'allTime')[0];
-        const topNail = getStatCardTop5('nailbiter', 'allTime')[0];
-        const topGut = getStatCardTop5('gutpunch', 'allTime')[0];
-        const topCrim = getStatCardTop5('criminal', 'allTime')[0];
-        const topVic = getStatCardTop5('victoryLap', 'allTime')[0];
-        const topDump = getStatCardTop5('dumpsterFire', 'allTime')[0];
+        const topApex = getStatCardTop5('juggernaut', 'playoffs')[0];
+        const topPotato = getStatCardTop5('featherweight', 'playoffs')[0];
+        const topMass = getStatCardTop5('cakewalk', 'playoffs')[0];
+        const topNail = getStatCardTop5('nailbiter', 'playoffs')[0];
+        const topGut = getStatCardTop5('gutpunch', 'playoffs')[0];
+        const topCrim = getStatCardTop5('criminal', 'playoffs')[0];
+        const topVic = getStatCardTop5('victoryLap', 'playoffs')[0];
+        const topDump = getStatCardTop5('dumpsterFire', 'playoffs')[0];
 
         const cardDefs = [
-          { title: 'APEX PREDATOR', key: 'juggernaut', subtitle: 'Highest score', data: topApex ? { val: topApex.valStr, owner: topApex.owner, team: topApex.team, sub: topApex.sub } : null },
-          { title: 'POTATO BOWL', key: 'featherweight', subtitle: 'Lowest score', data: topPotato ? { val: topPotato.valStr, owner: topPotato.owner, team: topPotato.team, sub: topPotato.sub } : null },
-          { title: 'MASSACRE', key: 'cakewalk', subtitle: 'Largest blowout', data: topMass ? { val: topMass.valStr, owner: topMass.owner, team: topMass.team, sub: topMass.sub } : null },
-          { title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win', data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null },
-          { title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score', data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null },
-          { title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win', data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null },
+          { title: 'APEX PREDATOR', key: 'juggernaut', subtitle: 'Highest playoff score', data: topApex ? { val: topApex.valStr, owner: topApex.owner, team: topApex.team, sub: topApex.sub } : null },
+          { title: 'POTATO BOWL', key: 'featherweight', subtitle: 'Lowest playoff score', data: topPotato ? { val: topPotato.valStr, owner: topPotato.owner, team: topPotato.team, sub: topPotato.sub } : null },
+          { title: 'MASSACRE', key: 'cakewalk', subtitle: 'Largest playoff blowout', data: topMass ? { val: topMass.valStr, owner: topMass.owner, team: topMass.team, sub: topMass.sub } : null },
+          { title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest playoff win', data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null },
+          { title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing playoff score', data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null },
+          { title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in playoff win', data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null },
           { title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Playoff make streak', data: topVic ? { val: topVic.valStr, owner: topVic.owner, team: topVic.team, sub: topVic.sub } : null },
           { title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Playoff drought streak', data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null }
         ];
@@ -3010,7 +3013,7 @@
           const owner = card.data ? card.data.owner : '-';
           const sub = card.data ? card.data.sub : '';
 
-          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'allTime');
+          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs');
           if (idx % 4 >= 2) popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
 
           div.innerHTML = `
