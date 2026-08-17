@@ -30018,7 +30018,126 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 12,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 73.29,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 113.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 122.08,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 148.34,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 125.08,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 156.34,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 88.09,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 135.76,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 99.99,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 119.46,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 138.74,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 141.92,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 123.83,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 179.1,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 97.94,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 116.81,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 118.19,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 154.18,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30029,7 +30148,126 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 16,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 106.17,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 93.75,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 138.41,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 96.98,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 145.72,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 98.92,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 138.74,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 119.25,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.48,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 98.99,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 182.19,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 112.24,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.31,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 104.68,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 147.83,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 117.98,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 111.46,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 93.89,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30040,7 +30278,113 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 2,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.71,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 149.82,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 201.48,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 153.18,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 177.68,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 137.33,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 136.69,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 131.95,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 118.87,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 123.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 110.9,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 139.54,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 106.46,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 174.44,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 128.51,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30051,7 +30395,113 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 1,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 117.35,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 143.23,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 156.65,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 168.0,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 148.65,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 172.47,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 122.82,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 162.08,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 130.87,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 138.54,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 78.45,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 127.24,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 73.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 116.67,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 117.72,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 125.55,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30062,7 +30512,113 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 1,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 117.35,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 143.23,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 156.65,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 168.0,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 148.65,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 172.47,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 122.82,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 162.08,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 130.87,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 138.54,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 78.45,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 127.24,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 73.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 116.67,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 117.72,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 125.55,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30073,7 +30629,100 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 12,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 73.29,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 113.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 125.08,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 156.34,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 88.09,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 135.76,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 138.74,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 141.92,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 123.83,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 179.1,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 97.94,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 116.81,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 118.19,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 154.18,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30084,7 +30733,100 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 12,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 106.17,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 93.75,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 138.41,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 96.98,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 145.72,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 98.92,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 138.74,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 119.25,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 182.19,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 112.24,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.31,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 104.68,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 147.83,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 117.98,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30095,7 +30837,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 17,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 247.56,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 141.1,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 142.38,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 111.5,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 194.1,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 166.52,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 178.46,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 141.5,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 119.75,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 108.84,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30106,7 +30915,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 2,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 136.69,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 131.95,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 118.87,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 123.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 110.9,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 139.54,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 106.46,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 174.44,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 128.51,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30117,7 +30993,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 2,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 136.22,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 152.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 116.51,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 200.36,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 105.6,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 168.58,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 116.35,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 160.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 131.68,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 138.78,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30128,7 +31071,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 2,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 136.22,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 152.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 116.51,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 200.36,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 105.6,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 168.58,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 116.35,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 160.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 131.68,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 138.78,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30139,7 +31149,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 13,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 139.11,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 148.13,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 130.8,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 160.96,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 108.84,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 113.36,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 130.94,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 135.76,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 118.22,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 127.3,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30150,7 +31227,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 13,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 139.11,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 148.13,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 130.8,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 160.96,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 108.84,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 113.36,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 130.94,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 135.76,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 118.22,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 127.3,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30161,7 +31305,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 15,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 114.39,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 116.6,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 126.96,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 136.54,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 109.69,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 123.68,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 136.08,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.94,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 149.56,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 167.98,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30172,7 +31383,74 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 16,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 170.56,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 141.72,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 177.88,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 160.64,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 151.64,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 112.52,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 158.57,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 129.72,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 171.48,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 133.5,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30183,7 +31461,74 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 16,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 81.63,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 148.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 119.84,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 126.03,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 89.83,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 160.01,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 110.93,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 159.68,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 127.38,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 201.42,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30194,7 +31539,74 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 9,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 193.15,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 127.97,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 156.02,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.34,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 125.71,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 90.06,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 152.56,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 143.16,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 166.08,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 115.22,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30205,7 +31617,74 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 8,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 162.97,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 154.63,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 145.6,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 139.93,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 169.82,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 129.22,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 228.5,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 159.57,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 180.15,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 124.18,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30216,7 +31695,74 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 8,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 82.41,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 131.22,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 72.58,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 113.15,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 107.0,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 134.83,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 147.58,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 212.94,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 159.27,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 186.21,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30227,7 +31773,74 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 8,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 82.41,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 131.22,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 72.58,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 113.15,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ronny Man",
+          "homeScore": 107.0,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 134.83,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 147.58,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 212.94,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 159.27,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 186.21,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30238,7 +31851,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 9,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 102.92,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 142.99,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 107.06,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 157.41,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 111.82,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 116.76,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 137.4,
+          "awayOwner": "Casey",
+          "awayTeam": "AARPFL",
+          "awayScore": 173.82,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30249,7 +31916,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 9,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 102.92,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 142.99,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 107.06,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 157.41,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 111.82,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 116.76,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 137.4,
+          "awayOwner": "Casey",
+          "awayTeam": "AARPFL",
+          "awayScore": 173.82,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30260,7 +31981,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 1,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.7,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 115.04,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 166.3,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 135.12,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 196.26,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 121.44,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 150.1,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 103.26,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30271,7 +32046,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 16,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 169.74,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 152.88,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 161.28,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 142.78,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 194.82,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 105.58,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 200.22,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 155.42,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30282,7 +32111,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 14,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 170.56,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 141.72,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 177.88,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 160.64,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 151.64,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 112.52,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 158.57,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 129.72,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30293,7 +32176,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 17,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 125.8,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 146.82,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 113.14,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 190.28,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 94.56,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 114.74,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 99.78,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 137.92,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Tess",
@@ -30304,7 +32241,61 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 15,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 102.72,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 139.06,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 140.84,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 147.04,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 159.72,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 187.74,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 152.32,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 160.48,
+          "winner": "Tess"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30315,7 +32306,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 13,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 89.36,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 152.69,
+          "winner": "Casey"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 115.07,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 124.3,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 124.26,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 151.14,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 121.12,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 131.0,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30326,7 +32371,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 13,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 89.36,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 152.69,
+          "winner": "Casey"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 115.07,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 124.3,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 124.26,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 151.14,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 121.12,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 131.0,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30337,7 +32436,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 14,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.15,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 129.48,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 142.5,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 99.91,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 199.76,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 140.2,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 196.38,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 118.22,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30348,7 +32501,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 14,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.15,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 129.48,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 142.5,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 99.91,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 199.76,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 140.2,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 196.38,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 118.22,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30359,7 +32566,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 6,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 81.63,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 148.42,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 119.84,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 126.03,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 89.83,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 160.01,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 110.93,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 159.68,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -30370,7 +32631,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 130.69,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 123.46,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 138.42,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 124.75,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 139.0,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 108.22,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 198.64,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 102.12,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30381,7 +32696,61 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 9,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 193.15,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 127.97,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 156.02,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.34,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 125.71,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 90.06,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 166.08,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 115.22,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30392,7 +32761,61 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "LIBYA rip Gaddafi",
+          "homeScore": 106.96,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 103.16,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 141.95,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 121.54,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 159.99,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 153.92,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 161.23,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 125.74,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30403,7 +32826,61 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "LIBYA rip Gaddafi",
+          "homeScore": 106.96,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 103.16,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 141.95,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 121.54,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 159.99,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 153.92,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 161.23,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 125.74,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30414,7 +32891,61 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 14,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 127.32,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 99.02,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 153.18,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 112.16,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 165.63,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 118.25,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 137.04,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 122.86,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30425,7 +32956,61 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 14,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 127.32,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 99.02,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 153.18,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 112.16,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 165.63,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 118.25,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 137.04,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 122.86,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30436,7 +33021,61 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 5,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 105.04,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 93.59,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 139.27,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 100.67,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 115.04,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 90.93,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 126.34,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 119.03,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30447,7 +33086,61 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 1,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 144.18,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 151.77,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 118.51,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 157.7,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 119.18,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 126.9,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 95.43,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 129.71,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30458,7 +33151,61 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 13,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 140.58,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 141.25,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 114.06,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 150.54,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 85.07,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 127.74,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 110.49,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 114.24,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30469,7 +33216,61 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 13,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 140.58,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 141.25,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 114.06,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 150.54,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 85.07,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 127.74,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 110.49,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 114.24,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30480,7 +33281,61 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 14,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 173.33,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 149.18,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.27,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 97.36,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 95.22,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 93.17,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 164.87,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 113.3,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30491,7 +33346,61 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 14,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 173.33,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 149.18,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.27,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 97.36,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 95.22,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 93.17,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 164.87,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 113.3,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30502,7 +33411,61 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 10,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 186.35,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 133.55,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 157.5,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 121.41,
+          "winner": "Casey"
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 179.6,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 195.88,
+          "winner": "Casey"
+        },
+        {
+          "year": 2019,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 147.48,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 173.07,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30513,7 +33476,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 7,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 247.56,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 141.1,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 142.38,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 111.5,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 178.46,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 141.5,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30524,7 +33528,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 17,
       "active": true,
-      "type": "playoff"
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2021,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 168.93,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 163.99,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 194.1,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 166.52,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 119.75,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 108.84,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30535,7 +33580,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 5,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 122.14,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 151.48,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 94.46,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 184.34,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.72,
+          "awayOwner": "Casey",
+          "awayTeam": "AARPFL",
+          "awayScore": 161.84,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30546,7 +33632,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 5,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 122.14,
+          "awayOwner": "Casey",
+          "awayTeam": "Awesome Baller-Winners",
+          "awayScore": 151.48,
+          "winner": "Casey"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 94.46,
+          "awayOwner": "Casey",
+          "awayTeam": "Skibidi Football",
+          "awayScore": 184.34,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 158.72,
+          "awayOwner": "Casey",
+          "awayTeam": "AARPFL",
+          "awayScore": 161.84,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30557,7 +33684,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 12,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 145.04,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 144.14,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 120.1,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 156.26,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 127.1,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30568,7 +33736,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 12,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 145.04,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 144.14,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 120.1,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 156.26,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 127.1,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30579,7 +33788,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 8,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.08,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 141.34,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 144.16,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 101.84,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.68,
+          "awayOwner": "Mike",
+          "awayTeam": "Jelqaida",
+          "awayScore": 147.15,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30590,7 +33840,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 13,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 171.54,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 167.68,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 161.42,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 160.24,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 128.6,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 121.74,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30601,7 +33892,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 13,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 171.54,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 167.68,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 161.42,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 160.24,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 128.6,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 121.74,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30612,7 +33944,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 14,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 171.44,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 145.22,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 163.92,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 129.65,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 137.46,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 102.67,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30623,7 +33996,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 14,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 171.44,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 145.22,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 163.92,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 129.65,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 137.46,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 102.67,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -30634,7 +34048,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 1,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.7,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 115.04,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 166.3,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 135.12,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 150.1,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 103.26,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30645,7 +34100,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 12,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 169.74,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 152.88,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 161.28,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 142.78,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 194.82,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 105.58,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30656,7 +34152,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 7,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 126.96,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 136.54,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 109.69,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 123.68,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 136.08,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.94,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -30667,7 +34204,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 8,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 163.89,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 80.84,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 129.92,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 101.02,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "Aaron codger",
+          "homeScore": 162.3,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 124.52,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -30678,7 +34256,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 8,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 163.89,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 80.84,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 129.92,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 101.02,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "Aaron codger",
+          "homeScore": 162.3,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 124.52,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Tess",
@@ -30689,7 +34308,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 6,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 145.24,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 151.2,
+          "winner": "Tess"
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 119.98,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 156.56,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 130.44,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 131.38,
+          "winner": "Tess"
+        }
+      ]
     },
     {
       "winner": "Tess",
@@ -30700,7 +34360,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 6,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 145.24,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 151.2,
+          "winner": "Tess"
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 119.98,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 156.56,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 130.44,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 131.38,
+          "winner": "Tess"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30711,7 +34412,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 9,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 125.8,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 146.82,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 113.14,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 190.28,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Tess",
+          "homeTeam": "Tess Finesse",
+          "homeScore": 94.56,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 114.74,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Tess",
@@ -30722,7 +34464,48 @@ window.LEAGUE_DATA = {
       "endYear": 2025,
       "endWeek": 13,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 102.72,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 139.06,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 140.84,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 147.04,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 159.72,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 187.74,
+          "winner": "Tess"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -30733,7 +34516,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 12,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 145.57,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 154.19,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 74.18,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 132.28,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 80.4,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 142.21,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -30744,7 +34568,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 12,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 145.57,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 154.19,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 74.18,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 132.28,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 80.4,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 142.21,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30755,7 +34620,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 8,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 140.89,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 148.09,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 99.51,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 144.66,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 119.86,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 158.42,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -30766,7 +34672,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 8,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 140.89,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 148.09,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 99.51,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 144.66,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 119.86,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 158.42,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30777,7 +34724,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 17,
       "active": true,
-      "type": "playoff"
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2021,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.48,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 98.99,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 111.46,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 93.89,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2024,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 144.16,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 101.84,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -30788,7 +34776,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 4,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 159.15,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 124.62,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 194.02,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 74.43,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 142.96,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 112.28,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30799,7 +34828,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 10,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 111.9,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 116.74,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 138.16,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 169.76,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 99.8,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 147.64,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30810,7 +34880,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 10,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 111.9,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 116.74,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 138.16,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 169.76,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 99.8,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 147.64,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30821,7 +34932,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 117.15,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 170.2,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 155.68,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 181.12,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 105.36,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 167.38,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -30832,7 +34984,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 117.15,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 170.2,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 155.68,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 181.12,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 105.36,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 167.38,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -30843,7 +35036,48 @@ window.LEAGUE_DATA = {
       "endYear": 2024,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 130.69,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 123.46,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 139.0,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 108.22,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 198.64,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 102.12,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -30854,7 +35088,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 3,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 83.37,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 97.82,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 109.28,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 141.09,
+          "winner": "Trace"
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 158.3,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 162.52,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -30865,7 +35140,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 3,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 83.37,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 97.82,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 109.28,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 141.09,
+          "winner": "Trace"
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 158.3,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 162.52,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -30876,7 +35192,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 99.36,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 150.58,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 97.18,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 129.95,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 98.31,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 126.13,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -30887,7 +35244,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 99.36,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 150.58,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 97.18,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 129.95,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 98.31,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 126.13,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30898,7 +35296,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 5,
       "active": true,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 106.77,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 156.76,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 117.46,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.18,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 105.93,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 126.41,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30909,7 +35348,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 5,
       "active": true,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 106.77,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 156.76,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 117.46,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 149.18,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Cooper",
+          "homeTeam": "coop\u2019s shit",
+          "homeScore": 105.93,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 126.41,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30920,7 +35400,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 10,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 145.54,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 147.62,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 115.06,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 135.56,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 110.43,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 146.95,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Jasper",
@@ -30931,7 +35452,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 10,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 145.54,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 147.62,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 115.06,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 135.56,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 110.43,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 146.95,
+          "winner": "Jasper"
+        }
+      ]
     },
     {
       "winner": "Cooper",
@@ -30942,7 +35504,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 1,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 80.5,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 174.2,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 173.14,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 182.48,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 104.13,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 115.14,
+          "winner": "Cooper"
+        }
+      ]
     },
     {
       "winner": "Cooper",
@@ -30953,7 +35556,48 @@ window.LEAGUE_DATA = {
       "endYear": 2023,
       "endWeek": 1,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 80.5,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 174.2,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Let\u2019s Ride \ud83d\ude24",
+          "homeScore": 173.14,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 182.48,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty Dynasty \ud83c\udfc6",
+          "homeScore": 104.13,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 115.14,
+          "winner": "Cooper"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30964,7 +35608,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 99.08,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 121.4,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 134.83,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 137.51,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 148.99,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 159.02,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30975,7 +35660,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 12,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 152.33,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 117.88,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 141.86,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 114.27,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 151.05,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 85.16,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Casey",
@@ -30986,7 +35712,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 12,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 152.33,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 117.88,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 141.86,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 114.27,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 151.05,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 85.16,
+          "winner": "Casey"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -30997,7 +35764,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 10,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.71,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 149.82,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 201.48,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 153.18,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 177.68,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 137.33,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31008,7 +35816,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 13,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 113.5,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 87.73,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 145.74,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 127.4,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 124.85,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 105.47,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31019,7 +35868,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 13,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 113.5,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 87.73,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 145.74,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 127.4,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 124.85,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 105.47,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31030,7 +35920,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 13,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 166.85,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 103.89,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 183.84,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 119.34,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 175.81,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 155.54,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31041,7 +35972,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 13,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 166.85,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 103.89,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 183.84,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 119.34,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 175.81,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 155.54,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31052,7 +36024,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 5,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 139.27,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 100.67,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 115.04,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 90.93,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 126.34,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 119.03,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -31063,7 +36076,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 6,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 109.5,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 110.28,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 116.5,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 137.05,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 117.82,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 127.03,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Boaz",
@@ -31074,7 +36128,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 6,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 109.5,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 110.28,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 116.5,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 137.05,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 117.82,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 127.03,
+          "winner": "Boaz"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -31085,7 +36180,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 3,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 156.24,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 191.96,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 92.78,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 138.28,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 138.51,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 140.91,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Dustin",
@@ -31096,7 +36232,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 3,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 156.24,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 191.96,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 92.78,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 138.28,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 138.51,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 140.91,
+          "winner": "Dustin"
+        }
+      ]
     },
     {
       "winner": "Cooper",
@@ -31107,7 +36284,48 @@ window.LEAGUE_DATA = {
       "endYear": 2022,
       "endWeek": 15,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 147.42,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 149.67,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 108.64,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 149.72,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 151.34,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 169.89,
+          "winner": "Cooper"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31118,7 +36336,48 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 6,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 110.43,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 158.52,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 107.13,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 150.65,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 141.83,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 164.59,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31129,7 +36388,48 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 17,
       "active": true,
-      "type": "playoff"
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2019,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 151.55,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 183.48,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 122.08,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 148.34,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 99.99,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 119.46,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31140,7 +36440,48 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 5,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 133.5,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 130.05,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 85.23,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 79.04,
+          "winner": "Trace"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 153.8,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 140.09,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31151,7 +36492,48 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 5,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 133.5,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 130.05,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 85.23,
+          "awayOwner": "Casey",
+          "awayTeam": "CUBA",
+          "awayScore": 79.04,
+          "winner": "Trace"
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 153.8,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 140.09,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -31162,7 +36544,48 @@ window.LEAGUE_DATA = {
       "endYear": 2021,
       "endWeek": 15,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 132.03,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 112.8,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 104.94,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 101.97,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 120.21,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 103.94,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31173,7 +36596,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 1,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 144.18,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 151.77,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 118.51,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 157.7,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 95.43,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 129.71,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31184,7 +36648,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 14,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 87.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 105.65,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 122.76,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 125.9,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 120.04,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 144.32,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31195,7 +36700,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 14,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 87.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 105.65,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 122.76,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 125.9,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 120.04,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 144.32,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31206,7 +36752,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 2,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 161.38,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 156.03,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 186.92,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 123.82,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 163.82,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 107.55,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31217,7 +36804,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 2,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 161.38,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 156.03,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 186.92,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 123.82,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 163.82,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 107.55,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31228,7 +36856,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 153.59,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 113.09,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 122.21,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 120.24,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 137.3,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 110.37,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31239,7 +36908,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 153.59,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 113.09,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 122.21,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 120.24,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Poopy Butt",
+          "homeScore": 137.3,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 110.37,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -31250,7 +36960,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 2,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 161.08,
+          "awayOwner": "Trace",
+          "awayTeam": "#1 CumBoy",
+          "awayScore": 115.53,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 159.85,
+          "awayOwner": "Trace",
+          "awayTeam": "#1 CumBoy",
+          "awayScore": 116.16,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 129.28,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 116.05,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -31261,7 +37012,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 2,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 161.08,
+          "awayOwner": "Trace",
+          "awayTeam": "#1 CumBoy",
+          "awayScore": 115.53,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 159.85,
+          "awayOwner": "Trace",
+          "awayTeam": "#1 CumBoy",
+          "awayScore": 116.16,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 129.28,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 116.05,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -31272,7 +37064,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 9,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 145.33,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 149.78,
+          "winner": "Mike"
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 77.37,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 173.57,
+          "winner": "Mike"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 133.78,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 152.41,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Mike",
@@ -31283,7 +37116,48 @@ window.LEAGUE_DATA = {
       "endYear": 2020,
       "endWeek": 9,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 145.33,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 149.78,
+          "winner": "Mike"
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 77.37,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 173.57,
+          "winner": "Mike"
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 133.78,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 152.41,
+          "winner": "Mike"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31294,7 +37168,48 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 5,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 142.93,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 158.06,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 162.76,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 199.63,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 144.78,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 208.0,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Ryan",
@@ -31305,7 +37220,48 @@ window.LEAGUE_DATA = {
       "endYear": 2019,
       "endWeek": 5,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 142.93,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 158.06,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 162.76,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 199.63,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 144.78,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 208.0,
+          "winner": "Ryan"
+        }
+      ]
     },
     {
       "winner": "Phillip",
@@ -31316,7 +37272,48 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 15,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 150.87,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 171.48,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 182.57,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 188.68,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 134.37,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 136.85,
+          "winner": "Phillip"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31327,7 +37324,48 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 11,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 172.33,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 167.17,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 196.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 137.38,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 147.3,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 127.76,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Trace",
@@ -31338,7 +37376,48 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 11,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 172.33,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 167.17,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 196.02,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 137.38,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 147.3,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 127.76,
+          "winner": "Trace"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -31349,7 +37428,48 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 12,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 162.97,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 154.63,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 145.6,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 139.93,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 169.82,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 129.22,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -31360,7 +37480,48 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 14,
       "active": false,
-      "type": "overall"
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 228.42,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 134.03,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 160.59,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 93.65,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 140.71,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 136.63,
+          "winner": "Dylan"
+        }
+      ]
     },
     {
       "winner": "Dylan",
@@ -31371,7 +37532,4611 @@ window.LEAGUE_DATA = {
       "endYear": 2018,
       "endWeek": 14,
       "active": false,
-      "type": "regular"
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 228.42,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 134.03,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 160.59,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 93.65,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2018,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 140.71,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 136.63,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 7,
+      "endYear": 2025,
+      "endWeek": 4,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 150.32,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 102.52,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 148.06,
+          "awayOwner": "Mike",
+          "awayTeam": "Jelqaida",
+          "awayScore": 104.84,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 13,
+      "endYear": 2025,
+      "endWeek": 7,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 158.5,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 144.34,
+          "winner": "Trace"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 180.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 131.9,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 13,
+      "endYear": 2025,
+      "endWeek": 7,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 158.5,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 144.34,
+          "winner": "Trace"
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 180.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 131.9,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 1,
+      "endYear": 2025,
+      "endWeek": 10,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 182.67,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 129.32,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 138.0,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 135.53,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 1,
+      "endYear": 2025,
+      "endWeek": 10,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 182.67,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 129.32,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 138.0,
+          "awayOwner": "Ryan",
+          "awayTeam": "Bad team not good at football",
+          "awayScore": 135.53,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 10,
+      "endYear": 2025,
+      "endWeek": 8,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.08,
+          "awayOwner": "Mike",
+          "awayTeam": "Team Chaos",
+          "awayScore": 141.34,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 154.68,
+          "awayOwner": "Mike",
+          "awayTeam": "Jelqaida",
+          "awayScore": 147.15,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 8,
+      "endYear": 2025,
+      "endWeek": 3,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 139.32,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 134.3,
+          "winner": "Trace"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 153.18,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 133.72,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 8,
+      "endYear": 2025,
+      "endWeek": 3,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 139.32,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 134.3,
+          "winner": "Trace"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 153.18,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 133.72,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 3,
+      "endYear": 2025,
+      "endWeek": 12,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Jelqaida",
+          "homeScore": 136.06,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 102.36,
+          "winner": "Mike"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Jelqaida",
+          "homeScore": 136.45,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 134.14,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 3,
+      "endYear": 2025,
+      "endWeek": 12,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Jelqaida",
+          "homeScore": 136.06,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 102.36,
+          "winner": "Mike"
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Jelqaida",
+          "homeScore": 136.45,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 134.14,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 12,
+      "endYear": 2025,
+      "endWeek": 6,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 148.53,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 163.7,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 130.04,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 153.36,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 12,
+      "endYear": 2025,
+      "endWeek": 6,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 148.53,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 163.7,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 130.04,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 153.36,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Dustin",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 7,
+      "endYear": 2025,
+      "endWeek": 9,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 146.92,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 148.3,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 90.62,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 176.96,
+          "winner": "Dustin"
+        }
+      ]
+    },
+    {
+      "winner": "Dustin",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 7,
+      "endYear": 2025,
+      "endWeek": 9,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 146.92,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 148.3,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 90.62,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty\u2019s Dingleberries",
+          "awayScore": 176.96,
+          "winner": "Dustin"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 4,
+      "endYear": 2025,
+      "endWeek": 13,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 196.14,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 133.94,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.04,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 115.32,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 4,
+      "endYear": 2025,
+      "endWeek": 13,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2025,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 196.14,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 133.94,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.04,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 115.32,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 15,
+      "endYear": 2025,
+      "endWeek": 9,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 161.16,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 144.38,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 186.72,
+          "awayOwner": "Boaz",
+          "awayTeam": "Aaron codger",
+          "awayScore": 140.54,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Jasper",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 15,
+      "endYear": 2025,
+      "endWeek": 15,
+      "active": true,
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2023,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 114.39,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 116.6,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 149.56,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 167.98,
+          "winner": "Jasper"
+        }
+      ]
+    },
+    {
+      "winner": "Jasper",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 5,
+      "endYear": 2025,
+      "endWeek": 14,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 125.22,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 142.78,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 111.94,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 131.2,
+          "winner": "Jasper"
+        }
+      ]
+    },
+    {
+      "winner": "Jasper",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 5,
+      "endYear": 2025,
+      "endWeek": 14,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2025,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 125.22,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 142.78,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dustin",
+          "homeTeam": "Dusty\u2019s Dingleberries",
+          "homeScore": 111.94,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 131.2,
+          "winner": "Jasper"
+        }
+      ]
+    },
+    {
+      "winner": "Tess",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 10,
+      "endYear": 2025,
+      "endWeek": 8,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 108.62,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 123.12,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 118.28,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 150.45,
+          "winner": "Tess"
+        }
+      ]
+    },
+    {
+      "winner": "Tess",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 10,
+      "endYear": 2025,
+      "endWeek": 8,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 108.62,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 123.12,
+          "winner": "Tess"
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Bad team not good at football",
+          "homeScore": 118.28,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 150.45,
+          "winner": "Tess"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Tess",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 12,
+      "endYear": 2025,
+      "endWeek": 1,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 175.78,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 138.52,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 166.14,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 113.85,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Tess",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 12,
+      "endYear": 2025,
+      "endWeek": 1,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 175.78,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 138.52,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 166.14,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 113.85,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Tess",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 6,
+      "endYear": 2025,
+      "endWeek": 3,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 139.33,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 134.12,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 157.85,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 125.76,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Tess",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 6,
+      "endYear": 2025,
+      "endWeek": 3,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Skibidi Football",
+          "homeScore": 139.33,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 134.12,
+          "winner": "Casey"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "AARPFL",
+          "homeScore": 157.85,
+          "awayOwner": "Tess",
+          "awayTeam": "Tess Finesse",
+          "awayScore": 125.76,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 4,
+      "endYear": 2024,
+      "endWeek": 4,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 84.29,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 95.5,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 112.5,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 127.2,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 4,
+      "endYear": 2024,
+      "endWeek": 4,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 84.29,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 95.5,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 112.5,
+          "awayOwner": "Ryan",
+          "awayTeam": "Old Leech",
+          "awayScore": 127.2,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 14,
+      "endYear": 2024,
+      "endWeek": 9,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 140.56,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 96.92,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 141.0,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 120.84,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 14,
+      "endYear": 2024,
+      "endWeek": 9,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 140.56,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 96.92,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 141.0,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 120.84,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 10,
+      "endYear": 2024,
+      "endWeek": 4,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 159.15,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 124.62,
+          "winner": "Mike"
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Team Chaos",
+          "homeScore": 142.96,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 112.28,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 9,
+      "endYear": 2024,
+      "endWeek": 5,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 96.55,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 171.26,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 126.82,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.36,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 9,
+      "endYear": 2024,
+      "endWeek": 5,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 96.55,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 171.26,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Old Leech",
+          "homeScore": 126.82,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.36,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 1,
+      "endYear": 2024,
+      "endWeek": 10,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 139.74,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.92,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.34,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.26,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2024,
+      "startWeek": 1,
+      "endYear": 2024,
+      "endWeek": 10,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 139.74,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.92,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Globo Gym",
+          "homeScore": 130.34,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.26,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 3,
+      "endYear": 2023,
+      "endWeek": 14,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 99.81,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 178.43,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 122.33,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 147.32,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 3,
+      "endYear": 2023,
+      "endWeek": 14,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 99.81,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 178.43,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 122.33,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 147.32,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 2,
+      "endYear": 2023,
+      "endWeek": 13,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 137.48,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 119.48,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 153.03,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 97.73,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 2,
+      "endYear": 2023,
+      "endWeek": 13,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 137.48,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 119.48,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Justin Time",
+          "homeScore": 153.03,
+          "awayOwner": "Ryan",
+          "awayTeam": "Trilobite Terror",
+          "awayScore": 97.73,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 10,
+      "endYear": 2023,
+      "endWeek": 4,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 133.57,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 133.93,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 120.03,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 143.93,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 10,
+      "endYear": 2023,
+      "endWeek": 4,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 133.57,
+          "awayOwner": "Mike",
+          "awayTeam": "Ouchie",
+          "awayScore": 133.93,
+          "winner": "Mike"
+        },
+        {
+          "year": 2023,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 120.03,
+          "awayOwner": "Mike",
+          "awayTeam": "Justin Time",
+          "awayScore": 143.93,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Dustin",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2023,
+      "startWeek": 8,
+      "endYear": 2023,
+      "endWeek": 17,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 149.45,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 178.98,
+          "winner": "Dustin"
+        },
+        {
+          "year": 2023,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 124.99,
+          "awayOwner": "Dustin",
+          "awayTeam": "Dusty Dynasty \ud83c\udfc6",
+          "awayScore": 215.89,
+          "winner": "Dustin"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 7,
+      "endYear": 2023,
+      "endWeek": 7,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 162.03,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 121.87,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 174.9,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 101.43,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 7,
+      "endYear": 2023,
+      "endWeek": 7,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 162.03,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 121.87,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 174.9,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 101.43,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Cooper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 11,
+      "endYear": 2023,
+      "endWeek": 7,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 144.81,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 128.46,
+          "winner": "Casey"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 138.98,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 134.43,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Cooper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 11,
+      "endYear": 2023,
+      "endWeek": 7,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "The Mr. Unlimited\u2019s",
+          "homeScore": 144.81,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 128.46,
+          "winner": "Casey"
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Awesome Baller-Winners",
+          "homeScore": 138.98,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 134.43,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Cooper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 17,
+      "endYear": 2023,
+      "endWeek": 8,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 17,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 124.2,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 120.46,
+          "winner": "Trace"
+        },
+        {
+          "year": 2023,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 118.62,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 115.87,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Cooper",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 16,
+      "endYear": 2023,
+      "endWeek": 6,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 113.35,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 136.63,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2023,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Trilobite Terror",
+          "homeScore": 103.29,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 123.83,
+          "winner": "Cooper"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Cooper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 9,
+      "endYear": 2023,
+      "endWeek": 11,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 134.36,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 119.85,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 123.28,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 106.99,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Cooper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 9,
+      "endYear": 2023,
+      "endWeek": 11,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 134.36,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 119.85,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Zaza Zealots",
+          "homeScore": 123.28,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 106.99,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 2,
+      "endYear": 2022,
+      "endWeek": 11,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 134.83,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 137.51,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 148.99,
+          "awayOwner": "Phillip",
+          "awayTeam": "Ho Chi Win City",
+          "awayScore": 159.02,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 16,
+      "endYear": 2022,
+      "endWeek": 8,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 77.7,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 106.14,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 119.48,
+          "awayOwner": "Ryan",
+          "awayTeam": "Rats!",
+          "awayScore": 132.78,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 14,
+      "endYear": 2022,
+      "endWeek": 16,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 123.57,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 134.7,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 139.61,
+          "awayOwner": "Trace",
+          "awayTeam": "Gl Hf (you\u2019re gay)",
+          "awayScore": 162.2,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 12,
+      "endYear": 2022,
+      "endWeek": 8,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 78.61,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 81.96,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 157.01,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 161.0,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 12,
+      "endYear": 2022,
+      "endWeek": 8,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "I'm gonna win you're gay",
+          "homeScore": 78.61,
+          "awayOwner": "Casey",
+          "awayTeam": "Just pain",
+          "awayScore": 81.96,
+          "winner": "Casey"
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 157.01,
+          "awayOwner": "Casey",
+          "awayTeam": "The Mr. Unlimited\u2019s",
+          "awayScore": 161.0,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 9,
+      "endYear": 2022,
+      "endWeek": 6,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 167.35,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 100.54,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 165.12,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 114.54,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 9,
+      "endYear": 2022,
+      "endWeek": 6,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 167.35,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 100.54,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 165.12,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 114.54,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 1,
+      "endYear": 2022,
+      "endWeek": 10,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 191.57,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 132.32,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 134.4,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 102.92,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 1,
+      "endYear": 2022,
+      "endWeek": 10,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 191.57,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 132.32,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 134.4,
+          "awayOwner": "Dustin",
+          "awayTeam": "Let\u2019s Ride \ud83d\ude24",
+          "awayScore": 102.92,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 4,
+      "endYear": 2022,
+      "endWeek": 13,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 150.32,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 149.79,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 133.77,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 129.81,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 4,
+      "endYear": 2022,
+      "endWeek": 13,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 150.32,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 149.79,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 133.77,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 129.81,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 13,
+      "endYear": 2022,
+      "endWeek": 8,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 100.45,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 134.0,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Dawn of Man-Ape",
+          "homeScore": 139.0,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 169.07,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Jasper",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 2,
+      "endYear": 2022,
+      "endWeek": 11,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 112.83,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 144.05,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 91.86,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 112.33,
+          "winner": "Jasper"
+        }
+      ]
+    },
+    {
+      "winner": "Jasper",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 2,
+      "endYear": 2022,
+      "endWeek": 11,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 112.83,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 144.05,
+          "winner": "Jasper"
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Ouchie",
+          "homeScore": 91.86,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 112.33,
+          "winner": "Jasper"
+        }
+      ]
+    },
+    {
+      "winner": "Cooper",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 3,
+      "endYear": 2022,
+      "endWeek": 12,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 103.91,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 142.12,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 162.15,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 174.45,
+          "winner": "Cooper"
+        }
+      ]
+    },
+    {
+      "winner": "Cooper",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 3,
+      "endYear": 2022,
+      "endWeek": 12,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 103.91,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 142.12,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 162.15,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 174.45,
+          "winner": "Cooper"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Jasper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 5,
+      "endYear": 2022,
+      "endWeek": 14,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 166.84,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 166.51,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 130.76,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 94.28,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Jasper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 5,
+      "endYear": 2022,
+      "endWeek": 14,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 166.84,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 166.51,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Ryan",
+          "homeTeam": "Rats!",
+          "homeScore": 130.76,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 94.28,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Cooper",
+      "loser": "Boaz",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 5,
+      "endYear": 2022,
+      "endWeek": 14,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2022,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 147.42,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 149.67,
+          "winner": "Cooper"
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Boaz",
+          "homeTeam": "No I\u2019m gonna win UR gay",
+          "homeScore": 108.64,
+          "awayOwner": "Cooper",
+          "awayTeam": "coop\u2019s shit",
+          "awayScore": 149.72,
+          "winner": "Cooper"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Jasper",
+      "streak": 2,
+      "startYear": 2022,
+      "startWeek": 7,
+      "endYear": 2022,
+      "endWeek": 15,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2022,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 148.23,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 128.45,
+          "winner": "Trace"
+        },
+        {
+          "year": 2022,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Wild Card",
+          "homeOwner": "Trace",
+          "homeTeam": "Gl Hf (you\u2019re gay)",
+          "homeScore": 146.94,
+          "awayOwner": "Jasper",
+          "awayTeam": "Blue's Balls",
+          "awayScore": 106.35,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 12,
+      "endYear": 2021,
+      "endWeek": 7,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 84.66,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 159.11,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 117.29,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 120.18,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 12,
+      "endYear": 2021,
+      "endWeek": 7,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 84.66,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 159.11,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Just pain",
+          "homeScore": 117.29,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 120.18,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 12,
+      "endYear": 2021,
+      "endWeek": 2,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 111.19,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 108.25,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 153.7,
+          "awayOwner": "Trace",
+          "awayTeam": "I'm gonna win you're gay",
+          "awayScore": 106.11,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 13,
+      "endYear": 2021,
+      "endWeek": 2,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Pacific Islanders",
+          "homeScore": 99.17,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 107.73,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 113.32,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 164.48,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 13,
+      "endYear": 2021,
+      "endWeek": 2,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Pacific Islanders",
+          "homeScore": 99.17,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 107.73,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 113.32,
+          "awayOwner": "Ryan",
+          "awayTeam": "LIBYA rip Gaddafi",
+          "awayScore": 164.48,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 4,
+      "endYear": 2021,
+      "endWeek": 11,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 74.93,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 124.46,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 127.76,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 135.15,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 4,
+      "endYear": 2021,
+      "endWeek": 11,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 74.93,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 124.46,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#BrainTrauma",
+          "homeScore": 127.76,
+          "awayOwner": "Mike",
+          "awayTeam": "Matt's Team",
+          "awayScore": 135.15,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Dustin",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 1,
+      "endYear": 2021,
+      "endWeek": 8,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 132.03,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 112.8,
+          "winner": "Mike"
+        },
+        {
+          "year": 2021,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "Matt's Team",
+          "homeScore": 104.94,
+          "awayOwner": "Dustin",
+          "awayTeam": "#MOONGANG \ud83d\ude80\ud83c\udf1a",
+          "awayScore": 101.97,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 7,
+      "endYear": 2021,
+      "endWeek": 14,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2021,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.62,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.56,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 114.41,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 124.66,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Boaz",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2021,
+      "startWeek": 7,
+      "endYear": 2021,
+      "endWeek": 14,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2021,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 130.62,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 139.56,
+          "winner": "Boaz"
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 114.41,
+          "awayOwner": "Boaz",
+          "awayTeam": "No I\u2019m gonna win UR gay",
+          "awayScore": 124.66,
+          "winner": "Boaz"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 2,
+      "endYear": 2020,
+      "endWeek": 7,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 124.84,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 86.62,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 128.76,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 93.08,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 2,
+      "endYear": 2020,
+      "endWeek": 7,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 124.84,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 86.62,
+          "winner": "Casey"
+        },
+        {
+          "year": 2020,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "CUBA",
+          "homeScore": 128.76,
+          "awayOwner": "Mike",
+          "awayTeam": "Pacific Islanders",
+          "awayScore": 93.08,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 7,
+      "endYear": 2020,
+      "endWeek": 12,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 110.43,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 158.52,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2020,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 107.13,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 150.65,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 8,
+      "endYear": 2020,
+      "endWeek": 13,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2020,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 71.71,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 149.26,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 113.21,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 113.97,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2020,
+      "startWeek": 8,
+      "endYear": 2020,
+      "endWeek": 13,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2020,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 71.71,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 149.26,
+          "winner": "Trace"
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 113.21,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 113.97,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 16,
+      "endYear": 2020,
+      "endWeek": 15,
+      "active": false,
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2018,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 159.34,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 156.14,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2020,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Ho Chi Win City",
+          "homeScore": 105.04,
+          "awayOwner": "Trace",
+          "awayTeam": "Poopy Butt",
+          "awayScore": 93.59,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 10,
+      "endYear": 2020,
+      "endWeek": 5,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 161.85,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 134.0,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2020,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "#2020BrainTrauma",
+          "homeScore": 124.4,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Janissaries",
+          "awayScore": 120.73,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 15,
+      "endYear": 2019,
+      "endWeek": 16,
+      "active": false,
+      "type": "playoff",
+      "games": [
+        {
+          "year": 2018,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 134.37,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 136.85,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "3rd Place Game",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 119.18,
+          "awayOwner": "Phillip",
+          "awayTeam": "Bak2Bak",
+          "awayScore": 126.9,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 7,
+      "endYear": 2019,
+      "endWeek": 12,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 85.43,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 163.6,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 140.38,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 182.68,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 7,
+      "endYear": 2019,
+      "endWeek": 12,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 85.43,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 163.6,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "FUNdamentals",
+          "homeScore": 140.38,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 182.68,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 4,
+      "endYear": 2019,
+      "endWeek": 9,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 140.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 148.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 149.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 202.1,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 4,
+      "endYear": 2019,
+      "endWeek": 9,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 140.88,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 148.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 149.22,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 202.1,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Dylan",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 3,
+      "endYear": 2019,
+      "endWeek": 8,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 228.5,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 159.57,
+          "winner": "Dylan"
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "Hood Phenomenons",
+          "homeScore": 180.15,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 124.18,
+          "winner": "Dylan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 12,
+      "endYear": 2019,
+      "endWeek": 2,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 144.05,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 169.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 142.78,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 161.77,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Ryan",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 12,
+      "endYear": 2019,
+      "endWeek": 2,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 12,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 144.05,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 169.17,
+          "winner": "Ryan"
+        },
+        {
+          "year": 2019,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 142.78,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 161.77,
+          "winner": "Ryan"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 6,
+      "endYear": 2019,
+      "endWeek": 11,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 128.48,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 147.72,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 123.2,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 123.6,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 6,
+      "endYear": 2019,
+      "endWeek": 11,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2019,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 128.48,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 147.72,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 123.2,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 123.6,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 13,
+      "endYear": 2019,
+      "endWeek": 4,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 148.18,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 136.95,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 172.23,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 110.7,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Casey",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 13,
+      "endYear": 2019,
+      "endWeek": 4,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 148.18,
+          "awayOwner": "Casey",
+          "awayTeam": "Good football team!!",
+          "awayScore": 136.95,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 172.23,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 110.7,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 13,
+      "endYear": 2019,
+      "endWeek": 16,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 13,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 127.8,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 106.45,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Mike",
+          "homeTeam": "RonnyMan2",
+          "homeScore": 179.93,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mamluks",
+          "awayScore": 124.8,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Mike",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 10,
+      "endYear": 2019,
+      "endWeek": 15,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 152.02,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 158.03,
+          "winner": "Mike"
+        },
+        {
+          "year": 2019,
+          "week": 15,
+          "isPlayoff": true,
+          "stage": "Semi-Finals",
+          "homeOwner": "Phillip",
+          "homeTeam": "Bak2Bak",
+          "homeScore": 152.68,
+          "awayOwner": "Mike",
+          "awayTeam": "RonnyMan2",
+          "awayScore": 177.17,
+          "winner": "Mike"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2019,
+      "startWeek": 5,
+      "endYear": 2019,
+      "endWeek": 10,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2019,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 179.6,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 195.88,
+          "winner": "Casey"
+        },
+        {
+          "year": 2019,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "#1 CumBoy",
+          "homeScore": 147.48,
+          "awayOwner": "Casey",
+          "awayTeam": "FUNdamentals",
+          "awayScore": 173.07,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 6,
+      "endYear": 2018,
+      "endWeek": 11,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 150.87,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 171.48,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 182.57,
+          "awayOwner": "Phillip",
+          "awayTeam": "Show Me Dem TDS",
+          "awayScore": 188.68,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 1,
+      "endYear": 2018,
+      "endWeek": 6,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 157.83,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 131.93,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 176.43,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 74.6,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 1,
+      "endYear": 2018,
+      "endWeek": 6,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 157.83,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 131.93,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 176.43,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 74.6,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 2,
+      "endYear": 2018,
+      "endWeek": 7,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 137.9,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 129.53,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 201.27,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 129.42,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 2,
+      "endYear": 2018,
+      "endWeek": 7,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 137.9,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 129.53,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 201.27,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 129.42,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 2,
+      "endYear": 2018,
+      "endWeek": 7,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 126.47,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 84.05,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 108.81,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 98.35,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Mike",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 2,
+      "endYear": 2018,
+      "endWeek": 7,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 2,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 126.47,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 84.05,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Trace",
+          "homeTeam": "Trace's Team",
+          "homeScore": 108.81,
+          "awayOwner": "Mike",
+          "awayTeam": "Ronny Man",
+          "awayScore": 98.35,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 3,
+      "endYear": 2018,
+      "endWeek": 8,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 117.77,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 150.47,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 174.31,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 184.92,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Dylan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 3,
+      "endYear": 2018,
+      "endWeek": 8,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 117.77,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 150.47,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Dylan",
+          "homeTeam": "The Waterboys",
+          "homeScore": 174.31,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 184.92,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 4,
+      "endYear": 2018,
+      "endWeek": 9,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 157.36,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 190.48,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 140.55,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 156.53,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 14,
+      "endYear": 2018,
+      "endWeek": 16,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 14,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 170.9,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 143.17,
+          "winner": "Phillip"
+        },
+        {
+          "year": 2018,
+          "week": 16,
+          "isPlayoff": true,
+          "stage": "Nebuchadnezzar Cup",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 159.34,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 156.14,
+          "winner": "Phillip"
+        }
+      ]
+    },
+    {
+      "winner": "Trace",
+      "loser": "Phillip",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 4,
+      "endYear": 2018,
+      "endWeek": 9,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 157.36,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 190.48,
+          "winner": "Trace"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Phillip",
+          "homeTeam": "Show Me Dem TDS",
+          "homeScore": 140.55,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 156.53,
+          "winner": "Trace"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 4,
+      "endYear": 2018,
+      "endWeek": 9,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 133.23,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 132.13,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 187.33,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 117.1,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Ryan",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 4,
+      "endYear": 2018,
+      "endWeek": 9,
+      "active": false,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 133.23,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 132.13,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 187.33,
+          "awayOwner": "Ryan",
+          "awayTeam": "The Mongol Horde",
+          "awayScore": 117.1,
+          "winner": "Casey"
+        }
+      ]
+    },
+    {
+      "winner": "Casey",
+      "loser": "Trace",
+      "streak": 2,
+      "startYear": 2018,
+      "startWeek": 5,
+      "endYear": 2018,
+      "endWeek": 10,
+      "active": false,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 186.35,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 133.55,
+          "winner": "Casey"
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Casey",
+          "homeTeam": "Good football team!!",
+          "homeScore": 157.5,
+          "awayOwner": "Trace",
+          "awayTeam": "Trace's Team",
+          "awayScore": 121.41,
+          "winner": "Casey"
+        }
+      ]
     }
   ],
   "allMatchups": [

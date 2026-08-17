@@ -664,7 +664,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260816_03"></script>
+  <script src="leagueData.js?v=20260816_04"></script>
 
   <!-- Application Logic -->
   <script>
@@ -2141,7 +2141,36 @@
           let gameScoreListHtml = '';
           if (s.games && s.games.length > 0) {
             gameScoreListHtml = s.games.map(g => {
-              const stgTag = g.isPlayoff ? (g.stage || 'Playoffs') : `W${g.week}`;
+              const yr = g.year || g.seasonYear;
+              const wk = g.week || g.weekNumber;
+              const stgTag = g.isPlayoff ? (g.stage || 'Playoffs') : `W${wk}`;
+              const hIsW = g.homeScore >= g.awayScore;
+              const wS = hIsW ? (g.homeScore || 0) : (g.awayScore || 0);
+              const lS = hIsW ? (g.awayScore || 0) : (g.homeScore || 0);
+              return `<div class="py-1 border-b border-emerald-900/60 flex items-center justify-between text-xs">
+                <span class="font-bold text-emerald-400">${yr} ${stgTag}</span>
+                <span class="font-mono text-emerald-300 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+              </div>`;
+            }).join('');
+          } else {
+            gameScoreListHtml = `<div class="text-xs text-emerald-600 italic">Game scores recorded in database.</div>`;
+          }
+
+          const streakBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow hover:bg-emerald-900 transition-all">${s.streak} WINS</span>
+              <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left min-w-[260px] z-50">
+                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
+                  <span class="text-[10px] text-emerald-500">vs ${s.loser}</span>
+                </div>
+                ${gameScoreListHtml}
+                <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
+                  🏈 Game-by-game scores for this streak
+                </div>
+              </div>
+            </div>
+          `;
               const hIsW = g.homeScore >= g.awayScore;
               const wS = hIsW ? g.homeScore : g.awayScore;
               const lS = hIsW ? g.awayScore : g.homeScore;
