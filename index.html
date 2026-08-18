@@ -111,54 +111,68 @@
       border-radius: 2px;
     }
 
-    /* Tooltip Styles & Non-Spill Edge Positioning */
-        .tooltip-trigger {
+        /* Tooltip Styles & Stacking Engine */
+    .tooltip-trigger {
       position: relative;
       display: inline-block;
     }
 
+    .tooltip-trigger:hover,
+    .tooltip-trigger:focus-within {
+      z-index: 99999 !important;
+    }
+
+    #stat-cards-grid > div:hover,
+    #stat-cards-grid > div:has(.tooltip-trigger:hover),
+    .crt-box:has(.tooltip-trigger:hover),
+    .record-card:hover {
+      position: relative;
+      z-index: 99999 !important;
+    }
+
     .tooltip-content {
       display: none;
-    }
-
-    #global-floating-tooltip {
-      position: fixed;
-      z-index: 99999999;
+      position: absolute;
+      z-index: 999999 !important;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
       pointer-events: none;
-      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(4px);
-      max-height: 85vh;
-      max-width: 90vw;
-      overflow-y: auto;
+      width: max-content;
+      max-width: min(320px, 90vw);
+      white-space: normal;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
     }
 
-    #global-floating-tooltip.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .tooltip-trigger:hover .tooltip-content {
+    .tooltip-trigger:hover > .tooltip-content,
+    .tooltip-trigger:focus-within > .tooltip-content {
       display: block;
     }
 
+    .tooltip-content-left,
     .tooltip-left .tooltip-content {
-      left: 0;
-      transform: translateX(0);
+      left: 0 !important;
+      right: auto !important;
+      transform: none !important;
     }
 
+    .tooltip-content-right,
     .tooltip-right .tooltip-content {
-      right: 0;
-      left: auto;
-      transform: translateX(0);
+      right: 0 !important;
+      left: auto !important;
+      transform: none !important;
     }
 
+    .tooltip-content-bottom,
     .tooltip-bottom .tooltip-content {
-      top: 125%;
-      bottom: auto;
+      top: calc(100% + 8px) !important;
+      bottom: auto !important;
+    }
+
+    .tooltip-content-top,
+    .tooltip-top .tooltip-content {
+      bottom: calc(100% + 8px) !important;
+      top: auto !important;
     }
 
     /* Table Horizontal Scroll Container for Mobile Portrait View */
@@ -315,7 +329,7 @@
                           class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡
                           Weekly Wins (WW)</span>
                         <div
-                          class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
+                          class="tooltip-content tooltip-content-bottom tooltip-content-left p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
                           ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a
                           regular season week
                         </div>
@@ -328,7 +342,7 @@
                           class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀
                           Luckiest Wins (LW)</span>
                         <div
-                          class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
+                          class="tooltip-content tooltip-content-bottom tooltip-content-left p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
                           🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in
                           a regular season week
                         </div>
@@ -341,7 +355,7 @@
                           class="px-2.5 py-1 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔
                           Heartbreaks (HB)</span>
                         <div
-                          class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
+                          class="tooltip-content tooltip-content-bottom tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
                           💔 <span class="font-bold text-red-400">Heartbreaks (HB):</span> Smallest point margin loss in
                           a regular season week (losing by a hair)
                         </div>
@@ -354,7 +368,7 @@
                           class="px-2.5 py-1 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕
                           Toughest Losses (TL)</span>
                         <div
-                          class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
+                          class="tooltip-content tooltip-content-bottom tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
                           🤕 <span class="font-bold text-amber-400">Toughest Losses (TL):</span> Highest losing score in
                           a regular season week (scoring tons of points in a loss)
                         </div>
@@ -856,7 +870,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_26"></script>
+  <script src="leagueData.js?v=20260818_27"></script>
 
   <!-- Application Logic -->
   <script>
@@ -4125,8 +4139,6 @@
       container.innerHTML = cardsHtml;
     }
   </script>
-  <!-- Global Floating Tooltip Portal -->
-  <div id="global-floating-tooltip"></div>
 </body>
 
 </html>
