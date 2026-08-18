@@ -112,34 +112,33 @@
     }
 
     /* Tooltip Styles & Non-Spill Edge Positioning */
-    .tooltip-trigger {
+        .tooltip-trigger {
       position: relative;
       display: inline-block;
     }
 
-    .tooltip-trigger:hover,
-    .tooltip-trigger:focus-within {
-      z-index: 99999 !important;
-    }
-
-    #stat-cards-grid > div:hover,
-    #stat-cards-grid > div:has(.tooltip-trigger:hover),
-    .crt-box:has(.tooltip-trigger:hover) {
-      position: relative;
-      z-index: 99999 !important;
-    }
-
     .tooltip-content {
       display: none;
-      position: absolute;
-      z-index: 999999 !important;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      pointer-events: auto;
-      max-height: 400px;
+    }
+
+    #global-floating-tooltip {
+      position: fixed;
+      z-index: 99999999;
+      pointer-events: none;
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      max-height: 85vh;
+      max-width: 90vw;
       overflow-y: auto;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
+    }
+
+    #global-floating-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     .tooltip-trigger:hover .tooltip-content {
@@ -857,7 +856,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_25"></script>
+  <script src="leagueData.js?v=20260818_26"></script>
 
   <!-- Application Logic -->
   <script>
@@ -4126,6 +4125,8 @@
       container.innerHTML = cardsHtml;
     }
   </script>
+  <!-- Global Floating Tooltip Portal -->
+  <div id="global-floating-tooltip"></div>
 </body>
 
 </html>

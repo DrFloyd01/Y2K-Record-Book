@@ -106,22 +106,33 @@
     .popover-scrollbar::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 3px; }
 
         /* Tooltip Popover Styles */
-    .tooltip-trigger { position: relative; display: inline-block; }
+        .tooltip-trigger {
+      position: relative;
+      display: inline-block;
+    }
+
     .tooltip-content {
       display: none;
-      position: absolute;
-      z-index: 99999;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      pointer-events: auto;
-      max-height: 380px;
-      width: max-content;
-      max-width: 280px;
+    }
+
+    #global-floating-tooltip {
+      position: fixed;
+      z-index: 99999999;
+      pointer-events: none;
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      max-height: 85vh;
+      max-width: 90vw;
       overflow-y: auto;
-      white-space: normal;
-      box-shadow: 0 15px 30px -5px rgba(244, 114, 182, 0.3);
-      border-radius: 1rem;
+    }
+
+    #global-floating-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
     }
     .tooltip-trigger:hover .tooltip-content { display: block; }
         .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
@@ -795,7 +806,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_25"></script>
+  <script src="prideGuysData.js?v=20260818_26"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -4217,5 +4228,7 @@
       container.innerHTML = cardsHtml;
     }
   </script>
+  <!-- Global Floating Tooltip Portal -->
+  <div id="global-floating-tooltip"></div>
 </body>
 </html>
