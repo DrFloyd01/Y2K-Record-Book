@@ -795,7 +795,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_22"></script>
+  <script src="prideGuysData.js?v=20260818_23"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2863,12 +2863,46 @@
               else if (filterType === 'playoff') { w1 = b.playW1; w2 = b.playW2; }
 
               const cellTotalStr = `${w1}-${w2}`;
-              const winClass = w1 > w2 ? 'text-pink-700 font-bold' : (w1 < w2 ? 'text-red-500' : 'text-purple-800/60');
+              const diff = w1 - w2;
+
+              let cellClass = '';
+              let diffBadge = '';
+
+              if (diff >= 7) {
+                // Super Lopsided (+7 or more games ahead)
+                cellClass = 'bg-pink-200 text-purple-950 font-black border-2 border-pink-500 shadow-md';
+                diffBadge = `<span class="text-[9px] text-pink-700 block font-bold leading-none mt-0.5">+${diff}</span>`;
+              } else if (diff >= 4) {
+                // Heavy Dominance (+4 to +6 games ahead)
+                cellClass = 'bg-pink-100 text-pink-800 font-bold border border-pink-300';
+                diffBadge = `<span class="text-[9px] text-pink-600 block font-semibold leading-none mt-0.5">+${diff}</span>`;
+              } else if (diff >= 2) {
+                // Moderate Advantage (+2 to +3 games ahead)
+                cellClass = 'bg-pink-50 text-pink-700 font-semibold';
+              } else if (diff === 1) {
+                // Slight Edge (+1 game ahead)
+                cellClass = 'text-pink-600 font-normal';
+              } else if (diff === 0) {
+                // Tied (0 games)
+                cellClass = 'text-purple-700/60 bg-purple-50/40 font-normal';
+              } else if (diff <= -7) {
+                // Super Lopsided Deficit (-7 or more games behind)
+                cellClass = 'bg-rose-100 text-rose-950 font-bold border-2 border-rose-400 shadow-sm';
+                diffBadge = `<span class="text-[9px] text-rose-700 block font-bold leading-none mt-0.5">${diff}</span>`;
+              } else if (diff <= -4) {
+                // Heavy Deficit (-4 to -6 games behind)
+                cellClass = 'bg-rose-50 text-rose-800 font-medium border border-rose-200';
+                diffBadge = `<span class="text-[9px] text-rose-600 block font-normal leading-none mt-0.5">${diff}</span>`;
+              } else {
+                // Moderate / Slight Deficit (-1 to -3 games behind)
+                cellClass = 'text-rose-500 font-normal';
+              }
 
               tr += `
-                <td class="p-1.5 ${winClass} cursor-pointer hover:bg-pink-100/90/50 transition-colors" onclick="selectH2HMatchup('${o1}', '${o2}')">
+                <td class="p-1.5 ${cellClass} cursor-pointer hover:scale-105 hover:bg-pink-100 transition-all text-center rounded-lg" onclick="selectH2HMatchup('${o1}', '${o2}')">
                   <div class="tooltip-trigger inline-block">
                     <span>${cellTotalStr}</span>
+                    ${diffBadge}
                     <div class="tooltip-content p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
                       <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
                       <div class="text-xs text-pink-700">• <span class="font-bold text-pink-600">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
