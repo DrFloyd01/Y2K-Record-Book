@@ -870,7 +870,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_27"></script>
+  <script src="leagueData.js?v=20260818_28"></script>
 
   <!-- Application Logic -->
   <script>
@@ -1831,6 +1831,8 @@
           let popoverHtml = buildStatCardTop5Popover(card.title, card.key, currentSeason);
           if (idx % 4 >= 2) {
             popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
+          } else {
+            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-left');
           }
 
           div.innerHTML = `
