@@ -795,7 +795,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_21"></script>
+  <script src="prideGuysData.js?v=20260818_22"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2497,37 +2497,19 @@
       };
     }
 
-    function initH2HSelects() {
+        function initH2HSelects() {
       const o1 = document.getElementById('h2h-owner-1');
       const o2 = document.getElementById('h2h-owner-2');
       if (!o1 || !o2) return;
       o1.innerHTML = ''; o2.innerHTML = '';
 
-      document.querySelectorAll('.matrix-scope-btn').forEach(btn => {
-        btn.className = 'matrix-scope-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full';
-      });
-      const activeScopeBtn = document.getElementById(`matrix-scope-${scope}`);
-      if (activeScopeBtn) {
-        activeScopeBtn.className = 'matrix-scope-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full';
-      }
-
-      // Get latest active season managers
-      const seasonsList = window.LEAGUE_DATA.seasons || [];
-      const latestYr = seasonsList[seasonsList.length - 1] || '2025';
-      const activeSeasonStandings = (window.LEAGUE_DATA.seasonData[latestYr] && window.LEAGUE_DATA.seasonData[latestYr].standings)
-        ? window.LEAGUE_DATA.seasonData[latestYr].standings.map(s => s.ownerName)
-        : [];
-
-      let owners = window.LEAGUE_DATA.allTimeStandings.map(s => s.ownerName);
-      if (scope === 'active') {
-        owners = owners.filter(o => activeSeasonStandings.includes(o));
-      } else {
-        owners = owners.filter(o => !isOneYearManager(o));
-      }
-      owners.sort();
+      const owners = window.LEAGUE_DATA.allTimeStandings
+        .map(s => s.ownerName)
+        .filter(o => !isOneYearManager(o))
+        .sort();
 
       const defaultO1 = owners.find(o => o.includes('Dylan')) || owners[0] || '';
-      const defaultO2 = owners.find(o => o.includes('Phillip') || o.includes('Trace')) || owners[1] || '';
+      const defaultO2 = owners.find(o => o.includes('Phillip') || o.includes('Trace') || o.includes('Michael') || o.includes('Sean')) || owners[1] || '';
 
       owners.forEach(o => {
         o1.innerHTML += `<option value="${o}" ${o === defaultO1 ? 'selected' : ''}>${o}</option>`;
