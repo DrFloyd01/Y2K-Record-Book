@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,12 +35,14 @@
   <!-- Google Fonts: JetBrains Mono & VT323 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=VT323&display=swap"
+    rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Chart.js CDN for Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <style>
     body {
       font-family: 'JetBrains Mono', 'Courier Prime', monospace;
@@ -57,6 +60,7 @@
     .crt-glow {
       text-shadow: 0 0 5px rgba(0, 255, 102, 0.45);
     }
+
     .crt-glow-amber {
       text-shadow: 0 0 5px rgba(255, 183, 0, 0.45);
     }
@@ -67,6 +71,7 @@
       box-shadow: 0 0 10px rgba(0, 255, 102, 0.08);
       background-color: rgba(3, 14, 7, 0.96);
     }
+
     .crt-box-header {
       background-color: #052611;
       border-bottom: 1px solid #00bb4a;
@@ -79,6 +84,7 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
+
     .custom-scrollbar::-webkit-scrollbar {
       display: none;
       width: 0;
@@ -90,20 +96,27 @@
       scrollbar-width: thin;
       scrollbar-color: #00aa44 #040d06;
     }
+
     .popover-scrollbar::-webkit-scrollbar {
       height: 6px;
       width: 6px;
     }
+
     .popover-scrollbar::-webkit-scrollbar-track {
       background: #040d06;
     }
+
     .popover-scrollbar::-webkit-scrollbar-thumb {
       background: #00aa44;
       border-radius: 2px;
     }
 
-        /* Tooltip Styles & Non-Spill Edge Positioning */
-    .tooltip-trigger { position: relative; display: inline-block; }
+    /* Tooltip Styles & Non-Spill Edge Positioning */
+    .tooltip-trigger {
+      position: relative;
+      display: inline-block;
+    }
+
     .tooltip-content {
       display: none;
       position: absolute;
@@ -116,11 +129,28 @@
       overflow-y: auto;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
     }
-    .tooltip-trigger:hover .tooltip-content { display: block; }
-        .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
-    .tooltip-right .tooltip-content { right: 0; left: auto; transform: translateX(0); }
-    .tooltip-bottom .tooltip-content { top: 125%; bottom: auto; }
-      /* Table Horizontal Scroll Container for Mobile Portrait View */
+
+    .tooltip-trigger:hover .tooltip-content {
+      display: block;
+    }
+
+    .tooltip-left .tooltip-content {
+      left: 0;
+      transform: translateX(0);
+    }
+
+    .tooltip-right .tooltip-content {
+      right: 0;
+      left: auto;
+      transform: translateX(0);
+    }
+
+    .tooltip-bottom .tooltip-content {
+      top: 125%;
+      bottom: auto;
+    }
+
+    /* Table Horizontal Scroll Container for Mobile Portrait View */
     .table-scroll-container {
       overflow-x: auto;
       overflow-y: visible;
@@ -129,30 +159,36 @@
       scrollbar-color: rgba(0, 255, 102, 0.4) transparent;
       max-width: 100%;
     }
+
     .table-scroll-container::-webkit-scrollbar {
       height: 5px;
     }
+
     .table-scroll-container::-webkit-scrollbar-track {
       background: transparent;
     }
+
     .table-scroll-container::-webkit-scrollbar-thumb {
       background-color: rgba(0, 255, 102, 0.4);
       border-radius: 9999px;
     }
-    
-    html, body {
+
+    html,
+    body {
       overflow-x: hidden;
       max-width: 100vw;
     }
   </style>
 </head>
+
 <body class="min-h-screen flex flex-col selection:bg-emerald-900 selection:text-emerald-200">
 
   <!-- Terminal Top Header Bar -->
   <header class="bg-black border-b border-emerald-600 shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-4 py-2.5 flex items-center justify-between font-mono">
       <div class="flex items-center gap-3">
-        <span class="text-xs bg-emerald-950 text-emerald-400 px-2 py-0.5 border border-emerald-600 font-bold crt-glow">P1_PHOSPHOR://SYSTEM_READY</span>
+        <span
+          class="text-xs bg-emerald-950 text-emerald-400 px-2 py-0.5 border border-emerald-600 font-bold crt-glow">P1_PHOSPHOR://SYSTEM_READY</span>
         <h1 class="text-base font-bold text-emerald-400 crt-glow tracking-wider hidden sm:block">
           Y2K CPU MACHINATIONS <span class="text-xs text-emerald-600">[BUILD_2026.08]</span>
         </h1>
@@ -160,14 +196,21 @@
 
       <!-- Desktop Navigation Tabs -->
       <nav class="hidden lg:flex items-center space-x-1" id="desktop-nav">
-        <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-500 bg-emerald-900/60 text-emerald-300">SEASONS</button>
+        <button onclick="switchTab('seasons')" id="nav-seasons"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-500 bg-emerald-900/60 text-emerald-300">SEASONS</button>
         <!-- STATS tab hidden as per request -->
-        <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">H2H</button>
-        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">MATCHUPS</button>
-        <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">CHAMPS</button>
-        <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">TEAMS</button>
-        <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">DRAFT</button>
-        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">ANALYTICS</button>
+        <button onclick="switchTab('h2h')" id="nav-h2h"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">H2H</button>
+        <button onclick="switchTab('matchups')" id="nav-matchups"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">MATCHUPS</button>
+        <button onclick="switchTab('champs')" id="nav-champs"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">CHAMPS</button>
+        <button onclick="switchTab('teams')" id="nav-teams"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">TEAMS</button>
+        <button onclick="switchTab('draft')" id="nav-draft"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">DRAFT</button>
+        <button onclick="switchTab('analytics')" id="nav-analytics"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">ANALYTICS</button>
       </nav>
 
       <div class="text-xs text-emerald-500 font-mono flex items-center gap-2">
@@ -181,14 +224,16 @@
 
     <!-- TAB 1: SEASONS -->
     <div id="tab-seasons" class="tab-content block">
-      
+
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_DATABASE // FANTASY RECORD BOOK</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_DATABASE //
+              FANTASY RECORD BOOK</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STANDINGS &amp; ARCHIVES</h2>
             <p class="text-xs text-emerald-300 mt-1" id="champion-banner">
-              &gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">Globo Gym</span> (2025 Nebuchadnezzar Cup Winner - Dylan)
+              &gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">Globo Gym</span> (2025
+              Nebuchadnezzar Cup Winner - Dylan)
             </p>
           </div>
 
@@ -200,10 +245,12 @@
       <!-- Sub-Navigation Toggles (Actual Standings / Playoff Bracket) -->
       <div class="flex justify-center mb-4">
         <div class="inline-flex bg-black p-1 border border-emerald-700">
-          <button onclick="switchSeasonsSubTab('actual')" id="subnav-actual" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
+          <button onclick="switchSeasonsSubTab('actual')" id="subnav-actual"
+            class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
             [+] ACTUAL STANDINGS
           </button>
-          <button onclick="switchSeasonsSubTab('playoff')" id="subnav-playoff" class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
+          <button onclick="switchSeasonsSubTab('playoff')" id="subnav-playoff"
+            class="subnav-btn px-5 py-1.5 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
             [+] PLAYOFF BRACKET
           </button>
         </div>
@@ -231,50 +278,74 @@
         <div class="p-4 space-y-6">
           <!-- Single-Game Record Cards Grid -->
           <div>
-            <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">&gt; SINGLE-GAME &amp; STREAK RECORD HOLDERS:</h3>
+            <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">&gt; SINGLE-GAME &amp; STREAK
+              RECORD HOLDERS:</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="stat-cards-grid"></div>
           </div>
 
           <!-- Weekly Badges & Bad Luck Tally Table -->
           <div class="border-t border-emerald-800 pt-4">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 mb-3">
-              <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK TALLY:</h3>
-              <span class="text-[11px] text-emerald-600 font-normal italic">Hover over any count badge or header to inspect details &amp; definitions</span>
+              <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK
+                TALLY:</h3>
+              <span class="text-[11px] text-emerald-600 font-normal italic">Hover over any count badge or header to
+                inspect details &amp; definitions</span>
             </div>
             <div class="table-scroll-container">
               <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
                 <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
                   <tr>
-                    <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-emerald-900">Franchise Owner</th>
-                    <th onclick="sortWeeklyBadges('weeklyWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-emerald-900">Franchise
+                      Owner</th>
+                    <th onclick="sortWeeklyBadges('weeklyWins')"
+                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡ Weekly Wins (WW)</span>
-                        <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
-                          ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a regular season week
+                        <span
+                          class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡
+                          Weekly Wins (WW)</span>
+                        <div
+                          class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
+                          ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a
+                          regular season week
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('luckiestWins')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('luckiestWins')"
+                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 Luckiest Wins (LW)</span>
-                        <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
-                          🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in a regular season week
+                        <span
+                          class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀
+                          Luckiest Wins (LW)</span>
+                        <div
+                          class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
+                          🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in
+                          a regular season week
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('heartbreaks')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('heartbreaks')"
+                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔 Heartbreaks (HB)</span>
-                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
-                          💔 <span class="font-bold text-red-400">Heartbreaks (HB):</span> Smallest point margin loss in a regular season week (losing by a hair)
+                        <span
+                          class="px-2.5 py-1 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔
+                          Heartbreaks (HB)</span>
+                        <div
+                          class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
+                          💔 <span class="font-bold text-red-400">Heartbreaks (HB):</span> Smallest point margin loss in
+                          a regular season week (losing by a hair)
                         </div>
                       </div>
                     </th>
-                    <th onclick="sortWeeklyBadges('toughestLosses')" class="p-2 text-center cursor-pointer hover:bg-emerald-900">
+                    <th onclick="sortWeeklyBadges('toughestLosses')"
+                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
                       <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span class="px-2.5 py-1 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕 Toughest Losses (TL)</span>
-                        <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
-                          🤕 <span class="font-bold text-amber-400">Toughest Losses (TL):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
+                        <span
+                          class="px-2.5 py-1 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕
+                          Toughest Losses (TL)</span>
+                        <div
+                          class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
+                          🤕 <span class="font-bold text-amber-400">Toughest Losses (TL):</span> Highest losing score in
+                          a regular season week (scoring tons of points in a loss)
                         </div>
                       </div>
                     </th>
@@ -289,8 +360,10 @@
 
       <!-- Rule Note (Placed at bottom of page) -->
       <div class="text-center mt-6 mb-4" id="standings-rule-note">
-        <span class="text-xs text-emerald-500 bg-emerald-950/60 px-3.5 py-1.5 border border-emerald-800 inline-block shadow-sm">
-          &gt; RULE_NOTE: Places 1-4 determined by Playoff Finish; Places 5+ ranked strictly by Regular Season standing (tiebreaker: PF).
+        <span
+          class="text-xs text-emerald-500 bg-emerald-950/60 px-3.5 py-1.5 border border-emerald-800 inline-block shadow-sm">
+          &gt; RULE_NOTE: Places 1-4 determined by Playoff Finish; Places 5+ ranked strictly by Regular Season standing
+          (tiebreaker: PF).
         </span>
       </div>
     </div>
@@ -301,16 +374,20 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY
+            </div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">LEAGUE STAT LEADERBOARDS</h2>
-            <p class="text-xs text-emerald-300 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
+            <p class="text-xs text-emerald-300 mt-1">Single-game explosions, defensive nightmares, and margin records.
+            </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
+          <div
+            class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
             <!-- Stage Segment Filter -->
             <div class="flex items-center gap-1.5">
               <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; STAGE:</label>
-              <select id="stats-stage-select" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <select id="stats-stage-select" onchange="renderStatsTable()"
+                class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
                 <option value="combined" selected>COMBINED (ALL GAMES)</option>
                 <option value="regular">REGULAR SEASON ONLY</option>
                 <option value="playoffs">PLAYOFFS ONLY</option>
@@ -320,7 +397,8 @@
             <!-- Year Filter -->
             <div class="flex items-center gap-1.5">
               <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; YEAR:</label>
-              <select id="stats-season-select" onchange="onStatsSeasonChange()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <select id="stats-season-select" onchange="onStatsSeasonChange()"
+                class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
                 <option value="allTime" selected>ALL TIME (2018-2025)</option>
                 <option value="2025">2025 SEASON</option>
                 <option value="2024">2024 SEASON</option>
@@ -334,9 +412,11 @@
               </select>
 
               <div id="stats-custom-range" class="hidden items-center gap-1 text-xs text-emerald-400">
-                <select id="stats-from-year" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
+                <select id="stats-from-year" onchange="renderStatsTable()"
+                  class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
                 <span>to</span>
-                <select id="stats-to-year" onchange="renderStatsTable()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
+                <select id="stats-to-year" onchange="renderStatsTable()"
+                  class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono"></select>
               </div>
             </div>
           </div>
@@ -344,10 +424,18 @@
       </div>
 
       <div class="flex items-center gap-2 flex-wrap mb-5">
-        <button onclick="filterStats('singleGameHigh')" id="stat-filter-singleGameHigh" class="stat-filter-btn px-3 py-1.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-bold text-xs">SINGLE-GAME HIGHS</button>
-        <button onclick="filterStats('singleGameLow')" id="stat-filter-singleGameLow" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">SINGLE-GAME LOWS</button>
-        <button onclick="filterStats('seasonHigh')" id="stat-filter-seasonHigh" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">MOST POINTS SEASON</button>
-        <button onclick="filterStats('margins')" id="stat-filter-margins" class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">BLOWOUTS &amp; NAILBITERS</button>
+        <button onclick="filterStats('singleGameHigh')" id="stat-filter-singleGameHigh"
+          class="stat-filter-btn px-3 py-1.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-bold text-xs">SINGLE-GAME
+          HIGHS</button>
+        <button onclick="filterStats('singleGameLow')" id="stat-filter-singleGameLow"
+          class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">SINGLE-GAME
+          LOWS</button>
+        <button onclick="filterStats('seasonHigh')" id="stat-filter-seasonHigh"
+          class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">MOST
+          POINTS SEASON</button>
+        <button onclick="filterStats('margins')" id="stat-filter-margins"
+          class="stat-filter-btn px-3 py-1.5 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 font-bold text-xs">BLOWOUTS
+          &amp; NAILBITERS</button>
       </div>
 
       <div id="stats-leaderboard-container"></div>
@@ -359,19 +447,24 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
+            <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE
+            </div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">WEEKLY MATCHUP HUBS</h2>
-            <p class="text-xs text-emerald-300 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
+            <p class="text-xs text-emerald-300 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and
+              boxscore recaps.</p>
           </div>
 
           <!-- Controls: Season, Mode Toggle -->
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
+          <div
+            class="flex flex-col sm:flex-row items-center gap-3 bg-emerald-950/80 p-2.5 border border-emerald-700 rounded">
             <!-- Mode Toggle -->
             <div class="inline-flex bg-black p-1 border border-emerald-700">
-              <button onclick="switchMatchupMode('preview')" id="matchup-mode-preview" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
+              <button onclick="switchMatchupMode('preview')" id="matchup-mode-preview"
+                class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500">
                 🏈 PREVIEW
               </button>
-              <button onclick="switchMatchupMode('recap')" id="matchup-mode-recap" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
+              <button onclick="switchMatchupMode('recap')" id="matchup-mode-recap"
+                class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300">
                 📊 RECAP
               </button>
             </div>
@@ -379,7 +472,8 @@
             <!-- Season Selector -->
             <div class="flex items-center gap-1.5">
               <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; SEASON:</label>
-              <select id="matchup-season-select" onchange="onMatchupSeasonChange()" class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+              <select id="matchup-season-select" onchange="onMatchupSeasonChange()"
+                class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
                 <option value="2026">2026 SEASON (OFFICIAL SCHEDULE)</option>
                 <option value="2025" selected>2025 SEASON</option>
                 <option value="2024">2024 SEASON</option>
@@ -395,13 +489,16 @@
         </div>
 
         <!-- Week Selector Pills -->
-        <div class="mt-4 pt-3 border-t border-emerald-900/60 flex items-center gap-1.5 flex-wrap justify-center" id="matchup-week-pills-container"></div>
+        <div class="mt-4 pt-3 border-t border-emerald-900/60 flex items-center gap-1.5 flex-wrap justify-center"
+          id="matchup-week-pills-container"></div>
       </div>
 
       <!-- Matchups Grid Header Banner -->
-      <div id="matchup-header-banner" class="crt-box rounded p-3 mb-4 bg-emerald-950/40 flex justify-between items-center flex-wrap gap-2">
+      <div id="matchup-header-banner"
+        class="crt-box rounded p-3 mb-4 bg-emerald-950/40 flex justify-between items-center flex-wrap gap-2">
         <span id="matchup-title-heading" class="text-sm font-black text-emerald-300 crt-glow"></span>
-        <span id="matchup-mode-badge" class="px-2 py-0.5 bg-black border border-emerald-600 text-emerald-400 font-bold text-xs"></span>
+        <span id="matchup-mode-badge"
+          class="px-2 py-0.5 bg-black border border-emerald-600 text-emerald-400 font-bold text-xs"></span>
       </div>
 
       <!-- Matchup Cards Container -->
@@ -414,18 +511,27 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">HEAD-TO-HEAD RECORDS</h2>
-        <p class="text-xs text-emerald-300 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
+        <p class="text-xs text-emerald-300 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell
+          or streak row to inspect detailed H2H game logs!</p>
       </div>
 
       <!-- 1. H2H WINNING STREAKS LEADERBOARD -->
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
+        <div
+          class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span>&gt;_ H2H_WINNING_STREAKS_LEADERBOARD</span>
           <div class="flex items-center gap-1 flex-wrap justify-center">
-            <button onclick="filterH2HStreaks('all')" id="streak-filter-all" class="streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs">ALL STREAKS</button>
-            <button onclick="filterH2HStreaks('active')" id="streak-filter-active" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">🔥 ACTIVE ONLY</button>
-            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">REGULAR SEASON</button>
-            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
+            <button onclick="filterH2HStreaks('all')" id="streak-filter-all"
+              class="streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs">ALL
+              STREAKS</button>
+            <button onclick="filterH2HStreaks('active')" id="streak-filter-active"
+              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">🔥
+              ACTIVE ONLY</button>
+            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular"
+              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">REGULAR
+              SEASON</button>
+            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff"
+              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
           </div>
         </div>
         <div class="table-scroll-container">
@@ -447,12 +553,16 @@
 
       <!-- 2. LIFETIME H2H GRID MATRIX -->
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div
+          class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>&gt;_ LIFETIME_H2H_GRID_MATRIX</span>
           <div class="flex items-center gap-1.5" id="h2h-matrix-filter-buttons">
-            <button id="matrix-filter-all" onclick="filterH2HMatrix('all')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
-            <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
-            <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')" class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
+            <button id="matrix-filter-all" onclick="filterH2HMatrix('all')"
+              class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
+            <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')"
+              class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
+            <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')"
+              class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
           </div>
         </div>
         <div class="p-3 table-scroll-container">
@@ -468,11 +578,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <div>
             <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT OWNER 1:</label>
-            <select id="h2h-owner-1" onchange="renderH2HComparison()" class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+            <select id="h2h-owner-1" onchange="renderH2HComparison()"
+              class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
           </div>
           <div>
             <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT OWNER 2:</label>
-            <select id="h2h-owner-2" onchange="renderH2HComparison()" class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+            <select id="h2h-owner-2" onchange="renderH2HComparison()"
+              class="w-full bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
           </div>
         </div>
 
@@ -510,7 +622,8 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">NEBUCHADNEZZAR CUP &amp; DYNASTY ARCHIVES</h2>
-        <p class="text-xs text-emerald-300/80 mt-1 font-mono">8 Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
+        <p class="text-xs text-emerald-300/80 mt-1 font-mono">8 Seasons of Nebuchadnezzar Cup Champions, Dynasty
+          Finishes, and All-Time Franchise Records.</p>
       </div>
 
       <!-- 1. Dynasty Leaderboard -->
@@ -544,14 +657,17 @@
 
       <!-- 2. Yearly Champions Timeline Grid -->
       <div class="mb-6">
-        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_
+          YEARLY_CHAMPIONS_TIMELINE</div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="champs-timeline-grid"></div>
       </div>
 
       <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_ ALL-TIME_PLAYOFF_RECORDS</div>
-        <h3 class="text-lg font-black text-emerald-300 crt-glow font-mono mb-3">PLAYOFF SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-2 font-mono">&gt;_
+          ALL-TIME_PLAYOFF_RECORDS</div>
+        <h3 class="text-lg font-black text-emerald-300 crt-glow font-mono mb-3">PLAYOFF SINGLE-GAME &amp; STREAK RECORD
+          HOLDERS</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
       </div>
     </div>
@@ -562,12 +678,14 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">FRANCHISE PROFILES &amp; HISTORY</h2>
-        <p class="text-xs text-emerald-300 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
+        <p class="text-xs text-emerald-300 mt-1">Explore all-time team statistics, name evolution, scoring titles, and
+          yearly records.</p>
       </div>
 
       <div class="crt-box rounded p-4 mb-6">
         <label class="block text-xs font-bold text-emerald-400 mb-1">&gt; SELECT FRANCHISE OWNER:</label>
-        <select id="team-owner-select" onchange="renderFranchiseProfile()" class="w-full md:w-1/2 bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
+        <select id="team-owner-select" onchange="renderFranchiseProfile()"
+          class="w-full md:w-1/2 bg-black border border-emerald-600 p-2 text-xs font-bold text-emerald-300"></select>
       </div>
 
       <div id="franchise-profile-card"></div>
@@ -581,7 +699,8 @@
           <div>
             <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
             <h2 class="text-2xl font-black text-emerald-300 crt-glow">OFFICIAL DRAFT ORDER HISTORY</h2>
-            <p class="text-xs text-emerald-300 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
+            <p class="text-xs text-emerald-300 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by
+              regular season standing.</p>
           </div>
 
           <div class="flex items-center gap-1 flex-wrap justify-center" id="draft-season-selector"></div>
@@ -611,11 +730,15 @@
       </div>
 
       <div class="crt-box rounded overflow-visible mb-6">
-        <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
+        <div
+          class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span id="player-draft-title">&gt;_ PLAYER_DRAFT_RESULTS</span>
           <div class="flex items-center gap-2 w-full md:w-auto">
-            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()" placeholder="Search player or owner..." class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded w-full md:w-48">
-            <select id="draft-round-select" onchange="filterPlayerDraftPicks()" class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded">
+            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()"
+              placeholder="Search player or owner..."
+              class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded w-full md:w-48">
+            <select id="draft-round-select" onchange="filterPlayerDraftPicks()"
+              class="bg-black border border-emerald-700 px-2 py-1 text-xs text-emerald-300 rounded">
               <option value="all">All Rounds</option>
             </select>
           </div>
@@ -642,13 +765,15 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ SYSTEM_ANALYTICS</div>
         <h2 class="text-2xl font-black text-emerald-300 crt-glow">ADVANCED ANALYTICS PORTAL</h2>
-        <p class="text-xs text-emerald-300 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter Analysis.</p>
+        <p class="text-xs text-emerald-300 mt-1">Expected vs Actual Wins (Luck Index) and Per-Game Scoring Scatter
+          Analysis.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <div class="crt-box rounded p-4">
           <h3 class="text-base font-bold text-emerald-300 mb-2 crt-glow">&gt;_ ALL_TIME_LUCK_INDEX</h3>
-          <p class="text-xs text-emerald-500 mb-3">Positive luck rating = actual wins exceeding expected wins based on weekly score rank.</p>
+          <p class="text-xs text-emerald-500 mb-3">Positive luck rating = actual wins exceeding expected wins based on
+            weekly score rank.</p>
           <div class="table-scroll-container">
             <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
               <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
@@ -673,7 +798,8 @@
       </div>
 
       <div class="crt-box rounded p-4">
-        <h3 class="text-base font-bold text-emerald-300 mb-1 crt-glow">&gt;_ PER_GAME_SCORING_SCATTER (PF/G vs PA/G)</h3>
+        <h3 class="text-base font-bold text-emerald-300 mb-1 crt-glow">&gt;_ PER_GAME_SCORING_SCATTER (PF/G vs PA/G)
+        </h3>
         <p class="text-xs text-emerald-500 mb-3">Standardized by total games played across active seasons.</p>
         <div class="relative h-80">
           <canvas id="pfPaChart"></canvas>
@@ -686,33 +812,40 @@
   <!-- Mobile Bottom Navigation Bar -->
   <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-black border-t border-emerald-600 shadow-2xl z-40">
     <div class="flex justify-around items-center h-14 font-mono text-[10px]">
-      <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-400 font-bold">
+      <button onclick="switchTab('seasons')" id="mobile-nav-seasons"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-400 font-bold">
         <span>SEASONS</span>
       </button>
       <!-- STATS tab hidden as per request -->
-      <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('h2h')" id="mobile-nav-h2h"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>H2H</span>
       </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('matchups')" id="mobile-nav-matchups"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>WEEKLY</span>
       </button>
-      <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('champs')" id="mobile-nav-champs"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>CHAMPS</span>
       </button>
-      <button onclick="switchTab('teams')" id="mobile-nav-teams" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('teams')" id="mobile-nav-teams"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>TEAMS</span>
       </button>
-      <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('draft')" id="mobile-nav-draft"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>DRAFT</span>
       </button>
-      <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
+      <button onclick="switchTab('analytics')" id="mobile-nav-analytics"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>ANALYTICS</span>
       </button>
     </div>
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_13"></script>
+  <script src="leagueData.js?v=20260818_14"></script>
 
   <!-- Application Logic -->
   <script>
@@ -744,7 +877,7 @@
       return `${stage}'${yy}`;
     }
 
-        // Global Smart Tooltip Auto-Flip to Prevent Container / Viewport Clipping
+    // Global Smart Tooltip Auto-Flip to Prevent Container / Viewport Clipping
     document.addEventListener('mouseover', (e) => {
       const trigger = e.target.closest('.tooltip-trigger');
       if (trigger) {
@@ -758,7 +891,7 @@
             content.style.bottom = '125%';
             content.style.top = 'auto';
           }
-          
+
           if (rect.left < 160) {
             content.style.left = '0';
             content.style.right = 'auto';
@@ -904,9 +1037,9 @@
       renderStandings();
     }
 
-        function renderStandings() {
+    function renderStandings() {
       const container = document.getElementById('seasons-view-container');
-      
+
       if (currentSeasonsSubTab === 'playoff') {
         if (currentSeason !== 'allTime') {
           renderPlayoffBracketView(container);
@@ -943,7 +1076,7 @@
               </div>
             </div>
           `;
-          
+
           const tbody = document.getElementById('champs-leaderboard-body-seasons');
           const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
           leaderboard.sort((a, b) => {
@@ -1176,7 +1309,7 @@
         let formHtml = '<div class="flex gap-1 justify-center font-mono font-bold text-[11px]">';
         if (item.form && item.form.length > 0) {
           item.form.forEach(f => {
-            formHtml += (f === 'W') 
+            formHtml += (f === 'W')
               ? `<span class="text-emerald-400">W</span>`
               : `<span class="text-red-500">L</span>`;
           });
@@ -1186,7 +1319,7 @@
         formHtml += '</div>';
 
         const luckVal = item.luck || 0;
-        const luckBadge = luckVal > 0 
+        const luckBadge = luckVal > 0
           ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
           : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-400">0</span>`);
 
@@ -1270,12 +1403,12 @@
           `;
         }
 
-        const wlCell = currentSeason === 'allTime' 
-          ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>` 
+        const wlCell = currentSeason === 'allTime'
+          ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>`
           : `${item.wins}-${item.losses}`;
 
-        const ovrCell = currentSeason === 'allTime' 
-          ? `<span class="text-emerald-400 font-bold">${item.ovrRecord}</span> <span class="text-[10px] text-emerald-500 font-normal">(${item.ovrWinPct}%)</span>` 
+        const ovrCell = currentSeason === 'allTime'
+          ? `<span class="text-emerald-400 font-bold">${item.ovrRecord}</span> <span class="text-[10px] text-emerald-500 font-normal">(${item.ovrWinPct}%)</span>`
           : item.ovrRecord;
 
         tr.innerHTML = `
@@ -1292,8 +1425,8 @@
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-300">${item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-          <td class="p-2.5 text-center text-emerald-500">${item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center font-bold text-emerald-300">${item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          <td class="p-2.5 text-center text-emerald-500">${item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -1451,7 +1584,7 @@
       }
 
       if (metricKey === 'victoryLap') {
-        matchups.sort((a,b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
+        matchups.sort((a, b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
         const ownerGames = {};
         matchups.forEach(m => {
           const h = m.homeOwner, a = m.awayOwner;
@@ -1471,7 +1604,7 @@
               curCount++;
               endG = g;
               lastTeam = g.team;
-              if (i === games.length - 1 || !games[i+1].win) {
+              if (i === games.length - 1 || !games[i + 1].win) {
                 const yrSpan = startG.year === endG.year ? `${startG.year} W${startG.week}-W${endG.week}` : `${startG.year} W${startG.week} - ${endG.year} W${endG.week}`;
                 allStreaks.push({
                   owner: owner,
@@ -1489,12 +1622,12 @@
           });
         });
 
-        allStreaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
+        allStreaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
         return allStreaks.slice(0, 5);
       }
 
       if (metricKey === 'dumpsterFire') {
-        matchups.sort((a,b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
+        matchups.sort((a, b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
         const ownerGames = {};
         matchups.forEach(m => {
           const h = m.homeOwner, a = m.awayOwner;
@@ -1514,7 +1647,7 @@
               curCount++;
               endG = g;
               lastTeam = g.team;
-              if (i === games.length - 1 || !games[i+1].loss) {
+              if (i === games.length - 1 || !games[i + 1].loss) {
                 const yrSpan = startG.year === endG.year ? `${startG.year} W${startG.week}-W${endG.week}` : `${startG.year} W${startG.week} - ${endG.year} W${endG.week}`;
                 allStreaks.push({
                   owner: owner,
@@ -1532,7 +1665,7 @@
           });
         });
 
-        allStreaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
+        allStreaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
         return allStreaks.slice(0, 5);
       }
 
@@ -1580,12 +1713,12 @@
 
     function buildStatCardTop5Popover(cardTitle, metricKey, season) {
       const seasonLabel = season === 'allTime' ? 'ALL-TIME REGULAR' : (season === 'playoffs' ? 'ALL-TIME PLAYOFFS' : `${season} SEASON`);
-      
+
       const top5 = getStatCardTop5(metricKey, season);
       const rowsHtml = top5.map((item, i) => `
         <div class="py-1 border-b border-emerald-900/60 flex items-center justify-between text-[11px] font-mono">
           <div>
-            <span class="font-bold text-emerald-300">#${i+1} ${item.owner}</span>
+            <span class="font-bold text-emerald-300">#${i + 1} ${item.owner}</span>
             <span class="text-[10px] text-emerald-500 block">${item.sub}</span>
           </div>
           <span class="font-extrabold text-emerald-300 bg-emerald-950 px-1.5 py-0.5 border border-emerald-800 text-[10px]">${item.valStr}</span>
@@ -1607,7 +1740,7 @@
       container.innerHTML = ''; badgesTbody.innerHTML = '';
 
       label.innerText = currentSeason === 'allTime' ? 'ALL_TIME_RECORDS' : `${currentSeason}_SEASON`;
-      
+
       let records = null;
       if (currentSeason === 'allTime') {
         records = getGlobalAllTimeStatRecords();
@@ -1627,44 +1760,44 @@
         const topDump = getStatCardTop5('dumpsterFire', currentSeason)[0];
 
         const cardDefs = [
-          { 
-            title: 'JUGGERNAUT', key: 'juggernaut', subtitle: 'Single-game high score', 
-            data: topJugg ? { val: topJugg.valStr, owner: topJugg.owner, team: topJugg.team, sub: topJugg.sub } : null 
+          {
+            title: 'JUGGERNAUT', key: 'juggernaut', subtitle: 'Single-game high score',
+            data: topJugg ? { val: topJugg.valStr, owner: topJugg.owner, team: topJugg.team, sub: topJugg.sub } : null
           },
-          { 
-            title: 'FEATHERWEIGHT', key: 'featherweight', subtitle: 'Single-game low score', 
-            data: topFeather ? { val: topFeather.valStr, owner: topFeather.owner, team: topFeather.team, sub: topFeather.sub } : null 
+          {
+            title: 'FEATHERWEIGHT', key: 'featherweight', subtitle: 'Single-game low score',
+            data: topFeather ? { val: topFeather.valStr, owner: topFeather.owner, team: topFeather.team, sub: topFeather.sub } : null
           },
-          { 
-            title: 'CAKEWALK', key: 'cakewalk', subtitle: 'Largest blowout margin', 
-            data: topCake ? { val: topCake.valStr, owner: topCake.owner, team: topCake.team, sub: topCake.sub } : null 
+          {
+            title: 'CAKEWALK', key: 'cakewalk', subtitle: 'Largest blowout margin',
+            data: topCake ? { val: topCake.valStr, owner: topCake.owner, team: topCake.team, sub: topCake.sub } : null
           },
-          { 
-            title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win', 
-            data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null 
+          {
+            title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win',
+            data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null
           },
-          { 
-            title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score', 
-            data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null 
+          {
+            title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score',
+            data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null
           },
-          { 
-            title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win', 
-            data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null 
+          {
+            title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win',
+            data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null
           },
-          { 
-            title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Longest win streak', 
-            data: topVic ? { val: topVic.valStr, owner: topVic.owner, team: topVic.team, sub: topVic.sub } : null 
+          {
+            title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Longest win streak',
+            data: topVic ? { val: topVic.valStr, owner: topVic.owner, team: topVic.team, sub: topVic.sub } : null
           },
-          { 
-            title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Longest loss streak', 
-            data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null 
+          {
+            title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Longest loss streak',
+            data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null
           }
         ];
 
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
           div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-emerald-400 transition-all shadow-md';
-          
+
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
           const owner = card.data ? card.data.owner : '-';
@@ -1869,7 +2002,7 @@
       const toSel = document.getElementById('stats-to-year');
       fromSel.innerHTML = ''; toSel.innerHTML = '';
 
-      const yrs = [...window.LEAGUE_DATA.seasons].sort((a,b) => a - b);
+      const yrs = [...window.LEAGUE_DATA.seasons].sort((a, b) => a - b);
       yrs.forEach(y => {
         fromSel.innerHTML += `<option value="${y}">${y}</option>`;
         toSel.innerHTML += `<option value="${y}" ${y === 2025 ? 'selected' : ''}>${y}</option>`;
@@ -1950,11 +2083,11 @@
           }
         });
 
-        const blowouts = [...marginGames].sort((a,b) => b.margin - a.margin).slice(0, 5);
-        const nailbiters = [...marginGames].sort((a,b) => a.margin - b.margin).slice(0, 5);
+        const blowouts = [...marginGames].sort((a, b) => b.margin - a.margin).slice(0, 5);
+        const nailbiters = [...marginGames].sort((a, b) => a.margin - b.margin).slice(0, 5);
 
         let blowoutsRows = blowouts.map((g, idx) => {
-          const gameBadge = g.isPlayoff 
+          const gameBadge = g.isPlayoff
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">${g.yr} Playoffs W${g.wk}</span>`
             : `${g.yr} W${g.wk}`;
 
@@ -1971,7 +2104,7 @@
         }).join('');
 
         let nailbitersRows = nailbiters.map((g, idx) => {
-          const gameBadge = g.isPlayoff 
+          const gameBadge = g.isPlayoff
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">${g.yr} Playoffs W${g.wk}</span>`
             : `${g.yr} W${g.wk}`;
 
@@ -2080,7 +2213,7 @@
           const tr = document.createElement('tr');
           tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
 
-          const stageBadge = g.isPlayoff 
+          const stageBadge = g.isPlayoff
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">Playoffs W${g.wk}</span>`
             : `<span class="text-emerald-500 text-xs">Week ${g.wk}</span>`;
 
@@ -2176,17 +2309,17 @@
 
     // TAB 3: HEAD TO HEAD COMPARISON
     function getH2HBreakdown(o1, o2) {
-      const h2h = window.LEAGUE_DATA.h2hData.find(item => 
+      const h2h = window.LEAGUE_DATA.h2hData.find(item =>
         (item.owner1 === o1 && item.owner2 === o2) || (item.owner1 === o2 && item.owner2 === o1)
       );
 
       if (!h2h) return null;
 
       const games = [...h2h.games].sort((a, b) => a.year !== b.year ? a.year - b.year : a.week - b.week);
-      
+
       let regW1 = 0, regW2 = 0, regTies = 0;
       let playW1 = 0, playW2 = 0, playTies = 0;
-      
+
       const regGames = [];
       const playGames = [];
 
@@ -2333,7 +2466,7 @@
         return;
       }
 
-      streaks.sort((a,b) => b.streak !== a.streak ? b.streak - a.streak : (b.active ? 1 : 0) - (a.active ? 1 : 0));
+      streaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : (b.active ? 1 : 0) - (a.active ? 1 : 0));
 
       const rows = [];
       let i = 0;
@@ -2367,11 +2500,11 @@
           tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
 
           const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
-          const rankBadge = (r.rank === 1 || isTied1st) 
+          const rankBadge = (r.rank === 1 || isTied1st)
             ? `<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
-            : (r.rank === 2 
+            : (r.rank === 2
               ? `<span class="text-slate-300 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
-              : (r.rank === 3 
+              : (r.rank === 3
                 ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
                 : `<span class="text-emerald-500 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
@@ -2409,7 +2542,7 @@
             </div>
           `;
 
-          const statusBadge = s.active 
+          const statusBadge = s.active
             ? `<span class="px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-600 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
             : `<span class="text-emerald-700 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
 
@@ -2425,7 +2558,7 @@
           `;
         } else {
           tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
-          
+
           const popoverListHtml = r.items.map(s => `
             <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/60 p-1 rounded" onclick="selectH2HMatchup('${s.winner}', '${s.loser}')">
               <div>
@@ -2499,7 +2632,7 @@
         return;
       }
 
-      const maxStreakStr = b.maxStreak.streak > 0 
+      const maxStreakStr = b.maxStreak.streak > 0
         ? `<span class="font-bold text-emerald-300">${b.maxStreak.winner} (${b.maxStreak.streak} Wins)</span> <span class="text-[9px] text-emerald-600 block">${b.maxStreak.span}</span>`
         : '-';
 
@@ -2542,9 +2675,9 @@
       games.forEach(g => {
         const tr = document.createElement('tr');
         tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-        
+
         const winnerBadge = g.winner === 'Tie' ? '<span class="text-emerald-400">Tie</span>' : `<span class="font-bold text-emerald-300">${g.winner}</span>`;
-        const typeBadge = g.isPlayoff 
+        const typeBadge = g.isPlayoff
           ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-600 text-[10px]">PLAYOFF</span>`
           : `<span class="px-1.5 py-0.5 bg-emerald-950 text-emerald-500 font-bold border border-emerald-800 text-[10px]">REG SEASON</span>`;
 
@@ -2602,7 +2735,7 @@
         .sort();
 
       let headerTr = '<tr class="bg-emerald-950 text-emerald-400 font-bold"><th class="p-2 text-left">OWNER</th>';
-      owners.forEach(o => { headerTr += `<th class="p-1.5 text-center">${o.slice(0,4)}</th>`; });
+      owners.forEach(o => { headerTr += `<th class="p-1.5 text-center">${o.slice(0, 4)}</th>`; });
       headerTr += '</tr>';
       header.innerHTML = headerTr;
 
@@ -2661,7 +2794,7 @@
       return sData.playoffMatchups.find(m => m.stage === stage);
     }
 
-            function renderChamps() {
+    function renderChamps() {
       const tbody = document.getElementById('champs-leaderboard-body');
       const grid = document.getElementById('champs-timeline-grid');
       const statGrid = document.getElementById('champs-stat-records-grid');
@@ -2875,7 +3008,7 @@
         topRingWinners.forEach((item, idx) => {
           const div = document.createElement('div');
           div.className = 'crt-box p-3 rounded text-left tooltip-trigger cursor-pointer hover:border-amber-400 transition-all shadow-md bg-black/80';
-          
+
           const ringBadgeHtml = getPlayerRingBadgeHtml(item.player);
           const yearsListStr = item.rings.map(r => `${r.year}`).join(', ');
 
@@ -2892,7 +3025,7 @@
         });
       }
 
-                  // Populate Playoff Single-Game & Streak Record Cards at bottom of Champs Tab
+      // Populate Playoff Single-Game & Streak Record Cards at bottom of Champs Tab
       if (statGrid) {
         const topApex = getStatCardTop5('juggernaut', 'playoffs')[0];
         const topPotato = getStatCardTop5('featherweight', 'playoffs')[0];
@@ -2962,7 +3095,7 @@
       renderFranchiseProfile();
     }
 
-        function selectManagerProfile(ownerName) {
+    function selectManagerProfile(ownerName) {
       switchTab('teams');
       const sel = document.getElementById('team-owner-select');
       if (sel) {
@@ -2971,7 +3104,7 @@
       }
     }
 
-        function renderFranchiseProfile() {
+    function renderFranchiseProfile() {
       const owner = document.getElementById('team-owner-select').value;
       const card = document.getElementById('franchise-profile-card');
       const st = window.LEAGUE_DATA.allTimeStandings.find(s => s.ownerName === owner);
@@ -2986,10 +3119,10 @@
         if (sData) {
           const entry = sData.standings.find(s => s.ownerName === owner);
           if (entry) {
-            teamNames.push({ 
-              yr: yr, 
-              name: entry.teamName, 
-              rank: entry.rank, 
+            teamNames.push({
+              yr: yr,
+              name: entry.teamName,
+              rank: entry.rank,
               rec: `${entry.wins}-${entry.losses}`,
               pRec: entry.playoffRecord || '-',
               pf: entry.pointsFor,
@@ -3019,7 +3152,7 @@
         <div class="crt-box rounded p-4 mb-6">
           <div class="flex flex-col md:flex-row items-center gap-4">
             <div class="w-16 h-16 rounded-full bg-black border-2 border-emerald-500 flex items-center justify-center font-black text-2xl text-emerald-300 crt-glow shrink-0 font-mono">
-              ${owner.slice(0,2).toUpperCase()}
+              ${owner.slice(0, 2).toUpperCase()}
             </div>
             <div class="text-center md:text-left grow">
               <h2 class="text-2xl font-black text-emerald-300 crt-glow">${owner}</h2>
@@ -3095,7 +3228,7 @@
       const availableDraftYears = Array.from(new Set([
         ...Object.keys(window.LEAGUE_DATA.draftOrders).map(Number),
         ...window.LEAGUE_DATA.seasons.map(Number)
-      ])).sort((a,b) => b - a);
+      ])).sort((a, b) => b - a);
 
       availableDraftYears.forEach(yr => {
         const btn = document.createElement('button');
@@ -3175,11 +3308,97 @@
         if (champPickObj) champDraftPick = `Pick #${champPickObj.pick} (${champ.firstOwner})`;
       }
 
+      const rData = (window.LEAGUE_DATA.championshipRosters || {})[currentDraftSeason] || null;
+
+      let titleProvenanceHtml = '';
+      if (rData && champ) {
+        const startersItems = rData.starters.map(s => {
+          const rBadge = getPlayerRingBadgeHtml(s.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
+              <div>
+                <span class="font-bold text-emerald-300"><span class="text-amber-400 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
+                <span class="text-[10px] text-emerald-500 block pl-10">${s.draftInfo || s.acq || 'Championship Roster'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded ${s.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${s.acq || 'FA'}</span>
+            </div>
+          `;
+        }).join('');
+
+        const benchItems = rData.bench.map(b => {
+          const rBadge = getPlayerRingBadgeHtml(b.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
+              <div>
+                <span class="font-bold text-emerald-400"><span class="text-emerald-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
+                <span class="text-[10px] text-emerald-500 block pl-10">${b.draftInfo || b.acq || 'Free Agent'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded ${b.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${b.acq || 'FA'}</span>
+            </div>
+          `;
+        }).join('');
+
+        const draftedItems = rData.draftedContributors.map(d => {
+          const rBadge = getPlayerRingBadgeHtml(d.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
+              <div>
+                <span class="font-medium text-emerald-400/90"><span class="text-amber-500 font-semibold w-10 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span>
+                <span class="text-[10px] text-amber-400/90 block pl-10">${d.draftInfo}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">Ring Recipient</span>
+            </div>
+          `;
+        }).join('');
+
+        titleProvenanceHtml = `
+          <div class="mt-3 p-3 bg-black/90 border-2 border-emerald-600 rounded text-left font-mono">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-emerald-800 pb-2 mb-3 gap-1">
+              <div>
+                <div class="text-[10px] font-bold text-amber-400 tracking-widest uppercase">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
+                <div class="text-sm font-black text-emerald-300 crt-glow">🏆 ${champ.firstTeam} <span class="text-xs text-emerald-400 font-normal">[${champ.firstOwner}]</span></div>
+              </div>
+              <span class="px-2 py-0.5 bg-amber-950 text-amber-300 font-bold border border-amber-600 rounded text-xs">${rData.totalRingsAwarded} Championship Rings Awarded</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <!-- Starters -->
+              <div class="bg-[#030e06] p-2.5 rounded border border-emerald-800">
+                <div class="text-[10px] font-black text-amber-400 uppercase tracking-wider border-b border-amber-900/60 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🌟 TITLE GAME STARTERS</span>
+                  <span class="text-[9px] text-emerald-400">${rData.starters.length} Players</span>
+                </div>
+                ${startersItems}
+              </div>
+
+              <!-- Bench -->
+              <div class="bg-[#030e06] p-2.5 rounded border border-emerald-800">
+                <div class="text-[10px] font-black text-emerald-400 uppercase tracking-wider border-b border-emerald-900/60 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🛡️ BENCH ROSTER</span>
+                  <span class="text-[9px] text-emerald-400">${rData.bench.length} Players</span>
+                </div>
+                ${benchItems}
+              </div>
+
+              <!-- Drafted Contributors -->
+              <div class="bg-[#030e06] p-2.5 rounded border border-emerald-800">
+                <div class="text-[10px] font-black text-amber-500 uppercase tracking-wider border-b border-amber-900/60 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🎯 DRAFTED NO LONGER ON TEAM</span>
+                  <span class="text-[9px] text-amber-400">${rData.draftedContributors.length} Players</span>
+                </div>
+                ${draftedItems}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       grid.innerHTML = `
-        <div class="crt-box p-3 rounded text-center col-span-1 sm:col-span-3">
-          <span class="text-[10px] uppercase font-bold text-emerald-600 block">🏆 CHAMPION DRAFT SLOT</span>
-          <span class="text-sm font-extrabold text-amber-400 crt-glow-amber block mt-1">${champDraftPick}</span>
-          <span class="text-[10px] text-emerald-600 italic">${currentDraftSeason} Nebuchadnezzar Cup Winner</span>
+        <div class="crt-box p-4 rounded text-center col-span-1 sm:col-span-3">
+          <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider block font-mono">🏆 CHAMPION DRAFT SLOT</span>
+          <span class="text-lg font-black text-emerald-300 crt-glow block mt-1">${champDraftPick}</span>
+          <span class="text-xs text-emerald-400 italic">${currentDraftSeason} Nebuchadnezzar Cup Winner (${champ ? champ.firstTeam : ''})</span>
+          ${titleProvenanceHtml}
         </div>
       `;
 
@@ -3205,7 +3424,7 @@
       renderPlayerDraftPicks();
     }
 
-        // Normalize Player Name for Ring Lookups
+    // Normalize Player Name for Ring Lookups
     function getNormalizedPlayerName(name) {
       if (!name) return '';
       let n = name.trim();
@@ -3233,7 +3452,7 @@
 
       const ringsCount = ringInfo.ringsCount;
       const ringBadgeText = ringsCount > 1 ? `💍 x${ringsCount}` : `💍`;
-      
+
       const rowsHtml = ringInfo.rings.map(r => `
         <div class="py-1 border-b border-amber-900/40 flex items-center justify-between text-[11px] font-mono">
           <div>
@@ -3280,7 +3499,7 @@
       if (!pTbody || !pTitle) return;
 
       pTitle.innerText = `>_ PLAYER_DRAFT_RESULTS (${currentDraftSeason})`;
-      
+
       const sData = window.LEAGUE_DATA.seasonData[currentDraftSeason];
       const picks = (sData && sData.draftPicks) ? sData.draftPicks : [];
 
@@ -3380,7 +3599,7 @@
         tr.className = 'border-b border-emerald-900/40 hover:bg-emerald-950/40 transition-colors';
 
         const isRound1 = p.round === 1;
-        const roundBadge = isRound1 
+        const roundBadge = isRound1
           ? `<span class="px-2 py-0.5 bg-amber-950/80 text-amber-300 font-bold border border-amber-600 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
           : `<span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-700 rounded text-xs">R${p.round}P${p.pickInRound}</span>`;
 
@@ -3391,7 +3610,7 @@
           <td class="p-2.5 text-center">${roundBadge}</td>
           <td class="p-2.5 font-bold text-emerald-200">
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="hover:underline hover:text-emerald-300 transition-colors">${p.player} 🔍</span>
+              <span class="hover:underline hover:text-emerald-300 transition-colors">${p.player}</span>
               ${popoverHtml}
             </div>
             ${getPlayerRingBadgeHtml(p.player)}
@@ -3568,9 +3787,9 @@
       for (let w = 1; w <= maxWeeks; w++) {
         const isActive = (w === currentMatchupWeek);
         const isPlayoff = sData && w > sData.settings.regularSeasonWeeks;
-        
-        const activeClass = isActive 
-          ? 'bg-emerald-900 text-emerald-300 border-emerald-400 font-black shadow-[0_0_8px_rgba(52,211,153,0.5)]' 
+
+        const activeClass = isActive
+          ? 'bg-emerald-900 text-emerald-300 border-emerald-400 font-black shadow-[0_0_8px_rgba(52,211,153,0.5)]'
           : 'bg-black/80 text-emerald-600 hover:text-emerald-300 border-emerald-900 font-bold';
 
         const label = isPlayoff ? `P-W${w}` : `W${w}`;
@@ -3594,8 +3813,8 @@
         heading.innerHTML = `🏈 ${currentMatchupSeason} Y2K: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
       }
       if (badge) {
-        badge.innerHTML = currentMatchupMode === 'preview' 
-          ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>` 
+        badge.innerHTML = currentMatchupMode === 'preview'
+          ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>`
           : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
       }
 
@@ -3636,7 +3855,7 @@
           else if (m.awayScore > m.homeScore) { ownerStatsTarget[a].w++; ownerStatsTarget[h].l++; }
         });
 
-      const sortedOwnersTarget = Object.values(ownerStatsTarget).sort((a,b) => {
+      const sortedOwnersTarget = Object.values(ownerStatsTarget).sort((a, b) => {
         const pctA = a.w / (a.w + a.l || 1);
         const pctB = b.w / (b.w + b.l || 1);
         if (pctB !== pctA) return pctB - pctA;
@@ -3682,7 +3901,7 @@
             return isRecap ? (gm.weekNumber <= currentMatchupWeek) : (gm.weekNumber < currentMatchupWeek);
           }
           return false;
-        }).sort((a,b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
+        }).sort((a, b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
 
         let regW1 = 0, regW2 = 0, playW1 = 0, playW2 = 0;
         let lastW = null, streakCount = 0, lastG = null;
@@ -3729,7 +3948,7 @@
         // Check for custom write-up commentary
         let writeupText = null;
         if (customComm && customComm.matchups) {
-          const customM = customComm.matchups.find(cm => 
+          const customM = customComm.matchups.find(cm =>
             (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
           );
           if (customM && customM.writeup) {
@@ -3817,4 +4036,5 @@
     }
   </script>
 </body>
+
 </html>
