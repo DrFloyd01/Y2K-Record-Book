@@ -117,10 +117,22 @@
       display: inline-block;
     }
 
+    .tooltip-trigger:hover,
+    .tooltip-trigger:focus-within {
+      z-index: 99999 !important;
+    }
+
+    #stat-cards-grid > div:hover,
+    #stat-cards-grid > div:has(.tooltip-trigger:hover),
+    .crt-box:has(.tooltip-trigger:hover) {
+      position: relative;
+      z-index: 99999 !important;
+    }
+
     .tooltip-content {
       display: none;
       position: absolute;
-      z-index: 99999;
+      z-index: 999999 !important;
       bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
@@ -845,7 +857,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_22"></script>
+  <script src="leagueData.js?v=20260818_25"></script>
 
   <!-- Application Logic -->
   <script>
