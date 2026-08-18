@@ -791,7 +791,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_15"></script>
+  <script src="prideGuysData.js?v=20260818_17"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -3338,74 +3338,161 @@
       renderDraftPage();
     }
 
-    function renderDraftPage() {
+        function renderDraftPage() {
       const tbody = document.getElementById('draft-table-body');
-      const title = document.getElementById('draft-table-title');
+      const title = document.getElementById('draft-order-title');
       const grid = document.getElementById('draft-insights-grid');
-      tbody.innerHTML = ''; grid.innerHTML = '';
+      if (!tbody || !title || !grid) return;
 
+      tbody.innerHTML = ''; grid.innerHTML = '';
       title.innerText = `${currentDraftSeason} Official Draft Order`;
 
-      const draftList = window.LEAGUE_DATA.draftOrders[currentDraftSeason];
+      const yrInt = parseInt(currentDraftSeason);
+      let draftList = window.LEAGUE_DATA.draftOrders ? window.LEAGUE_DATA.draftOrders[currentDraftSeason] : null;
+      const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === yrInt);
+
       if (!draftList) {
-        if (currentDraftSeason === 2018) {
-          const sStandings = window.LEAGUE_DATA.seasonData['2018'].standings;
-          grid.innerHTML = `
-            <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
-              <span class="text-[10px] uppercase font-bold text-pink-600 block">🏁 INAUGURAL LEAGUE DRAFT (2018)</span>
-              <span class="text-xs text-pink-600 block mt-1">League founding season draft. Pick #1 overall: David Johnson.</span>
-            </div>
-          `;
+        if (yrInt === 2018 && window.LEAGUE_DATA.seasonData['2018']) {
+          const sStandings = window.LEAGUE_DATA.seasonData['2018'].standings || [];
           const picksR1 = window.LEAGUE_DATA.seasonData['2018'].draftPicks ? window.LEAGUE_DATA.seasonData['2018'].draftPicks.slice(0, 10) : [];
-          picksR1.forEach(p => {
+          draftList = picksR1.map(p => {
             const st = sStandings.find(s => s.ownerName === p.ownerName);
-            const tr = document.createElement('tr');
-            tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/20';
-            tr.innerHTML = `
-              <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink">Pick #${p.pickInRound}</td>
-              <td class="p-2.5 font-bold text-pink-700">
-                ${p.teamName} <span class="text-[10px] text-purple-700 font-normal">[${p.ownerName}]</span>
-              </td>
-              <td class="p-2.5 text-center"><span class="text-pink-600 font-bold">Inaugural Draft</span></td>
-              <td class="p-2.5 text-center font-bold">#${st ? st.rank : '-'} (${st ? st.wins + '-' + st.losses : '-'})</td>
-            `;
-            tbody.appendChild(tr);
+            return {
+              pick: p.pickInRound,
+              teamName: p.teamName,
+              ownerName: p.ownerName,
+              prevRank: 'Inaugural Draft',
+              prevRecord: '-',
+              curRank: st ? st.rank : '-',
+              curRecord: st ? `${st.wins}-${st.losses}` : '-'
+            };
           });
-        } else {
-          grid.innerHTML = `
-            <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
-              <span class="text-[10px] uppercase font-bold text-amber-400 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
-              <span class="text-xs text-pink-600 block mt-1">Official standings & matchup history intact.</span>
-            </div>
-          `;
         }
+      }
+
+      if (!draftList || draftList.length === 0) {
+        grid.innerHTML = `
+          <div class="crt-box p-3 rounded-2xl col-span-1 sm:col-span-3 text-center bg-white border-2 border-pink-200">
+            <span class="text-[10px] uppercase font-bold text-amber-800 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
+            <span class="text-xs text-purple-700 block mt-1">Official standings & matchup history intact.</span>
+          </div>
+        `;
         renderPlayerDraftPicks();
         return;
       }
 
-      const prevYear = currentDraftSeason - 1;
+      const prevYear = yrInt - 1;
 
-      const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === currentDraftSeason);
       let champDraftPick = '-';
       if (champ) {
         const champPickObj = draftList.find(d => d.ownerName === champ.firstOwner);
-        if (champPickObj) champDraftPick = `Pick #${champPickObj.pick} (${champ.firstOwner})`;
+        if (champPickObj) {
+          champDraftPick = `Pick #${champPickObj.pick} (${champ.firstOwner})`;
+        } else {
+          champDraftPick = `${champ.firstOwner} (${champ.firstTeam})`;
+        }
+      }
+
+      const rData = (window.LEAGUE_DATA.championshipRosters || {})[currentDraftSeason] || null;
+
+      let titleProvenanceHtml = '';
+      if (rData && champ) {
+        const startersItems = rData.starters.map(s => {
+          const rBadge = getPlayerRingBadgeHtml(s.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-bold text-purple-950"><span class="text-pink-600 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
+                <span class="text-[10px] text-purple-700 block pl-10">${s.draftInfo || s.acq || 'Championship Roster'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${s.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${s.acq || 'FA'}</span>
+            </div>
+          `;
+        }).join('');
+
+        const benchItems = rData.bench.map(b => {
+          const rBadge = getPlayerRingBadgeHtml(b.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-bold text-purple-900"><span class="text-purple-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
+                <span class="text-[10px] text-purple-700 block pl-10">${b.draftInfo || b.acq || 'Free Agent'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${b.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${b.acq || 'FA'}</span>
+            </div>
+          `;
+        }).join('');
+
+        const draftedItems = rData.draftedContributors.map(d => {
+          const rBadge = getPlayerRingBadgeHtml(d.player);
+          return `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-medium text-purple-900/90"><span class="text-amber-700 font-semibold w-10 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span>
+                <span class="text-[10px] text-amber-800 block pl-10">${d.draftInfo}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-pink-100 text-pink-700 border border-pink-300 font-bold">Ring Recipient</span>
+            </div>
+          `;
+        }).join('');
+
+        titleProvenanceHtml = `
+          <div class="mt-3 p-3 bg-white border-2 border-pink-300 rounded-2xl text-left font-sans shadow-sm">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-pink-100 pb-2 mb-3 gap-1">
+              <div>
+                <div class="text-[10px] font-bold text-amber-800 tracking-widest uppercase font-fredoka">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
+                <div class="text-sm font-black text-purple-950">🏆 ${champ.firstTeam} <span class="text-xs text-pink-600 font-bold">[${champ.firstOwner}]</span></div>
+              </div>
+              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-xs">${rData.totalRingsAwarded} Championship Rings Awarded</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <!-- Starters -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-amber-800 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🌟 TITLE GAME STARTERS</span>
+                  <span class="text-[9px] text-pink-700 font-bold">${rData.starters.length} Players</span>
+                </div>
+                ${startersItems}
+              </div>
+
+              <!-- Bench -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-purple-900 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🛡️ BENCH ROSTER</span>
+                  <span class="text-[9px] text-pink-700 font-bold">${rData.bench.length} Players</span>
+                </div>
+                ${benchItems}
+              </div>
+
+              <!-- Drafted Contributors -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-amber-800 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🎯 DRAFTED NO LONGER ON TEAM</span>
+                  <span class="text-[9px] text-amber-800 font-bold">${rData.draftedContributors.length} Players</span>
+                </div>
+                ${draftedItems}
+              </div>
+            </div>
+          </div>
+        `;
       }
 
       grid.innerHTML = `
-        <div class="crt-box p-3 rounded text-center col-span-1 sm:col-span-3">
-          <span class="text-[10px] uppercase font-bold text-purple-700 block">🏆 CHAMPION DRAFT SLOT</span>
-          <span class="text-sm font-extrabold text-amber-400 crt-glow-pink-pink-amber block mt-1">${champDraftPick}</span>
-          <span class="text-[10px] text-purple-700 italic">${currentDraftSeason} Championship Final Winner</span>
+        <div class="crt-box p-4 rounded-2xl text-center col-span-1 sm:col-span-3 bg-white border-2 border-pink-200 shadow-sm">
+          <span class="text-xs uppercase font-black text-amber-800 tracking-wider block font-fredoka">🏆 CHAMPION DRAFT SLOT</span>
+          <span class="text-lg font-black text-purple-950 block mt-1">${champDraftPick}</span>
+          <span class="text-xs text-pink-600 font-bold italic">${currentDraftSeason} Pride Cup Winner (${champ ? champ.firstTeam : ''})</span>
+          ${titleProvenanceHtml}
         </div>
       `;
 
       draftList.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/20';
+        tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
 
-        const prevFinishStr = (item.prevRank === 'New')
-          ? '<span class="text-pink-600 font-bold">New Expansion Team</span>'
+        const prevFinishStr = (item.prevRank === 'New' || item.prevRank === 'Inaugural Draft')
+          ? `<span class="text-pink-600 font-bold">${item.prevRank === 'Inaugural Draft' ? 'Inaugural Draft' : 'New Expansion Team'}</span>`
           : `<span class="font-bold">#${item.prevRank} in ${prevYear} (${item.prevRecord})</span>`;
 
         tr.innerHTML = `

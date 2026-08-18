@@ -845,7 +845,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_15"></script>
+  <script src="leagueData.js?v=20260818_17"></script>
 
   <!-- Application Logic -->
   <script>
@@ -3254,58 +3254,59 @@
       renderDraftPage();
     }
 
-    function renderDraftPage() {
+        function renderDraftPage() {
       const tbody = document.getElementById('draft-table-body');
-      const title = document.getElementById('draft-table-title');
+      const title = document.getElementById('draft-order-title');
       const grid = document.getElementById('draft-insights-grid');
-      tbody.innerHTML = ''; grid.innerHTML = '';
+      if (!tbody || !title || !grid) return;
 
+      tbody.innerHTML = ''; grid.innerHTML = '';
       title.innerText = `${currentDraftSeason} Official Draft Order`;
 
-      const draftList = window.LEAGUE_DATA.draftOrders[currentDraftSeason];
+      const yrInt = parseInt(currentDraftSeason);
+      let draftList = window.LEAGUE_DATA.draftOrders ? window.LEAGUE_DATA.draftOrders[currentDraftSeason] : null;
+      const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === yrInt);
+
       if (!draftList) {
-        if (currentDraftSeason === 2018) {
-          const sStandings = window.LEAGUE_DATA.seasonData['2018'].standings;
-          grid.innerHTML = `
-            <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
-              <span class="text-[10px] uppercase font-bold text-emerald-400 block">🏁 INAUGURAL LEAGUE DRAFT (2018)</span>
-              <span class="text-xs text-emerald-500 block mt-1">League founding season draft. Pick #1 overall: David Johnson.</span>
-            </div>
-          `;
+        if (yrInt === 2018 && window.LEAGUE_DATA.seasonData['2018']) {
+          const sStandings = window.LEAGUE_DATA.seasonData['2018'].standings || [];
           const picksR1 = window.LEAGUE_DATA.seasonData['2018'].draftPicks ? window.LEAGUE_DATA.seasonData['2018'].draftPicks.slice(0, 10) : [];
-          picksR1.forEach(p => {
+          draftList = picksR1.map(p => {
             const st = sStandings.find(s => s.ownerName === p.ownerName);
-            const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-            tr.innerHTML = `
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">Pick #${p.pickInRound}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${p.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${p.ownerName}]</span>
-              </td>
-              <td class="p-2.5 text-center"><span class="text-emerald-400 font-bold">Inaugural Draft</span></td>
-              <td class="p-2.5 text-center font-bold">#${st ? st.rank : '-'} (${st ? st.wins + '-' + st.losses : '-'})</td>
-            `;
-            tbody.appendChild(tr);
+            return {
+              pick: p.pickInRound,
+              teamName: p.teamName,
+              ownerName: p.ownerName,
+              prevRank: 'Inaugural Draft',
+              prevRecord: '-',
+              curRank: st ? st.rank : '-',
+              curRecord: st ? `${st.wins}-${st.losses}` : '-'
+            };
           });
-        } else {
-          grid.innerHTML = `
-            <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
-              <span class="text-[10px] uppercase font-bold text-amber-400 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
-              <span class="text-xs text-emerald-500 block mt-1">Official standings & matchup history intact.</span>
-            </div>
-          `;
         }
+      }
+
+      if (!draftList || draftList.length === 0) {
+        grid.innerHTML = `
+          <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
+            <span class="text-[10px] uppercase font-bold text-amber-400 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
+            <span class="text-xs text-emerald-500 block mt-1">Official standings & matchup history intact.</span>
+          </div>
+        `;
         renderPlayerDraftPicks();
         return;
       }
 
-      const prevYear = currentDraftSeason - 1;
+      const prevYear = yrInt - 1;
 
-      const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === currentDraftSeason);
       let champDraftPick = '-';
       if (champ) {
         const champPickObj = draftList.find(d => d.ownerName === champ.firstOwner);
-        if (champPickObj) champDraftPick = `Pick #${champPickObj.pick} (${champ.firstOwner})`;
+        if (champPickObj) {
+          champDraftPick = `Pick #${champPickObj.pick} (${champ.firstOwner})`;
+        } else {
+          champDraftPick = `${champ.firstOwner} (${champ.firstTeam})`;
+        }
       }
 
       const rData = (window.LEAGUE_DATA.championshipRosters || {})[currentDraftSeason] || null;
@@ -3406,8 +3407,8 @@
         const tr = document.createElement('tr');
         tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
 
-        const prevFinishStr = (item.prevRank === 'New')
-          ? '<span class="text-emerald-400 font-bold">New Expansion Team</span>'
+        const prevFinishStr = (item.prevRank === 'New' || item.prevRank === 'Inaugural Draft')
+          ? `<span class="text-emerald-400 font-bold">${item.prevRank === 'Inaugural Draft' ? 'Inaugural Draft' : 'New Expansion Team'}</span>`
           : `<span class="font-bold">#${item.prevRank} in ${prevYear} (${item.prevRecord})</span>`;
 
         tr.innerHTML = `
