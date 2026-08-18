@@ -111,9 +111,9 @@
       border-radius: 2px;
     }
 
-        /* Tooltip Styles & Stacking Engine */
+            /* Tooltip & Popover Layout Engine */
     .tooltip-trigger {
-      position: relative;
+      position: relative !important;
       display: inline-block;
     }
 
@@ -132,21 +132,22 @@
 
     .tooltip-content {
       display: none;
-      position: absolute;
+      position: absolute !important;
       z-index: 999999 !important;
-      bottom: calc(100% + 8px);
+      bottom: calc(100% + 10px) !important;
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
-      width: max-content;
-      max-width: min(320px, 90vw);
+      width: 288px !important;
+      max-width: 90vw !important;
       white-space: normal;
+      box-sizing: border-box !important;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
     }
 
     .tooltip-trigger:hover > .tooltip-content,
     .tooltip-trigger:focus-within > .tooltip-content {
-      display: block;
+      display: block !important;
     }
 
     .tooltip-content-left,
@@ -163,6 +164,10 @@
       transform: none !important;
     }
 
+    thead .tooltip-content,
+    .table-scroll-container thead .tooltip-content,
+    .table-scroll-container tr:first-child .tooltip-content,
+    .table-scroll-container tr:nth-child(2) .tooltip-content,
     .tooltip-content-bottom,
     .tooltip-bottom .tooltip-content {
       top: calc(100% + 8px) !important;
@@ -870,7 +875,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_30"></script>
+  <script src="leagueData.js?v=20260818_31"></script>
 
   <!-- Application Logic -->
   <script>

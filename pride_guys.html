@@ -105,39 +105,68 @@
     .popover-scrollbar::-webkit-scrollbar-track { background: #fdf2f8; }
     .popover-scrollbar::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 3px; }
 
-        /* Tooltip Popover Styles */
-        .tooltip-trigger {
-      position: relative;
+    /* Tooltip & Popover Layout Engine */
+    .tooltip-trigger {
+      position: relative !important;
       display: inline-block;
+    }
+
+    .tooltip-trigger:hover,
+    .tooltip-trigger:focus-within {
+      z-index: 99999 !important;
+    }
+
+    #stat-cards-grid > div:hover,
+    #stat-cards-grid > div:has(.tooltip-trigger:hover),
+    .crt-box:has(.tooltip-trigger:hover),
+    .record-card:hover {
+      position: relative;
+      z-index: 99999 !important;
     }
 
     .tooltip-content {
       display: none;
-    }
-
-    #global-floating-tooltip {
-      position: fixed;
-      z-index: 99999999;
+      position: absolute !important;
+      z-index: 999999 !important;
+      bottom: calc(100% + 10px) !important;
+      left: 50%;
+      transform: translateX(-50%);
       pointer-events: none;
-      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(4px);
-      max-height: 85vh;
-      max-width: 90vw;
-      overflow-y: auto;
+      width: 288px !important;
+      max-width: 90vw !important;
+      white-space: normal;
+      box-sizing: border-box !important;
+      box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.18), 0 0 15px rgba(244, 114, 182, 0.25);
     }
 
-    #global-floating-tooltip.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      pointer-events: auto;
+    .tooltip-trigger:hover > .tooltip-content,
+    .tooltip-trigger:focus-within > .tooltip-content {
+      display: block !important;
     }
-    .tooltip-trigger:hover .tooltip-content { display: block; }
-        .tooltip-left .tooltip-content { left: 0; transform: translateX(0); }
-    .tooltip-right .tooltip-content { right: 0; left: auto; transform: translateX(0); }
-    .tooltip-bottom .tooltip-content { top: 125%; bottom: auto; }
+
+    .tooltip-content-left,
+    .tooltip-left .tooltip-content {
+      left: 0 !important;
+      right: auto !important;
+      transform: none !important;
+    }
+
+    .tooltip-content-right,
+    .tooltip-right .tooltip-content {
+      right: 0 !important;
+      left: auto !important;
+      transform: none !important;
+    }
+
+    thead .tooltip-content,
+    .table-scroll-container thead .tooltip-content,
+    .table-scroll-container tr:first-child .tooltip-content,
+    .table-scroll-container tr:nth-child(2) .tooltip-content,
+    .tooltip-content-bottom,
+    .tooltip-bottom .tooltip-content {
+      top: calc(100% + 8px) !important;
+      bottom: auto !important;
+    }
       /* Table Horizontal Scroll Container for Mobile Portrait View */
     .table-scroll-container {
       overflow-x: auto;
@@ -806,7 +835,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_30"></script>
+  <script src="prideGuysData.js?v=20260818_31"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
