@@ -130,7 +130,7 @@
       z-index: 99999 !important;
     }
 
-    .tooltip-content {
+        .tooltip-content {
       display: none;
       position: absolute !important;
       z-index: 999999 !important;
@@ -140,9 +140,25 @@
       pointer-events: none;
       width: 288px !important;
       max-width: 90vw !important;
+      max-height: 220px !important;
+      overflow-y: auto !important;
       white-space: normal;
       box-sizing: border-box !important;
+      scrollbar-width: thin;
+      scrollbar-color: #00ff66 #020b05;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
+    }
+
+    .tooltip-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .tooltip-content::-webkit-scrollbar-track {
+      background: #020b05;
+      border-radius: 4px;
+    }
+    .tooltip-content::-webkit-scrollbar-thumb {
+      background: #00ff66;
+      border-radius: 4px;
     }
 
     .tooltip-trigger:hover > .tooltip-content,
@@ -876,7 +892,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_35"></script>
+  <script src="leagueData.js?v=20260818_36"></script>
 
   <!-- Application Logic -->
   <script>
