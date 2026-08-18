@@ -876,7 +876,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_34"></script>
+  <script src="leagueData.js?v=20260818_35"></script>
 
   <!-- Application Logic -->
   <script>
@@ -3143,30 +3143,16 @@
       }
     }
 
-    // TAB 5: TEAMS / FRANCHISE PROFILES
+        // TAB 5: TEAMS / FRANCHISE PROFILES
     function initTeamOwnerSelect() {
       const select = document.getElementById('team-owner-select');
+      if (!select) return;
       select.innerHTML = '';
-      document.querySelectorAll('.matrix-scope-btn').forEach(btn => {
-        btn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]';
-      });
-      const activeScopeBtn = document.getElementById(`matrix-scope-${scope}`);
-      if (activeScopeBtn) {
-        activeScopeBtn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]';
-      }
 
-      const seasonsList = window.LEAGUE_DATA.seasons || [];
-      const latestYr = seasonsList[seasonsList.length - 1] || '2025';
-      const activeSeasonStandings = (window.LEAGUE_DATA.seasonData[latestYr] && window.LEAGUE_DATA.seasonData[latestYr].standings)
-        ? window.LEAGUE_DATA.seasonData[latestYr].standings.map(s => s.ownerName)
-        : [];
-
-      let owners = window.LEAGUE_DATA.allTimeStandings.map(s => s.ownerName);
-      if (scope === 'active') {
-        owners = owners.filter(o => activeSeasonStandings.includes(o));
-      } else {
-        owners = owners.filter(o => !isOneYearManager(o));
-      }
+      const leagueData = window.LEAGUE_DATA;
+      let owners = (leagueData.allTimeStandings || [])
+        .map(s => s.ownerName)
+        .filter(o => !isOneYearManager(o));
       owners.sort();
 
       owners.forEach(o => {
