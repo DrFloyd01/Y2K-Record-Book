@@ -870,7 +870,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_28"></script>
+  <script src="leagueData.js?v=20260818_29"></script>
 
   <!-- Application Logic -->
   <script>
@@ -902,33 +902,7 @@
       return `${stage}'${yy}`;
     }
 
-    // Global Smart Tooltip Auto-Flip to Prevent Container / Viewport Clipping
-    document.addEventListener('mouseover', (e) => {
-      const trigger = e.target.closest('.tooltip-trigger');
-      if (trigger) {
-        const content = trigger.querySelector('.tooltip-content');
-        if (content) {
-          const rect = trigger.getBoundingClientRect();
-          if (rect.top < 320) {
-            content.style.bottom = 'auto';
-            content.style.top = '125%';
-          } else {
-            content.style.bottom = '125%';
-            content.style.top = 'auto';
-          }
 
-          if (rect.left < 160) {
-            content.style.left = '0';
-            content.style.right = 'auto';
-            content.style.transform = 'translateX(0)';
-          } else if (window.innerWidth - rect.right < 160) {
-            content.style.left = 'auto';
-            content.style.right = '0';
-            content.style.transform = 'translateX(0)';
-          }
-        }
-      }
-    });
 
     window.addEventListener('DOMContentLoaded', () => {
       initSeasonSelector();
