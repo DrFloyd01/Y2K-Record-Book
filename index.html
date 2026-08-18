@@ -137,7 +137,8 @@
       bottom: calc(100% + 10px) !important;
       left: 50%;
       transform: translateX(-50%);
-      pointer-events: none;
+      pointer-events: auto !important;
+      cursor: default;
       width: 288px !important;
       max-width: 90vw !important;
       max-height: 220px !important;
@@ -159,6 +160,29 @@
     .tooltip-content::-webkit-scrollbar-thumb {
       background: #00ff66;
       border-radius: 4px;
+    }
+
+        /* Hover Bridge to keep popover open when cursor travels into it */
+    .tooltip-content::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 0;
+      right: 0;
+      height: 14px;
+      display: block;
+      pointer-events: auto;
+    }
+
+    .tooltip-content::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      right: 0;
+      height: 14px;
+      display: block;
+      pointer-events: auto;
     }
 
     .tooltip-trigger:hover > .tooltip-content,
@@ -892,7 +916,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_36"></script>
+  <script src="leagueData.js?v=20260818_37"></script>
 
   <!-- Application Logic -->
   <script>
