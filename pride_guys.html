@@ -791,7 +791,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260817_15"></script>
+  <script src="prideGuysData.js?v=20260818_11"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -2984,14 +2984,59 @@
         });
       }
 
-      // Yearly Cards
+      // Yearly Cards with Title Roster and Ring Recipients
       if (grid) {
         const champs = [...window.LEAGUE_DATA.championships].reverse();
+        const rostersData = window.LEAGUE_DATA.championshipRosters || {};
+
         champs.forEach(c => {
           const yr = c.seasonYear;
           const scOwner = c.scoringChampOwner || '-';
           const scTeam = c.scoringChampTeam || '-';
           const scPF = c.scoringChampPF ? c.scoringChampPF.toFixed(1) : '-';
+          const rData = rostersData[yr] || null;
+
+          let rosterHtml = '';
+          if (rData) {
+            const startersHtml = rData.starters.map(s => {
+              const rBadge = getPlayerRingBadgeHtml(s.player);
+              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-950 font-bold"><span class="text-pink-600 font-normal w-9 inline-block">${s.pos}</span>${s.player}${rBadge}</span><span class="text-[10px] text-pink-600">${s.acq || 'Draft'}</span></div>`;
+            }).join('');
+
+            const benchHtml = rData.bench.map(b => {
+              const rBadge = getPlayerRingBadgeHtml(b.player);
+              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900 font-medium"><span class="text-purple-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-purple-700">${b.acq || 'FA'}</span></div>`;
+            }).join('');
+
+            const draftedHtml = rData.draftedContributors.map(d => {
+              const rBadge = getPlayerRingBadgeHtml(d.player);
+              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900/80"><span class="text-purple-600 font-normal w-9 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span><span class="text-[10px] text-amber-700">${d.draftInfo}</span></div>`;
+            }).join('');
+
+            rosterHtml = `
+              <div class="mt-3 pt-2 border-t border-pink-200">
+                <button onclick="toggleTitleRoster(${yr})" id="title-roster-btn-${yr}" class="w-full text-center py-1.5 px-2 bg-pink-50 hover:bg-pink-100 text-purple-950 border border-pink-300 rounded-xl text-[10px] font-bold tracking-wider uppercase transition-all shadow-sm">
+                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded} Rings) ▾
+                </button>
+                <div id="title-roster-collapse-${yr}" class="hidden mt-2 p-2.5 bg-white border border-pink-200 rounded-xl space-y-2 text-left font-sans shadow-sm">
+                  <div>
+                    <div class="text-[10px] font-bold text-amber-800 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1">🌟 TITLE GAME STARTERS</div>
+                    ${startersHtml}
+                  </div>
+                  ${rData.bench && rData.bench.length > 0 ? `
+                  <div>
+                    <div class="text-[10px] font-bold text-purple-900 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1 mt-2">🛡️ BENCH ROSTER</div>
+                    ${benchHtml}
+                  </div>` : ''}
+                  ${rData.draftedContributors && rData.draftedContributors.length > 0 ? `
+                  <div>
+                    <div class="text-[10px] font-bold text-amber-800 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1 mt-2">🎯 DRAFTED RING RECIPIENTS</div>
+                    ${draftedHtml}
+                  </div>` : ''}
+                </div>
+              </div>
+            `;
+          }
 
           const div = document.createElement('div');
           div.className = 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
@@ -3030,9 +3075,37 @@
                 </div>
                 <span class="font-mono font-black text-pink-700 text-sm">${scPF} pts</span>
               </div>
+
+              <!-- Championship Title Roster -->
+              ${rosterHtml}
             </div>
           `;
           grid.appendChild(div);
+        });
+      }
+
+      // Render All-Time Player Rings Leaderboard in Champs Tab
+      const ringsGrid = document.getElementById('champs-player-rings-grid');
+      if (ringsGrid) {
+        ringsGrid.innerHTML = '';
+        const topRingWinners = (window.LEAGUE_DATA.allTimePlayerRings || []).slice(0, 12);
+        topRingWinners.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'crt-box p-3 rounded-2xl text-left tooltip-trigger cursor-pointer hover:border-amber-400 transition-all shadow-md bg-white border-2 border-pink-200';
+          
+          const ringBadgeHtml = getPlayerRingBadgeHtml(item.player);
+          const yearsListStr = item.rings.map(r => `${r.year}`).join(', ');
+
+          div.innerHTML = `
+            <div class="flex items-center justify-between border-b border-pink-100 pb-1 mb-1.5">
+              <span class="text-[11px] font-bold text-purple-950 font-sans">#${idx + 1} ${item.player}</span>
+              <span class="px-1.5 py-0.5 bg-amber-100 text-amber-900 font-black border border-amber-300 rounded-lg text-xs">💍 ${item.ringsCount}</span>
+            </div>
+            <p class="text-[11px] text-pink-700 font-bold truncate">${item.rings[0].role} (${item.rings[0].year})</p>
+            <p class="text-[10px] text-purple-700 italic mt-0.5 truncate">Championships: ${yearsListStr}</p>
+            ${ringBadgeHtml}
+          `;
+          ringsGrid.appendChild(div);
         });
       }
 
@@ -3349,6 +3422,74 @@
       renderPlayerDraftPicks();
     }
 
+        // Normalize Player Name for Ring Lookups
+    function getNormalizedPlayerName(name) {
+      if (!name) return '';
+      let n = name.trim();
+      n = n.replace(/\s+(Jr\.|Sr\.|III|II|IV)$/i, '').trim();
+      n = n.replace(/T\.J\./g, 'TJ').replace(/A\.J\./g, 'AJ').replace(/C\.J\./g, 'CJ').replace(/D\.J\./g, 'DJ').replace(/J\.K\./g, 'JK');
+      if (n.includes('Pittsburgh') || n.includes('Steelers')) return 'Pittsburgh Steelers';
+      if (n.includes('Buffalo') || n.includes('Bills')) return 'Buffalo Bills';
+      if (n.includes('Tampa Bay') || n.includes('Buccaneers')) return 'Tampa Bay Buccaneers';
+      if (n.includes('San Francisco') || n.includes('49ers')) return 'San Francisco 49ers';
+      if (n.includes('Baltimore') || n.includes('Ravens')) return 'Baltimore Ravens';
+      if (n.includes('Deebo Samuel')) return 'Deebo Samuel';
+      if (n.includes('Marquise Brown') || n.includes('Hollywood Brown')) return 'Marquise Brown';
+      return n;
+    }
+
+    function getPlayerRingInfo(playerName) {
+      const lookup = window.LEAGUE_DATA.playerRingsLookup || {};
+      const norm = getNormalizedPlayerName(playerName);
+      return lookup[norm] || null;
+    }
+
+    function getPlayerRingBadgeHtml(playerName) {
+      const ringInfo = getPlayerRingInfo(playerName);
+      if (!ringInfo || ringInfo.ringsCount === 0) return '';
+
+      const ringsCount = ringInfo.ringsCount;
+      const ringBadgeText = ringsCount > 1 ? `💍 x${ringsCount}` : `💍`;
+      
+      const rowsHtml = ringInfo.rings.map(r => `
+        <div class="py-1 border-b border-pink-100 flex items-center justify-between text-[11px] font-sans">
+          <div>
+            <span class="font-bold text-amber-800">🏆 ${r.year} Champion (Ring #${r.ringNumber})</span>
+            <span class="text-[10px] text-pink-600 block">${r.role} • ${r.draftInfo || 'Championship Roster'}</span>
+          </div>
+          <div class="text-right">
+            <span class="font-bold text-purple-950">${r.owner}</span>
+            <span class="text-[9px] text-purple-700 block">${r.team}</span>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="tooltip-trigger inline-block ml-1 cursor-pointer">
+          <span class="px-1.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded text-[10px] hover:bg-amber-200 shadow-sm">${ringBadgeText}</span>
+          <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-amber-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
+            <div class="font-bold text-amber-800 border-b border-amber-200 pb-1 mb-1.5 flex items-center justify-between">
+              <span>💍 ${ringInfo.player}</span>
+              <span class="text-[10px] text-amber-700 font-bold">${ringsCount} Championship Ring${ringsCount > 1 ? 's' : ''}</span>
+            </div>
+            <div class="text-[10px] text-pink-600 mb-1 font-bold">Championship Ring History:</div>
+            ${rowsHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleTitleRoster(yr) {
+      const el = document.getElementById(`title-roster-collapse-${yr}`);
+      const btn = document.getElementById(`title-roster-btn-${yr}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        if (btn) {
+          btn.innerText = el.classList.contains('hidden') ? '💍 VIEW TITLE ROSTER & RING CEREMONY ▾' : '💍 HIDE TITLE ROSTER ▴';
+        }
+      }
+    }
+
     function renderPlayerDraftPicks() {
       const pTitle = document.getElementById('player-draft-title');
       const roundSel = document.getElementById('draft-round-select');
@@ -3470,6 +3611,7 @@
               <span class="hover:underline hover:text-pink-600 transition-colors">${p.player} 🔍</span>
               ${popoverHtml}
             </div>
+            ${getPlayerRingBadgeHtml(p.player)}
           </td>
           <td class="p-2.5">
             <span class="font-bold text-purple-950">${p.teamName}</span>
