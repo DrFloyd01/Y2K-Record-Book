@@ -158,10 +158,11 @@
       transform: none !important;
     }
 
+    /* Automatically open tooltips DOWNWARD for table headers and the top 5 rows of any table */
     thead .tooltip-content,
+    tbody tr:nth-child(-n+5) .tooltip-content,
     .table-scroll-container thead .tooltip-content,
-    .table-scroll-container tr:first-child .tooltip-content,
-    .table-scroll-container tr:nth-child(2) .tooltip-content,
+    .table-scroll-container tbody tr:nth-child(-n+5) .tooltip-content,
     .tooltip-content-bottom,
     .tooltip-bottom .tooltip-content {
       top: calc(100% + 8px) !important;
@@ -835,7 +836,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_31"></script>
+  <script src="prideGuysData.js?v=20260818_34"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->

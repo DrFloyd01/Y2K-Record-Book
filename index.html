@@ -164,10 +164,11 @@
       transform: none !important;
     }
 
+    /* Automatically open tooltips DOWNWARD for table headers and the top 5 rows of any table */
     thead .tooltip-content,
+    tbody tr:nth-child(-n+5) .tooltip-content,
     .table-scroll-container thead .tooltip-content,
-    .table-scroll-container tr:first-child .tooltip-content,
-    .table-scroll-container tr:nth-child(2) .tooltip-content,
+    .table-scroll-container tbody tr:nth-child(-n+5) .tooltip-content,
     .tooltip-content-bottom,
     .tooltip-bottom .tooltip-content {
       top: calc(100% + 8px) !important;
@@ -875,7 +876,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_31"></script>
+  <script src="leagueData.js?v=20260818_34"></script>
 
   <!-- Application Logic -->
   <script>
@@ -1327,6 +1328,8 @@
           ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
           : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-400">0</span>`);
 
+        const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
+
         // 1. WW Badge
         let wwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
         const wwCount = item.weeklyWins || 0;
@@ -1339,7 +1342,7 @@
           wwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs">${wwCount}</span>
-              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -1359,7 +1362,7 @@
           lwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs">${lwCount}</span>
-              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -1379,7 +1382,7 @@
           hbBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs">${hbCount}</span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -1399,7 +1402,7 @@
           tlBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs">${tlCount}</span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
