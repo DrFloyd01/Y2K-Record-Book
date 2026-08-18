@@ -876,7 +876,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_38"></script>
+  <script src="prideGuysData.js?v=20260818_39"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1420,7 +1420,7 @@
         if (hbCount > 0 && item.hbDetails) {
           let tooltipList = item.hbDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-red-400">${d.score.toFixed(1)}</span> - ${d.oppScore.toFixed(1)} vs ${d.oppOwner}</div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-rose-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
           }).join('');
 
           hbBadge = `
@@ -2065,7 +2065,7 @@
         if (hbCount > 0 && item.hbDetails) {
           const tooltipList = item.hbDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-red-400">${d.score.toFixed(1)}</span> - ${d.oppScore.toFixed(1)} vs ${d.oppOwner}</div>`;
+            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-rose-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
           }).join('');
 
           hbCell = `
