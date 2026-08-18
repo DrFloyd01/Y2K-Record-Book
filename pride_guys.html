@@ -175,17 +175,17 @@
       </div>
 
       <!-- Desktop Sliding Indicator Navigation Bar -->
-      <nav class="hidden lg:flex items-center relative bg-pink-50/80 p-1.5 rounded-full border-2 border-pink-200 backdrop-blur shadow-inner" id="desktop-nav">
-        <!-- Sliding Indicator Pill -->
-        <div id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 via-cyan-400 to-amber-400 shadow-md shadow-pink-300/50 transition-all duration-300 ease-out z-0 pointer-events-none opacity-0" style="left: 0;"></div>
+      <nav class="hidden lg:flex items-center relative bg-pink-50/90 p-1.5 rounded-full border-2 border-pink-200 backdrop-blur shadow-inner" id="desktop-nav">
+        <!-- Sliding Indicator Pill with Vibrant Smooth Gradient -->
+        <div id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-md shadow-pink-400/40 transition-all duration-300 ease-out z-0 pointer-events-none opacity-0" style="left: 0; width: 0;"></div>
 
-        <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-colors text-purple-950">📅 SEASONS</button>
-        <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">⚔️ H2H</button>
-        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">🏈 MATCHUPS</button>
-        <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">👑 CHAMPS</button>
-        <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">💅 TEAMS</button>
-        <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">📜 DRAFT</button>
-        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-xl transition-colors text-purple-700 hover:text-pink-600">📊 ANALYTICS</button>
+        <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-black font-fredoka rounded-full transition-all duration-200 text-white">📅 SEASONS</button>
+        <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">⚔️ H2H</button>
+        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">🏈 MATCHUPS</button>
+        <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">👑 CHAMPS</button>
+        <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">💅 TEAMS</button>
+        <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📜 DRAFT</button>
+        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📊 ANALYTICS</button>
       </nav>
 
       <!-- Status Pill -->
@@ -795,7 +795,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_23"></script>
+  <script src="prideGuysData.js?v=20260818_24"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -859,7 +859,9 @@
       }
     });
 
+    window.addEventListener('resize', () => updateNavIndicator(currentTab));
     window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => updateNavIndicator(currentTab), 50);
       setTimeout(() => updateNavIndicator('seasons'), 50);
       initSeasonSelector();
       initStatsYearSelects();
@@ -897,29 +899,39 @@
 
     });
 
+    function updateNavIndicator(tabId) {
+      const activeBtn = document.getElementById(`nav-${tabId}`);
+      const indicator = document.getElementById('nav-indicator');
+      if (activeBtn && indicator) {
+        indicator.style.left = `${activeBtn.offsetLeft}px`;
+        indicator.style.width = `${activeBtn.offsetWidth}px`;
+        indicator.style.opacity = '1';
+      }
+    }
+
     function switchTab(tabId) {
       currentTab = tabId;
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+      const activeTabEl = document.getElementById(`tab-${tabId}`);
+      if (activeTabEl) activeTabEl.classList.remove('hidden');
 
+      // Desktop Nav Pill update
       document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('bg-pink-100/90/60', 'text-pink-700', 'border-pink-400');
-        btn.classList.add('text-pink-600', 'border-pink-200');
+        btn.className = 'nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600';
       });
       const activeNav = document.getElementById(`nav-${tabId}`);
       if (activeNav) {
-        activeNav.classList.add('bg-pink-100/90/60', 'text-pink-700', 'border-pink-400');
-        activeNav.classList.remove('text-pink-600', 'border-pink-200');
+        activeNav.className = 'nav-btn relative z-10 px-4 py-1.5 text-xs font-black font-fredoka rounded-full transition-all duration-200 text-white';
+        updateNavIndicator(tabId);
       }
 
+      // Mobile Nav update
       document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
-        btn.classList.remove('text-pink-600', 'font-bold');
-        btn.classList.add('text-purple-800/60');
+        btn.className = 'mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60 font-medium transition-all';
       });
       const activeMobileNav = document.getElementById(`mobile-nav-${tabId}`);
       if (activeMobileNav) {
-        activeMobileNav.classList.add('text-pink-600', 'font-bold');
-        activeMobileNav.classList.remove('text-purple-800/60');
+        activeMobileNav.className = 'mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-600 font-black scale-105 transition-all';
       }
 
       if (tabId === 'stats') {
@@ -930,6 +942,12 @@
         renderDraftPage();
       } else if (tabId === 'analytics') {
         renderAnalyticsCharts();
+      } else if (tabId === 'h2h') {
+        renderH2HMatrix();
+      } else if (tabId === 'champs') {
+        renderChamps();
+      } else if (tabId === 'teams') {
+        renderFranchiseProfile();
       }
     }
 
