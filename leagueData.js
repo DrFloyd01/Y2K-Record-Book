@@ -54647,139 +54647,235 @@ window.LEAGUE_DATA = {
       "championOwner": "Phillip",
       "starters": [
         {
-          "player": "Saquon Barkley",
-          "pos": "Rd 1",
+          "player": "Patrick Mahomes",
+          "pos": "QB",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #5)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         },
         {
-          "player": "Kareem Hunt",
-          "pos": "Rd 2",
+          "player": "Davante Adams",
+          "pos": "WR",
           "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 4 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Jarvis Landry",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 6 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Julian Edelman",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 1 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Phillip Lindsay",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Jaylen Samuels",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Derrick Henry",
+          "pos": "W/R/T",
+          "role": "Starter",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 9",
+          "ringNumber": 1
+        },
+        {
+          "player": "Ka'imi Fairbairn",
+          "pos": "K",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Miami Dolphins",
+          "pos": "DEF",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "Leonard Fournette",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 3 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Drew Brees",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "David Njoku",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 4 (Casey)",
+          "ringNumber": 1
+        },
+        {
+          "player": "LeSean McCoy",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 8 (Trace)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Mark Ingram II",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Wil Lutz",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 16 (Phillip)",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Kareem Hunt",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 2 (Pick #8)",
           "ringNumber": 1
         },
         {
           "player": "Le'Veon Bell",
-          "pos": "Rd 3",
-          "role": "Starter",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 3 (Pick #17)",
           "ringNumber": 1
         },
         {
-          "player": "Davante Adams",
-          "pos": "Rd 4",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #20)",
-          "ringNumber": 1
-        },
-        {
           "player": "Doug Baldwin",
-          "pos": "Rd 5",
-          "role": "Starter",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 5 (Pick #29)",
           "ringNumber": 1
         },
         {
-          "player": "Jarvis Landry",
-          "pos": "Rd 6",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 6 (Pick #32)",
-          "ringNumber": 1
-        },
-        {
           "player": "Kenyan Drake",
-          "pos": "Rd 7",
-          "role": "Starter",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 7 (Pick #41)",
           "ringNumber": 1
         },
         {
           "player": "Amari Cooper",
-          "pos": "Rd 8",
-          "role": "Starter",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 8 (Pick #44)",
           "ringNumber": 1
         },
         {
-          "player": "Jaguars",
-          "pos": "Rd 9",
-          "role": "Starter",
+          "player": "Jacksonville Jaguars",
+          "pos": "DEF",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 9 (Pick #53)",
           "ringNumber": 1
-        }
-      ],
-      "bench": [
+        },
         {
           "player": "Jimmy Graham",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "TE",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #56)",
           "ringNumber": 1
         },
         {
           "player": "Corey Davis",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 11 (Pick #65)",
           "ringNumber": 1
         },
         {
-          "player": "Chargers",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Los Angeles Chargers",
+          "pos": "DEF",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #68)",
           "ringNumber": 1
         },
         {
           "player": "Lamar Miller",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #77)",
           "ringNumber": 1
         },
         {
           "player": "Delanie Walker",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "TE",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #80)",
           "ringNumber": 1
         },
         {
           "player": "Jared Goff",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "QB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 15 (Pick #89)",
           "ringNumber": 1
         }
       ],
-      "draftedContributors": [
-        {
-          "player": "Wil Lutz",
-          "pos": "Rd 16",
-          "role": "Drafted Contributor",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 16 (Pick #92)",
-          "ringNumber": 1
-        }
-      ],
-      "totalRingsAwarded": 16
+      "totalRingsAwarded": 28
     },
     "2019": {
       "seasonYear": 2019,
@@ -54787,139 +54883,195 @@ window.LEAGUE_DATA = {
       "championOwner": "Mike",
       "starters": [
         {
-          "player": "Saquon Barkley",
-          "pos": "Rd 1",
+          "player": "Lamar Jackson",
+          "pos": "QB",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #2)",
-          "ringNumber": 2
-        },
-        {
-          "player": "Aaron Jones Sr.",
-          "pos": "Rd 2",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 2 (Pick #11)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         },
         {
-          "player": "Aaron Rodgers",
-          "pos": "Rd 3",
+          "player": "Allen Robinson",
+          "pos": "WR",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 3 (Pick #14)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         },
         {
-          "player": "Christian Kirk",
-          "pos": "Rd 4",
+          "player": "DK Metcalf",
+          "pos": "WR",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #23)",
-          "ringNumber": 1
-        },
-        {
-          "player": "T.Y. Hilton",
-          "pos": "Rd 5",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 5 (Pick #26)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Latavius Murray",
-          "pos": "Rd 6",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 6 (Pick #35)",
-          "ringNumber": 1
-        },
-        {
-          "player": "George Kittle",
-          "pos": "Rd 7",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 7 (Pick #38)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         },
         {
           "player": "Jarvis Landry",
-          "pos": "Rd 8",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 8 (Pick #47)",
+          "draftInfo": "Drafted Rd 8 (Mike)",
           "ringNumber": 2
         },
         {
           "player": "Leonard Fournette",
-          "pos": "Rd 9",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 9 (Pick #50)",
+          "draftInfo": "Drafted Rd 9 (Mike)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 1 (Mike)",
+          "ringNumber": 2
+        },
+        {
+          "player": "George Kittle",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 7 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Aaron Jones Sr.",
+          "pos": "W/R/T",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 2 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Harrison Butker",
+          "pos": "K",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 15 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Carolina Panthers",
+          "pos": "DEF",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         }
       ],
       "bench": [
         {
-          "player": "Bears",
+          "player": "T.Y. Hilton",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 10 (Pick #59)",
+          "draftInfo": "Drafted Rd 5 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "John Brown",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Carlos Hyde",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "David Montgomery",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 7 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Aaron Rodgers",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 3 (Mike)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Chicago Bears",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 10 (Mike)",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Christian Kirk",
+          "pos": "WR",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 4 (Pick #23)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Latavius Murray",
+          "pos": "RB",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 6 (Pick #35)",
           "ringNumber": 1
         },
         {
           "player": "Emmanuel Sanders",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 11 (Pick #62)",
           "ringNumber": 1
         },
         {
           "player": "Rashaad Penny",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #71)",
           "ringNumber": 1
         },
         {
           "player": "Cam Newton",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "QB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #74)",
           "ringNumber": 1
         },
         {
           "player": "Mohamed Sanu",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #83)",
           "ringNumber": 1
         },
         {
-          "player": "Harrison Butker",
-          "pos": "BN",
-          "role": "Bench",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 15 (Pick #86)",
-          "ringNumber": 1
-        }
-      ],
-      "draftedContributors": [
-        {
-          "player": "Texans",
-          "pos": "Rd 16",
+          "player": "Houston Texans",
+          "pos": "DEF",
           "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 16 (Pick #95)",
           "ringNumber": 1
         }
       ],
-      "totalRingsAwarded": 16
+      "totalRingsAwarded": 23
     },
     "2020": {
       "seasonYear": 2020,
@@ -54927,139 +55079,219 @@ window.LEAGUE_DATA = {
       "championOwner": "Phillip",
       "starters": [
         {
-          "player": "Ezekiel Elliott",
-          "pos": "Rd 1",
+          "player": "Aaron Rodgers",
+          "pos": "QB",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #4)",
-          "ringNumber": 1
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 14 (Dylan)",
+          "ringNumber": 2
         },
         {
-          "player": "Alvin Kamara",
-          "pos": "Rd 2",
+          "player": "Robert Woods",
+          "pos": "WR",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 2 (Pick #9)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Chris Godwin Jr.",
-          "pos": "Rd 3",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 3 (Pick #16)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Austin Ekeler",
-          "pos": "Rd 4",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #21)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Kenny Golladay",
-          "pos": "Rd 5",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 5 (Pick #28)",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 10 (Trace)",
           "ringNumber": 1
         },
         {
           "player": "Allen Robinson",
-          "pos": "Rd 6",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 6 (Pick #33)",
+          "draftInfo": "Drafted Rd 6 (Phillip)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Nick Chubb",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 3 (Dylan)",
           "ringNumber": 1
         },
         {
-          "player": "Dak Prescott",
-          "pos": "Rd 7",
+          "player": "Austin Ekeler",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 7 (Pick #40)",
+          "draftInfo": "Drafted Rd 4 (Phillip)",
           "ringNumber": 1
         },
         {
-          "player": "JuJu Smith-Schuster",
-          "pos": "Rd 8",
+          "player": "Robert Tonyan",
+          "pos": "TE",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 8 (Pick #45)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         },
         {
-          "player": "Ravens",
-          "pos": "Rd 9",
+          "player": "Alvin Kamara",
+          "pos": "W/R/T",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 9 (Pick #52)",
+          "draftInfo": "Drafted Rd 2 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Jason Sanders",
+          "pos": "K",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Cleveland Browns",
+          "pos": "DEF",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
           "ringNumber": 1
         }
       ],
       "bench": [
         {
-          "player": "Amari Cooper",
+          "player": "Hunter Henry",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Mike Gesicki",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Ezekiel Elliott",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 10 (Pick #57)",
-          "ringNumber": 2
+          "draftInfo": "Drafted Rd 1 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Chris Godwin Jr.",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 3 (Phillip)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Justin Herbert",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Ronald Jones",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
         },
         {
           "player": "Melvin Gordon III",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 11 (Pick #64)",
+          "draftInfo": "Drafted Rd 11 (Phillip)",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Kenny Golladay",
+          "pos": "WR",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 5 (Pick #28)",
           "ringNumber": 1
         },
         {
+          "player": "Dak Prescott",
+          "pos": "QB",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 7 (Pick #40)",
+          "ringNumber": 1
+        },
+        {
+          "player": "JuJu Smith-Schuster",
+          "pos": "WR",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 8 (Pick #45)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Baltimore Ravens",
+          "pos": "DEF",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 9 (Pick #52)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Amari Cooper",
+          "pos": "WR",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 10 (Pick #57)",
+          "ringNumber": 2
+        },
+        {
           "player": "Evan Engram",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "TE",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #69)",
           "ringNumber": 1
         },
         {
           "player": "Cam Akers",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #76)",
           "ringNumber": 1
         },
         {
           "player": "Matt Ryan",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "QB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #81)",
           "ringNumber": 1
         },
         {
           "player": "Harrison Butker",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "K",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 15 (Pick #88)",
           "ringNumber": 2
-        }
-      ],
-      "draftedContributors": [
+        },
         {
-          "player": "Broncos",
-          "pos": "Rd 16",
+          "player": "Denver Broncos",
+          "pos": "DEF",
           "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 16 (Pick #93)",
           "ringNumber": 1
         }
       ],
-      "totalRingsAwarded": 16
+      "totalRingsAwarded": 26
     },
     "2021": {
       "seasonYear": 2021,
@@ -55067,139 +55299,251 @@ window.LEAGUE_DATA = {
       "championOwner": "Ryan",
       "starters": [
         {
-          "player": "Derrick Henry",
-          "pos": "Rd 1",
+          "player": "Kyler Murray",
+          "pos": "QB",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #3)",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 5 (Dylan)",
           "ringNumber": 1
         },
         {
-          "player": "Aaron Jones Sr.",
-          "pos": "Rd 2",
+          "player": "Diontae Johnson",
+          "pos": "WR",
           "role": "Starter",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 7 (Casey)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Keenan Allen",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 4 (Ryan)",
+          "ringNumber": 1
+        },
+        {
+          "player": "DJ Moore",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 6 (Ryan)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Tony Pollard",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Ronald Jones",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 11 (Casey)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Kyle Pitts Sr.",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 5 (Casey)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Rashaad Penny",
+          "pos": "W/R/T",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 2
+        },
+        {
+          "player": "Justin Tucker",
+          "pos": "K",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 12 (Ryan)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Dallas Cowboys",
+          "pos": "DEF",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "AJ Dillon",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 16 (Dustin)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Michael Gallup",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "DeVante Parker",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Pat Freiermuth",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waiver",
+          "ringNumber": 1
+        },
+        {
+          "player": "Russell Wilson",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 7 (Ryan)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Derrick Henry",
+          "pos": "IR",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 1 (Ryan)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Kansas City Chiefs",
+          "pos": "BN",
+          "role": "Bench",
+          "acq": "FA/Trade",
+          "draftInfo": "Drafted Rd 9 (Mike)",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Aaron Jones Sr.",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 2 (Pick #14)",
           "ringNumber": 2
         },
         {
           "player": "Patrick Mahomes",
-          "pos": "Rd 3",
-          "role": "Starter",
+          "pos": "QB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 3 (Pick #19)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Keenan Allen",
-          "pos": "Rd 4",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #30)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Josh Jacobs",
-          "pos": "Rd 5",
-          "role": "Starter",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 5 (Pick #35)",
           "ringNumber": 1
         },
         {
-          "player": "DJ Moore",
-          "pos": "Rd 6",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 6 (Pick #46)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Russell Wilson",
-          "pos": "Rd 7",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 7 (Pick #51)",
-          "ringNumber": 1
-        },
-        {
           "player": "Antonio Brown",
-          "pos": "Rd 8",
-          "role": "Starter",
+          "pos": "WR",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 8 (Pick #62)",
           "ringNumber": 1
         },
         {
-          "player": "Commanders",
-          "pos": "Rd 9",
-          "role": "Starter",
+          "player": "Washington Commanders",
+          "pos": "DEF",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 9 (Pick #67)",
           "ringNumber": 1
-        }
-      ],
-      "bench": [
+        },
         {
           "player": "Tyler Higbee",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "TE",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #78)",
           "ringNumber": 1
         },
         {
           "player": "Leonard Fournette",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 11 (Pick #83)",
-          "ringNumber": 2
-        },
-        {
-          "player": "Justin Tucker",
-          "pos": "BN",
-          "role": "Bench",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 12 (Pick #94)",
-          "ringNumber": 1
+          "ringNumber": 3
         },
         {
           "player": "Noah Fant",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "TE",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #99)",
           "ringNumber": 1
         },
         {
-          "player": "Colts",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Indianapolis Colts",
+          "pos": "DEF",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #110)",
           "ringNumber": 1
         },
         {
           "player": "J.K. Dobbins",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "RB",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 15 (Pick #115)",
           "ringNumber": 1
-        }
-      ],
-      "draftedContributors": [
+        },
         {
           "player": "JuJu Smith-Schuster",
-          "pos": "Rd 16",
+          "pos": "WR",
           "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 16 (Pick #126)",
           "ringNumber": 2
+        },
+        {
+          "player": "Commanders",
+          "pos": "Rd 9",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 9 (Pick #67)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Colts",
+          "pos": "Rd 14",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 14 (Pick #110)",
+          "ringNumber": 1
         }
       ],
-      "totalRingsAwarded": 16
+      "totalRingsAwarded": 30
     },
     "2022": {
       "seasonYear": 2022,
@@ -55260,7 +55604,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "FA/Trade",
           "draftInfo": "Drafted Rd 13 (Cooper)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "AJ Dillon",
@@ -55268,7 +55612,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "FA/Trade",
           "draftInfo": "Drafted Rd 8 (Casey)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Jake Elliott",
@@ -55360,7 +55704,7 @@ window.LEAGUE_DATA = {
           "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 8 (Pick #78)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Michael Thomas",
@@ -55488,7 +55832,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "FA",
           "draftInfo": "Free Agent / Waiver",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Houston Texans",
@@ -55724,7 +56068,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 16 (Dylan)",
-          "ringNumber": 2
+          "ringNumber": 3
         },
         {
           "player": "Philadelphia Eagles",
@@ -55750,7 +56094,7 @@ window.LEAGUE_DATA = {
           "role": "Bench",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 4 (Dylan)",
-          "ringNumber": 2
+          "ringNumber": 3
         },
         {
           "player": "Mark Andrews",
@@ -56206,7 +56550,7 @@ window.LEAGUE_DATA = {
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #20)"
+          "draftInfo": "Drafted Rd 4 (Phillip)"
         },
         {
           "year": 2022,
@@ -56235,6 +56579,99 @@ window.LEAGUE_DATA = {
       ]
     },
     {
+      "player": "Patrick Mahomes",
+      "norm": "Patrick Mahomes",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 3 (Pick #19)"
+        },
+        {
+          "year": 2024,
+          "ringNumber": 3,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 4 (Dylan)"
+        }
+      ]
+    },
+    {
+      "player": "Ka'imi Fairbairn",
+      "norm": "Ka'imi Fairbairn",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2023,
+          "ringNumber": 2,
+          "team": "Dusty Dynasty \ud83c\udfc6",
+          "owner": "Dustin",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2024,
+          "ringNumber": 3,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 16 (Dylan)"
+        }
+      ]
+    },
+    {
+      "player": "Leonard Fournette",
+      "norm": "Leonard Fournette",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Mike)"
+        },
+        {
+          "year": 2019,
+          "ringNumber": 2,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 9 (Mike)"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 3,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 11 (Pick #83)"
+        }
+      ]
+    },
+    {
       "player": "Christian Kirk",
       "norm": "Christian Kirk",
       "ringsCount": 3,
@@ -56244,7 +56681,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 4 (Pick #23)"
         },
         {
@@ -56306,8 +56743,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #16)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Phillip)"
         },
         {
           "year": 2022,
@@ -56337,7 +56774,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #115)"
         },
         {
@@ -56390,29 +56827,6 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Saquon Barkley",
-      "norm": "Saquon Barkley",
-      "ringsCount": 2,
-      "rings": [
-        {
-          "year": 2018,
-          "ringNumber": 1,
-          "team": "Show Me Dem TDS",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #5)"
-        },
-        {
-          "year": 2019,
-          "ringNumber": 2,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #2)"
-        }
-      ]
-    },
-    {
       "player": "Jarvis Landry",
       "norm": "Jarvis Landry",
       "ringsCount": 2,
@@ -56423,7 +56837,7 @@ window.LEAGUE_DATA = {
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #32)"
+          "draftInfo": "Drafted Rd 6 (Phillip)"
         },
         {
           "year": 2019,
@@ -56431,7 +56845,53 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 8 (Pick #47)"
+          "draftInfo": "Drafted Rd 8 (Mike)"
+        }
+      ]
+    },
+    {
+      "player": "Saquon Barkley",
+      "norm": "Saquon Barkley",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 1 (Phillip)"
+        },
+        {
+          "year": 2019,
+          "ringNumber": 2,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 1 (Mike)"
+        }
+      ]
+    },
+    {
+      "player": "Derrick Henry",
+      "norm": "Derrick Henry",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 9"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 1 (Ryan)"
         }
       ]
     },
@@ -56445,7 +56905,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #44)"
         },
         {
@@ -56453,7 +56913,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #57)"
         }
       ]
@@ -56468,7 +56928,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 12 (Pick #68)"
         },
         {
@@ -56482,8 +56942,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Aaron Jones Sr.",
-      "norm": "Aaron Jones",
+      "player": "Allen Robinson",
+      "norm": "Allen Robinson",
       "ringsCount": 2,
       "rings": [
         {
@@ -56492,15 +56952,15 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #11)"
+          "draftInfo": "Free Agent / Waiver"
         },
         {
-          "year": 2021,
+          "year": 2020,
           "ringNumber": 2,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #14)"
+          "draftInfo": "Drafted Rd 6 (Phillip)"
         }
       ]
     },
@@ -56515,7 +56975,7 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #38)"
+          "draftInfo": "Drafted Rd 7 (Mike)"
         },
         {
           "year": 2024,
@@ -56528,8 +56988,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Leonard Fournette",
-      "norm": "Leonard Fournette",
+      "player": "Aaron Jones Sr.",
+      "norm": "Aaron Jones",
       "ringsCount": 2,
       "rings": [
         {
@@ -56538,15 +56998,15 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 9 (Pick #50)"
+          "draftInfo": "Drafted Rd 2 (Mike)"
         },
         {
           "year": 2021,
           "ringNumber": 2,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 11 (Pick #83)"
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 2 (Pick #14)"
         }
       ]
     },
@@ -56560,39 +57020,62 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 15 (Pick #86)"
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 15 (Mike)"
         },
         {
           "year": 2020,
           "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #88)"
         }
       ]
     },
     {
-      "player": "Alvin Kamara",
-      "norm": "Alvin Kamara",
+      "player": "Aaron Rodgers",
+      "norm": "Aaron Rodgers",
       "ringsCount": 2,
       "rings": [
         {
-          "year": 2020,
+          "year": 2019,
           "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Mike)"
+        },
+        {
+          "year": 2020,
+          "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #9)"
+          "draftInfo": "Drafted Rd 14 (Dylan)"
+        }
+      ]
+    },
+    {
+      "player": "Rashaad Penny",
+      "norm": "Rashaad Penny",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 12 (Pick #71)"
         },
         {
-          "year": 2025,
+          "year": 2021,
           "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 4 (Pick #31)"
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -56607,7 +57090,7 @@ window.LEAGUE_DATA = {
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #21)"
+          "draftInfo": "Drafted Rd 4 (Phillip)"
         },
         {
           "year": 2025,
@@ -56616,6 +57099,52 @@ window.LEAGUE_DATA = {
           "owner": "Dylan",
           "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9"
+        }
+      ]
+    },
+    {
+      "player": "Alvin Kamara",
+      "norm": "Alvin Kamara",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 2 (Phillip)"
+        },
+        {
+          "year": 2025,
+          "ringNumber": 2,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 4 (Pick #31)"
+        }
+      ]
+    },
+    {
+      "player": "Ronald Jones",
+      "norm": "Ronald Jones",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 11 (Casey)"
         }
       ]
     },
@@ -56629,7 +57158,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #45)"
         },
         {
@@ -56666,8 +57195,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Patrick Mahomes",
-      "norm": "Patrick Mahomes",
+      "player": "Tony Pollard",
+      "norm": "Tony Pollard",
       "ringsCount": 2,
       "rings": [
         {
@@ -56676,15 +57205,61 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #19)"
+          "draftInfo": "Free Agent / Waiver"
         },
         {
-          "year": 2024,
+          "year": 2022,
           "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 8 (Pick #78)"
+        }
+      ]
+    },
+    {
+      "player": "AJ Dillon",
+      "norm": "AJ Dillon",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
           "role": "Bench",
-          "draftInfo": "Drafted Rd 4 (Dylan)"
+          "draftInfo": "Drafted Rd 16 (Dustin)"
+        },
+        {
+          "year": 2022,
+          "ringNumber": 2,
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 8 (Casey)"
+        }
+      ]
+    },
+    {
+      "player": "Pat Freiermuth",
+      "norm": "Pat Freiermuth",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2022,
+          "ringNumber": 2,
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 13 (Cooper)"
         }
       ]
     },
@@ -56896,29 +57471,6 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Ka'imi Fairbairn",
-      "norm": "Ka'imi Fairbairn",
-      "ringsCount": 2,
-      "rings": [
-        {
-          "year": 2023,
-          "ringNumber": 1,
-          "team": "Dusty Dynasty \ud83c\udfc6",
-          "owner": "Dustin",
-          "role": "Starter",
-          "draftInfo": "Free Agent / Waiver"
-        },
-        {
-          "year": 2024,
-          "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 16 (Dylan)"
-        }
-      ]
-    },
-    {
       "player": "Christian McCaffrey",
       "norm": "Christian McCaffrey",
       "ringsCount": 2,
@@ -57011,6 +57563,141 @@ window.LEAGUE_DATA = {
       ]
     },
     {
+      "player": "Julian Edelman",
+      "norm": "Julian Edelman",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Phillip Lindsay",
+      "norm": "Phillip Lindsay",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Jaylen Samuels",
+      "norm": "Jaylen Samuels",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Miami Dolphins",
+      "norm": "Miami Dolphins",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Drew Brees",
+      "norm": "Drew Brees",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "David Njoku",
+      "norm": "David Njoku",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 4 (Casey)"
+        }
+      ]
+    },
+    {
+      "player": "LeSean McCoy",
+      "norm": "LeSean McCoy",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 8 (Trace)"
+        }
+      ]
+    },
+    {
+      "player": "Mark Ingram II",
+      "norm": "Mark Ingram",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Wil Lutz",
+      "norm": "Wil Lutz",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 16 (Phillip)"
+        }
+      ]
+    },
+    {
       "player": "Kareem Hunt",
       "norm": "Kareem Hunt",
       "ringsCount": 1,
@@ -57020,7 +57707,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 2 (Pick #8)"
         }
       ]
@@ -57035,7 +57722,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 3 (Pick #17)"
         }
       ]
@@ -57050,7 +57737,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 5 (Pick #29)"
         }
       ]
@@ -57065,14 +57752,14 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 7 (Pick #41)"
         }
       ]
     },
     {
-      "player": "Jaguars",
-      "norm": "Jaguars",
+      "player": "Jacksonville Jaguars",
+      "norm": "Jacksonville Jaguars",
       "ringsCount": 1,
       "rings": [
         {
@@ -57080,7 +57767,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9 (Pick #53)"
         }
       ]
@@ -57095,7 +57782,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #56)"
         }
       ]
@@ -57110,7 +57797,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 11 (Pick #65)"
         }
       ]
@@ -57125,7 +57812,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #77)"
         }
       ]
@@ -57140,7 +57827,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #80)"
         }
       ]
@@ -57155,29 +57842,14 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #89)"
         }
       ]
     },
     {
-      "player": "Wil Lutz",
-      "norm": "Wil Lutz",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2018,
-          "ringNumber": 1,
-          "team": "Show Me Dem TDS",
-          "owner": "Phillip",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 16 (Pick #92)"
-        }
-      ]
-    },
-    {
-      "player": "Aaron Rodgers",
-      "norm": "Aaron Rodgers",
+      "player": "Lamar Jackson",
+      "norm": "Lamar Jackson",
       "ringsCount": 1,
       "rings": [
         {
@@ -57186,7 +57858,37 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #14)"
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "DK Metcalf",
+      "norm": "DK Metcalf",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Carolina Panthers",
+      "norm": "Carolina Panthers",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -57200,8 +57902,68 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #26)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 5 (Mike)"
+        }
+      ]
+    },
+    {
+      "player": "John Brown",
+      "norm": "John Brown",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Carlos Hyde",
+      "norm": "Carlos Hyde",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "David Montgomery",
+      "norm": "David Montgomery",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 7 (Phillip)"
+        }
+      ]
+    },
+    {
+      "player": "Chicago Bears",
+      "norm": "Chicago Bears",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 10 (Mike)"
         }
       ]
     },
@@ -57215,23 +57977,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 6 (Pick #35)"
-        }
-      ]
-    },
-    {
-      "player": "Bears",
-      "norm": "Bears",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2019,
-          "ringNumber": 1,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 10 (Pick #59)"
         }
       ]
     },
@@ -57245,23 +57992,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 11 (Pick #62)"
-        }
-      ]
-    },
-    {
-      "player": "Rashaad Penny",
-      "norm": "Rashaad Penny",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2019,
-          "ringNumber": 1,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 12 (Pick #71)"
         }
       ]
     },
@@ -57275,7 +58007,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #74)"
         }
       ]
@@ -57290,8 +58022,113 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #83)"
+        }
+      ]
+    },
+    {
+      "player": "Robert Woods",
+      "norm": "Robert Woods",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 10 (Trace)"
+        }
+      ]
+    },
+    {
+      "player": "Nick Chubb",
+      "norm": "Nick Chubb",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 3 (Dylan)"
+        }
+      ]
+    },
+    {
+      "player": "Robert Tonyan",
+      "norm": "Robert Tonyan",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Jason Sanders",
+      "norm": "Jason Sanders",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Cleveland Browns",
+      "norm": "Cleveland Browns",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Hunter Henry",
+      "norm": "Hunter Henry",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Mike Gesicki",
+      "norm": "Mike Gesicki",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -57305,14 +58142,14 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #4)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 1 (Phillip)"
         }
       ]
     },
     {
-      "player": "Kenny Golladay",
-      "norm": "Kenny Golladay",
+      "player": "Justin Herbert",
+      "norm": "Justin Herbert",
       "ringsCount": 1,
       "rings": [
         {
@@ -57320,53 +58157,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #28)"
-        }
-      ]
-    },
-    {
-      "player": "Allen Robinson",
-      "norm": "Allen Robinson",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #33)"
-        }
-      ]
-    },
-    {
-      "player": "Dak Prescott",
-      "norm": "Dak Prescott",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #40)"
-        }
-      ]
-    },
-    {
-      "player": "Ravens",
-      "norm": "Baltimore Ravens",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 9 (Pick #52)"
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -57381,7 +58173,52 @@ window.LEAGUE_DATA = {
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Bench",
-          "draftInfo": "Drafted Rd 11 (Pick #64)"
+          "draftInfo": "Drafted Rd 11 (Phillip)"
+        }
+      ]
+    },
+    {
+      "player": "Kenny Golladay",
+      "norm": "Kenny Golladay",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 5 (Pick #28)"
+        }
+      ]
+    },
+    {
+      "player": "Dak Prescott",
+      "norm": "Dak Prescott",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 7 (Pick #40)"
+        }
+      ]
+    },
+    {
+      "player": "Baltimore Ravens",
+      "norm": "Baltimore Ravens",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 9 (Pick #52)"
         }
       ]
     },
@@ -57395,7 +58232,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 12 (Pick #69)"
         }
       ]
@@ -57410,7 +58247,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #76)"
         }
       ]
@@ -57425,14 +58262,14 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #81)"
         }
       ]
     },
     {
-      "player": "Derrick Henry",
-      "norm": "Derrick Henry",
+      "player": "Kyler Murray",
+      "norm": "Kyler Murray",
       "ringsCount": 1,
       "rings": [
         {
@@ -57441,7 +58278,22 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #3)"
+          "draftInfo": "Drafted Rd 5 (Dylan)"
+        }
+      ]
+    },
+    {
+      "player": "Diontae Johnson",
+      "norm": "Diontae Johnson",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 7 (Casey)"
         }
       ]
     },
@@ -57456,22 +58308,7 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #30)"
-        }
-      ]
-    },
-    {
-      "player": "Josh Jacobs",
-      "norm": "Josh Jacobs",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2021,
-          "ringNumber": 1,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #35)"
+          "draftInfo": "Drafted Rd 4 (Ryan)"
         }
       ]
     },
@@ -57486,7 +58323,82 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #46)"
+          "draftInfo": "Drafted Rd 6 (Ryan)"
+        }
+      ]
+    },
+    {
+      "player": "Kyle Pitts Sr.",
+      "norm": "Kyle Pitts",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 5 (Casey)"
+        }
+      ]
+    },
+    {
+      "player": "Justin Tucker",
+      "norm": "Justin Tucker",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 12 (Ryan)"
+        }
+      ]
+    },
+    {
+      "player": "Dallas Cowboys",
+      "norm": "Dallas Cowboys",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "Michael Gallup",
+      "norm": "Michael Gallup",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    {
+      "player": "DeVante Parker",
+      "norm": "DeVante Parker",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -57500,8 +58412,38 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #51)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 7 (Ryan)"
+        }
+      ]
+    },
+    {
+      "player": "Kansas City Chiefs",
+      "norm": "Kansas City Chiefs",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 9 (Mike)"
+        }
+      ]
+    },
+    {
+      "player": "Josh Jacobs",
+      "norm": "Josh Jacobs",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 5 (Pick #35)"
         }
       ]
     },
@@ -57515,14 +58457,14 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #62)"
         }
       ]
     },
     {
-      "player": "Commanders",
-      "norm": "Commanders",
+      "player": "Washington Commanders",
+      "norm": "Washington Commanders",
       "ringsCount": 1,
       "rings": [
         {
@@ -57530,7 +58472,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9 (Pick #67)"
         }
       ]
@@ -57545,23 +58487,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #78)"
-        }
-      ]
-    },
-    {
-      "player": "Justin Tucker",
-      "norm": "Justin Tucker",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2021,
-          "ringNumber": 1,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 12 (Pick #94)"
         }
       ]
     },
@@ -57575,8 +58502,38 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #99)"
+        }
+      ]
+    },
+    {
+      "player": "Indianapolis Colts",
+      "norm": "Indianapolis Colts",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 14 (Pick #110)"
+        }
+      ]
+    },
+    {
+      "player": "Commanders",
+      "norm": "Commanders",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 9 (Pick #67)"
         }
       ]
     },
@@ -57590,7 +58547,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #110)"
         }
       ]
@@ -57656,36 +58613,6 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Pat Freiermuth",
-      "norm": "Pat Freiermuth",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 13 (Cooper)"
-        }
-      ]
-    },
-    {
-      "player": "AJ Dillon",
-      "norm": "AJ Dillon",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 8 (Casey)"
-        }
-      ]
-    },
-    {
       "player": "Jake Elliott",
       "norm": "Jake Elliott",
       "ringsCount": 1,
@@ -57742,21 +58669,6 @@ window.LEAGUE_DATA = {
           "owner": "Trace",
           "role": "Bench",
           "draftInfo": "Drafted Rd 1 (Trace)"
-        }
-      ]
-    },
-    {
-      "player": "Tony Pollard",
-      "norm": "Tony Pollard",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 8 (Pick #78)"
         }
       ]
     },
@@ -58657,7 +59569,7 @@ window.LEAGUE_DATA = {
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #20)"
+          "draftInfo": "Drafted Rd 4 (Phillip)"
         },
         {
           "year": 2022,
@@ -58685,6 +59597,96 @@ window.LEAGUE_DATA = {
         }
       ]
     },
+    "Patrick Mahomes": {
+      "player": "Patrick Mahomes",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 3 (Pick #19)"
+        },
+        {
+          "year": 2024,
+          "ringNumber": 3,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 4 (Dylan)"
+        }
+      ]
+    },
+    "Ka'imi Fairbairn": {
+      "player": "Ka'imi Fairbairn",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2023,
+          "ringNumber": 2,
+          "team": "Dusty Dynasty \ud83c\udfc6",
+          "owner": "Dustin",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2024,
+          "ringNumber": 3,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 16 (Dylan)"
+        }
+      ]
+    },
+    "Leonard Fournette": {
+      "player": "Leonard Fournette",
+      "ringsCount": 3,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Mike)"
+        },
+        {
+          "year": 2019,
+          "ringNumber": 2,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 9 (Mike)"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 3,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 11 (Pick #83)"
+        }
+      ]
+    },
     "Christian Kirk": {
       "player": "Christian Kirk",
       "ringsCount": 3,
@@ -58694,7 +59696,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 4 (Pick #23)"
         },
         {
@@ -58754,8 +59756,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #16)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Phillip)"
         },
         {
           "year": 2022,
@@ -58784,7 +59786,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #115)"
         },
         {
@@ -58835,28 +59837,6 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Saquon Barkley": {
-      "player": "Saquon Barkley",
-      "ringsCount": 2,
-      "rings": [
-        {
-          "year": 2018,
-          "ringNumber": 1,
-          "team": "Show Me Dem TDS",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #5)"
-        },
-        {
-          "year": 2019,
-          "ringNumber": 2,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #2)"
-        }
-      ]
-    },
     "Jarvis Landry": {
       "player": "Jarvis Landry",
       "ringsCount": 2,
@@ -58867,7 +59847,7 @@ window.LEAGUE_DATA = {
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #32)"
+          "draftInfo": "Drafted Rd 6 (Phillip)"
         },
         {
           "year": 2019,
@@ -58875,7 +59855,51 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 8 (Pick #47)"
+          "draftInfo": "Drafted Rd 8 (Mike)"
+        }
+      ]
+    },
+    "Saquon Barkley": {
+      "player": "Saquon Barkley",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 1 (Phillip)"
+        },
+        {
+          "year": 2019,
+          "ringNumber": 2,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 1 (Mike)"
+        }
+      ]
+    },
+    "Derrick Henry": {
+      "player": "Derrick Henry",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 9"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 1 (Ryan)"
         }
       ]
     },
@@ -58888,7 +59912,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #44)"
         },
         {
@@ -58896,7 +59920,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #57)"
         }
       ]
@@ -58910,7 +59934,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 12 (Pick #68)"
         },
         {
@@ -58923,8 +59947,8 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Aaron Jones": {
-      "player": "Aaron Jones Sr.",
+    "Allen Robinson": {
+      "player": "Allen Robinson",
       "ringsCount": 2,
       "rings": [
         {
@@ -58933,15 +59957,15 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #11)"
+          "draftInfo": "Free Agent / Waiver"
         },
         {
-          "year": 2021,
+          "year": 2020,
           "ringNumber": 2,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #14)"
+          "draftInfo": "Drafted Rd 6 (Phillip)"
         }
       ]
     },
@@ -58955,7 +59979,7 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #38)"
+          "draftInfo": "Drafted Rd 7 (Mike)"
         },
         {
           "year": 2024,
@@ -58967,8 +59991,8 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Leonard Fournette": {
-      "player": "Leonard Fournette",
+    "Aaron Jones": {
+      "player": "Aaron Jones Sr.",
       "ringsCount": 2,
       "rings": [
         {
@@ -58977,15 +60001,15 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 9 (Pick #50)"
+          "draftInfo": "Drafted Rd 2 (Mike)"
         },
         {
           "year": 2021,
           "ringNumber": 2,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 11 (Pick #83)"
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 2 (Pick #14)"
         }
       ]
     },
@@ -58998,38 +60022,60 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 15 (Pick #86)"
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 15 (Mike)"
         },
         {
           "year": 2020,
           "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #88)"
         }
       ]
     },
-    "Alvin Kamara": {
-      "player": "Alvin Kamara",
+    "Aaron Rodgers": {
+      "player": "Aaron Rodgers",
       "ringsCount": 2,
       "rings": [
         {
-          "year": 2020,
+          "year": 2019,
           "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 3 (Mike)"
+        },
+        {
+          "year": 2020,
+          "ringNumber": 2,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 2 (Pick #9)"
+          "draftInfo": "Drafted Rd 14 (Dylan)"
+        }
+      ]
+    },
+    "Rashaad Penny": {
+      "player": "Rashaad Penny",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 12 (Pick #71)"
         },
         {
-          "year": 2025,
+          "year": 2021,
           "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 4 (Pick #31)"
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -59043,7 +60089,7 @@ window.LEAGUE_DATA = {
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #21)"
+          "draftInfo": "Drafted Rd 4 (Phillip)"
         },
         {
           "year": 2025,
@@ -59052,6 +60098,50 @@ window.LEAGUE_DATA = {
           "owner": "Dylan",
           "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9"
+        }
+      ]
+    },
+    "Alvin Kamara": {
+      "player": "Alvin Kamara",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 2 (Phillip)"
+        },
+        {
+          "year": 2025,
+          "ringNumber": 2,
+          "team": "Globo Gym",
+          "owner": "Dylan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 4 (Pick #31)"
+        }
+      ]
+    },
+    "Ronald Jones": {
+      "player": "Ronald Jones",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2021,
+          "ringNumber": 2,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 11 (Casey)"
         }
       ]
     },
@@ -59064,7 +60154,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #45)"
         },
         {
@@ -59099,8 +60189,8 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Patrick Mahomes": {
-      "player": "Patrick Mahomes",
+    "Tony Pollard": {
+      "player": "Tony Pollard",
       "ringsCount": 2,
       "rings": [
         {
@@ -59109,15 +60199,59 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #19)"
+          "draftInfo": "Free Agent / Waiver"
         },
         {
-          "year": 2024,
+          "year": 2022,
           "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 8 (Pick #78)"
+        }
+      ]
+    },
+    "AJ Dillon": {
+      "player": "AJ Dillon",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
           "role": "Bench",
-          "draftInfo": "Drafted Rd 4 (Dylan)"
+          "draftInfo": "Drafted Rd 16 (Dustin)"
+        },
+        {
+          "year": 2022,
+          "ringNumber": 2,
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 8 (Casey)"
+        }
+      ]
+    },
+    "Pat Freiermuth": {
+      "player": "Pat Freiermuth",
+      "ringsCount": 2,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        },
+        {
+          "year": 2022,
+          "ringNumber": 2,
+          "team": "Gl Hf (you\u2019re gay)",
+          "owner": "Trace",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 13 (Cooper)"
         }
       ]
     },
@@ -59319,28 +60453,6 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Ka'imi Fairbairn": {
-      "player": "Ka'imi Fairbairn",
-      "ringsCount": 2,
-      "rings": [
-        {
-          "year": 2023,
-          "ringNumber": 1,
-          "team": "Dusty Dynasty \ud83c\udfc6",
-          "owner": "Dustin",
-          "role": "Starter",
-          "draftInfo": "Free Agent / Waiver"
-        },
-        {
-          "year": 2024,
-          "ringNumber": 2,
-          "team": "Globo Gym",
-          "owner": "Dylan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 16 (Dylan)"
-        }
-      ]
-    },
     "Christian McCaffrey": {
       "player": "Christian McCaffrey",
       "ringsCount": 2,
@@ -59429,6 +60541,132 @@ window.LEAGUE_DATA = {
         }
       ]
     },
+    "Julian Edelman": {
+      "player": "Julian Edelman",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Phillip Lindsay": {
+      "player": "Phillip Lindsay",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Jaylen Samuels": {
+      "player": "Jaylen Samuels",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Miami Dolphins": {
+      "player": "Miami Dolphins",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Drew Brees": {
+      "player": "Drew Brees",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "David Njoku": {
+      "player": "David Njoku",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 4 (Casey)"
+        }
+      ]
+    },
+    "LeSean McCoy": {
+      "player": "LeSean McCoy",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 8 (Trace)"
+        }
+      ]
+    },
+    "Mark Ingram": {
+      "player": "Mark Ingram II",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Wil Lutz": {
+      "player": "Wil Lutz",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2018,
+          "ringNumber": 1,
+          "team": "Show Me Dem TDS",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 16 (Phillip)"
+        }
+      ]
+    },
     "Kareem Hunt": {
       "player": "Kareem Hunt",
       "ringsCount": 1,
@@ -59438,7 +60676,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 2 (Pick #8)"
         }
       ]
@@ -59452,7 +60690,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 3 (Pick #17)"
         }
       ]
@@ -59466,7 +60704,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 5 (Pick #29)"
         }
       ]
@@ -59480,13 +60718,13 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 7 (Pick #41)"
         }
       ]
     },
-    "Jaguars": {
-      "player": "Jaguars",
+    "Jacksonville Jaguars": {
+      "player": "Jacksonville Jaguars",
       "ringsCount": 1,
       "rings": [
         {
@@ -59494,7 +60732,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9 (Pick #53)"
         }
       ]
@@ -59508,7 +60746,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #56)"
         }
       ]
@@ -59522,7 +60760,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 11 (Pick #65)"
         }
       ]
@@ -59536,7 +60774,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #77)"
         }
       ]
@@ -59550,7 +60788,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #80)"
         }
       ]
@@ -59564,27 +60802,13 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Show Me Dem TDS",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 15 (Pick #89)"
         }
       ]
     },
-    "Wil Lutz": {
-      "player": "Wil Lutz",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2018,
-          "ringNumber": 1,
-          "team": "Show Me Dem TDS",
-          "owner": "Phillip",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 16 (Pick #92)"
-        }
-      ]
-    },
-    "Aaron Rodgers": {
-      "player": "Aaron Rodgers",
+    "Lamar Jackson": {
+      "player": "Lamar Jackson",
       "ringsCount": 1,
       "rings": [
         {
@@ -59593,7 +60817,35 @@ window.LEAGUE_DATA = {
           "team": "RonnyMan2",
           "owner": "Mike",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 3 (Pick #14)"
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "DK Metcalf": {
+      "player": "DK Metcalf",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Carolina Panthers": {
+      "player": "Carolina Panthers",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -59606,8 +60858,64 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #26)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 5 (Mike)"
+        }
+      ]
+    },
+    "John Brown": {
+      "player": "John Brown",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Carlos Hyde": {
+      "player": "Carlos Hyde",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "David Montgomery": {
+      "player": "David Montgomery",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 7 (Phillip)"
+        }
+      ]
+    },
+    "Chicago Bears": {
+      "player": "Chicago Bears",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2019,
+          "ringNumber": 1,
+          "team": "RonnyMan2",
+          "owner": "Mike",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 10 (Mike)"
         }
       ]
     },
@@ -59620,22 +60928,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 6 (Pick #35)"
-        }
-      ]
-    },
-    "Bears": {
-      "player": "Bears",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2019,
-          "ringNumber": 1,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 10 (Pick #59)"
         }
       ]
     },
@@ -59648,22 +60942,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 11 (Pick #62)"
-        }
-      ]
-    },
-    "Rashaad Penny": {
-      "player": "Rashaad Penny",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2019,
-          "ringNumber": 1,
-          "team": "RonnyMan2",
-          "owner": "Mike",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 12 (Pick #71)"
         }
       ]
     },
@@ -59676,7 +60956,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #74)"
         }
       ]
@@ -59690,8 +60970,106 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "RonnyMan2",
           "owner": "Mike",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #83)"
+        }
+      ]
+    },
+    "Robert Woods": {
+      "player": "Robert Woods",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 10 (Trace)"
+        }
+      ]
+    },
+    "Nick Chubb": {
+      "player": "Nick Chubb",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 3 (Dylan)"
+        }
+      ]
+    },
+    "Robert Tonyan": {
+      "player": "Robert Tonyan",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Jason Sanders": {
+      "player": "Jason Sanders",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Cleveland Browns": {
+      "player": "Cleveland Browns",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Hunter Henry": {
+      "player": "Hunter Henry",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Mike Gesicki": {
+      "player": "Mike Gesicki",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -59704,13 +61082,13 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #4)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 1 (Phillip)"
         }
       ]
     },
-    "Kenny Golladay": {
-      "player": "Kenny Golladay",
+    "Justin Herbert": {
+      "player": "Justin Herbert",
       "ringsCount": 1,
       "rings": [
         {
@@ -59718,50 +61096,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #28)"
-        }
-      ]
-    },
-    "Allen Robinson": {
-      "player": "Allen Robinson",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #33)"
-        }
-      ]
-    },
-    "Dak Prescott": {
-      "player": "Dak Prescott",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #40)"
-        }
-      ]
-    },
-    "Baltimore Ravens": {
-      "player": "Ravens",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2020,
-          "ringNumber": 1,
-          "team": "Ho Chi Win City",
-          "owner": "Phillip",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 9 (Pick #52)"
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -59775,7 +61111,49 @@ window.LEAGUE_DATA = {
           "team": "Ho Chi Win City",
           "owner": "Phillip",
           "role": "Bench",
-          "draftInfo": "Drafted Rd 11 (Pick #64)"
+          "draftInfo": "Drafted Rd 11 (Phillip)"
+        }
+      ]
+    },
+    "Kenny Golladay": {
+      "player": "Kenny Golladay",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 5 (Pick #28)"
+        }
+      ]
+    },
+    "Dak Prescott": {
+      "player": "Dak Prescott",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 7 (Pick #40)"
+        }
+      ]
+    },
+    "Baltimore Ravens": {
+      "player": "Baltimore Ravens",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2020,
+          "ringNumber": 1,
+          "team": "Ho Chi Win City",
+          "owner": "Phillip",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 9 (Pick #52)"
         }
       ]
     },
@@ -59788,7 +61166,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 12 (Pick #69)"
         }
       ]
@@ -59802,7 +61180,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #76)"
         }
       ]
@@ -59816,13 +61194,13 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "Ho Chi Win City",
           "owner": "Phillip",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #81)"
         }
       ]
     },
-    "Derrick Henry": {
-      "player": "Derrick Henry",
+    "Kyler Murray": {
+      "player": "Kyler Murray",
       "ringsCount": 1,
       "rings": [
         {
@@ -59831,7 +61209,21 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 1 (Pick #3)"
+          "draftInfo": "Drafted Rd 5 (Dylan)"
+        }
+      ]
+    },
+    "Diontae Johnson": {
+      "player": "Diontae Johnson",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 7 (Casey)"
         }
       ]
     },
@@ -59845,21 +61237,7 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 4 (Pick #30)"
-        }
-      ]
-    },
-    "Josh Jacobs": {
-      "player": "Josh Jacobs",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2021,
-          "ringNumber": 1,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 5 (Pick #35)"
+          "draftInfo": "Drafted Rd 4 (Ryan)"
         }
       ]
     },
@@ -59873,7 +61251,77 @@ window.LEAGUE_DATA = {
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
           "role": "Starter",
-          "draftInfo": "Drafted Rd 6 (Pick #46)"
+          "draftInfo": "Drafted Rd 6 (Ryan)"
+        }
+      ]
+    },
+    "Kyle Pitts": {
+      "player": "Kyle Pitts Sr.",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 5 (Casey)"
+        }
+      ]
+    },
+    "Justin Tucker": {
+      "player": "Justin Tucker",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Drafted Rd 12 (Ryan)"
+        }
+      ]
+    },
+    "Dallas Cowboys": {
+      "player": "Dallas Cowboys",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Starter",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "Michael Gallup": {
+      "player": "Michael Gallup",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
+        }
+      ]
+    },
+    "DeVante Parker": {
+      "player": "DeVante Parker",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Free Agent / Waiver"
         }
       ]
     },
@@ -59886,8 +61334,36 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 7 (Pick #51)"
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 7 (Ryan)"
+        }
+      ]
+    },
+    "Kansas City Chiefs": {
+      "player": "Kansas City Chiefs",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Bench",
+          "draftInfo": "Drafted Rd 9 (Mike)"
+        }
+      ]
+    },
+    "Josh Jacobs": {
+      "player": "Josh Jacobs",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 5 (Pick #35)"
         }
       ]
     },
@@ -59900,13 +61376,13 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 8 (Pick #62)"
         }
       ]
     },
-    "Commanders": {
-      "player": "Commanders",
+    "Washington Commanders": {
+      "player": "Washington Commanders",
       "ringsCount": 1,
       "rings": [
         {
@@ -59914,7 +61390,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 9 (Pick #67)"
         }
       ]
@@ -59928,22 +61404,8 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 10 (Pick #78)"
-        }
-      ]
-    },
-    "Justin Tucker": {
-      "player": "Justin Tucker",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2021,
-          "ringNumber": 1,
-          "team": "LIBYA rip Gaddafi",
-          "owner": "Ryan",
-          "role": "Bench",
-          "draftInfo": "Drafted Rd 12 (Pick #94)"
         }
       ]
     },
@@ -59956,8 +61418,36 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 13 (Pick #99)"
+        }
+      ]
+    },
+    "Indianapolis Colts": {
+      "player": "Indianapolis Colts",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 14 (Pick #110)"
+        }
+      ]
+    },
+    "Commanders": {
+      "player": "Commanders",
+      "ringsCount": 1,
+      "rings": [
+        {
+          "year": 2021,
+          "ringNumber": 1,
+          "team": "LIBYA rip Gaddafi",
+          "owner": "Ryan",
+          "role": "Drafted Contributor",
+          "draftInfo": "Drafted Rd 9 (Pick #67)"
         }
       ]
     },
@@ -59970,7 +61460,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1,
           "team": "LIBYA rip Gaddafi",
           "owner": "Ryan",
-          "role": "Bench",
+          "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 14 (Pick #110)"
         }
       ]
@@ -60031,34 +61521,6 @@ window.LEAGUE_DATA = {
         }
       ]
     },
-    "Pat Freiermuth": {
-      "player": "Pat Freiermuth",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 13 (Cooper)"
-        }
-      ]
-    },
-    "AJ Dillon": {
-      "player": "AJ Dillon",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Starter",
-          "draftInfo": "Drafted Rd 8 (Casey)"
-        }
-      ]
-    },
     "Jake Elliott": {
       "player": "Jake Elliott",
       "ringsCount": 1,
@@ -60112,20 +61574,6 @@ window.LEAGUE_DATA = {
           "owner": "Trace",
           "role": "Bench",
           "draftInfo": "Drafted Rd 1 (Trace)"
-        }
-      ]
-    },
-    "Tony Pollard": {
-      "player": "Tony Pollard",
-      "ringsCount": 1,
-      "rings": [
-        {
-          "year": 2022,
-          "ringNumber": 1,
-          "team": "Gl Hf (you\u2019re gay)",
-          "owner": "Trace",
-          "role": "Drafted Contributor",
-          "draftInfo": "Drafted Rd 8 (Pick #78)"
         }
       ]
     },
