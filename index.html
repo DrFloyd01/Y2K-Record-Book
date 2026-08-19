@@ -1512,7 +1512,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_64"></script>
+  <script src="leagueData.js?v=20260818_66"></script>
 
   <!-- Application Logic -->
   <script>
@@ -3651,7 +3651,7 @@
 
             const benchHtml = rData.bench.map(b => {
               const rBadge = getPlayerRingBadgeHtml(b.player);
-              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-300 font-medium"><span class="text-emerald-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${b.acq || 'FA'}</span></div>`;
+              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-300 font-medium"><span class="text-emerald-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${b.acq || 'FA/Trade'}</span></div>`;
             }).join('');
 
             const draftedHtml = rData.draftedContributors.map(d => {
@@ -3662,7 +3662,7 @@
             rosterHtml = `
               <div class="mt-3 pt-2 border-t border-emerald-900">
                 <button onclick="toggleTitleRoster(${yr})" id="title-roster-btn-${yr}" class="w-full text-center py-1.5 px-2 bg-emerald-950/80 hover:bg-emerald-900 text-amber-300 border border-emerald-700 rounded text-[10px] font-bold tracking-wider uppercase transition-all">
-                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded} Rings) ▾
+                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Rings) ▾
                 </button>
                 <div id="title-roster-collapse-${yr}" class="hidden mt-2 p-2.5 bg-black/90 border border-emerald-800 rounded space-y-2 text-left font-mono">
                   <div>
@@ -4059,7 +4059,7 @@
                 <span class="font-bold text-emerald-300"><span class="text-amber-400 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
                 <span class="text-[10px] text-emerald-500 block pl-10">${s.draftInfo || s.acq || 'Championship Roster'}</span>
               </div>
-              <span class="text-[9px] px-1.5 py-0.5 rounded ${s.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${s.acq || 'FA'}</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded ${s.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${s.acq || 'FA/Trade'}</span>
             </div>
           `;
         }).join('');
@@ -4072,7 +4072,7 @@
                 <span class="font-bold text-emerald-400"><span class="text-emerald-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
                 <span class="text-[10px] text-emerald-500 block pl-10">${b.draftInfo || b.acq || 'Free Agent'}</span>
               </div>
-              <span class="text-[9px] px-1.5 py-0.5 rounded ${b.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${b.acq || 'FA'}</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded ${b.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${b.acq || 'FA/Trade'}</span>
             </div>
           `;
         }).join('');
@@ -4097,7 +4097,7 @@
                 <div class="text-[10px] font-bold text-amber-400 tracking-widest uppercase">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
                 <div class="text-sm font-black text-emerald-300 crt-glow">🏆 ${champ.firstTeam} <span class="text-xs text-emerald-400 font-normal">[${champ.firstOwner}]</span></div>
               </div>
-              <span class="px-2 py-0.5 bg-amber-950 text-amber-300 font-bold border border-amber-600 rounded text-xs">${rData.totalRingsAwarded} Championship Rings Awarded</span>
+              <span class="px-2 py-0.5 bg-amber-950 text-amber-300 font-bold border border-amber-600 rounded text-xs">${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Championship Rings Awarded</span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">

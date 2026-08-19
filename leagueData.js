@@ -54651,8 +54651,8 @@ window.LEAGUE_DATA = {
           "player": "Patrick Mahomes",
           "pos": "QB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54675,8 +54675,8 @@ window.LEAGUE_DATA = {
           "player": "Julian Edelman",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54691,16 +54691,16 @@ window.LEAGUE_DATA = {
           "player": "Phillip Lindsay",
           "pos": "RB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Jaylen Samuels",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54715,16 +54715,16 @@ window.LEAGUE_DATA = {
           "player": "Ka'imi Fairbairn",
           "pos": "K",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Miami Dolphins",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -54741,8 +54741,8 @@ window.LEAGUE_DATA = {
           "player": "Drew Brees",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54765,8 +54765,8 @@ window.LEAGUE_DATA = {
           "player": "Mark Ingram II",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54887,24 +54887,24 @@ window.LEAGUE_DATA = {
           "player": "Lamar Jackson",
           "pos": "QB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Allen Robinson",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "DK Metcalf",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -54959,8 +54959,8 @@ window.LEAGUE_DATA = {
           "player": "Carolina Panthers",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -54977,16 +54977,16 @@ window.LEAGUE_DATA = {
           "player": "John Brown",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Carlos Hyde",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55123,8 +55123,8 @@ window.LEAGUE_DATA = {
           "player": "Robert Tonyan",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55139,16 +55139,16 @@ window.LEAGUE_DATA = {
           "player": "Jason Sanders",
           "pos": "K",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Cleveland Browns",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -55157,16 +55157,16 @@ window.LEAGUE_DATA = {
           "player": "Hunter Henry",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Mike Gesicki",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55189,16 +55189,16 @@ window.LEAGUE_DATA = {
           "player": "Justin Herbert",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Ronald Jones",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55335,8 +55335,8 @@ window.LEAGUE_DATA = {
           "player": "Tony Pollard",
           "pos": "RB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55359,8 +55359,8 @@ window.LEAGUE_DATA = {
           "player": "Rashaad Penny",
           "pos": "W/R/T",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
@@ -55375,8 +55375,8 @@ window.LEAGUE_DATA = {
           "player": "Dallas Cowboys",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -55393,24 +55393,24 @@ window.LEAGUE_DATA = {
           "player": "Michael Gallup",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "DeVante Parker",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Pat Freiermuth",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55627,8 +55627,8 @@ window.LEAGUE_DATA = {
           "player": "Philadelphia Eagles",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -55661,8 +55661,8 @@ window.LEAGUE_DATA = {
           "player": "Samaje Perine",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55767,8 +55767,8 @@ window.LEAGUE_DATA = {
           "player": "C.J. Stroud",
           "pos": "QB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55807,16 +55807,16 @@ window.LEAGUE_DATA = {
           "player": "Kyren Williams",
           "pos": "RB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Trey McBride",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55831,16 +55831,16 @@ window.LEAGUE_DATA = {
           "player": "Ka'imi Fairbairn",
           "pos": "K",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
           "player": "Houston Texans",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         }
       ],
@@ -55849,32 +55849,32 @@ window.LEAGUE_DATA = {
           "player": "Zamir White",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Joe Flacco",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Ty Chandler",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Isaiah Likely",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -55889,8 +55889,8 @@ window.LEAGUE_DATA = {
           "player": "Demarcus Robinson",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -56027,8 +56027,8 @@ window.LEAGUE_DATA = {
           "player": "Jalen McMillan",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -56117,8 +56117,8 @@ window.LEAGUE_DATA = {
           "player": "Rashod Bateman",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -56141,8 +56141,8 @@ window.LEAGUE_DATA = {
           "player": "Los Angeles Chargers",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         }
       ],
@@ -56215,8 +56215,8 @@ window.LEAGUE_DATA = {
           "player": "Trevor Lawrence",
           "pos": "QB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -56263,8 +56263,8 @@ window.LEAGUE_DATA = {
           "player": "Harold Fannin Jr.",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -56287,8 +56287,8 @@ window.LEAGUE_DATA = {
           "player": "Tampa Bay Buccaneers",
           "pos": "DEF",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -56305,8 +56305,8 @@ window.LEAGUE_DATA = {
           "player": "Hunter Henry",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
@@ -56321,16 +56321,16 @@ window.LEAGUE_DATA = {
           "player": "Kenny Gainwell",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Brenton Strange",
           "pos": "BN",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waiver",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {

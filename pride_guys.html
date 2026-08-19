@@ -883,7 +883,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_65"></script>
+  <script src="prideGuysData.js?v=20260818_66"></script>
   
   <!-- Application Logic -->
   <script>
@@ -3155,7 +3155,7 @@
 
             const benchHtml = rData.bench.map(b => {
               const rBadge = getPlayerRingBadgeHtml(b.player);
-              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900 font-medium"><span class="text-purple-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-purple-700">${b.acq || 'FA'}</span></div>`;
+              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900 font-medium"><span class="text-purple-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-purple-700">${b.acq || 'FA/Trade'}</span></div>`;
             }).join('');
 
             const draftedHtml = rData.draftedContributors.map(d => {
@@ -3166,7 +3166,7 @@
             rosterHtml = `
               <div class="mt-3 pt-2 border-t border-pink-200">
                 <button onclick="toggleTitleRoster(${yr})" id="title-roster-btn-${yr}" class="w-full text-center py-1.5 px-2 bg-pink-50 hover:bg-pink-100 text-purple-950 border border-pink-300 rounded-xl text-[10px] font-bold tracking-wider uppercase transition-all shadow-sm">
-                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded} Rings) ▾
+                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Rings) ▾
                 </button>
                 <div id="title-roster-collapse-${yr}" class="hidden mt-2 p-2.5 bg-white border border-pink-200 rounded-xl space-y-2 text-left font-sans shadow-sm">
                   <div>
@@ -3558,7 +3558,7 @@
                 <span class="font-bold text-purple-950"><span class="text-pink-600 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
                 <span class="text-[10px] text-purple-700 block pl-10">${s.draftInfo || s.acq || 'Championship Roster'}</span>
               </div>
-              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${s.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${s.acq || 'FA'}</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${s.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${s.acq || 'FA/Trade'}</span>
             </div>
           `;
         }).join('');
@@ -3571,7 +3571,7 @@
                 <span class="font-bold text-purple-900"><span class="text-purple-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
                 <span class="text-[10px] text-purple-700 block pl-10">${b.draftInfo || b.acq || 'Free Agent'}</span>
               </div>
-              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${b.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${b.acq || 'FA'}</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${b.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${b.acq || 'FA/Trade'}</span>
             </div>
           `;
         }).join('');
@@ -3596,7 +3596,7 @@
                 <div class="text-[10px] font-bold text-amber-800 tracking-widest uppercase font-fredoka">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
                 <div class="text-sm font-black text-purple-950">🏆 ${champ.firstTeam} <span class="text-xs text-pink-600 font-bold">[${champ.firstOwner}]</span></div>
               </div>
-              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-xs">${rData.totalRingsAwarded} Championship Rings Awarded</span>
+              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-xs">${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Championship Rings Awarded</span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">

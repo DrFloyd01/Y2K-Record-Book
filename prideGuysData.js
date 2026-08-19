@@ -77589,8 +77589,8 @@ window.LEAGUE_DATA = {
           "player": "Chargers",
           "pos": "D/ST",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -77615,48 +77615,48 @@ window.LEAGUE_DATA = {
           "player": "Broncos",
           "pos": "D/ST",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Corey Davis",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Josh Reynolds",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Geno Smith",
           "pos": "QB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Hayden Hurst",
           "pos": "TE",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Isaiah Hodgins",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -77717,7 +77717,8 @@ window.LEAGUE_DATA = {
           "draftInfo": "Drafted Rd 17 (Pick #164)",
           "ringNumber": 1
         }
-      ]
+      ],
+      "totalRingsAwarded": 24
     },
     "2023": {
       "starters": [
@@ -77741,8 +77742,8 @@ window.LEAGUE_DATA = {
           "player": "Devin Singletary",
           "pos": "RB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -77757,8 +77758,8 @@ window.LEAGUE_DATA = {
           "player": "Puka Nacua",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -77781,16 +77782,16 @@ window.LEAGUE_DATA = {
           "player": "Adam Thielen",
           "pos": "FLEX",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
           "player": "Raiders",
           "pos": "D/ST",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -77815,32 +77816,32 @@ window.LEAGUE_DATA = {
           "player": "Rashid Shaheed",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Romeo Doubs",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Clyde Edwards-Helaire",
           "pos": "RB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Khalil Herbert",
           "pos": "RB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -77909,7 +77910,8 @@ window.LEAGUE_DATA = {
           "draftInfo": "Drafted Rd 15 (Pick #146)",
           "ringNumber": 3
         }
-      ]
+      ],
+      "totalRingsAwarded": 23
     },
     "2024": {
       "starters": [
@@ -77949,16 +77951,16 @@ window.LEAGUE_DATA = {
           "player": "Jauan Jennings",
           "pos": "WR",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Jonnu Smith",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -77973,16 +77975,16 @@ window.LEAGUE_DATA = {
           "player": "Zach Charbonnet",
           "pos": "FLEX",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
           "player": "Seahawks",
           "pos": "D/ST",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -77999,32 +78001,32 @@ window.LEAGUE_DATA = {
           "player": "Tyrone Tracy Jr.",
           "pos": "RB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Cooper Kupp",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         },
         {
           "player": "Alexander Mattison",
           "pos": "RB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "J.K. Dobbins",
           "pos": "RB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 2
         }
       ],
@@ -78093,7 +78095,8 @@ window.LEAGUE_DATA = {
           "draftInfo": "Drafted Rd 13 (Pick #127)",
           "ringNumber": 3
         }
-      ]
+      ],
+      "totalRingsAwarded": 22
     },
     "2025": {
       "starters": [
@@ -78101,8 +78104,8 @@ window.LEAGUE_DATA = {
           "player": "Joe Burrow",
           "pos": "QB",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -78141,8 +78144,8 @@ window.LEAGUE_DATA = {
           "player": "Harold Fannin Jr.",
           "pos": "TE",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
@@ -78165,8 +78168,8 @@ window.LEAGUE_DATA = {
           "player": "Lions",
           "pos": "D/ST",
           "role": "Starter",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -78183,32 +78186,32 @@ window.LEAGUE_DATA = {
           "player": "Trevor Lawrence",
           "pos": "QB",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Juwan Johnson",
           "pos": "TE",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Parker Washington",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         },
         {
           "player": "Luther Burden III",
           "pos": "WR",
           "role": "Bench",
-          "acq": "FA",
-          "draftInfo": "Free Agent / Waivers",
+          "acq": "FA/Trade",
+          "draftInfo": "Free Agent / Trade",
           "ringNumber": 1
         }
       ],
@@ -78269,7 +78272,8 @@ window.LEAGUE_DATA = {
           "draftInfo": "Drafted Rd 14 (Pick #138)",
           "ringNumber": 1
         }
-      ]
+      ],
+      "totalRingsAwarded": 21
     }
   },
   "allTimePlayerRings": [
