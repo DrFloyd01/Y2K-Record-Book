@@ -233,6 +233,13 @@
       max-width: 100vw;
     }
   </style>
+  <script>
+    // Always return to top of page on reload
+    if (typeof history !== 'undefined' && 'scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-pink-100/90 selection:text-purple-900">
 
@@ -968,6 +975,7 @@
 
     function switchTab(tabId) {
       currentTab = tabId;
+      window.scrollTo(0, 0);
       if (typeof window !== 'undefined' && window.location && window.history && window.history.replaceState) {
         if (window.location.hash !== `#${tabId}`) {
           history.replaceState(null, null, `#${tabId}`);
