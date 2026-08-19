@@ -1,4 +1,4 @@
-window.LEAGUE_DATA = {
+{
   "seasons": [
     2018,
     2019,
@@ -61977,4 +61977,4 @@ window.LEAGUE_DATA = {
       ]
     }
   }
-};
+}

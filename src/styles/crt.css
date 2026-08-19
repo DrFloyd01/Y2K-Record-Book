@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'JetBrains Mono', 'Courier Prime', monospace;
+  background-color: #020704;
+  color: #e2fce8;
+  background-image: radial-gradient(circle at 50% 25%, #081d0f 0%, #010502 100%);
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Crisp Phosphor Text Highlights */
+.crt-glow {
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.45);
+}
+
+.crt-glow-amber {
+  text-shadow: 0 0 5px rgba(255, 183, 0, 0.45);
+}
+
+/* Retro CRT Terminal Surfaces with Higher Contrast */
+.crt-box {
+  border: 1px solid #00bb4a;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.08);
+  background-color: rgba(3, 14, 7, 0.96);
+}
+
+.crt-box-header {
+  background-color: #052611;
+  border-bottom: 1px solid #00bb4a;
+  color: #34d399;
+  font-weight: 700;
+}
+
+/* Hide scrollbars inside container boxes (Retro CRT Terminal feel) */
+.custom-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Popover scrollbar styling */
+.popover-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #00aa44 #040d06;
+}
+
+.popover-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.popover-scrollbar::-webkit-scrollbar-track {
+  background: #040d06;
+}
+
+.popover-scrollbar::-webkit-scrollbar-thumb {
+  background: #00aa44;
+  border-radius: 2px;
+}
+
+/* Tooltip & Popover Layout Engine */
+.tooltip-trigger {
+  position: relative !important;
+  display: inline-block;
+}
+
+.tooltip-trigger:hover,
+.tooltip-trigger:focus-within {
+  z-index: 99999 !important;
+}
+
+#stat-cards-grid > div:hover,
+#stat-cards-grid > div:has(.tooltip-trigger:hover),
+.crt-box:has(.tooltip-trigger:hover),
+.record-card:hover {
+  position: relative;
+  z-index: 99999 !important;
+}
+
+.tooltip-content {
+  display: none;
+  position: absolute !important;
+  z-index: 999999 !important;
+  bottom: calc(100% + 10px) !important;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto !important;
+  cursor: default;
+  width: 288px !important;
+  max-width: 90vw !important;
+  max-height: 220px !important;
+  overflow-y: auto !important;
+  white-space: normal;
+  box-sizing: border-box !important;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff66 #020b05;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
+}
+
+.tooltip-content::-webkit-scrollbar {
+  width: 4px;
+}
+.tooltip-content::-webkit-scrollbar-track {
+  background: #020b05;
+  border-radius: 4px;
+}
+.tooltip-content::-webkit-scrollbar-thumb {
+  background: #00ff66;
+  border-radius: 4px;
+}
+
+/* Hover Bridge to keep popover open when cursor travels into it */
+.tooltip-content::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  display: block;
+  pointer-events: auto;
+}
+
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  display: block;
+  pointer-events: auto;
+}
+
+.tooltip-trigger:hover > .tooltip-content,
+.tooltip-trigger:focus-within > .tooltip-content {
+  display: block !important;
+}
+
+.tooltip-content-left,
+.tooltip-left .tooltip-content {
+  left: 0 !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+.tooltip-content-right,
+.tooltip-right .tooltip-content {
+  right: 0 !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+.tooltip-content-bottom {
+  bottom: auto !important;
+  top: calc(100% + 10px) !important;
+}

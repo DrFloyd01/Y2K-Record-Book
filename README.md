@@ -1,101 +1,82 @@
-# 🏈 Y2K Record Book & Pride Guys Fantasy League Vault 🏆
+# 🏈 Y2K Record Book & Pride Guys Fantasy League Vault [v2.0] 🏆
 
-Welcome to the **Y2K Record Book & Pride Guys Fantasy League Vault** — an all-inclusive historical dynasty hub and interactive web application archiving fantasy football history across 10+ seasons!
+Welcome to the **Y2K Record Book & Pride Guys Fantasy League Vault (v2.0)** — an all-inclusive historical dynasty hub and interactive web application archiving fantasy football history across 10+ seasons!
 
-> 🔗 **Live Sites**:
+> 🔗 **Live Sites (GitHub Pages)**:
 > - 📟 **Y2K Record Book (P1 Phosphor CRT Theme)**: [https://drfloyd01.github.io/Y2K-Record-Book/](https://drfloyd01.github.io/Y2K-Record-Book/)
 > - 🦄 **Pride Guys Fantasy League (Cute Light Mode Rainbow Theme)**: [https://drfloyd01.github.io/Y2K-Record-Book/pride_guys.html](https://drfloyd01.github.io/Y2K-Record-Book/pride_guys.html)
 
 ---
 
-## 🌟 League Hubs & Key Features
+## ⚡ What's New in v2.0 Architecture
 
-### 1. 📟 Y2K Record Book (`index.html`)
-The classic Y2K experience styled after a 90s monochrome P1 Phosphor CRT Green terminal interface (`#040d06`).
-- **Trophy**: *The Nebuchadnezzar Cup* 🏆
-- **Aesthetic**: CRT glow effects, scanning lines, Courier Prime monospace typography, retro command line headers.
-
-### 2. 🦄 Pride Guys Fantasy League (`pride_guys.html`)
-A vibrant, cheerful **My Little Pony-level cute light mode theme** 🌈💖🦄 tailored specifically for the Pride Guys managers.
-- **Trophy**: *The Pride Cup* 🏆
-- **Aesthetic**: Soft pastel gradient backdrop (`#fff4fa` ➔ `#f0f7ff`), sparkling animations ✨, bubbly rounded `Fredoka` typography, animated kitschy tagline rotator, and smooth sliding pill tab navigation.
-
----
-
-## 🚀 Key Modules & Analytics
-
-- **📊 Seasons & Standings Archive**:
-  - Filterable by All-Time or specific season years (2017–2025).
-  - Toggle between **Actual Standings** and **Optimal Points** (Play the Right Guys) sub-tabs.
-  - Interactive **Bad Luck & Award Badges Tally** (Weekly Scoring Champ, Luckiest Win, Heartbreak Loss, Toughest Loss, Nailbiter, Gut Punch, Criminal Win, Victory Lap, Dumpster Fire).
-
-- **🏆 Hall of Champions & Scoring Archives**:
-  - Interactive Championship timeline grid displaying podium finishers (1st 🥇, 2nd 🥈, 3rd 🥉) and Regular Season Scoring Champions.
-  - Historical manager championship leaderboards.
-
-- **⚔️ Head-to-Head (H2H) Rivalry Engine**:
-  - **Matchup Query Tool**: Compare lifetime H2H records between any two managers, complete with regular season & playoff game logs.
-  - **Lifetime H2H Grid Matrix**: Interactive cell breakdown matrix with `ALL`, `REGULAR`, and `PLAYOFFS` toggle filters.
-  - **H2H Winning Streaks Leaderboard**: Tracks active & historical win streaks with filter toggles (`ALL`, `ACTIVE`, `REGULAR`, `PLAYOFFS`). Features interactive **mouseover popovers** displaying game-by-game scores and multi-tie timeframes.
-
-- **🏈 Weekly Matchup Preview & Recaps**:
-  - Weekly matchup breakdown, game summaries, scores, margins, and historical head-to-head context for every game.
-
-- **📋 Complete Draft Archives (2018–2026)**:
-  - Year-by-year draft logs with round, pick, player, position, NFL team, and manager badges.
-  - Enforced 2026 12-Team Expansion Draft Order.
-
-- **📈 Dynasty Analytics**:
-  - Manager lifetime luck charts (Actual Wins vs Top-Half Weekly Wins whole-number model).
-  - Points For vs. Points Against Scatter Plot visualizer.
+- 🚀 **Vite & Modular ES Modules**: Built on a modern Vite build pipeline, modularizing analytics engines, H2H calculations, and data loaders.
+- 🎨 **Pre-compiled Tailwind CSS**: Eliminated the heavy ~3MB client-side Tailwind Play CDN runtime in favor of pre-compiled, minified static stylesheets (~41 KB).
+- 🛡️ **Security Hardened**:
+  - HTML entity sanitization layer (`escapeHtml`, `html` template tag) to prevent client-side DOM XSS.
+  - Strict Content Security Policy (`CSP`) meta tags.
+  - Replaced unpinned, unhashed external CDN dependencies (`unpkg.com`, `jsdelivr`) with version-locked local npm bundles.
+- 📦 **Single Source of Truth**: Asynchronous JSON fetching (`/data/leagueData.json`, `/data/prideGuysData.json`) with UI loading handling, replacing duplicate `.js` window-global wrappers.
+- 🧪 **Automated Vitest Test Suite**: Unit tests covering sanitization, win streaks, H2H matrix calculations, and standings.
+- 🚢 **Automated CI/CD**: GitHub Actions workflow (`.github/workflows/deploy.yml`) running automated test suites and deploying production builds directly to GitHub Pages.
 
 ---
 
-## 🛠️ Project Structure & Data Pipeline
-
-```
-Y2K-Record-Book/
-├── index.html              # Y2K Record Book Web Application (CRT Green Theme)
-├── pride_guys.html         # Pride Guys Web Application (Light Rainbow Theme)
-├── leagueData.js           # Pre-compiled JS dataset for Y2K site
-├── prideGuysData.js        # Pre-compiled JS dataset for Pride Guys site
-├── pride_guys_hero.jpg     # Hero unicorn banner emblem
-├── README.md               # Repository documentation
-└── scripts/ (Internal)     # Python processors for ESPN / Sleeper data ingestion
-```
-
----
-
-## 💻 Running Locally
-
-To host the site on a local web server:
+## 💻 Local Development
 
 ```bash
-# Navigate to repository directory
-cd /Users/dylansoth/dev/Y2K-Record-Book
+# 1. Install dependencies
+npm install
 
-# Start local HTTP server on port 8086
-python3 -m http.server 8086
+# 2. Start local development server
+npm run dev
+
+# 3. Run automated unit tests
+npm run test
+
+# 4. Build optimized production bundle
+npm run build
+
+# 5. Preview production build locally
+npm run preview
 ```
-
-Open your browser to:
-- Y2K Site: `http://localhost:8086/index.html`
-- Pride Guys Site: `http://localhost:8086/pride_guys.html`
 
 ---
 
-## 🚢 Deployment
+## 📂 Project Structure
 
-The project is hosted live on **GitHub Pages** directly from the `main` branch.
-
-```bash
-git add .
-git commit -m "Update league records and site features"
-git push origin main
 ```
-
-Changes are automatically built and published live via GitHub Pages.
-
----
-
-### 💖 Built for the League with Pride & Excellence 🏈🦄
+Y2K-Record-Book-v2/
+├── index.html                   # Y2K CRT Green Terminal Entrypoint
+├── pride_guys.html              # Pride Guys Rainbow Vault Entrypoint
+├── package.json                 # Node manifest & npm scripts
+├── vite.config.js               # Multi-page Vite configuration & vendor chunking
+├── tailwind.config.js           # Shared Tailwind theme definitions
+├── postcss.config.js            # PostCSS configuration
+├── .gitignore                   # Standard ignore rules
+├── .github/
+│   └── workflows/
+│       └── deploy.yml           # Automated CI/CD for GitHub Pages
+├── public/
+│   ├── data/
+│   │   ├── leagueData.json      # Primary Y2K League dataset
+│   │   └── prideGuysData.json   # Pride Guys League dataset
+│   ├── y2k_logo.png
+│   ├── pride_guys_hero.jpg
+│   └── .nojekyll
+├── src/
+│   ├── styles/
+│   │   ├── crt.css              # Phosphor CRT scanlines, glow, terminal styles
+│   │   └── pride.css            # Pastel gradients, sparkles, bubbly typography
+│   ├── core/
+│   │   ├── sanitizer.js         # XSS prevention & HTML entity encoding
+│   │   └── dataLoader.js        # Async data fetcher & cache
+│   ├── analytics/
+│   │   ├── standings.js         # Standings, optimal points, badge calculations
+│   │   └── h2h.js               # H2H matrix, rivalry engine, streak algorithms
+│   ├── app.js                   # Y2K CRT application bootstrap
+│   └── pride_app.js             # Pride Guys application bootstrap
+└── tests/
+    ├── sanitizer.test.js        # XSS sanitization unit tests
+    └── h2h.test.js              # H2H and streak calculation unit tests
+```
