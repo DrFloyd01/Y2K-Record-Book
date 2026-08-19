@@ -7893,8 +7893,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 2,
           "ownerName": "Sean Belcher",
           "teamName": "Team Sean",
-          "player": "Empty / Bye6022",
-          "playerName": "Empty / Bye6022",
+          "player": "Cardinals D/ST",
+          "playerName": "Cardinals D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -8400,8 +8400,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 1,
           "ownerName": "Trace Bakulich",
           "teamName": "Shiva Kamini Soma Kandarkram",
-          "player": "Empty / Bye6024",
-          "playerName": "Empty / Bye6024",
+          "player": "Chargers D/ST",
+          "playerName": "Chargers D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -10319,8 +10319,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 4,
           "ownerName": "Andrew Wilson",
           "teamName": "Team Raw Dogging Inc",
-          "player": "Empty / Bye6016",
-          "playerName": "Empty / Bye6016",
+          "player": "Vikings D/ST",
+          "playerName": "Vikings D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -10423,8 +10423,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 4,
           "ownerName": "Javier",
           "teamName": "Team 0 points",
-          "player": "Empty / Bye6033",
-          "playerName": "Empty / Bye6033",
+          "player": "Ravens D/ST",
+          "playerName": "Ravens D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -10449,8 +10449,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 6,
           "ownerName": "Zack Wolfskeil",
           "teamName": "Team Wolfskeil",
-          "player": "Empty / Bye6017",
-          "playerName": "Empty / Bye6017",
+          "player": "Patriots D/ST",
+          "playerName": "Patriots D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -10709,8 +10709,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 2,
           "ownerName": "Michael Anderson",
           "teamName": "Comeback Szn",
-          "player": "Empty / Bye6018",
-          "playerName": "Empty / Bye6018",
+          "player": "Saints D/ST",
+          "playerName": "Saints D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13094,8 +13094,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 1,
           "ownerName": "Jeffrey Belcher",
           "teamName": "Team DaSmashers",
-          "player": "Empty / Bye6003",
-          "playerName": "Empty / Bye6003",
+          "player": "Bears D/ST",
+          "playerName": "Bears D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13211,8 +13211,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 2,
           "ownerName": "Trace Bakulich",
           "teamName": "Ben\"Still Beat\" Roethlisberger",
-          "player": "Empty / Bye6030",
-          "playerName": "Empty / Bye6030",
+          "player": "Jaguars D/ST",
+          "playerName": "Jaguars D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13224,8 +13224,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 3,
           "ownerName": "James Carter",
           "teamName": "Beating Goff",
-          "player": "Empty / Bye6014",
-          "playerName": "Empty / Bye6014",
+          "player": "Rams D/ST",
+          "playerName": "Rams D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13354,8 +13354,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 5,
           "ownerName": "Aidan O'Sullivan",
           "teamName": "Jeffrey Epstein Alive in Israel",
-          "player": "Empty / Bye6024",
-          "playerName": "Empty / Bye6024",
+          "player": "Chargers D/ST",
+          "playerName": "Chargers D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13601,8 +13601,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 8,
           "ownerName": "Andrew Wilson",
           "teamName": "4 inch Ditka",
-          "player": "Empty / Bye6018",
-          "playerName": "Empty / Bye6018",
+          "player": "Saints D/ST",
+          "playerName": "Saints D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13666,8 +13666,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 5,
           "ownerName": "Michael Anderson",
           "teamName": "Beats  By Ray ",
-          "player": "Empty / Bye6005",
-          "playerName": "Empty / Bye6005",
+          "player": "Browns D/ST",
+          "playerName": "Browns D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -13692,8 +13692,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 7,
           "ownerName": "Sean Belcher",
           "teamName": "Show me  your TDs",
-          "player": "Empty / Bye6011",
-          "playerName": "Empty / Bye6011",
+          "player": "Colts D/ST",
+          "playerName": "Colts D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -15766,8 +15766,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 6,
           "ownerName": "Andrew Wilson",
           "teamName": "Fresh prince  Of Helaire",
-          "player": "Empty / Bye6002",
-          "playerName": "Empty / Bye6002",
+          "player": "Bills D/ST",
+          "playerName": "Bills D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -15870,8 +15870,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 6,
           "ownerName": "Zack Wolfskeil",
           "teamName": "Old Man Full gay ",
-          "player": "Empty / Bye6025",
-          "playerName": "Empty / Bye6025",
+          "player": "49ers D/ST",
+          "playerName": "49ers D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -16065,8 +16065,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 5,
           "ownerName": "Sean Belcher",
           "teamName": "Cookin\u2019 the Competition\u2122",
-          "player": "Empty / Bye6017",
-          "playerName": "Empty / Bye6017",
+          "player": "Patriots D/ST",
+          "playerName": "Patriots D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -16260,8 +16260,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 4,
           "ownerName": "Michael Anderson",
           "teamName": "First Down Syndrome",
-          "player": "Empty / Bye6016",
-          "playerName": "Empty / Bye6016",
+          "player": "Vikings D/ST",
+          "playerName": "Vikings D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -18511,8 +18511,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 1,
           "ownerName": "Trace Bakulich",
           "teamName": "Im Gonna Win You're Gay",
-          "player": "Empty / Bye6028",
-          "playerName": "Empty / Bye6028",
+          "player": "Commanders D/ST",
+          "playerName": "Commanders D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -18628,8 +18628,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 2,
           "ownerName": "Austin Geller",
           "teamName": "Transitive Prop Champion",
-          "player": "Empty / Bye6033",
-          "playerName": "Empty / Bye6033",
+          "player": "Ravens D/ST",
+          "playerName": "Ravens D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -21803,8 +21803,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 4,
           "ownerName": "Michael Anderson",
           "teamName": "2011 Eagles Dream Team",
-          "player": "Empty / Bye6018",
-          "playerName": "Empty / Bye6018",
+          "player": "Saints D/ST",
+          "playerName": "Saints D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -21842,8 +21842,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 7,
           "ownerName": "Austin Geller",
           "teamName": "Dark Brandon Is Rising",
-          "player": "Empty / Bye6011",
-          "playerName": "Empty / Bye6011",
+          "player": "Colts D/ST",
+          "playerName": "Colts D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -21855,8 +21855,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 8,
           "ownerName": "Sean Belcher",
           "teamName": "McCarry My Team Pls",
-          "player": "Empty / Bye6009",
-          "playerName": "Empty / Bye6009",
+          "player": "Packers D/ST",
+          "playerName": "Packers D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -24920,8 +24920,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 5,
           "ownerName": "Aidan O'Sullivan",
           "teamName": "BBCEEDEE",
-          "player": "Empty / Bye6006",
-          "playerName": "Empty / Bye6006",
+          "player": "Cowboys D/ST",
+          "playerName": "Cowboys D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -27993,8 +27993,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 3,
           "ownerName": "Austin Geller",
           "teamName": "HALL-QAEDA",
-          "player": "Empty / Bye6025",
-          "playerName": "Empty / Bye6025",
+          "player": "49ers D/ST",
+          "playerName": "49ers D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -28006,8 +28006,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 4,
           "ownerName": "Andrew Wilson",
           "teamName": "L Central",
-          "player": "Empty / Bye6020",
-          "playerName": "Empty / Bye6020",
+          "player": "Jets D/ST",
+          "playerName": "Jets D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -28201,8 +28201,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 9,
           "ownerName": "Michael Anderson",
           "teamName": "CTESPN",
-          "player": "Empty / Bye6012",
-          "playerName": "Empty / Bye6012",
+          "player": "Chiefs D/ST",
+          "playerName": "Chiefs D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -28227,8 +28227,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 1,
           "ownerName": "Aidan O'Sullivan",
           "teamName": "The Diversity Hires",
-          "player": "Empty / Bye6018",
-          "playerName": "Empty / Bye6018",
+          "player": "Saints D/ST",
+          "playerName": "Saints D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -30947,8 +30947,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 2,
           "ownerName": "Aidan O'Sullivan",
           "teamName": "JD Vance in Drag",
-          "player": "Empty / Bye6033",
-          "playerName": "Empty / Bye6033",
+          "player": "Ravens D/ST",
+          "playerName": "Ravens D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -31285,8 +31285,8 @@ window.LEAGUE_DATA = {
           "pickInRound": 8,
           "ownerName": "Dylan Soth",
           "teamName": "Human Eros TDs",
-          "player": "Empty / Bye6002",
-          "playerName": "Empty / Bye6002",
+          "player": "Bills D/ST",
+          "playerName": "Bills D/ST",
           "position": "Flex",
           "proTeam": "NFL"
         },
@@ -76907,7 +76907,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6022",
+          "player": "Cardinals D/ST",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
@@ -77002,7 +77002,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 5 (Pick #36)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Derrick Henry",
@@ -77029,7 +77029,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6016",
+          "player": "Vikings D/ST",
           "pos": "Rd 9",
           "role": "Starter",
           "acq": "Draft",
@@ -77134,7 +77134,7 @@ window.LEAGUE_DATA = {
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 4 (Pick #27)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Robert Woods",
@@ -77195,7 +77195,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6014",
+          "player": "Rams D/ST",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
@@ -77351,7 +77351,7 @@ window.LEAGUE_DATA = {
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6017",
+          "player": "Patriots D/ST",
           "pos": "BN",
           "role": "Bench",
           "acq": "Draft",
@@ -77488,7 +77488,7 @@ window.LEAGUE_DATA = {
           "role": "Bench",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #101)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Patriots D/ST",
@@ -77496,7 +77496,7 @@ window.LEAGUE_DATA = {
           "role": "Bench",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #108)",
-          "ringNumber": 1
+          "ringNumber": 2
         },
         {
           "player": "Curtis Samuel",
@@ -77520,61 +77520,42 @@ window.LEAGUE_DATA = {
       "totalRingsAwarded": 16
     },
     "2022": {
-      "seasonYear": 2022,
-      "championTeam": "Dark Brandon Is Rising",
-      "championOwner": "Austin Geller",
       "starters": [
         {
-          "player": "Austin Ekeler",
-          "pos": "Rd 1",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #4)",
-          "ringNumber": 2
-        },
-        {
-          "player": "CeeDee Lamb",
-          "pos": "Rd 2",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 2 (Pick #17)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Nick Chubb",
-          "pos": "Rd 3",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 3 (Pick #24)",
-          "ringNumber": 1
-        },
-        {
           "player": "Josh Allen",
-          "pos": "Rd 4",
+          "pos": "QB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 4 (Pick #37)",
           "ringNumber": 2
         },
         {
-          "player": "Breece Hall",
-          "pos": "Rd 5",
+          "player": "Austin Ekeler",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 5 (Pick #44)",
+          "draftInfo": "Drafted Rd 1 (Pick #4)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Nick Chubb",
+          "pos": "RB",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 3 (Pick #24)",
           "ringNumber": 1
         },
         {
-          "player": "Allen Robinson II",
-          "pos": "Rd 6",
+          "player": "CeeDee Lamb",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 6 (Pick #57)",
+          "draftInfo": "Drafted Rd 2 (Pick #17)",
           "ringNumber": 1
         },
         {
           "player": "Chris Godwin",
-          "pos": "Rd 7",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 7 (Pick #64)",
@@ -77582,72 +77563,144 @@ window.LEAGUE_DATA = {
         },
         {
           "player": "T.J. Hockenson",
-          "pos": "Rd 8",
+          "pos": "TE",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 8 (Pick #77)",
           "ringNumber": 1
         },
         {
-          "player": "Antonio Gibson",
-          "pos": "Rd 9",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 9 (Pick #84)",
-          "ringNumber": 2
-        }
-      ],
-      "bench": [
-        {
           "player": "Drake London",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "FLEX",
+          "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #97)",
           "ringNumber": 1
         },
         {
-          "player": "Dak Prescott",
-          "pos": "BN",
-          "role": "Bench",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 11 (Pick #104)",
-          "ringNumber": 2
-        },
-        {
           "player": "Brian Robinson Jr.",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "FLEX",
+          "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #117)",
           "ringNumber": 1
         },
         {
-          "player": "Skyy Moore",
-          "pos": "BN",
+          "player": "Chargers",
+          "pos": "D/ST",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "Allen Robinson II",
+          "pos": "WR",
           "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 6 (Pick #57)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Antonio Gibson",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 9 (Pick #84)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Broncos",
+          "pos": "D/ST",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Corey Davis",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Josh Reynolds",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Geno Smith",
+          "pos": "QB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Hayden Hurst",
+          "pos": "TE",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Isaiah Hodgins",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Breece Hall",
+          "pos": "Rd 5",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 5 (Pick #44)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Dak Prescott",
+          "pos": "Rd 11",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 11 (Pick #104)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Skyy Moore",
+          "pos": "Rd 13",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #124)",
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6011",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Colts D/ST",
+          "pos": "Rd 14",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #137)",
           "ringNumber": 1
         },
         {
           "player": "Jameson Williams",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 15",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 15 (Pick #144)",
           "ringNumber": 1
-        }
-      ],
-      "draftedContributors": [
+        },
         {
           "player": "Hunter Henry",
           "pos": "Rd 16",
@@ -77664,148 +77717,213 @@ window.LEAGUE_DATA = {
           "draftInfo": "Drafted Rd 17 (Pick #164)",
           "ringNumber": 1
         }
-      ],
-      "totalRingsAwarded": 17
+      ]
     },
     "2023": {
-      "seasonYear": 2023,
-      "championTeam": "BBCEEDEE",
-      "championOwner": "Aidan O'Sullivan",
       "starters": [
         {
-          "player": "Travis Kelce",
-          "pos": "Rd 1",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 1 (Pick #6)",
-          "ringNumber": 2
-        },
-        {
-          "player": "CeeDee Lamb",
-          "pos": "Rd 2",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 2 (Pick #15)",
-          "ringNumber": 2
-        },
-        {
-          "player": "Jaylen Waddle",
-          "pos": "Rd 3",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 3 (Pick #26)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Travis Etienne Jr.",
-          "pos": "Rd 4",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #35)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Miles Sanders",
-          "pos": "Rd 5",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 5 (Pick #46)",
-          "ringNumber": 1
-        },
-        {
           "player": "Justin Fields",
-          "pos": "Rd 6",
+          "pos": "QB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 6 (Pick #55)",
           "ringNumber": 1
         },
         {
-          "player": "Christian Watson",
-          "pos": "Rd 7",
+          "player": "Travis Etienne Jr.",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 7 (Pick #66)",
+          "draftInfo": "Drafted Rd 4 (Pick #35)",
           "ringNumber": 1
         },
         {
-          "player": "J.K. Dobbins",
-          "pos": "Rd 8",
+          "player": "Devin Singletary",
+          "pos": "RB",
           "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 8 (Pick #75)",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
           "ringNumber": 1
         },
         {
-          "player": "Brian Robinson Jr.",
-          "pos": "Rd 9",
+          "player": "CeeDee Lamb",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
-          "draftInfo": "Drafted Rd 9 (Pick #86)",
+          "draftInfo": "Drafted Rd 2 (Pick #15)",
           "ringNumber": 2
-        }
-      ],
-      "bench": [
+        },
+        {
+          "player": "Puka Nacua",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Travis Kelce",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 1 (Pick #6)",
+          "ringNumber": 2
+        },
         {
           "player": "Gabe Davis",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "FLEX",
+          "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #95)",
           "ringNumber": 1
         },
         {
-          "player": "Zach Charbonnet",
-          "pos": "BN",
+          "player": "Adam Thielen",
+          "pos": "FLEX",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 2
+        },
+        {
+          "player": "Raiders",
+          "pos": "D/ST",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "Christian Watson",
+          "pos": "WR",
           "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 7 (Pick #66)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Brian Robinson Jr.",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 9 (Pick #86)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Rashid Shaheed",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Romeo Doubs",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Clyde Edwards-Helaire",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Khalil Herbert",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "Jaylen Waddle",
+          "pos": "Rd 3",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 3 (Pick #26)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Miles Sanders",
+          "pos": "Rd 5",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 5 (Pick #46)",
+          "ringNumber": 3
+        },
+        {
+          "player": "J.K. Dobbins",
+          "pos": "Rd 8",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 8 (Pick #75)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Zach Charbonnet",
+          "pos": "Rd 11",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 11 (Pick #106)",
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6006",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Cowboys D/ST",
+          "pos": "Rd 12",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #115)",
           "ringNumber": 1
         },
         {
           "player": "Tank Bigsby",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 13",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #126)",
           "ringNumber": 1
         },
         {
           "player": "Rashod Bateman",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 14",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #135)",
           "ringNumber": 1
         },
         {
           "player": "Aaron Rodgers",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 15",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 15 (Pick #146)",
-          "ringNumber": 2
+          "ringNumber": 3
         }
-      ],
-      "draftedContributors": [],
-      "totalRingsAwarded": 15
+      ]
     },
     "2024": {
-      "seasonYear": 2024,
-      "championTeam": "L Central",
-      "championOwner": "Andrew Wilson",
       "starters": [
         {
+          "player": "Jayden Daniels",
+          "pos": "QB",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 14 (Pick #134)",
+          "ringNumber": 1
+        },
+        {
           "player": "Jonathan Taylor",
-          "pos": "Rd 1",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 1 (Pick #7)",
@@ -77813,48 +77931,116 @@ window.LEAGUE_DATA = {
         },
         {
           "player": "Kyren Williams",
-          "pos": "Rd 2",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 2 (Pick #14)",
           "ringNumber": 1
         },
         {
-          "player": "Travis Kelce",
-          "pos": "Rd 3",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 3 (Pick #27)",
-          "ringNumber": 3
-        },
-        {
-          "player": "DJ Moore",
-          "pos": "Rd 4",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 4 (Pick #34)",
-          "ringNumber": 2
-        },
-        {
-          "player": "DeVonta Smith",
-          "pos": "Rd 5",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 5 (Pick #47)",
-          "ringNumber": 1
-        },
-        {
           "player": "Malik Nabers",
-          "pos": "Rd 6",
+          "pos": "WR",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 6 (Pick #54)",
           "ringNumber": 1
         },
         {
+          "player": "Jauan Jennings",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Jonnu Smith",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "DJ Moore",
+          "pos": "FLEX",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 4 (Pick #34)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Zach Charbonnet",
+          "pos": "FLEX",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 2
+        },
+        {
+          "player": "Seahawks",
+          "pos": "D/ST",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "Travis Kelce",
+          "pos": "TE",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 3 (Pick #27)",
+          "ringNumber": 3
+        },
+        {
+          "player": "Tyrone Tracy Jr.",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Cooper Kupp",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 2
+        },
+        {
+          "player": "Alexander Mattison",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "J.K. Dobbins",
+          "pos": "RB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 2
+        }
+      ],
+      "draftedContributors": [
+        {
+          "player": "DeVonta Smith",
+          "pos": "Rd 5",
+          "role": "Drafted Contributor",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 5 (Pick #47)",
+          "ringNumber": 1
+        },
+        {
           "player": "Chris Godwin Jr.",
           "pos": "Rd 7",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 7 (Pick #67)",
           "ringNumber": 1
@@ -77862,7 +78048,7 @@ window.LEAGUE_DATA = {
         {
           "player": "Javonte Williams",
           "pos": "Rd 8",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 8 (Pick #74)",
           "ringNumber": 1
@@ -77870,98 +78056,167 @@ window.LEAGUE_DATA = {
         {
           "player": "Diontae Johnson",
           "pos": "Rd 9",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 9 (Pick #87)",
           "ringNumber": 1
-        }
-      ],
-      "bench": [
+        },
         {
           "player": "Ladd McConkey",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 10",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #94)",
           "ringNumber": 1
         },
         {
           "player": "Trey Benson",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 11",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 11 (Pick #107)",
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6020",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Jets D/ST",
+          "pos": "Rd 12",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #114)",
           "ringNumber": 1
         },
         {
           "player": "Dak Prescott",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 13",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #127)",
+          "ringNumber": 3
+        }
+      ]
+    },
+    "2025": {
+      "starters": [
+        {
+          "player": "Joe Burrow",
+          "pos": "QB",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
           "ringNumber": 1
         },
         {
-          "player": "Jayden Daniels",
-          "pos": "BN",
-          "role": "Bench",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 14 (Pick #134)",
-          "ringNumber": 1
-        }
-      ],
-      "draftedContributors": [],
-      "totalRingsAwarded": 14
-    },
-    "2025": {
-      "seasonYear": 2025,
-      "championTeam": "Human Eros TDs",
-      "championOwner": "Dylan Soth",
-      "starters": [
-        {
           "player": "Saquon Barkley",
-          "pos": "Rd 1",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 1 (Pick #3)",
           "ringNumber": 1
         },
         {
-          "player": "Puka Nacua",
-          "pos": "Rd 2",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 2 (Pick #18)",
-          "ringNumber": 1
-        },
-        {
           "player": "Chase Brown",
-          "pos": "Rd 3",
+          "pos": "RB",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 3 (Pick #23)",
           "ringNumber": 1
         },
         {
+          "player": "Puka Nacua",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 2 (Pick #18)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Chris Olave",
+          "pos": "WR",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 9 (Pick #83)",
+          "ringNumber": 1
+        },
+        {
+          "player": "Harold Fannin Jr.",
+          "pos": "TE",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
           "player": "Mike Evans",
-          "pos": "Rd 4",
+          "pos": "FLEX",
           "role": "Starter",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 4 (Pick #38)",
           "ringNumber": 1
         },
         {
+          "player": "Travis Etienne Jr.",
+          "pos": "FLEX",
+          "role": "Starter",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 11 (Pick #103)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Lions",
+          "pos": "D/ST",
+          "role": "Starter",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "bench": [
+        {
+          "player": "Jameson Williams",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "Draft",
+          "draftInfo": "Drafted Rd 8 (Pick #78)",
+          "ringNumber": 2
+        },
+        {
+          "player": "Trevor Lawrence",
+          "pos": "QB",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Juwan Johnson",
+          "pos": "TE",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Parker Washington",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        },
+        {
+          "player": "Luther Burden III",
+          "pos": "WR",
+          "role": "Bench",
+          "acq": "FA",
+          "draftInfo": "Free Agent / Waivers",
+          "ringNumber": 1
+        }
+      ],
+      "draftedContributors": [
+        {
           "player": "Breece Hall",
           "pos": "Rd 5",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 5 (Pick #43)",
           "ringNumber": 2
@@ -77969,7 +78224,7 @@ window.LEAGUE_DATA = {
         {
           "player": "Courtland Sutton",
           "pos": "Rd 6",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 6 (Pick #58)",
           "ringNumber": 1
@@ -77977,72 +78232,44 @@ window.LEAGUE_DATA = {
         {
           "player": "T.J. Hockenson",
           "pos": "Rd 7",
-          "role": "Starter",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 7 (Pick #63)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Jameson Williams",
-          "pos": "Rd 8",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 8 (Pick #78)",
           "ringNumber": 2
         },
         {
-          "player": "Chris Olave",
-          "pos": "Rd 9",
-          "role": "Starter",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 9 (Pick #83)",
-          "ringNumber": 1
-        }
-      ],
-      "bench": [
-        {
           "player": "Kyler Murray",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 10",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 10 (Pick #98)",
-          "ringNumber": 1
-        },
-        {
-          "player": "Travis Etienne Jr.",
-          "pos": "BN",
-          "role": "Bench",
-          "acq": "Draft",
-          "draftInfo": "Drafted Rd 11 (Pick #103)",
           "ringNumber": 2
         },
         {
           "player": "Josh Downs",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 12",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 12 (Pick #118)",
           "ringNumber": 1
         },
         {
           "player": "Colston Loveland",
-          "pos": "BN",
-          "role": "Bench",
+          "pos": "Rd 13",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 13 (Pick #123)",
           "ringNumber": 1
         },
         {
-          "player": "Empty / Bye6002",
-          "pos": "BN",
-          "role": "Bench",
+          "player": "Bills D/ST",
+          "pos": "Rd 14",
+          "role": "Drafted Contributor",
           "acq": "Draft",
           "draftInfo": "Drafted Rd 14 (Pick #138)",
           "ringNumber": 1
         }
-      ],
-      "draftedContributors": [],
-      "totalRingsAwarded": 14
+      ]
     }
   },
   "allTimePlayerRings": [
@@ -78581,8 +78808,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6022",
-      "norm": "Empty / Bye6022",
+      "player": "Cardinals D/ST",
+      "norm": "Cardinals D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -78791,8 +79018,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6016",
-      "norm": "Empty / Bye6016",
+      "player": "Vikings D/ST",
+      "norm": "Vikings D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -79046,8 +79273,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6014",
-      "norm": "Empty / Bye6014",
+      "player": "Rams D/ST",
+      "norm": "Rams D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -79241,8 +79468,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6017",
-      "norm": "Empty / Bye6017",
+      "player": "Patriots D/ST",
+      "norm": "Patriots D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -79496,8 +79723,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6011",
-      "norm": "Empty / Bye6011",
+      "player": "Colts D/ST",
+      "norm": "Colts D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -79646,8 +79873,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6006",
-      "norm": "Empty / Bye6006",
+      "player": "Cowboys D/ST",
+      "norm": "Cowboys D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -79811,8 +80038,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6020",
-      "norm": "Empty / Bye6020",
+      "player": "Jets D/ST",
+      "norm": "Jets D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -80006,8 +80233,8 @@ window.LEAGUE_DATA = {
       ]
     },
     {
-      "player": "Empty / Bye6002",
-      "norm": "Empty / Bye6002",
+      "player": "Bills D/ST",
+      "norm": "Bills D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -80531,7 +80758,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16022": {
-      "player": "Empty / Bye6022",
+      "player": "Cardinals D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -80727,7 +80954,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16016": {
-      "player": "Empty / Bye6016",
+      "player": "Vikings D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -80965,7 +81192,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16014": {
-      "player": "Empty / Bye6014",
+      "player": "Rams D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -81147,7 +81374,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16017": {
-      "player": "Empty / Bye6017",
+      "player": "Patriots D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -81385,7 +81612,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16011": {
-      "player": "Empty / Bye6011",
+      "player": "Colts D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -81525,7 +81752,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16006": {
-      "player": "Empty / Bye6006",
+      "player": "Cowboys D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -81679,7 +81906,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16020": {
-      "player": "Empty / Bye6020",
+      "player": "Jets D/ST",
       "ringsCount": 1,
       "rings": [
         {
@@ -81861,7 +82088,7 @@ window.LEAGUE_DATA = {
       ]
     },
     "espn:-16002": {
-      "player": "Empty / Bye6002",
+      "player": "Bills D/ST",
       "ringsCount": 1,
       "rings": [
         {
