@@ -282,6 +282,8 @@
           class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">DRAFT</button>
         <button onclick="switchTab('analytics')" id="nav-analytics"
           class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">ANALYTICS</button>
+        <button onclick="switchTab('challenges')" id="nav-challenges"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300">CHALLENGES</button>
       </nav>
 
       <div class="text-xs text-emerald-500 font-mono flex items-center gap-2">
@@ -878,6 +880,312 @@
       </div>
     </div>
 
+  
+    <!-- TAB 8: CHALLENGES & BOUNTIES (2026) -->
+    <div id="tab-challenges" class="tab-content hidden">
+      
+      <!-- Top Banner -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ 2026_SEASON_WEEKLY_BOUNTIES</div>
+        <h2 class="text-2xl font-black text-emerald-300 crt-glow">2026 WEEKLY CHALLENGE &amp; BOUNTY PORTAL</h2>
+        <p class="text-xs text-emerald-300 mt-1">14-Week Regular Season Challenge Series. Win #1 qualifies your franchise. Win #2+ pays out $10.00 cash per subsequent win!</p>
+      </div>
+
+      <!-- Payout & Rules Engine -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="crt-box p-4 rounded">
+          <div class="text-xs font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-2">&gt; RULE 01: WEEKLY GOAL</div>
+          <p class="text-xs text-emerald-200">Each week features a unique roster goal, performance milestone, or platform projection roast.</p>
+        </div>
+        <div class="crt-box p-4 rounded">
+          <div class="text-xs font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-2">&gt; RULE 02: THE STACKER</div>
+          <p class="text-xs text-emerald-200"><span class="text-emerald-300 font-bold">Win #1</span> qualifies your franchise. <span class="text-emerald-300 font-bold">Win #2, #3, #4+</span> pays out <span class="text-emerald-400 font-black">$10.00 cash</span> each directly from the commissioner.</p>
+        </div>
+        <div class="crt-box p-4 rounded">
+          <div class="text-xs font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-2">&gt; RULE 03: ZERO BUY-IN</div>
+          <p class="text-xs text-emerald-200">No extra upfront money to collect or manage. Commissioner sponsors repeat bounties straight to your wallet.</p>
+        </div>
+      </div>
+
+      <!-- 14-Week Bounty Slate Cards -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="flex items-center justify-between border-b border-emerald-700 pb-2 mb-4">
+          <h3 class="text-sm font-bold text-emerald-300 crt-glow">&gt;_ 14-WEEK REGULAR SEASON CHALLENGE SLATE</h3>
+          <span class="text-xs text-emerald-500 font-normal">Season 2026 Ready</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 01</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🚀</span>
+              <span>Hot Start</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Highest single-team score of opening week</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Team High Score</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 02</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>📈</span>
+              <span>Zero to Hero</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Largest positive points jump from Week 1 to Week 2</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Points Differential</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 03</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🎽</span>
+              <span>Julio Jonesing</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Individual offensive starter with the most points scored without a TD (no K/DST)</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Player Performance</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 04</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🪓</span>
+              <span>The Massacre</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Largest blowout margin of victory in a weekly matchup</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Margin of Victory</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 05</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🥜</span>
+              <span>Lick My Nuts, Yahoo</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Team with the most points scored over their pre-game projected total</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Projection Bust</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 06</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>💌</span>
+              <span>I’m Sorry for Earlier Yahoo, I love you</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Team closest to their exact pre-game projected score (over or under)</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Projection Precision</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 07</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🏁</span>
+              <span>Halftime Bonus</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">#1 overall manager on the standings table through Week 7</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Midseason Milestone</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 08</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🦅</span>
+              <span>The Vulture Award</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Starting player with the lowest total yards who still scored 2+ Touchdowns</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ TD Specialist</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 09</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🪑</span>
+              <span>12th Man (Bench Hero)</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Highest individual scoring player left on a manager's bench</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Bench Blunder</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 10</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🎰</span>
+              <span>The Dimebag</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Team with the most individual starters scoring double digits (10.0+ pts)</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Roster Depth</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 11</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🥩</span>
+              <span>Ground & Pound</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Highest combined points from starting Running Backs (RB1 + RB2)</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Position Group</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 12</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🍗</span>
+              <span>Thanksgiving Feast</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Most combined points from players in the Thanksgiving & Black Friday holiday games</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Holiday Slate</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 13</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>🫀</span>
+              <span>The Cardiac Arrest</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Closest margin of victory across the league (narrowest win)</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Matchup Nailbiter</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        <div class="crt-box p-4 rounded relative hover:border-emerald-400 transition-all flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-emerald-900 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-emerald-950 border border-emerald-600 text-emerald-300 font-bold text-xs">WEEK 14</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-black border border-emerald-800 text-emerald-400">UPCOMING ⏳</span>
+            </div>
+            <div class="text-base font-black text-emerald-300 crt-glow mb-1 flex items-center gap-1.5">
+              <span>👑</span>
+              <span>Regular Season Scoring Title</span>
+            </div>
+            <p class="text-xs text-emerald-200 mb-3 leading-relaxed">Overall Total Points For (PF) champion heading into the playoffs</p>
+          </div>
+          
+          <div class="pt-2 border-t border-emerald-900/80 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-emerald-500 font-normal">🏷️ Season Grand Finale</span>
+            <span class="px-2 py-0.5 bg-emerald-900/60 border border-emerald-500 text-emerald-300 font-bold">$10 Stacker</span>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+
+    </div>
+    
   </main>
 
   <!-- Mobile Bottom Navigation Bar -->
@@ -916,7 +1224,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_38"></script>
+  <script src="leagueData.js?v=20260818_40"></script>
 
   <!-- Application Logic -->
   <script>
