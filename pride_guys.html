@@ -883,7 +883,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_64"></script>
+  <script src="prideGuysData.js?v=20260818_65"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1363,8 +1363,8 @@
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">PF</th>
-        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">PA</th>
+        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
+        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
       list.forEach((item, idx) => {
@@ -1491,8 +1491,8 @@
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
-          <td class="p-2.5 text-center font-bold text-pink-700">${item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-          <td class="p-2.5 text-center text-pink-600">${item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center font-bold text-pink-700">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center text-pink-600">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
         `;
         tbody.appendChild(tr);
       });
