@@ -82103,3 +82103,4 @@ window.LEAGUE_DATA = {
     }
   }
 };
+window.PRIDE_GUYS_DATA = window.LEAGUE_DATA;
