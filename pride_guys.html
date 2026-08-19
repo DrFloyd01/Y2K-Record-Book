@@ -273,7 +273,7 @@
         <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">👑 CHAMPS</button>
         <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">💅 TEAMS</button>
         <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📜 DRAFT</button>
-        <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📊 ANALYTICS</button>
+        <!-- <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn ...">ANALYTICS</button> -->
       </nav>
 
       <!-- Status Pill -->
@@ -878,14 +878,12 @@
       <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
         <span>DRAFT</span>
       </button>
-      <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
-        <span>ANALYTICS</span>
-      </button>
+      <!-- <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn ...">ANALYTICS</button> -->
     </div>
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_52"></script>
+  <script src="prideGuysData.js?v=20260818_63"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1313,6 +1311,8 @@
         if (currentSeason === 'allTime') {
           if (field === 'wins') field = 'winPct';
           if (field === 'ovrRecord') field = 'ovrWinPct';
+          if (field === 'pointsFor') field = 'pfg';
+          if (field === 'pointsAgainst') field = 'pag';
         }
 
         let vA = a[field];

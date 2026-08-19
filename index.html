@@ -294,8 +294,7 @@
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">TEAMS</button>
         <button onclick="switchTab('draft')" id="nav-draft"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">DRAFT</button>
-        <button onclick="switchTab('analytics')" id="nav-analytics"
-          class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">ANALYTICS</button>
+        <!-- <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn ...">ANALYTICS</button> -->
         <button onclick="switchTab('challenges')" id="nav-challenges"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">CHALLENGES</button>
       </nav>
@@ -1508,15 +1507,12 @@
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
         <span>DRAFT</span>
       </button>
-      <button onclick="switchTab('analytics')" id="mobile-nav-analytics"
-        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-emerald-700">
-        <span>ANALYTICS</span>
-      </button>
+      <!-- <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn ...">ANALYTICS</button> -->
     </div>
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_62"></script>
+  <script src="leagueData.js?v=20260818_63"></script>
 
   <!-- Application Logic -->
   <script>
@@ -1914,6 +1910,8 @@
         if (currentSeason === 'allTime') {
           if (field === 'wins') field = 'winPct';
           if (field === 'ovrRecord') field = 'ovrWinPct';
+          if (field === 'pointsFor') field = 'pfg';
+          if (field === 'pointsAgainst') field = 'pag';
         }
 
         let vA = a[field];
@@ -1964,8 +1962,8 @@
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">PF</th>
-        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">PA</th>
+        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
+        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
       list.forEach((item, idx) => {
@@ -2094,8 +2092,8 @@
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-300">${item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
-          <td class="p-2.5 text-center text-emerald-500">${item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -3893,7 +3891,7 @@
               <h2 class="text-2xl font-black text-emerald-300 crt-glow">${owner}</h2>
               <p class="text-emerald-500 font-bold text-xs mt-0.5 font-mono">${st.teamName} • ${st.seasonsCount} Seasons Active</p>
               
-              <div class="grid grid-cols-2 sm:grid-cols-6 gap-2 mt-3 text-center font-mono">
+              <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 mt-3 text-center font-mono">
                 <div class="bg-black/60 border border-emerald-900 p-2 rounded">
                   <span class="text-[10px] uppercase font-bold text-emerald-600 block">REG SEASON</span>
                   <span class="text-base font-extrabold text-emerald-300">${st.wins}-${st.losses}</span>
@@ -3910,9 +3908,14 @@
                   <span class="text-[10px] text-emerald-500 block">${st.playoffApps}/${st.seasonsCount} Playoffs</span>
                 </div>
                 <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOTAL PF</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.pointsFor.toLocaleString()}</span>
-                  <span class="text-[10px] text-emerald-500 block">${(st.pointsFor / (st.wins + st.losses)).toFixed(1)} PPG</span>
+                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">PF / G</span>
+                  <span class="text-base font-extrabold text-emerald-300">${(st.pointsFor / (st.wins + st.losses)).toFixed(1)}</span>
+                  <span class="text-[10px] text-emerald-500 block">${st.pointsFor.toLocaleString()} PF</span>
+                </div>
+                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
+                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">PA / G</span>
+                  <span class="text-base font-extrabold text-emerald-300">${(st.pointsAgainst / (st.wins + st.losses)).toFixed(1)}</span>
+                  <span class="text-[10px] text-emerald-500 block">${st.pointsAgainst.toLocaleString()} PA</span>
                 </div>
                 <div class="bg-black/60 border border-emerald-900 p-2 rounded">
                   <span class="text-[10px] uppercase font-bold text-amber-500 block">CHAMPIONSHIPS</span>
