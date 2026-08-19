@@ -569,8 +569,8 @@
               <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; SEASON:</label>
               <select id="matchup-season-select" onchange="onMatchupSeasonChange()"
                 class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
-                <option value="2026">2026 SEASON (OFFICIAL SCHEDULE)</option>
-                <option value="2025" selected>2025 SEASON</option>
+                <option value="2026" selected>2026 SEASON (OFFICIAL SCHEDULE)</option>
+                <option value="2025">2025 SEASON</option>
                 <option value="2024">2024 SEASON</option>
                 <option value="2023">2023 SEASON</option>
                 <option value="2022">2022 SEASON</option>
@@ -1512,13 +1512,13 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_63"></script>
+  <script src="leagueData.js?v=20260818_64"></script>
 
   <!-- Application Logic -->
   <script>
     let currentTab = 'seasons';
-    let currentSeason = 2025;
-    let currentDraftSeason = 2025;
+    let currentSeason = 2026;
+    let currentDraftSeason = '2026';
     let currentSeasonsSubTab = 'actual';
     let standingsSortField = 'rank';
     let standingsSortAsc = true;
@@ -4478,8 +4478,8 @@
     }
 
     // WEEKLY MATCHUP HUBS LOGIC
-    let currentMatchupSeason = 2025;
-    let currentMatchupWeek = 3;
+    let currentMatchupSeason = 2026;
+    let currentMatchupWeek = 1;
     let currentMatchupMode = 'preview'; // 'preview' or 'recap'
 
     function initMatchupsTab() {
