@@ -1232,7 +1232,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="prideGuysData.js?v=20260818_48"></script>
+  <script src="prideGuysData.js?v=20260818_49"></script>
   <script>window.LEAGUE_DATA = window.PRIDE_GUYS_DATA;</script>
 
   <!-- Application Logic -->
@@ -1322,6 +1322,11 @@
 
     function switchTab(tabId) {
       currentTab = tabId;
+      if (typeof window !== 'undefined' && window.location && window.history && window.history.replaceState) {
+        if (window.location.hash !== `#${tabId}`) {
+          history.replaceState(null, null, `#${tabId}`);
+        }
+      }
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       const activeTabEl = document.getElementById(`tab-${tabId}`);
       if (activeTabEl) activeTabEl.classList.remove('hidden');

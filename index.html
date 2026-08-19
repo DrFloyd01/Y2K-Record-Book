@@ -1274,7 +1274,7 @@
   </nav>
 
   <!-- Load Data script -->
-  <script src="leagueData.js?v=20260818_48"></script>
+  <script src="leagueData.js?v=20260818_49"></script>
 
   <!-- Application Logic -->
   <script>
@@ -1320,10 +1320,31 @@
       renderStatsTable();
       initDraftTab();
       initMatchupsTab();
+
+      // Direct Deep Linking Support via URL Hash (e.g. #challenges or #bounties)
+      const initialHash = window.location.hash.replace('#', '').toLowerCase();
+      const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties'];
+      if (initialHash && validTabs.includes(initialHash)) {
+        const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
+        switchTab(targetTab);
+      }
+
+      window.addEventListener('hashchange', () => {
+        const newHash = window.location.hash.replace('#', '').toLowerCase();
+        if (newHash && validTabs.includes(newHash)) {
+          const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
+          if (currentTab !== targetTab) switchTab(targetTab);
+        }
+      });
     });
 
     function switchTab(tabId) {
       currentTab = tabId;
+      if (typeof window !== 'undefined' && window.location && window.history && window.history.replaceState) {
+        if (window.location.hash !== `#${tabId}`) {
+          history.replaceState(null, null, `#${tabId}`);
+        }
+      }
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById(`tab-${tabId}`).classList.remove('hidden');
 
