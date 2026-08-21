@@ -82109,70 +82109,88 @@
   "draftProfiles": {
     "Andrew Wilson": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 8.9,
-      "reachRating": "Aggressive Reacher (+8.9 ahead of ADP)",
-      "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
+      "avgReach": 4.0,
+      "reachRating": "Moderate Reacher (+4.0 ahead of ADP)",
+      "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
       "r1Tendency": "60% RB / 40% WR",
       "r1Detail": "3 RB, 2 WR in R1 (5 yrs)",
-      "archetype": "Aggressive Reacher / Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 40% WR). Reaches most aggressively on WR (+13.9 ahead of ADP). Drafts RB (+9.8 vs ADP) closest to consensus value. Practices late-round QB discipline (Rd 10.0 avg).",
+      "archetype": "Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 40% WR). Reaches most aggressively on WR (+11.1 ahead of ADP). Captures the most board surplus at QB (-26.1 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 2.2",
-        "QB": "Rd 10.0",
+        "QB": "Rd 8.6",
         "TE": "Rd 5.4",
         "DEF": "Rd 12.8"
       },
-      "topReachPos": "WR (+13.9 ahead of ADP)",
-      "topValuePos": "RB (+9.8 vs ADP)"
+      "topReachPos": "WR (+11.1 ahead of ADP)",
+      "topValuePos": "QB (-26.1 after ADP)",
+      "posReaches": {
+        "RB": 5.2,
+        "WR": 11.1,
+        "TE": -3.7,
+        "QB": -26.1
+      }
     },
     "Sean Belcher": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 25.4,
-      "reachRating": "Aggressive Reacher (+25.4 ahead of ADP)",
+      "avgReach": 7.7,
+      "reachRating": "Aggressive Reacher (+7.7 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
       "r1Tendency": "100% RB",
       "r1Detail": "5 RB in R1 (5 yrs)",
       "archetype": "Aggressive Reacher / Ironclad Hero RB Zealot",
-      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (5/5). Reaches most aggressively on WR (+43.0 ahead of ADP). Drafts RB (+0.3 vs ADP) closest to consensus value. Practices late-round QB discipline (Rd 12.0 avg).",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (5/5). Reaches most aggressively on WR (+17.3 ahead of ADP). Captures the most board surplus at QB (-10.9 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 2.6",
-        "QB": "Rd 12.0",
+        "QB": "Rd 6.0",
         "TE": "Rd 6.0",
         "DEF": "Rd 13.2"
       },
-      "topReachPos": "WR (+43.0 ahead of ADP)",
-      "topValuePos": "RB (+0.3 vs ADP)"
+      "topReachPos": "WR (+17.3 ahead of ADP)",
+      "topValuePos": "QB (-10.9 after ADP)",
+      "posReaches": {
+        "RB": 2.4,
+        "WR": 17.3,
+        "TE": -1.3,
+        "QB": -10.9
+      }
     },
     "Aidan O'Sullivan": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 4.7,
-      "reachRating": "Moderate Reacher (+4.7 ahead of ADP)",
-      "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
-      "r1Tendency": "50% RB / 25% WR / 25% TE",
-      "r1Detail": "2 RB, 1 WR, 1 TE in R1 (4 yrs)",
+      "avgReach": -0.3,
+      "reachRating": "Consensus Drafter (-0.3 vs ADP)",
+      "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
+      "r1Tendency": "40% RB / 40% WR / 20% TE",
+      "r1Detail": "2 RB, 2 WR, 1 TE in R1 (5 yrs)",
       "archetype": "Elite TE Reacher / Flexible Core",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (50% RB / 25% WR / 25% TE). Reaches most aggressively on WR (+7.4 ahead of ADP). Drafts RB (+1.7 vs ADP) closest to consensus value.",
+      "scoutingReport": "Maintains a split Round 1 philosophy (40% RB / 40% WR / 20% TE). Reaches most aggressively on RB (+2.4 ahead of ADP). Captures the most board surplus at QB (-12.6 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.4",
-        "WR": "Rd 2.8",
+        "WR": "Rd 2.2",
         "QB": "Rd 5.2",
-        "TE": "Rd 3.8",
+        "TE": "Rd 4.6",
         "DEF": "Rd 13.8"
       },
-      "topReachPos": "WR (+7.4 ahead of ADP)",
-      "topValuePos": "RB (+1.7 vs ADP)"
+      "topReachPos": "RB (+2.4 ahead of ADP)",
+      "topValuePos": "QB (-12.6 after ADP)",
+      "posReaches": {
+        "WR": 1.6,
+        "RB": 2.4,
+        "QB": -12.6,
+        "TE": -7.5
+      }
     },
     "James Carter": {
       "yearsSample": "2021\u20132022 (2 Drafts)",
-      "avgReach": 1.3,
-      "reachRating": "Consensus Drafter (+1.3 vs ADP)",
+      "avgReach": -1.4,
+      "reachRating": "Consensus Drafter (-1.4 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "1 RB, 1 WR in R1 (2 yrs)",
       "archetype": "BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+10.8 ahead of ADP). Captures the most board surplus at RB (-3.0 after ADP). Practices late-round QB discipline (Rd 12.0 avg).",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+6.6 ahead of ADP). Captures the most board surplus at QB (-27.0 after ADP). Practices late-round QB discipline (Rd 12.0 avg).",
       "firstPosAvg": {
         "RB": "Rd 3.0",
         "WR": "Rd 1.5",
@@ -82180,94 +82198,124 @@
         "TE": "Rd 6.0",
         "DEF": "Rd 13.0"
       },
-      "topReachPos": "WR (+10.8 ahead of ADP)",
-      "topValuePos": "RB (-3.0 after ADP)"
+      "topReachPos": "WR (+6.6 ahead of ADP)",
+      "topValuePos": "QB (-27.0 after ADP)",
+      "posReaches": {
+        "WR": 6.6,
+        "RB": -1.4,
+        "TE": -2.3,
+        "QB": -27.0
+      }
     },
     "Austin Geller": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 0.2,
-      "reachRating": "Consensus Drafter (+0.2 vs ADP)",
+      "avgReach": -0.1,
+      "reachRating": "Consensus Drafter (-0.1 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
       "r1Tendency": "60% RB / 40% WR",
       "r1Detail": "3 RB, 2 WR in R1 (5 yrs)",
       "archetype": "Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 40% WR). Reaches most aggressively on TE (+19.5 ahead of ADP). Captures the most board surplus at RB (-2.6 after ADP).",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 40% WR). Reaches most aggressively on WR (+7.1 ahead of ADP). Captures the most board surplus at QB (-15.1 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.4",
         "WR": "Rd 2.0",
-        "QB": "Rd 5.2",
-        "TE": "Rd 9.5",
+        "QB": "Rd 5.8",
+        "TE": "Rd 8.4",
         "DEF": "Rd 12.6"
       },
-      "topReachPos": "TE (+19.5 ahead of ADP)",
-      "topValuePos": "RB (-2.6 after ADP)"
+      "topReachPos": "WR (+7.1 ahead of ADP)",
+      "topValuePos": "QB (-15.1 after ADP)",
+      "posReaches": {
+        "WR": 7.1,
+        "RB": -2.6,
+        "QB": -15.1,
+        "TE": 0.9
+      }
     },
     "Dylan Soth": {
       "yearsSample": "2022\u20132025 (4 Drafts)",
-      "avgReach": 6.1,
-      "reachRating": "Aggressive Reacher (+6.1 ahead of ADP)",
-      "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
+      "avgReach": -0.1,
+      "reachRating": "Consensus Drafter (-0.1 vs ADP)",
+      "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "2 RB, 2 WR in R1 (4 yrs)",
       "archetype": "BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+6.3 ahead of ADP). Drafts RB (+5.8 vs ADP) closest to consensus value. Secures an elite starting QB early (Rd 3.5 avg).",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on TE (+2.4 ahead of ADP). Captures the most board surplus at QB (-6.2 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.8",
         "WR": "Rd 1.8",
-        "QB": "Rd 3.5",
-        "TE": "Rd 10.3",
+        "QB": "Rd 7.5",
+        "TE": "Rd 8.2",
         "DEF": "Rd 14.2"
       },
-      "topReachPos": "WR (+6.3 ahead of ADP)",
-      "topValuePos": "RB (+5.8 vs ADP)"
+      "topReachPos": "TE (+2.4 ahead of ADP)",
+      "topValuePos": "QB (-6.2 after ADP)",
+      "posReaches": {
+        "RB": 1.0,
+        "WR": -0.7,
+        "TE": 2.4,
+        "QB": -6.2
+      }
     },
     "Trace Bakulich": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 15.8,
-      "reachRating": "Aggressive Reacher (+15.8 ahead of ADP)",
-      "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
+      "avgReach": 4.2,
+      "reachRating": "Moderate Reacher (+4.2 ahead of ADP)",
+      "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
       "r1Tendency": "80% RB / 20% WR",
       "r1Detail": "4 RB, 1 WR in R1 (5 yrs)",
-      "archetype": "Aggressive Reacher / Heavy RB Anchor / Workhorse Targeter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (80% RB / 20% WR). Reaches most aggressively on RB (+27.0 ahead of ADP). Drafts WR (+5.8 vs ADP) closest to consensus value.",
+      "archetype": "Heavy RB Anchor / Workhorse Targeter",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (80% RB / 20% WR). Reaches most aggressively on WR (+9.4 ahead of ADP). Captures the most board surplus at QB (-20.6 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.2",
         "WR": "Rd 2.0",
         "QB": "Rd 7.2",
-        "TE": "Rd 8.5",
+        "TE": "Rd 9.6",
         "DEF": "Rd 12.2"
       },
-      "topReachPos": "RB (+27.0 ahead of ADP)",
-      "topValuePos": "WR (+5.8 vs ADP)"
+      "topReachPos": "WR (+9.4 ahead of ADP)",
+      "topValuePos": "QB (-20.6 after ADP)",
+      "posReaches": {
+        "RB": 8.1,
+        "WR": 9.4,
+        "QB": -20.6,
+        "TE": -9.5
+      }
     },
     "Michael Anderson": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 2.1,
-      "reachRating": "Consensus Drafter (+2.1 vs ADP)",
-      "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
+      "avgReach": 4.0,
+      "reachRating": "Moderate Reacher (+4.0 ahead of ADP)",
+      "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
       "r1Tendency": "60% RB / 20% WR / 20% TE",
       "r1Detail": "3 RB, 1 WR, 1 TE in R1 (5 yrs)",
       "archetype": "Elite TE Reacher / Flexible Core",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 20% WR / 20% TE). Reaches most aggressively on RB (+3.8 ahead of ADP). Drafts WR (+1.0 vs ADP) closest to consensus value.",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (60% RB / 20% WR / 20% TE). Reaches most aggressively on WR (+6.6 ahead of ADP). Captures the most board surplus at QB (-15.2 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 2.2",
-        "QB": "Rd 7.3",
-        "TE": "Rd 5.0",
+        "QB": "Rd 7.2",
+        "TE": "Rd 5.4",
         "DEF": "Rd 12.8"
       },
-      "topReachPos": "RB (+3.8 ahead of ADP)",
-      "topValuePos": "WR (+1.0 vs ADP)"
+      "topReachPos": "WR (+6.6 ahead of ADP)",
+      "topValuePos": "QB (-15.2 after ADP)",
+      "posReaches": {
+        "RB": 4.2,
+        "WR": 6.6,
+        "TE": -0.4,
+        "QB": -15.2
+      }
     },
     "Javier": {
       "yearsSample": "2021\u20132021 (1 Drafts)",
-      "avgReach": -7.2,
-      "reachRating": "Value Drafter (-7.2 after ADP)",
+      "avgReach": -5.3,
+      "reachRating": "Value Drafter (-5.3 after ADP)",
       "reachColor": "text-emerald-700 bg-emerald-50 border-emerald-300",
       "r1Tendency": "100% RB",
       "r1Detail": "1 RB in R1 (1 yrs)",
       "archetype": "Value Sniper / Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (1/1). Reaches most aggressively on WR (+9.0 ahead of ADP). Captures the most board surplus at RB (-17.3 after ADP). Practices late-round QB discipline (Rd 11.0 avg).",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (1/1). Reaches most aggressively on WR (+6.6 ahead of ADP). Captures the most board surplus at QB (-34.5 after ADP). Practices late-round QB discipline (Rd 11.0 avg).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 4.0",
@@ -82275,18 +82323,24 @@
         "TE": "Rd 9.0",
         "DEF": "Rd 8.0"
       },
-      "topReachPos": "WR (+9.0 ahead of ADP)",
-      "topValuePos": "RB (-17.3 after ADP)"
+      "topReachPos": "WR (+6.6 ahead of ADP)",
+      "topValuePos": "QB (-34.5 after ADP)",
+      "posReaches": {
+        "RB": -7.5,
+        "WR": 6.6,
+        "TE": 1.0,
+        "QB": -34.5
+      }
     },
     "Nathan Wells": {
       "yearsSample": "2022\u20132025 (4 Drafts)",
-      "avgReach": 12.6,
-      "reachRating": "Aggressive Reacher (+12.6 ahead of ADP)",
-      "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
+      "avgReach": 5.4,
+      "reachRating": "Moderate Reacher (+5.4 ahead of ADP)",
+      "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
       "r1Tendency": "100% WR",
       "r1Detail": "4 WR in R1 (4 yrs)",
-      "archetype": "Aggressive Reacher / Zero-RB / Elite WR Specialist",
-      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (4/4). Reaches most aggressively on WR (+22.3 ahead of ADP). Captures the most board surplus at QB (-10.0 after ADP). Secures an elite starting QB early (Rd 4.2 avg).",
+      "archetype": "Zero-RB / Elite WR Specialist",
+      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (4/4). Reaches most aggressively on WR (+14.4 ahead of ADP). Captures the most board surplus at QB (-12.1 after ADP). Secures an elite starting QB early (Rd 4.2 avg).",
       "firstPosAvg": {
         "RB": "Rd 2.2",
         "WR": "Rd 1.0",
@@ -82294,18 +82348,24 @@
         "TE": "Rd 5.2",
         "DEF": "Rd 11.5"
       },
-      "topReachPos": "WR (+22.3 ahead of ADP)",
-      "topValuePos": "QB (-10.0 after ADP)"
+      "topReachPos": "WR (+14.4 ahead of ADP)",
+      "topValuePos": "QB (-12.1 after ADP)",
+      "posReaches": {
+        "WR": 14.4,
+        "RB": 11.7,
+        "QB": -12.1,
+        "TE": -10.1
+      }
     },
     "Brendan Sanders": {
       "yearsSample": "2025\u20132025 (1 Drafts)",
-      "avgReach": -9.0,
-      "reachRating": "Value Drafter (-9.0 after ADP)",
+      "avgReach": -2.0,
+      "reachRating": "Value Drafter (-2.0 after ADP)",
       "reachColor": "text-emerald-700 bg-emerald-50 border-emerald-300",
       "r1Tendency": "100% WR",
       "r1Detail": "1 WR in R1 (1 yrs)",
-      "archetype": "Value Sniper / WR-Anchor / Value Opportunist",
-      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (1/1). Secures an elite starting QB early (Rd 3.0 avg).",
+      "archetype": "WR-Anchor / Value Opportunist",
+      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (1/1). Reaches most aggressively on TE (+2.0 ahead of ADP). Captures the most board surplus at QB (-3.7 after ADP). Secures an elite starting QB early (Rd 3.0 avg).",
       "firstPosAvg": {
         "RB": "Rd 5.0",
         "WR": "Rd 1.0",
@@ -82313,65 +82373,89 @@
         "TE": "Rd 2.0",
         "DEF": "Rd 14.0"
       },
-      "topReachPos": "Balanced",
-      "topValuePos": "Balanced"
+      "topReachPos": "TE (+2.0 ahead of ADP)",
+      "topValuePos": "QB (-3.7 after ADP)",
+      "posReaches": {
+        "WR": -3.2,
+        "TE": 2.0,
+        "QB": -3.7,
+        "RB": -0.2
+      }
     },
     "Mike Petro": {
       "yearsSample": "2024\u20132024 (1 Drafts)",
-      "avgReach": -11.0,
-      "reachRating": "Value Drafter (-11.0 after ADP)",
-      "reachColor": "text-emerald-700 bg-emerald-50 border-emerald-300",
+      "avgReach": 0.2,
+      "reachRating": "Consensus Drafter (+0.2 vs ADP)",
+      "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
       "r1Tendency": "100% WR",
       "r1Detail": "1 WR in R1 (1 yrs)",
-      "archetype": "Value Sniper / WR-Anchor / Value Opportunist",
-      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (1/1).",
+      "archetype": "WR-Anchor / Value Opportunist",
+      "scoutingReport": "Prefers building from the perimeter with a 100% Round 1 WR selection rate (1/1). Reaches most aggressively on WR (+6.2 ahead of ADP). Captures the most board surplus at QB (-19.0 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 4.0",
         "WR": "Rd 1.0",
         "QB": "Rd 5.0",
-        "TE": "N/A",
+        "TE": "Rd 8.0",
         "DEF": "Rd 12.0"
       },
-      "topReachPos": "Balanced",
-      "topValuePos": "Balanced"
+      "topReachPos": "WR (+6.2 ahead of ADP)",
+      "topValuePos": "QB (-19.0 after ADP)",
+      "posReaches": {
+        "WR": 6.2,
+        "RB": 2.5,
+        "QB": -19.0,
+        "TE": -6.0
+      }
     },
     "Tyler Hicks": {
       "yearsSample": "2022\u20132024 (3 Drafts)",
-      "avgReach": 15.1,
-      "reachRating": "Aggressive Reacher (+15.1 ahead of ADP)",
+      "avgReach": 7.1,
+      "reachRating": "Aggressive Reacher (+7.1 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
       "r1Tendency": "67% RB / 33% WR",
       "r1Detail": "2 RB, 1 WR in R1 (3 yrs)",
       "archetype": "Aggressive Reacher / Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (67% RB / 33% WR). Reaches most aggressively on RB (+12.4 ahead of ADP). Drafts WR (+10.0 vs ADP) closest to consensus value. Practices late-round QB discipline (Rd 9.3 avg).",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (67% RB / 33% WR). Reaches most aggressively on WR (+12.1 ahead of ADP). Captures the most board surplus at QB (-9.3 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.3",
         "WR": "Rd 2.0",
-        "QB": "Rd 9.3",
+        "QB": "Rd 6.7",
         "TE": "Rd 6.7",
         "DEF": "Rd 13.7"
       },
-      "topReachPos": "RB (+12.4 ahead of ADP)",
-      "topValuePos": "WR (+10.0 vs ADP)"
+      "topReachPos": "WR (+12.1 ahead of ADP)",
+      "topValuePos": "QB (-9.3 after ADP)",
+      "posReaches": {
+        "RB": 7.6,
+        "WR": 12.1,
+        "TE": 10.2,
+        "QB": -9.3
+      }
     },
     "Phillip Busick": {
       "yearsSample": "2023\u20132025 (2 Drafts)",
-      "avgReach": 40.2,
-      "reachRating": "Aggressive Reacher (+40.2 ahead of ADP)",
+      "avgReach": 12.7,
+      "reachRating": "Aggressive Reacher (+12.7 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "1 RB, 1 WR in R1 (2 yrs)",
       "archetype": "Aggressive Reacher / BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+84.5 ahead of ADP). Captures the most board surplus at RB (-4.0 after ADP). Practices late-round QB discipline (Rd 9.0 avg).",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+30.3 ahead of ADP). Captures the most board surplus at TE (-5.2 after ADP). Practices late-round QB discipline (Rd 9.0 avg).",
       "firstPosAvg": {
         "RB": "Rd 1.5",
         "WR": "Rd 1.5",
         "QB": "Rd 9.0",
-        "TE": "Rd 10.0",
+        "TE": "Rd 6.0",
         "DEF": "Rd 12.5"
       },
-      "topReachPos": "WR (+84.5 ahead of ADP)",
-      "topValuePos": "RB (-4.0 after ADP)"
+      "topReachPos": "WR (+30.3 ahead of ADP)",
+      "topValuePos": "TE (-5.2 after ADP)",
+      "posReaches": {
+        "WR": 30.3,
+        "RB": 0.0,
+        "QB": 0.5,
+        "TE": -5.2
+      }
     }
   }
 }
