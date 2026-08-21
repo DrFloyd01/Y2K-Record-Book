@@ -39,3 +39,4 @@ coverage/
 # Scratch & Temporary
 *.tmp
 *.csv
+!resources/adp/**/*.csv
