@@ -2483,6 +2483,41 @@ function renderLucideIcons() {
         `;
       }
 
+      // Build Draft History By Year for this owner
+      let availableDraftYears = [];
+      window.LEAGUE_DATA.seasons.forEach(yr => {
+        const sData = window.LEAGUE_DATA.seasonData[yr];
+        if (sData && sData.draftPicks && sData.draftPicks.some(p => p.ownerName === owner)) {
+          availableDraftYears.push(yr);
+        }
+      });
+      availableDraftYears.sort((a, b) => b - a);
+
+      let franchiseDraftHistorySection = '';
+      if (availableDraftYears.length > 0) {
+        const defaultYear = availableDraftYears[0];
+        const yearOptions = availableDraftYears.map(yr => `<option value="${yr}" ${yr === defaultYear ? 'selected' : ''}>${yr} Draft Class</option>`).join('');
+        
+        franchiseDraftHistorySection = `
+          <div class="crt-box rounded overflow-visible mt-6">
+            <div class="crt-box-header px-4 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="font-bold text-xs font-mono">
+                &gt;_ FRANCHISE_DRAFT_HISTORY
+              </div>
+              <div class="flex items-center gap-2">
+                <label class="text-[10px] uppercase font-bold text-emerald-500 font-mono">SEASON:</label>
+                <select id="franchise-draft-year-select" onchange="window.renderFranchiseDraftYear('${owner}')" class="bg-black text-emerald-300 border border-emerald-600 rounded px-2 py-1 text-xs font-mono focus:outline-none focus:border-emerald-400">
+                  ${yearOptions}
+                </select>
+              </div>
+            </div>
+            <div id="franchise-draft-picks-container" class="table-scroll-container">
+              <!-- Rendered by window.renderFranchiseDraftYear -->
+            </div>
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="crt-box rounded p-4 mb-6">
           <div class="flex flex-col md:flex-row items-center gap-4">
@@ -2534,9 +2569,7 @@ function renderLucideIcons() {
           </div>
         </div>
 
-        ${draftProfileSection}
-
-        <div class="crt-box rounded overflow-visible">
+        <div class="crt-box rounded overflow-visible mb-6">
           <div class="crt-box-header px-4 py-2 font-bold text-xs font-mono">
             &gt;_ FRANCHISE_HISTORY_EVOLUTION
           </div>
@@ -2559,8 +2592,71 @@ function renderLucideIcons() {
             </table>
           </div>
         </div>
+
+        ${draftProfileSection}
+
+        ${franchiseDraftHistorySection}
       `;
+
+      if (availableDraftYears.length > 0) {
+        window.renderFranchiseDraftYear(owner, availableDraftYears[0]);
+      }
     }
+
+    window.renderFranchiseDraftYear = function(owner, forcedYear) {
+      const sel = document.getElementById('franchise-draft-year-select');
+      const yr = forcedYear || (sel ? sel.value : null);
+      const container = document.getElementById('franchise-draft-picks-container');
+      if (!container || !yr) return;
+
+      const sData = window.LEAGUE_DATA.seasonData[yr];
+      if (!sData || !sData.draftPicks) {
+        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft records found for ${yr}.</div>`;
+        return;
+      }
+
+      const ownerPicks = sData.draftPicks.filter(p => p.ownerName === owner).sort((a, b) => (a.overallPick || 0) - (b.overallPick || 0));
+      if (ownerPicks.length === 0) {
+        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft picks recorded for ${owner} in ${yr}.</div>`;
+        return;
+      }
+
+      let pickRows = ownerPicks.map(p => {
+        const pName = p.playerName || p.player || 'Unknown Player';
+        const pos = p.position || p.pos || '-';
+        const rnd = p.round || '-';
+        const pickNum = p.pickInRound ? `${p.round}.${p.pickInRound < 10 ? '0' : ''}${p.pickInRound}` : (p.overallPick || '-');
+        const ovr = p.overallPick ? `#${p.overallPick}` : '-';
+        const team = p.teamName || '-';
+
+        return `
+          <tr class="border-b border-emerald-950/80 hover:bg-emerald-950/30 transition-colors">
+            <td class="p-2.5 font-mono font-bold text-emerald-400 text-center">${rnd}</td>
+            <td class="p-2.5 font-mono font-bold text-emerald-300 text-center">${pickNum} <span class="text-[10px] text-emerald-600">(${ovr})</span></td>
+            <td class="p-2.5 font-bold text-emerald-300 font-mono">${pName}</td>
+            <td class="p-2.5 text-center font-mono font-bold text-amber-400"><span class="px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-600/60 text-[11px]">${pos}</span></td>
+            <td class="p-2.5 font-mono text-emerald-500 text-xs">${team}</td>
+          </tr>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
+          <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
+            <tr>
+              <th class="p-2.5 text-center w-16">ROUND</th>
+              <th class="p-2.5 text-center w-28">PICK</th>
+              <th class="p-2.5">PLAYER SELECTED</th>
+              <th class="p-2.5 text-center w-20">POS</th>
+              <th class="p-2.5">FRANCHISE NAME</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${pickRows}
+          </tbody>
+        </table>
+      `;
+    };
 
 
     // TAB 6: DRAFT ORDER PAGE
