@@ -6596,7 +6596,7 @@
           "player": "Ravens",
           "teamName": "Ronny Man",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 5,
@@ -6803,7 +6803,7 @@
           "player": "Eagles",
           "teamName": "Good footbal...",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -6830,7 +6830,7 @@
           "player": "Jaguars",
           "teamName": "Show Me Dem TDS",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -6866,7 +6866,7 @@
           "player": "Vikings",
           "teamName": "The Waterboys",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -6884,7 +6884,7 @@
           "player": "Cardinals",
           "teamName": "Good footbal...",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -6893,7 +6893,7 @@
           "player": "Rams",
           "teamName": "The Mongol H...",
           "ownerName": "--Hidden--",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -6956,7 +6956,7 @@
           "player": "Texans",
           "teamName": "Trace's Team",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -6965,7 +6965,7 @@
           "player": "Chargers",
           "teamName": "Show Me Dem TDS",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -7001,7 +7001,7 @@
           "player": "Saints",
           "teamName": "The Mongol H...",
           "ownerName": "--Hidden--",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -7091,7 +7091,7 @@
           "player": "Titans",
           "teamName": "Ronny Man",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -7190,7 +7190,7 @@
           "player": "Bears",
           "teamName": "The Waterboys",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -8585,7 +8585,7 @@
           "player": "Browns",
           "teamName": "FUNdamentals",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -8603,7 +8603,7 @@
           "player": "Bears",
           "teamName": "RonnyMan2",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -8621,7 +8621,7 @@
           "player": "Rams",
           "teamName": "The Mamluks",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -8639,7 +8639,7 @@
           "player": "Jaguars",
           "teamName": "Hood Phenome...",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -8684,7 +8684,7 @@
           "player": "Vikings",
           "teamName": "#1 CumBoy",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -8774,7 +8774,7 @@
           "player": "Chargers",
           "teamName": "Bak2Bak",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -8828,7 +8828,7 @@
           "player": "Patriots",
           "teamName": "The Mamluks",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 15,
@@ -8900,7 +8900,7 @@
           "player": "Saints",
           "teamName": "#1 CumBoy",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -8927,7 +8927,7 @@
           "player": "Texans",
           "teamName": "RonnyMan2",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -10231,7 +10231,7 @@
           "player": "Steelers",
           "teamName": "Poopy Butt",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -10240,7 +10240,7 @@
           "player": "Bills",
           "teamName": "CUBA",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -10249,7 +10249,7 @@
           "player": "49ers",
           "teamName": "#2020BrainTr...",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -10258,7 +10258,7 @@
           "player": "Ravens",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -10267,7 +10267,7 @@
           "player": "Bears",
           "teamName": "The Janissaries",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -10276,7 +10276,7 @@
           "player": "Saints",
           "teamName": "Pacific Isla...",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -10456,7 +10456,7 @@
           "player": "Eagles",
           "teamName": "CUBA",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -10483,7 +10483,7 @@
           "player": "Seahawks",
           "teamName": "The Janissaries",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -10501,7 +10501,7 @@
           "player": "Patriots",
           "teamName": "Pacific Isla...",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -10627,7 +10627,7 @@
           "player": "Broncos",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -10636,7 +10636,7 @@
           "player": "Colts",
           "teamName": "#2020BrainTr...",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -12186,7 +12186,7 @@
           "player": "Steelers",
           "teamName": "I'm gonna wi...",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -12195,7 +12195,7 @@
           "player": "Buccaneers",
           "teamName": "#BrainTrauma",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -12204,7 +12204,7 @@
           "player": "Commanders",
           "teamName": "LIBYA rip Ga...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -12213,7 +12213,7 @@
           "player": "Rams",
           "teamName": "#MOONGANG ...",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -12222,7 +12222,7 @@
           "player": "Ravens",
           "teamName": "Just pain",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -12249,7 +12249,7 @@
           "player": "Chiefs",
           "teamName": "Matt's Team",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -12384,7 +12384,7 @@
           "player": "49ers",
           "teamName": "No I\u2019m gon...",
           "ownerName": "Boaz",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -12420,7 +12420,7 @@
           "player": "Browns",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -12501,7 +12501,7 @@
           "player": "Broncos",
           "teamName": "#MOONGANG ...",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -12573,7 +12573,7 @@
           "player": "Bills",
           "teamName": "Just pain",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -12591,7 +12591,7 @@
           "player": "Colts",
           "teamName": "LIBYA rip Ga...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -12753,7 +12753,7 @@
           "player": "Patriots",
           "teamName": "I'm gonna wi...",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         }
       ]
     },
@@ -15021,7 +15021,7 @@
           "player": "Bills",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 140,
@@ -15039,7 +15039,7 @@
           "player": "49ers",
           "teamName": "coop\u2019s shit",
           "ownerName": "Cooper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 142,
@@ -15048,7 +15048,7 @@
           "player": "Chargers",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 143,
@@ -15093,7 +15093,7 @@
           "player": "Rams",
           "teamName": "Ouchie",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 148,
@@ -15120,7 +15120,7 @@
           "player": "Buccaneers",
           "teamName": "Rats!",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 151,
@@ -15129,7 +15129,7 @@
           "player": "Titans",
           "teamName": "Rats!",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 152,
@@ -15138,7 +15138,7 @@
           "player": "Saints",
           "teamName": "The Dawn of Man-Ape",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 153,
@@ -15147,7 +15147,7 @@
           "player": "Dolphins",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 154,
@@ -15165,7 +15165,7 @@
           "player": "Colts",
           "teamName": "No I\u2019m gonna win UR gay",
           "ownerName": "Boaz",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 156,
@@ -15174,7 +15174,7 @@
           "player": "Ravens",
           "teamName": "Let\u2019s Ride \ud83d\ude24",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 157,
@@ -15183,7 +15183,7 @@
           "player": "Broncos",
           "teamName": "The Mr. Unlimited\u2019s",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 158,
@@ -15192,7 +15192,7 @@
           "player": "Steelers",
           "teamName": "Gl Hf (you\u2019re gay)",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "overallPick": 159,
@@ -15210,7 +15210,7 @@
           "player": "Packers",
           "teamName": "coop\u2019s shit",
           "ownerName": "Cooper",
-          "position": "-"
+          "position": "DEF"
         }
       ]
     },
@@ -17029,7 +17029,7 @@
           "player": "49ers",
           "teamName": "Trilobite Te...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 7,
@@ -17209,7 +17209,7 @@
           "player": "Cowboys",
           "teamName": "nick's Great...",
           "ownerName": "Nick",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -17218,7 +17218,7 @@
           "player": "Bills",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -17254,7 +17254,7 @@
           "player": "Eagles",
           "teamName": "coop\u2019s shit",
           "ownerName": "Cooper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -17272,7 +17272,7 @@
           "player": "Steelers",
           "teamName": "Gl Hf (you...",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -17308,7 +17308,7 @@
           "player": "Jets",
           "teamName": "No I\u2019m gon...",
           "ownerName": "Boaz",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -17353,7 +17353,7 @@
           "player": "Ravens",
           "teamName": "Can I Hit Yo...",
           "ownerName": "Torin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -17362,7 +17362,7 @@
           "player": "Broncos",
           "teamName": "Dusty Dynast...",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -17380,7 +17380,7 @@
           "player": "Patriots",
           "teamName": "Justin Time",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -17452,7 +17452,7 @@
           "player": "Dolphins",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -17776,7 +17776,7 @@
           "player": "Packers",
           "teamName": "Zaza Zealots",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -17929,7 +17929,7 @@
           "player": "Saints",
           "teamName": "coop\u2019s shit",
           "ownerName": "Cooper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -17938,7 +17938,7 @@
           "player": "Bengals",
           "teamName": "Trilobite Te...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -17965,7 +17965,7 @@
           "player": "Commanders",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -17974,7 +17974,7 @@
           "player": "Buccaneers",
           "teamName": "nick's Great...",
           "ownerName": "Nick",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -19636,7 +19636,7 @@
           "player": "Ravens",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 7,
@@ -19708,7 +19708,7 @@
           "player": "49ers",
           "teamName": "Skibidi Foot...",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 8,
@@ -19735,7 +19735,7 @@
           "player": "Cowboys",
           "teamName": "Old Leech",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 8,
@@ -20032,7 +20032,7 @@
           "player": "Jets",
           "teamName": "Dusty Dynast...",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -20068,7 +20068,7 @@
           "player": "Browns",
           "teamName": "Skibidi Foot...",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 12,
@@ -20131,7 +20131,7 @@
           "player": "Steelers",
           "teamName": "Gl Hf (you...",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -20185,7 +20185,7 @@
           "player": "Bills",
           "teamName": "Team Chaos",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -20194,7 +20194,7 @@
           "player": "Chiefs",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -20239,7 +20239,7 @@
           "player": "Dolphins",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -20275,7 +20275,7 @@
           "player": "Eagles",
           "teamName": "Old Leech",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -20302,7 +20302,7 @@
           "player": "Bears",
           "teamName": "Tess Finesse",
           "ownerName": "Tess",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 15,
@@ -20329,7 +20329,7 @@
           "player": "Texans",
           "teamName": "Globo Gym",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 15,
@@ -20437,7 +20437,7 @@
           "player": "Vikings",
           "teamName": "No I\u2019m gon...",
           "ownerName": "Boaz",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -21979,7 +21979,7 @@
           "player": "Broncos",
           "teamName": "AARPFL",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 6,
@@ -22177,7 +22177,7 @@
           "player": "Ravens",
           "teamName": "Blue's Balls",
           "ownerName": "Jasper",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 8,
@@ -22231,7 +22231,7 @@
           "player": "Eagles",
           "teamName": "Tess Finesse",
           "ownerName": "Tess",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 9,
@@ -22375,7 +22375,7 @@
           "player": "Steelers",
           "teamName": "Bad team not...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 10,
@@ -22438,7 +22438,7 @@
           "player": "Vikings",
           "teamName": "AARPFL",
           "ownerName": "Casey",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 11,
@@ -22573,7 +22573,7 @@
           "player": "Lions",
           "teamName": "Gl Hf (you...",
           "ownerName": "Trace",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -22636,7 +22636,7 @@
           "player": "Texans",
           "teamName": "Ho Chi Win City",
           "ownerName": "Phillip",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 13,
@@ -22708,7 +22708,7 @@
           "player": "Chiefs",
           "teamName": "Aaron codger",
           "ownerName": "Boaz",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 14,
@@ -22807,7 +22807,7 @@
           "player": "Chargers",
           "teamName": "Jelqaida",
           "ownerName": "Mike",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 15,
@@ -22825,7 +22825,7 @@
           "player": "Cardinals",
           "teamName": "Dusty\u2019s Di...",
           "ownerName": "Dustin",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 15,
@@ -22843,7 +22843,7 @@
           "player": "Bills",
           "teamName": "Globo Gym",
           "ownerName": "Dylan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -22915,7 +22915,7 @@
           "player": "Seahawks",
           "teamName": "Bad team not...",
           "ownerName": "Ryan",
-          "position": "-"
+          "position": "DEF"
         },
         {
           "round": 16,
@@ -63066,186 +63066,34 @@
     }
   },
   "draftProfiles": {
-    "Casey": {
-      "yearsSample": "2018\u20132025 (8 Drafts)",
-      "avgReach": 20.3,
-      "reachRating": "Heavy Reacher",
-      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
-      "r1Tendency": "100% RB (8/8)",
-      "r1Detail": "8 RBs in Round 1",
-      "archetype": "Ironclad Hero RB / Extreme Early Defense",
-      "scoutingReport": "Has drafted an RB in Round 1 in 100% of drafts (8 for 8). Triggers massive early defense runs in Round 9\u201310 (+70.1 reach), but waits on WRs until late Round 2/3.",
-      "firstPosAvg": {
-        "RB": "Rd 1.0",
-        "WR": "Rd 2.8",
-        "QB": "Rd 4.8",
-        "TE": "Rd 4.9",
-        "DEF": "Rd 9.6"
-      },
-      "topReachPos": "DST (+70.1 picks)",
-      "topValuePos": "RB (-3.4 picks)"
-    },
-    "Mike": {
-      "yearsSample": "2018\u20132025 (8 Drafts)",
-      "avgReach": 17.4,
-      "reachRating": "Heavy Reacher",
-      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
-      "r1Tendency": "50% RB / 50% WR",
-      "r1Detail": "4 RB, 4 WR (8 yrs)",
-      "archetype": "Balanced Core / Defense Early Reacher",
-      "scoutingReport": "Splits Round 1 evenly between top RBs and WRs. Targets mid-round QBs (Rd 5.8) while drafting starting defenses 5\u20136 rounds ahead of consensus (+66.9 reach).",
-      "firstPosAvg": {
-        "RB": "Rd 1.9",
-        "WR": "Rd 2.2",
-        "QB": "Rd 5.8",
-        "TE": "Rd 7.9",
-        "DEF": "Rd 10.9"
-      },
-      "topReachPos": "DST (+66.9 picks)",
-      "topValuePos": "RB (+5.2 picks)"
-    },
-    "Dylan": {
-      "yearsSample": "2018\u20132025 (8 Drafts)",
-      "avgReach": 4.9,
-      "reachRating": "Balanced",
-      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
-      "r1Tendency": "38% RB / 62% WR",
-      "r1Detail": "3 RB, 5 WR (8 yrs)",
-      "archetype": "WR-Heavy Anchor / Dual-Threat QB & TE Targeter",
-      "scoutingReport": "Favors elite WRs in Round 1 (62% rate). Balances early RB/WR foundation (Rd 2.0 avg) with aggressive early QB (Rd 4.8) and TE (Rd 5.2) investment, while completely punting defense until Round 12.5.",
-      "firstPosAvg": {
-        "RB": "Rd 2.0",
-        "WR": "Rd 2.1",
-        "QB": "Rd 4.8",
-        "TE": "Rd 5.2",
-        "DEF": "Rd 12.5"
-      },
-      "topReachPos": "DST (+41.5 picks)",
-      "topValuePos": "RB (-5.7 picks)"
-    },
     "Phillip": {
       "yearsSample": "2018\u20132025 (8 Drafts)",
-      "avgReach": 11.0,
-      "reachRating": "Moderate Reacher",
-      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
+      "avgReach": -8.5,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
       "r1Tendency": "50% RB / 38% WR / 12% TE",
-      "r1Detail": "4 RB, 3 WR, 1 TE (8 yrs)",
-      "archetype": "Skill-Position Heavy / Extreme QB Punter",
-      "scoutingReport": "Prioritizes early RB/WR combinations and tight ends while punting QB until Round 9.0. Reaches on defense in Round 11\u201312 (+53.0 reach).",
+      "r1Detail": "4 RB, 3 WR, 1 TE in R1 (8 yrs)",
+      "archetype": "Value Sniper / Elite TE Reacher / Flexible Core",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (50% RB / 38% WR / 12% TE). Reaches most aggressively on QB (+17.0 picks). Captures the most board surplus at RB (-12.2 picks). Practices late-round QB discipline (Rd 10.1 avg).",
       "firstPosAvg": {
         "RB": "Rd 1.9",
         "WR": "Rd 2.8",
-        "QB": "Rd 9.0",
+        "QB": "Rd 10.1",
         "TE": "Rd 8.2",
-        "DEF": "Rd 11.9"
-      },
-      "topReachPos": "DST (+53.0 picks)",
-      "topValuePos": "RB (-6.3 picks)"
-    },
-    "Trace": {
-      "yearsSample": "2018\u20132025 (8 Drafts)",
-      "avgReach": 4.6,
-      "reachRating": "Balanced",
-      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
-      "r1Tendency": "50% RB / 50% WR",
-      "r1Detail": "4 RB, 4 WR (8 yrs)",
-      "archetype": "Balanced Skill Core / Late QB & TE Value",
-      "scoutingReport": "50/50 split in Round 1 between RB and WR. Highly disciplined on waiting for QB (Rd 8.0) and TE (Rd 8.4) while letting starting WRs fall to him (-3.0 reach).",
-      "firstPosAvg": {
-        "RB": "Rd 2.2",
-        "WR": "Rd 1.9",
-        "QB": "Rd 8.0",
-        "TE": "Rd 8.4",
-        "DEF": "Rd 11.8"
-      },
-      "topReachPos": "DST (+49.1 picks)",
-      "topValuePos": "WR (-3.0 picks)"
-    },
-    "Ryan": {
-      "yearsSample": "2019\u20132025 (7 Drafts)",
-      "avgReach": 17.0,
-      "reachRating": "Heavy Reacher",
-      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
-      "r1Tendency": "71% RB / 29% WR",
-      "r1Detail": "5 RB, 2 WR (7 yrs)",
-      "archetype": "Workhorse RB Anchor / Early QB Hunter",
-      "scoutingReport": "71% RB rate in Round 1. Targets starting QBs early (Rd 4.6 avg) while letting tight ends fall to round 7.1 (+46.4 reach on defense).",
-      "firstPosAvg": {
-        "RB": "Rd 1.6",
-        "WR": "Rd 2.3",
-        "QB": "Rd 4.6",
-        "TE": "Rd 7.1",
-        "DEF": "Rd 11.4"
-      },
-      "topReachPos": "DST (+46.4 picks)",
-      "topValuePos": "TE (+4.0 picks)"
-    },
-    "Dustin": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 4.0,
-      "reachRating": "Balanced",
-      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
-      "r1Tendency": "40% RB / 40% WR",
-      "r1Detail": "2 RB, 2 WR (5 yrs)",
-      "archetype": "Disciplined Balanced Drafter / TE Punter",
-      "scoutingReport": "40/40 split on early RB/WR. Highly disciplined overall drafter (+4.0 avg reach) who extracts massive value at tight end (TEs fall -16.4 spots).",
-      "firstPosAvg": {
-        "RB": "Rd 2.8",
-        "WR": "Rd 2.0",
-        "QB": "Rd 6.6",
-        "TE": "Rd 6.6",
-        "DEF": "Rd 12.4"
-      },
-      "topReachPos": "DST (+39.8 picks)",
-      "topValuePos": "TE (-16.4 picks)"
-    },
-    "Boaz": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
-      "avgReach": 7.8,
-      "reachRating": "Moderate Reacher",
-      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
-      "r1Tendency": "40% RB / 60% WR",
-      "r1Detail": "2 RB, 3 WR (5 yrs)",
-      "archetype": "WR-First Strategist / Extreme Defense Punter",
-      "scoutingReport": "60% WR selection rate in Round 1 with an average 1st WR at Round 1.6. Punts defense further than anyone in the league (Rd 13.4 avg).",
-      "firstPosAvg": {
-        "RB": "Rd 2.0",
-        "WR": "Rd 1.6",
-        "QB": "Rd 7.4",
-        "TE": "Rd 7.0",
-        "DEF": "Rd 13.4"
-      },
-      "topReachPos": "DST (+27.0 picks)",
-      "topValuePos": "RB (-2.7 picks)"
-    },
-    "Cooper": {
-      "yearsSample": "2022\u20132023 (2 Drafts)",
-      "avgReach": -0.2,
-      "reachRating": "Value Drafter",
-      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-400",
-      "r1Tendency": "50% RB / 50% WR",
-      "r1Detail": "1 RB, 1 WR (2 yrs)",
-      "archetype": "Pure Value Drafter / BPA Disciplinarian",
-      "scoutingReport": "The most disciplined drafter in league history (-0.2 avg reach vs ADP). Never reaches on defenses or kickers and lets the board fall to him.",
-      "firstPosAvg": {
-        "RB": "Rd 1.5",
-        "WR": "Rd 2.5",
-        "QB": "Rd 7.5",
-        "TE": "Rd 9.5",
         "DEF": "Rd 12.0"
       },
-      "topReachPos": "RB (+8.6 picks)",
-      "topValuePos": "DST (-17.2 picks)"
+      "topReachPos": "QB (+17.0 picks)",
+      "topValuePos": "RB (-12.2 picks)"
     },
     "Jasper": {
       "yearsSample": "2022\u20132025 (4 Drafts)",
-      "avgReach": 7.6,
-      "reachRating": "Moderate Reacher",
+      "avgReach": 9.1,
+      "reachRating": "Aggressive Reacher",
       "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
       "r1Tendency": "75% RB / 25% WR",
-      "r1Detail": "3 RB, 1 WR (4 yrs)",
-      "archetype": "Early QB & Kicker Reacher / RB Focused",
-      "scoutingReport": "75% RB selection rate in Round 1. Targets QBs early in Round 4.2 and triggers early Kicker reaches (+24.7 reach).",
+      "r1Detail": "3 RB, 1 WR in R1 (4 yrs)",
+      "archetype": "Aggressive Reacher / Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (75% RB / 25% WR). Reaches most aggressively on RB (+7.0 picks). Captures the most board surplus at WR (-0.2 picks). Secures an elite starting QB early (Rd 4.2 avg).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 1.8",
@@ -63253,18 +63101,189 @@
         "TE": "Rd 6.8",
         "DEF": "Rd 9.5"
       },
-      "topReachPos": "K (+24.7 picks)",
-      "topValuePos": "QB (-5.5 picks)"
+      "topReachPos": "RB (+7.0 picks)",
+      "topValuePos": "WR (-0.2 picks)"
+    },
+    "Ryan": {
+      "yearsSample": "2019\u20132025 (7 Drafts)",
+      "avgReach": 4.5,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-amber-300 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "71% RB / 29% WR",
+      "r1Detail": "5 RB, 2 WR in R1 (7 yrs)",
+      "archetype": "Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (71% RB / 29% WR). Reaches most aggressively on QB (+13.2 picks). Captures the most board surplus at RB (-0.4 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 1.6",
+        "WR": "Rd 2.3",
+        "QB": "Rd 5.1",
+        "TE": "Rd 7.1",
+        "DEF": "Rd 9.9"
+      },
+      "topReachPos": "QB (+13.2 picks)",
+      "topValuePos": "RB (-0.4 picks)"
+    },
+    "Dylan": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": -5.0,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "38% RB / 62% WR",
+      "r1Detail": "3 RB, 5 WR in R1 (8 yrs)",
+      "archetype": "Value Sniper / WR-Anchor / Value Opportunist",
+      "scoutingReport": "Favors high-upside wide receivers in Round 1 (38% RB / 62% WR). Captures the most board surplus at RB (-10.0 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 2.1",
+        "QB": "Rd 5.3",
+        "TE": "Rd 5.2",
+        "DEF": "Rd 12.5"
+      },
+      "topReachPos": "WR (-1.6 picks)",
+      "topValuePos": "RB (-10.0 picks)"
+    },
+    "Dustin": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 2.1,
+      "reachRating": "Consensus Drafter",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "40% RB / 40% WR / 20% QB",
+      "r1Detail": "2 RB, 2 WR, 1 QB in R1 (5 yrs)",
+      "archetype": "Dual-Threat QB Pioneer / Early Aggressor",
+      "scoutingReport": "Maintains a split Round 1 philosophy (40% RB / 40% WR / 20% QB). Reaches most aggressively on WR (+10.6 picks). Drafts RB (+2.8 picks) closest to consensus value.",
+      "firstPosAvg": {
+        "RB": "Rd 2.8",
+        "WR": "Rd 2.0",
+        "QB": "Rd 6.6",
+        "TE": "Rd 6.6",
+        "DEF": "Rd 12.4"
+      },
+      "topReachPos": "WR (+10.6 picks)",
+      "topValuePos": "RB (+2.8 picks)"
+    },
+    "Tess": {
+      "yearsSample": "2024\u20132025 (2 Drafts)",
+      "avgReach": -19.0,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "100% RB",
+      "r1Detail": "2 RB in R1 (2 yrs)",
+      "archetype": "Value Sniper / Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (2/2). Captures the most board surplus at RB (-19.0 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 3.5",
+        "QB": "Rd 7.0",
+        "TE": "Rd 4.5",
+        "DEF": "Rd 12.0"
+      },
+      "topReachPos": "RB (-19.0 picks)",
+      "topValuePos": "RB (-19.0 picks)"
+    },
+    "Boaz": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 2.2,
+      "reachRating": "Consensus Drafter",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "40% RB / 60% WR",
+      "r1Detail": "2 RB, 3 WR in R1 (5 yrs)",
+      "archetype": "WR-Anchor / Value Opportunist",
+      "scoutingReport": "Favors high-upside wide receivers in Round 1 (40% RB / 60% WR). Reaches most aggressively on TE (+28.5 picks). Captures the most board surplus at RB (-7.9 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 1.6",
+        "QB": "Rd 7.4",
+        "TE": "Rd 7.0",
+        "DEF": "Rd 13.4"
+      },
+      "topReachPos": "TE (+28.5 picks)",
+      "topValuePos": "RB (-7.9 picks)"
+    },
+    "Cooper": {
+      "yearsSample": "2022\u20132023 (2 Drafts)",
+      "avgReach": -3.3,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "1 RB, 1 WR in R1 (2 yrs)",
+      "archetype": "BPA Consensus Drafter",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on RB (+1.0 picks). Drafts WR (+0.7 picks) closest to consensus value.",
+      "firstPosAvg": {
+        "RB": "Rd 1.5",
+        "WR": "Rd 2.5",
+        "QB": "Rd 7.5",
+        "TE": "Rd 9.5",
+        "DEF": "Rd 12.0"
+      },
+      "topReachPos": "RB (+1.0 picks)",
+      "topValuePos": "WR (+0.7 picks)"
+    },
+    "Casey": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 3.4,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-amber-300 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "100% RB",
+      "r1Detail": "8 RB in R1 (8 yrs)",
+      "archetype": "Ironclad Hero RB Zealot",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (8/8). Reaches most aggressively on QB (+15.6 picks). Captures the most board surplus at TE (-4.6 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 2.8",
+        "QB": "Rd 5.5",
+        "TE": "Rd 4.9",
+        "DEF": "Rd 9.6"
+      },
+      "topReachPos": "QB (+15.6 picks)",
+      "topValuePos": "TE (-4.6 picks)"
+    },
+    "Trace": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": -4.9,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "4 RB, 4 WR in R1 (8 yrs)",
+      "archetype": "Value Sniper / BPA Consensus Drafter",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on TE (+5.0 picks). Captures the most board surplus at RB (-7.7 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 2.2",
+        "WR": "Rd 1.9",
+        "QB": "Rd 8.6",
+        "TE": "Rd 8.4",
+        "DEF": "Rd 11.8"
+      },
+      "topReachPos": "TE (+5.0 picks)",
+      "topValuePos": "RB (-7.7 picks)"
+    },
+    "Mike": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 10.3,
+      "reachRating": "Aggressive Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "4 RB, 4 WR in R1 (8 yrs)",
+      "archetype": "Aggressive Reacher / BPA Consensus Drafter",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+16.1 picks). Captures the most board surplus at QB (-11.5 picks).",
+      "firstPosAvg": {
+        "RB": "Rd 1.9",
+        "WR": "Rd 2.2",
+        "QB": "Rd 5.8",
+        "TE": "Rd 7.9",
+        "DEF": "Rd 10.9"
+      },
+      "topReachPos": "WR (+16.1 picks)",
+      "topValuePos": "QB (-11.5 picks)"
     },
     "Torin": {
       "yearsSample": "2023\u20132023 (1 Drafts)",
-      "avgReach": 25.4,
-      "reachRating": "Heavy Reacher",
-      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
-      "r1Tendency": "100% RB (1/1)",
-      "r1Detail": "1 RBs in Round 1",
-      "archetype": "BPA Value Drafter",
-      "scoutingReport": "Balanced positional draft profile.",
+      "avgReach": 0.0,
+      "reachRating": "Consensus Drafter",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "100% RB",
+      "r1Detail": "1 RB in R1 (1 yrs)",
+      "archetype": "Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (1/1). Secures an elite starting QB early (Rd 2.0 avg).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 3.0",
@@ -63272,18 +63291,18 @@
         "TE": "Rd 4.0",
         "DEF": "Rd 10.0"
       },
-      "topReachPos": "WR (+40.8 picks)",
-      "topValuePos": "QB (+0.5 picks)"
+      "topReachPos": "Balanced",
+      "topValuePos": "Balanced"
     },
     "Nick": {
       "yearsSample": "2023\u20132023 (1 Drafts)",
-      "avgReach": 4.7,
-      "reachRating": "Balanced",
-      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
-      "r1Tendency": "100% RB (1/1)",
-      "r1Detail": "1 RBs in Round 1",
-      "archetype": "BPA Value Drafter",
-      "scoutingReport": "Balanced positional draft profile.",
+      "avgReach": -2.0,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "100% RB",
+      "r1Detail": "1 RB in R1 (1 yrs)",
+      "archetype": "Anchor RB / Balanced Core Drafter",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (1/1).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 2.0",
@@ -63291,27 +63310,8 @@
         "TE": "Rd 8.0",
         "DEF": "Rd 9.0"
       },
-      "topReachPos": "TE (+28.9 picks)",
-      "topValuePos": "QB (-26.4 picks)"
-    },
-    "Tess": {
-      "yearsSample": "2024\u20132025 (2 Drafts)",
-      "avgReach": 10.6,
-      "reachRating": "Moderate Reacher",
-      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
-      "r1Tendency": "100% RB (2/2)",
-      "r1Detail": "2 RBs in Round 1",
-      "archetype": "Hero RB Anchor / TE Value Hunter",
-      "scoutingReport": "100% RB rate in Round 1 (2/2). Snatches early tight ends (Rd 4.5 avg) while extracting value on mid-round receivers.",
-      "firstPosAvg": {
-        "RB": "Rd 1.0",
-        "WR": "Rd 3.5",
-        "QB": "Rd 6.0",
-        "TE": "Rd 4.5",
-        "DEF": "Rd 12.0"
-      },
-      "topReachPos": "K (+58.1 picks)",
-      "topValuePos": "TE (-4.1 picks)"
+      "topReachPos": "Balanced",
+      "topValuePos": "Balanced"
     }
   }
 }
