@@ -639,7 +639,7 @@ function renderLucideIcons() {
         tr.innerHTML = `
           <td class="p-2.5 text-center font-bold text-pink-700">${item.rank || (idx + 1)}</td>
           <td class="p-2.5">
-            <span class="font-bold block text-pink-700 hover:underline cursor-pointer" onclick="selectFranchiseByName('${item.ownerName}')"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
+            <span class="font-bold block text-pink-700 hover:underline cursor-pointer" data-owner="${encodeURIComponent(item.ownerName)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
             <span class="text-[11px] text-purple-700">[${item.ownerName}]</span>
           </td>
           <td class="p-2.5 text-center">${wlCell}</td>
@@ -2506,7 +2506,7 @@ function renderLucideIcons() {
           const isActive = o === currentFranchiseOwner;
           const activeClass = 'bg-pink-100/90 border-pink-400 text-pink-700 font-black shadow-sm font-fredoka';
           const inactiveClass = 'bg-white border-pink-200 text-purple-700 hover:border-purple-300 hover:text-pink-600 font-bold font-fredoka';
-          return `<button type="button" onclick="selectFranchiseByName('${o}')" class="px-3 py-1.5 text-xs rounded-xl border transition-all ${isActive ? activeClass : inactiveClass}">${o}</button>`;
+          return `<button type="button" data-owner="${encodeURIComponent(o)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))" class="px-3 py-1.5 text-xs rounded-xl border transition-all ${isActive ? activeClass : inactiveClass}">${o}</button>`;
         }).join('');
       }
 
@@ -3017,10 +3017,14 @@ function renderLucideIcons() {
           ? `<span class="text-pink-600 font-bold">${item.prevRank === 'Inaugural Draft' ? 'Inaugural Draft' : 'New Expansion Team'}</span>`
           : `<span class="font-bold">#${item.prevRank} in ${prevYear} (${item.prevRecord})</span>`;
 
+        const dp = (window.LEAGUE_DATA.draftProfiles || {})[item.ownerName];
+        const archetypeBadge = dp ? `<div class="mt-1"><span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-fredoka border ${dp.reachColor || 'border-pink-300 bg-pink-50 text-pink-700'} font-bold shadow-xs">🎯 ${dp.archetype}</span></div>` : '';
+
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink">Pick #${item.pick}</td>
-          <td class="p-2.5 font-bold text-pink-700">
-            ${item.teamName} <span class="text-[10px] text-purple-700 font-normal">[${item.ownerName}]</span>
+          <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink font-mono">Pick #${item.pick}</td>
+          <td class="p-2.5">
+            <span class="font-bold text-pink-700 block">${item.teamName} <span class="text-[10px] text-purple-700 font-normal">[${item.ownerName}]</span></span>
+            ${archetypeBadge}
           </td>
           <td class="p-2.5 text-center">${prevFinishStr}</td>
           <td class="p-2.5 text-center font-bold">#${item.curRank} (${item.curRecord})</td>
