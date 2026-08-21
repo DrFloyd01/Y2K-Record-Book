@@ -2408,6 +2408,81 @@ function renderLucideIcons() {
         `;
       });
 
+      const dp = (window.LEAGUE_DATA.draftProfiles || {})[owner];
+      let draftProfileSection = '';
+      if (dp) {
+        draftProfileSection = `
+          <div class="crt-box rounded p-4 mb-6 bg-black/90 border-emerald-500 shadow-lg font-mono">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-800 pb-2.5 mb-3">
+              <div>
+                <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest block">&gt;_ DRAFT_PROFILE &amp; SCOUTING_REPORT</span>
+                <h3 class="text-base font-black text-emerald-300 crt-glow mt-0.5">${dp.archetype}</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded text-xs font-bold border ${dp.reachColor} shadow-sm">${dp.reachRating} (${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks)</span>
+                <span class="text-xs text-emerald-500 font-mono font-bold bg-black px-2 py-0.5 rounded border border-emerald-900">${dp.yearsSample}</span>
+              </div>
+            </div>
+
+            <!-- Core Metrics Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3 text-center text-xs">
+              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
+                <span class="text-[10px] uppercase font-bold text-emerald-600 block">R1 TENDENCY</span>
+                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.r1Tendency}</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">${dp.r1Detail}</span>
+              </div>
+              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
+                <span class="text-[10px] uppercase font-bold text-emerald-600 block">AVG REACH / VALUE</span>
+                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">vs PPR Consensus</span>
+              </div>
+              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
+                <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP REACH POSITION</span>
+                <span class="font-bold text-amber-400 block mt-1 text-xs">${dp.topReachPos}</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">Drafted earliest vs ADP</span>
+              </div>
+              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
+                <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP VALUE POSITION</span>
+                <span class="font-bold text-emerald-300 block mt-1 text-xs">${dp.topValuePos}</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">Drafted latest vs ADP</span>
+              </div>
+            </div>
+
+            <!-- 1st Position Average Timing Bar -->
+            <div class="bg-[#052611] border border-emerald-700 rounded p-3 mb-3">
+              <span class="text-[11px] uppercase font-bold text-emerald-300 block mb-2">&gt;_ 1ST_POSITION_DRAFTED_AVERAGES (ENTRY TIMING)</span>
+              <div class="grid grid-cols-5 gap-2 text-center text-xs font-mono">
+                <div class="bg-black/80 p-2 rounded border border-emerald-900">
+                  <span class="text-[10px] font-bold text-emerald-500 block">1ST RB</span>
+                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.RB}</span>
+                </div>
+                <div class="bg-black/80 p-2 rounded border border-emerald-900">
+                  <span class="text-[10px] font-bold text-emerald-500 block">1ST WR</span>
+                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.WR}</span>
+                </div>
+                <div class="bg-black/80 p-2 rounded border border-emerald-900">
+                  <span class="text-[10px] font-bold text-emerald-500 block">1ST QB</span>
+                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.QB}</span>
+                </div>
+                <div class="bg-black/80 p-2 rounded border border-emerald-900">
+                  <span class="text-[10px] font-bold text-emerald-500 block">1ST TE</span>
+                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.TE}</span>
+                </div>
+                <div class="bg-black/80 p-2 rounded border border-emerald-900">
+                  <span class="text-[10px] font-bold text-emerald-500 block">1ST DEF</span>
+                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.DEF}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scouting Report Commentary -->
+            <div class="bg-black/60 p-3 rounded border border-emerald-900 text-xs text-emerald-200 font-mono leading-relaxed">
+              <span class="font-bold text-emerald-400">&gt; SCOUTING_REPORT:</span> ${dp.scoutingReport}
+            </div>
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="crt-box rounded p-4 mb-6">
           <div class="flex flex-col md:flex-row items-center gap-4">
@@ -2458,6 +2533,8 @@ function renderLucideIcons() {
             </div>
           </div>
         </div>
+
+        ${draftProfileSection}
 
         <div class="crt-box rounded overflow-visible">
           <div class="crt-box-header px-4 py-2 font-bold text-xs font-mono">

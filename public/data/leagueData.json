@@ -61976,5 +61976,254 @@
         }
       ]
     }
+  },
+  "draftProfiles": {
+    "Casey": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 20.3,
+      "reachRating": "Heavy Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "100% RB (8/8)",
+      "r1Detail": "8 RBs in Round 1",
+      "archetype": "Ironclad Hero RB / Extreme Early Defense",
+      "scoutingReport": "Has drafted an RB in Round 1 in 100% of drafts (8 for 8). Triggers massive early defense runs in Round 9\u201310 (+70.1 reach), but waits on WRs until late Round 2/3.",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 2.8",
+        "QB": "Rd 4.8",
+        "TE": "Rd 4.9",
+        "DEF": "Rd 9.6"
+      },
+      "topReachPos": "DST (+70.1 picks)",
+      "topValuePos": "RB (-3.4 picks)"
+    },
+    "Mike": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 17.4,
+      "reachRating": "Heavy Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "4 RB, 4 WR (8 yrs)",
+      "archetype": "Balanced Core / Defense Early Reacher",
+      "scoutingReport": "Splits Round 1 evenly between top RBs and WRs. Targets mid-round QBs (Rd 5.8) while drafting starting defenses 5\u20136 rounds ahead of consensus (+66.9 reach).",
+      "firstPosAvg": {
+        "RB": "Rd 1.9",
+        "WR": "Rd 2.2",
+        "QB": "Rd 5.8",
+        "TE": "Rd 7.9",
+        "DEF": "Rd 10.9"
+      },
+      "topReachPos": "DST (+66.9 picks)",
+      "topValuePos": "RB (+5.2 picks)"
+    },
+    "Dylan": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 4.9,
+      "reachRating": "Balanced",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "38% RB / 62% WR",
+      "r1Detail": "3 RB, 5 WR (8 yrs)",
+      "archetype": "WR-Heavy Anchor / Dual-Threat QB & TE Targeter",
+      "scoutingReport": "Favors elite WRs in Round 1 (62% rate). Balances early RB/WR foundation (Rd 2.0 avg) with aggressive early QB (Rd 4.8) and TE (Rd 5.2) investment, while completely punting defense until Round 12.5.",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 2.1",
+        "QB": "Rd 4.8",
+        "TE": "Rd 5.2",
+        "DEF": "Rd 12.5"
+      },
+      "topReachPos": "DST (+41.5 picks)",
+      "topValuePos": "RB (-5.7 picks)"
+    },
+    "Phillip": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 11.0,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
+      "r1Tendency": "50% RB / 38% WR / 12% TE",
+      "r1Detail": "4 RB, 3 WR, 1 TE (8 yrs)",
+      "archetype": "Skill-Position Heavy / Extreme QB Punter",
+      "scoutingReport": "Prioritizes early RB/WR combinations and tight ends while punting QB until Round 9.0. Reaches on defense in Round 11\u201312 (+53.0 reach).",
+      "firstPosAvg": {
+        "RB": "Rd 1.9",
+        "WR": "Rd 2.8",
+        "QB": "Rd 9.0",
+        "TE": "Rd 8.2",
+        "DEF": "Rd 11.9"
+      },
+      "topReachPos": "DST (+53.0 picks)",
+      "topValuePos": "RB (-6.3 picks)"
+    },
+    "Trace": {
+      "yearsSample": "2018\u20132025 (8 Drafts)",
+      "avgReach": 4.6,
+      "reachRating": "Balanced",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "4 RB, 4 WR (8 yrs)",
+      "archetype": "Balanced Skill Core / Late QB & TE Value",
+      "scoutingReport": "50/50 split in Round 1 between RB and WR. Highly disciplined on waiting for QB (Rd 8.0) and TE (Rd 8.4) while letting starting WRs fall to him (-3.0 reach).",
+      "firstPosAvg": {
+        "RB": "Rd 2.2",
+        "WR": "Rd 1.9",
+        "QB": "Rd 8.0",
+        "TE": "Rd 8.4",
+        "DEF": "Rd 11.8"
+      },
+      "topReachPos": "DST (+49.1 picks)",
+      "topValuePos": "WR (-3.0 picks)"
+    },
+    "Ryan": {
+      "yearsSample": "2019\u20132025 (7 Drafts)",
+      "avgReach": 17.0,
+      "reachRating": "Heavy Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "71% RB / 29% WR",
+      "r1Detail": "5 RB, 2 WR (7 yrs)",
+      "archetype": "Workhorse RB Anchor / Early QB Hunter",
+      "scoutingReport": "71% RB rate in Round 1. Targets starting QBs early (Rd 4.6 avg) while letting tight ends fall to round 7.1 (+46.4 reach on defense).",
+      "firstPosAvg": {
+        "RB": "Rd 1.6",
+        "WR": "Rd 2.3",
+        "QB": "Rd 4.6",
+        "TE": "Rd 7.1",
+        "DEF": "Rd 11.4"
+      },
+      "topReachPos": "DST (+46.4 picks)",
+      "topValuePos": "TE (+4.0 picks)"
+    },
+    "Dustin": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 4.0,
+      "reachRating": "Balanced",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
+      "r1Tendency": "40% RB / 40% WR",
+      "r1Detail": "2 RB, 2 WR (5 yrs)",
+      "archetype": "Disciplined Balanced Drafter / TE Punter",
+      "scoutingReport": "40/40 split on early RB/WR. Highly disciplined overall drafter (+4.0 avg reach) who extracts massive value at tight end (TEs fall -16.4 spots).",
+      "firstPosAvg": {
+        "RB": "Rd 2.8",
+        "WR": "Rd 2.0",
+        "QB": "Rd 6.6",
+        "TE": "Rd 6.6",
+        "DEF": "Rd 12.4"
+      },
+      "topReachPos": "DST (+39.8 picks)",
+      "topValuePos": "TE (-16.4 picks)"
+    },
+    "Boaz": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 7.8,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
+      "r1Tendency": "40% RB / 60% WR",
+      "r1Detail": "2 RB, 3 WR (5 yrs)",
+      "archetype": "WR-First Strategist / Extreme Defense Punter",
+      "scoutingReport": "60% WR selection rate in Round 1 with an average 1st WR at Round 1.6. Punts defense further than anyone in the league (Rd 13.4 avg).",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 1.6",
+        "QB": "Rd 7.4",
+        "TE": "Rd 7.0",
+        "DEF": "Rd 13.4"
+      },
+      "topReachPos": "DST (+27.0 picks)",
+      "topValuePos": "RB (-2.7 picks)"
+    },
+    "Cooper": {
+      "yearsSample": "2022\u20132023 (2 Drafts)",
+      "avgReach": -0.2,
+      "reachRating": "Value Drafter",
+      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-400",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "1 RB, 1 WR (2 yrs)",
+      "archetype": "Pure Value Drafter / BPA Disciplinarian",
+      "scoutingReport": "The most disciplined drafter in league history (-0.2 avg reach vs ADP). Never reaches on defenses or kickers and lets the board fall to him.",
+      "firstPosAvg": {
+        "RB": "Rd 1.5",
+        "WR": "Rd 2.5",
+        "QB": "Rd 7.5",
+        "TE": "Rd 9.5",
+        "DEF": "Rd 12.0"
+      },
+      "topReachPos": "RB (+8.6 picks)",
+      "topValuePos": "DST (-17.2 picks)"
+    },
+    "Jasper": {
+      "yearsSample": "2022\u20132025 (4 Drafts)",
+      "avgReach": 7.6,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "75% RB / 25% WR",
+      "r1Detail": "3 RB, 1 WR (4 yrs)",
+      "archetype": "Early QB & Kicker Reacher / RB Focused",
+      "scoutingReport": "75% RB selection rate in Round 1. Targets QBs early in Round 4.2 and triggers early Kicker reaches (+24.7 reach).",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 1.8",
+        "QB": "Rd 4.2",
+        "TE": "Rd 6.8",
+        "DEF": "Rd 9.5"
+      },
+      "topReachPos": "K (+24.7 picks)",
+      "topValuePos": "QB (-5.5 picks)"
+    },
+    "Torin": {
+      "yearsSample": "2023\u20132023 (1 Drafts)",
+      "avgReach": 25.4,
+      "reachRating": "Heavy Reacher",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
+      "r1Tendency": "100% RB (1/1)",
+      "r1Detail": "1 RBs in Round 1",
+      "archetype": "BPA Value Drafter",
+      "scoutingReport": "Balanced positional draft profile.",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 3.0",
+        "QB": "Rd 2.0",
+        "TE": "Rd 4.0",
+        "DEF": "Rd 10.0"
+      },
+      "topReachPos": "WR (+40.8 picks)",
+      "topValuePos": "QB (+0.5 picks)"
+    },
+    "Nick": {
+      "yearsSample": "2023\u20132023 (1 Drafts)",
+      "avgReach": 4.7,
+      "reachRating": "Balanced",
+      "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-600",
+      "r1Tendency": "100% RB (1/1)",
+      "r1Detail": "1 RBs in Round 1",
+      "archetype": "BPA Value Drafter",
+      "scoutingReport": "Balanced positional draft profile.",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 2.0",
+        "QB": "Rd 7.0",
+        "TE": "Rd 8.0",
+        "DEF": "Rd 9.0"
+      },
+      "topReachPos": "TE (+28.9 picks)",
+      "topValuePos": "QB (-26.4 picks)"
+    },
+    "Tess": {
+      "yearsSample": "2024\u20132025 (2 Drafts)",
+      "avgReach": 10.6,
+      "reachRating": "Moderate Reacher",
+      "reachColor": "text-amber-400 bg-amber-950/40 border-amber-500",
+      "r1Tendency": "100% RB (2/2)",
+      "r1Detail": "2 RBs in Round 1",
+      "archetype": "Hero RB Anchor / TE Value Hunter",
+      "scoutingReport": "100% RB rate in Round 1 (2/2). Snatches early tight ends (Rd 4.5 avg) while extracting value on mid-round receivers.",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 3.5",
+        "QB": "Rd 6.0",
+        "TE": "Rd 4.5",
+        "DEF": "Rd 12.0"
+      },
+      "topReachPos": "K (+58.1 picks)",
+      "topValuePos": "TE (-4.1 picks)"
+    }
   }
 }
