@@ -2439,18 +2439,18 @@ function renderLucideIcons() {
               </div>
               <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
                 <span class="text-[10px] uppercase font-bold text-emerald-600 block">AVG REACH / VALUE</span>
-                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">vs PPR Consensus</span>
+                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.avgReach > 0 ? `+${dp.avgReach} ahead` : (dp.avgReach < 0 ? `${dp.avgReach} after` : '±0.0 vs ADP')}</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">Mean per pick vs ADP</span>
               </div>
               <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
                 <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP REACH POSITION</span>
                 <span class="font-bold text-amber-400 block mt-1 text-xs">${dp.topReachPos}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">Drafted earliest vs ADP</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">Avg ahead of consensus</span>
               </div>
               <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
                 <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP VALUE POSITION</span>
                 <span class="font-bold text-emerald-300 block mt-1 text-xs">${dp.topValuePos}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">Drafted latest vs ADP</span>
+                <span class="text-[10px] text-emerald-500 block mt-0.5">Avg after consensus</span>
               </div>
             </div>
 

@@ -63074,7 +63074,7 @@
       "r1Tendency": "50% RB / 38% WR / 12% TE",
       "r1Detail": "4 RB, 3 WR, 1 TE in R1 (8 yrs)",
       "archetype": "Value Sniper / Elite TE Reacher / Flexible Core",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (50% RB / 38% WR / 12% TE). Reaches most aggressively on QB (+17.0 picks). Captures the most board surplus at RB (-12.2 picks). Practices late-round QB discipline (Rd 10.1 avg).",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (50% RB / 38% WR / 12% TE). Reaches most aggressively on QB (+17.0 ahead of ADP). Captures the most board surplus at RB (-12.2 after ADP). Practices late-round QB discipline (Rd 10.1 avg).",
       "firstPosAvg": {
         "RB": "Rd 1.9",
         "WR": "Rd 2.8",
@@ -63082,8 +63082,8 @@
         "TE": "Rd 8.2",
         "DEF": "Rd 12.0"
       },
-      "topReachPos": "QB (+17.0 picks)",
-      "topValuePos": "RB (-12.2 picks)"
+      "topReachPos": "QB (+17.0 ahead of ADP)",
+      "topValuePos": "RB (-12.2 after ADP)"
     },
     "Jasper": {
       "yearsSample": "2022\u20132025 (4 Drafts)",
@@ -63093,7 +63093,7 @@
       "r1Tendency": "75% RB / 25% WR",
       "r1Detail": "3 RB, 1 WR in R1 (4 yrs)",
       "archetype": "Aggressive Reacher / Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (75% RB / 25% WR). Reaches most aggressively on RB (+7.0 picks). Captures the most board surplus at WR (-0.2 picks). Secures an elite starting QB early (Rd 4.2 avg).",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (75% RB / 25% WR). Reaches most aggressively on RB (+7.0 ahead of ADP). Captures the most board surplus at WR (-0.2 after ADP). Secures an elite starting QB early (Rd 4.2 avg).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 1.8",
@@ -63101,8 +63101,8 @@
         "TE": "Rd 6.8",
         "DEF": "Rd 9.5"
       },
-      "topReachPos": "RB (+7.0 picks)",
-      "topValuePos": "WR (-0.2 picks)"
+      "topReachPos": "RB (+7.0 ahead of ADP)",
+      "topValuePos": "WR (-0.2 after ADP)"
     },
     "Ryan": {
       "yearsSample": "2019\u20132025 (7 Drafts)",
@@ -63112,7 +63112,7 @@
       "r1Tendency": "71% RB / 29% WR",
       "r1Detail": "5 RB, 2 WR in R1 (7 yrs)",
       "archetype": "Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (71% RB / 29% WR). Reaches most aggressively on QB (+13.2 picks). Captures the most board surplus at RB (-0.4 picks).",
+      "scoutingReport": "Strongly prioritizes early running backs in Round 1 (71% RB / 29% WR). Reaches most aggressively on QB (+13.2 ahead of ADP). Captures the most board surplus at RB (-0.4 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.6",
         "WR": "Rd 2.3",
@@ -63120,8 +63120,8 @@
         "TE": "Rd 7.1",
         "DEF": "Rd 9.9"
       },
-      "topReachPos": "QB (+13.2 picks)",
-      "topValuePos": "RB (-0.4 picks)"
+      "topReachPos": "QB (+13.2 ahead of ADP)",
+      "topValuePos": "RB (-0.4 after ADP)"
     },
     "Dylan": {
       "yearsSample": "2018\u20132025 (8 Drafts)",
@@ -63131,7 +63131,7 @@
       "r1Tendency": "38% RB / 62% WR",
       "r1Detail": "3 RB, 5 WR in R1 (8 yrs)",
       "archetype": "Value Sniper / WR-Anchor / Value Opportunist",
-      "scoutingReport": "Favors high-upside wide receivers in Round 1 (38% RB / 62% WR). Captures the most board surplus at RB (-10.0 picks).",
+      "scoutingReport": "Favors high-upside wide receivers in Round 1 (38% RB / 62% WR). Captures the most board surplus at RB (-10.0 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 2.1",
@@ -63139,8 +63139,8 @@
         "TE": "Rd 5.2",
         "DEF": "Rd 12.5"
       },
-      "topReachPos": "WR (-1.6 picks)",
-      "topValuePos": "RB (-10.0 picks)"
+      "topReachPos": "WR (-1.6 vs ADP)",
+      "topValuePos": "RB (-10.0 after ADP)"
     },
     "Dustin": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
@@ -63150,7 +63150,7 @@
       "r1Tendency": "40% RB / 40% WR / 20% QB",
       "r1Detail": "2 RB, 2 WR, 1 QB in R1 (5 yrs)",
       "archetype": "Dual-Threat QB Pioneer / Early Aggressor",
-      "scoutingReport": "Maintains a split Round 1 philosophy (40% RB / 40% WR / 20% QB). Reaches most aggressively on WR (+10.6 picks). Drafts RB (+2.8 picks) closest to consensus value.",
+      "scoutingReport": "Maintains a split Round 1 philosophy (40% RB / 40% WR / 20% QB). Reaches most aggressively on WR (+10.6 ahead of ADP). Drafts RB (+2.8 vs ADP) closest to consensus value.",
       "firstPosAvg": {
         "RB": "Rd 2.8",
         "WR": "Rd 2.0",
@@ -63158,8 +63158,8 @@
         "TE": "Rd 6.6",
         "DEF": "Rd 12.4"
       },
-      "topReachPos": "WR (+10.6 picks)",
-      "topValuePos": "RB (+2.8 picks)"
+      "topReachPos": "WR (+10.6 ahead of ADP)",
+      "topValuePos": "RB (+2.8 vs ADP)"
     },
     "Tess": {
       "yearsSample": "2024\u20132025 (2 Drafts)",
@@ -63169,7 +63169,7 @@
       "r1Tendency": "100% RB",
       "r1Detail": "2 RB in R1 (2 yrs)",
       "archetype": "Value Sniper / Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (2/2). Captures the most board surplus at RB (-19.0 picks).",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (2/2). Captures the most board surplus at RB (-19.0 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 3.5",
@@ -63177,8 +63177,8 @@
         "TE": "Rd 4.5",
         "DEF": "Rd 12.0"
       },
-      "topReachPos": "RB (-19.0 picks)",
-      "topValuePos": "RB (-19.0 picks)"
+      "topReachPos": "RB (-19.0 vs ADP)",
+      "topValuePos": "RB (-19.0 after ADP)"
     },
     "Boaz": {
       "yearsSample": "2021\u20132025 (5 Drafts)",
@@ -63188,7 +63188,7 @@
       "r1Tendency": "40% RB / 60% WR",
       "r1Detail": "2 RB, 3 WR in R1 (5 yrs)",
       "archetype": "WR-Anchor / Value Opportunist",
-      "scoutingReport": "Favors high-upside wide receivers in Round 1 (40% RB / 60% WR). Reaches most aggressively on TE (+28.5 picks). Captures the most board surplus at RB (-7.9 picks).",
+      "scoutingReport": "Favors high-upside wide receivers in Round 1 (40% RB / 60% WR). Reaches most aggressively on TE (+28.5 ahead of ADP). Captures the most board surplus at RB (-7.9 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.0",
         "WR": "Rd 1.6",
@@ -63196,8 +63196,8 @@
         "TE": "Rd 7.0",
         "DEF": "Rd 13.4"
       },
-      "topReachPos": "TE (+28.5 picks)",
-      "topValuePos": "RB (-7.9 picks)"
+      "topReachPos": "TE (+28.5 ahead of ADP)",
+      "topValuePos": "RB (-7.9 after ADP)"
     },
     "Cooper": {
       "yearsSample": "2022\u20132023 (2 Drafts)",
@@ -63207,7 +63207,7 @@
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "1 RB, 1 WR in R1 (2 yrs)",
       "archetype": "BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on RB (+1.0 picks). Drafts WR (+0.7 picks) closest to consensus value.",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on RB (+1.0 ahead of ADP). Drafts WR (+0.7 vs ADP) closest to consensus value.",
       "firstPosAvg": {
         "RB": "Rd 1.5",
         "WR": "Rd 2.5",
@@ -63215,8 +63215,8 @@
         "TE": "Rd 9.5",
         "DEF": "Rd 12.0"
       },
-      "topReachPos": "RB (+1.0 picks)",
-      "topValuePos": "WR (+0.7 picks)"
+      "topReachPos": "RB (+1.0 ahead of ADP)",
+      "topValuePos": "WR (+0.7 vs ADP)"
     },
     "Casey": {
       "yearsSample": "2018\u20132025 (8 Drafts)",
@@ -63226,7 +63226,7 @@
       "r1Tendency": "100% RB",
       "r1Detail": "8 RB in R1 (8 yrs)",
       "archetype": "Ironclad Hero RB Zealot",
-      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (8/8). Reaches most aggressively on QB (+15.6 picks). Captures the most board surplus at TE (-4.6 picks).",
+      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (8/8). Reaches most aggressively on QB (+15.6 ahead of ADP). Captures the most board surplus at TE (-4.6 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.0",
         "WR": "Rd 2.8",
@@ -63234,8 +63234,8 @@
         "TE": "Rd 4.9",
         "DEF": "Rd 9.6"
       },
-      "topReachPos": "QB (+15.6 picks)",
-      "topValuePos": "TE (-4.6 picks)"
+      "topReachPos": "QB (+15.6 ahead of ADP)",
+      "topValuePos": "TE (-4.6 after ADP)"
     },
     "Trace": {
       "yearsSample": "2018\u20132025 (8 Drafts)",
@@ -63245,7 +63245,7 @@
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "4 RB, 4 WR in R1 (8 yrs)",
       "archetype": "Value Sniper / BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on TE (+5.0 picks). Captures the most board surplus at RB (-7.7 picks).",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on TE (+5.0 ahead of ADP). Captures the most board surplus at RB (-7.7 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 2.2",
         "WR": "Rd 1.9",
@@ -63253,8 +63253,8 @@
         "TE": "Rd 8.4",
         "DEF": "Rd 11.8"
       },
-      "topReachPos": "TE (+5.0 picks)",
-      "topValuePos": "RB (-7.7 picks)"
+      "topReachPos": "TE (+5.0 ahead of ADP)",
+      "topValuePos": "RB (-7.7 after ADP)"
     },
     "Mike": {
       "yearsSample": "2018\u20132025 (8 Drafts)",
@@ -63264,7 +63264,7 @@
       "r1Tendency": "50% RB / 50% WR",
       "r1Detail": "4 RB, 4 WR in R1 (8 yrs)",
       "archetype": "Aggressive Reacher / BPA Consensus Drafter",
-      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+16.1 picks). Captures the most board surplus at QB (-11.5 picks).",
+      "scoutingReport": "Maintains a split Round 1 philosophy (50% RB / 50% WR). Reaches most aggressively on WR (+16.1 ahead of ADP). Captures the most board surplus at QB (-11.5 after ADP).",
       "firstPosAvg": {
         "RB": "Rd 1.9",
         "WR": "Rd 2.2",
@@ -63272,27 +63272,8 @@
         "TE": "Rd 7.9",
         "DEF": "Rd 10.9"
       },
-      "topReachPos": "WR (+16.1 picks)",
-      "topValuePos": "QB (-11.5 picks)"
-    },
-    "Torin": {
-      "yearsSample": "2023\u20132023 (1 Drafts)",
-      "avgReach": 0.0,
-      "reachRating": "Consensus Drafter",
-      "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
-      "r1Tendency": "100% RB",
-      "r1Detail": "1 RB in R1 (1 yrs)",
-      "archetype": "Anchor RB / Balanced Core Drafter",
-      "scoutingReport": "Has selected a running back in Round 1 in 100% of drafts (1/1). Secures an elite starting QB early (Rd 2.0 avg).",
-      "firstPosAvg": {
-        "RB": "Rd 1.0",
-        "WR": "Rd 3.0",
-        "QB": "Rd 2.0",
-        "TE": "Rd 4.0",
-        "DEF": "Rd 10.0"
-      },
-      "topReachPos": "Balanced",
-      "topValuePos": "Balanced"
+      "topReachPos": "WR (+16.1 ahead of ADP)",
+      "topValuePos": "QB (-11.5 after ADP)"
     },
     "Nick": {
       "yearsSample": "2023\u20132023 (1 Drafts)",

@@ -2594,18 +2594,18 @@ function renderLucideIcons() {
               </div>
               <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
                 <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">AVG REACH / VALUE</span>
-                <span class="font-black text-pink-700 block mt-1 text-sm">${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks</span>
-                <span class="text-[10px] text-purple-600 block mt-0.5">vs Half-PPR Consensus</span>
+                <span class="font-black text-pink-700 block mt-1 text-sm">${dp.avgReach > 0 ? `+${dp.avgReach} ahead` : (dp.avgReach < 0 ? `${dp.avgReach} after` : '±0.0 vs ADP')}</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">Mean per pick vs ADP</span>
               </div>
               <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
                 <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">TOP REACH POSITION</span>
                 <span class="font-bold text-pink-700 block mt-1 text-xs">${dp.topReachPos}</span>
-                <span class="text-[10px] text-purple-600 block mt-0.5">Drafted earliest vs ADP</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">Avg ahead of consensus</span>
               </div>
               <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
                 <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">TOP VALUE POSITION</span>
                 <span class="font-bold text-emerald-700 block mt-1 text-xs">${dp.topValuePos}</span>
-                <span class="text-[10px] text-purple-600 block mt-0.5">Drafted latest vs ADP</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">Avg after consensus</span>
               </div>
             </div>
 
