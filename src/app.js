@@ -2331,42 +2331,48 @@ function renderLucideIcons() {
     }
 
         // TAB 5: TEAMS / FRANCHISE PROFILES
-    function initTeamOwnerSelect() {
-      const select = document.getElementById('team-owner-select');
-      if (!select) return;
-      select.innerHTML = '';
+    // TAB 5: TEAMS / FRANCHISE PROFILES
+    let currentFranchiseOwner = null;
 
+    function initTeamOwnerSelect() {
+      const btnContainer = document.getElementById('team-owner-buttons');
       const leagueData = window.LEAGUE_DATA;
       let owners = (leagueData.allTimeStandings || [])
         .map(s => s.ownerName)
         .filter(o => !isOneYearManager(o));
       owners.sort();
 
-      owners.forEach(o => {
-        select.innerHTML += `<option value="${o}">${o}</option>`;
-      });
+      if (!currentFranchiseOwner || !owners.includes(currentFranchiseOwner)) {
+        currentFranchiseOwner = owners[0] || 'Dylan';
+      }
+
+      if (btnContainer) {
+        btnContainer.innerHTML = owners.map(o => {
+          const isActive = o === currentFranchiseOwner;
+          const activeClass = 'bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_8px_rgba(0,255,102,0.3)]';
+          const inactiveClass = 'bg-black/80 border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
+          return `<button type="button" onclick="selectFranchiseByName('${o}')" class="px-3 py-1.5 text-xs rounded border transition-all ${isActive ? activeClass : inactiveClass}">${o}</button>`;
+        }).join('');
+      }
+
       renderFranchiseProfile();
     }
 
     function selectFranchiseByName(owner) {
       if (isOneYearManager(owner)) return;
+      currentFranchiseOwner = owner;
       switchTab('teams');
-      document.getElementById('team-owner-select').value = owner;
-      renderFranchiseProfile();
+      initTeamOwnerSelect();
     }
 
     function selectManagerProfile(ownerName) {
-      switchTab('teams');
-      const sel = document.getElementById('team-owner-select');
-      if (sel) {
-        sel.value = ownerName;
-        renderFranchiseProfile();
-      }
+      selectFranchiseByName(ownerName);
     }
 
     function renderFranchiseProfile() {
-      const owner = document.getElementById('team-owner-select').value;
+      const owner = currentFranchiseOwner;
       const card = document.getElementById('franchise-profile-card');
+      if (!owner || !card) return;
       const st = window.LEAGUE_DATA.allTimeStandings.find(s => s.ownerName === owner);
       if (!st) return;
 
@@ -2487,7 +2493,7 @@ function renderLucideIcons() {
       let availableDraftYears = [];
       window.LEAGUE_DATA.seasons.forEach(yr => {
         const sData = window.LEAGUE_DATA.seasonData[yr];
-        if (sData && sData.draftPicks && sData.draftPicks.some(p => p.ownerName === owner)) {
+        if (sData && sData.draftPicks && sData.draftPicks.some(p => p.ownerName === owner && p.player && p.player !== 'Empty / Bye')) {
           availableDraftYears.push(yr);
         }
       });
@@ -2496,7 +2502,12 @@ function renderLucideIcons() {
       let franchiseDraftHistorySection = '';
       if (availableDraftYears.length > 0) {
         const defaultYear = availableDraftYears[0];
-        const yearOptions = availableDraftYears.map(yr => `<option value="${yr}" ${yr === defaultYear ? 'selected' : ''}>${yr} Draft Class</option>`).join('');
+        const yearButtons = availableDraftYears.map(yr => {
+          const isActive = yr === defaultYear;
+          const activeClass = 'bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_6px_rgba(0,255,102,0.3)]';
+          const inactiveClass = 'bg-black border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
+          return `<button type="button" id="btn-franchise-draft-${yr}" onclick="window.renderFranchiseDraftYear('${owner}', ${yr})" class="franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all ${isActive ? activeClass : inactiveClass}">${yr}</button>`;
+        }).join('');
         
         franchiseDraftHistorySection = `
           <div class="crt-box rounded overflow-visible mt-6">
@@ -2504,11 +2515,9 @@ function renderLucideIcons() {
               <div class="font-bold text-xs font-mono">
                 &gt;_ FRANCHISE_DRAFT_HISTORY
               </div>
-              <div class="flex items-center gap-2">
-                <label class="text-[10px] uppercase font-bold text-emerald-500 font-mono">SEASON:</label>
-                <select id="franchise-draft-year-select" onchange="window.renderFranchiseDraftYear('${owner}')" class="bg-black text-emerald-300 border border-emerald-600 rounded px-2 py-1 text-xs font-mono focus:outline-none focus:border-emerald-400">
-                  ${yearOptions}
-                </select>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[10px] uppercase font-bold text-emerald-500 font-mono mr-1">CLASS:</span>
+                ${yearButtons}
               </div>
             </div>
             <div id="franchise-draft-picks-container" class="table-scroll-container">
@@ -2604,20 +2613,30 @@ function renderLucideIcons() {
     }
 
     window.renderFranchiseDraftYear = function(owner, forcedYear) {
-      const sel = document.getElementById('franchise-draft-year-select');
-      const yr = forcedYear || (sel ? sel.value : null);
       const container = document.getElementById('franchise-draft-picks-container');
-      if (!container || !yr) return;
+      if (!container || !forcedYear) return;
 
-      const sData = window.LEAGUE_DATA.seasonData[yr];
+      // Update button active classes
+      document.querySelectorAll('.franchise-draft-year-btn').forEach(btn => {
+        btn.className = 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-black border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
+      });
+      const activeBtn = document.getElementById(`btn-franchise-draft-${forcedYear}`);
+      if (activeBtn) {
+        activeBtn.className = 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_6px_rgba(0,255,102,0.3)]';
+      }
+
+      const sData = window.LEAGUE_DATA.seasonData[forcedYear];
       if (!sData || !sData.draftPicks) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft records found for ${yr}.</div>`;
+        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft records found for ${forcedYear}.</div>`;
         return;
       }
 
-      const ownerPicks = sData.draftPicks.filter(p => p.ownerName === owner).sort((a, b) => (a.overallPick || 0) - (b.overallPick || 0));
+      const ownerPicks = sData.draftPicks
+        .filter(p => p.ownerName === owner && p.player && p.player !== 'Empty / Bye')
+        .sort((a, b) => (a.overallPick || 0) - (b.overallPick || 0));
+
       if (ownerPicks.length === 0) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft picks recorded for ${owner} in ${yr}.</div>`;
+        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft picks recorded for ${owner} in ${forcedYear}.</div>`;
         return;
       }
 
