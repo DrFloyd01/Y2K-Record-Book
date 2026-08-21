@@ -82105,5 +82105,235 @@
         }
       ]
     }
+  },
+  "draftProfiles": {
+    "Trace Bakulich": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 11.7,
+      "reachRating": "Heavy Reacher (+11.7 picks)",
+      "reachColor": "text-amber-600 bg-amber-50 border-amber-300",
+      "r1Tendency": "80% RB / 20% WR",
+      "r1Detail": "4 RBs, 1 WR in Round 1",
+      "archetype": "Heavy RB Anchor / Early Defense Reacher",
+      "scoutingReport": "Drafts workhorse RBs aggressively in early rounds. Consistently triggers early D/ST runs in Round 12 while allowing starting QBs to plummet -19.4 picks past ADP.",
+      "firstPosAvg": {
+        "RB": "Rd 1.2",
+        "WR": "Rd 2.0",
+        "QB": "Rd 7.2",
+        "TE": "Rd 8.5",
+        "DEF": "Rd 12.2"
+      },
+      "topReachPos": "DST (+43.0 picks)",
+      "topValuePos": "QB (-19.4 picks)"
+    },
+    "Sean Belcher": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 11.1,
+      "reachRating": "Heavy Reacher (+11.1 picks)",
+      "reachColor": "text-amber-600 bg-amber-50 border-amber-300",
+      "r1Tendency": "100% RB (5/5)",
+      "r1Detail": "5 RBs, 0 WRs in Round 1",
+      "archetype": "Pure Hero RB Zealot / Extreme Late QB",
+      "scoutingReport": "Never drafts a WR in Round 1 (100% RB rate). Refuses to draft a QB before double-digit rounds (Rd 12.0 avg), but hoards high-volume running backs.",
+      "firstPosAvg": {
+        "RB": "Rd 1.0",
+        "WR": "Rd 2.6",
+        "QB": "Rd 12.0",
+        "TE": "Rd 6.0",
+        "DEF": "Rd 13.0"
+      },
+      "topReachPos": "DST (+32.1 picks)",
+      "topValuePos": "QB (-7.6 picks)"
+    },
+    "Nathan Wells": {
+      "yearsSample": "2022\u20132025 (4 Drafts)",
+      "avgReach": 10.4,
+      "reachRating": "Heavy Reacher (+10.4 picks)",
+      "reachColor": "text-amber-600 bg-amber-50 border-amber-300",
+      "r1Tendency": "100% WR (4/4)",
+      "r1Detail": "4 WRs, 0 RBs in Round 1",
+      "archetype": "Zero-RB / Heavy WR Targeter",
+      "scoutingReport": "The league's primary WR enthusiast. 100% WR selection rate in Round 1. Reaches for young breakout WRs early and targets defense in Round 11.",
+      "firstPosAvg": {
+        "RB": "Rd 2.2",
+        "WR": "Rd 1.0",
+        "QB": "Rd 4.2",
+        "TE": "Rd 5.2",
+        "DEF": "Rd 11.5"
+      },
+      "topReachPos": "DST (+52.8 picks)",
+      "topValuePos": "QB (-9.9 picks)"
+    },
+    "Andrew Wilson": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 7.4,
+      "reachRating": "Moderate Reacher (+7.4 picks)",
+      "reachColor": "text-purple-600 bg-purple-50 border-purple-300",
+      "r1Tendency": "60% RB / 40% WR",
+      "r1Detail": "3 RBs, 2 WRs in Round 1",
+      "archetype": "Late-Round QB Disciple / Disciplined Value",
+      "scoutingReport": "Highly disciplined drafter who extracts massive QB value (QBs fall -24.3 picks). Targets tight ends in mid rounds (Rd 5.4) and anchors with balanced skill players.",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 2.2",
+        "QB": "Rd 10.0",
+        "TE": "Rd 5.4",
+        "DEF": "Rd 13.0"
+      },
+      "topReachPos": "DST (+24.9 picks)",
+      "topValuePos": "QB (-24.3 picks)"
+    },
+    "Michael Anderson": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 8.0,
+      "reachRating": "Moderate Reacher (+8.0 picks)",
+      "reachColor": "text-purple-600 bg-purple-50 border-purple-300",
+      "r1Tendency": "60% RB / 20% WR / 20% TE",
+      "r1Detail": "3 RBs, 1 WR, 1 TE in Round 1",
+      "archetype": "Balanced Core / Depth RB Stasher",
+      "scoutingReport": "Favors early backfield anchors and targets mid-tier TEs (Rd 5.0 avg). Waits on QB until round 7\u20138 while stashing high-upside backup running backs.",
+      "firstPosAvg": {
+        "RB": "Rd 2.0",
+        "WR": "Rd 2.2",
+        "QB": "Rd 7.3",
+        "TE": "Rd 5.0",
+        "DEF": "Rd 12.3"
+      },
+      "topReachPos": "DST (+35.0 picks)",
+      "topValuePos": "QB (-14.7 picks)"
+    },
+    "Aidan O'Sullivan": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 4.4,
+      "reachRating": "Balanced (+4.4 picks)",
+      "reachColor": "text-pink-600 bg-pink-50 border-pink-300",
+      "r1Tendency": "40% RB / 20% WR / 20% TE",
+      "r1Detail": "2 RBs, 1 WR, 1 TE in Round 1",
+      "archetype": "Early Elite TE & Dual-Threat QB Hunter",
+      "scoutingReport": "The earliest TE drafter in the league (Rd 3.8 avg: Kelce/McBride tier) and targets starting QBs in Round 5. Extremely disciplined on late-round defense timing (Rd 15.5).",
+      "firstPosAvg": {
+        "RB": "Rd 2.4",
+        "WR": "Rd 2.8",
+        "QB": "Rd 5.2",
+        "TE": "Rd 3.8",
+        "DEF": "Rd 15.5"
+      },
+      "topReachPos": "DST (+38.9 picks)",
+      "topValuePos": "QB (-10.4 picks)"
+    },
+    "Austin Geller": {
+      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "avgReach": 2.9,
+      "reachRating": "Value / Balanced (+2.9 picks)",
+      "reachColor": "text-emerald-600 bg-emerald-50 border-emerald-300",
+      "r1Tendency": "40% RB / 40% WR / 20% Open",
+      "r1Detail": "2 RBs, 2 WRs in Round 1",
+      "archetype": "Dual-Threat QB Early / Punts TE",
+      "scoutingReport": "Targets rushing upside QBs in Round 5 (Rd 5.2 avg) while completely punting tight end until late double digits (Rd 9.3 avg). Takes defense in Round 11.",
+      "firstPosAvg": {
+        "RB": "Rd 1.8",
+        "WR": "Rd 2.2",
+        "QB": "Rd 5.2",
+        "TE": "Rd 9.3",
+        "DEF": "Rd 11.5"
+      },
+      "topReachPos": "DST (+23.1 picks)",
+      "topValuePos": "QB (-12.8 picks)"
+    },
+    "Dylan Soth": {
+      "yearsSample": "2022\u20132025 (4 Drafts)",
+      "avgReach": 4.1,
+      "reachRating": "Balanced (+4.1 picks)",
+      "reachColor": "text-pink-600 bg-pink-50 border-pink-300",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "2 RBs, 2 WRs in Round 1",
+      "archetype": "Elite Mobile QB Anchor / Punts TE",
+      "scoutingReport": "Earliest QB drafter in the league (Rd 3.5 avg: Allen/Hurts/Lamar tier) for guaranteed positional advantage, while completely punting TE (Rd 10.3 avg) and DEF (Rd 14.3).",
+      "firstPosAvg": {
+        "RB": "Rd 1.8",
+        "WR": "Rd 1.8",
+        "QB": "Rd 3.5",
+        "TE": "Rd 10.3",
+        "DEF": "Rd 14.3"
+      },
+      "topReachPos": "DST (+38.2 picks)",
+      "topValuePos": "QB (-4.9 picks)"
+    },
+    "Tyler Hicks": {
+      "yearsSample": "2022\u20132024 (3 Drafts)",
+      "avgReach": 7.8,
+      "reachRating": "Moderate Reacher (+7.8 picks)",
+      "reachColor": "text-purple-600 bg-purple-50 border-purple-300",
+      "r1Tendency": "67% RB / 33% WR",
+      "r1Detail": "2 RBs, 1 WR in Round 1",
+      "archetype": "Tight End Reacher / Mid-Round RB Value",
+      "scoutingReport": "The league's biggest tight end reacher (+13.2 picks over ADP: Kmet, Everett). Waits on QB until round 9.3 and anchors early with workhorse running backs.",
+      "firstPosAvg": {
+        "RB": "Rd 1.3",
+        "WR": "Rd 2.0",
+        "QB": "Rd 9.3",
+        "TE": "Rd 6.7",
+        "DEF": "Rd 13.7"
+      },
+      "topReachPos": "TE (+13.2 picks)",
+      "topValuePos": "QB (-7.5 picks)"
+    },
+    "Phillip Busick": {
+      "yearsSample": "2023\u20132025 (2 Drafts)",
+      "avgReach": 16.6,
+      "reachRating": "Extreme Reacher (+16.6 picks)",
+      "reachColor": "text-red-600 bg-red-50 border-red-300",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "1 RB, 1 WR in Round 1",
+      "archetype": "Aggressive WR Reacher / High Upside Hunter",
+      "scoutingReport": "High-conviction drafter with the highest average reach (+16.6 picks), aggressively targeting favorite WRs 25\u201390 spots ahead of consensus while waiting on QB and TE.",
+      "firstPosAvg": {
+        "RB": "Rd 1.5",
+        "WR": "Rd 1.5",
+        "QB": "Rd 9.0",
+        "TE": "Rd 10.0",
+        "DEF": "Rd 12.5"
+      },
+      "topReachPos": "DST (+68.8 picks)",
+      "topValuePos": "TE (-3.2 picks)"
+    },
+    "James Carter": {
+      "yearsSample": "2021\u20132022 (2 Drafts)",
+      "avgReach": -0.0,
+      "reachRating": "Value Drafter (-0.0 picks)",
+      "reachColor": "text-emerald-600 bg-emerald-50 border-emerald-300",
+      "r1Tendency": "50% RB / 50% WR",
+      "r1Detail": "1 RB, 1 WR in Round 1",
+      "archetype": "Extreme QB Punter / WR First",
+      "scoutingReport": "Punts QB further than anyone in league history (Rd 15.0 avg). Focuses heavily on early wideouts (Rd 1.5 avg) and mid-tier TEs.",
+      "firstPosAvg": {
+        "RB": "Rd 3.0",
+        "WR": "Rd 1.5",
+        "QB": "Rd 15.0",
+        "TE": "Rd 6.0",
+        "DEF": "Rd 13.0"
+      },
+      "topReachPos": "WR (+8.4 picks)",
+      "topValuePos": "QB (-23.9 picks)"
+    },
+    "Brendan Sanders": {
+      "yearsSample": "2025\u20132025 (1 Drafts)",
+      "avgReach": -2.1,
+      "reachRating": "Value Drafter (-2.1 picks)",
+      "reachColor": "text-emerald-600 bg-emerald-50 border-emerald-300",
+      "r1Tendency": "100% WR (1/1)",
+      "r1Detail": "1 WR in Round 1",
+      "archetype": "BPA Value Drafter / Balanced",
+      "scoutingReport": "Strict value drafter who lets the board fall to him (-2.1 avg reach). Targeted elite TE (Rd 2) and QB (Rd 3) in inaugural draft while waiting on RB depth.",
+      "firstPosAvg": {
+        "RB": "Rd 5.0",
+        "WR": "Rd 1.0",
+        "QB": "Rd 3.0",
+        "TE": "Rd 2.0",
+        "DEF": "Rd 14.0"
+      },
+      "topReachPos": "RB (-0.8 picks)",
+      "topValuePos": "QB (-2.7 picks)"
+    }
   }
 }

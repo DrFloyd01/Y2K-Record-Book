@@ -2564,6 +2564,81 @@ function renderLucideIcons() {
         `;
       });
 
+      const dp = (window.LEAGUE_DATA.draftProfiles || {})[owner];
+      let draftProfileSection = '';
+      if (dp) {
+        draftProfileSection = `
+          <div class="crt-box rounded p-4 mb-6 bg-white/90 border-pink-300 shadow-md">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-pink-200 pb-2.5 mb-3">
+              <div>
+                <span class="text-[10px] text-pink-600 font-bold uppercase tracking-widest block font-fredoka">&gt;_ DRAFT_PROFILE &amp; SCOUTING_REPORT</span>
+                <h3 class="text-lg font-black text-pink-700 font-fredoka mt-0.5">${dp.archetype}</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${dp.reachColor} shadow-sm">${dp.reachRating}</span>
+                <span class="text-xs text-purple-600 font-mono font-bold bg-purple-50 px-2 py-0.5 rounded border border-purple-200">${dp.yearsSample}</span>
+              </div>
+            </div>
+
+            <!-- Core Metrics Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3 text-center text-xs">
+              <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
+                <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">R1 TENDENCY</span>
+                <span class="font-black text-pink-700 block mt-1 text-sm">${dp.r1Tendency}</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">${dp.r1Detail}</span>
+              </div>
+              <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
+                <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">AVG REACH / VALUE</span>
+                <span class="font-black text-pink-700 block mt-1 text-sm">${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">vs Half-PPR Consensus</span>
+              </div>
+              <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
+                <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">TOP REACH POSITION</span>
+                <span class="font-bold text-pink-700 block mt-1 text-xs">${dp.topReachPos}</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">Drafted earliest vs ADP</span>
+              </div>
+              <div class="bg-pink-50/80 border border-pink-200 p-2.5 rounded-xl shadow-sm">
+                <span class="text-[10px] uppercase font-bold text-purple-700 block font-fredoka">TOP VALUE POSITION</span>
+                <span class="font-bold text-emerald-700 block mt-1 text-xs">${dp.topValuePos}</span>
+                <span class="text-[10px] text-purple-600 block mt-0.5">Drafted latest vs ADP</span>
+              </div>
+            </div>
+
+            <!-- 1st Position Average Timing Bar -->
+            <div class="bg-gradient-to-r from-pink-50/90 to-purple-50/90 border border-pink-200 rounded-xl p-3 mb-3 shadow-sm">
+              <span class="text-[11px] uppercase font-bold text-purple-900 block mb-2 font-fredoka">⏱️ 1st Position Drafted Averages (Entry Timing)</span>
+              <div class="grid grid-cols-5 gap-2 text-center text-xs font-mono">
+                <div class="bg-white/95 p-2 rounded-lg border border-pink-200 shadow-sm">
+                  <span class="text-[10px] font-bold text-pink-700 block font-sans">1st RB</span>
+                  <span class="font-black text-purple-900 text-sm">${dp.firstPosAvg.RB}</span>
+                </div>
+                <div class="bg-white/95 p-2 rounded-lg border border-pink-200 shadow-sm">
+                  <span class="text-[10px] font-bold text-pink-700 block font-sans">1st WR</span>
+                  <span class="font-black text-purple-900 text-sm">${dp.firstPosAvg.WR}</span>
+                </div>
+                <div class="bg-white/95 p-2 rounded-lg border border-pink-200 shadow-sm">
+                  <span class="text-[10px] font-bold text-pink-700 block font-sans">1st QB</span>
+                  <span class="font-black text-purple-900 text-sm">${dp.firstPosAvg.QB}</span>
+                </div>
+                <div class="bg-white/95 p-2 rounded-lg border border-pink-200 shadow-sm">
+                  <span class="text-[10px] font-bold text-pink-700 block font-sans">1st TE</span>
+                  <span class="font-black text-purple-900 text-sm">${dp.firstPosAvg.TE}</span>
+                </div>
+                <div class="bg-white/95 p-2 rounded-lg border border-pink-200 shadow-sm">
+                  <span class="text-[10px] font-bold text-pink-700 block font-sans">1st DEF</span>
+                  <span class="font-black text-purple-900 text-sm">${dp.firstPosAvg.DEF}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scouting Report Commentary -->
+            <div class="bg-pink-100/50 p-3 rounded-xl border border-pink-200 text-xs text-purple-950 font-sans leading-relaxed">
+              <span class="font-bold text-pink-700 font-fredoka">Draft Scouting Report:</span> ${dp.scoutingReport}
+            </div>
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="crt-box rounded p-4 mb-6">
           <div class="flex flex-col md:flex-row items-center gap-4">
@@ -2609,6 +2684,8 @@ function renderLucideIcons() {
             </div>
           </div>
         </div>
+
+        ${draftProfileSection}
 
         <div class="crt-box rounded overflow-visible">
           <div class="crt-box-header px-4 py-2 font-bold text-xs">
