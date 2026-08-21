@@ -29,6 +29,24 @@ h1, h2, h3, h4, th, .font-fredoka, .font-outfit {
   backdrop-filter: blur(12px);
   border: 2px solid rgba(244, 114, 182, 0.25);
   box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.08), 0 8px 10px -6px rgba(139, 92, 246, 0.04);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive Table Scroll Containers */
+.table-scroll-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.table-scroll-container > table {
+  width: 100%;
+  margin: 0;
 }
 
 .cute-card-header {
