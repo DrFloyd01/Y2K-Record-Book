@@ -38,7 +38,6 @@
 
         <button onclick="switchTab('seasons')" id="nav-seasons" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-black font-fredoka rounded-full transition-all duration-200 text-white">📅 SEASONS</button>
         <button onclick="switchTab('h2h')" id="nav-h2h" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">⚔️ H2H</button>
-        <button onclick="switchTab('matchups')" id="nav-matchups" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">🏈 MATCHUPS</button>
         <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">👑 CHAMPS</button>
         <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">💅 TEAMS</button>
         <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📜 DRAFT</button>
@@ -283,63 +282,6 @@
       </div>
 
       <div id="stats-leaderboard-container"></div>
-    </div>
-
-
-    <!-- TAB: WEEKLY MATCHUP HUBS -->
-    <div id="tab-matchups" class="tab-content hidden">
-      <div class="crt-box rounded p-4 mb-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ WEEKLY_MATCHUP_ARCHIVE</div>
-            <h2 class="text-2xl font-black text-pink-700 crt-glow-pink-pink">WEEKLY MATCHUP HUBS</h2>
-            <p class="text-xs text-pink-600 mt-1">Pre-game previews, H2H historical trends, editorial write-ups, and boxscore recaps.</p>
-          </div>
-
-          <!-- Controls: Season, Mode Toggle -->
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-pink-50/90/80 p-2.5 border border-purple-200 rounded">
-            <!-- Mode Toggle -->
-            <div class="inline-flex bg-white p-1 border border-purple-200">
-              <button onclick="switchMatchupMode('preview')" id="matchup-mode-preview" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-100/90 text-pink-700 border border-pink-400">
-                🏈 PREVIEW
-              </button>
-              <button onclick="switchMatchupMode('recap')" id="matchup-mode-recap" class="matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700">
-                📊 RECAP
-              </button>
-            </div>
-
-            <!-- Season Selector -->
-            <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-pink-600 whitespace-nowrap">&gt; SEASON:</label>
-              <select id="matchup-season-select" onchange="onMatchupSeasonChange()" class="bg-white border border-pink-300 text-pink-700 text-xs p-1 font-sans font-bold">
-                <option value="allTime">ALL-TIME (2017-2025)</option>
-                <option value="2026">2026 SEASON</option>
-                <option value="2025" selected>2025 SEASON</option>
-                <option value="2024">2024 SEASON</option>
-                <option value="2023">2023 SEASON</option>
-                <option value="2022">2022 SEASON</option>
-                <option value="2021">2021 SEASON</option>
-                <option value="2020">2020 SEASON</option>
-                <option value="2019">2019 SEASON</option>
-                <option value="2018">2018 SEASON</option>
-                <option value="2017">2017 SEASON</option>
-</select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Week Selector Pills -->
-        <div class="mt-4 pt-3 border-t border-pink-200/60 flex items-center gap-1.5 flex-wrap justify-center" id="matchup-week-pills-container"></div>
-      </div>
-
-      <!-- Matchups Grid Header Banner -->
-      <div id="matchup-header-banner" class="crt-box rounded p-3 mb-4 bg-pink-50/90/40 flex justify-between items-center flex-wrap gap-2">
-        <span id="matchup-title-heading" class="text-sm font-black text-pink-700 crt-glow-pink-pink"></span>
-        <span id="matchup-mode-badge" class="px-2 py-0.5 bg-white border border-pink-300 text-pink-600 font-bold text-xs"></span>
-      </div>
-
-      <!-- Matchup Cards Container -->
-      <div id="matchups-cards-container" class="space-y-4"></div>
     </div>
 
 
@@ -629,15 +571,12 @@
 
   <!-- Mobile Bottom Navigation Bar -->
   <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 border-t border-pink-300 shadow-2xl z-40 backdrop-blur-sm">
-    <div class="flex justify-around items-center h-14 font-sans text-[10px]">
+    <div class="flex justify-around items-center h-14 font-sans text-[11px]">
       <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-600 font-bold">
         <span>SEASONS</span>
       </button>
       <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60 font-medium">
         <span>H2H</span>
-      </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60 font-medium">
-        <span>WEEKLY</span>
       </button>
       <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60 font-medium">
         <span>CHAMPS</span>
