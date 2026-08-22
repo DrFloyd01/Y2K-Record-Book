@@ -928,7 +928,7 @@ function renderLucideIcons() {
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
+        <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
           <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
           ${rowsHtml || '<div class="text-emerald-600 italic">No data records found</div>'}
         </div>
@@ -2985,7 +2985,7 @@ function renderLucideIcons() {
       filterPlayerDraftPicks();
     }
 
-    function getPlayerLifetimeDraftPopover(playerName) {
+    function getPlayerLifetimeDraftPopover(playerName, rowPopDir = '') {
       const history = [];
       const seasons = window.LEAGUE_DATA.seasons || [];
       seasons.forEach(yr => {
@@ -3021,7 +3021,7 @@ function renderLucideIcons() {
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
+        <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-mono z-50 w-72">
           <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
             <span>🏈 ${playerName}</span>
             <span class="text-[10px] text-amber-400 font-bold">${history.length}x Drafted</span>

@@ -361,7 +361,7 @@ function renderLucideIcons() {
               playoffHtml = `
                 <div class="tooltip-trigger inline-block cursor-pointer">
                   <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
-                  <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
+                  <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl min-w-[220px] text-left z-50">
                     <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
                     ${listStr}
                   </div>
@@ -564,7 +564,7 @@ function renderLucideIcons() {
           wwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-pink-100/90 text-pink-700 font-bold border border-pink-400 text-xs">${wwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl min-w-[220px] text-left z-50">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -584,7 +584,7 @@ function renderLucideIcons() {
           lwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 text-xs">${lwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl min-w-[220px] text-left z-50">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -604,7 +604,7 @@ function renderLucideIcons() {
           hbBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 text-xs">${hbCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl min-w-[220px] text-left z-50">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -624,7 +624,7 @@ function renderLucideIcons() {
           tlBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs">${tlCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl min-w-[220px] text-left z-50">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -1081,7 +1081,7 @@ function renderLucideIcons() {
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
+        <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
           <div class="font-bold text-amber-500 border-b border-pink-200 pb-1 mb-1">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
           ${rowsHtml || '<div class="text-purple-700 italic">No data records found</div>'}
         </div>
@@ -1206,9 +1206,10 @@ function renderLucideIcons() {
         return 0;
       });
 
-      list.forEach(item => {
+      list.forEach((item, idx) => {
         const tr = document.createElement('tr');
         tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/30 font-sans';
+        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
         const wwCount = item.weeklyWins || 0;
         const lwCount = item.luckiestWins || 0;
@@ -1228,7 +1229,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-pink-100/90 text-pink-700 font-bold border border-pink-400 text-xs hover:bg-purple-50 hover:border-pink-300 transition-all cursor-help">
                 ${wwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left z-50">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -1249,7 +1250,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 text-xs hover:bg-pink-100/90 hover:border-pink-400 transition-all cursor-help">
                 ${lwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left z-50">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -1270,7 +1271,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 text-xs hover:bg-red-200 hover:border-red-500 transition-all cursor-help">
                 ${hbCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl w-64 text-left z-50">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.ownerName} Heartbreak Losses (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -1291,7 +1292,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs hover:bg-amber-200 hover:border-amber-400 transition-all cursor-help">
                 ${tlCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left z-50">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.ownerName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -1954,7 +1955,7 @@ function renderLucideIcons() {
             <td class="p-2.5 font-bold text-pink-700" colspan="2">
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
-                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
                   <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
                     <span class="text-[9px] text-pink-600">Rank #${r.rank}</span>
@@ -2124,9 +2125,11 @@ function renderLucideIcons() {
       headerTr += '</tr>';
       header.innerHTML = headerTr;
 
-      owners.forEach(o1 => {
+      owners.forEach((o1, idx1) => {
+        const rowPopDir = idx1 < Math.ceil(owners.length / 2) ? ' tooltip-content-bottom' : '';
         let tr = `<tr class="border-b border-pink-100"><td class="p-1.5 font-bold text-left text-pink-700 bg-white/60">${o1}</td>`;
-        owners.forEach(o2 => {
+        owners.forEach((o2, idx2) => {
+          const colPopDir = idx2 >= Math.floor(owners.length / 2) ? ' tooltip-content-right' : '';
           if (o1 === o2) {
             tr += `<td class="p-1.5 text-pink-600/40 bg-white">-</td>`;
           } else {
@@ -2177,7 +2180,7 @@ function renderLucideIcons() {
                   <div class="tooltip-trigger inline-block">
                     <span>${cellTotalStr}</span>
                     ${diffBadge}
-                    <div class="tooltip-content p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px]">
+                    <div class="tooltip-content${rowPopDir}${colPopDir} p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px] z-50">
                       <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
                       <div class="text-xs text-pink-700">• <span class="font-bold text-pink-600">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
                       <div class="text-xs text-amber-800">• <span class="font-bold text-amber-400">Playoffs &amp; RR:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
@@ -3131,7 +3134,7 @@ function renderLucideIcons() {
       filterPlayerDraftPicks();
     }
 
-    function getPlayerLifetimeDraftPopover(playerName) {
+    function getPlayerLifetimeDraftPopover(playerName, rowPopDir = '') {
       const history = [];
       const seasons = window.LEAGUE_DATA.seasons || [];
       seasons.forEach(yr => {
@@ -3167,7 +3170,7 @@ function renderLucideIcons() {
       `).join('');
 
       return `
-        <div class="tooltip-content p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
+        <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-sans z-50 w-72">
           <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1 flex items-center justify-between">
             <span>🏈 ${playerName}</span>
             <span class="text-[10px] text-amber-400 font-bold">${history.length}x Drafted</span>
@@ -3212,16 +3215,17 @@ function renderLucideIcons() {
         return;
       }
 
-      filtered.forEach(p => {
+      filtered.forEach((p, idx) => {
         const tr = document.createElement('tr');
         tr.className = 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
+        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
         const isRound1 = p.round === 1;
         const roundBadge = isRound1 
           ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
           : `<span class="px-2 py-0.5 bg-pink-100 text-pink-700 font-bold border border-pink-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`;
 
-        const popoverHtml = getPlayerLifetimeDraftPopover(p.player);
+        const popoverHtml = getPlayerLifetimeDraftPopover(p.player, rowPopDir);
 
         tr.innerHTML = `
           <td class="p-2.5 text-center font-black text-pink-700">Pick #${p.overallPick}</td>
