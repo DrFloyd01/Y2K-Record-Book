@@ -1029,12 +1029,12 @@ function renderLucideIcons() {
 
       // Render Weekly Badges & Bad Luck Tally Table
       let list = [];
-      if (currentSeason === 'allTime') {
-        list = window.LEAGUE_DATA.allTimeStandings.filter(entry => !isOneYearManager(entry.ownerName));
+      if (currentSeason === 'allTime' || currentSeason === 2026 || currentSeason === '2026') {
+        list = window.LEAGUE_DATA.allTimeStandings.filter(entry => !isOneYearManager(entry.ownerName)).slice();
       } else {
         const sData = window.LEAGUE_DATA.seasonData[currentSeason];
         if (sData) {
-          list = sData.standings.filter(entry => (currentSeason === 2023 || !isOneYearManager(entry.ownerName)));
+          list = sData.standings.filter(entry => (currentSeason === 2023 || !isOneYearManager(entry.ownerName))).slice();
         }
       }
 
