@@ -42,6 +42,7 @@
         <button onclick="switchTab('champs')" id="nav-champs" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">👑 CHAMPS</button>
         <button onclick="switchTab('teams')" id="nav-teams" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">💅 TEAMS</button>
         <button onclick="switchTab('draft')" id="nav-draft" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">📜 DRAFT</button>
+        <button onclick="switchTab('challenges')" id="nav-challenges" class="nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600">🎯 CHALLENGES</button>
         <!-- <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn ...">ANALYTICS</button> -->
       </nav>
 
@@ -623,31 +624,606 @@
 
   
         
+  
+    <!-- TAB 8: CHALLENGES & BOUNTIES (2026) -->
+    <div id="tab-challenges" class="tab-content hidden">
+      
+      <!-- Top Banner -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ 2026_SEASON_WEEKLY_BOUNTIES</div>
+        <h2 class="text-2xl font-black text-pink-700 font-fredoka crt-glow-pink-pink">2026 WEEKLY CHALLENGE &amp; BOUNTY PORTAL</h2>
+        <p class="text-xs text-pink-700 mt-1">14-Week Regular Season Challenge Series. Win #1 qualifies your franchise. Win #2+ pays out 1-to-1 boosted cash per subsequent win!</p>
+      </div>
+
+      <!-- Payout & Rules Engine with 1-to-1 Boost Tiers ($5, $10, $20) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+        <div class="crt-box p-4 rounded flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2">&gt; RULE 01: BASE BOUNTY (100% FREE)</div>
+            <p class="text-xs text-purple-900 leading-relaxed">
+              Everyone is entered automatically at <span class="text-pink-700 font-bold">$0 cost</span>.
+              <br>• <span class="text-pink-700 font-semibold">Win #1:</span> Qualifies &amp; unlocks your franchise.
+              <br>• <span class="text-pink-700 font-semibold">Win #2+:</span> Pays <span class="text-pink-600 font-black">$5.00 cash</span> per repeat win!
+            </p>
+          </div>
+          <div class="text-[10px] text-purple-600 font-mono mt-2 pt-1 border-t border-pink-200">
+            *Sponsored via the 2025 "Finish Above Phillip" Memorial Fund.
+          </div>
+        </div>
+
+        <div class="crt-box p-4 rounded lg:col-span-2">
+          <div class="flex items-center justify-between border-b border-pink-200 pb-1 mb-2">
+            <span class="text-xs font-bold text-pink-600">&gt; RULE 02: OPTIONAL 1-TO-1 HIGH ROLLER BOOST ($5, $10, $20 BUYS)</span>
+            <span class="text-[10px] text-purple-600 font-mono">* All payout values reflect Net Profit / Loss</span>
+          </div>
+          <p class="text-xs text-purple-900 mb-3">Want higher stakes? Choose your buy-in before Week 1. Every <span class="text-pink-700 font-bold">$1 buy-in</span> adds <span class="text-pink-600 font-bold">+$1.00 / repeat win</span> to the $5 base:</p>
+          
+          <div class="table-scroll-container">
+            <table class="w-full text-xs font-mono text-left">
+              <thead class="bg-pink-100/90 text-pink-700 border-b border-pink-300">
+                <tr>
+                  <th class="p-2">Buy-In</th>
+                  <th class="p-2 text-center">Repeat Rate</th>
+                  <th class="p-2 text-center">0 Wins</th>
+                  <th class="p-2 text-center">1 Win</th>
+                  <th class="p-2 text-center">2 Wins</th>
+                  <th class="p-2 text-center">3 Wins</th>
+                  <th class="p-2 text-right">4 Wins</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-pink-200">
+                <tr class="hover:bg-pink-50/80">
+                  <td class="p-2 font-bold text-pink-700">$0 (Free)</td>
+                  <td class="p-2 text-center font-bold text-pink-600">$5.00 / win</td>
+                  <td class="p-2 text-center text-purple-600 font-semibold">$0</td>
+                  <td class="p-2 text-center text-purple-600 font-semibold">$0</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$5</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$10</td>
+                  <td class="p-2 text-right text-pink-700 font-bold">+$15</td>
+                </tr>
+                <tr class="hover:bg-pink-50/80">
+                  <td class="p-2 font-bold text-pink-700">$5</td>
+                  <td class="p-2 text-center font-bold text-pink-600">$10.00 / win</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$5</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$5</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$5</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$15</td>
+                  <td class="p-2 text-right text-pink-700 font-bold">+$25</td>
+                </tr>
+                <tr class="hover:bg-pink-50/80">
+                  <td class="p-2 font-bold text-pink-700">$10</td>
+                  <td class="p-2 text-center font-bold text-pink-600">$15.00 / win</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$10</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$10</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$5</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$20</td>
+                  <td class="p-2 text-right text-pink-700 font-bold">+$35</td>
+                </tr>
+                <tr class="hover:bg-pink-50/80">
+                  <td class="p-2 font-bold text-pink-700">$20</td>
+                  <td class="p-2 text-center font-bold text-pink-600">$25.00 / win</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$20</td>
+                  <td class="p-2 text-center text-red-400 font-semibold">-$20</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$5</td>
+                  <td class="p-2 text-center text-pink-700 font-bold">+$30</td>
+                  <td class="p-2 text-right text-pink-700 font-bold">+$55</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14-Week Bounty Slate Cards Container -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="flex items-center justify-between border-b border-pink-300 pb-2 mb-4">
+          <h3 class="text-sm font-bold text-pink-700 font-fredoka crt-glow-pink-pink">&gt;_ 14-WEEK REGULAR SEASON CHALLENGE SLATE</h3>
+          <span class="text-xs text-purple-600 font-normal">Season 2026 Ready</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 01</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Team High Score</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🚀</span>
+              <span>Hot Start</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Highest single-team score of opening week.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 02</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Points Differential</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">📈</span>
+              <span>Zero to Hero</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Largest positive points jump from Week 1 to Week 2.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 03</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Player Performance</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🎽</span>
+              <span>Julio Jonesing</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Individual offensive starter with the most points scored without a TD (no K/DST).</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 04</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Margin of Victory</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🪓</span>
+              <span>The Massacre</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Largest blowout margin of victory in a weekly matchup.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 05</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Projection Bust</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🥜</span>
+              <span>Lick My Nuts, Yahoo</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Team with the most points scored over their pre-game projected total.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 06</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Projection Precision</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">💌</span>
+              <span>I’m Sorry for Earlier Yahoo, I love you</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Team closest to their exact pre-game projected score (over or under).</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 07</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Midseason Milestone</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🏁</span>
+              <span>Halftime Bonus</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">#1 overall manager on the standings table through Week 7.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 08</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ TD Specialist</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🦅</span>
+              <span>The Vulture Award</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Starting player with the lowest total yards who still scored 2+ Touchdowns.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 09</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Bench Blunder</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🪑</span>
+              <span>12th Man (Bench Hero)</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Highest individual scoring player left on a manager's bench.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 10</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Roster Depth</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🎰</span>
+              <span>The Dimebag</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Team with the most individual starters scoring double digits (10.0+ pts).</p>
+            
+            <div class="text-[11px] text-pink-600/90 font-mono bg-pink-50/80 px-2 py-1 rounded border border-pink-200/50 mb-3">
+              <span class="text-amber-400 font-bold">Tiebreaker:</span> Highest combined points scored by those 10.0+ point starters
+            </div>
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 11</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Position Group</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🥩</span>
+              <span>Ground & Pound</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Highest combined points from starting Running Backs (RB1 + RB2).</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 12</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Holiday Slate</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🍗</span>
+              <span>Thanksgiving Feast</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Most combined points from players in the Thanksgiving & Black Friday holiday games.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 13</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Matchup Nailbiter</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">🫀</span>
+              <span>The Cardiac Arrest</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Closest margin of victory across the league (narrowest win).</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="crt-box p-4 rounded relative hover:border-pink-400 transition-all flex flex-col justify-between shadow-md bg-white/90 border border-pink-200">
+          <div>
+            <div class="flex items-center justify-between border-b border-pink-200 pb-2 mb-2">
+              <span class="px-2 py-0.5 bg-pink-100/90 border border-pink-400 text-pink-700 font-bold text-xs">WEEK 14</span>
+              <span class="text-[11px] text-purple-600 font-mono">🏷️ Season Grand Finale</span>
+            </div>
+            
+            <div class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink mb-1.5 flex items-center gap-2">
+              <span class="text-lg">👑</span>
+              <span>Regular Season Scoring Title</span>
+            </div>
+            
+            <p class="text-xs text-purple-900 mb-3 leading-relaxed">Overall Total Points For (PF) champion heading into the playoffs.</p>
+            
+          </div>
+          
+          <!-- Winner & Winning Stat Result Container -->
+          <div class="pt-2.5 border-t border-pink-200 flex items-center justify-between text-xs font-mono bg-pink-50/80 px-2.5 py-1.5 rounded mt-2">
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 font-bold">👑 Winner:</span>
+              <span class="text-pink-700 font-bold">TBD</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600">Result:</span>
+              <span class="text-purple-900 font-semibold">—</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Standalone EV by Skill Edge Level Container at Bottom -->
+      <div class="crt-box rounded p-4 mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-pink-300 pb-2 mb-3 gap-1">
+          <div>
+            <div class="text-[10px] text-purple-600 tracking-widest font-bold uppercase">&gt;_ STATISTICAL_EDGE_ANALYSIS // MONTE_CARLO_MODEL</div>
+            <h3 class="text-base font-black text-pink-700 font-fredoka crt-glow-pink-pink">📊 EXPECTED VALUE (EV) BY SKILL EDGE LEVEL</h3>
+          </div>
+          <span class="text-xs text-pink-600 font-mono">14 Challenges • 12 Managers • 1-to-1 Boost</span>
+        </div>
+        <p class="text-xs text-purple-900 mb-4 leading-relaxed">
+          Mathematical net expected profit / return across the 14-week season based on your perceived weekly win probability (<span class="text-pink-600 font-bold">p</span>):
+        </p>
+
+        <div class="table-scroll-container">
+          <table class="w-full text-xs font-mono text-left">
+            <thead class="bg-pink-100/90 text-pink-700 border-b border-pink-300">
+              <tr>
+                <th class="p-2">Manager Edge Level</th>
+                <th class="p-2 text-center">Win Prob (p)</th>
+                <th class="p-2 text-center">Free Tier ($5/win)</th>
+                <th class="p-2 text-center">$5 Boost ($10/win)</th>
+                <th class="p-2 text-center">$10 Boost ($15/win)</th>
+                <th class="p-2 text-center">$20 Max ($25/win)</th>
+                <th class="p-2 text-right">Cash Prob (≥2 Wins)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-pink-200 text-purple-900">
+              <tr class="hover:bg-pink-50/80">
+                <td class="p-2 font-bold text-pink-600">Equal Odds (Average)</td>
+                <td class="p-2 text-center text-purple-600 font-bold">8.33%</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$2.31</td>
+                <td class="p-2 text-center text-red-400 font-bold">-$0.38 <span class="text-[10px] text-purple-500 font-normal">(-7.5%)</span></td>
+                <td class="p-2 text-center text-red-400 font-bold">-$3.06 <span class="text-[10px] text-purple-500 font-normal">(-30.6%)</span></td>
+                <td class="p-2 text-center text-red-400 font-bold">-$8.44 <span class="text-[10px] text-purple-500 font-normal">(-42.2%)</span></td>
+                <td class="p-2 text-right text-pink-600">32.8%</td>
+              </tr>
+              <tr class="hover:bg-pink-50/80">
+                <td class="p-2 font-bold text-pink-600">Slight Edge (Active / Smart)</td>
+                <td class="p-2 text-center text-purple-600 font-bold">10.0%</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$3.14</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$1.29 <span class="text-[10px] text-purple-600 font-normal">(+25.8%)</span></td>
+                <td class="p-2 text-center text-red-400 font-bold">-$0.57 <span class="text-[10px] text-purple-500 font-normal">(-5.7%)</span></td>
+                <td class="p-2 text-center text-red-400 font-bold">-$4.28 <span class="text-[10px] text-purple-500 font-normal">(-21.4%)</span></td>
+                <td class="p-2 text-right text-pink-600">41.5%</td>
+              </tr>
+              <tr class="hover:bg-pink-50/80">
+                <td class="p-2 font-bold text-pink-600">Solid Edge (Top 4 Franchise)</td>
+                <td class="p-2 text-center text-purple-600 font-bold">12.0%</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$4.24</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$3.47 <span class="text-[10px] text-purple-600 font-normal">(+69.4%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$2.71 <span class="text-[10px] text-purple-600 font-normal">(+27.1%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$1.18 <span class="text-[10px] text-purple-600 font-normal">(+5.9%)</span></td>
+                <td class="p-2 text-right text-pink-600">51.4%</td>
+              </tr>
+              <tr class="hover:bg-pink-50/80">
+                <td class="p-2 font-bold text-pink-600">Strong Edge (Top 2 Juggernaut)</td>
+                <td class="p-2 text-center text-purple-600 font-bold">15.0%</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$6.01</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$7.03 <span class="text-[10px] text-purple-600 font-normal">(+141%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$8.04 <span class="text-[10px] text-purple-600 font-normal">(+80.4%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$10.07 <span class="text-[10px] text-purple-600 font-normal">(+50.3%)</span></td>
+                <td class="p-2 text-right text-pink-600">64.3%</td>
+              </tr>
+              <tr class="hover:bg-pink-50/80">
+                <td class="p-2 font-bold text-pink-600">Elite Juggernaut (Dominator)</td>
+                <td class="p-2 text-center text-purple-600 font-bold">20.0%</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$9.22</td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$13.44 <span class="text-[10px] text-purple-600 font-normal">(+269%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$17.66 <span class="text-[10px] text-purple-600 font-normal">(+177%)</span></td>
+                <td class="p-2 text-center text-pink-700 font-bold">+$26.10 <span class="text-[10px] text-purple-600 font-normal">(+131%)</span></td>
+                <td class="p-2 text-right text-pink-600">80.2%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <!-- Mobile Bottom Navigation Bar -->
-  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-pink-300 shadow-2xl z-40">
-    <div class="flex justify-around items-center h-14 font-sans text-[10px]">
-      <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-600 font-bold">
+  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 border-t border-pink-300 shadow-2xl z-40 backdrop-blur-sm">
+    <div class="flex justify-between items-center h-14 font-sans text-[9px] sm:text-[10px] tracking-tight px-1">
+      <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-pink-600 font-bold">
         <span>SEASONS</span>
       </button>
-      <!-- STATS tab hidden as per request -->
-      <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
+      <button onclick="switchTab('h2h')" id="mobile-nav-h2h" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
         <span>H2H</span>
       </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
+      <button onclick="switchTab('matchups')" id="mobile-nav-matchups" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
         <span>WEEKLY</span>
       </button>
-      <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
+      <button onclick="switchTab('champs')" id="mobile-nav-champs" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
         <span>CHAMPS</span>
       </button>
-      <button onclick="switchTab('teams')" id="mobile-nav-teams" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
+      <button onclick="switchTab('teams')" id="mobile-nav-teams" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
         <span>TEAMS</span>
       </button>
-      <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-purple-800/60">
+      <button onclick="switchTab('draft')" id="mobile-nav-draft" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
         <span>DRAFT</span>
       </button>
-      <!-- <button onclick="switchTab('analytics')" id="mobile-nav-analytics" class="mobile-nav-btn ...">ANALYTICS</button> -->
+      <button onclick="switchTab('challenges')" id="mobile-nav-challenges" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-purple-800/60 font-medium">
+        <span>BOUNTIES</span>
+      </button>
     </div>
   </nav>
 
