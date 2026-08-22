@@ -1066,7 +1066,7 @@ function renderLucideIcons() {
       return list.slice(0, 5);
     }
 
-    function buildStatCardTop5Popover(cardTitle, metricKey, season) {
+    function buildStatCardTop5Popover(cardTitle, metricKey, season, rowPopDir = '') {
       const seasonLabel = season === 'allTime' ? 'ALL-TIME REGULAR' : (season === 'playoffs' ? 'ALL-TIME PLAYOFFS' : `${season} SEASON`);
       
       const top5 = getStatCardTop5(metricKey, season);
@@ -1092,7 +1092,8 @@ function renderLucideIcons() {
       const container = document.getElementById('stat-cards-grid');
       const label = document.getElementById('records-season-label');
       const badgesTbody = document.getElementById('weekly-badges-table-body');
-      container.innerHTML = ''; badgesTbody.innerHTML = '';
+      if (container) container.innerHTML = '';
+      if (badgesTbody) renderStatsTable();
 
       label.innerText = currentSeason === 'allTime' ? 'ALL_TIME_RECORDS' : `${currentSeason}_SEASON`;
       
@@ -1152,13 +1153,14 @@ function renderLucideIcons() {
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
           div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-pink-400 transition-all shadow-md';
+          const rowPopDir = idx < 4 ? ' tooltip-content-bottom' : '';
           
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
           const owner = card.data ? card.data.owner : '-';
           const sub = card.data ? card.data.sub : '';
 
-          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, currentSeason);
+          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, currentSeason, rowPopDir);
           if (idx % 4 >= 2) {
             popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
           } else {
@@ -2473,12 +2475,13 @@ function renderLucideIcons() {
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
           div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-pink-400 transition-all shadow-md';
+          const rowPopDir = idx < 4 ? ' tooltip-content-bottom' : '';
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
           const owner = card.data ? card.data.owner : '-';
           const sub = card.data ? card.data.sub : '';
 
-          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs');
+          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs', rowPopDir);
           if (idx % 4 >= 2) popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
 
           div.innerHTML = `

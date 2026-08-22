@@ -913,7 +913,7 @@ function renderLucideIcons() {
       return list.slice(0, 5);
     }
 
-    function buildStatCardTop5Popover(cardTitle, metricKey, season) {
+    function buildStatCardTop5Popover(cardTitle, metricKey, season, rowPopDir = '') {
       const seasonLabel = season === 'allTime' ? 'ALL-TIME REGULAR' : (season === 'playoffs' ? 'ALL-TIME PLAYOFFS' : `${season} SEASON`);
 
       const top5 = getStatCardTop5(metricKey, season);
@@ -939,7 +939,8 @@ function renderLucideIcons() {
       const container = document.getElementById('stat-cards-grid');
       const label = document.getElementById('records-season-label');
       const badgesTbody = document.getElementById('weekly-badges-table-body');
-      container.innerHTML = ''; badgesTbody.innerHTML = '';
+      if (container) container.innerHTML = '';
+      if (badgesTbody) renderStatsTable();
 
       label.innerText = currentSeason === 'allTime' ? 'ALL_TIME_RECORDS' : `${currentSeason}_SEASON`;
 
