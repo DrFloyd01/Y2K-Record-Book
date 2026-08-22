@@ -64,7 +64,7 @@ function renderLucideIcons() {
 
         // Direct Deep Linking Support via URL Hash
         const initialHash = window.location.hash.replace('#', '').toLowerCase();
-        const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties'];
+        const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics'];
         if (initialHash && validTabs.includes(initialHash)) {
           const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
           switchTab(targetTab);
@@ -97,7 +97,7 @@ function renderLucideIcons() {
     }
 
     window.addEventListener('hashchange', () => {
-      const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties'];
+      const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics'];
       const newHash = window.location.hash.replace('#', '').toLowerCase();
       if (newHash && validTabs.includes(newHash)) {
         const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
@@ -160,21 +160,15 @@ function renderLucideIcons() {
       } else if (tabId === 'champs') {
         renderChamps();
       } else if (tabId === 'teams') {
-        renderFranchiseProfile();
+        initTeamOwnerSelect();
       } else if (tabId === 'stats') {
         renderStatsTable();
       } else if (tabId === 'matchups') {
         renderMatchupsTab();
       } else if (tabId === 'draft') {
-        renderDraftPage();
+        initDraftTab();
       } else if (tabId === 'analytics') {
         renderAnalyticsCharts();
-      } else if (tabId === 'h2h') {
-        renderH2HMatrix();
-      } else if (tabId === 'champs') {
-        renderChamps();
-      } else if (tabId === 'teams') {
-        renderFranchiseProfile();
       }
     }
 

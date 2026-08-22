@@ -122,13 +122,13 @@ function renderLucideIcons() {
       } else if (tabId === 'champs') {
         renderChamps();
       } else if (tabId === 'teams') {
-        renderFranchiseProfile();
+        initTeamOwnerSelect();
       } else if (tabId === 'stats') {
         renderStatsTable();
       } else if (tabId === 'matchups') {
         renderMatchupsTab();
       } else if (tabId === 'draft') {
-        renderDraftPage();
+        initDraftTab();
       } else if (tabId === 'analytics') {
         renderAnalyticsCharts();
       }
