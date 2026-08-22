@@ -489,12 +489,19 @@ function renderLucideIcons() {
         <th onclick="sortStandings('teamName')" class="p-2.5 cursor-pointer hover:bg-pink-100/90">FRANCHISE_TEAM</th>
         <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">W-L</th>
         <th class="p-2.5 text-center">FORM</th>
-        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">LUCK</th>
+        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-purple-50 transition-all inline-block shadow-sm">🍀 LUCK</span>
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🍀 <span class="font-bold text-pink-600">Luck Index:</span> Actual wins minus expected wins (1 expected win awarded each week your score is in the top 50% of the league).
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">OVR_W-L</th>
         <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-purple-50 transition-all inline-block shadow-sm">⚡ WW</span>
-            <div class="tooltip-content p-2 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               ⚡ <span class="font-bold text-pink-600">WW (Weekly Wins):</span> Highest scoring team in a regular season week
             </div>
           </div>
@@ -502,7 +509,7 @@ function renderLucideIcons() {
         <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100/90 transition-all inline-block shadow-sm">🍀 LW</span>
-            <div class="tooltip-content p-2 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               🍀 <span class="font-bold text-pink-600">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
             </div>
           </div>
@@ -510,16 +517,16 @@ function renderLucideIcons() {
         <th onclick="sortStandings('heartbreaks')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 rounded text-xs hover:bg-red-200 transition-all inline-block shadow-sm">💔 HB</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl text-left font-normal">
-              💔 <span class="font-bold text-red-400">HB (Heartbreaks):</span> Smallest point margin loss in a regular season week (losing by a hair)
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-red-600 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              💔 <span class="font-bold text-red-500">HB (Heartbreaks):</span> Smallest point margin loss in a regular season week (losing by a hair)
             </div>
           </div>
         </th>
         <th onclick="sortStandings('toughestLosses')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 rounded text-xs hover:bg-amber-200 transition-all inline-block shadow-sm">🤕 TL</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal">
-              🤕 <span class="font-bold text-amber-400">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🤕 <span class="font-bold text-amber-600">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
             </div>
           </div>
         </th>
@@ -2238,6 +2245,7 @@ function renderLucideIcons() {
           const c = entry.championships || {};
           const finishes = entry.finishes || {};
           const scTitles = c.scoringTitles || 0;
+          const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
           function formatBinTooltip(title, binKey, badgeColor, borderColor) {
             const list = finishes[binKey] || [];
@@ -2251,7 +2259,7 @@ function renderLucideIcons() {
             return `
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span class="px-2 py-0.5 ${badgeColor} font-extrabold border-2 ${borderColor} rounded-lg text-xs shadow-sm">${count}</span>
-                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 ${borderColor} text-xs shadow-xl text-left min-w-[220px] z-50">
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 ${borderColor} text-xs shadow-xl text-left min-w-[220px] z-50">
                   <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">${title} (${count})</div>
                   ${listStr}
                 </div>
@@ -2273,7 +2281,7 @@ function renderLucideIcons() {
             scHtml = `
               <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
                 <span class="px-2 py-0.5 bg-pink-100 text-pink-800 font-black border-2 border-pink-300 rounded-lg text-xs shadow-sm">🎯 ${scTitles}</span>
-                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl text-left min-w-[220px]">
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-xl text-left min-w-[220px]">
                   <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
                   ${listStr}
                 </div>
@@ -2287,7 +2295,7 @@ function renderLucideIcons() {
             playoffHtml = `
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span class="px-2 py-0.5 bg-purple-50 text-purple-900 font-bold border-2 border-purple-200 rounded-lg text-xs shadow-sm">${entry.playoffPct}%</span>
-                <div class="tooltip-content p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-purple-300 text-xs shadow-xl">
                   <div class="font-bold text-purple-900 border-b border-purple-200 pb-1 mb-1">🏈 ${owner}'s Playoff Apps (${entry.playoffApps}/${entry.seasonsCount})</div>
                   ${listStr}
                 </div>

@@ -273,6 +273,7 @@ function renderLucideIcons() {
             const c = entry.championships || {};
             const finishes = entry.finishes || {};
             const scTitles = c.scoringTitles || 0;
+            const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
             function formatBinTooltipY2K(title, binKey, badgeColor, borderColor) {
               const list = finishes[binKey] || [];
@@ -286,7 +287,7 @@ function renderLucideIcons() {
               return `
                 <div class="tooltip-trigger inline-block cursor-pointer">
                   <span class="px-2 py-0.5 ${badgeColor} font-extrabold border ${borderColor} rounded text-xs shadow-sm">${count}</span>
-                  <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border ${borderColor} text-xs shadow-2xl text-left min-w-[220px] z-50">
+                  <div class="tooltip-content${rowPopDir} p-3 bg-black text-emerald-300 rounded border ${borderColor} text-xs shadow-2xl text-left min-w-[220px] z-50">
                     <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">${title} (${count})</div>
                     ${listStr}
                   </div>
@@ -444,12 +445,19 @@ function renderLucideIcons() {
         <th onclick="sortStandings('teamName')" class="p-2.5 cursor-pointer hover:bg-emerald-900">FRANCHISE_TEAM</th>
         <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">W-L</th>
         <th class="p-2.5 text-center">FORM</th>
-        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">LUCK</th>
+        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 LUCK</span>
+            <div class="tooltip-content tooltip-content-bottom p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🍀 <span class="font-bold text-emerald-400">Luck Index:</span> Actual wins minus expected wins (1 expected win awarded each week your score is in the top 50% of the league).
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">OVR_W-L</th>
         <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">⚡ WW</span>
-            <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-normal">
+            <div class="tooltip-content tooltip-content-bottom p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               ⚡ <span class="font-bold text-emerald-400">WW (Weekly Wins):</span> Highest scoring team in a regular season week
             </div>
           </div>
@@ -457,7 +465,7 @@ function renderLucideIcons() {
         <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀 LW</span>
-            <div class="tooltip-content p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left font-normal">
+            <div class="tooltip-content tooltip-content-bottom p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               🍀 <span class="font-bold text-emerald-400">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
             </div>
           </div>
@@ -465,7 +473,7 @@ function renderLucideIcons() {
         <th onclick="sortStandings('heartbreaks')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔 HB</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               💔 <span class="font-bold text-red-400">HB (Heartbreaks):</span> Smallest point margin loss in a regular season week (losing by a hair)
             </div>
           </div>
@@ -473,7 +481,7 @@ function renderLucideIcons() {
         <th onclick="sortStandings('toughestLosses')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕 TL</span>
-            <div class="tooltip-content tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal">
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               🤕 <span class="font-bold text-amber-400">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
             </div>
           </div>
@@ -1045,9 +1053,10 @@ function renderLucideIcons() {
         return 0;
       });
 
-      list.forEach(item => {
+      list.forEach((item, idx) => {
         const tr = document.createElement('tr');
         tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/30 font-mono';
+        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
         const wwCount = item.weeklyWins || 0;
         const lwCount = item.luckiestWins || 0;
@@ -1067,7 +1076,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs hover:bg-emerald-800 hover:border-emerald-300 transition-all cursor-help">
                 ${wwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -1088,7 +1097,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs hover:bg-emerald-900 hover:border-emerald-400 transition-all cursor-help">
                 ${lwCount}
               </span>
-              <div class="tooltip-content p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
                 <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -1109,7 +1118,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs hover:bg-red-900 hover:border-red-500 transition-all cursor-help">
                 ${hbCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.ownerName} Heartbreak Losses (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -1130,7 +1139,7 @@ function renderLucideIcons() {
               <span class="px-2.5 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs hover:bg-amber-900 hover:border-amber-400 transition-all cursor-help">
                 ${tlCount}
               </span>
-              <div class="tooltip-content tooltip-content-right p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.ownerName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -2077,6 +2086,7 @@ function renderLucideIcons() {
           const c = entry.championships || {};
           const finishes = entry.finishes || {};
           const scTitles = c.scoringTitles || 0;
+          const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
           function formatBinTooltipY2K(title, binKey, badgeColor, borderColor) {
             const list = finishes[binKey] || [];
@@ -2090,7 +2100,7 @@ function renderLucideIcons() {
             return `
               <div class="tooltip-trigger inline-block cursor-pointer">
                 <span class="px-2 py-0.5 ${badgeColor} font-extrabold border ${borderColor} rounded text-xs shadow-sm">${count}</span>
-                <div class="tooltip-content p-3 bg-black text-emerald-300 rounded border ${borderColor} text-xs shadow-2xl text-left min-w-[220px] z-50">
+                <div class="tooltip-content${rowPopDir} p-3 bg-black text-emerald-300 rounded border ${borderColor} text-xs shadow-2xl text-left min-w-[220px] z-50">
                   <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 font-mono">${title} (${count})</div>
                   ${listStr}
                 </div>
