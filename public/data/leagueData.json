@@ -23133,7 +23133,1736 @@
         "team": "-",
         "pointsFor": 0.0
       },
-      "draftPicks": [],
+      "draftPicks": [
+        {
+          "round": 1,
+          "pickInRound": 1,
+          "overallPick": 1,
+          "player": "Bijan Robinson",
+          "position": "RB",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 1,
+          "pickInRound": 2,
+          "overallPick": 2,
+          "player": "Jahmyr Gibbs",
+          "position": "RB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 1,
+          "pickInRound": 3,
+          "overallPick": 3,
+          "player": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 1,
+          "pickInRound": 4,
+          "overallPick": 4,
+          "player": "Ja'Marr Chase",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 1,
+          "pickInRound": 5,
+          "overallPick": 5,
+          "player": "Puka Nacua",
+          "position": "WR",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 1,
+          "pickInRound": 6,
+          "overallPick": 6,
+          "player": "Jeremiyah Love",
+          "position": "RB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 1,
+          "pickInRound": 7,
+          "overallPick": 7,
+          "player": "Christian McCaffrey",
+          "position": "RB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 1,
+          "pickInRound": 8,
+          "overallPick": 8,
+          "player": "Jonathan Taylor",
+          "position": "RB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 1,
+          "pickInRound": 9,
+          "overallPick": 9,
+          "player": "James Cook III",
+          "position": "RB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 1,
+          "pickInRound": 10,
+          "overallPick": 10,
+          "player": "Amon-Ra St. Brown",
+          "position": "WR",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 1,
+          "pickInRound": 11,
+          "overallPick": 11,
+          "player": "CeeDee Lamb",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 1,
+          "pickInRound": 12,
+          "overallPick": 12,
+          "player": "Ashton Jeanty",
+          "position": "RB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 2,
+          "pickInRound": 1,
+          "overallPick": 13,
+          "player": "Justin Jefferson",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 2,
+          "pickInRound": 2,
+          "overallPick": 14,
+          "player": "Saquon Barkley",
+          "position": "RB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 2,
+          "pickInRound": 3,
+          "overallPick": 15,
+          "player": "De'Von Achane",
+          "position": "RB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 2,
+          "pickInRound": 4,
+          "overallPick": 16,
+          "player": "George Pickens",
+          "position": "WR",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 2,
+          "pickInRound": 5,
+          "overallPick": 17,
+          "player": "A.J. Brown",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 2,
+          "pickInRound": 6,
+          "overallPick": 18,
+          "player": "Derrick Henry",
+          "position": "RB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 2,
+          "pickInRound": 7,
+          "overallPick": 19,
+          "player": "Drake London",
+          "position": "WR",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 2,
+          "pickInRound": 8,
+          "overallPick": 20,
+          "player": "Omarion Hampton",
+          "position": "RB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 2,
+          "pickInRound": 9,
+          "overallPick": 21,
+          "player": "Kenneth Walker III",
+          "position": "RB",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 2,
+          "pickInRound": 10,
+          "overallPick": 22,
+          "player": "Chase Brown",
+          "position": "RB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 2,
+          "pickInRound": 11,
+          "overallPick": 23,
+          "player": "Nico Collins",
+          "position": "WR",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 2,
+          "pickInRound": 12,
+          "overallPick": 24,
+          "player": "Trey McBride",
+          "position": "TE",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 3,
+          "pickInRound": 1,
+          "overallPick": 25,
+          "player": "Malik Nabers",
+          "position": "WR",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 3,
+          "pickInRound": 2,
+          "overallPick": 26,
+          "player": "Brock Bowers",
+          "position": "TE",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 3,
+          "pickInRound": 3,
+          "overallPick": 27,
+          "player": "Josh Allen",
+          "position": "QB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 3,
+          "pickInRound": 4,
+          "overallPick": 28,
+          "player": "Kyren Williams",
+          "position": "RB",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 3,
+          "pickInRound": 5,
+          "overallPick": 29,
+          "player": "Chris Olave",
+          "position": "WR",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 3,
+          "pickInRound": 6,
+          "overallPick": 30,
+          "player": "Tee Higgins",
+          "position": "WR",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 3,
+          "pickInRound": 7,
+          "overallPick": 31,
+          "player": "DeVonta Smith",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 3,
+          "pickInRound": 8,
+          "overallPick": 32,
+          "player": "Rashee Rice",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 3,
+          "pickInRound": 9,
+          "overallPick": 33,
+          "player": "Ladd McConkey",
+          "position": "WR",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 3,
+          "pickInRound": 10,
+          "overallPick": 34,
+          "player": "Zay Flowers",
+          "position": "WR",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 3,
+          "pickInRound": 11,
+          "overallPick": 35,
+          "player": "Breece Hall",
+          "position": "RB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 3,
+          "pickInRound": 12,
+          "overallPick": 36,
+          "player": "Tetairoa McMillan",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 4,
+          "pickInRound": 1,
+          "overallPick": 37,
+          "player": "Javonte Williams",
+          "position": "RB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 4,
+          "pickInRound": 2,
+          "overallPick": 38,
+          "player": "Jaylen Waddle",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 4,
+          "pickInRound": 3,
+          "overallPick": 39,
+          "player": "Colston Loveland",
+          "position": "TE",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 4,
+          "pickInRound": 4,
+          "overallPick": 40,
+          "player": "Tyler Warren",
+          "position": "TE",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 4,
+          "pickInRound": 5,
+          "overallPick": 41,
+          "player": "Travis Etienne Jr.",
+          "position": "RB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 4,
+          "pickInRound": 6,
+          "overallPick": 42,
+          "player": "Josh Jacobs",
+          "position": "RB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 4,
+          "pickInRound": 7,
+          "overallPick": 43,
+          "player": "Cam Skattebo",
+          "position": "RB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 4,
+          "pickInRound": 8,
+          "overallPick": 44,
+          "player": "D'Andre Swift",
+          "position": "RB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 4,
+          "pickInRound": 9,
+          "overallPick": 45,
+          "player": "Emeka Egbuka",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 4,
+          "pickInRound": 10,
+          "overallPick": 46,
+          "player": "Terry McLaurin",
+          "position": "WR",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 4,
+          "pickInRound": 11,
+          "overallPick": 47,
+          "player": "DJ Moore",
+          "position": "WR",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 4,
+          "pickInRound": 12,
+          "overallPick": 48,
+          "player": "Lamar Jackson",
+          "position": "QB",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 5,
+          "pickInRound": 1,
+          "overallPick": 49,
+          "player": "Garrett Wilson",
+          "position": "WR",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 5,
+          "pickInRound": 2,
+          "overallPick": 50,
+          "player": "Quinshon Judkins",
+          "position": "RB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 5,
+          "pickInRound": 3,
+          "overallPick": 51,
+          "player": "David Montgomery",
+          "position": "RB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 5,
+          "pickInRound": 4,
+          "overallPick": 52,
+          "player": "Davante Adams",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 5,
+          "pickInRound": 5,
+          "overallPick": 53,
+          "player": "Drake Maye",
+          "position": "QB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 5,
+          "pickInRound": 6,
+          "overallPick": 54,
+          "player": "Jadarian Price",
+          "position": "RB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 5,
+          "pickInRound": 7,
+          "overallPick": 55,
+          "player": "Luther Burden III",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 5,
+          "pickInRound": 8,
+          "overallPick": 56,
+          "player": "Rome Odunze",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 5,
+          "pickInRound": 9,
+          "overallPick": 57,
+          "player": "TreVeyon Henderson",
+          "position": "RB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 5,
+          "pickInRound": 10,
+          "overallPick": 58,
+          "player": "Jalen Hurts",
+          "position": "QB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 5,
+          "pickInRound": 11,
+          "overallPick": 59,
+          "player": "Jameson Williams",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 5,
+          "pickInRound": 12,
+          "overallPick": 60,
+          "player": "Bucky Irving",
+          "position": "RB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 6,
+          "pickInRound": 1,
+          "overallPick": 61,
+          "player": "Christian Watson",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 6,
+          "pickInRound": 2,
+          "overallPick": 62,
+          "player": "Bhayshul Tuten",
+          "position": "RB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 6,
+          "pickInRound": 3,
+          "overallPick": 63,
+          "player": "Parker Washington",
+          "position": "WR",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 6,
+          "pickInRound": 4,
+          "overallPick": 64,
+          "player": "Jayden Daniels",
+          "position": "QB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 6,
+          "pickInRound": 5,
+          "overallPick": 65,
+          "player": "DK Metcalf",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 6,
+          "pickInRound": 6,
+          "overallPick": 66,
+          "player": "Mike Evans",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 6,
+          "pickInRound": 7,
+          "overallPick": 67,
+          "player": "Caleb Williams",
+          "position": "QB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 6,
+          "pickInRound": 8,
+          "overallPick": 68,
+          "player": "Kyle Pitts Sr.",
+          "position": "TE",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 6,
+          "pickInRound": 9,
+          "overallPick": 69,
+          "player": "Jaylen Warren",
+          "position": "RB",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 6,
+          "pickInRound": 10,
+          "overallPick": 70,
+          "player": "Joe Burrow",
+          "position": "QB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 6,
+          "pickInRound": 11,
+          "overallPick": 71,
+          "player": "Marvin Harrison Jr.",
+          "position": "WR",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 6,
+          "pickInRound": 12,
+          "overallPick": 72,
+          "player": "Rhamondre Stevenson",
+          "position": "RB",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 7,
+          "pickInRound": 1,
+          "overallPick": 73,
+          "player": "Rams",
+          "position": "DEF",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 7,
+          "pickInRound": 2,
+          "overallPick": 74,
+          "player": "Brian Thomas Jr.",
+          "position": "WR",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 7,
+          "pickInRound": 3,
+          "overallPick": 75,
+          "player": "Harold Fannin Jr.",
+          "position": "TE",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 7,
+          "pickInRound": 4,
+          "overallPick": 76,
+          "player": "Sam LaPorta",
+          "position": "TE",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 7,
+          "pickInRound": 5,
+          "overallPick": 77,
+          "player": "Carnell Tate",
+          "position": "WR",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 7,
+          "pickInRound": 6,
+          "overallPick": 78,
+          "player": "Tucker Kraft",
+          "position": "TE",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 7,
+          "pickInRound": 7,
+          "overallPick": 79,
+          "player": "Bo Nix",
+          "position": "QB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 7,
+          "pickInRound": 8,
+          "overallPick": 80,
+          "player": "Jonathon Brooks",
+          "position": "RB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 7,
+          "pickInRound": 9,
+          "overallPick": 81,
+          "player": "Michael Wilson",
+          "position": "WR",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 7,
+          "pickInRound": 10,
+          "overallPick": 82,
+          "player": "Tony Pollard",
+          "position": "RB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 7,
+          "pickInRound": 11,
+          "overallPick": 83,
+          "player": "Justin Herbert",
+          "position": "QB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 7,
+          "pickInRound": 12,
+          "overallPick": 84,
+          "player": "George Kittle",
+          "position": "TE",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 8,
+          "pickInRound": 1,
+          "overallPick": 85,
+          "player": "Chris Godwin Jr.",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 8,
+          "pickInRound": 2,
+          "overallPick": 86,
+          "player": "Dalton Kincaid",
+          "position": "TE",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 8,
+          "pickInRound": 3,
+          "overallPick": 87,
+          "player": "Texans",
+          "position": "DEF",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 8,
+          "pickInRound": 4,
+          "overallPick": 88,
+          "player": "Rico Dowdle",
+          "position": "RB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 8,
+          "pickInRound": 5,
+          "overallPick": 89,
+          "player": "Quentin Johnston",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 8,
+          "pickInRound": 6,
+          "overallPick": 90,
+          "player": "Seahawks",
+          "position": "DEF",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 8,
+          "pickInRound": 7,
+          "overallPick": 91,
+          "player": "Courtland Sutton",
+          "position": "WR",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 8,
+          "pickInRound": 8,
+          "overallPick": 92,
+          "player": "Chuba Hubbard",
+          "position": "RB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 8,
+          "pickInRound": 9,
+          "overallPick": 93,
+          "player": "Dak Prescott",
+          "position": "QB",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 8,
+          "pickInRound": 10,
+          "overallPick": 94,
+          "player": "Stefon Diggs",
+          "position": "WR",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 8,
+          "pickInRound": 11,
+          "overallPick": 95,
+          "player": "Trevor Lawrence",
+          "position": "QB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 8,
+          "pickInRound": 12,
+          "overallPick": 96,
+          "player": "Josh Downs",
+          "position": "WR",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 9,
+          "pickInRound": 1,
+          "overallPick": 97,
+          "player": "Brandon Aubrey",
+          "position": "K",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 9,
+          "pickInRound": 2,
+          "overallPick": 98,
+          "player": "J.K. Dobbins",
+          "position": "RB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 9,
+          "pickInRound": 3,
+          "overallPick": 99,
+          "player": "Blake Corum",
+          "position": "RB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 9,
+          "pickInRound": 4,
+          "overallPick": 100,
+          "player": "Alec Pierce",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 9,
+          "pickInRound": 5,
+          "overallPick": 101,
+          "player": "De'Zhaun Stribling",
+          "position": "WR",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 9,
+          "pickInRound": 6,
+          "overallPick": 102,
+          "player": "Broncos",
+          "position": "DEF",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 9,
+          "pickInRound": 7,
+          "overallPick": 103,
+          "player": "Patrick Mahomes",
+          "position": "QB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 9,
+          "pickInRound": 8,
+          "overallPick": 104,
+          "player": "Jaxson Dart",
+          "position": "QB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 9,
+          "pickInRound": 9,
+          "overallPick": 105,
+          "player": "Matthew Golden",
+          "position": "WR",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 9,
+          "pickInRound": 10,
+          "overallPick": 106,
+          "player": "Jordan Addison",
+          "position": "WR",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 9,
+          "pickInRound": 11,
+          "overallPick": 107,
+          "player": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 9,
+          "pickInRound": 12,
+          "overallPick": 108,
+          "player": "Brock Purdy",
+          "position": "QB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 10,
+          "pickInRound": 1,
+          "overallPick": 109,
+          "player": "Michael Pittman Jr.",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 10,
+          "pickInRound": 2,
+          "overallPick": 110,
+          "player": "Jayden Reed",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 10,
+          "pickInRound": 3,
+          "overallPick": 111,
+          "player": "Dallas Goedert",
+          "position": "TE",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 10,
+          "pickInRound": 4,
+          "overallPick": 112,
+          "player": "Jordan Mason",
+          "position": "RB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 10,
+          "pickInRound": 5,
+          "overallPick": 113,
+          "player": "Mark Andrews",
+          "position": "TE",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 10,
+          "pickInRound": 6,
+          "overallPick": 114,
+          "player": "Eagles",
+          "position": "DEF",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 10,
+          "pickInRound": 7,
+          "overallPick": 115,
+          "player": "Jake Ferguson",
+          "position": "TE",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 10,
+          "pickInRound": 8,
+          "overallPick": 116,
+          "player": "Jordyn Tyson",
+          "position": "WR",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 10,
+          "pickInRound": 9,
+          "overallPick": 117,
+          "player": "KC Concepcion",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 10,
+          "pickInRound": 10,
+          "overallPick": 118,
+          "player": "Vikings",
+          "position": "DEF",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 10,
+          "pickInRound": 11,
+          "overallPick": 119,
+          "player": "Makai Lemon",
+          "position": "WR",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 10,
+          "pickInRound": 12,
+          "overallPick": 120,
+          "player": "Jalen Coker",
+          "position": "WR",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 11,
+          "pickInRound": 1,
+          "overallPick": 121,
+          "player": "Kyle Monangai",
+          "position": "RB",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 11,
+          "pickInRound": 2,
+          "overallPick": 122,
+          "player": "RJ Harvey",
+          "position": "RB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 11,
+          "pickInRound": 3,
+          "overallPick": 123,
+          "player": "Jakobi Meyers",
+          "position": "WR",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 11,
+          "pickInRound": 4,
+          "overallPick": 124,
+          "player": "Travis Kelce",
+          "position": "TE",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 11,
+          "pickInRound": 5,
+          "overallPick": 125,
+          "player": "Isaiah Likely",
+          "position": "TE",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 11,
+          "pickInRound": 6,
+          "overallPick": 126,
+          "player": "Kenny Gainwell",
+          "position": "RB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 11,
+          "pickInRound": 7,
+          "overallPick": 127,
+          "player": "Juwan Johnson",
+          "position": "TE",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 11,
+          "pickInRound": 8,
+          "overallPick": 128,
+          "player": "Kyler Murray",
+          "position": "QB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 11,
+          "pickInRound": 9,
+          "overallPick": 129,
+          "player": "Matthew Stafford",
+          "position": "QB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 11,
+          "pickInRound": 10,
+          "overallPick": 130,
+          "player": "Jared Goff",
+          "position": "QB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 11,
+          "pickInRound": 11,
+          "overallPick": 131,
+          "player": "Malik Willis",
+          "position": "QB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 11,
+          "pickInRound": 12,
+          "overallPick": 132,
+          "player": "Aaron Jones Sr.",
+          "position": "RB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 12,
+          "pickInRound": 1,
+          "overallPick": 133,
+          "player": "Wan'Dale Robinson",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 12,
+          "pickInRound": 2,
+          "overallPick": 134,
+          "player": "Romeo Doubs",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 12,
+          "pickInRound": 3,
+          "overallPick": 135,
+          "player": "Keaton Mitchell",
+          "position": "RB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 12,
+          "pickInRound": 4,
+          "overallPick": 136,
+          "player": "Xavier Worthy",
+          "position": "WR",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 12,
+          "pickInRound": 5,
+          "overallPick": 137,
+          "player": "Rashid Shaheed",
+          "position": "WR",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 12,
+          "pickInRound": 6,
+          "overallPick": 138,
+          "player": "Khalil Shakir",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 12,
+          "pickInRound": 7,
+          "overallPick": 139,
+          "player": "Deebo Samuel Sr.",
+          "position": "WR",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 12,
+          "pickInRound": 8,
+          "overallPick": 140,
+          "player": "Tyler Allgeier",
+          "position": "RB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 12,
+          "pickInRound": 9,
+          "overallPick": 141,
+          "player": "Rachaad White",
+          "position": "RB",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 12,
+          "pickInRound": 10,
+          "overallPick": 142,
+          "player": "Chris Rodriguez Jr.",
+          "position": "RB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 12,
+          "pickInRound": 11,
+          "overallPick": 143,
+          "player": "Jordan Love",
+          "position": "QB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 12,
+          "pickInRound": 12,
+          "overallPick": 144,
+          "player": "Sam Darnold",
+          "position": "QB",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 13,
+          "pickInRound": 1,
+          "overallPick": 145,
+          "player": "Hunter Henry",
+          "position": "TE",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 13,
+          "pickInRound": 2,
+          "overallPick": 146,
+          "player": "Chig Okonkwo",
+          "position": "TE",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 13,
+          "pickInRound": 3,
+          "overallPick": 147,
+          "player": "AJ Barner",
+          "position": "TE",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 13,
+          "pickInRound": 4,
+          "overallPick": 148,
+          "player": "Keenan Allen",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 13,
+          "pickInRound": 5,
+          "overallPick": 149,
+          "player": "Tank Bigsby",
+          "position": "RB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 13,
+          "pickInRound": 6,
+          "overallPick": 150,
+          "player": "Baker Mayfield",
+          "position": "QB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 13,
+          "pickInRound": 7,
+          "overallPick": 151,
+          "player": "Ka'imi Fairbairn",
+          "position": "K",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 13,
+          "pickInRound": 8,
+          "overallPick": 152,
+          "player": "David Njoku",
+          "position": "TE",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 13,
+          "pickInRound": 9,
+          "overallPick": 153,
+          "player": "Jason Myers",
+          "position": "K",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 13,
+          "pickInRound": 10,
+          "overallPick": 154,
+          "player": "Tyjae Spears",
+          "position": "RB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 13,
+          "pickInRound": 11,
+          "overallPick": 155,
+          "player": "Cameron Dicker",
+          "position": "K",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 13,
+          "pickInRound": 12,
+          "overallPick": 156,
+          "player": "Tyler Shough",
+          "position": "QB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 14,
+          "pickInRound": 1,
+          "overallPick": 157,
+          "player": "Tyrone Tracy Jr.",
+          "position": "RB",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 14,
+          "pickInRound": 2,
+          "overallPick": 158,
+          "player": "Jaguars",
+          "position": "DEF",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 14,
+          "pickInRound": 3,
+          "overallPick": 159,
+          "player": "Cam Little",
+          "position": "K",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 14,
+          "pickInRound": 4,
+          "overallPick": 160,
+          "player": "Jonah Coleman",
+          "position": "RB",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 14,
+          "pickInRound": 5,
+          "overallPick": 161,
+          "player": "Chris Boswell",
+          "position": "K",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 14,
+          "pickInRound": 6,
+          "overallPick": 162,
+          "player": "Denzel Boston",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 14,
+          "pickInRound": 7,
+          "overallPick": 163,
+          "player": "Will Reichard",
+          "position": "K",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 14,
+          "pickInRound": 8,
+          "overallPick": 164,
+          "player": "Patriots",
+          "position": "DEF",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 14,
+          "pickInRound": 9,
+          "overallPick": 165,
+          "player": "Malik Washington",
+          "position": "WR",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 14,
+          "pickInRound": 10,
+          "overallPick": 166,
+          "player": "Zach Charbonnet",
+          "position": "RB",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 14,
+          "pickInRound": 11,
+          "overallPick": 167,
+          "player": "MarShawn Lloyd",
+          "position": "RB",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 14,
+          "pickInRound": 12,
+          "overallPick": 168,
+          "player": "Lions",
+          "position": "DEF",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 15,
+          "pickInRound": 1,
+          "overallPick": 169,
+          "player": "Evan McPherson",
+          "position": "K",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        },
+        {
+          "round": 15,
+          "pickInRound": 2,
+          "overallPick": 170,
+          "player": "Steelers",
+          "position": "DEF",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 15,
+          "pickInRound": 3,
+          "overallPick": 171,
+          "player": "Eddy Pineiro",
+          "position": "K",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 15,
+          "pickInRound": 4,
+          "overallPick": 172,
+          "player": "Chargers",
+          "position": "DEF",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 15,
+          "pickInRound": 5,
+          "overallPick": 173,
+          "player": "Daniel Jones",
+          "position": "QB",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 15,
+          "pickInRound": 6,
+          "overallPick": 174,
+          "player": "Woody Marks",
+          "position": "RB",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 15,
+          "pickInRound": 7,
+          "overallPick": 175,
+          "player": "Travis Hunter",
+          "position": "WR",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 15,
+          "pickInRound": 8,
+          "overallPick": 176,
+          "player": "Mike Washington Jr.",
+          "position": "RB",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 15,
+          "pickInRound": 9,
+          "overallPick": 177,
+          "player": "Dalton Schultz",
+          "position": "TE",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 15,
+          "pickInRound": 10,
+          "overallPick": 178,
+          "player": "Brenton Strange",
+          "position": "TE",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 15,
+          "pickInRound": 11,
+          "overallPick": 179,
+          "player": "Jalen Nailor",
+          "position": "WR",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 15,
+          "pickInRound": 12,
+          "overallPick": 180,
+          "player": "Jerry Jeudy",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 16,
+          "pickInRound": 1,
+          "overallPick": 181,
+          "player": "Tre Tucker",
+          "position": "WR",
+          "teamName": "Globo Gym",
+          "ownerName": "Dylan"
+        },
+        {
+          "round": 16,
+          "pickInRound": 2,
+          "overallPick": 182,
+          "player": "Emmett Johnson",
+          "position": "RB",
+          "teamName": "Ho Chi Win City",
+          "ownerName": "Phillip"
+        },
+        {
+          "round": 16,
+          "pickInRound": 3,
+          "overallPick": 183,
+          "player": "Brian Robinson",
+          "position": "RB",
+          "teamName": "Blue's Balls",
+          "ownerName": "Jasper"
+        },
+        {
+          "round": 16,
+          "pickInRound": 4,
+          "overallPick": 184,
+          "player": "Ravens",
+          "position": "DEF",
+          "teamName": "Tess Finesse",
+          "ownerName": "Tess"
+        },
+        {
+          "round": 16,
+          "pickInRound": 5,
+          "overallPick": 185,
+          "player": "49ers",
+          "position": "DEF",
+          "teamName": "Gl Hf (you’re gay)",
+          "ownerName": "Trace"
+        },
+        {
+          "round": 16,
+          "pickInRound": 6,
+          "overallPick": 186,
+          "player": "Jaydon Blue",
+          "position": "RB",
+          "teamName": "AARPFL",
+          "ownerName": "Casey"
+        },
+        {
+          "round": 16,
+          "pickInRound": 7,
+          "overallPick": 187,
+          "player": "Dontayvion Wicks",
+          "position": "WR",
+          "teamName": "Jelqaida",
+          "ownerName": "Mike"
+        },
+        {
+          "round": 16,
+          "pickInRound": 8,
+          "overallPick": 188,
+          "player": "Tyler Loop",
+          "position": "K",
+          "teamName": "Aaron codger",
+          "ownerName": "Boaz"
+        },
+        {
+          "round": 16,
+          "pickInRound": 9,
+          "overallPick": 189,
+          "player": "Wil Lutz",
+          "position": "K",
+          "teamName": "Dusty’s Dingleberries",
+          "ownerName": "Dustin"
+        },
+        {
+          "round": 16,
+          "pickInRound": 10,
+          "overallPick": 190,
+          "player": "Packers",
+          "position": "DEF",
+          "teamName": "Donkey Squad",
+          "ownerName": "Ryan"
+        },
+        {
+          "round": 16,
+          "pickInRound": 11,
+          "overallPick": 191,
+          "player": "Cairo Santos",
+          "position": "K",
+          "teamName": "Trenches cooper",
+          "ownerName": "Cooper"
+        },
+        {
+          "round": 16,
+          "pickInRound": 12,
+          "overallPick": 192,
+          "player": "Adonai Mitchell",
+          "position": "WR",
+          "teamName": "Darnold Schwarzenegger",
+          "ownerName": "Alex"
+        }
+      ],
       "schedule2026": [
         {
           "seasonYear": 2026,
