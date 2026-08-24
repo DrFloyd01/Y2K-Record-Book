@@ -167,10 +167,12 @@ function renderLucideIcons() {
       }
 
       const banner = document.getElementById('champion-banner');
+      const playoffSubBtn = document.getElementById('subnav-playoff');
       if (yr === 'allTime') {
         standingsSortField = 'winPct';
         standingsSortAsc = false;
         banner.innerHTML = `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">All-Time Cumulative League Standings</span>`;
+        if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] DYNASTY LEADERBOARD`;
       } else {
         standingsSortField = 'rank';
         standingsSortAsc = true;
@@ -180,6 +182,7 @@ function renderLucideIcons() {
         } else {
           banner.innerHTML = `&gt; SEASON_VIEW: <span class="font-bold text-emerald-300">${yr} Season</span>`;
         }
+        if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] PLAYOFF BRACKET`;
       }
 
       renderStandings();
