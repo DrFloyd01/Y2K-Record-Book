@@ -756,35 +756,11 @@ function renderLucideIcons() {
         `;
       });
 
-      // Consolation Bracket Round Robin
-      const consolationMatchups = pMatchups.filter(m => m.stage === 'Consolation Round Robin' || m.stage === 'Consolation Matchup' || (m.rawTier && m.rawTier.includes('LOSERS')));
+      // Consolation Bracket / Ladder Logic
+      const consolationMatchups = pMatchups.filter(m => m.stage === 'Consolation Round Robin' || m.stage === 'Consolation Matchup' || (m.rawTier && m.rawTier.includes('LOSERS')) || m.stage === 'Consolation Ladder');
       let consolationHtml = '';
 
       if (consolationMatchups.length > 0) {
-        // Calculate Consolation Standings across Weeks 15-17
-        const consStats = {};
-        consolationMatchups.forEach(m => {
-          for (const [o, t, s, oppS] of [[m.homeOwner, m.homeTeam, m.homeScore, m.awayScore], [m.awayOwner, m.awayTeam, m.awayScore, m.homeScore]]) {
-            if (!consStats[o]) consStats[o] = { owner: o, team: t, wins: 0, losses: 0, pf: 0.0, seed: m.homeOwner === o ? m.homeSeed : m.awaySeed };
-            consStats[o].pf += s;
-            if (s > oppS) consStats[o].wins += 1;
-            else if (s < oppS) consStats[o].losses += 1;
-          }
-        });
-
-        const consList = Object.values(consStats).sort((a, b) => (b.wins - a.wins) || (b.pf - a.pf));
-        let consTableRows = '';
-        consList.forEach((c, idx) => {
-          consTableRows += `
-            <tr class="border-b border-pink-100 text-xs">
-              <td class="p-2 font-bold text-amber-400">Pick #${idx + 1}</td>
-              <td class="p-2 font-bold text-pink-700">${c.team} <span class="text-[10px] text-purple-700">(${c.owner})</span></td>
-              <td class="p-2 text-center font-sans">${c.wins}-${c.losses}</td>
-              <td class="p-2 text-right font-sans font-bold text-pink-700">${c.pf.toFixed(2)}</td>
-            </tr>
-          `;
-        });
-
         // Group Consolation Games by Week
         const consByWk = {};
         consolationMatchups.forEach(m => {
@@ -793,59 +769,144 @@ function renderLucideIcons() {
           consByWk[wk].push(m);
         });
 
+        // Compute ladder placement from the final week (Week 17 / max week)
+        const allWeeks = Object.keys(consByWk).map(Number).sort((a, b) => a - b);
+        const finalWk = allWeeks[allWeeks.length - 1];
+        const finalMatchups = consByWk[finalWk] || [];
+
+        // Standings ranking: 7th, 8th, 9th, 10th
+        const ladderPlacements = [];
+        if (finalMatchups.length >= 2) {
+          // In 4-man ladder:
+          // Game 1 is Upper Rung (7th vs 8th Place)
+          // Game 2 is Lower Rung (9th vs 10th Place)
+          const mUpper = finalMatchups[0];
+          const mLower = finalMatchups[1];
+          
+          const upperWinner = mUpper.homeScore > mUpper.awayScore ? mUpper.homeOwner : mUpper.awayOwner;
+          const upperWinnerTeam = mUpper.homeScore > mUpper.awayScore ? mUpper.homeTeam : mUpper.awayTeam;
+          const upperLoser = mUpper.homeScore > mUpper.awayScore ? mUpper.awayOwner : mUpper.homeOwner;
+          const upperLoserTeam = mUpper.homeScore > mUpper.awayScore ? mUpper.awayTeam : mUpper.homeTeam;
+
+          const lowerWinner = mLower.homeScore > mLower.awayScore ? mLower.homeOwner : mLower.awayOwner;
+          const lowerWinnerTeam = mLower.homeScore > mLower.awayScore ? mLower.homeTeam : mLower.awayTeam;
+          const lowerLoser = mLower.homeScore > mLower.awayScore ? mLower.awayOwner : mLower.homeOwner;
+          const lowerLoserTeam = mLower.homeScore > mLower.awayScore ? mLower.awayTeam : mLower.homeTeam;
+
+          ladderPlacements.push({ rank: 7, draftPick: 1, owner: upperWinner, team: upperWinnerTeam, label: '7th Place (Ladder Champ)' });
+          ladderPlacements.push({ rank: 8, draftPick: 2, owner: upperLoser, team: upperLoserTeam, label: '8th Place (Ladder Runner-Up)' });
+          ladderPlacements.push({ rank: 9, draftPick: 3, owner: lowerWinner, team: lowerWinnerTeam, label: '9th Place' });
+          ladderPlacements.push({ rank: 10, draftPick: 4, owner: lowerLoser, team: lowerLoserTeam, label: '10th Place' });
+        } else {
+          // Fallback to season standings
+          const sStandings = (sData.standings || []).filter(s => s.rank >= 7 && s.rank <= 10).sort((a, b) => a.rank - b.rank);
+          sStandings.forEach((s, idx) => {
+            ladderPlacements.push({ rank: s.rank, draftPick: idx + 1, owner: s.ownerName, team: s.teamName, label: `${s.rank}th Place` });
+          });
+        }
+
+        // Calculate record & total PF in ladder
+        const consStats = {};
+        consolationMatchups.forEach(m => {
+          for (const [o, t, s, oppS] of [[m.homeOwner, m.homeTeam, m.homeScore, m.awayScore], [m.awayOwner, m.awayTeam, m.awayScore, m.homeScore]]) {
+            if (!consStats[o]) consStats[o] = { owner: o, wins: 0, losses: 0, pf: 0.0 };
+            consStats[o].pf += s;
+            if (s > oppS) consStats[o].wins += 1;
+            else if (s < oppS) consStats[o].losses += 1;
+          }
+        });
+
+        let consTableRows = '';
+        ladderPlacements.forEach((lp) => {
+          const stat = consStats[lp.owner] || { wins: 0, losses: 0, pf: 0 };
+          const badgeClass = lp.draftPick === 1 ? 'bg-amber-100 text-amber-900 border-amber-300' : (lp.draftPick === 2 ? 'bg-slate-100 text-slate-800 border-slate-300' : 'bg-pink-50 text-pink-700 border-pink-200');
+          consTableRows += `
+            <tr class="border-b border-pink-100 text-xs">
+              <td class="p-2"><span class="px-1.5 py-0.5 font-bold border rounded text-[11px] ${badgeClass}">Pick #${lp.draftPick}</span></td>
+              <td class="p-2 font-bold text-pink-700">${lp.team} <span class="text-[10px] text-purple-700 block">[${lp.owner}]</span></td>
+              <td class="p-2 font-semibold text-purple-900 text-xs">${lp.label}</td>
+              <td class="p-2 text-center font-sans font-bold text-purple-800">${stat.wins}-${stat.losses}</td>
+              <td class="p-2 text-right font-sans font-bold text-pink-700">${stat.pf.toFixed(2)}</td>
+            </tr>
+          `;
+        });
+
         let consGamesHtml = '';
-        Object.keys(consByWk).sort((a, b) => Number(a) - Number(b)).forEach(wk => {
+        allWeeks.forEach((wk, wIdx) => {
           let wkListHtml = '';
-          consByWk[wk].forEach(m => {
+          const isFinalWk = wIdx === allWeeks.length - 1;
+          const isFirstWk = wIdx === 0;
+          
+          let wkTitle = `WEEK ${wk} LADDER MATCHUPS`;
+          if (isFirstWk) wkTitle = `WEEK ${wk}: OPENING RUNGS (7v8 & 9v10)`;
+          else if (isFinalWk) wkTitle = `WEEK ${wk}: LADDER FINALS (7v8 & 9v10)`;
+          else wkTitle = `WEEK ${wk}: PROMOTION / RELEGATION`;
+
+          consByWk[wk].forEach((m, gIdx) => {
             const isHomeWin = m.homeScore > m.awayScore;
             const isAwayWin = m.awayScore > m.homeScore;
+            let rungLabel = '';
+            if (isFinalWk) {
+              rungLabel = gIdx === 0 ? '🏆 7TH / 8TH PLACE (DRAFT PICK #1 vs #2)' : '🥉 9TH / 10TH PLACE (DRAFT PICK #3 vs #4)';
+            } else if (isFirstWk) {
+              rungLabel = gIdx === 0 ? '🔝 UPPER RUNG (#7 vs #8)' : '🪜 LOWER RUNG (#9 vs #10)';
+            } else {
+              rungLabel = gIdx === 0 ? '🔝 UPPER MATCHUP (PROMOTION)' : '🪜 LOWER MATCHUP';
+            }
+
             wkListHtml += `
-              <div class="bg-white/90 p-2.5 rounded border border-pink-200/60 text-xs">
-                <div class="flex justify-between items-center mb-1 ${isHomeWin ? 'font-bold text-pink-700' : 'text-purple-700'}">
-                  <span>#${m.homeSeed} ${m.homeTeam}</span>
-                  <span class="font-sans">${m.homeScore.toFixed(2)}</span>
+              <div class="bg-white/95 p-2.5 rounded-xl border border-pink-200 shadow-sm text-xs space-y-1">
+                <div class="text-[9px] font-bold text-purple-900/70 border-b border-pink-100 pb-0.5 flex justify-between">
+                  <span>${rungLabel}</span>
                 </div>
-                <div class="flex justify-between items-center ${isAwayWin ? 'font-bold text-pink-700' : 'text-purple-700'}">
-                  <span>#${m.awaySeed} ${m.awayTeam}</span>
-                  <span class="font-sans">${m.awayScore.toFixed(2)}</span>
+                <div class="flex justify-between items-center ${isHomeWin ? 'font-bold text-pink-700 bg-pink-50/80 px-1 py-0.5 rounded border border-pink-300' : 'text-purple-800 px-1'}">
+                  <span class="truncate">#${m.homeSeed} ${m.homeTeam} <span class="text-[10px] text-purple-700 font-normal">[${m.homeOwner}]</span></span>
+                  <span class="font-sans ml-2 font-bold">${m.homeScore.toFixed(2)}</span>
+                </div>
+                <div class="flex justify-between items-center ${isAwayWin ? 'font-bold text-pink-700 bg-pink-50/80 px-1 py-0.5 rounded border border-pink-300' : 'text-purple-800 px-1'}">
+                  <span class="truncate">#${m.awaySeed} ${m.awayTeam} <span class="text-[10px] text-purple-700 font-normal">[${m.awayOwner}]</span></span>
+                  <span class="font-sans ml-2 font-bold">${m.awayScore.toFixed(2)}</span>
                 </div>
               </div>
             `;
           });
 
           consGamesHtml += `
-            <div class="bg-pink-50/90/20 p-3 rounded border border-pink-200">
-              <div class="text-[11px] font-bold text-amber-400 mb-2 uppercase">CONSOLATION WEEK ${wk}</div>
+            <div class="bg-pink-50/60 p-3 rounded-2xl border border-pink-200">
+              <div class="text-[11px] font-bold text-pink-700 mb-2 uppercase flex items-center justify-between font-fredoka">
+                <span>🪜 ${wkTitle}</span>
+              </div>
               <div class="space-y-2">${wkListHtml}</div>
             </div>
           `;
         });
 
         consolationHtml = `
-          <div class="crt-box p-4 rounded mb-6 border-pink-200">
-            <h3 class="text-sm font-bold text-amber-400 border-b border-pink-200 pb-2 mb-3 flex items-center justify-between">
-              <span>💩 CONSOLATION TOURNAMENT / DRAFT ORDER ROUND ROBIN (SEEDS #7-#10)</span>
-              <span class="text-xs text-pink-600 font-normal">TIEBREAKER: TOTAL PF IN WEEKS 15-17</span>
+          <div class="crt-box p-4 rounded-2xl mb-6 border-2 border-pink-300 bg-white shadow-md">
+            <h3 class="text-sm font-bold text-pink-700 border-b border-pink-200 pb-2 mb-3 flex flex-wrap items-center justify-between gap-2">
+              <span class="font-fredoka text-base">🪜 CONSOLATION LADDER &amp; DRAFT ORDER TOURNAMENT</span>
+              <span class="text-xs text-purple-800/80 font-normal">Ladder Format: Final week placement determines draft slots #1–#4</span>
             </h3>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <!-- Consolation Standings Table -->
-              <div class="lg:col-span-1 bg-white/80 p-3 rounded border border-pink-200">
-                <div class="text-[11px] font-bold text-pink-600 mb-2 uppercase">💖 DRAFT DETERMINATION STANDINGS</div>
+              <!-- Consolation Ladder Standings Table -->
+              <div class="lg:col-span-1 bg-pink-50/40 p-3 rounded-2xl border border-pink-200">
+                <div class="text-[11px] font-bold text-pink-700 mb-2 uppercase font-fredoka">💖 FINAL LADDER PLACEMENT</div>
                 <table class="w-full text-left">
                   <thead>
-                    <tr class="border-b border-pink-200 text-[10px] text-pink-600 uppercase">
-                      <th class="p-1.5">DRAFT SLOT</th>
+                    <tr class="border-b border-pink-200 text-[10px] text-purple-900 uppercase font-bold">
+                      <th class="p-1.5">SLOT</th>
                       <th class="p-1.5">TEAM</th>
-                      <th class="p-1.5 text-center">CONS REC</th>
-                      <th class="p-1.5 text-right">CONS PF</th>
+                      <th class="p-1.5">FINISH</th>
+                      <th class="p-1.5 text-center">REC</th>
+                      <th class="p-1.5 text-right">PF</th>
                     </tr>
                   </thead>
                   <tbody>${consTableRows}</tbody>
                 </table>
               </div>
 
-              <!-- Consolation Games by Week -->
+              <!-- Consolation Ladder Games by Week -->
               <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 ${consGamesHtml}
               </div>
