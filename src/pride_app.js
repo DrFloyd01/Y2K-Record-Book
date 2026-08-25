@@ -712,7 +712,7 @@ function renderLucideIcons() {
             <div class="bg-white/90 p-3 rounded border ${cardBorder}">
               <div class="text-[10px] font-bold tracking-wider text-pink-600 mb-2 flex justify-between uppercase">
                 <span>[${m.stage}]</span>
-                <span>WEEK ${m.weekNumber || m.week}</span>
+                <span>${formatPlayoffWeek(currentSeason, m.weekNumber || m.week, m.stage)}</span>
               </div>
               <div class="space-y-1.5 text-xs">
                 <div class="flex justify-between items-center p-1.5 rounded ${isHomeWinner ? 'bg-pink-50/90/80 border border-pink-400 font-bold' : ''}">
@@ -747,7 +747,7 @@ function renderLucideIcons() {
           <div class="crt-box rounded p-4">
             <h3 class="text-sm font-bold ${headerColor} border-b border-pink-200 pb-2 mb-3 flex items-center justify-between">
               <span>${headerTitle}</span>
-              <span class="text-xs font-normal text-purple-700">WEEK ${stgMatchups[0].weekNumber || stgMatchups[0].week}</span>
+              <span class="text-xs font-normal text-purple-700">${formatPlayoffWeek(currentSeason, stgMatchups[0].weekNumber || stgMatchups[0].week, stg)}</span>
             </h3>
             <div class="space-y-3">
               ${mListHtml}
@@ -837,10 +837,11 @@ function renderLucideIcons() {
           const isFinalWk = wIdx === allWeeks.length - 1;
           const isFirstWk = wIdx === 0;
           
-          let wkTitle = `WEEK ${wk} LADDER MATCHUPS`;
-          if (isFirstWk) wkTitle = `WEEK ${wk}: OPENING RUNGS (7v8 & 9v10)`;
-          else if (isFinalWk) wkTitle = `WEEK ${wk}: LADDER FINALS (7v8 & 9v10)`;
-          else wkTitle = `WEEK ${wk}: PROMOTION / RELEGATION`;
+          const wkLabel = formatPlayoffWeek(currentSeason, wk, 'Consolation');
+          let wkTitle = `${wkLabel} LADDER MATCHUPS`;
+          if (isFirstWk) wkTitle = `${wkLabel}: OPENING RUNGS (7v8 & 9v10)`;
+          else if (isFinalWk) wkTitle = `${wkLabel}: LADDER FINALS (7v8 & 9v10)`;
+          else wkTitle = `${wkLabel}: PROMOTION / RELEGATION`;
 
           consByWk[wk].forEach((m, gIdx) => {
             const isHomeWin = m.homeScore > m.awayScore;
