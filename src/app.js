@@ -360,6 +360,8 @@ function renderLucideIcons() {
               dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
               dOhDetails: entry.dOhDetails || [],
               coachingEfficiency: entry.coachingEfficiency !== undefined ? entry.coachingEfficiency : null,
+              optimalPointsFor: entry.optimalPointsFor !== undefined ? entry.optimalPointsFor : null,
+              optPfg: entry.optimalPointsFor && (entry.wins + entry.losses > 0) ? Math.round((entry.optimalPointsFor / (entry.wins + entry.losses)) * 10) / 10 : null,
               pointsFor: entry.pointsFor,
               pointsAgainst: entry.pointsAgainst
             };
@@ -384,6 +386,7 @@ function renderLucideIcons() {
           if (field === 'wins') field = 'winPct';
           if (field === 'ovrRecord') field = 'ovrWinPct';
           if (field === 'pointsFor') field = 'pfg';
+          if (field === 'optimalPointsFor' || field === 'optimalPF') field = 'optPfg';
           if (field === 'pointsAgainst') field = 'pag';
         }
 
@@ -450,7 +453,23 @@ function renderLucideIcons() {
             </div>
           </div>
         </th>
+        <th onclick="sortStandings('coachingEfficiency')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">🧠 EFF</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[260px]">
+              🧠 <span class="font-bold text-emerald-400">Coaching Efficiency:</span> Actual PF / Optimal Best Ball PF. Measures how close start/sit decisions were to the max possible points.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
+        <th onclick="sortStandings('optimalPointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">${currentSeason === 'allTime' ? 'OPT/G' : 'OPT_PF'}</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[240px]">
+              🎯 <span class="font-bold text-emerald-400">Optimal PF (Best Ball):</span> Theoretical maximum points possible with perfect weekly lineup decisions.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
@@ -583,6 +602,14 @@ function renderLucideIcons() {
           doBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
         }
 
+        const effVal = item.coachingEfficiency !== null && item.coachingEfficiency !== undefined ? `${Number(item.coachingEfficiency).toFixed(1)}%` : '-';
+        const effCell = `<span class="font-bold font-mono text-emerald-300">${effVal}</span>`;
+
+        const optPfVal = currentSeason === 'allTime'
+          ? (item.optPfg !== undefined && item.optPfg !== null ? item.optPfg.toFixed(1) : (item.optimalPointsFor ? (item.optimalPointsFor / (item.wins + item.losses)).toFixed(1) : '-'))
+          : (item.optimalPointsFor !== undefined && item.optimalPointsFor !== null ? item.optimalPointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : '-');
+        const optPfCell = `<span class="font-mono text-emerald-400 font-bold">${optPfVal}</span>`;
+
         const wlCell = currentSeason === 'allTime'
           ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>`
           : `${item.wins}-${item.losses}`;
@@ -606,7 +633,9 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
           <td class="p-2.5 text-center">${doBadge}</td>
+          <td class="p-2.5 text-center">${effCell}</td>
           <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          <td class="p-2.5 text-center">${optPfCell}</td>
           <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
         `;
         tbody.appendChild(tr);

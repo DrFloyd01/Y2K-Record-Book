@@ -1023,7 +1023,9 @@
           "projectedNewScore": 136.26
         }
       ],
-      "coachingEfficiency": 89.2
+      "coachingEfficiency": 89.2,
+      "optimalPointsFor": 2743.24,
+      "optimalPF": 2743.24
     },
     {
       "ownerName": "Jasper",
@@ -1271,7 +1273,9 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 92.3
+      "coachingEfficiency": 92.3,
+      "optimalPointsFor": 2426.96,
+      "optimalPF": 2426.96
     },
     {
       "ownerName": "Ryan",
@@ -1931,7 +1935,9 @@
           "projectedNewScore": 128.82
         }
       ],
-      "coachingEfficiency": 78.3
+      "coachingEfficiency": 78.3,
+      "optimalPointsFor": 2564.54,
+      "optimalPF": 2564.54
     },
     {
       "ownerName": "Dylan",
@@ -2563,7 +2569,9 @@
           "projectedNewScore": 147.5
         }
       ],
-      "coachingEfficiency": 89.4
+      "coachingEfficiency": 89.4,
+      "optimalPointsFor": 2689.26,
+      "optimalPF": 2689.26
     },
     {
       "ownerName": "Dustin",
@@ -3035,7 +3043,9 @@
           "projectedNewScore": 117
         }
       ],
-      "coachingEfficiency": 85.5
+      "coachingEfficiency": 85.5,
+      "optimalPointsFor": 2443.1,
+      "optimalPF": 2443.1
     },
     {
       "ownerName": "Tess",
@@ -3182,7 +3192,9 @@
           "projectedNewScore": 150.7
         }
       ],
-      "coachingEfficiency": 89.9
+      "coachingEfficiency": 89.9,
+      "optimalPointsFor": 2714.7,
+      "optimalPF": 2714.7
     },
     {
       "ownerName": "Boaz",
@@ -3570,7 +3582,9 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 89.5
+      "coachingEfficiency": 89.5,
+      "optimalPointsFor": 2388.77,
+      "optimalPF": 2388.77
     },
     {
       "ownerName": "Cooper",
@@ -3731,7 +3745,9 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null
+      "coachingEfficiency": null,
+      "optimalPointsFor": null,
+      "optimalPF": null
     },
     {
       "ownerName": "Casey",
@@ -4377,7 +4393,9 @@
           "projectedNewScore": 138.88
         }
       ],
-      "coachingEfficiency": 93.6
+      "coachingEfficiency": 93.6,
+      "optimalPointsFor": 2359.4,
+      "optimalPF": 2359.4
     },
     {
       "ownerName": "Trace",
@@ -5131,7 +5149,9 @@
           "projectedNewScore": 138
         }
       ],
-      "coachingEfficiency": 93.2
+      "coachingEfficiency": 93.2,
+      "optimalPointsFor": 2579.93,
+      "optimalPF": 2579.93
     },
     {
       "ownerName": "Mike",
@@ -5722,7 +5742,9 @@
           "projectedNewScore": 137.37
         }
       ],
-      "coachingEfficiency": 87.4
+      "coachingEfficiency": 87.4,
+      "optimalPointsFor": 2430.34,
+      "optimalPF": 2430.34
     },
     {
       "ownerName": "Torin",
@@ -5824,7 +5846,9 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null
+      "coachingEfficiency": null,
+      "optimalPointsFor": null,
+      "optimalPF": null
     },
     {
       "ownerName": "Nick",
@@ -5906,7 +5930,9 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null
+      "coachingEfficiency": null,
+      "optimalPointsFor": null,
+      "optimalPF": null
     }
   ],
   "seasonData": {
@@ -6055,7 +6081,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2018,
@@ -6162,7 +6190,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2018,
@@ -6313,7 +6343,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2018,
@@ -6476,7 +6508,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2018,
@@ -6581,7 +6615,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2018,
@@ -6658,7 +6694,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -7789,7 +7827,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2019,
@@ -7894,7 +7934,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2019,
@@ -8015,7 +8057,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2019,
@@ -8140,7 +8184,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2019,
@@ -8260,7 +8306,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2019,
@@ -8395,7 +8443,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -9502,7 +9552,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2020,
@@ -9623,7 +9675,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2020,
@@ -9796,7 +9850,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2020,
@@ -9884,7 +9940,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2020,
@@ -10035,7 +10093,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2020,
@@ -10131,7 +10191,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -11222,7 +11284,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11287,7 +11351,9 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11426,7 +11492,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11544,7 +11612,9 @@
           "playoffWinPct": 33.3,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11631,7 +11701,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11732,7 +11804,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11819,7 +11893,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2021,
@@ -11940,7 +12016,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -13349,7 +13427,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13420,7 +13500,9 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13512,7 +13594,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13625,7 +13709,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13703,7 +13789,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13811,7 +13899,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13888,7 +13978,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -13966,7 +14058,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -14051,7 +14145,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2022,
@@ -14139,7 +14235,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -15812,7 +15910,9 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -15871,7 +15971,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -15913,7 +16015,9 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -15972,7 +16076,9 @@
           "playoffWinPct": 33.3,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16060,7 +16166,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16181,7 +16289,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16276,7 +16386,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16340,7 +16452,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16417,7 +16531,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16474,7 +16590,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16568,7 +16686,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2023,
@@ -16696,7 +16816,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {
@@ -18692,7 +18814,8 @@
           "dOhs": 0,
           "dOhDetails": [],
           "coachingEfficiency": null,
-          "optimalPF": 149.2
+          "optimalPF": null,
+          "optimalPointsFor": null
         },
         {
           "seasonYear": 2024,
@@ -18788,7 +18911,9 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -18877,7 +19002,8 @@
           "dOhs": 0,
           "dOhDetails": [],
           "coachingEfficiency": null,
-          "optimalPF": 146.1
+          "optimalPF": null,
+          "optimalPointsFor": null
         },
         {
           "seasonYear": 2024,
@@ -18961,7 +19087,9 @@
           "playoffWinPct": 33.3,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19041,7 +19169,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19148,7 +19278,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19205,7 +19337,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19275,7 +19409,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19403,7 +19539,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "seasonYear": 2024,
@@ -19471,7 +19609,8 @@
           "dOhs": 0,
           "dOhDetails": [],
           "coachingEfficiency": null,
-          "optimalPF": 128.6
+          "optimalPF": null,
+          "optimalPointsFor": null
         }
       ],
       "statRecords": {
@@ -21184,7 +21323,9 @@
               "projectedNewScore": 147.5
             }
           ],
-          "coachingEfficiency": 89.4
+          "coachingEfficiency": 91,
+          "optimalPointsFor": 2323.32,
+          "optimalPF": 2323.32
         },
         {
           "seasonYear": 2025,
@@ -21288,7 +21429,7 @@
           "playoffLosses": 1,
           "playoffRecord": "1-1",
           "playoffWinPct": 50,
-          "dOhs": 2,
+          "dOhs": 1,
           "dOhDetails": [
             {
               "year": 2025,
@@ -21304,24 +21445,11 @@
               "deficitNeeded": 19.12,
               "winMargin": 5.68,
               "projectedNewScore": 166.92
-            },
-            {
-              "year": 2025,
-              "week": 17,
-              "starter": "Jared Goff",
-              "starterPosition": "QB",
-              "starterSlot": "QB",
-              "starterPoints": -0.42,
-              "benchPlayer": "Caleb Williams",
-              "benchPosition": "QB",
-              "benchPoints": 27,
-              "netGain": 27.42,
-              "deficitNeeded": 10.91,
-              "winMargin": 16.51,
-              "projectedNewScore": 136.26
             }
           ],
-          "coachingEfficiency": 89.2
+          "coachingEfficiency": 89.5,
+          "optimalPointsFor": 2388.41,
+          "optimalPF": 2388.41
         },
         {
           "seasonYear": 2025,
@@ -21438,7 +21566,9 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 92.3
+          "coachingEfficiency": 90.8,
+          "optimalPointsFor": 1957.74,
+          "optimalPF": 1957.74
         },
         {
           "seasonYear": 2025,
@@ -21519,7 +21649,9 @@
               "projectedNewScore": 150.7
             }
           ],
-          "coachingEfficiency": 89.9
+          "coachingEfficiency": 90.1,
+          "optimalPointsFor": 2270.76,
+          "optimalPF": 2270.76
         },
         {
           "seasonYear": 2025,
@@ -21599,7 +21731,7 @@
           "playoffLosses": 1,
           "playoffRecord": "0-1",
           "playoffWinPct": 0,
-          "dOhs": 3,
+          "dOhs": 2,
           "dOhDetails": [
             {
               "year": 2025,
@@ -21630,24 +21762,11 @@
               "deficitNeeded": 11.55,
               "winMargin": 1.63,
               "projectedNewScore": 125.26
-            },
-            {
-              "year": 2025,
-              "week": 16,
-              "starter": "Emeka Egbuka",
-              "starterPosition": "WR",
-              "starterSlot": "W/R/T",
-              "starterPoints": 6,
-              "benchPlayer": "Parker Washington",
-              "benchPosition": "WR",
-              "benchPoints": 30.1,
-              "netGain": 24.1,
-              "deficitNeeded": 10.06,
-              "winMargin": 14.04,
-              "projectedNewScore": 138
             }
           ],
-          "coachingEfficiency": 93.2
+          "coachingEfficiency": 93.9,
+          "optimalPointsFor": 2276.95,
+          "optimalPF": 2276.95
         },
         {
           "seasonYear": 2025,
@@ -21737,7 +21856,9 @@
               "projectedNewScore": 138.88
             }
           ],
-          "coachingEfficiency": 93.6
+          "coachingEfficiency": 93.6,
+          "optimalPointsFor": 2065.38,
+          "optimalPF": 2065.38
         },
         {
           "seasonYear": 2025,
@@ -21885,7 +22006,9 @@
               "projectedNewScore": 137.37
             }
           ],
-          "coachingEfficiency": 87.4
+          "coachingEfficiency": 86,
+          "optimalPointsFor": 2062.96,
+          "optimalPF": 2062.96
         },
         {
           "seasonYear": 2025,
@@ -21949,7 +22072,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 89.5
+          "coachingEfficiency": 90.1,
+          "optimalPointsFor": 2082.29,
+          "optimalPF": 2082.29
         },
         {
           "seasonYear": 2025,
@@ -22074,7 +22199,7 @@
           "playoffLosses": 0,
           "playoffRecord": "0-0",
           "playoffWinPct": 0,
-          "dOhs": 6,
+          "dOhs": 5,
           "dOhDetails": [
             {
               "year": 2025,
@@ -22150,24 +22275,11 @@
               "deficitNeeded": 6.86,
               "winMargin": 11.24,
               "projectedNewScore": 139.84
-            },
-            {
-              "year": 2025,
-              "week": 17,
-              "starter": "Jaylen Waddle",
-              "starterPosition": "WR",
-              "starterSlot": "WR",
-              "starterPoints": 0.7,
-              "benchPlayer": "Wan'Dale Robinson",
-              "benchPosition": "WR",
-              "benchPoints": 23.3,
-              "netGain": 22.6,
-              "deficitNeeded": 1.93,
-              "winMargin": 20.67,
-              "projectedNewScore": 117
             }
           ],
-          "coachingEfficiency": 85.5
+          "coachingEfficiency": 86.9,
+          "optimalPointsFor": 2150.96,
+          "optimalPF": 2150.96
         },
         {
           "seasonYear": 2025,
@@ -22320,7 +22432,9 @@
               "projectedNewScore": 128.82
             }
           ],
-          "coachingEfficiency": 78.3
+          "coachingEfficiency": 79.6,
+          "optimalPointsFor": 2224.43,
+          "optimalPF": 2224.43
         }
       ],
       "statRecords": {
@@ -23937,7 +24051,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 2,
@@ -23952,7 +24068,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 3,
@@ -23967,7 +24085,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 4,
@@ -23982,7 +24102,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 5,
@@ -23997,7 +24119,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 6,
@@ -24012,7 +24136,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 7,
@@ -24027,7 +24153,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 8,
@@ -24042,7 +24170,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 9,
@@ -24057,7 +24187,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 10,
@@ -24072,7 +24204,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 11,
@@ -24087,7 +24221,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         },
         {
           "rank": 12,
@@ -24102,7 +24238,9 @@
           "ovrRecord": "0-0",
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": null
+          "coachingEfficiency": null,
+          "optimalPointsFor": null,
+          "optimalPF": null
         }
       ],
       "statRecords": {

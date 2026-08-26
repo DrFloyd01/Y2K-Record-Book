@@ -368,6 +368,8 @@ function renderLucideIcons() {
               dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
               dOhDetails: entry.dOhDetails || [],
               coachingEfficiency: entry.coachingEfficiency !== undefined ? entry.coachingEfficiency : null,
+              optimalPointsFor: entry.optimalPointsFor !== undefined ? entry.optimalPointsFor : null,
+              optPfg: entry.optimalPointsFor && (entry.wins + entry.losses > 0) ? Math.round((entry.optimalPointsFor / (entry.wins + entry.losses)) * 10) / 10 : null,
               pointsFor: entry.pointsFor,
               pointsAgainst: entry.pointsAgainst
             };
@@ -392,6 +394,7 @@ function renderLucideIcons() {
           if (field === 'wins') field = 'winPct';
           if (field === 'ovrRecord') field = 'ovrWinPct';
           if (field === 'pointsFor') field = 'pfg';
+          if (field === 'optimalPointsFor' || field === 'optimalPF') field = 'optPfg';
           if (field === 'pointsAgainst') field = 'pag';
         }
 
@@ -458,33 +461,49 @@ function renderLucideIcons() {
             </div>
           </div>
         </th>
+        <th onclick="sortStandings('coachingEfficiency')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">🧠 EFF</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[260px]">
+              🧠 <span class="font-bold text-pink-600">Coaching Efficiency:</span> Actual PF / Optimal Best Ball PF. Measures start/sit accuracy.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
+        <th onclick="sortStandings('optimalPointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">${currentSeason === 'allTime' ? 'OPT/G' : 'OPT_PF'}</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-300 text-xs shadow-2xl text-left font-normal min-w-[240px]">
+              🎯 <span class="font-bold text-pink-600">Optimal PF (Best Ball):</span> Maximum points achievable with optimal start/sit decisions.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
       list.forEach((item, idx) => {
         const tr = document.createElement('tr');
         const isTop3 = idx < 3;
-        tr.className = `border-b border-pink-100 transition-colors ${isTop3 ? 'bg-pink-50/90/40 font-bold' : 'hover:bg-pink-50/90/20'}`;
+        tr.className = `border-b border-pink-100 transition-colors ${isTop3 ? 'bg-pink-50/60 font-bold' : 'hover:bg-pink-50/30'}`;
 
-        let formHtml = '<div class="flex gap-1 justify-center font-sans font-bold text-[11px]">';
+        let formHtml = '<div class="flex gap-1 justify-center font-bold text-[11px]">';
         if (item.form && item.form.length > 0) {
           item.form.forEach(f => {
             formHtml += (f === 'W') 
-              ? `<span class="text-pink-600">W</span>`
-              : `<span class="text-red-500">L</span>`;
+              ? `<span class="text-pink-600">W</span>` 
+              : `<span class="text-purple-400">L</span>`;
           });
         } else {
-          formHtml += `<span class="text-pink-600/40">-</span>`;
+          formHtml += `<span class="text-pink-200">-</span>`;
         }
         formHtml += '</div>';
 
         const luckVal = item.luck || 0;
-        const luckBadge = luckVal > 0 
+        const luckBadge = luckVal > 0
           ? `<span class="text-pink-600 font-bold">+${luckVal} W</span>`
-          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-purple-800/60">0</span>`);
+          : (luckVal < 0 ? `<span class="text-purple-400 font-bold">${luckVal} W</span>` : `<span class="text-pink-600">0</span>`);
 
-        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
+        const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
 
         // 1. WW Badge
         let wwBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
@@ -497,8 +516,8 @@ function renderLucideIcons() {
 
           wwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-100/90 text-pink-700 font-bold border border-pink-400 text-xs">${wwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl min-w-[220px] text-left z-50">
+              <span class="px-2 py-0.5 bg-pink-100 text-pink-700 font-bold border border-pink-300 text-xs">${wwCount}</span>
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl p-3 min-w-[200px] text-left">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
                 ${tooltipList}
               </div>
@@ -517,8 +536,8 @@ function renderLucideIcons() {
 
           lwBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 text-xs">${lwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl min-w-[220px] text-left z-50">
+              <span class="px-2 py-0.5 bg-pink-100 text-pink-600 font-bold border border-pink-300 text-xs">${lwCount}</span>
+              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl p-3 min-w-[220px] text-left">
                 <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
                 ${tooltipList}
               </div>
@@ -532,13 +551,13 @@ function renderLucideIcons() {
         if (hbCount > 0 && item.hbDetails) {
           let tooltipList = item.hbDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-rose-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
           }).join('');
 
           hbBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 text-xs">${hbCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl min-w-[220px] text-left z-50">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-red-600 text-xs shadow-2xl p-3 min-w-[220px] text-left">
                 <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
                 ${tooltipList}
               </div>
@@ -558,7 +577,7 @@ function renderLucideIcons() {
           tlBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs">${tlCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl min-w-[220px] text-left z-50">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-amber-500 text-xs shadow-2xl p-3 min-w-[220px] text-left">
                 <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
                 ${tooltipList}
               </div>
@@ -567,21 +586,21 @@ function renderLucideIcons() {
         }
 
         // 5. DO Badge (D'Ohs)
-        let doBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">-</span>`;
+        let doBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const doCount = item.dOhs !== undefined ? item.dOhs : (item.dOhDetails ? item.dOhDetails.length : 0);
         if (doCount > 0 && item.dOhDetails && item.dOhDetails.length > 0) {
           let tooltipList = item.dOhDetails.map(d => {
             const yrStr = d.year ? `${d.year} ` : '';
             const swapStr = d.benchPlayer && d.starter 
-              ? `Benched ${d.benchPlayer} (${d.benchPoints} pts) for ${d.starter} (${d.starterPoints} pts) ➔ +${d.netGain} PF (Win by +${d.winMargin} pts)`
+              ? `Benched <span class="text-pink-700 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-purple-600 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-600 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
               : `Benched winning player for starter`;
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="text-sky-700 font-semibold">${swapStr}</span></div>`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: ${swapStr}</div>`;
           }).join('');
 
           doBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold border border-sky-300 text-xs">${doCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl min-w-[280px] text-left z-50">
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl p-3 min-w-[280px] text-left">
                 <div class="font-bold text-sky-700 border-b border-sky-200 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
                 ${tooltipList}
               </div>
@@ -590,6 +609,14 @@ function renderLucideIcons() {
         } else if (item.dOhs === 0) {
           doBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         }
+
+        const effVal = item.coachingEfficiency !== null && item.coachingEfficiency !== undefined ? `${Number(item.coachingEfficiency).toFixed(1)}%` : '-';
+        const effCell = `<span class="font-bold font-sans text-pink-700">${effVal}</span>`;
+
+        const optPfVal = currentSeason === 'allTime'
+          ? (item.optPfg !== undefined && item.optPfg !== null ? item.optPfg.toFixed(1) : (item.optimalPointsFor ? (item.optimalPointsFor / (item.wins + item.losses)).toFixed(1) : '-'))
+          : (item.optimalPointsFor !== undefined && item.optimalPointsFor !== null ? item.optimalPointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : '-');
+        const optPfCell = `<span class="text-pink-600 font-bold">${optPfVal}</span>`;
 
         const wlCell = currentSeason === 'allTime' 
           ? `<span class="font-black text-pink-700">${item.wins}-${item.losses}</span> <span class="text-[10px] text-pink-600 font-normal">(${item.winPct}%)</span>` 
@@ -614,7 +641,9 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
           <td class="p-2.5 text-center">${doBadge}</td>
+          <td class="p-2.5 text-center">${effCell}</td>
           <td class="p-2.5 text-center font-bold text-pink-700">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+          <td class="p-2.5 text-center">${optPfCell}</td>
           <td class="p-2.5 text-center text-pink-600">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
         `;
         tbody.appendChild(tr);
