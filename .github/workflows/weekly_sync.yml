@@ -1,4 +1,4 @@
-name: Weekly ESPN Pride Guys Sync
+name: Weekly Fantasy Record Books Sync
 
 on:
   schedule:
@@ -10,8 +10,8 @@ permissions:
   contents: write
 
 jobs:
-  sync_espn_data:
-    name: 🏈 Fetch & Ingest ESPN Scores
+  sync_fantasy_data:
+    name: 🏈 Fetch & Ingest ESPN & Yahoo Scores
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,13 +28,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESPN Score Sync
+      - name: 1. Sync ESPN Pride Guys Scores
         env:
           ESPN_LEAGUE_ID: ${{ secrets.ESPN_LEAGUE_ID || '1629523' }}
           ESPN_SEASON: '2026'
           ESPN_S2: ${{ secrets.ESPN_S2 }}
           ESPN_SWID: ${{ secrets.ESPN_SWID }}
         run: node scripts/update_espn_scores.js
+
+      - name: 2. Sync Yahoo Y2K Record Book Scores
+        run: node scripts/sync_yahoo_direct.js
 
       - name: Run Automated Vitest Tests
         run: npm test
@@ -44,11 +47,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          if [ -n "$(git status --porcelain public/data/prideGuysData.json)" ]; then
-            git add public/data/prideGuysData.json
-            git commit -m "chore(data): Auto-sync ESPN Pride Guys weekly scores [skip ci]"
+          if [ -n "$(git status --porcelain public/data/)" ]; then
+            git add public/data/
+            git commit -m "chore(data): Auto-sync ESPN & Yahoo weekly scores [skip ci]"
             git push
             echo "✅ New scores and standings committed and pushed to main!"
           else
-            echo "ℹ️ No changes detected in league dataset."
+            echo "ℹ️ No changes detected in league datasets."
           fi
