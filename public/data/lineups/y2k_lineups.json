@@ -23,7 +23,7 @@
           "position": "QB",
           "nflTeam": "BAL",
           "points": 25.4,
-          "projectedPoints": 21.0,
+          "projectedPoints": 21,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -43,7 +43,7 @@
           "position": "RB",
           "nflTeam": "BUF",
           "points": 14.8,
-          "projectedPoints": 13.0,
+          "projectedPoints": 13,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -52,7 +52,7 @@
           "player": "CeeDee Lamb",
           "position": "WR",
           "nflTeam": "DAL",
-          "points": 22.0,
+          "points": 22,
           "projectedPoints": 19.5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
@@ -63,7 +63,7 @@
           "position": "WR",
           "nflTeam": "DET",
           "points": 16.5,
-          "projectedPoints": 18.0,
+          "projectedPoints": 18,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -82,7 +82,7 @@
           "player": "Trey McBride",
           "position": "TE",
           "nflTeam": "ARI",
-          "points": 12.0,
+          "points": 12,
           "projectedPoints": 10.5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
@@ -102,8 +102,8 @@
           "player": "Brandon Aubrey",
           "position": "K",
           "nflTeam": "DAL",
-          "points": 11.0,
-          "projectedPoints": 8.0,
+          "points": 11,
+          "projectedPoints": 8,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -112,8 +112,8 @@
           "player": "Pittsburgh",
           "position": "DEF",
           "nflTeam": "PIT",
-          "points": 9.0,
-          "projectedPoints": 7.0,
+          "points": 9,
+          "projectedPoints": 7,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
@@ -125,7 +125,7 @@
           "position": "RB",
           "nflTeam": "SF",
           "points": 18.1,
-          "projectedPoints": 6.0,
+          "projectedPoints": 6,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -135,7 +135,7 @@
           "position": "WR",
           "nflTeam": "BUF",
           "points": 9.5,
-          "projectedPoints": 8.0,
+          "projectedPoints": 8,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -181,7 +181,7 @@
           "position": "QB",
           "nflTeam": "BUF",
           "points": 28.5,
-          "projectedPoints": 22.0,
+          "projectedPoints": 22,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -191,7 +191,7 @@
           "position": "RB",
           "nflTeam": "NYJ",
           "points": 16.4,
-          "projectedPoints": 16.0,
+          "projectedPoints": 16,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -211,7 +211,7 @@
           "position": "WR",
           "nflTeam": "MIN",
           "points": 24.2,
-          "projectedPoints": 20.0,
+          "projectedPoints": 20,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -221,7 +221,7 @@
           "position": "WR",
           "nflTeam": "WAS",
           "points": 8.1,
-          "projectedPoints": 13.0,
+          "projectedPoints": 13,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -230,8 +230,8 @@
           "player": "Christian Kirk",
           "position": "WR",
           "nflTeam": "JAX",
-          "points": 5.0,
-          "projectedPoints": 11.0,
+          "points": 5,
+          "projectedPoints": 11,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -240,7 +240,7 @@
           "player": "Travis Kelce",
           "position": "TE",
           "nflTeam": "KC",
-          "points": 12.0,
+          "points": 12,
           "projectedPoints": 13.5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
@@ -251,7 +251,7 @@
           "position": "WR",
           "nflTeam": "GB",
           "points": 3.2,
-          "projectedPoints": 9.0,
+          "projectedPoints": 9,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -260,7 +260,7 @@
           "player": "Justin Tucker",
           "position": "K",
           "nflTeam": "BAL",
-          "points": 14.0,
+          "points": 14,
           "projectedPoints": 8.5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
@@ -270,8 +270,8 @@
           "player": "San Francisco",
           "position": "DEF",
           "nflTeam": "SF",
-          "points": 16.0,
-          "projectedPoints": 8.0,
+          "points": 16,
+          "projectedPoints": 8,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
@@ -283,7 +283,7 @@
           "position": "RB",
           "nflTeam": "ARI",
           "points": 22.5,
-          "projectedPoints": 13.0,
+          "projectedPoints": 13,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -303,7 +303,7 @@
           "position": "TE",
           "nflTeam": "PHI",
           "points": 6.1,
-          "projectedPoints": 7.0,
+          "projectedPoints": 7,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         }
@@ -344,7 +344,7 @@
           "position": "RB",
           "nflTeam": "LAR",
           "points": 20.4,
-          "projectedPoints": 16.0,
+          "projectedPoints": 16,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -363,8 +363,8 @@
           "player": "Tyreek Hill",
           "position": "WR",
           "nflTeam": "MIA",
-          "points": 26.0,
-          "projectedPoints": 20.0,
+          "points": 26,
+          "projectedPoints": 20,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -374,7 +374,7 @@
           "position": "WR",
           "nflTeam": "TB",
           "points": 23.1,
-          "projectedPoints": 15.0,
+          "projectedPoints": 15,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -384,7 +384,7 @@
           "position": "WR",
           "nflTeam": "PIT",
           "points": 10.5,
-          "projectedPoints": 12.0,
+          "projectedPoints": 12,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -394,7 +394,7 @@
           "position": "TE",
           "nflTeam": "BAL",
           "points": 3.4,
-          "projectedPoints": 11.0,
+          "projectedPoints": 11,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -404,7 +404,7 @@
           "position": "RB",
           "nflTeam": "NYG",
           "points": 6.5,
-          "projectedPoints": 9.0,
+          "projectedPoints": 9,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -413,7 +413,7 @@
           "player": "Ka'imi Fairbairn",
           "position": "K",
           "nflTeam": "HOU",
-          "points": 13.0,
+          "points": 13,
           "projectedPoints": 7.5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
@@ -423,8 +423,8 @@
           "player": "Dallas",
           "position": "DEF",
           "nflTeam": "DAL",
-          "points": 18.0,
-          "projectedPoints": 8.0,
+          "points": 18,
+          "projectedPoints": 8,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
@@ -446,7 +446,7 @@
           "position": "RB",
           "nflTeam": "SEA",
           "points": 10.9,
-          "projectedPoints": 5.0,
+          "projectedPoints": 5,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
@@ -454,7 +454,7 @@
     },
     "awayTeam": {
       "ownerName": "Trace",
-      "teamName": "Gl Hf (you\u2019re gay)",
+      "teamName": "Gl Hf (you’re gay)",
       "actualScore": 114.1,
       "optimalScore": 128.6,
       "coachingEfficiency": 88.7,
@@ -470,7 +470,7 @@
           "position": "QB",
           "nflTeam": "PHI",
           "points": 19.8,
-          "projectedPoints": 22.0,
+          "projectedPoints": 22,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -480,7 +480,7 @@
           "position": "RB",
           "nflTeam": "PHI",
           "points": 33.2,
-          "projectedPoints": 17.0,
+          "projectedPoints": 17,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -490,7 +490,7 @@
           "position": "RB",
           "nflTeam": "LV",
           "points": 4.6,
-          "projectedPoints": 10.0,
+          "projectedPoints": 10,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -510,7 +510,7 @@
           "position": "WR",
           "nflTeam": "ATL",
           "points": 3.5,
-          "projectedPoints": 13.0,
+          "projectedPoints": 13,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -540,7 +540,7 @@
           "position": "RB",
           "nflTeam": "DEN",
           "points": 4.6,
-          "projectedPoints": 9.0,
+          "projectedPoints": 9,
           "injuryStatus": "ACTIVE",
           "isOptimal": false
         },
@@ -549,8 +549,8 @@
           "player": "Harrison Butker",
           "position": "K",
           "nflTeam": "KC",
-          "points": 9.0,
-          "projectedPoints": 8.0,
+          "points": 9,
+          "projectedPoints": 8,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         },
@@ -559,8 +559,8 @@
           "player": "Cleveland",
           "position": "DEF",
           "nflTeam": "CLE",
-          "points": 1.0,
-          "projectedPoints": 7.0,
+          "points": 1,
+          "projectedPoints": 7,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
@@ -582,7 +582,7 @@
           "position": "WR",
           "nflTeam": "LAR",
           "points": 8.2,
-          "projectedPoints": 6.0,
+          "projectedPoints": 6,
           "injuryStatus": "ACTIVE",
           "isOptimal": true
         }
