@@ -73,6 +73,30 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
       `;
     }
 
+    let dOhHtml = `<span class="opacity-40 font-bold">0</span>`;
+    const dOhCount = entry.dOhs || 0;
+    if (dOhCount > 0) {
+      const details = entry.dOhDetails || [];
+      const listStr = details.map(d => `
+        <div class="py-0.5">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="font-bold text-emerald-400">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-400 font-bold">+${d.netGain} PF Missed</span></div>
+      `).join('');
+
+      dOhHtml = `
+        <div class="tooltip-trigger inline-block cursor-pointer">
+          <span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-700 font-extrabold rounded text-xs shadow-sm">🤦‍♂️ ${dOhCount}</span>
+          <div class="tooltip-content${rowPopDir} p-3 ${dTheme.scoringTitles.container} text-xs shadow-2xl text-left min-w-[280px] z-50">
+            <div class="font-bold text-red-400 border-b border-current/20 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s D'Oh! Blunders (${dOhCount})</div>
+            ${listStr || '<div class="text-xs opacity-75">1-player swap win opportunities missed</div>'}
+            <div class="text-[10px] text-amber-400 font-bold pt-1 mt-1 border-t border-emerald-900 text-center">
+              Losses that would have been wins with 1 bench swap
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    const coachingEff = entry.coachingEfficiency ? `${entry.coachingEfficiency.toFixed(1)}%` : '-';
+
     const pWlStr = entry.playoffRecord || `${entry.playoffWins || 0}-${entry.playoffLosses || 0}`;
     const pWinPct = entry.playoffWinPct || 0;
 
@@ -90,6 +114,8 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
         <td class="p-3 text-center">${fifthSixthHtml}</td>
         <td class="p-3 text-center">${seventhTwelfthHtml}</td>
         <td class="p-3 text-center">${scHtml}</td>
+        <td class="p-3 text-center font-bold font-mono ${dTheme.accentText}">${coachingEff}</td>
+        <td class="p-3 text-center">${dOhHtml}</td>
       </tr>
     `;
   }).join('');

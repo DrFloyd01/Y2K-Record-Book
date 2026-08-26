@@ -989,7 +989,10 @@
         ],
         "5th_6th": [],
         "7th_12th": []
-      }
+      },
+      "dOhs": 5,
+      "dOhDetails": [],
+      "coachingEfficiency": 93.0
     },
     {
       "ownerName": "Jasper",
@@ -1234,7 +1237,10 @@
             "teamName": "Blue's Balls"
           }
         ]
-      }
+      },
+      "dOhs": 4,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.0
     },
     {
       "ownerName": "Ryan",
@@ -1815,7 +1821,10 @@
             "teamName": "Bad team not good at football"
           }
         ]
-      }
+      },
+      "dOhs": 9,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.4
     },
     {
       "ownerName": "Dylan",
@@ -2413,7 +2422,10 @@
             "teamName": "Zaza Zealots"
           }
         ]
-      }
+      },
+      "dOhs": 10,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.4
     },
     {
       "ownerName": "Dustin",
@@ -2791,7 +2803,10 @@
             "teamName": "Dusty\u2019s Dingleberries"
           }
         ]
-      }
+      },
+      "dOhs": 6,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.2
     },
     {
       "ownerName": "Tess",
@@ -2919,7 +2934,10 @@
             "teamName": "Tess Finesse"
           }
         ]
-      }
+      },
+      "dOhs": 3,
+      "dOhDetails": [],
+      "coachingEfficiency": 91.3
     },
     {
       "ownerName": "Boaz",
@@ -3304,7 +3322,10 @@
             "teamName": "Aaron codger"
           }
         ]
-      }
+      },
+      "dOhs": 7,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.2
     },
     {
       "ownerName": "Cooper",
@@ -3462,7 +3483,10 @@
             "teamName": "coop\u2019s shit"
           }
         ]
-      }
+      },
+      "dOhs": 3,
+      "dOhDetails": [],
+      "coachingEfficiency": 91.3
     },
     {
       "ownerName": "Casey",
@@ -4089,7 +4113,10 @@
             "teamName": "The Mr. Unlimited\u2019s"
           }
         ]
-      }
+      },
+      "dOhs": 12,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.4
     },
     {
       "ownerName": "Trace",
@@ -4794,7 +4821,10 @@
             "teamName": "Gl Hf (you\u2019re gay)"
           }
         ]
-      }
+      },
+      "dOhs": 10,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.0
     },
     {
       "ownerName": "Mike",
@@ -5321,7 +5351,10 @@
             "teamName": "Jelqaida"
           }
         ]
-      }
+      },
+      "dOhs": 11,
+      "dOhDetails": [],
+      "coachingEfficiency": 92.4
     },
     {
       "ownerName": "Torin",
@@ -5420,7 +5453,10 @@
             "teamName": "Can I Hit Your Vape?"
           }
         ]
-      }
+      },
+      "dOhs": 2,
+      "dOhDetails": [],
+      "coachingEfficiency": 93.0
     },
     {
       "ownerName": "Nick",
@@ -5499,7 +5535,10 @@
             "teamName": "nick's Great Team"
           }
         ]
-      }
+      },
+      "dOhs": 2,
+      "dOhDetails": [],
+      "coachingEfficiency": 93.0
     }
   ],
   "seasonData": {
@@ -5645,7 +5684,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2018,
@@ -5749,7 +5791,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2018,
@@ -5897,7 +5942,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2018,
@@ -6057,7 +6105,10 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2018,
@@ -6159,7 +6210,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2018,
@@ -6233,7 +6287,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -7361,7 +7418,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2019,
@@ -7463,7 +7523,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2019,
@@ -7581,7 +7644,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2019,
@@ -7703,7 +7769,10 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2019,
@@ -7820,7 +7889,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2019,
@@ -7952,7 +8024,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -9056,7 +9131,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2020,
@@ -9174,7 +9252,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2020,
@@ -9344,7 +9425,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2020,
@@ -9429,7 +9513,10 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2020,
@@ -9577,7 +9664,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2020,
@@ -9670,7 +9760,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -10758,7 +10851,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -10820,7 +10916,10 @@
           "playoffWins": 2,
           "playoffLosses": 1,
           "playoffRecord": "2-1",
-          "playoffWinPct": 66.7
+          "playoffWinPct": 66.7,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -10956,7 +11055,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -11071,7 +11173,10 @@
           "playoffWins": 1,
           "playoffLosses": 2,
           "playoffRecord": "1-2",
-          "playoffWinPct": 33.3
+          "playoffWinPct": 33.3,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -11155,7 +11260,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -11253,7 +11361,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -11337,7 +11448,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2021,
@@ -11455,7 +11569,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -12861,7 +12978,10 @@
           "playoffWins": 3,
           "playoffLosses": 0,
           "playoffRecord": "3-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -12929,7 +13049,10 @@
           "playoffWins": 2,
           "playoffLosses": 1,
           "playoffRecord": "2-1",
-          "playoffWinPct": 66.7
+          "playoffWinPct": 66.7,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13018,7 +13141,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13128,7 +13254,10 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13203,7 +13332,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13308,7 +13440,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13382,7 +13517,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13457,7 +13595,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13539,7 +13680,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2022,
@@ -13624,7 +13768,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 3,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -15294,7 +15441,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15350,7 +15500,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15389,7 +15542,10 @@
           "playoffWins": 2,
           "playoffLosses": 1,
           "playoffRecord": "2-1",
-          "playoffWinPct": 66.7
+          "playoffWinPct": 66.7,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15445,7 +15601,10 @@
           "playoffWins": 1,
           "playoffLosses": 2,
           "playoffRecord": "1-2",
-          "playoffWinPct": 33.3
+          "playoffWinPct": 33.3,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15530,7 +15689,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15648,7 +15810,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15740,7 +15905,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15801,7 +15969,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15875,7 +16046,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -15929,7 +16103,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -16020,7 +16197,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2023,
@@ -16145,7 +16325,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -18137,7 +18320,11 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 92.8,
+          "optimalPF": 149.2
         },
         {
           "seasonYear": 2024,
@@ -18230,7 +18417,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18315,7 +18505,11 @@
           "playoffWins": 2,
           "playoffLosses": 1,
           "playoffRecord": "2-1",
-          "playoffWinPct": 66.7
+          "playoffWinPct": 66.7,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 97.6,
+          "optimalPF": 146.1
         },
         {
           "seasonYear": 2024,
@@ -18396,7 +18590,10 @@
           "playoffWins": 1,
           "playoffLosses": 2,
           "playoffRecord": "1-2",
-          "playoffWinPct": 33.3
+          "playoffWinPct": 33.3,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18473,7 +18670,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18577,7 +18777,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18631,7 +18834,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18698,7 +18904,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18823,7 +19032,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2024,
@@ -18887,7 +19099,11 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.7,
+          "optimalPF": 128.6
         }
       ],
       "statRecords": {
@@ -20566,7 +20782,10 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100
+          "playoffWinPct": 100,
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -20669,7 +20888,10 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50
+          "playoffWinPct": 50,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -20783,7 +21005,10 @@
           "playoffWins": 2,
           "playoffLosses": 1,
           "playoffRecord": "2-1",
-          "playoffWinPct": 66.7
+          "playoffWinPct": 66.7,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -20845,7 +21070,10 @@
           "playoffWins": 1,
           "playoffLosses": 2,
           "playoffRecord": "1-2",
-          "playoffWinPct": 33.3
+          "playoffWinPct": 33.3,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -20924,7 +21152,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -20995,7 +21226,10 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -21079,7 +21313,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 1,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -21140,7 +21377,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -21264,7 +21504,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         },
         {
           "seasonYear": 2025,
@@ -21338,7 +21581,10 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0
+          "playoffWinPct": 0,
+          "dOhs": 2,
+          "dOhDetails": [],
+          "coachingEfficiency": 93.0
         }
       ],
       "statRecords": {
@@ -22952,7 +23198,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 2,
@@ -22964,7 +23213,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 3,
@@ -22976,7 +23228,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 4,
@@ -22988,7 +23243,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 5,
@@ -23000,7 +23258,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 6,
@@ -23012,7 +23273,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 7,
@@ -23024,7 +23288,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 8,
@@ -23036,7 +23303,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 9,
@@ -23048,7 +23318,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 10,
@@ -23060,7 +23333,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 11,
@@ -23072,7 +23348,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         },
         {
           "rank": 12,
@@ -23084,7 +23363,10 @@
           "winPct": 0,
           "pointsFor": 0,
           "pointsAgainst": 0,
-          "ovrRecord": "0-0"
+          "ovrRecord": "0-0",
+          "dOhs": 0,
+          "dOhDetails": [],
+          "coachingEfficiency": 88.0
         }
       ],
       "statRecords": {

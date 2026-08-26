@@ -253,6 +253,8 @@ function renderLucideIcons() {
                       <th class="p-3 text-center">5th-6th</th>
                       <th class="p-3 text-center">7th-12th</th>
                       <th class="p-3 text-center">🎯 SCORING TITLES</th>
+                      <th class="p-3 text-center">🧠 COACHING EFF</th>
+                      <th class="p-3 text-center">🤦‍♂️ D'OHS</th>
                     </tr>
                   </thead>
                   <tbody id="champs-leaderboard-body-seasons"></tbody>
@@ -804,6 +806,31 @@ function renderLucideIcons() {
           `;
         }
 
+        // 5. DO (D'Ohs) Tooltip
+        const dOhCount = item.dOhs || 0;
+        let dOhCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        if (dOhCount > 0 && item.dOhDetails) {
+          const tooltipList = item.dOhDetails.map(d => {
+            const yrStr = d.year ? `${d.year} ` : '';
+            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Benched <span class="font-bold text-emerald-400">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-400 font-bold">+${d.netGain} PF Missed</span></div>`;
+          }).join('');
+
+          dOhCell = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2.5 py-0.5 bg-red-950/90 text-red-400 font-bold border border-red-600 text-xs hover:bg-red-900 hover:border-red-400 transition-all cursor-help">
+                🤦‍♂️ ${dOhCount}
+              </span>
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl min-w-[280px] text-left">
+                <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">🤦‍♂️ ${item.ownerName} D'Oh! Blunders (${dOhCount})</div>
+                ${tooltipList}
+                <div class="text-[10px] text-amber-400 font-bold pt-1 mt-1 border-t border-emerald-900 text-center">
+                  Losses that would have been wins with 1 bench swap
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
         const rankBadge = item.rank ? `<span class="text-amber-400 font-bold mr-1.5 text-xs">#${item.rank}</span>` : '';
         tr.innerHTML = `
           <td class="p-2 font-bold text-emerald-300">${rankBadge}${item.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${item.ownerName}]</span></td>
@@ -811,6 +838,7 @@ function renderLucideIcons() {
           <td class="p-2 text-center">${lwCell}</td>
           <td class="p-2 text-center">${hbCell}</td>
           <td class="p-2 text-center">${tlCell}</td>
+          <td class="p-2 text-center">${dOhCell}</td>
         `;
         badgesTbody.appendChild(tr);
       });
@@ -2300,22 +2328,81 @@ let y2kLineupsData = null;
       return y2kLineupsData;
     }
 
+    window.managerialSelectedSeason = 'allTime';
+
+    window.onManagerialSeasonChange = function(val) {
+      window.managerialSelectedSeason = val;
+      renderManagerialProwess();
+    };
+
     async function renderManagerialProwess() {
       const container = document.getElementById('managerial-prowess-container');
       if (!container) return;
 
-      const lineups = await loadY2KLineups();
-      const allTeamLineups = [];
-      lineups.forEach(m => {
-        if (m.homeTeam) allTeamLineups.push(m.homeTeam);
-        if (m.awayTeam) allTeamLineups.push(m.awayTeam);
-      });
+      const selSeason = window.managerialSelectedSeason || 'allTime';
+      let leaderboard = [];
 
-      const leaderboard = computeManagerialLeaderboard(allTeamLineups);
+      if (selSeason === 'allTime') {
+        leaderboard = window.LEAGUE_DATA.allTimeStandings
+          .filter(s => !isOneYearManager(s.ownerName))
+          .map(s => ({
+            ownerName: s.ownerName,
+            teamName: s.teamName,
+            games: (s.wins + s.losses) || 1,
+            record: `${s.wins}-${s.losses}`,
+            actualPF: Number((s.pointsFor || 0).toFixed(1)),
+            optimalPF: Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
+            coachingEfficiency: s.coachingEfficiency || 90.0,
+            pointsLeftOnBench: Number((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0)).toFixed(1)),
+            benchPFPerGame: Number((((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
+            dOhCount: s.dOhs || 0,
+            dOhRate: s.losses > 0 ? Number(((s.dOhs || 0) / s.losses * 100).toFixed(1)) : 0,
+            mostPainfulDOh: (s.dOhDetails && s.dOhDetails.length > 0) ? s.dOhDetails[0] : null
+          }))
+          .sort((a, b) => b.coachingEfficiency - a.coachingEfficiency);
+      } else if (selSeason === 2026 || selSeason === '2026') {
+        leaderboard = [];
+      } else {
+        const lineups = await loadY2KLineups();
+        const seasonLineups = lineups.filter(m => String(m.seasonYear) === String(selSeason));
+        const allTeamLineups = [];
+        seasonLineups.forEach(m => {
+          if (m.homeTeam) allTeamLineups.push(m.homeTeam);
+          if (m.awayTeam) allTeamLineups.push(m.awayTeam);
+        });
+
+        if (allTeamLineups.length > 0) {
+          leaderboard = computeManagerialLeaderboard(allTeamLineups);
+        } else {
+          // Fallback to season standings
+          const sData = window.LEAGUE_DATA.seasonData[String(selSeason)];
+          if (sData && sData.standings) {
+            leaderboard = sData.standings
+              .filter(s => !isOneYearManager(s.ownerName))
+              .map(s => ({
+                ownerName: s.ownerName,
+                teamName: s.teamName,
+                games: (s.wins + s.losses) || 1,
+                record: `${s.wins}-${s.losses}`,
+                actualPF: Number((s.pointsFor || 0).toFixed(1)),
+                optimalPF: Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
+                coachingEfficiency: s.coachingEfficiency || 90.0,
+                pointsLeftOnBench: Number((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0)).toFixed(1)),
+                benchPFPerGame: Number((((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
+                dOhCount: s.dOhs || 0,
+                dOhRate: s.losses > 0 ? Number(((s.dOhs || 0) / s.losses * 100).toFixed(1)) : 0,
+                mostPainfulDOh: (s.dOhDetails && s.dOhDetails.length > 0) ? s.dOhDetails[0] : null
+              }))
+              .sort((a, b) => b.coachingEfficiency - a.coachingEfficiency);
+          }
+        }
+      }
+
       container.innerHTML = buildManagerialProwessHtml({
         leaderboard,
         theme: CRT_THEME,
-        seasonYear: currentSeason
+        selectedSeason: selSeason,
+        seasons: window.LEAGUE_DATA.seasons
       });
     }
 

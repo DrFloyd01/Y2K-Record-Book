@@ -33,7 +33,7 @@ describe('Managerial View Component', () => {
     const html = buildManagerialProwessHtml({
       leaderboard: mockLeaderboard,
       theme: CRT_THEME,
-      seasonYear: 2024
+      selectedSeason: 'allTime'
     });
 
     expect(html).toContain("THE D'OH! OF THE SEASON SPOTLIGHT");
@@ -42,6 +42,18 @@ describe('Managerial View Component', () => {
     expect(html).toContain('Zack Moss');
     expect(html).toContain('James Cook');
     expect(html).toContain('MANAGERIAL_PROWESS');
+    expect(html).toContain('ALL-TIME CAREER TOTALS');
+  });
+
+  it('should render 2026 preseason mode when 2026 is selected', () => {
+    const html = buildManagerialProwessHtml({
+      leaderboard: [],
+      theme: CRT_THEME,
+      selectedSeason: 2026
+    });
+
+    expect(html).toContain('2026_PRESEASON_MODE');
+    expect(html).toContain('2026 Regular Season Kicks Off Week 1!');
   });
 
   it('should render matchup lineup card with starters, bench, and optimal tags', () => {

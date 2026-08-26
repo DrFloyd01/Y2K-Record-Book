@@ -2,29 +2,75 @@
  * Managerial Prowess & Lineup Viewport Component
  *
  * Renders:
- * 1. The "D'Oh!" Hall of Agony & Blunder Counter 🤦‍♂️
- * 2. Coaching Efficiency & Optimal Lineup Leaderboard
- * 3. Side-by-side Roster & Box Score Lineup Card
+ * 1. Season & All-Time Selector Filter
+ * 2. The "D'Oh!" Hall of Agony & Blunder Counter 🤦‍♂️
+ * 3. Coaching Efficiency & Optimal Lineup Leaderboard
+ * 4. Preseason Placeholders for 2026
+ * 5. Side-by-side Roster & Box Score Lineup Card
  */
 import { CRT_THEME } from '../theme/theme.js';
 
 /**
  * Builds HTML for The "D'Oh!" Hall of Agony & Managerial Efficiency Portal
  */
-export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME, seasonYear = 2026 }) {
+export function buildManagerialProwessHtml({
+  leaderboard = [],
+  theme = CRT_THEME,
+  selectedSeason = 'allTime',
+  seasons = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018]
+}) {
   const isCrt = theme.name === 'crt';
+  const is2026 = selectedSeason === 2026 || selectedSeason === '2026';
+
+  // Build Season Selector Options
+  let seasonOptionsHtml = `<option value="allTime" ${selectedSeason === 'allTime' ? 'selected' : ''}>🌟 ALL-TIME CAREER TOTALS</option>`;
+  seasons.forEach(yr => {
+    seasonOptionsHtml += `<option value="${yr}" ${String(selectedSeason) === String(yr) ? 'selected' : ''}>${yr} SEASON ${yr === 2026 ? '(UPCOMING)' : ''}</option>`;
+  });
+
+  const selectorBarHtml = `
+    <div class="crt-box rounded p-3 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isCrt ? 'border-emerald-800 bg-black/80 font-mono' : 'border-pink-200 bg-white font-sans'}">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🧠</span>
+        <div>
+          <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-pink-600'} block">&gt;_ MANAGERIAL_ANALYSIS_SCOPE</span>
+          <span class="text-xs font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'}">Filter Coaching Efficiency &amp; D'Ohs by Season</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-xs font-bold uppercase ${isCrt ? 'text-emerald-400' : 'text-purple-700'}">&gt; SCOPE:</label>
+        <select id="managerial-season-select" onchange="window.onManagerialSeasonChange(this.value)"
+          class="${isCrt ? 'bg-black border border-emerald-600 text-emerald-300' : 'bg-white border border-pink-300 text-purple-950'} text-xs p-1.5 rounded font-bold font-mono">
+          ${seasonOptionsHtml}
+        </select>
+      </div>
+    </div>
+  `;
+
+  // Preseason Mode for 2026 (Week 0)
+  if (is2026) {
+    return `
+      ${selectorBarHtml}
+      <div class="crt-box rounded-2xl p-8 text-center ${isCrt ? 'border-emerald-700 bg-black/90 font-mono' : 'cute-card font-sans'} mb-6">
+        <div class="text-3xl mb-2">🏈⏱️</div>
+        <div class="text-xs ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold uppercase tracking-widest mb-1">&gt;_ 2026_PRESEASON_MODE</div>
+        <h3 class="text-lg font-black ${isCrt ? 'text-emerald-300 crt-glow' : 'text-purple-950'}">2026 Regular Season Kicks Off Week 1!</h3>
+        <p class="text-xs ${isCrt ? 'text-emerald-200/90' : 'text-purple-700'} mt-1 max-w-xl mx-auto leading-relaxed">
+          Weekly player box scores, starter vs bench optimization, Coaching Efficiency ratings, and live D'Oh! blunder tracking will populate automatically as soon as Week 1 games conclude.
+        </p>
+        <p class="text-xs ${isCrt ? 'text-amber-400' : 'text-pink-600 font-bold'} mt-3">
+          💡 Select a completed season (e.g. 2024, 2025) or ALL-TIME from the selector above to explore historical manager IQ records!
+        </p>
+      </div>
+    `;
+  }
 
   if (!leaderboard || leaderboard.length === 0) {
-    return isCrt ? `
-      <div class="crt-box rounded p-8 text-center font-mono">
-        <div class="text-xs text-emerald-500 mb-1">&gt;_ NO_LINEUP_DATA_FOUND</div>
-        <p class="text-sm text-emerald-300 font-bold">Weekly player lineups have not yet been imported for Season ${seasonYear}.</p>
-      </div>
-    ` : `
-      <div class="cute-card rounded-2xl p-8 text-center">
-        <div class="text-3xl mb-2">📋✨</div>
-        <h3 class="font-fredoka text-lg font-bold text-purple-900 mb-1">Lineups Coming Soon!</h3>
-        <p class="text-xs text-purple-600">Weekly player box scores for ${seasonYear} are being synced.</p>
+    return `
+      ${selectorBarHtml}
+      <div class="crt-box rounded p-8 text-center ${isCrt ? 'font-mono' : 'font-sans'}">
+        <div class="text-xs ${isCrt ? 'text-emerald-500' : 'text-purple-600'} mb-1">&gt;_ NO_LINEUP_DATA_FOUND</div>
+        <p class="text-sm ${isCrt ? 'text-emerald-300' : 'text-purple-950'} font-bold">No weekly lineup records found for this scope.</p>
       </div>
     `;
   }
@@ -39,6 +85,7 @@ export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME
 
   let dOhSpotlightHtml = '';
   if (topDOh) {
+    const yrLabel = topDOh.year ? `${topDOh.year} ` : '';
     dOhSpotlightHtml = `
       <div class="crt-box rounded p-4 mb-6 ${isCrt ? 'border-2 border-red-500 bg-red-950/20 font-mono' : 'border-2 border-pink-400 bg-pink-50 font-sans'}">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b ${isCrt ? 'border-red-800' : 'border-pink-200'} pb-2 mb-3">
@@ -46,7 +93,7 @@ export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME
             <span class="text-2xl">🤦‍♂️</span>
             <div>
               <span class="text-[10px] uppercase font-black tracking-widest ${isCrt ? 'text-red-400' : 'text-pink-700'} block">THE D'OH! OF THE SEASON SPOTLIGHT</span>
-              <h3 class="text-base font-black ${isCrt ? 'text-red-300 crt-glow' : 'text-purple-950'}">${topDOh.ownerName}'s Week ${topDOh.week} Heartbreaker</h3>
+              <h3 class="text-base font-black ${isCrt ? 'text-red-300 crt-glow' : 'text-purple-950'}">${topDOh.ownerName}'s ${yrLabel}Week ${topDOh.week} Heartbreaker</h3>
             </div>
           </div>
           <span class="px-2.5 py-1 ${isCrt ? 'bg-red-950 text-red-300 border border-red-500' : 'bg-red-100 text-red-700 border border-red-300'} font-bold rounded text-xs shadow-sm">
@@ -98,7 +145,7 @@ export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME
     tableRows += `
       <tr class="border-b ${isCrt ? 'border-emerald-950 hover:bg-emerald-950/30' : 'border-pink-100 hover:bg-pink-50/50'} ${isTop3 ? (isCrt ? 'bg-emerald-950/20' : 'bg-pink-50/30') : ''}">
         <td class="p-2.5 text-center font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600'}">#${idx + 1}</td>
-        <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-950 font-sans'}">
+        <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-950 font-sans'} cursor-pointer hover:underline" data-owner="${encodeURIComponent(m.ownerName)}" onclick="selectManagerProfile(decodeURIComponent(this.getAttribute('data-owner')))">
           ${m.ownerName}
           <span class="text-[10px] ${isCrt ? 'text-emerald-600' : 'text-purple-600'} block">${m.teamName}</span>
         </td>
@@ -112,7 +159,10 @@ export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME
     `;
   });
 
+  const scopeLabel = selectedSeason === 'allTime' ? 'All-Time Career Totals' : `Season ${selectedSeason}`;
+
   return `
+    ${selectorBarHtml}
     <div class="mb-6">
       ${dOhSpotlightHtml}
 
@@ -122,7 +172,7 @@ export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME
             &gt;_ MANAGERIAL_PROWESS_&amp;_COACHING_EFFICIENCY_LEADERBOARD
           </div>
           <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'}">
-            Season ${seasonYear} Lineup IQ
+            ${scopeLabel} Lineup IQ
           </span>
         </div>
         <div class="table-scroll-container">

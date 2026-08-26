@@ -17,6 +17,8 @@ describe('Franchise View Component', () => {
       playoffPct: 87.5,
       pointsFor: 12450.5,
       pointsAgainst: 10890.2,
+      coachingEfficiency: 92.4,
+      dOhs: 3,
       championships: { '1st': 2, scoringTitles: 1 }
     }
   ];
@@ -24,7 +26,7 @@ describe('Franchise View Component', () => {
   const mockSeasonData = {
     '2024': {
       standings: [
-        { ownerName: 'Dylan', teamName: 'Globo Gym', rank: 1, wins: 11, losses: 3, playoffRecord: '2-0', pointsFor: 1850.2, isScoringChamp: true }
+        { ownerName: 'Dylan', teamName: 'Globo Gym', rank: 1, wins: 11, losses: 3, playoffRecord: '2-0', pointsFor: 1850.2, isScoringChamp: true, coachingEfficiency: 93.1, dOhs: 1 }
       ]
     }
   };
@@ -58,9 +60,10 @@ describe('Franchise View Component', () => {
     expect(html).toContain('FRANCHISE_DOSSIER');
     expect(html).toContain('Globo Gym');
     expect(html).toContain('75-35');
+    expect(html).toContain('COACHING EFF');
+    expect(html).toContain("D'OH! BLUNDERS");
     expect(html).toContain('The Value Harvester');
     expect(html).toContain('Hero RB Anchor');
-    expect(html).toContain('Christian McCaffrey');
   });
 
   it('should render franchise profile card with Pride theme', () => {

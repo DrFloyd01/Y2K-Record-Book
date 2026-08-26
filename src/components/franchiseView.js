@@ -59,6 +59,8 @@ export function buildFranchiseProfileHtml({
         <td class="p-2.5 text-center font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600'}">${tn.pRec}</td>
         <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-300' : 'text-purple-900'} text-xs">${(tn.pf || 0).toFixed(1)}</td>
         <td class="p-2.5 text-center">${scBadge}</td>
+        <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-purple-900'}">${tn.coachingEfficiency ? `${tn.coachingEfficiency}%` : '-'}</td>
+        <td class="p-2.5 text-center">${tn.dOhs > 0 ? `<span class="text-red-400 font-bold">🤦‍♂️ ${tn.dOhs}</span>` : '<span class="opacity-40">-</span>'}</td>
       </tr>
     `;
   });
@@ -194,7 +196,7 @@ export function buildFranchiseProfileHtml({
           <span class="text-[10px] ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-sans'} font-bold uppercase tracking-wider block">&gt;_ FRANCHISE_DOSSIER //</span><h2 class="text-2xl font-black ${ownerTitle}">${owner}</h2>
           <p class="${subText} font-bold text-xs mt-0.5">${st.teamName} • ${st.seasonsCount} Seasons Active</p>
           
-          <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 mt-3 text-center ${isCrt ? 'font-mono' : 'font-sans'}">
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-2 mt-3 text-center ${isCrt ? 'font-mono' : 'font-sans'}">
             <div class="${statBoxClass}">
               <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-600' : 'text-purple-700'} block">REG SEASON</span>
               <span class="text-base font-extrabold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${st.wins}-${st.losses}</span>
@@ -230,6 +232,16 @@ export function buildFranchiseProfileHtml({
               <span class="text-xs font-bold ${isCrt ? 'text-emerald-300' : 'text-pink-700'} block mt-1">4th: ${c['4th'] || 0}</span>
               <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block">5-6: ${c['5th_6th'] || 0} | 7-12: ${c['7th_12th'] || 0}</span>
             </div>
+            <div class="${statBoxClass}">
+              <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-400' : 'text-purple-700'} block">COACHING EFF</span>
+              <span class="text-base font-extrabold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${st.coachingEfficiency || 90.0}%</span>
+              <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-pink-600'} block">Optimal PF Rate</span>
+            </div>
+            <div class="${statBoxClass}">
+              <span class="text-[10px] uppercase font-bold text-red-400 block">D'OH! BLUNDERS</span>
+              <span class="text-base font-extrabold text-red-400">🤦‍♂️ ${st.dOhs || 0}</span>
+              <span class="text-[10px] text-red-500 block">1-Swap Losses</span>
+            </div>
           </div>
         </div>
       </div>
@@ -250,6 +262,8 @@ export function buildFranchiseProfileHtml({
               <th class="p-2.5 text-center">PLAYOFF RECORD</th>
               <th class="p-2.5 text-center">POINTS FOR</th>
               <th class="p-2.5 text-center">ACCOLADES</th>
+              <th class="p-2.5 text-center">COACHING EFF</th>
+              <th class="p-2.5 text-center">D'OHS 🤦‍♂️</th>
             </tr>
           </thead>
           <tbody>
