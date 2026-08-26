@@ -131,90 +131,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="stat-cards-grid"></div>
           </div>
 
-          <!-- Weekly Badges & Bad Luck Tally Table -->
-          <div class="border-t border-emerald-800 pt-4">
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 mb-3">
-              <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">&gt; WEEKLY BADGES &amp; BAD LUCK
-                TALLY:</h3>
-              <span class="text-[11px] text-emerald-600 font-normal italic">Hover over any count badge or header to
-                inspect details &amp; definitions</span>
-            </div>
-            <div class="table-scroll-container">
-              <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-                <thead class="bg-emerald-950 text-emerald-400 font-bold border-b border-emerald-700">
-                  <tr>
-                    <th onclick="sortWeeklyBadges('rank')" class="p-2 cursor-pointer hover:bg-emerald-900">Franchise
-                      Owner</th>
-                    <th onclick="sortWeeklyBadges('weeklyWins')"
-                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
-                      <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span
-                          class="px-2.5 py-1 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">⚡
-                          Weekly Wins (WW)</span>
-                        <div
-                          class="tooltip-content tooltip-content-bottom tooltip-content-left p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
-                          ⚡ <span class="font-bold text-emerald-400">Weekly Wins (WW):</span> Highest scoring team in a
-                          regular season week
-                        </div>
-                      </div>
-                    </th>
-                    <th onclick="sortWeeklyBadges('luckiestWins')"
-                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
-                      <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span
-                          class="px-2.5 py-1 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🍀
-                          Luckiest Wins (LW)</span>
-                        <div
-                          class="tooltip-content tooltip-content-bottom tooltip-content-left p-2 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 font-normal text-left">
-                          🍀 <span class="font-bold text-emerald-400">Luckiest Wins (LW):</span> Lowest winning score in
-                          a regular season week
-                        </div>
-                      </div>
-                    </th>
-                    <th onclick="sortWeeklyBadges('heartbreaks')"
-                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
-                      <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span
-                          class="px-2.5 py-1 bg-red-950/80 text-red-400 font-bold border border-red-700 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">💔
-                          Heartbreaks (HB)</span>
-                        <div
-                          class="tooltip-content tooltip-content-bottom tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left">
-                          💔 <span class="font-bold text-red-400">Heartbreaks (HB):</span> Smallest point margin loss in
-                          a regular season week (losing by a hair)
-                        </div>
-                      </div>
-                    </th>
-                    <th onclick="sortWeeklyBadges('toughestLosses')"
-                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
-                      <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span
-                          class="px-2.5 py-1 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕
-                          Toughest Losses (TL)</span>
-                        <div
-                          class="tooltip-content tooltip-content-bottom tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl font-normal text-left">
-                          🤕 <span class="font-bold text-amber-400">Toughest Losses (TL):</span> Highest losing score in
-                          a regular season week (scoring tons of points in a loss)
-                        </div>
-                      </div>
-                    </th>
-                    <th onclick="sortWeeklyBadges('dOhs')"
-                      class="p-2 text-center cursor-pointer hover:bg-emerald-900">
-                      <div class="tooltip-trigger inline-block cursor-pointer">
-                        <span
-                          class="px-2.5 py-1 bg-red-950 text-red-400 font-bold border border-red-600 rounded text-xs hover:bg-red-900 transition-all inline-block shadow-sm">🤦‍♂️
-                          D'Ohs (DO)</span>
-                        <div
-                          class="tooltip-content tooltip-content-bottom tooltip-content-right p-2 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl font-normal text-left min-w-[240px]">
-                          🤦‍♂️ <span class="font-bold text-red-400">D'Oh! Blunders (DO):</span> Losses where swapping just 1 bench player would have won the matchup!
-                        </div>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="weekly-badges-table-body"></tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -497,17 +413,19 @@
             <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
               <tr>
                 <th class="p-3 text-center">RANK</th>
-                <th class="p-3 text-left">MANAGER</th>
+                <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-emerald-900">MANAGER</th>
                 <th class="p-3 text-center">ACTIVE</th>
-                <th class="p-3 text-center">PLAYOFF W-L</th>
-                <th class="p-3 text-center">PLAYOFF %</th>
-                <th class="p-3 text-center">🥇 1st</th>
-                <th class="p-3 text-center">🥈 2nd</th>
-                <th class="p-3 text-center">🥉 3rd</th>
-                <th class="p-3 text-center">4th</th>
-                <th class="p-3 text-center">5th-6th</th>
-                <th class="p-3 text-center">7th-12th</th>
-                <th class="p-3 text-center">🎯 SCORING TITLES</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF W-L</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF %</th>
+                <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥇 1st</th>
+                <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥈 2nd</th>
+                <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥉 3rd</th>
+                <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">4th</th>
+                <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">5th-6th</th>
+                <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">7th-12th</th>
+                <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🎯 SCORING TITLES</th>
+                <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🧠 COACHING EFF</th>
+                <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🤦‍♂️ D'OHS</th>
               </tr>
             </thead>
             <tbody id="champs-leaderboard-body"></tbody>

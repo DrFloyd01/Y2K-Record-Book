@@ -242,19 +242,19 @@ function renderLucideIcons() {
                   <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
                     <tr>
                       <th class="p-3 text-center">RANK</th>
-                      <th class="p-3 text-left">MANAGER</th>
+                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-emerald-900">MANAGER</th>
                       <th class="p-3 text-center">ACTIVE</th>
-                      <th class="p-3 text-center">PLAYOFF W-L</th>
-                      <th class="p-3 text-center">PLAYOFF %</th>
-                      <th class="p-3 text-center">🥇 1st</th>
-                      <th class="p-3 text-center">🥈 2nd</th>
-                      <th class="p-3 text-center">🥉 3rd</th>
-                      <th class="p-3 text-center">4th</th>
-                      <th class="p-3 text-center">5th-6th</th>
-                      <th class="p-3 text-center">7th-12th</th>
-                      <th class="p-3 text-center">🎯 SCORING TITLES</th>
-                      <th class="p-3 text-center">🧠 COACHING EFF</th>
-                      <th class="p-3 text-center">🤦‍♂️ D'OHS</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF W-L</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF %</th>
+                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥇 1st</th>
+                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥈 2nd</th>
+                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥉 3rd</th>
+                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">4th</th>
+                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">5th-6th</th>
+                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">7th-12th</th>
+                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🎯 SCORING TITLES</th>
+                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🧠 COACHING EFF</th>
+                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🤦‍♂️ D'OHS</th>
                     </tr>
                   </thead>
                   <tbody id="champs-leaderboard-body-seasons"></tbody>
@@ -265,13 +265,38 @@ function renderLucideIcons() {
 
           const tbody = document.getElementById('champs-leaderboard-body-seasons');
           const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
+          const f = window.dynastySortField || '1st';
           leaderboard.sort((a, b) => {
             const cA = a.championships || {}, cB = b.championships || {};
-            if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
-            if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
-            if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
-            if ((cB['4th'] || 0) !== (cA['4th'] || 0)) return (cB['4th'] || 0) - (cA['4th'] || 0);
-            if ((b.playoffWins || 0) !== (a.playoffWins || 0)) return (b.playoffWins || 0) - (a.playoffWins || 0);
+            let vA = 0, vB = 0;
+            if (f === 'coachingEfficiency') {
+              vA = a.coachingEfficiency || 0; vB = b.coachingEfficiency || 0;
+            } else if (f === 'dOhs') {
+              vA = a.dOhs || 0; vB = b.dOhs || 0;
+            } else if (f === '1st' || f === '2nd' || f === '3rd' || f === '4th') {
+              vA = cA[f] || 0; vB = cB[f] || 0;
+            } else if (f === '5th_6th') {
+              vA = (a.finishes && a.finishes['5th_6th'] ? a.finishes['5th_6th'].length : 0);
+              vB = (b.finishes && b.finishes['5th_6th'] ? b.finishes['5th_6th'].length : 0);
+            } else if (f === '7th_12th') {
+              vA = (a.finishes && a.finishes['7th_12th'] ? a.finishes['7th_12th'].length : 0);
+              vB = (b.finishes && b.finishes['7th_12th'] ? b.finishes['7th_12th'].length : 0);
+            } else if (f === 'scoringTitles') {
+              vA = cA.scoringTitles || 0; vB = cB.scoringTitles || 0;
+            } else if (f === 'playoffWins') {
+              vA = a.playoffWins || 0; vB = b.playoffWins || 0;
+            } else if (f === 'playoffPct') {
+              vA = a.playoffPct || 0; vB = b.playoffPct || 0;
+            } else if (f === 'ownerName') {
+              return window.dynastySortAsc ? a.ownerName.localeCompare(b.ownerName) : b.ownerName.localeCompare(a.ownerName);
+            } else {
+              if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
+              if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
+              if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
+              return b.winPct - a.winPct;
+            }
+            if (vA < vB) return window.dynastySortAsc ? -1 : 1;
+            if (vA > vB) return window.dynastySortAsc ? 1 : -1;
             return b.winPct - a.winPct;
           });
 
@@ -411,6 +436,14 @@ function renderLucideIcons() {
             <span class="px-2 py-0.5 bg-amber-950/80 text-amber-400 font-bold border border-amber-600 rounded text-xs hover:bg-amber-900 transition-all inline-block shadow-sm">🤕 TL</span>
             <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
               🤕 <span class="font-bold text-amber-400">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('dOhs')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-sky-950 text-sky-400 font-bold border border-sky-600 rounded text-xs hover:bg-sky-900 transition-all inline-block shadow-sm">🤦‍♂️ DO</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-sky-300 rounded border border-sky-600 text-xs shadow-2xl text-left font-normal min-w-[260px]">
+              🤦‍♂️ <span class="font-bold text-sky-400">DO (D'Oh! Blunders):</span> Losses where swapping just 1 bench player would have won the matchup!
             </div>
           </div>
         </th>
@@ -685,166 +718,9 @@ function renderLucideIcons() {
         });
       }
 
-      // Render Weekly Badges & Bad Luck Tally Table
-      let list = [];
-      if (currentSeason === 'allTime' || currentSeason === 2026 || currentSeason === '2026') {
-        list = window.LEAGUE_DATA.allTimeStandings.filter(entry => !isOneYearManager(entry.ownerName)).slice();
-      } else {
-        const sData = window.LEAGUE_DATA.seasonData[currentSeason];
-        if (sData) {
-          list = sData.standings.filter(entry => (currentSeason === 2023 || !isOneYearManager(entry.ownerName))).slice();
-        }
-      }
-
-      if (!window.weeklyBadgesSortField) {
-        window.weeklyBadgesSortField = 'weeklyWins';
-        window.weeklyBadgesSortAsc = false;
-      }
-
-      list.sort((a, b) => {
-        const f = window.weeklyBadgesSortField;
-        let vA = f === 'rank' ? (a.rank || 99) : (a[f] || 0);
-        let vB = f === 'rank' ? (b.rank || 99) : (b[f] || 0);
-        if (typeof vA === 'string') vA = vA.toLowerCase();
-        if (typeof vB === 'string') vB = vB.toLowerCase();
-        if (vA < vB) return window.weeklyBadgesSortAsc ? -1 : 1;
-        if (vA > vB) return window.weeklyBadgesSortAsc ? 1 : -1;
-        return 0;
-      });
-
-      list.forEach((item, idx) => {
-        const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/30 font-mono';
-        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
-
-        const wwCount = item.weeklyWins || 0;
-        const lwCount = item.luckiestWins || 0;
-        const hbCount = item.heartbreaks || 0;
-        const tlCount = item.toughestLosses || 0;
-
-        // 1. WW Tooltip
-        let wwCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
-        if (wwCount > 0 && item.wwDetails) {
-          const tooltipList = item.wwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span></div>`;
-          }).join('');
-
-          wwCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs hover:bg-emerald-800 hover:border-emerald-300 transition-all cursor-help">
-                ${wwCount}
-              </span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 2. LW Tooltip
-        let lwCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
-        if (lwCount > 0 && item.lwDetails) {
-          const tooltipList = item.lwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
-          }).join('');
-
-          lwCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs hover:bg-emerald-900 hover:border-emerald-400 transition-all cursor-help">
-                ${lwCount}
-              </span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 w-64 text-left">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 3. HB Tooltip
-        let hbCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
-        if (hbCount > 0 && item.hbDetails) {
-          const tooltipList = item.hbDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-400">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
-          }).join('');
-
-          hbCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs hover:bg-red-900 hover:border-red-500 transition-all cursor-help">
-                ${hbCount}
-              </span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl w-64 text-left">
-                <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.ownerName} Heartbreak Losses (${hbCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 4. TL Tooltip
-        let tlCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
-        if (tlCount > 0 && item.tlDetails) {
-          const tooltipList = item.tlDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-300">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</div>`;
-          }).join('');
-
-          tlCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs hover:bg-amber-900 hover:border-amber-400 transition-all cursor-help">
-                ${tlCount}
-              </span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left">
-                <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.ownerName} Toughest Losses (${tlCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 5. DO (D'Ohs) Tooltip
-        const dOhCount = item.dOhs || 0;
-        let dOhCell = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
-        if (dOhCount > 0 && item.dOhDetails) {
-          const tooltipList = item.dOhDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Benched <span class="font-bold text-emerald-400">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-400 font-bold">+${d.netGain} PF Missed</span></div>`;
-          }).join('');
-
-          dOhCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-red-950/90 text-red-400 font-bold border border-red-600 text-xs hover:bg-red-900 hover:border-red-400 transition-all cursor-help">
-                🤦‍♂️ ${dOhCount}
-              </span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl min-w-[280px] text-left">
-                <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">🤦‍♂️ ${item.ownerName} D'Oh! Blunders (${dOhCount})</div>
-                ${tooltipList}
-                <div class="text-[10px] text-amber-400 font-bold pt-1 mt-1 border-t border-emerald-900 text-center">
-                  Losses that would have been wins with 1 bench swap
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        const rankBadge = item.rank ? `<span class="text-amber-400 font-bold mr-1.5 text-xs">#${item.rank}</span>` : '';
-        tr.innerHTML = `
-          <td class="p-2 font-bold text-emerald-300">${rankBadge}${item.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${item.ownerName}]</span></td>
-          <td class="p-2 text-center">${wwCell}</td>
-          <td class="p-2 text-center">${lwCell}</td>
-          <td class="p-2 text-center">${hbCell}</td>
-          <td class="p-2 text-center">${tlCell}</td>
-          <td class="p-2 text-center">${dOhCell}</td>
-        `;
-        badgesTbody.appendChild(tr);
-      });
     }
 
-    function getGlobalAllTimeStatRecords() {
+        function getGlobalAllTimeStatRecords() {
       return sharedGetGlobalAllTimeStatRecords(window.LEAGUE_DATA);
     }
 
@@ -1659,6 +1535,24 @@ function renderLucideIcons() {
     function getPlayoffMatchupResult(yr, stage) {
       return sharedGetPlayoffMatchupResult(window.LEAGUE_DATA, yr, stage);
     }
+
+
+    window.dynastySortField = '1st';
+    window.dynastySortAsc = false;
+
+    window.sortDynastyLeaderboard = function(field) {
+      if (window.dynastySortField === field) {
+        window.dynastySortAsc = !window.dynastySortAsc;
+      } else {
+        window.dynastySortField = field;
+        window.dynastySortAsc = false;
+        if (field === 'ownerName') window.dynastySortAsc = true;
+      }
+      renderChamps();
+      if (currentSeason === 'allTime' && currentSeasonsSubTab === 'playoff') {
+        renderStandings();
+      }
+    };
 
     function renderChamps() {
       const tbody = document.getElementById('champs-leaderboard-body');
@@ -2580,8 +2474,24 @@ let y2kLineupsData = null;
       container.innerHTML = html;
     }
 
-    function renderMatchupsTab() {
+
+    window.toggleMatchupLineupBox = function(mId) {
+      const content = document.getElementById(`matchup-lineup-content-${mId}`);
+      const arrow = document.getElementById(`matchup-lineup-arrow-${mId}`);
+      if (content) {
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          if (arrow) arrow.innerText = '▲';
+        } else {
+          content.classList.add('hidden');
+          if (arrow) arrow.innerText = '▼';
+        }
+      }
+    };
+
+    async function renderMatchupsTab() {
       renderWeekPills();
+      const lineups = await loadY2KLineups();
       const container = document.getElementById('matchups-cards-container');
       const heading = document.getElementById('matchup-title-heading');
       const badge = document.getElementById('matchup-mode-badge');
@@ -2727,6 +2637,43 @@ let y2kLineupsData = null;
           playH2HStr += `; ${gameStages}`;
         }
 
+        // Check for ingested weekly player lineup box score
+        const lineupMatch = lineups.find(lm =>
+          String(lm.seasonYear) === String(currentMatchupSeason) &&
+          lm.week === currentMatchupWeek &&
+          ((lm.homeTeam?.ownerName === o1 && lm.awayTeam?.ownerName === o2) ||
+           (lm.homeTeam?.ownerName === o2 && lm.awayTeam?.ownerName === o1))
+        );
+
+        let lineupExpanderBox = '';
+        if (lineupMatch) {
+          const mId = `m_${currentMatchupSeason}_w${currentMatchupWeek}_${o1}_${o2}`.replace(/[^a-zA-Z0-9_]/g, '_');
+          const hasDOh = (lineupMatch.homeTeam?.dOhOccurred || lineupMatch.awayTeam?.dOhOccurred);
+          const dOhTeam = lineupMatch.homeTeam?.dOhOccurred ? lineupMatch.homeTeam : (lineupMatch.awayTeam?.dOhOccurred ? lineupMatch.awayTeam : null);
+          const dOhBadge = hasDOh && dOhTeam?.dOhDetails ? `
+            <span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-600 rounded text-[10px] font-bold">
+              🤦‍♂️ D'OH! BLUNDER: ${dOhTeam.ownerName} benched ${dOhTeam.dOhDetails.benchPlayer} (+${dOhTeam.dOhDetails.winMargin} pt win missed)
+            </span>
+          ` : '';
+
+          const lineupCardInnerHtml = buildMatchupLineupCardHtml({ matchup: lineupMatch, theme: CRT_THEME });
+
+          lineupExpanderBox = `
+            <div class="mt-3 pt-2.5 border-t border-emerald-900/60 font-mono">
+              <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
+                ${dOhBadge}
+              </div>
+              <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="w-full py-1.5 px-3 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600 text-emerald-300 font-bold text-xs rounded transition-all flex items-center justify-between cursor-pointer">
+                <span>📋 View Starters, Bench &amp; Optimal Scores</span>
+                <span id="matchup-lineup-arrow-${mId}">▼</span>
+              </button>
+              <div id="matchup-lineup-content-${mId}" class="hidden mt-2">
+                ${lineupCardInnerHtml}
+              </div>
+            </div>
+          `;
+        }
+
         // Check for custom write-up commentary
         let writeupText = null;
         if (customComm && customComm.matchups) {
@@ -2810,6 +2757,7 @@ let y2kLineupsData = null;
 
             ${recapBox}
             ${writeupBox}
+            ${lineupExpanderBox}
           </div>
         `;
       });
