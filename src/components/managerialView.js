@@ -1,0 +1,242 @@
+/**
+ * Managerial Prowess & Lineup Viewport Component
+ *
+ * Renders:
+ * 1. The "D'Oh!" Hall of Agony & Blunder Counter 🤦‍♂️
+ * 2. Coaching Efficiency & Optimal Lineup Leaderboard
+ * 3. Side-by-side Roster & Box Score Lineup Card
+ */
+import { CRT_THEME } from '../theme/theme.js';
+
+/**
+ * Builds HTML for The "D'Oh!" Hall of Agony & Managerial Efficiency Portal
+ */
+export function buildManagerialProwessHtml({ leaderboard = [], theme = CRT_THEME, seasonYear = 2026 }) {
+  const isCrt = theme.name === 'crt';
+
+  if (!leaderboard || leaderboard.length === 0) {
+    return isCrt ? `
+      <div class="crt-box rounded p-8 text-center font-mono">
+        <div class="text-xs text-emerald-500 mb-1">&gt;_ NO_LINEUP_DATA_FOUND</div>
+        <p class="text-sm text-emerald-300 font-bold">Weekly player lineups have not yet been imported for Season ${seasonYear}.</p>
+      </div>
+    ` : `
+      <div class="cute-card rounded-2xl p-8 text-center">
+        <div class="text-3xl mb-2">📋✨</div>
+        <h3 class="font-fredoka text-lg font-bold text-purple-900 mb-1">Lineups Coming Soon!</h3>
+        <p class="text-xs text-purple-600">Weekly player box scores for ${seasonYear} are being synced.</p>
+      </div>
+    `;
+  }
+
+  // Find the top D'Oh! blunder of the season
+  const allDOhMoments = leaderboard
+    .filter(m => m.mostPainfulDOh)
+    .map(m => ({ ownerName: m.ownerName, ...m.mostPainfulDOh }))
+    .sort((a, b) => b.netGain - a.netGain);
+
+  const topDOh = allDOhMoments.length > 0 ? allDOhMoments[0] : null;
+
+  let dOhSpotlightHtml = '';
+  if (topDOh) {
+    dOhSpotlightHtml = `
+      <div class="crt-box rounded p-4 mb-6 ${isCrt ? 'border-2 border-red-500 bg-red-950/20 font-mono' : 'border-2 border-pink-400 bg-pink-50 font-sans'}">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b ${isCrt ? 'border-red-800' : 'border-pink-200'} pb-2 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🤦‍♂️</span>
+            <div>
+              <span class="text-[10px] uppercase font-black tracking-widest ${isCrt ? 'text-red-400' : 'text-pink-700'} block">THE D'OH! OF THE SEASON SPOTLIGHT</span>
+              <h3 class="text-base font-black ${isCrt ? 'text-red-300 crt-glow' : 'text-purple-950'}">${topDOh.ownerName}'s Week ${topDOh.week} Heartbreaker</h3>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 ${isCrt ? 'bg-red-950 text-red-300 border border-red-500' : 'bg-red-100 text-red-700 border border-red-300'} font-bold rounded text-xs shadow-sm">
+            +${topDOh.netGain} Net PF Left on Bench
+          </span>
+        </div>
+
+        <p class="text-xs ${isCrt ? 'text-emerald-200' : 'text-purple-900'} leading-relaxed mb-3">
+          Starting <span class="font-bold text-red-400">${topDOh.starter} (${topDOh.starterPoints} pts)</span> instead of benched <span class="font-bold text-emerald-400">${topDOh.benchPlayer} (${topDOh.benchPoints} pts)</span> cost ${topDOh.ownerName} the matchup. A simple 1-player swap would have flipped the loss into a <span class="font-bold text-emerald-300">+${topDOh.winMargin} pt victory</span>!
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs ${isCrt ? 'font-mono' : 'font-sans'}">
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block">BENCHED MVP</span>
+            <span class="font-black text-emerald-300">${topDOh.benchPlayer}</span>
+            <span class="text-[10px] text-emerald-400 block">${topDOh.benchPoints} pts</span>
+          </div>
+          <div class="${isCrt ? 'bg-black/80 border border-red-900' : 'bg-white border border-red-200'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold text-red-400 block">STARTED INSTEAD</span>
+            <span class="font-black text-red-300">${topDOh.starter}</span>
+            <span class="text-[10px] text-red-400 block">${topDOh.starterPoints} pts</span>
+          </div>
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block">DEFICIT NEEDED</span>
+            <span class="font-black text-amber-400">${topDOh.deficitNeeded} pts</span>
+            <span class="text-[10px] text-emerald-500 block">To Tie/Win</span>
+          </div>
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold text-emerald-400 block">WIN MARGIN MISSED</span>
+            <span class="font-black text-emerald-300">+${topDOh.winMargin} pts</span>
+            <span class="text-[10px] text-emerald-400 block">Net Win Margin</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  let tableRows = '';
+  leaderboard.forEach((m, idx) => {
+    const isTop3 = idx < 3;
+    const effBadge = m.coachingEfficiency >= 90
+      ? (isCrt ? 'text-emerald-300 font-black crt-glow' : 'text-pink-700 font-black')
+      : (m.coachingEfficiency >= 80 ? (isCrt ? 'text-emerald-400' : 'text-purple-900') : (isCrt ? 'text-amber-400 font-bold' : 'text-amber-600 font-bold'));
+
+    const dOhBadge = m.dOhCount > 0
+      ? `<span class="px-2 py-0.5 ${isCrt ? 'bg-red-950 text-red-400 border border-red-700' : 'bg-red-100 text-red-700 border border-red-300'} font-bold rounded text-xs">🤦‍♂️ ${m.dOhCount} (${m.dOhRate}%)</span>`
+      : `<span class="${isCrt ? 'text-emerald-700' : 'text-purple-300'} text-xs">0 (0%)</span>`;
+
+    tableRows += `
+      <tr class="border-b ${isCrt ? 'border-emerald-950 hover:bg-emerald-950/30' : 'border-pink-100 hover:bg-pink-50/50'} ${isTop3 ? (isCrt ? 'bg-emerald-950/20' : 'bg-pink-50/30') : ''}">
+        <td class="p-2.5 text-center font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600'}">#${idx + 1}</td>
+        <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-950 font-sans'}">
+          ${m.ownerName}
+          <span class="text-[10px] ${isCrt ? 'text-emerald-600' : 'text-purple-600'} block">${m.teamName}</span>
+        </td>
+        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-200' : 'font-sans text-purple-900'}">${m.record}</td>
+        <td class="p-2.5 text-center font-black ${effBadge} text-sm">${m.coachingEfficiency}%</td>
+        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-300' : 'font-sans text-purple-900'}">${m.actualPF}</td>
+        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-400' : 'font-sans text-purple-900'}">${m.optimalPF}</td>
+        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-amber-400' : 'font-sans text-amber-700'}">${m.pointsLeftOnBench} <span class="text-[10px] block opacity-75">(${m.benchPFPerGame}/g)</span></td>
+        <td class="p-2.5 text-center">${dOhBadge}</td>
+      </tr>
+    `;
+  });
+
+  return `
+    <div class="mb-6">
+      ${dOhSpotlightHtml}
+
+      <div class="crt-box rounded overflow-visible ${isCrt ? 'font-mono' : 'font-sans'}">
+        <div class="crt-box-header px-4 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="font-bold text-xs ${isCrt ? 'font-mono text-emerald-300' : 'font-fredoka text-pink-700 text-sm'}">
+            &gt;_ MANAGERIAL_PROWESS_&amp;_COACHING_EFFICIENCY_LEADERBOARD
+          </div>
+          <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'}">
+            Season ${seasonYear} Lineup IQ
+          </span>
+        </div>
+        <div class="table-scroll-container">
+          <table class="w-full min-w-[700px] text-xs text-left border-collapse">
+            <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-700' : 'bg-pink-50 text-pink-700 border-b border-pink-200'} font-bold">
+              <tr>
+                <th class="p-2.5 text-center">RANK</th>
+                <th class="p-2.5">MANAGER / TEAM</th>
+                <th class="p-2.5 text-center">RECORD</th>
+                <th class="p-2.5 text-center">COACHING EFF %</th>
+                <th class="p-2.5 text-center">ACTUAL PF</th>
+                <th class="p-2.5 text-center">OPTIMAL PF</th>
+                <th class="p-2.5 text-center">BENCH PF LEFT</th>
+                <th class="p-2.5 text-center">D'OH! BLUNDERS 🤦‍♂️</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableRows}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Builds HTML for an expandable Matchup Lineup Card showing starters, bench, and optimal tags
+ */
+export function buildMatchupLineupCardHtml({ matchup, theme = CRT_THEME }) {
+  if (!matchup) return '';
+  const isCrt = theme.name === 'crt';
+
+  function renderTeamRoster(team) {
+    let startersHtml = '';
+    team.starters.forEach(p => {
+      const isOpt = p.isOptimal;
+      startersHtml += `
+        <div class="flex justify-between items-center py-1 border-b ${isCrt ? 'border-emerald-950/60' : 'border-pink-100'} text-xs">
+          <div class="flex items-center gap-1.5 truncate">
+            <span class="px-1 py-0.5 rounded text-[9px] font-bold ${isCrt ? 'bg-emerald-900 text-emerald-300' : 'bg-pink-100 text-pink-700'}">${p.slot}</span>
+            <span class="font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'} truncate">${p.player}</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-600' : 'text-purple-500'}">${p.nflTeam}</span>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            ${isOpt ? `<span class="text-[9px] px-1 bg-emerald-950 text-emerald-400 border border-emerald-600 font-bold">⭐ OPT</span>` : ''}
+            <span class="font-bold ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-900'}">${p.points.toFixed(1)}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    let benchHtml = '';
+    team.bench.forEach(p => {
+      const isOpt = p.isOptimal;
+      benchHtml += `
+        <div class="flex justify-between items-center py-1 border-b ${isCrt ? 'border-emerald-950/40' : 'border-pink-50'} text-xs opacity-90">
+          <div class="flex items-center gap-1.5 truncate">
+            <span class="px-1 py-0.5 rounded text-[9px] font-bold ${isCrt ? 'bg-black text-emerald-600 border border-emerald-900' : 'bg-slate-100 text-slate-700'}">${p.slot}</span>
+            <span class="${isCrt ? 'text-emerald-400' : 'text-purple-800'} truncate">${p.player}</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-700' : 'text-purple-400'}">${p.nflTeam}</span>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            ${isOpt ? `<span class="text-[9px] px-1 bg-red-950 text-red-400 border border-red-600 font-bold">⚠️ MISSED</span>` : ''}
+            <span class="font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-purple-700'}">${p.points.toFixed(1)}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    const dOhBanner = team.dOhOccurred && team.dOhDetails ? `
+      <div class="p-2 mb-2 rounded border ${isCrt ? 'bg-red-950/40 border-red-600 text-red-300' : 'bg-red-50 border-red-300 text-red-700'} text-xs">
+        🤦‍♂️ <span class="font-bold">D'OH! MOMENT:</span> Starting <b>${team.dOhDetails.starter} (${team.dOhDetails.starterPoints} pts)</b> over <b>${team.dOhDetails.benchPlayer} (${team.dOhDetails.benchPoints} pts)</b> cost this matchup!
+      </div>
+    ` : '';
+
+    return `
+      <div class="${isCrt ? 'bg-black/90 border border-emerald-800' : 'bg-white border border-pink-200'} p-3 rounded-xl shadow-sm">
+        <div class="border-b ${isCrt ? 'border-emerald-800' : 'border-pink-200'} pb-2 mb-2 flex justify-between items-center">
+          <div>
+            <h4 class="font-black text-sm ${isCrt ? 'text-emerald-300 crt-glow' : 'text-purple-950'}">${team.teamName}</h4>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-pink-600'} font-bold">${team.ownerName}</span>
+          </div>
+          <div class="text-right">
+            <span class="text-lg font-black ${isCrt ? 'text-emerald-300 font-mono' : 'text-pink-700'}">${team.actualScore.toFixed(1)}</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-purple-600'} block">Optimal: ${team.optimalScore.toFixed(1)} (${team.coachingEfficiency}%)</span>
+          </div>
+        </div>
+
+        ${dOhBanner}
+
+        <div class="mb-3">
+          <span class="text-[10px] font-bold uppercase ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block mb-1">STARTERS</span>
+          ${startersHtml}
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase ${isCrt ? 'text-emerald-600' : 'text-purple-500'} block mb-1">BENCH</span>
+          ${benchHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="crt-box rounded p-4 mb-4 ${isCrt ? 'border-emerald-700 font-mono' : 'border-pink-300 font-sans'}">
+      <div class="flex justify-between items-center border-b ${isCrt ? 'border-emerald-800' : 'border-pink-200'} pb-2 mb-3">
+        <span class="font-bold text-xs ${isCrt ? 'text-emerald-400' : 'text-pink-700'} uppercase">Week ${matchup.week} Lineup Box Score</span>
+        <span class="text-xs ${isCrt ? 'text-emerald-600' : 'text-purple-700'}">Margin: ${matchup.margin} pts</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        ${renderTeamRoster(matchup.homeTeam)}
+        ${renderTeamRoster(matchup.awayTeam)}
+      </div>
+    </div>
+  `;
+}

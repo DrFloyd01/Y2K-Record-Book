@@ -21,6 +21,8 @@ import { buildDynastyLeaderboardRows } from './components/standingsView.js';
 import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/h2hView.js';
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
 import { buildFranchiseProfileHtml } from './components/franchiseView.js';
+import { buildManagerialProwessHtml, buildMatchupLineupCardHtml } from './components/managerialView.js';
+import { computeManagerialLeaderboard } from './analytics/managerial.js';
 
 // Setup Lucide icons wrapper
 function renderLucideIcons() {
@@ -2281,8 +2283,45 @@ function renderLucideIcons() {
     }
 
 
+let y2kLineupsData = null;
+
+    async function loadY2KLineups() {
+      if (y2kLineupsData) return y2kLineupsData;
+      try {
+        const res = await fetch('data/lineups/y2k_lineups.json');
+        if (res.ok) {
+          y2kLineupsData = await res.json();
+        } else {
+          y2kLineupsData = [];
+        }
+      } catch {
+        y2kLineupsData = [];
+      }
+      return y2kLineupsData;
+    }
+
+    async function renderManagerialProwess() {
+      const container = document.getElementById('managerial-prowess-container');
+      if (!container) return;
+
+      const lineups = await loadY2KLineups();
+      const allTeamLineups = [];
+      lineups.forEach(m => {
+        if (m.homeTeam) allTeamLineups.push(m.homeTeam);
+        if (m.awayTeam) allTeamLineups.push(m.awayTeam);
+      });
+
+      const leaderboard = computeManagerialLeaderboard(allTeamLineups);
+      container.innerHTML = buildManagerialProwessHtml({
+        leaderboard,
+        theme: CRT_THEME,
+        seasonYear: currentSeason
+      });
+    }
+
     // TAB 7: ANALYTICS
     function renderAnalytics() {
+      renderManagerialProwess();
       const tbody = document.getElementById('luck-index-table-body');
       tbody.innerHTML = '';
 

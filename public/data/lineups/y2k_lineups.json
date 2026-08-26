@@ -1,0 +1,592 @@
+[
+  {
+    "matchupId": "2024_w1_m1",
+    "seasonYear": 2024,
+    "week": 1,
+    "isPlayoff": false,
+    "margin": 4.2,
+    "homeTeam": {
+      "ownerName": "Dylan",
+      "teamName": "Globo Gym",
+      "actualScore": 138.4,
+      "optimalScore": 149.2,
+      "coachingEfficiency": 92.8,
+      "pointsLeftOnBench": 10.8,
+      "isWin": true,
+      "isLoss": false,
+      "dOhOccurred": false,
+      "dOhDetails": null,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Lamar Jackson",
+          "position": "QB",
+          "nflTeam": "BAL",
+          "points": 25.4,
+          "projectedPoints": 21.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB1",
+          "player": "Bijan Robinson",
+          "position": "RB",
+          "nflTeam": "ATL",
+          "points": 18.2,
+          "projectedPoints": 17.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB2",
+          "player": "James Cook",
+          "position": "RB",
+          "nflTeam": "BUF",
+          "points": 14.8,
+          "projectedPoints": 13.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR1",
+          "player": "CeeDee Lamb",
+          "position": "WR",
+          "nflTeam": "DAL",
+          "points": 22.0,
+          "projectedPoints": 19.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR2",
+          "player": "Amon-Ra St. Brown",
+          "position": "WR",
+          "nflTeam": "DET",
+          "points": 16.5,
+          "projectedPoints": 18.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR3",
+          "player": "Garrett Wilson",
+          "position": "WR",
+          "nflTeam": "NYJ",
+          "points": 11.2,
+          "projectedPoints": 14.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "TE",
+          "player": "Trey McBride",
+          "position": "TE",
+          "nflTeam": "ARI",
+          "points": 12.0,
+          "projectedPoints": 10.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Chuba Hubbard",
+          "position": "RB",
+          "nflTeam": "CAR",
+          "points": 7.3,
+          "projectedPoints": 9.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "K",
+          "player": "Brandon Aubrey",
+          "position": "K",
+          "nflTeam": "DAL",
+          "points": 11.0,
+          "projectedPoints": 8.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "DEF",
+          "player": "Pittsburgh",
+          "position": "DEF",
+          "nflTeam": "PIT",
+          "points": 9.0,
+          "projectedPoints": 7.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Jordan Mason",
+          "position": "RB",
+          "nflTeam": "SF",
+          "points": 18.1,
+          "projectedPoints": 6.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "BN",
+          "player": "Khalil Shakir",
+          "position": "WR",
+          "nflTeam": "BUF",
+          "points": 9.5,
+          "projectedPoints": 8.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "BN",
+          "player": "Jaylen Warren",
+          "position": "RB",
+          "nflTeam": "PIT",
+          "points": 4.2,
+          "projectedPoints": 7.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        }
+      ]
+    },
+    "awayTeam": {
+      "ownerName": "Alex",
+      "teamName": "Darnold Schwarzenegger",
+      "actualScore": 134.2,
+      "optimalScore": 158.4,
+      "coachingEfficiency": 84.7,
+      "pointsLeftOnBench": 24.2,
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": true,
+      "dOhDetails": {
+        "starter": "Christian Watson",
+        "starterPosition": "WR",
+        "starterSlot": "W/R/T",
+        "starterPoints": 3.2,
+        "benchPlayer": "James Conner",
+        "benchPosition": "RB",
+        "benchPoints": 22.5,
+        "netGain": 19.3,
+        "deficitNeeded": 4.2,
+        "winMargin": 15.1,
+        "projectedNewScore": 153.5
+      },
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Josh Allen",
+          "position": "QB",
+          "nflTeam": "BUF",
+          "points": 28.5,
+          "projectedPoints": 22.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB1",
+          "player": "Breece Hall",
+          "position": "RB",
+          "nflTeam": "NYJ",
+          "points": 16.4,
+          "projectedPoints": 16.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB2",
+          "player": "Javonte Williams",
+          "position": "RB",
+          "nflTeam": "DEN",
+          "points": 6.8,
+          "projectedPoints": 11.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "WR1",
+          "player": "Justin Jefferson",
+          "position": "WR",
+          "nflTeam": "MIN",
+          "points": 24.2,
+          "projectedPoints": 20.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR2",
+          "player": "Terry McLaurin",
+          "position": "WR",
+          "nflTeam": "WAS",
+          "points": 8.1,
+          "projectedPoints": 13.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR3",
+          "player": "Christian Kirk",
+          "position": "WR",
+          "nflTeam": "JAX",
+          "points": 5.0,
+          "projectedPoints": 11.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "TE",
+          "player": "Travis Kelce",
+          "position": "TE",
+          "nflTeam": "KC",
+          "points": 12.0,
+          "projectedPoints": 13.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Christian Watson",
+          "position": "WR",
+          "nflTeam": "GB",
+          "points": 3.2,
+          "projectedPoints": 9.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "K",
+          "player": "Justin Tucker",
+          "position": "K",
+          "nflTeam": "BAL",
+          "points": 14.0,
+          "projectedPoints": 8.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "DEF",
+          "player": "San Francisco",
+          "position": "DEF",
+          "nflTeam": "SF",
+          "points": 16.0,
+          "projectedPoints": 8.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "James Conner",
+          "position": "RB",
+          "nflTeam": "ARI",
+          "points": 22.5,
+          "projectedPoints": 13.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "BN",
+          "player": "Brian Thomas Jr.",
+          "position": "WR",
+          "nflTeam": "JAX",
+          "points": 14.7,
+          "projectedPoints": 8.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "BN",
+          "player": "Dallas Goedert",
+          "position": "TE",
+          "nflTeam": "PHI",
+          "points": 6.1,
+          "projectedPoints": 7.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        }
+      ]
+    }
+  },
+  {
+    "matchupId": "2024_w1_m2",
+    "seasonYear": 2024,
+    "week": 1,
+    "isPlayoff": false,
+    "margin": 28.5,
+    "homeTeam": {
+      "ownerName": "Phillip",
+      "teamName": "Ho Chi Win City",
+      "actualScore": 142.6,
+      "optimalScore": 146.1,
+      "coachingEfficiency": 97.6,
+      "pointsLeftOnBench": 3.5,
+      "isWin": true,
+      "isLoss": false,
+      "dOhOccurred": false,
+      "dOhDetails": null,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Patrick Mahomes",
+          "position": "QB",
+          "nflTeam": "KC",
+          "points": 22.4,
+          "projectedPoints": 21.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB1",
+          "player": "Kyren Williams",
+          "position": "RB",
+          "nflTeam": "LAR",
+          "points": 20.4,
+          "projectedPoints": 16.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB2",
+          "player": "Kenneth Walker III",
+          "position": "RB",
+          "nflTeam": "SEA",
+          "points": 19.3,
+          "projectedPoints": 14.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR1",
+          "player": "Tyreek Hill",
+          "position": "WR",
+          "nflTeam": "MIA",
+          "points": 26.0,
+          "projectedPoints": 20.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR2",
+          "player": "Mike Evans",
+          "position": "WR",
+          "nflTeam": "TB",
+          "points": 23.1,
+          "projectedPoints": 15.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR3",
+          "player": "George Pickens",
+          "position": "WR",
+          "nflTeam": "PIT",
+          "points": 10.5,
+          "projectedPoints": 12.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "TE",
+          "player": "Mark Andrews",
+          "position": "TE",
+          "nflTeam": "BAL",
+          "points": 3.4,
+          "projectedPoints": 11.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Devin Singletary",
+          "position": "RB",
+          "nflTeam": "NYG",
+          "points": 6.5,
+          "projectedPoints": 9.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "K",
+          "player": "Ka'imi Fairbairn",
+          "position": "K",
+          "nflTeam": "HOU",
+          "points": 13.0,
+          "projectedPoints": 7.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "DEF",
+          "player": "Dallas",
+          "position": "DEF",
+          "nflTeam": "DAL",
+          "points": 18.0,
+          "projectedPoints": 8.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Isaiah Likely",
+          "position": "TE",
+          "nflTeam": "BAL",
+          "points": 17.1,
+          "projectedPoints": 4.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "BN",
+          "player": "Zach Charbonnet",
+          "position": "RB",
+          "nflTeam": "SEA",
+          "points": 10.9,
+          "projectedPoints": 5.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ]
+    },
+    "awayTeam": {
+      "ownerName": "Trace",
+      "teamName": "Gl Hf (you\u2019re gay)",
+      "actualScore": 114.1,
+      "optimalScore": 128.6,
+      "coachingEfficiency": 88.7,
+      "pointsLeftOnBench": 14.5,
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": false,
+      "dOhDetails": null,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Jalen Hurts",
+          "position": "QB",
+          "nflTeam": "PHI",
+          "points": 19.8,
+          "projectedPoints": 22.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB1",
+          "player": "Saquon Barkley",
+          "position": "RB",
+          "nflTeam": "PHI",
+          "points": 33.2,
+          "projectedPoints": 17.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "RB2",
+          "player": "Zamir White",
+          "position": "RB",
+          "nflTeam": "LV",
+          "points": 4.6,
+          "projectedPoints": 10.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "WR1",
+          "player": "A.J. Brown",
+          "position": "WR",
+          "nflTeam": "PHI",
+          "points": 23.9,
+          "projectedPoints": 18.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "WR2",
+          "player": "Drake London",
+          "position": "WR",
+          "nflTeam": "ATL",
+          "points": 3.5,
+          "projectedPoints": 13.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "WR3",
+          "player": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "nflTeam": "SEA",
+          "points": 4.9,
+          "projectedPoints": 10.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "TE",
+          "player": "Kyle Pitts",
+          "position": "TE",
+          "nflTeam": "ATL",
+          "points": 11.6,
+          "projectedPoints": 9.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Javonte Williams",
+          "position": "RB",
+          "nflTeam": "DEN",
+          "points": 4.6,
+          "projectedPoints": 9.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": false
+        },
+        {
+          "slot": "K",
+          "player": "Harrison Butker",
+          "position": "K",
+          "nflTeam": "KC",
+          "points": 9.0,
+          "projectedPoints": 8.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "DEF",
+          "player": "Cleveland",
+          "position": "DEF",
+          "nflTeam": "CLE",
+          "points": 1.0,
+          "projectedPoints": 7.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Alexander Mattison",
+          "position": "RB",
+          "nflTeam": "LV",
+          "points": 16.9,
+          "projectedPoints": 5.5,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        },
+        {
+          "slot": "BN",
+          "player": "Demarcus Robinson",
+          "position": "WR",
+          "nflTeam": "LAR",
+          "points": 8.2,
+          "projectedPoints": 6.0,
+          "injuryStatus": "ACTIVE",
+          "isOptimal": true
+        }
+      ]
+    }
+  }
+]
