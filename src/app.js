@@ -550,11 +550,13 @@ function renderLucideIcons() {
     function renderPlayoffBracketView(container) {
       const sData = window.LEAGUE_DATA.seasonData[currentSeason];
       const pMatchups = sData ? (sData.playoffMatchups || []) : [];
-      const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === currentSeason);
+      const champ = (window.LEAGUE_DATA.championships || []).find(c => c.seasonYear === currentSeason);
+      const standings = sData ? (sData.standings || []) : [];
       container.innerHTML = buildPlayoffBracketHtml({
         season: currentSeason,
         playoffMatchups: pMatchups,
         championship: champ,
+        standings: standings,
         theme: CRT_THEME
       });
     }
@@ -1872,123 +1874,16 @@ function renderLucideIcons() {
       const owner = currentFranchiseOwner;
       const card = document.getElementById('franchise-profile-card');
       if (!owner || !card) return;
-      const st = window.LEAGUE_DATA.allTimeStandings.find(s => s.ownerName === owner);
-      if (!st) return;
 
-      const scCount = st.championships ? (st.championships.scoringTitles || 0) : 0;
-      const c = st.championships || {};
-
-      let teamNames = [];
-      window.LEAGUE_DATA.seasons.forEach(yr => {
-        const sData = window.LEAGUE_DATA.seasonData[yr];
-        if (sData) {
-          const entry = sData.standings.find(s => s.ownerName === owner);
-          if (entry) {
-            teamNames.push({
-              yr: yr,
-              name: entry.teamName,
-              rank: entry.rank,
-              rec: `${entry.wins}-${entry.losses}`,
-              pRec: entry.playoffRecord || '-',
-              pf: entry.pointsFor,
-              isScoringChamp: entry.isScoringChamp
-            });
-          }
-        }
+      card.innerHTML = buildFranchiseProfileHtml({
+        owner,
+        allTimeStandings: window.LEAGUE_DATA.allTimeStandings,
+        seasons: window.LEAGUE_DATA.seasons,
+        seasonData: window.LEAGUE_DATA.seasonData,
+        draftProfiles: window.LEAGUE_DATA.draftProfiles || {},
+        theme: CRT_THEME
       });
 
-      let historyRows = '';
-      teamNames.forEach(tn => {
-        const scBadge = tn.isScoringChamp ? `<span class="px-1.5 py-0.5 bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-[10px]">🎯 Scoring Champ</span>` : '<span class="text-emerald-900">-</span>';
-        historyRows += `
-          <tr class="border-b border-emerald-950">
-            <td class="p-2 font-bold text-emerald-400 font-mono">${tn.yr}</td>
-            <td class="p-2 font-bold text-emerald-300">${tn.name}</td>
-            <td class="p-2 text-center font-bold font-mono">${tn.rank}</td>
-            <td class="p-2 text-center font-mono">${tn.rec}</td>
-            <td class="p-2 text-center font-bold text-emerald-400 font-mono">${tn.pRec}</td>
-            <td class="p-2 text-center font-mono text-xs">${tn.pf.toFixed(1)}</td>
-            <td class="p-2 text-center">${scBadge}</td>
-          </tr>
-        `;
-      });
-
-      const dp = (window.LEAGUE_DATA.draftProfiles || {})[owner];
-      let draftProfileSection = '';
-      if (dp) {
-        draftProfileSection = `
-          <div class="crt-box rounded p-4 mb-6 bg-black/90 border-emerald-500 shadow-lg font-mono">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-800 pb-2.5 mb-3">
-              <div>
-                <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest block">&gt;_ DRAFT_PROFILE &amp; SCOUTING_REPORT</span>
-                <h3 class="text-base font-black text-emerald-300 crt-glow mt-0.5">${dp.archetype}</h3>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-1 rounded text-xs font-bold border ${dp.reachColor} shadow-sm">${dp.reachRating} (${dp.avgReach > 0 ? '+' : ''}${dp.avgReach} picks)</span>
-                <span class="text-xs text-emerald-500 font-mono font-bold bg-black px-2 py-0.5 rounded border border-emerald-900">${dp.yearsSample}</span>
-              </div>
-            </div>
-
-            <!-- Core Metrics Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3 text-center text-xs">
-              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">R1 TENDENCY</span>
-                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.r1Tendency}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">${dp.r1Detail}</span>
-              </div>
-              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">AVG REACH / VALUE</span>
-                <span class="font-black text-emerald-300 block mt-1 text-sm">${dp.avgReach > 0 ? `+${dp.avgReach} ahead` : (dp.avgReach < 0 ? `${dp.avgReach} after` : '±0.0 vs ADP')}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">Mean per pick vs ADP</span>
-              </div>
-              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP REACH POSITION</span>
-                <span class="font-bold text-amber-400 block mt-1 text-xs">${dp.topReachPos}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">Avg ahead of consensus</span>
-              </div>
-              <div class="bg-black/60 border border-emerald-900 p-2.5 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOP VALUE POSITION</span>
-                <span class="font-bold text-emerald-300 block mt-1 text-xs">${dp.topValuePos}</span>
-                <span class="text-[10px] text-emerald-500 block mt-0.5">Avg after consensus</span>
-              </div>
-            </div>
-
-            <!-- 1st Position Average Timing Bar -->
-            <div class="bg-[#052611] border border-emerald-700 rounded p-3 mb-3">
-              <span class="text-[11px] uppercase font-bold text-emerald-300 block mb-2">&gt;_ 1ST_POSITION_DRAFTED_AVERAGES (ENTRY TIMING)</span>
-              <div class="grid grid-cols-5 gap-2 text-center text-xs font-mono">
-                <div class="bg-black/80 p-2 rounded border border-emerald-900">
-                  <span class="text-[10px] font-bold text-emerald-500 block">1ST RB</span>
-                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.RB}</span>
-                </div>
-                <div class="bg-black/80 p-2 rounded border border-emerald-900">
-                  <span class="text-[10px] font-bold text-emerald-500 block">1ST WR</span>
-                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.WR}</span>
-                </div>
-                <div class="bg-black/80 p-2 rounded border border-emerald-900">
-                  <span class="text-[10px] font-bold text-emerald-500 block">1ST QB</span>
-                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.QB}</span>
-                </div>
-                <div class="bg-black/80 p-2 rounded border border-emerald-900">
-                  <span class="text-[10px] font-bold text-emerald-500 block">1ST TE</span>
-                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.TE}</span>
-                </div>
-                <div class="bg-black/80 p-2 rounded border border-emerald-900">
-                  <span class="text-[10px] font-bold text-emerald-500 block">1ST DEF</span>
-                  <span class="font-black text-emerald-300 text-sm">${dp.firstPosAvg.DEF}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scouting Report Commentary -->
-            <div class="bg-black/60 p-3 rounded border border-emerald-900 text-xs text-emerald-200 font-mono leading-relaxed">
-              <span class="font-bold text-emerald-400">&gt; SCOUTING_REPORT:</span> ${dp.scoutingReport}
-            </div>
-          </div>
-        `;
-      }
-
-      // Build Draft History By Year for this owner
       let availableDraftYears = [];
       window.LEAGUE_DATA.seasons.forEach(yr => {
         const sData = window.LEAGUE_DATA.seasonData[yr];
@@ -1997,114 +1892,6 @@ function renderLucideIcons() {
         }
       });
       availableDraftYears.sort((a, b) => b - a);
-
-      let franchiseDraftHistorySection = '';
-      if (availableDraftYears.length > 0) {
-        const defaultYear = availableDraftYears[0];
-        const yearButtons = availableDraftYears.map(yr => {
-          const isActive = yr === defaultYear;
-          const activeClass = 'bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_6px_rgba(0,255,102,0.3)]';
-          const inactiveClass = 'bg-black border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
-          return `<button type="button" id="btn-franchise-draft-${yr}" onclick="window.renderFranchiseDraftYear('${owner}', ${yr})" class="franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all ${isActive ? activeClass : inactiveClass}">${yr}</button>`;
-        }).join('');
-        
-        franchiseDraftHistorySection = `
-          <div class="crt-box rounded overflow-visible mt-6">
-            <div class="crt-box-header px-4 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div class="font-bold text-xs font-mono">
-                &gt;_ FRANCHISE_DRAFT_HISTORY
-              </div>
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="text-[10px] uppercase font-bold text-emerald-500 font-mono mr-1">CLASS:</span>
-                ${yearButtons}
-              </div>
-            </div>
-            <div id="franchise-draft-picks-container" class="table-scroll-container">
-              <!-- Rendered by window.renderFranchiseDraftYear -->
-            </div>
-          </div>
-        `;
-      }
-
-      card.innerHTML = `
-        <div class="crt-box rounded p-4 mb-6">
-          <div class="flex flex-col md:flex-row items-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-black border-2 border-emerald-500 flex items-center justify-center font-black text-2xl text-emerald-300 crt-glow shrink-0 font-mono">
-              ${owner.slice(0, 2).toUpperCase()}
-            </div>
-            <div class="text-center md:text-left grow">
-              <h2 class="text-2xl font-black text-emerald-300 crt-glow">${owner}</h2>
-              <p class="text-emerald-500 font-bold text-xs mt-0.5 font-mono">${st.teamName} • ${st.seasonsCount} Seasons Active</p>
-              
-              <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 mt-3 text-center font-mono">
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">REG SEASON</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.wins}-${st.losses}</span>
-                  <span class="text-[10px] text-emerald-500 block">${st.winPct}%</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">PLAYOFFS</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.playoffRecord || '0-0'}</span>
-                  <span class="text-[10px] text-emerald-500 block">${st.playoffWinPct || 0}%</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">TOTAL RECORD</span>
-                  <span class="text-base font-extrabold text-emerald-300">${st.wins + (st.playoffWins || 0)}-${st.losses + (st.playoffLosses || 0)}</span>
-                  <span class="text-[10px] text-emerald-500 block">${st.playoffApps}/${st.seasonsCount} Playoffs</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">PF / G</span>
-                  <span class="text-base font-extrabold text-emerald-300">${(st.pointsFor / (st.wins + st.losses)).toFixed(1)}</span>
-                  <span class="text-[10px] text-emerald-500 block">${st.pointsFor.toLocaleString()} PF</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">PA / G</span>
-                  <span class="text-base font-extrabold text-emerald-300">${(st.pointsAgainst / (st.wins + st.losses)).toFixed(1)}</span>
-                  <span class="text-[10px] text-emerald-500 block">${st.pointsAgainst.toLocaleString()} PA</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-amber-500 block">CHAMPIONSHIPS</span>
-                  <span class="text-base font-extrabold text-amber-400 crt-glow-amber">🏆 ${c['1st'] || 0}</span>
-                  <span class="text-[10px] text-amber-600 block">🥈 ${c['2nd'] || 0} | 🥉 ${c['3rd'] || 0}</span>
-                </div>
-                <div class="bg-black/60 border border-emerald-900 p-2 rounded">
-                  <span class="text-[10px] uppercase font-bold text-emerald-600 block">FINISH BINS</span>
-                  <span class="text-xs font-bold text-emerald-300 block mt-1">4th: ${c['4th'] || 0}</span>
-                  <span class="text-[10px] text-emerald-500 block">5-6: ${c['5th_6th'] || 0} | 7-12: ${c['7th_12th'] || 0}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="crt-box rounded overflow-visible mb-6">
-          <div class="crt-box-header px-4 py-2 font-bold text-xs font-mono">
-            &gt;_ FRANCHISE_HISTORY_EVOLUTION
-          </div>
-          <div class="table-scroll-container">
-            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-              <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
-                <tr>
-                  <th class="p-2.5">YEAR</th>
-                  <th class="p-2.5">TEAM NAME</th>
-                  <th class="p-2.5 text-center">FINISH RANK</th>
-                  <th class="p-2.5 text-center">REG RECORD</th>
-                  <th class="p-2.5 text-center">PLAYOFF RECORD</th>
-                  <th class="p-2.5 text-center">POINTS FOR</th>
-                  <th class="p-2.5 text-center">ACCOLADES</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${historyRows}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        ${draftProfileSection}
-
-        ${franchiseDraftHistorySection}
-      `;
 
       if (availableDraftYears.length > 0) {
         window.renderFranchiseDraftYear(owner, availableDraftYears[0]);
