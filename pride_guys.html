@@ -407,17 +407,19 @@
             <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
               <tr>
                 <th class="p-3 text-center">Rank</th>
-                <th class="p-3 text-left">Manager</th>
+                <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-pink-100/90">MANAGER</th>
                 <th class="p-3 text-center">Active</th>
-                <th class="p-3 text-center">Playoff W-L</th>
-                <th class="p-3 text-center">Playoff %</th>
-                <th class="p-3 text-center">🥇 1st</th>
-                <th class="p-3 text-center">🥈 2nd</th>
-                <th class="p-3 text-center">🥉 3rd</th>
-                <th class="p-3 text-center">4th</th>
-                <th class="p-3 text-center">5th-6th</th>
-                <th class="p-3 text-center">7th-12th</th>
-                <th class="p-3 text-center">🎯 Scoring Titles</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF W-L</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF %</th>
+                <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥇 1st</th>
+                <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥈 2nd</th>
+                <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥉 3rd</th>
+                <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">4th</th>
+                <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">5th-6th</th>
+                <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">7th-12th</th>
+                <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🎯 SCORING TITLES</th>
+                <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🧠 COACHING EFF</th>
+                <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🤦‍♂️ D'OHS</th>
               </tr>
             </thead>
             <tbody id="champs-leaderboard-body"></tbody>

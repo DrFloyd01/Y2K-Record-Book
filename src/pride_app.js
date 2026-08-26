@@ -275,17 +275,19 @@ function renderLucideIcons() {
                   <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
                     <tr>
                       <th class="p-3 text-center">Rank</th>
-                      <th class="p-3 text-left">Manager</th>
+                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-pink-100/90">MANAGER</th>
                       <th class="p-3 text-center">Active</th>
-                      <th class="p-3 text-center">Playoff W-L</th>
-                      <th class="p-3 text-center">Playoff %</th>
-                      <th class="p-3 text-center">🥇 1st</th>
-                      <th class="p-3 text-center">🥈 2nd</th>
-                      <th class="p-3 text-center">🥉 3rd</th>
-                      <th class="p-3 text-center">4th</th>
-                      <th class="p-3 text-center">5th-6th</th>
-                      <th class="p-3 text-center">7th-12th</th>
-                      <th class="p-3 text-center">🎯 Scoring Titles</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF W-L</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF %</th>
+                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥇 1st</th>
+                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥈 2nd</th>
+                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥉 3rd</th>
+                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">4th</th>
+                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">5th-6th</th>
+                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">7th-12th</th>
+                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🎯 SCORING TITLES</th>
+                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🧠 COACHING EFF</th>
+                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🤦‍♂️ D'OHS</th>
                     </tr>
                   </thead>
                   <tbody id="champs-leaderboard-body-seasons"></tbody>
@@ -445,6 +447,14 @@ function renderLucideIcons() {
             </div>
           </div>
         </th>
+        <th onclick="sortStandings('dOhs')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold border border-sky-300 rounded text-xs hover:bg-sky-200 transition-all inline-block shadow-sm">🤦‍♂️ DO</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🤦‍♂️ <span class="font-bold text-sky-600">DO (D'Oh! Blunders):</span> Lost a matchup despite having a single bench player who outscored a starter by enough to flip the loss into a win.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
@@ -553,6 +563,31 @@ function renderLucideIcons() {
           `;
         }
 
+        // 5. DO Badge (D'Ohs)
+        let doBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">-</span>`;
+        const doCount = item.dOhs !== undefined ? item.dOhs : (item.dOhDetails ? item.dOhDetails.length : 0);
+        if (doCount > 0 && item.dOhDetails && item.dOhDetails.length > 0) {
+          let tooltipList = item.dOhDetails.map(d => {
+            const yrStr = d.year ? `${d.year} ` : '';
+            const swapStr = d.benchPlayer && d.starter 
+              ? `Benched ${d.benchPlayer} (${d.benchPoints} pts) for ${d.starter} (${d.starterPoints} pts) ➔ +${d.netGain} PF (Win by +${d.winMargin} pts)`
+              : `Benched winning player for starter`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="text-sky-700 font-semibold">${swapStr}</span></div>`;
+          }).join('');
+
+          doBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold border border-sky-300 text-xs">${doCount}</span>
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl min-w-[280px] text-left z-50">
+                <div class="font-bold text-sky-700 border-b border-sky-200 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
+                ${tooltipList}
+              </div>
+            </div>
+          `;
+        } else if (item.dOhs === 0) {
+          doBadge = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
+        }
+
         const wlCell = currentSeason === 'allTime' 
           ? `<span class="font-black text-pink-700">${item.wins}-${item.losses}</span> <span class="text-[10px] text-pink-600 font-normal">(${item.winPct}%)</span>` 
           : `${item.wins}-${item.losses}`;
@@ -575,6 +610,7 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
+          <td class="p-2.5 text-center">${doBadge}</td>
           <td class="p-2.5 text-center font-bold text-pink-700">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
           <td class="p-2.5 text-center text-pink-600">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
         `;
@@ -1671,7 +1707,24 @@ function renderLucideIcons() {
       return sharedGetPlayoffMatchupResult(window.LEAGUE_DATA, yr, stage);
     }
 
-            function renderChamps() {
+            window.dynastySortField = '1st';
+    window.dynastySortAsc = false;
+
+    window.sortDynastyLeaderboard = function(field) {
+      if (window.dynastySortField === field) {
+        window.dynastySortAsc = !window.dynastySortAsc;
+      } else {
+        window.dynastySortField = field;
+        window.dynastySortAsc = false;
+        if (field === 'ownerName') window.dynastySortAsc = true;
+      }
+      renderChamps();
+      if (currentSeason === 'allTime' && currentSeasonsSubTab === 'playoff') {
+        renderStandings();
+      }
+    };
+
+    function renderChamps() {
       const tbody = document.getElementById('champs-leaderboard-body');
       const grid = document.getElementById('champs-timeline-grid');
       const statGrid = document.getElementById('champs-stat-records-grid');
@@ -1681,14 +1734,35 @@ function renderLucideIcons() {
 
       // Filter out 1-year managers and sort Dynasty Leaderboard
       const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
+      const sortF = window.dynastySortField || '1st';
+      const sortAsc = window.dynastySortAsc || false;
+
       leaderboard.sort((a, b) => {
         const cA = a.championships || {}, cB = b.championships || {};
-        if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
-        if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
-        if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
-        if ((cB['4th'] || 0) !== (cA['4th'] || 0)) return (cB['4th'] || 0) - (cA['4th'] || 0);
-        if ((b.playoffWins || 0) !== (a.playoffWins || 0)) return (b.playoffWins || 0) - (a.playoffWins || 0);
-        return b.winPct - a.winPct;
+        let valA = 0, valB = 0;
+
+        if (sortF === '1st') { valA = cA['1st'] || 0; valB = cB['1st'] || 0; }
+        else if (sortF === '2nd') { valA = cA['2nd'] || 0; valB = cB['2nd'] || 0; }
+        else if (sortF === '3rd') { valA = cA['3rd'] || 0; valB = cB['3rd'] || 0; }
+        else if (sortF === '4th') { valA = cA['4th'] || 0; valB = cB['4th'] || 0; }
+        else if (sortF === '5th_6th') { valA = (cA['5th'] || 0) + (cA['6th'] || 0); valB = (cB['5th'] || 0) + (cB['6th'] || 0); }
+        else if (sortF === '7th_12th') {
+          valA = (cA['7th']||0)+(cA['8th']||0)+(cA['9th']||0)+(cA['10th']||0)+(cA['11th']||0)+(cA['12th']||0);
+          valB = (cB['7th']||0)+(cB['8th']||0)+(cB['9th']||0)+(cB['10th']||0)+(cB['11th']||0)+(cB['12th']||0);
+        }
+        else if (sortF === 'playoffWins') { valA = a.playoffWins || 0; valB = b.playoffWins || 0; }
+        else if (sortF === 'playoffPct') { valA = a.playoffPct || 0; valB = b.playoffPct || 0; }
+        else if (sortF === 'scoringTitles') { valA = a.scoringTitles || 0; valB = b.scoringTitles || 0; }
+        else if (sortF === 'coachingEfficiency') { valA = a.coachingEfficiency || 0; valB = b.coachingEfficiency || 0; }
+        else if (sortF === 'dOhs') { valA = a.dOhs || 0; valB = b.dOhs || 0; }
+        else if (sortF === 'ownerName') {
+          return sortAsc ? a.ownerName.localeCompare(b.ownerName) : b.ownerName.localeCompare(a.ownerName);
+        }
+
+        if (valA !== valB) {
+          return sortAsc ? valA - valB : valB - valA;
+        }
+        return (cB['1st'] || 0) - (cA['1st'] || 0);
       });
 
       if (tbody) {
