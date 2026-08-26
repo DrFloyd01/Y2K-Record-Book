@@ -357,6 +357,9 @@ function renderLucideIcons() {
               hbDetails: entry.hbDetails || [],
               toughestLosses: entry.toughestLosses || 0,
               tlDetails: entry.tlDetails || [],
+              dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
+              dOhDetails: entry.dOhDetails || [],
+              coachingEfficiency: entry.coachingEfficiency !== undefined ? entry.coachingEfficiency : null,
               pointsFor: entry.pointsFor,
               pointsAgainst: entry.pointsAgainst
             };

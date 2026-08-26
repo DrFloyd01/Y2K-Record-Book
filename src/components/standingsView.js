@@ -95,7 +95,7 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
       `;
     }
 
-    const coachingEff = entry.coachingEfficiency ? `${entry.coachingEfficiency.toFixed(1)}%` : '-';
+    const coachingEff = (entry.coachingEfficiency !== null && entry.coachingEfficiency !== undefined) ? `${parseFloat(entry.coachingEfficiency).toFixed(1)}%` : '-';
 
     const pWlStr = entry.playoffRecord || `${entry.playoffWins || 0}-${entry.playoffLosses || 0}`;
     const pWinPct = entry.playoffWinPct || 0;

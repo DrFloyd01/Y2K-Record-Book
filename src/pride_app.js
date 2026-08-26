@@ -365,6 +365,9 @@ function renderLucideIcons() {
               hbDetails: entry.hbDetails || [],
               toughestLosses: entry.toughestLosses || 0,
               tlDetails: entry.tlDetails || [],
+              dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
+              dOhDetails: entry.dOhDetails || [],
+              coachingEfficiency: entry.coachingEfficiency !== undefined ? entry.coachingEfficiency : null,
               pointsFor: entry.pointsFor,
               pointsAgainst: entry.pointsAgainst
             };
@@ -633,17 +636,6 @@ function renderLucideIcons() {
       });
     }
 
-    function sortWeeklyBadges(field) {
-      if (window.weeklyBadgesSortField === field) {
-        window.weeklyBadgesSortAsc = !window.weeklyBadgesSortAsc;
-      } else {
-        window.weeklyBadgesSortField = field;
-        window.weeklyBadgesSortAsc = false;
-        if (field === 'rank' || field === 'teamName' || field === 'ownerName') window.weeklyBadgesSortAsc = true;
-      }
-      renderStatRecords();
-    }
-
     function getStatCardTop5(metricKey, season) {
       return sharedGetStatCardTop5(window.LEAGUE_DATA, metricKey, season);
     }
@@ -662,9 +654,7 @@ function renderLucideIcons() {
     function renderStatRecords() {
       const container = document.getElementById('stat-cards-grid');
       const label = document.getElementById('records-season-label');
-      const badgesTbody = document.getElementById('weekly-badges-table-body');
       if (container) container.innerHTML = '';
-      if (badgesTbody) badgesTbody.innerHTML = '';
 
       if (label) {
         label.innerText = currentSeason === 'allTime' ? 'ALL_TIME_RECORDS' : `${currentSeason}_SEASON`;
@@ -753,138 +743,6 @@ function renderLucideIcons() {
           container.appendChild(div);
         });
       }
-
-      // Render Weekly Badges & Bad Luck Tally Table
-      let list = [];
-      if (currentSeason === 'allTime' || currentSeason === 2026 || currentSeason === '2026') {
-        list = window.LEAGUE_DATA.allTimeStandings.filter(entry => !isOneYearManager(entry.ownerName)).slice();
-      } else {
-        const sData = window.LEAGUE_DATA.seasonData[currentSeason];
-        if (sData) {
-          list = sData.standings.filter(entry => (currentSeason === 2023 || !isOneYearManager(entry.ownerName))).slice();
-        }
-      }
-
-      if (!window.weeklyBadgesSortField) {
-        window.weeklyBadgesSortField = 'weeklyWins';
-        window.weeklyBadgesSortAsc = false;
-      }
-
-      list.sort((a, b) => {
-        const f = window.weeklyBadgesSortField;
-        let vA = f === 'rank' ? (a.rank || 99) : (a[f] || 0);
-        let vB = f === 'rank' ? (b.rank || 99) : (b[f] || 0);
-        if (typeof vA === 'string') vA = vA.toLowerCase();
-        if (typeof vB === 'string') vB = vB.toLowerCase();
-        if (vA < vB) return window.weeklyBadgesSortAsc ? -1 : 1;
-        if (vA > vB) return window.weeklyBadgesSortAsc ? 1 : -1;
-        return 0;
-      });
-
-      list.forEach((item, idx) => {
-        const tr = document.createElement('tr');
-        tr.className = 'border-b border-pink-100 hover:bg-pink-50/90/30 font-sans';
-        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
-
-        const wwCount = item.weeklyWins || 0;
-        const lwCount = item.luckiestWins || 0;
-        const hbCount = item.heartbreaks || 0;
-        const tlCount = item.toughestLosses || 0;
-
-        // 1. WW Tooltip
-        let wwCell = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
-        if (wwCount > 0 && item.wwDetails) {
-          const tooltipList = item.wwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span></div>`;
-          }).join('');
-
-          wwCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-pink-100/90 text-pink-700 font-bold border border-pink-400 text-xs hover:bg-purple-50 hover:border-pink-300 transition-all cursor-help">
-                ${wwCount}
-              </span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left z-50">
-                <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">⚡ ${item.ownerName} Weekly Wins (${wwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 2. LW Tooltip
-        let lwCell = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
-        if (lwCount > 0 && item.lwDetails) {
-          const tooltipList = item.lwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
-          }).join('');
-
-          lwCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 text-xs hover:bg-pink-100/90 hover:border-pink-400 transition-all cursor-help">
-                ${lwCount}
-              </span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl w-64 text-left z-50">
-                <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🍀 ${item.ownerName} Luckiest Wins (${lwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 3. HB Tooltip
-        let hbCell = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
-        if (hbCount > 0 && item.hbDetails) {
-          const tooltipList = item.hbDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-rose-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
-          }).join('');
-
-          hbCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 text-xs hover:bg-red-200 hover:border-red-500 transition-all cursor-help">
-                ${hbCount}
-              </span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-red-600 text-xs shadow-2xl w-64 text-left z-50">
-                <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.ownerName} Heartbreak Losses (${hbCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        // 4. TL Tooltip
-        let tlCell = `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
-        if (tlCount > 0 && item.tlDetails) {
-          const tooltipList = item.tlDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5">• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-700">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</div>`;
-          }).join('');
-
-          tlCell = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs hover:bg-amber-200 hover:border-amber-400 transition-all cursor-help">
-                ${tlCount}
-              </span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-pink-700 rounded border border-amber-500 text-xs shadow-2xl w-64 text-left z-50">
-                <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.ownerName} Toughest Losses (${tlCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
-        }
-
-        const rankBadge = item.rank ? `<span class="text-amber-400 font-bold mr-1.5 text-xs">#${item.rank}</span>` : '';
-        tr.innerHTML = `
-          <td class="p-2 font-bold text-pink-700">${rankBadge}${item.teamName} <span class="text-[10px] text-purple-700 font-normal">[${item.ownerName}]</span></td>
-          <td class="p-2 text-center">${wwCell}</td>
-          <td class="p-2 text-center">${lwCell}</td>
-          <td class="p-2 text-center">${hbCell}</td>
-          <td class="p-2 text-center">${tlCell}</td>
-        `;
-        badgesTbody.appendChild(tr);
-      });
     }
 
     function getGlobalAllTimeStatRecords() {

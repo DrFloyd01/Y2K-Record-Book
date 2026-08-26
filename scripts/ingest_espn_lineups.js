@@ -245,11 +245,9 @@ async function main() {
 
   const lineupsPath = resolve(outputDir, 'pride_guys_lineups.json');
   writeFileSync(lineupsPath, JSON.stringify(allLineups, null, 2), 'utf8');
-  console.log(`\n🎉 Pride Guys lineups written to: ${lineupsPath}`);
-
-  // Now update prideGuysData.json with authentic Coaching Efficiency % and D'Oh counts!
   const prideDataPath = resolve(process.cwd(), 'public/data/prideGuysData.json');
   const prideData = JSON.parse(readFileSync(prideDataPath, 'utf8'));
+  const allTimeOwnerStats = {};
 
   for (const [yrStr, matchups] of Object.entries(allLineups)) {
     const yr = parseInt(yrStr, 10);
@@ -268,17 +266,32 @@ async function main() {
             dOhGameLogs: []
           };
         }
+        if (!allTimeOwnerStats[t.ownerName]) {
+          allTimeOwnerStats[t.ownerName] = {
+            totalActual: 0,
+            totalOptimal: 0,
+            dOhs: 0,
+            dOhGameLogs: []
+          };
+        }
+
         managerLineupStats[t.ownerName].totalActual += (t.actualScore || 0);
         managerLineupStats[t.ownerName].totalOptimal += (t.optimalScore || 0);
+        allTimeOwnerStats[t.ownerName].totalActual += (t.actualScore || 0);
+        allTimeOwnerStats[t.ownerName].totalOptimal += (t.optimalScore || 0);
+
         if (t.dOhOccurred) {
           managerLineupStats[t.ownerName].dOhs += 1;
+          allTimeOwnerStats[t.ownerName].dOhs += 1;
+          const logEntry = {
+            year: yr,
+            week: t.week,
+            team: t.teamName,
+            ...(t.dOhDetails || {})
+          };
           if (t.dOhDetails) {
-            managerLineupStats[t.ownerName].dOhGameLogs.push({
-              year: yr,
-              week: t.week,
-              team: t.teamName,
-              ...t.dOhDetails
-            });
+            managerLineupStats[t.ownerName].dOhGameLogs.push(logEntry);
+            allTimeOwnerStats[t.ownerName].dOhGameLogs.push(logEntry);
           }
         }
       });
@@ -294,8 +307,24 @@ async function main() {
     });
   }
 
+  // Update allTimeStandings in prideGuysData.json
+  if (prideData.allTimeStandings) {
+    prideData.allTimeStandings.forEach(st => {
+      const aStat = allTimeOwnerStats[st.ownerName];
+      if (aStat && aStat.totalOptimal > 0) {
+        st.coachingEfficiency = parseFloat((aStat.totalActual / aStat.totalOptimal * 100).toFixed(1));
+        st.dOhs = aStat.dOhs;
+        st.dOhDetails = aStat.dOhGameLogs;
+      } else {
+        st.coachingEfficiency = null;
+        st.dOhs = 0;
+        st.dOhDetails = [];
+      }
+    });
+  }
+
   writeFileSync(prideDataPath, JSON.stringify(prideData, null, 2), 'utf8');
-  console.log(`🎉 public/data/prideGuysData.json successfully updated with authentic Coaching Efficiency & D'Oh badges!`);
+  console.log(`🎉 public/data/prideGuysData.json successfully updated with authentic seasonal & all-time Coaching Efficiency and D'Oh badges!`);
 }
 
 main().catch(err => {
