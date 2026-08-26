@@ -1,0 +1,68 @@
+{
+  "platform": "Yahoo Fantasy Sports",
+  "leagueId": "501321",
+  "season": 2026,
+  "week": 1,
+  "matchups": [
+    {
+      "matchupId": 1,
+      "week": 1,
+      "team1": "Globo Gym",
+      "score1": 0,
+      "team2": "Jelqaida",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    },
+    {
+      "matchupId": 2,
+      "week": 1,
+      "team1": "Ho Chi Win City",
+      "score1": 0,
+      "team2": "AARPFL",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    },
+    {
+      "matchupId": 3,
+      "week": 1,
+      "team1": "Gl Hf (you’re gay)",
+      "score1": 0,
+      "team2": "Darnold Schwarzenegger",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    },
+    {
+      "matchupId": 4,
+      "week": 1,
+      "team1": "Donkey Squad",
+      "score1": 0,
+      "team2": "Aaron codger",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    },
+    {
+      "matchupId": 5,
+      "week": 1,
+      "team1": "Dusty’s Dingleberries",
+      "score1": 0,
+      "team2": "Trenches cooper",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    },
+    {
+      "matchupId": 6,
+      "week": 1,
+      "team1": "Tess Finesse",
+      "score1": 0,
+      "team2": "Blue's Balls",
+      "score2": 0,
+      "winner": "TBD",
+      "margin": 0
+    }
+  ]
+}

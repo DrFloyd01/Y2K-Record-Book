@@ -28,4 +28,24 @@ describe('API Authentication & Cookie Validation', () => {
 
     expect(formattedUrl).toBe('https://fantasysports.yahooapis.com/fantasy/v2/league/449.l.123456/standings?format=json');
   });
+
+  it('should extract matchup pairs and scores from Yahoo HTML blocks', () => {
+    const sampleHtml = `
+      <section class="matchup">
+        <a class="F-link">The Dawn of Man-Ape</a>
+        <span class="score">124.50</span>
+        <a class="F-link">Ho Chi Win City</a>
+        <span class="score">112.30</span>
+      </section>
+    `;
+    const blockRegex = /<section[^>]*class="[^"]*matchup[^"]*"[^>]*>([\s\S]*?)<\/section>/gi;
+    const match = blockRegex.exec(sampleHtml);
+    expect(match).not.toBeNull();
+
+    const teamNames = [...match[1].matchAll(/<a[^>]*class="[^"]*F-link[^"]*"[^>]*>([^<]+)<\/a>/gi)].map(m => m[1].trim());
+    const scores = [...match[1].matchAll(/<span[^>]*class="[^"]*score[^"]*"[^>]*>([0-9.]+)<\/span>/gi)].map(m => parseFloat(m[1]));
+
+    expect(teamNames).toEqual(['The Dawn of Man-Ape', 'Ho Chi Win City']);
+    expect(scores).toEqual([124.50, 112.30]);
+  });
 });

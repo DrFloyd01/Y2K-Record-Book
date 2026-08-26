@@ -355,7 +355,7 @@
         2024,
         2025
       ],
-      "playoffPct": 100.0,
+      "playoffPct": 100,
       "weeklyWins": 28,
       "wwDetails": [
         {
@@ -745,7 +745,7 @@
         {
           "owner": "Phillip",
           "team": "Ho Chi Win City",
-          "score": 126.0,
+          "score": 126,
           "oppOwner": "Tess",
           "oppScore": 130.76,
           "margin": 4.759999999999991,
@@ -1016,7 +1016,7 @@
         2023,
         2025
       ],
-      "playoffPct": 75.0,
+      "playoffPct": 75,
       "weeklyWins": 2,
       "wwDetails": [
         {
@@ -1262,7 +1262,7 @@
         2021,
         2022
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 16,
       "wwDetails": [
         {
@@ -1280,7 +1280,7 @@
         {
           "year": 2019,
           "week": 5,
-          "score": 208.0,
+          "score": 208,
           "teamName": "The Mamluks"
         },
         {
@@ -1389,7 +1389,7 @@
           "team": "The Mongol Horde",
           "score": 134.83,
           "oppOwner": "Mike",
-          "oppScore": 107.0,
+          "oppScore": 107,
           "margin": 27.830000000000013,
           "year": 2018,
           "week": 13
@@ -1642,7 +1642,7 @@
           "team": "Bad team not good at football",
           "score": 135.53,
           "oppOwner": "Casey",
-          "oppScore": 138.0,
+          "oppScore": 138,
           "margin": 2.469999999999999,
           "year": 2025,
           "week": 10
@@ -1745,7 +1745,7 @@
           "team": "Bad team not good at football",
           "score": 135.53,
           "oppOwner": "Casey",
-          "oppScore": 138.0,
+          "oppScore": 138,
           "margin": 2.469999999999999,
           "year": 2025,
           "week": 10
@@ -1845,7 +1845,7 @@
         2024,
         2025
       ],
-      "playoffPct": 75.0,
+      "playoffPct": 75,
       "weeklyWins": 12,
       "wwDetails": [
         {
@@ -2211,7 +2211,7 @@
           "team": "Globo Gym",
           "score": 121.12,
           "oppOwner": "Casey",
-          "oppScore": 131.0,
+          "oppScore": 131,
           "margin": 9.879999999999995,
           "year": 2024,
           "week": 13
@@ -2420,7 +2420,7 @@
       "teamName": "Dusty’s Dingleberries",
       "wins": 35,
       "losses": 35,
-      "winPct": 50.0,
+      "winPct": 50,
       "pointsFor": 9702.2,
       "pointsAgainst": 9244.2,
       "avgPF": 1940.4,
@@ -2440,7 +2440,7 @@
         2023,
         2024
       ],
-      "playoffPct": 60.0,
+      "playoffPct": 60,
       "weeklyWins": 10,
       "wwDetails": [
         {
@@ -2725,7 +2725,7 @@
         {
           "owner": "Dustin",
           "team": "Dusty’s Dingleberries",
-          "score": 123.0,
+          "score": 123,
           "oppOwner": "Casey",
           "oppScore": 156.3,
           "margin": 33.30000000000001,
@@ -2754,7 +2754,7 @@
       "playoffWins": 3,
       "playoffLosses": 2,
       "playoffRecord": "3-2",
-      "playoffWinPct": 60.0,
+      "playoffWinPct": 60,
       "finishes": {
         "1st": [
           {
@@ -2798,7 +2798,7 @@
       "teamName": "Tess Finesse",
       "wins": 14,
       "losses": 14,
-      "winPct": 50.0,
+      "winPct": 50,
       "pointsFor": 3997.2,
       "pointsAgainst": 3922.7,
       "avgPF": 1998.6,
@@ -2816,7 +2816,7 @@
       "playoffYears": [
         2025
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 5,
       "wwDetails": [
         {
@@ -2947,7 +2947,7 @@
         2023,
         2024
       ],
-      "playoffPct": 80.0,
+      "playoffPct": 80,
       "weeklyWins": 3,
       "wwDetails": [
         {
@@ -3173,7 +3173,7 @@
           "score": 151.23,
           "oppOwner": "Dylan",
           "oppScore": 162.23,
-          "margin": 11.0,
+          "margin": 11,
           "year": 2023,
           "week": 8
         },
@@ -3269,7 +3269,7 @@
       "playoffWins": 0,
       "playoffLosses": 4,
       "playoffRecord": "0-4",
-      "playoffWinPct": 0.0,
+      "playoffWinPct": 0,
       "finishes": {
         "1st": [],
         "2nd": [],
@@ -3312,7 +3312,7 @@
       "wins": 13,
       "losses": 15,
       "winPct": 46.4,
-      "pointsFor": 3711.0,
+      "pointsFor": 3711,
       "pointsAgainst": 3745.1,
       "avgPF": 1855.5,
       "seasonsCount": 2,
@@ -3329,7 +3329,7 @@
       "playoffYears": [
         2022
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 5,
       "wwDetails": [
         {
@@ -3490,7 +3490,7 @@
         2024,
         2025
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 9,
       "wwDetails": [
         {
@@ -3653,7 +3653,7 @@
         {
           "owner": "Casey",
           "team": "Skibidi Football",
-          "score": 131.0,
+          "score": 131,
           "oppOwner": "Dylan",
           "oppScore": 121.12,
           "margin": 9.879999999999995,
@@ -3708,7 +3708,7 @@
           "team": "FUNdamentals",
           "score": 156.65,
           "oppOwner": "Ryan",
-          "oppScore": 168.0,
+          "oppScore": 168,
           "margin": 11.349999999999994,
           "year": 2019,
           "week": 1
@@ -3891,7 +3891,7 @@
           "team": "FUNdamentals",
           "score": 156.65,
           "oppOwner": "Ryan",
-          "oppScore": 168.0,
+          "oppScore": 168,
           "margin": 11.349999999999994,
           "year": 2019,
           "week": 1
@@ -4038,7 +4038,7 @@
       "playoffWins": 1,
       "playoffLosses": 4,
       "playoffRecord": "1-4",
-      "playoffWinPct": 20.0,
+      "playoffWinPct": 20,
       "finishes": {
         "1st": [],
         "2nd": [],
@@ -4117,7 +4117,7 @@
         2022,
         2025
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 15,
       "wwDetails": [
         {
@@ -4491,7 +4491,7 @@
           "team": "Gl Hf (you’re gay)",
           "score": 157.01,
           "oppOwner": "Casey",
-          "oppScore": 161.0,
+          "oppScore": 161,
           "margin": 3.990000000000009,
           "year": 2022,
           "week": 8
@@ -4551,7 +4551,7 @@
           "team": "Gl Hf (you’re gay)",
           "score": 120.84,
           "oppOwner": "Dylan",
-          "oppScore": 141.0,
+          "oppScore": 141,
           "margin": 20.159999999999997,
           "year": 2024,
           "week": 9
@@ -4674,7 +4674,7 @@
           "team": "Gl Hf (you’re gay)",
           "score": 157.01,
           "oppOwner": "Casey",
-          "oppScore": 161.0,
+          "oppScore": 161,
           "margin": 3.990000000000009,
           "year": 2022,
           "week": 8
@@ -4822,7 +4822,7 @@
         2023,
         2024
       ],
-      "playoffPct": 50.0,
+      "playoffPct": 50,
       "weeklyWins": 7,
       "wwDetails": [
         {
@@ -5344,7 +5344,7 @@
       },
       "playoffApps": 0,
       "playoffYears": [],
-      "playoffPct": 0.0,
+      "playoffPct": 0,
       "weeklyWins": 0,
       "wwDetails": [],
       "luckiestWins": 3,
@@ -5406,7 +5406,7 @@
       "playoffWins": 0,
       "playoffLosses": 0,
       "playoffRecord": "0-0",
-      "playoffWinPct": 0.0,
+      "playoffWinPct": 0,
       "finishes": {
         "1st": [],
         "2nd": [],
@@ -5443,7 +5443,7 @@
       },
       "playoffApps": 0,
       "playoffYears": [],
-      "playoffPct": 0.0,
+      "playoffPct": 0,
       "weeklyWins": 0,
       "wwDetails": [],
       "luckiestWins": 1,
@@ -5485,7 +5485,7 @@
       "playoffWins": 0,
       "playoffLosses": 0,
       "playoffRecord": "0-0",
-      "playoffWinPct": 0.0,
+      "playoffWinPct": 0,
       "finishes": {
         "1st": [],
         "2nd": [],
@@ -5645,7 +5645,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2018,
@@ -5749,7 +5749,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2018,
@@ -5897,7 +5897,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2018,
@@ -6057,7 +6057,7 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2018,
@@ -6113,7 +6113,7 @@
               "team": "The Mongol Horde",
               "score": 134.83,
               "oppOwner": "Mike",
-              "oppScore": 107.0,
+              "oppScore": 107,
               "margin": 27.830000000000013,
               "year": 2018,
               "week": 13
@@ -6159,7 +6159,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2018,
@@ -6233,7 +6233,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -6299,7 +6299,7 @@
           "week": 16,
           "homeOwner": "Dylan",
           "homeTeam": "The Waterboys",
-          "homeScore": 129.0,
+          "homeScore": 129,
           "homeSeed": 4,
           "awayOwner": "Casey",
           "awayTeam": "Good football team!!",
@@ -7361,7 +7361,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2019,
@@ -7392,7 +7392,7 @@
             {
               "year": 2019,
               "week": 5,
-              "score": 208.0,
+              "score": 208,
               "teamName": "The Mamluks"
             },
             {
@@ -7463,7 +7463,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2019,
@@ -7581,7 +7581,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2019,
@@ -7703,7 +7703,7 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2019,
@@ -7747,7 +7747,7 @@
               "team": "FUNdamentals",
               "score": 156.65,
               "oppOwner": "Ryan",
-              "oppScore": 168.0,
+              "oppScore": 168,
               "margin": 11.349999999999994,
               "year": 2019,
               "week": 1
@@ -7770,7 +7770,7 @@
               "team": "FUNdamentals",
               "score": 156.65,
               "oppOwner": "Ryan",
-              "oppScore": 168.0,
+              "oppScore": 168,
               "margin": 11.349999999999994,
               "year": 2019,
               "week": 1
@@ -7820,7 +7820,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2019,
@@ -7952,7 +7952,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -9056,7 +9056,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2020,
@@ -9174,7 +9174,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2020,
@@ -9344,7 +9344,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2020,
@@ -9429,7 +9429,7 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2020,
@@ -9577,7 +9577,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2020,
@@ -9670,7 +9670,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -10758,7 +10758,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2021,
@@ -10956,7 +10956,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2021,
@@ -11155,7 +11155,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2021,
@@ -11253,7 +11253,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2021,
@@ -11337,7 +11337,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2021,
@@ -11455,7 +11455,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -12828,7 +12828,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 157.01,
               "oppOwner": "Casey",
-              "oppScore": 161.0,
+              "oppScore": 161,
               "margin": 3.990000000000009,
               "year": 2022,
               "week": 8
@@ -12841,7 +12841,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 157.01,
               "oppOwner": "Casey",
-              "oppScore": 161.0,
+              "oppScore": 161,
               "margin": 3.990000000000009,
               "year": 2022,
               "week": 8
@@ -12861,7 +12861,7 @@
           "playoffWins": 3,
           "playoffLosses": 0,
           "playoffRecord": "3-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2022,
@@ -13018,7 +13018,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2022,
@@ -13128,7 +13128,7 @@
           "playoffWins": 0,
           "playoffLosses": 2,
           "playoffRecord": "0-2",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13203,7 +13203,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13308,7 +13308,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13382,7 +13382,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13457,7 +13457,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13539,7 +13539,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2022,
@@ -13624,7 +13624,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -15294,7 +15294,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2023,
@@ -15350,7 +15350,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2023,
@@ -15455,7 +15455,7 @@
           "wins": 7,
           "losses": 7,
           "pointsFor": 1770.11,
-          "pointsAgainst": 1884.0,
+          "pointsAgainst": 1884,
           "form": [
             "L",
             "L",
@@ -15530,7 +15530,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -15609,7 +15609,7 @@
               "score": 151.23,
               "oppOwner": "Dylan",
               "oppScore": 162.23,
-              "margin": 11.0,
+              "margin": 11,
               "year": 2023,
               "week": 8
             },
@@ -15648,7 +15648,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -15740,7 +15740,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -15801,7 +15801,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -15875,7 +15875,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -15929,7 +15929,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -16020,7 +16020,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2023,
@@ -16145,7 +16145,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -18104,7 +18104,7 @@
               "team": "Globo Gym",
               "score": 121.12,
               "oppOwner": "Casey",
-              "oppScore": 131.0,
+              "oppScore": 131,
               "margin": 9.879999999999995,
               "year": 2024,
               "week": 13
@@ -18137,7 +18137,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2024,
@@ -18230,7 +18230,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2024,
@@ -18301,7 +18301,7 @@
             {
               "owner": "Phillip",
               "team": "Ho Chi Win City",
-              "score": 126.0,
+              "score": 126,
               "oppOwner": "Tess",
               "oppScore": 130.76,
               "margin": 4.759999999999991,
@@ -18446,7 +18446,7 @@
             {
               "owner": "Casey",
               "team": "Skibidi Football",
-              "score": 131.0,
+              "score": 131,
               "oppOwner": "Dylan",
               "oppScore": 121.12,
               "margin": 9.879999999999995,
@@ -18473,7 +18473,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2024,
@@ -18577,7 +18577,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2024,
@@ -18631,7 +18631,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2024,
@@ -18698,7 +18698,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2024,
@@ -18823,7 +18823,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2024,
@@ -18854,7 +18854,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 120.84,
               "oppOwner": "Dylan",
-              "oppScore": 141.0,
+              "oppScore": 141,
               "margin": 20.159999999999997,
               "year": 2024,
               "week": 9
@@ -18887,7 +18887,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -20566,7 +20566,7 @@
           "playoffWins": 2,
           "playoffLosses": 0,
           "playoffRecord": "2-0",
-          "playoffWinPct": 100.0
+          "playoffWinPct": 100
         },
         {
           "seasonYear": 2025,
@@ -20669,7 +20669,7 @@
           "playoffWins": 1,
           "playoffLosses": 1,
           "playoffRecord": "1-1",
-          "playoffWinPct": 50.0
+          "playoffWinPct": 50
         },
         {
           "seasonYear": 2025,
@@ -20924,7 +20924,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2025,
@@ -20995,7 +20995,7 @@
           "playoffWins": 0,
           "playoffLosses": 1,
           "playoffRecord": "0-1",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2025,
@@ -21079,7 +21079,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2025,
@@ -21140,7 +21140,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2025,
@@ -21242,7 +21242,7 @@
             {
               "owner": "Dustin",
               "team": "Dusty’s Dingleberries",
-              "score": 123.0,
+              "score": 123,
               "oppOwner": "Casey",
               "oppScore": 156.3,
               "margin": 33.30000000000001,
@@ -21264,7 +21264,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         },
         {
           "seasonYear": 2025,
@@ -21305,7 +21305,7 @@
               "team": "Bad team not good at football",
               "score": 135.53,
               "oppOwner": "Casey",
-              "oppScore": 138.0,
+              "oppScore": 138,
               "margin": 2.469999999999999,
               "year": 2025,
               "week": 10
@@ -21328,7 +21328,7 @@
               "team": "Bad team not good at football",
               "score": 135.53,
               "oppOwner": "Casey",
-              "oppScore": 138.0,
+              "oppScore": 138,
               "margin": 2.469999999999999,
               "year": 2025,
               "week": 10
@@ -21338,7 +21338,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0
+          "playoffWinPct": 0
         }
       ],
       "statRecords": {
@@ -22949,9 +22949,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -22961,9 +22961,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -22973,9 +22973,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -22985,9 +22985,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -22997,9 +22997,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23009,9 +23009,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23021,9 +23021,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23033,9 +23033,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23045,9 +23045,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23057,9 +23057,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23069,9 +23069,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         },
         {
@@ -23081,9 +23081,9 @@
           "wins": 0,
           "losses": 0,
           "ties": 0,
-          "winPct": 0.0,
-          "pointsFor": 0.0,
-          "pointsAgainst": 0.0,
+          "winPct": 0,
+          "pointsFor": 0,
+          "pointsAgainst": 0,
           "ovrRecord": "0-0"
         }
       ],
@@ -23091,39 +23091,39 @@
         "highestScore": {
           "owner": "-",
           "team": "-",
-          "score": 0.0,
+          "score": 0,
           "week": 0
         },
         "lowestScore": {
           "owner": "-",
           "team": "-",
-          "score": 0.0,
+          "score": 0,
           "week": 0
         },
         "highestLoss": {
           "owner": "-",
           "team": "-",
-          "score": 0.0,
+          "score": 0,
           "week": 0,
           "opp": "-"
         },
         "lowestWin": {
           "owner": "-",
           "team": "-",
-          "score": 0.0,
+          "score": 0,
           "week": 0,
           "opp": "-"
         },
         "closestMargin": {
           "winner": "-",
           "loser": "-",
-          "margin": 0.0,
+          "margin": 0,
           "scoreStr": "-"
         },
         "biggestBlowout": {
           "winner": "-",
           "loser": "-",
-          "margin": 0.0,
+          "margin": 0,
           "scoreStr": "-"
         }
       },
@@ -23131,7 +23131,7 @@
       "scoringChampion": {
         "owner": "-",
         "team": "-",
-        "pointsFor": 0.0
+        "pointsFor": 0
       },
       "draftPicks": [
         {
@@ -24871,8 +24871,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24883,8 +24883,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Aaron codger",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24895,8 +24895,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24907,8 +24907,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Jelqaida",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24919,8 +24919,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "AARPFL",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24931,8 +24931,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24943,8 +24943,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Blue's Balls",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24955,8 +24955,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24967,8 +24967,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24979,8 +24979,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -24991,8 +24991,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Globo Gym",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25003,8 +25003,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25015,8 +25015,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25027,8 +25027,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Donkey Squad",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25039,8 +25039,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Tess Finesse",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25051,8 +25051,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Aaron codger",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25063,8 +25063,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25075,8 +25075,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Jelqaida",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25087,8 +25087,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25099,8 +25099,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25111,8 +25111,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Globo Gym",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25123,8 +25123,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25135,8 +25135,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Donkey Squad",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25147,8 +25147,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Tess Finesse",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25159,8 +25159,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25171,8 +25171,8 @@
           "awayOwner": "Alex",
           "homeTeam": "AARPFL",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25183,8 +25183,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25195,8 +25195,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25207,8 +25207,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25219,8 +25219,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Globo Gym",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25231,8 +25231,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25243,8 +25243,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Jelqaida",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25255,8 +25255,8 @@
           "awayOwner": "Tess",
           "homeTeam": "AARPFL",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25267,8 +25267,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25279,8 +25279,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25291,8 +25291,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25303,8 +25303,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25315,8 +25315,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Tess Finesse",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25327,8 +25327,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Aaron codger",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25339,8 +25339,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25351,8 +25351,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Jelqaida",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25363,8 +25363,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "AARPFL",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25375,8 +25375,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25387,8 +25387,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Globo Gym",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25399,8 +25399,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25411,8 +25411,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Donkey Squad",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25423,8 +25423,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Tess Finesse",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25435,8 +25435,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Aaron codger",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25447,8 +25447,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25459,8 +25459,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25471,8 +25471,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Jelqaida",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25483,8 +25483,8 @@
           "awayOwner": "Trace",
           "homeTeam": "AARPFL",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25495,8 +25495,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25507,8 +25507,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25519,8 +25519,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25531,8 +25531,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25543,8 +25543,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25555,8 +25555,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Globo Gym",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25567,8 +25567,8 @@
           "awayOwner": "Boaz",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Aaron codger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25579,8 +25579,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Donkey Squad",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25591,8 +25591,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25603,8 +25603,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25615,8 +25615,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Donkey Squad",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25627,8 +25627,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Tess Finesse",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25639,8 +25639,8 @@
           "awayOwner": "Casey",
           "homeTeam": "Aaron codger",
           "awayTeam": "AARPFL",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25651,8 +25651,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25663,8 +25663,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Donkey Squad",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25675,8 +25675,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Trenches cooper",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25687,8 +25687,8 @@
           "awayOwner": "Phillip",
           "homeTeam": "Globo Gym",
           "awayTeam": "Ho Chi Win City",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25699,8 +25699,8 @@
           "awayOwner": "Alex",
           "homeTeam": "AARPFL",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25711,8 +25711,8 @@
           "awayOwner": "Mike",
           "homeTeam": "Aaron codger",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25723,8 +25723,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25735,8 +25735,8 @@
           "awayOwner": "Dylan",
           "homeTeam": "Dusty’s Dingleberries",
           "awayTeam": "Globo Gym",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25747,8 +25747,8 @@
           "awayOwner": "Alex",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Darnold Schwarzenegger",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25759,8 +25759,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Blue's Balls",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25771,8 +25771,8 @@
           "awayOwner": "Mike",
           "homeTeam": "AARPFL",
           "awayTeam": "Jelqaida",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25783,8 +25783,8 @@
           "awayOwner": "Tess",
           "homeTeam": "Aaron codger",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25795,8 +25795,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Gl Hf (you’re gay)",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25807,8 +25807,8 @@
           "awayOwner": "Trace",
           "homeTeam": "Globo Gym",
           "awayTeam": "Gl Hf (you’re gay)",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25819,8 +25819,8 @@
           "awayOwner": "Ryan",
           "homeTeam": "Ho Chi Win City",
           "awayTeam": "Donkey Squad",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25831,8 +25831,8 @@
           "awayOwner": "Dustin",
           "homeTeam": "Darnold Schwarzenegger",
           "awayTeam": "Dusty’s Dingleberries",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25843,8 +25843,8 @@
           "awayOwner": "Tess",
           "homeTeam": "AARPFL",
           "awayTeam": "Tess Finesse",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25855,8 +25855,8 @@
           "awayOwner": "Cooper",
           "homeTeam": "Aaron codger",
           "awayTeam": "Trenches cooper",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         },
@@ -25867,12 +25867,13 @@
           "awayOwner": "Jasper",
           "homeTeam": "Jelqaida",
           "awayTeam": "Blue's Balls",
-          "homeScore": 0.0,
-          "awayScore": 0.0,
+          "homeScore": 0,
+          "awayScore": 0,
           "isPlayoff": false,
           "stage": "Regular Season"
         }
-      ]
+      ],
+      "weeklyScores": []
     },
     "allTime": {
       "settings": {},
@@ -25907,7 +25908,7 @@
             2024,
             2025
           ],
-          "playoffPct": 100.0,
+          "playoffPct": 100,
           "weeklyWins": 28,
           "wwDetails": [
             {
@@ -26297,7 +26298,7 @@
             {
               "owner": "Phillip",
               "team": "Ho Chi Win City",
-              "score": 126.0,
+              "score": 126,
               "oppOwner": "Tess",
               "oppScore": 130.76,
               "margin": 4.759999999999991,
@@ -26568,7 +26569,7 @@
             2023,
             2025
           ],
-          "playoffPct": 75.0,
+          "playoffPct": 75,
           "weeklyWins": 2,
           "wwDetails": [
             {
@@ -26814,7 +26815,7 @@
             2021,
             2022
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 16,
           "wwDetails": [
             {
@@ -26832,7 +26833,7 @@
             {
               "year": 2019,
               "week": 5,
-              "score": 208.0,
+              "score": 208,
               "teamName": "The Mamluks"
             },
             {
@@ -26941,7 +26942,7 @@
               "team": "The Mongol Horde",
               "score": 134.83,
               "oppOwner": "Mike",
-              "oppScore": 107.0,
+              "oppScore": 107,
               "margin": 27.830000000000013,
               "year": 2018,
               "week": 13
@@ -27194,7 +27195,7 @@
               "team": "Bad team not good at football",
               "score": 135.53,
               "oppOwner": "Casey",
-              "oppScore": 138.0,
+              "oppScore": 138,
               "margin": 2.469999999999999,
               "year": 2025,
               "week": 10
@@ -27297,7 +27298,7 @@
               "team": "Bad team not good at football",
               "score": 135.53,
               "oppOwner": "Casey",
-              "oppScore": 138.0,
+              "oppScore": 138,
               "margin": 2.469999999999999,
               "year": 2025,
               "week": 10
@@ -27397,7 +27398,7 @@
             2024,
             2025
           ],
-          "playoffPct": 75.0,
+          "playoffPct": 75,
           "weeklyWins": 12,
           "wwDetails": [
             {
@@ -27763,7 +27764,7 @@
               "team": "Globo Gym",
               "score": 121.12,
               "oppOwner": "Casey",
-              "oppScore": 131.0,
+              "oppScore": 131,
               "margin": 9.879999999999995,
               "year": 2024,
               "week": 13
@@ -27972,7 +27973,7 @@
           "teamName": "Dusty’s Dingleberries",
           "wins": 35,
           "losses": 35,
-          "winPct": 50.0,
+          "winPct": 50,
           "pointsFor": 9702.2,
           "pointsAgainst": 9244.2,
           "avgPF": 1940.4,
@@ -27992,7 +27993,7 @@
             2023,
             2024
           ],
-          "playoffPct": 60.0,
+          "playoffPct": 60,
           "weeklyWins": 10,
           "wwDetails": [
             {
@@ -28277,7 +28278,7 @@
             {
               "owner": "Dustin",
               "team": "Dusty’s Dingleberries",
-              "score": 123.0,
+              "score": 123,
               "oppOwner": "Casey",
               "oppScore": 156.3,
               "margin": 33.30000000000001,
@@ -28306,7 +28307,7 @@
           "playoffWins": 3,
           "playoffLosses": 2,
           "playoffRecord": "3-2",
-          "playoffWinPct": 60.0,
+          "playoffWinPct": 60,
           "finishes": {
             "1st": [
               {
@@ -28350,7 +28351,7 @@
           "teamName": "Tess Finesse",
           "wins": 14,
           "losses": 14,
-          "winPct": 50.0,
+          "winPct": 50,
           "pointsFor": 3997.2,
           "pointsAgainst": 3922.7,
           "avgPF": 1998.6,
@@ -28368,7 +28369,7 @@
           "playoffYears": [
             2025
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 5,
           "wwDetails": [
             {
@@ -28499,7 +28500,7 @@
             2023,
             2024
           ],
-          "playoffPct": 80.0,
+          "playoffPct": 80,
           "weeklyWins": 3,
           "wwDetails": [
             {
@@ -28725,7 +28726,7 @@
               "score": 151.23,
               "oppOwner": "Dylan",
               "oppScore": 162.23,
-              "margin": 11.0,
+              "margin": 11,
               "year": 2023,
               "week": 8
             },
@@ -28821,7 +28822,7 @@
           "playoffWins": 0,
           "playoffLosses": 4,
           "playoffRecord": "0-4",
-          "playoffWinPct": 0.0,
+          "playoffWinPct": 0,
           "finishes": {
             "1st": [],
             "2nd": [],
@@ -28864,7 +28865,7 @@
           "wins": 13,
           "losses": 15,
           "winPct": 46.4,
-          "pointsFor": 3711.0,
+          "pointsFor": 3711,
           "pointsAgainst": 3745.1,
           "avgPF": 1855.5,
           "seasonsCount": 2,
@@ -28881,7 +28882,7 @@
           "playoffYears": [
             2022
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 5,
           "wwDetails": [
             {
@@ -29042,7 +29043,7 @@
             2024,
             2025
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 9,
           "wwDetails": [
             {
@@ -29205,7 +29206,7 @@
             {
               "owner": "Casey",
               "team": "Skibidi Football",
-              "score": 131.0,
+              "score": 131,
               "oppOwner": "Dylan",
               "oppScore": 121.12,
               "margin": 9.879999999999995,
@@ -29260,7 +29261,7 @@
               "team": "FUNdamentals",
               "score": 156.65,
               "oppOwner": "Ryan",
-              "oppScore": 168.0,
+              "oppScore": 168,
               "margin": 11.349999999999994,
               "year": 2019,
               "week": 1
@@ -29443,7 +29444,7 @@
               "team": "FUNdamentals",
               "score": 156.65,
               "oppOwner": "Ryan",
-              "oppScore": 168.0,
+              "oppScore": 168,
               "margin": 11.349999999999994,
               "year": 2019,
               "week": 1
@@ -29590,7 +29591,7 @@
           "playoffWins": 1,
           "playoffLosses": 4,
           "playoffRecord": "1-4",
-          "playoffWinPct": 20.0,
+          "playoffWinPct": 20,
           "finishes": {
             "1st": [],
             "2nd": [],
@@ -29669,7 +29670,7 @@
             2022,
             2025
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 15,
           "wwDetails": [
             {
@@ -30043,7 +30044,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 157.01,
               "oppOwner": "Casey",
-              "oppScore": 161.0,
+              "oppScore": 161,
               "margin": 3.990000000000009,
               "year": 2022,
               "week": 8
@@ -30103,7 +30104,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 120.84,
               "oppOwner": "Dylan",
-              "oppScore": 141.0,
+              "oppScore": 141,
               "margin": 20.159999999999997,
               "year": 2024,
               "week": 9
@@ -30226,7 +30227,7 @@
               "team": "Gl Hf (you’re gay)",
               "score": 157.01,
               "oppOwner": "Casey",
-              "oppScore": 161.0,
+              "oppScore": 161,
               "margin": 3.990000000000009,
               "year": 2022,
               "week": 8
@@ -30374,7 +30375,7 @@
             2023,
             2024
           ],
-          "playoffPct": 50.0,
+          "playoffPct": 50,
           "weeklyWins": 7,
           "wwDetails": [
             {
@@ -30896,7 +30897,7 @@
           },
           "playoffApps": 0,
           "playoffYears": [],
-          "playoffPct": 0.0,
+          "playoffPct": 0,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 3,
@@ -30958,7 +30959,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0,
+          "playoffWinPct": 0,
           "finishes": {
             "1st": [],
             "2nd": [],
@@ -30995,7 +30996,7 @@
           },
           "playoffApps": 0,
           "playoffYears": [],
-          "playoffPct": 0.0,
+          "playoffPct": 0,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 1,
@@ -31037,7 +31038,7 @@
           "playoffWins": 0,
           "playoffLosses": 0,
           "playoffRecord": "0-0",
-          "playoffWinPct": 0.0,
+          "playoffWinPct": 0,
           "finishes": {
             "1st": [],
             "2nd": [],
@@ -32786,7 +32787,7 @@
           "stage": "3rd Place Game",
           "homeOwner": "Dylan",
           "homeTeam": "The Waterboys",
-          "homeScore": 129.0,
+          "homeScore": 129,
           "awayOwner": "Casey",
           "awayTeam": "Good football team!!",
           "awayScore": 140.02,
@@ -32971,7 +32972,7 @@
           "homeScore": 121.12,
           "awayOwner": "Casey",
           "awayTeam": "Skibidi Football",
-          "awayScore": 131.0,
+          "awayScore": 131,
           "winner": "Casey"
         },
         {
@@ -33729,7 +33730,7 @@
           "stage": "Regular Season",
           "homeOwner": "Dylan",
           "homeTeam": "Globo Gym",
-          "homeScore": 141.0,
+          "homeScore": 141,
           "awayOwner": "Trace",
           "awayTeam": "Gl Hf (you’re gay)",
           "awayScore": 120.84,
@@ -34037,7 +34038,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Ronny Man",
-          "homeScore": 107.0,
+          "homeScore": 107,
           "awayOwner": "Ryan",
           "awayTeam": "The Mongol Horde",
           "awayScore": 134.83,
@@ -34814,7 +34815,7 @@
           "homeScore": 156.65,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 168.0,
+          "awayScore": 168,
           "winner": "Ryan"
         },
         {
@@ -34967,7 +34968,7 @@
           "stage": "Regular Season",
           "homeOwner": "Casey",
           "homeTeam": "AARPFL",
-          "homeScore": 138.0,
+          "homeScore": 138,
           "awayOwner": "Ryan",
           "awayTeam": "Bad team not good at football",
           "awayScore": 135.53,
@@ -35020,7 +35021,7 @@
           "homeScore": 144.78,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 208.0,
+          "awayScore": 208,
           "winner": "Ryan"
         },
         {
@@ -35033,7 +35034,7 @@
           "homeScore": 161.85,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 134.0,
+          "awayScore": 134,
           "winner": "Dylan"
         },
         {
@@ -35601,7 +35602,7 @@
           "homeScore": 157.01,
           "awayOwner": "Casey",
           "awayTeam": "The Mr. Unlimited’s",
-          "awayScore": 161.0,
+          "awayScore": 161,
           "winner": "Casey"
         },
         {
@@ -36777,7 +36778,7 @@
           "homeScore": 100.45,
           "awayOwner": "Boaz",
           "awayTeam": "No I’m gonna win UR gay",
-          "awayScore": 134.0,
+          "awayScore": 134,
           "winner": "Boaz"
         },
         {
@@ -36800,7 +36801,7 @@
           "stage": "Regular Season",
           "homeOwner": "Dylan",
           "homeTeam": "The Dawn of Man-Ape",
-          "homeScore": 139.0,
+          "homeScore": 139,
           "awayOwner": "Boaz",
           "awayTeam": "No I’m gonna win UR gay",
           "awayScore": 169.07,
@@ -36983,7 +36984,7 @@
           "homeScore": 156.3,
           "awayOwner": "Dustin",
           "awayTeam": "Dusty’s Dingleberries",
-          "awayScore": 123.0,
+          "awayScore": 123,
           "winner": "Casey"
         }
       ]
@@ -37386,7 +37387,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Team Chaos",
-          "homeScore": 139.0,
+          "homeScore": 139,
           "awayOwner": "Jasper",
           "awayTeam": "Blue's Balls",
           "awayScore": 108.22,
@@ -38600,7 +38601,7 @@
           "stage": "Regular Season",
           "homeOwner": "Phillip",
           "homeTeam": "Ho Chi Win City",
-          "homeScore": 126.0,
+          "homeScore": 126,
           "awayOwner": "Tess",
           "awayTeam": "Tess Finesse",
           "awayScore": 130.76,
@@ -38917,7 +38918,7 @@
       "wins2": 2,
       "ties": 0,
       "pf1": 380.25,
-      "pf2": 495.0,
+      "pf2": 495,
       "games": [
         {
           "year": 2024,
@@ -39373,7 +39374,7 @@
           "homeScore": 156.65,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 168.0,
+          "awayScore": 168,
           "winner": "Ryan"
         },
         {
@@ -39490,7 +39491,7 @@
           "homeScore": 156.65,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 168.0,
+          "awayScore": 168,
           "winner": "Ryan"
         },
         {
@@ -40683,7 +40684,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Ronny Man",
-          "homeScore": 107.0,
+          "homeScore": 107,
           "awayOwner": "Ryan",
           "awayTeam": "The Mongol Horde",
           "awayScore": 134.83,
@@ -40761,7 +40762,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Ronny Man",
-          "homeScore": 107.0,
+          "homeScore": 107,
           "awayOwner": "Ryan",
           "awayTeam": "The Mongol Horde",
           "awayScore": 134.83,
@@ -41310,7 +41311,7 @@
           "homeScore": 121.12,
           "awayOwner": "Casey",
           "awayTeam": "Skibidi Football",
-          "awayScore": 131.0,
+          "awayScore": 131,
           "winner": "Casey"
         }
       ]
@@ -41375,7 +41376,7 @@
           "homeScore": 121.12,
           "awayOwner": "Casey",
           "awayTeam": "Skibidi Football",
-          "awayScore": 131.0,
+          "awayScore": 131,
           "winner": "Casey"
         }
       ]
@@ -41619,7 +41620,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Team Chaos",
-          "homeScore": 139.0,
+          "homeScore": 139,
           "awayOwner": "Jasper",
           "awayTeam": "Blue's Balls",
           "awayScore": 108.22,
@@ -44011,7 +44012,7 @@
           "stage": "Regular Season",
           "homeOwner": "Mike",
           "homeTeam": "Team Chaos",
-          "homeScore": 139.0,
+          "homeScore": 139,
           "awayOwner": "Jasper",
           "awayTeam": "Blue's Balls",
           "awayScore": 108.22,
@@ -46159,7 +46160,7 @@
           "homeScore": 144.78,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 208.0,
+          "awayScore": 208,
           "winner": "Ryan"
         }
       ]
@@ -46211,7 +46212,7 @@
           "homeScore": 144.78,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 208.0,
+          "awayScore": 208,
           "winner": "Ryan"
         }
       ]
@@ -46676,7 +46677,7 @@
           "stage": "Regular Season",
           "homeOwner": "Casey",
           "homeTeam": "AARPFL",
-          "homeScore": 138.0,
+          "homeScore": 138,
           "awayOwner": "Ryan",
           "awayTeam": "Bad team not good at football",
           "awayScore": 135.53,
@@ -46715,7 +46716,7 @@
           "stage": "Regular Season",
           "homeOwner": "Casey",
           "homeTeam": "AARPFL",
-          "homeScore": 138.0,
+          "homeScore": 138,
           "awayOwner": "Ryan",
           "awayTeam": "Bad team not good at football",
           "awayScore": 135.53,
@@ -47651,7 +47652,7 @@
           "stage": "Regular Season",
           "homeOwner": "Dylan",
           "homeTeam": "Globo Gym",
-          "homeScore": 141.0,
+          "homeScore": 141,
           "awayOwner": "Trace",
           "awayTeam": "Gl Hf (you’re gay)",
           "awayScore": 120.84,
@@ -47690,7 +47691,7 @@
           "stage": "Regular Season",
           "homeOwner": "Dylan",
           "homeTeam": "Globo Gym",
-          "homeScore": 141.0,
+          "homeScore": 141,
           "awayOwner": "Trace",
           "awayTeam": "Gl Hf (you’re gay)",
           "awayScore": 120.84,
@@ -48629,7 +48630,7 @@
           "homeScore": 157.01,
           "awayOwner": "Casey",
           "awayTeam": "The Mr. Unlimited’s",
-          "awayScore": 161.0,
+          "awayScore": 161,
           "winner": "Casey"
         }
       ]
@@ -48668,7 +48669,7 @@
           "homeScore": 157.01,
           "awayOwner": "Casey",
           "awayTeam": "The Mr. Unlimited’s",
-          "awayScore": 161.0,
+          "awayScore": 161,
           "winner": "Casey"
         }
       ]
@@ -48928,7 +48929,7 @@
           "homeScore": 100.45,
           "awayOwner": "Boaz",
           "awayTeam": "No I’m gonna win UR gay",
-          "awayScore": 134.0,
+          "awayScore": 134,
           "winner": "Boaz"
         },
         {
@@ -48938,7 +48939,7 @@
           "stage": "Regular Season",
           "homeOwner": "Dylan",
           "homeTeam": "The Dawn of Man-Ape",
-          "homeScore": 139.0,
+          "homeScore": 139,
           "awayOwner": "Boaz",
           "awayTeam": "No I’m gonna win UR gay",
           "awayScore": 169.07,
@@ -49903,7 +49904,7 @@
           "homeScore": 161.85,
           "awayOwner": "Ryan",
           "awayTeam": "The Mamluks",
-          "awayScore": 134.0,
+          "awayScore": 134,
           "winner": "Dylan"
         },
         {
@@ -51554,7 +51555,7 @@
       "weekNumber": 13,
       "homeOwner": "Mike",
       "homeTeam": "Ronny Man",
-      "homeScore": 107.0,
+      "homeScore": 107,
       "awayOwner": "Ryan",
       "awayTeam": "The Mongol Horde",
       "awayScore": 134.83,
@@ -51626,7 +51627,7 @@
       "weekNumber": 16,
       "homeOwner": "Dylan",
       "homeTeam": "The Waterboys",
-      "homeScore": 129.0,
+      "homeScore": 129,
       "awayOwner": "Casey",
       "awayTeam": "Good football team!!",
       "awayScore": 140.02,
@@ -51677,7 +51678,7 @@
       "homeScore": 156.65,
       "awayOwner": "Ryan",
       "awayTeam": "The Mamluks",
-      "awayScore": 168.0,
+      "awayScore": 168,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -51797,7 +51798,7 @@
       "homeScore": 144.78,
       "awayOwner": "Ryan",
       "awayTeam": "The Mamluks",
-      "awayScore": 208.0,
+      "awayScore": 208,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -51977,7 +51978,7 @@
       "homeScore": 161.85,
       "awayOwner": "Ryan",
       "awayTeam": "The Mamluks",
-      "awayScore": 134.0,
+      "awayScore": 134,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -53333,7 +53334,7 @@
       "homeScore": 100.45,
       "awayOwner": "Boaz",
       "awayTeam": "No I’m gonna win UR gay",
-      "awayScore": 134.0,
+      "awayScore": 134,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -53918,7 +53919,7 @@
       "weekNumber": 8,
       "homeOwner": "Dylan",
       "homeTeam": "The Dawn of Man-Ape",
-      "homeScore": 139.0,
+      "homeScore": 139,
       "awayOwner": "Boaz",
       "awayTeam": "No I’m gonna win UR gay",
       "awayScore": 169.07,
@@ -53945,7 +53946,7 @@
       "homeScore": 157.01,
       "awayOwner": "Casey",
       "awayTeam": "The Mr. Unlimited’s",
-      "awayScore": 161.0,
+      "awayScore": 161,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -55586,7 +55587,7 @@
       "weekNumber": 2,
       "homeOwner": "Mike",
       "homeTeam": "Team Chaos",
-      "homeScore": 139.0,
+      "homeScore": 139,
       "awayOwner": "Jasper",
       "awayTeam": "Blue's Balls",
       "awayScore": 108.22,
@@ -55622,7 +55623,7 @@
       "weekNumber": 3,
       "homeOwner": "Phillip",
       "homeTeam": "Ho Chi Win City",
-      "homeScore": 126.0,
+      "homeScore": 126,
       "awayOwner": "Tess",
       "awayTeam": "Tess Finesse",
       "awayScore": 130.76,
@@ -55970,7 +55971,7 @@
       "weekNumber": 9,
       "homeOwner": "Dylan",
       "homeTeam": "Globo Gym",
-      "homeScore": 141.0,
+      "homeScore": 141,
       "awayOwner": "Trace",
       "awayTeam": "Gl Hf (you’re gay)",
       "awayScore": 120.84,
@@ -56213,7 +56214,7 @@
       "homeScore": 121.12,
       "awayOwner": "Casey",
       "awayTeam": "Skibidi Football",
-      "awayScore": 131.0,
+      "awayScore": 131,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -56978,7 +56979,7 @@
       "weekNumber": 10,
       "homeOwner": "Casey",
       "homeTeam": "AARPFL",
-      "homeScore": 138.0,
+      "homeScore": 138,
       "awayOwner": "Ryan",
       "awayTeam": "Bad team not good at football",
       "awayScore": 135.53,
@@ -57029,7 +57030,7 @@
       "homeScore": 156.3,
       "awayOwner": "Dustin",
       "awayTeam": "Dusty’s Dingleberries",
-      "awayScore": 123.0,
+      "awayScore": 123,
       "isPlayoff": false,
       "stage": "Regular Season"
     },
@@ -57308,6 +57309,84 @@
       "awayScore": 137.92,
       "isPlayoff": true,
       "stage": "3rd Place Game"
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Globo Gym",
+      "homeOwner": "Dylan",
+      "homeScore": 0,
+      "awayTeam": "Jelqaida",
+      "awayOwner": "Mike",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Ho Chi Win City",
+      "homeOwner": "Phillip",
+      "homeScore": 0,
+      "awayTeam": "AARPFL",
+      "awayOwner": "Casey",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Gl Hf (you’re gay)",
+      "homeOwner": "Trace",
+      "homeScore": 0,
+      "awayTeam": "Darnold Schwarzenegger",
+      "awayOwner": "Alex",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Donkey Squad",
+      "homeOwner": "Ryan",
+      "homeScore": 0,
+      "awayTeam": "Aaron codger",
+      "awayOwner": "Boaz",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Dusty’s Dingleberries",
+      "homeOwner": "Dustin",
+      "homeScore": 0,
+      "awayTeam": "Trenches cooper",
+      "awayOwner": "Cooper",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
+    },
+    {
+      "year": 2026,
+      "week": 1,
+      "homeTeam": "Tess Finesse",
+      "homeOwner": "Tess",
+      "homeScore": 0,
+      "awayTeam": "Blue's Balls",
+      "awayOwner": "Jasper",
+      "awayScore": 0,
+      "winner": "Tie",
+      "margin": 0,
+      "isPlayoff": false
     }
   ],
   "weeklyCommentary": {
@@ -64822,7 +64901,7 @@
     },
     "Jasper": {
       "yearsSample": "2022–2025 (4 Drafts)",
-      "avgReach": -1.0,
+      "avgReach": -1,
       "reachRating": "Consensus Drafter",
       "reachColor": "text-emerald-300 bg-emerald-950/40 border-emerald-500",
       "r1Tendency": "75% RB / 25% WR",
@@ -64889,10 +64968,10 @@
       "topReachPos": "QB (+3.4 ahead of ADP)",
       "topValuePos": "RB (-8.0 after ADP)",
       "posReaches": {
-        "WR": 1.0,
+        "WR": 1,
         "QB": 3.4,
-        "RB": -8.0,
-        "TE": -5.0
+        "RB": -8,
+        "TE": -5
       }
     },
     "Dustin": {
@@ -64916,7 +64995,7 @@
       "posReaches": {
         "WR": 3.4,
         "TE": -18.7,
-        "RB": -6.0,
+        "RB": -6,
         "QB": 3.2
       }
     },
@@ -64947,7 +65026,7 @@
     },
     "Boaz": {
       "yearsSample": "2021–2025 (5 Drafts)",
-      "avgReach": 4.0,
+      "avgReach": 4,
       "reachRating": "Moderate Reacher",
       "reachColor": "text-amber-300 bg-amber-950/40 border-amber-500",
       "r1Tendency": "40% RB / 60% WR",
@@ -64992,7 +65071,7 @@
         "WR": 2.7,
         "RB": 5.7,
         "TE": -8.2,
-        "QB": -13.0
+        "QB": -13
       }
     },
     "Casey": {
@@ -65090,14 +65169,14 @@
       "topValuePos": "QB (-5.0 after ADP)",
       "posReaches": {
         "RB": 22.5,
-        "QB": -5.0,
-        "WR": 51.0,
-        "TE": 15.0
+        "QB": -5,
+        "WR": 51,
+        "TE": 15
       }
     },
     "Nick": {
       "yearsSample": "2023–2023 (1 Drafts)",
-      "avgReach": -3.0,
+      "avgReach": -3,
       "reachRating": "Value Drafter",
       "reachColor": "text-emerald-400 bg-emerald-950/40 border-emerald-500",
       "r1Tendency": "100% RB",
@@ -65114,10 +65193,10 @@
       "topReachPos": "TE (+23.0 ahead of ADP)",
       "topValuePos": "QB (-30.0 after ADP)",
       "posReaches": {
-        "RB": -6.0,
+        "RB": -6,
         "WR": -1.7,
-        "QB": -30.0,
-        "TE": 23.0
+        "QB": -30,
+        "TE": 23
       }
     }
   }
