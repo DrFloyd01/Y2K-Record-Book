@@ -36,19 +36,43 @@ export function buildFranchiseProfileHtml({
           rec: `${entry.wins}-${entry.losses}`,
           pRec: entry.playoffRecord || '-',
           pf: entry.pointsFor,
-          isScoringChamp: entry.isScoringChamp
+          isScoringChamp: entry.isScoringChamp,
+          coachingEfficiency: entry.coachingEfficiency,
+          dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
+          dOhDetails: entry.dOhDetails || []
         });
       }
     }
   });
 
   let historyRows = '';
-  teamNames.forEach(tn => {
+  teamNames.forEach((tn, rIdx) => {
     const scBadge = tn.isScoringChamp
       ? (isCrt
         ? `<span class="px-1.5 py-0.5 bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-[10px]">🎯 Scoring Champ</span>`
         : `<span class="px-1.5 py-0.5 bg-pink-100 border border-pink-300 text-pink-700 font-bold text-[10px]">🎯 Scoring Champ</span>`)
       : (isCrt ? '<span class="text-emerald-900">-</span>' : '<span class="text-purple-300">-</span>');
+
+    const rowPopDir = rIdx < 3 ? ' tooltip-content-bottom' : '';
+    let dOhCell = '<span class="opacity-40">-</span>';
+    if (tn.dOhs > 0) {
+      let tooltipList = (tn.dOhDetails || []).map(d => {
+        const swapStr = d.benchPlayer && d.starter
+          ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
+          : `Benched winning player for starter`;
+        return `<div class="py-0.5 text-xs text-left">• Week ${d.week}: ${swapStr}</div>`;
+      }).join('');
+
+      dOhCell = `
+        <div class="tooltip-trigger inline-block cursor-pointer">
+          <span class="px-2 py-0.5 bg-red-950 text-red-400 font-bold border border-red-700 rounded text-xs shadow-sm">🤦‍♂️ ${tn.dOhs}</span>
+          <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-sky-300 rounded border border-red-600 text-xs shadow-2xl min-w-[280px] text-left z-50">
+            <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">🤦‍♂️ ${tn.yr} D'Oh! Blunders (${tn.dOhs})</div>
+            ${tooltipList || '<div>1-swap losses</div>'}
+          </div>
+        </div>
+      `;
+    }
 
     historyRows += `
       <tr class="border-b ${isCrt ? 'border-emerald-950 hover:bg-emerald-950/30' : 'border-pink-100 hover:bg-pink-50/50'}">
@@ -60,7 +84,7 @@ export function buildFranchiseProfileHtml({
         <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-300' : 'text-purple-900'} text-xs">${(tn.pf || 0).toFixed(1)}</td>
         <td class="p-2.5 text-center">${scBadge}</td>
         <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-purple-900'}">${tn.coachingEfficiency ? `${tn.coachingEfficiency}%` : '-'}</td>
-        <td class="p-2.5 text-center">${tn.dOhs > 0 ? `<span class="text-red-400 font-bold">🤦‍♂️ ${tn.dOhs}</span>` : '<span class="opacity-40">-</span>'}</td>
+        <td class="p-2.5 text-center">${dOhCell}</td>
       </tr>
     `;
   });
@@ -234,12 +258,27 @@ export function buildFranchiseProfileHtml({
             </div>
             <div class="${statBoxClass}">
               <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-400' : 'text-purple-700'} block">COACHING EFF</span>
-              <span class="text-base font-extrabold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${st.coachingEfficiency || 90.0}%</span>
+              <span class="text-base font-extrabold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${st.coachingEfficiency ? `${st.coachingEfficiency}%` : '-'}</span>
               <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-pink-600'} block">Optimal PF Rate</span>
             </div>
             <div class="${statBoxClass}">
               <span class="text-[10px] uppercase font-bold text-red-400 block">D'OH! BLUNDERS</span>
-              <span class="text-base font-extrabold text-red-400">🤦‍♂️ ${st.dOhs || 0}</span>
+              ${st.dOhs > 0 ? `
+                <div class="tooltip-trigger inline-block cursor-pointer">
+                  <span class="text-base font-extrabold text-red-400 hover:underline">🤦‍♂️ ${st.dOhs}</span>
+                  <div class="tooltip-content tooltip-content-right p-3 ${isCrt ? 'bg-black text-sky-300 border-2 border-red-600' : 'bg-white text-purple-950 border-2 border-red-400'} text-xs shadow-2xl min-w-[280px] text-left z-50">
+                    <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s Career D'Oh! Blunders (${st.dOhs})</div>
+                    ${(st.dOhDetails || []).map(d => {
+                      const swapStr = d.benchPlayer && d.starter
+                        ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span>`
+                        : `Benched winning player for starter`;
+                      return `<div class="py-0.5 text-xs text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: ${swapStr}</div>`;
+                    }).join('') || '<div>1-swap losses</div>'}
+                  </div>
+                </div>
+              ` : `
+                <span class="text-base font-extrabold text-red-400">🤦‍♂️ 0</span>
+              `}
               <span class="text-[10px] text-red-500 block">1-Swap Losses</span>
             </div>
           </div>

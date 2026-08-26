@@ -990,9 +990,40 @@
         "5th_6th": [],
         "7th_12th": []
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 2,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 6,
+          "starter": "Courtland Sutton",
+          "starterPosition": "WR",
+          "starterSlot": "W/R/T",
+          "starterPoints": 2.7,
+          "benchPlayer": "D'Andre Swift",
+          "benchPosition": "RB",
+          "benchPoints": 27.5,
+          "netGain": 24.8,
+          "deficitNeeded": 19.12,
+          "winMargin": 5.68,
+          "projectedNewScore": 166.92
+        },
+        {
+          "year": 2025,
+          "week": 17,
+          "starter": "Jared Goff",
+          "starterPosition": "QB",
+          "starterSlot": "QB",
+          "starterPoints": -0.42,
+          "benchPlayer": "Caleb Williams",
+          "benchPosition": "QB",
+          "benchPoints": 27,
+          "netGain": 27.42,
+          "deficitNeeded": 10.91,
+          "winMargin": 16.51,
+          "projectedNewScore": 136.26
+        }
+      ],
+      "coachingEfficiency": 89.2
     },
     {
       "ownerName": "Jasper",
@@ -1240,7 +1271,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null
+      "coachingEfficiency": 92.3
     },
     {
       "ownerName": "Ryan",
@@ -1822,9 +1853,85 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 5,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 3,
+          "starter": "Zay Flowers",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 3.3,
+          "benchPlayer": "Cam Skattebo",
+          "benchPosition": "RB",
+          "benchPoints": 24.1,
+          "netGain": 20.8,
+          "deficitNeeded": 9.92,
+          "winMargin": 10.88,
+          "projectedNewScore": 140.9
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "starter": "Daniel Jones",
+          "starterPosition": "QB",
+          "starterSlot": "QB",
+          "starterPoints": 10.38,
+          "benchPlayer": "Dak Prescott",
+          "benchPosition": "QB",
+          "benchPoints": 36.46,
+          "netGain": 26.08,
+          "deficitNeeded": 4.82,
+          "winMargin": 21.26,
+          "projectedNewScore": 157.02
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "starter": "Rhamondre Stevenson",
+          "starterPosition": "RB",
+          "starterSlot": "RB",
+          "starterPoints": 1.8,
+          "benchPlayer": "Ladd McConkey",
+          "benchPosition": "WR",
+          "benchPoints": 25,
+          "netGain": 23.2,
+          "deficitNeeded": 16.25,
+          "winMargin": 6.95,
+          "projectedNewScore": 144.09
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "starter": "Rashid Shaheed",
+          "starterPosition": "WR",
+          "starterSlot": "W/R/T",
+          "starterPoints": 6.65,
+          "benchPlayer": "Zach Charbonnet",
+          "benchPosition": "RB",
+          "benchPoints": 14.3,
+          "netGain": 7.65,
+          "deficitNeeded": 2.47,
+          "winMargin": 5.18,
+          "projectedNewScore": 143.18
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "starter": "Zay Flowers",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 0.6,
+          "benchPlayer": "Zach Charbonnet",
+          "benchPosition": "RB",
+          "benchPoints": 11.2,
+          "netGain": 10.6,
+          "deficitNeeded": 9.08,
+          "winMargin": 1.52,
+          "projectedNewScore": 128.82
+        }
+      ],
+      "coachingEfficiency": 78.3
     },
     {
       "ownerName": "Dylan",
@@ -2423,9 +2530,40 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 2,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 2,
+          "starter": "Breece Hall",
+          "starterPosition": "RB",
+          "starterSlot": "RB",
+          "starterPoints": 5.8,
+          "benchPlayer": "Jaylen Warren",
+          "benchPosition": "RB",
+          "benchPoints": 18.4,
+          "netGain": 12.6,
+          "deficitNeeded": 4.3,
+          "winMargin": 8.3,
+          "projectedNewScore": 187.08
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "starter": "Josh Downs",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 2.9,
+          "benchPlayer": "Jerry Jeudy",
+          "benchPosition": "WR",
+          "benchPoints": 19.8,
+          "netGain": 16.9,
+          "deficitNeeded": 10.12,
+          "winMargin": 6.78,
+          "projectedNewScore": 147.5
+        }
+      ],
+      "coachingEfficiency": 89.4
     },
     {
       "ownerName": "Dustin",
@@ -2804,9 +2942,100 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 6,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 4,
+          "starter": "Calvin Ridley",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 5,
+          "benchPlayer": "Jaylen Waddle",
+          "benchPosition": "WR",
+          "benchPoints": 7.8,
+          "netGain": 2.8,
+          "deficitNeeded": 1.18,
+          "winMargin": 1.62,
+          "projectedNewScore": 163.04
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "starter": "Woody Marks",
+          "starterPosition": "RB",
+          "starterSlot": "RB",
+          "starterPoints": 2.4,
+          "benchPlayer": "Jacory Croskey-Merritt",
+          "benchPosition": "RB",
+          "benchPoints": 28,
+          "netGain": 25.6,
+          "deficitNeeded": 17.56,
+          "winMargin": 8.04,
+          "projectedNewScore": 150.82
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "starter": "Calvin Ridley",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 2.8,
+          "benchPlayer": "Wan'Dale Robinson",
+          "benchPosition": "WR",
+          "benchPoints": 20.4,
+          "netGain": 17.6,
+          "deficitNeeded": 0.94,
+          "winMargin": 16.66,
+          "projectedNewScore": 148.04
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "starter": "Wan'Dale Robinson",
+          "starterPosition": "WR",
+          "starterSlot": "W/R/T",
+          "starterPoints": 7.8,
+          "benchPlayer": "Travis Kelce",
+          "benchPosition": "TE",
+          "benchPoints": 21.9,
+          "netGain": 14.1,
+          "deficitNeeded": 1.38,
+          "winMargin": 12.72,
+          "projectedNewScore": 173.3
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "starter": "Darnell Mooney",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 4.5,
+          "benchPlayer": "Terry McLaurin",
+          "benchPosition": "WR",
+          "benchPoints": 22.6,
+          "netGain": 18.1,
+          "deficitNeeded": 6.86,
+          "winMargin": 11.24,
+          "projectedNewScore": 139.84
+        },
+        {
+          "year": 2025,
+          "week": 17,
+          "starter": "Jaylen Waddle",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 0.7,
+          "benchPlayer": "Wan'Dale Robinson",
+          "benchPosition": "WR",
+          "benchPoints": 23.3,
+          "netGain": 22.6,
+          "deficitNeeded": 1.93,
+          "winMargin": 20.67,
+          "projectedNewScore": 117
+        }
+      ],
+      "coachingEfficiency": 85.5
     },
     {
       "ownerName": "Tess",
@@ -2935,9 +3164,25 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 1,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 2,
+          "starter": "Geno Smith",
+          "starterPosition": "QB",
+          "starterSlot": "QB",
+          "starterPoints": -1.3,
+          "benchPlayer": "Patrick Mahomes",
+          "benchPosition": "QB",
+          "benchPoints": 23.08,
+          "netGain": 24.38,
+          "deficitNeeded": 13.55,
+          "winMargin": 10.83,
+          "projectedNewScore": 150.7
+        }
+      ],
+      "coachingEfficiency": 89.9
     },
     {
       "ownerName": "Boaz",
@@ -3325,7 +3570,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null
+      "coachingEfficiency": 89.5
     },
     {
       "ownerName": "Cooper",
@@ -4114,9 +4359,25 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 1,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 2,
+          "starter": "Jayden Reed",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 0,
+          "benchPlayer": "Stefon Diggs",
+          "benchPosition": "WR",
+          "benchPoints": 7.2,
+          "netGain": 7.2,
+          "deficitNeeded": 7.1,
+          "winMargin": 0.1,
+          "projectedNewScore": 138.88
+        }
+      ],
+      "coachingEfficiency": 93.6
     },
     {
       "ownerName": "Trace",
@@ -4822,9 +5083,55 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 3,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 1,
+          "starter": "A.J. Brown",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 1.8,
+          "benchPlayer": "TreVeyon Henderson",
+          "benchPosition": "RB",
+          "benchPoints": 13.25,
+          "netGain": 11.45,
+          "deficitNeeded": 2.02,
+          "winMargin": 9.43,
+          "projectedNewScore": 130.03
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "starter": "Colts",
+          "starterPosition": "DEF",
+          "starterSlot": "DEF",
+          "starterPoints": 5.6,
+          "benchPlayer": "Lions",
+          "benchPosition": "DEF",
+          "benchPoints": 18.78,
+          "netGain": 13.18,
+          "deficitNeeded": 11.55,
+          "winMargin": 1.63,
+          "projectedNewScore": 125.26
+        },
+        {
+          "year": 2025,
+          "week": 16,
+          "starter": "Emeka Egbuka",
+          "starterPosition": "WR",
+          "starterSlot": "W/R/T",
+          "starterPoints": 6,
+          "benchPlayer": "Parker Washington",
+          "benchPosition": "WR",
+          "benchPoints": 30.1,
+          "netGain": 24.1,
+          "deficitNeeded": 10.06,
+          "winMargin": 14.04,
+          "projectedNewScore": 138
+        }
+      ],
+      "coachingEfficiency": 93.2
     },
     {
       "ownerName": "Mike",
@@ -5352,9 +5659,70 @@
           }
         ]
       },
-      "dOhs": 0,
-      "dOhDetails": [],
-      "coachingEfficiency": null
+      "dOhs": 4,
+      "dOhDetails": [
+        {
+          "year": 2025,
+          "week": 2,
+          "starter": "Khalil Shakir",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 2.2,
+          "benchPlayer": "Tyrone Tracy Jr.",
+          "benchPosition": "RB",
+          "benchPoints": 15.7,
+          "netGain": 13.5,
+          "deficitNeeded": 2.76,
+          "winMargin": 10.74,
+          "projectedNewScore": 131.56
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "starter": "Mark Andrews",
+          "starterPosition": "TE",
+          "starterSlot": "W/R/T",
+          "starterPoints": 6.4,
+          "benchPlayer": "Khalil Shakir",
+          "benchPosition": "WR",
+          "benchPoints": 22.2,
+          "netGain": 15.8,
+          "deficitNeeded": 7.53,
+          "winMargin": 8.27,
+          "projectedNewScore": 162.95
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "starter": "Tucker Kraft",
+          "starterPosition": "TE",
+          "starterSlot": "TE",
+          "starterPoints": 4,
+          "benchPlayer": "Mark Andrews",
+          "benchPosition": "TE",
+          "benchPoints": 16.6,
+          "netGain": 12.6,
+          "deficitNeeded": 0.89,
+          "winMargin": 11.71,
+          "projectedNewScore": 153.02
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "starter": "Romeo Doubs",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 2.6,
+          "benchPlayer": "Tez Johnson",
+          "benchPosition": "WR",
+          "benchPoints": 20.2,
+          "netGain": 17.6,
+          "deficitNeeded": 13.77,
+          "winMargin": 3.83,
+          "projectedNewScore": 137.37
+        }
+      ],
+      "coachingEfficiency": 87.4
     },
     {
       "ownerName": "Torin",
@@ -20783,9 +21151,40 @@
           "playoffLosses": 0,
           "playoffRecord": "2-0",
           "playoffWinPct": 100,
-          "dOhs": 0,
-          "dOhDetails": [],
-          "coachingEfficiency": 83
+          "dOhs": 2,
+          "dOhDetails": [
+            {
+              "year": 2025,
+              "week": 2,
+              "starter": "Breece Hall",
+              "starterPosition": "RB",
+              "starterSlot": "RB",
+              "starterPoints": 5.8,
+              "benchPlayer": "Jaylen Warren",
+              "benchPosition": "RB",
+              "benchPoints": 18.4,
+              "netGain": 12.6,
+              "deficitNeeded": 4.3,
+              "winMargin": 8.3,
+              "projectedNewScore": 187.08
+            },
+            {
+              "year": 2025,
+              "week": 10,
+              "starter": "Josh Downs",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.9,
+              "benchPlayer": "Jerry Jeudy",
+              "benchPosition": "WR",
+              "benchPoints": 19.8,
+              "netGain": 16.9,
+              "deficitNeeded": 10.12,
+              "winMargin": 6.78,
+              "projectedNewScore": 147.5
+            }
+          ],
+          "coachingEfficiency": 89.4
         },
         {
           "seasonYear": 2025,
@@ -20895,28 +21294,34 @@
               "year": 2025,
               "week": 6,
               "starter": "Courtland Sutton",
-              "starterPoints": 2.7,
+              "starterPosition": "WR",
               "starterSlot": "W/R/T",
+              "starterPoints": 2.7,
               "benchPlayer": "D'Andre Swift",
+              "benchPosition": "RB",
               "benchPoints": 27.5,
               "netGain": 24.8,
               "deficitNeeded": 19.12,
-              "winMargin": 5.68
+              "winMargin": 5.68,
+              "projectedNewScore": 166.92
             },
             {
               "year": 2025,
               "week": 17,
               "starter": "Jared Goff",
-              "starterPoints": -0.42,
+              "starterPosition": "QB",
               "starterSlot": "QB",
+              "starterPoints": -0.42,
               "benchPlayer": "Caleb Williams",
+              "benchPosition": "QB",
               "benchPoints": 27,
               "netGain": 27.42,
               "deficitNeeded": 10.91,
-              "winMargin": 16.51
+              "winMargin": 16.51,
+              "projectedNewScore": 136.26
             }
           ],
-          "coachingEfficiency": 92.4
+          "coachingEfficiency": 89.2
         },
         {
           "seasonYear": 2025,
@@ -21033,7 +21438,7 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 98.6
+          "coachingEfficiency": 92.3
         },
         {
           "seasonYear": 2025,
@@ -21102,16 +21507,19 @@
               "year": 2025,
               "week": 2,
               "starter": "Geno Smith",
-              "starterPoints": -1.3,
+              "starterPosition": "QB",
               "starterSlot": "QB",
+              "starterPoints": -1.3,
               "benchPlayer": "Patrick Mahomes",
+              "benchPosition": "QB",
               "benchPoints": 23.08,
               "netGain": 24.38,
               "deficitNeeded": 13.55,
-              "winMargin": 10.83
+              "winMargin": 10.83,
+              "projectedNewScore": 150.7
             }
           ],
-          "coachingEfficiency": 91.8
+          "coachingEfficiency": 89.9
         },
         {
           "seasonYear": 2025,
@@ -21191,34 +21599,55 @@
           "playoffLosses": 1,
           "playoffRecord": "0-1",
           "playoffWinPct": 0,
-          "dOhs": 2,
+          "dOhs": 3,
           "dOhDetails": [
+            {
+              "year": 2025,
+              "week": 1,
+              "starter": "A.J. Brown",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 1.8,
+              "benchPlayer": "TreVeyon Henderson",
+              "benchPosition": "RB",
+              "benchPoints": 13.25,
+              "netGain": 11.45,
+              "deficitNeeded": 2.02,
+              "winMargin": 9.43,
+              "projectedNewScore": 130.03
+            },
             {
               "year": 2025,
               "week": 14,
               "starter": "Colts",
-              "starterPoints": 5.6,
+              "starterPosition": "DEF",
               "starterSlot": "DEF",
+              "starterPoints": 5.6,
               "benchPlayer": "Lions",
+              "benchPosition": "DEF",
               "benchPoints": 18.78,
               "netGain": 13.18,
               "deficitNeeded": 11.55,
-              "winMargin": 1.63
+              "winMargin": 1.63,
+              "projectedNewScore": 125.26
             },
             {
               "year": 2025,
               "week": 16,
               "starter": "Emeka Egbuka",
-              "starterPoints": 6,
+              "starterPosition": "WR",
               "starterSlot": "W/R/T",
+              "starterPoints": 6,
               "benchPlayer": "Parker Washington",
+              "benchPosition": "WR",
               "benchPoints": 30.1,
               "netGain": 24.1,
               "deficitNeeded": 10.06,
-              "winMargin": 14.04
+              "winMargin": 14.04,
+              "projectedNewScore": 138
             }
           ],
-          "coachingEfficiency": 88.1
+          "coachingEfficiency": 93.2
         },
         {
           "seasonYear": 2025,
@@ -21290,9 +21719,25 @@
           "playoffLosses": 1,
           "playoffRecord": "0-1",
           "playoffWinPct": 0,
-          "dOhs": 0,
-          "dOhDetails": [],
-          "coachingEfficiency": 93.4
+          "dOhs": 1,
+          "dOhDetails": [
+            {
+              "year": 2025,
+              "week": 2,
+              "starter": "Jayden Reed",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 0,
+              "benchPlayer": "Stefon Diggs",
+              "benchPosition": "WR",
+              "benchPoints": 7.2,
+              "netGain": 7.2,
+              "deficitNeeded": 7.1,
+              "winMargin": 0.1,
+              "projectedNewScore": 138.88
+            }
+          ],
+          "coachingEfficiency": 93.6
         },
         {
           "seasonYear": 2025,
@@ -21377,46 +21822,70 @@
           "playoffLosses": 0,
           "playoffRecord": "0-0",
           "playoffWinPct": 0,
-          "dOhs": 3,
+          "dOhs": 4,
           "dOhDetails": [
             {
               "year": 2025,
               "week": 2,
-              "starter": "Travis Hunter",
-              "starterPoints": 5.2,
-              "starterSlot": "W/R/T",
+              "starter": "Khalil Shakir",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.2,
               "benchPlayer": "Tyrone Tracy Jr.",
+              "benchPosition": "RB",
               "benchPoints": 15.7,
-              "netGain": 10.5,
+              "netGain": 13.5,
               "deficitNeeded": 2.76,
-              "winMargin": 7.74
+              "winMargin": 10.74,
+              "projectedNewScore": 131.56
             },
             {
               "year": 2025,
               "week": 8,
               "starter": "Mark Andrews",
-              "starterPoints": 6.4,
+              "starterPosition": "TE",
               "starterSlot": "W/R/T",
+              "starterPoints": 6.4,
               "benchPlayer": "Khalil Shakir",
+              "benchPosition": "WR",
               "benchPoints": 22.2,
               "netGain": 15.8,
               "deficitNeeded": 7.53,
-              "winMargin": 8.27
+              "winMargin": 8.27,
+              "projectedNewScore": 162.95
             },
             {
               "year": 2025,
               "week": 9,
               "starter": "Tucker Kraft",
-              "starterPoints": 4,
+              "starterPosition": "TE",
               "starterSlot": "TE",
+              "starterPoints": 4,
               "benchPlayer": "Mark Andrews",
+              "benchPosition": "TE",
               "benchPoints": 16.6,
               "netGain": 12.6,
               "deficitNeeded": 0.89,
-              "winMargin": 11.71
+              "winMargin": 11.71,
+              "projectedNewScore": 153.02
+            },
+            {
+              "year": 2025,
+              "week": 10,
+              "starter": "Romeo Doubs",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.6,
+              "benchPlayer": "Tez Johnson",
+              "benchPosition": "WR",
+              "benchPoints": 20.2,
+              "netGain": 17.6,
+              "deficitNeeded": 13.77,
+              "winMargin": 3.83,
+              "projectedNewScore": 137.37
             }
           ],
-          "coachingEfficiency": 92.5
+          "coachingEfficiency": 87.4
         },
         {
           "seasonYear": 2025,
@@ -21480,7 +21949,7 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 100
+          "coachingEfficiency": 89.5
         },
         {
           "seasonYear": 2025,
@@ -21605,58 +22074,100 @@
           "playoffLosses": 0,
           "playoffRecord": "0-0",
           "playoffWinPct": 0,
-          "dOhs": 4,
+          "dOhs": 6,
           "dOhDetails": [
             {
               "year": 2025,
+              "week": 4,
+              "starter": "Calvin Ridley",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 5,
+              "benchPlayer": "Jaylen Waddle",
+              "benchPosition": "WR",
+              "benchPoints": 7.8,
+              "netGain": 2.8,
+              "deficitNeeded": 1.18,
+              "winMargin": 1.62,
+              "projectedNewScore": 163.04
+            },
+            {
+              "year": 2025,
+              "week": 5,
+              "starter": "Woody Marks",
+              "starterPosition": "RB",
+              "starterSlot": "RB",
+              "starterPoints": 2.4,
+              "benchPlayer": "Jacory Croskey-Merritt",
+              "benchPosition": "RB",
+              "benchPoints": 28,
+              "netGain": 25.6,
+              "deficitNeeded": 17.56,
+              "winMargin": 8.04,
+              "projectedNewScore": 150.82
+            },
+            {
+              "year": 2025,
               "week": 6,
-              "starter": "Tee Higgins",
-              "starterPoints": 11.2,
-              "starterSlot": "W/R/T",
+              "starter": "Calvin Ridley",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.8,
               "benchPlayer": "Wan'Dale Robinson",
+              "benchPosition": "WR",
               "benchPoints": 20.4,
-              "netGain": 9.2,
+              "netGain": 17.6,
               "deficitNeeded": 0.94,
-              "winMargin": 8.26
+              "winMargin": 16.66,
+              "projectedNewScore": 148.04
             },
             {
               "year": 2025,
               "week": 8,
               "starter": "Wan'Dale Robinson",
-              "starterPoints": 7.8,
+              "starterPosition": "WR",
               "starterSlot": "W/R/T",
+              "starterPoints": 7.8,
               "benchPlayer": "Travis Kelce",
+              "benchPosition": "TE",
               "benchPoints": 21.9,
               "netGain": 14.1,
               "deficitNeeded": 1.38,
-              "winMargin": 12.72
+              "winMargin": 12.72,
+              "projectedNewScore": 173.3
             },
             {
               "year": 2025,
               "week": 13,
-              "starter": "Travis Kelce",
-              "starterPoints": 15.5,
-              "starterSlot": "W/R/T",
+              "starter": "Darnell Mooney",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 4.5,
               "benchPlayer": "Terry McLaurin",
+              "benchPosition": "WR",
               "benchPoints": 22.6,
-              "netGain": 7.1,
+              "netGain": 18.1,
               "deficitNeeded": 6.86,
-              "winMargin": 0.24
+              "winMargin": 11.24,
+              "projectedNewScore": 139.84
             },
             {
               "year": 2025,
               "week": 17,
-              "starter": "Tee Higgins",
-              "starterPoints": 9.9,
-              "starterSlot": "W/R/T",
+              "starter": "Jaylen Waddle",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 0.7,
               "benchPlayer": "Wan'Dale Robinson",
+              "benchPosition": "WR",
               "benchPoints": 23.3,
-              "netGain": 13.4,
+              "netGain": 22.6,
               "deficitNeeded": 1.93,
-              "winMargin": 11.47
+              "winMargin": 20.67,
+              "projectedNewScore": 117
             }
           ],
-          "coachingEfficiency": 92.7
+          "coachingEfficiency": 85.5
         },
         {
           "seasonYear": 2025,
@@ -21731,46 +22242,85 @@
           "playoffLosses": 0,
           "playoffRecord": "0-0",
           "playoffWinPct": 0,
-          "dOhs": 3,
+          "dOhs": 5,
           "dOhDetails": [
             {
               "year": 2025,
               "week": 3,
-              "starter": "Brock Bowers",
-              "starterPoints": 9.8,
-              "starterSlot": "TE",
-              "benchPlayer": "Jake Ferguson",
-              "benchPoints": 21.2,
-              "netGain": 11.4,
+              "starter": "Zay Flowers",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 3.3,
+              "benchPlayer": "Cam Skattebo",
+              "benchPosition": "RB",
+              "benchPoints": 24.1,
+              "netGain": 20.8,
               "deficitNeeded": 9.92,
-              "winMargin": 1.48
+              "winMargin": 10.88,
+              "projectedNewScore": 140.9
             },
             {
               "year": 2025,
               "week": 4,
               "starter": "Daniel Jones",
-              "starterPoints": 10.38,
+              "starterPosition": "QB",
               "starterSlot": "QB",
+              "starterPoints": 10.38,
               "benchPlayer": "Dak Prescott",
+              "benchPosition": "QB",
               "benchPoints": 36.46,
               "netGain": 26.08,
               "deficitNeeded": 4.82,
-              "winMargin": 21.26
+              "winMargin": 21.26,
+              "projectedNewScore": 157.02
+            },
+            {
+              "year": 2025,
+              "week": 6,
+              "starter": "Rhamondre Stevenson",
+              "starterPosition": "RB",
+              "starterSlot": "RB",
+              "starterPoints": 1.8,
+              "benchPlayer": "Ladd McConkey",
+              "benchPosition": "WR",
+              "benchPoints": 25,
+              "netGain": 23.2,
+              "deficitNeeded": 16.25,
+              "winMargin": 6.95,
+              "projectedNewScore": 144.09
             },
             {
               "year": 2025,
               "week": 10,
               "starter": "Rashid Shaheed",
-              "starterPoints": 6.65,
+              "starterPosition": "WR",
               "starterSlot": "W/R/T",
+              "starterPoints": 6.65,
               "benchPlayer": "Zach Charbonnet",
+              "benchPosition": "RB",
               "benchPoints": 14.3,
               "netGain": 7.65,
               "deficitNeeded": 2.47,
-              "winMargin": 5.18
+              "winMargin": 5.18,
+              "projectedNewScore": 143.18
+            },
+            {
+              "year": 2025,
+              "week": 13,
+              "starter": "Zay Flowers",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 0.6,
+              "benchPlayer": "Zach Charbonnet",
+              "benchPosition": "RB",
+              "benchPoints": 11.2,
+              "netGain": 10.6,
+              "deficitNeeded": 9.08,
+              "winMargin": 1.52,
+              "projectedNewScore": 128.82
             }
           ],
-          "coachingEfficiency": 85.3
+          "coachingEfficiency": 78.3
         }
       ],
       "statRecords": {
