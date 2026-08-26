@@ -1,22 +1,33 @@
 /**
- * Yahoo Fantasy Football Browser Console Bulk Matchup Harvester (v2.0 - Multi-Table Matchup Aware)
+ * Yahoo Fantasy Football Universal Matchup & Lineup Harvester (v5.0 - Multi-Strategy Engine)
  *
- * Correctly pairs Starters (Table 1) + Bench (Table 2) for Team A,
- * and Starters (Table 3) + Bench (Table 4) for Team B.
+ * Features:
+ * - Multi-Strategy DOM parser (4-Table layout, 2-Table layout, Team Container layout, and Generic fallback)
+ * - Auto-detects Season, League ID, and active Week from URL or prompts
+ * - Exponential backoff & retry on Yahoo HTTP 999 rate limit
+ * - Real-time console diagnostics and error inspection
+ * - 1-Click Clipboard Copy & JSON Download modal
+ * - Standalone `window.testYahooMatchup(week, mid)` for quick single-matchup verification
  */
 
-(async function harvestAllYahooLineups() {
+(async function initYahooHarvester() {
   console.clear();
-  console.log('%c🏈 Y2K Automated Historical Lineup Harvester Starting...', 'color: #34d399; font-size: 16px; font-weight: bold;');
+  console.log('%c🏈 Yahoo Matchup & Lineup Harvester v5.0 Initialized', 'color: #34d399; font-size: 16px; font-weight: bold;');
 
-  const urlMatch = window.location.pathname.match(/(?:(?:(\d{4})\/)?f1\/(\d+))/);
-  const detectedYear = urlMatch && urlMatch[1] ? parseInt(urlMatch[1], 10) : 2025;
-  const leagueId = urlMatch && urlMatch[2] ? urlMatch[2] : '97974';
+  // Extract league metadata from URL
+  const path = window.location.pathname;
+  const urlMatch = path.match(/(?:(?:(\d{4})\/)?f1\/(\d+))/);
+  const detectedYear = urlMatch && urlMatch[1] ? parseInt(urlMatch[1], 10) : (new Date().getFullYear());
+  const detectedLeagueId = urlMatch && urlMatch[2] ? urlMatch[2] : '97974';
 
-  const seasonYear = parseInt(prompt('Enter Season Year to Harvest (e.g. 2025, 2024, 2023):', detectedYear) || detectedYear, 10);
-  const totalWeeks = parseInt(prompt('Enter Total Weeks in Season (e.g. 17 or 16):', seasonYear >= 2021 ? 17 : 16) || 17, 10);
+  const seasonYear = parseInt(prompt('Enter Season Year (e.g. 2025, 2024, 2020):', detectedYear) || detectedYear, 10);
+  const leagueId = prompt('Enter Yahoo League ID:', detectedLeagueId) || detectedLeagueId;
+  const startWeek = parseInt(prompt('Enter START Week (e.g. 1):', 1) || 1, 10);
+  const endWeek = parseInt(prompt('Enter END Week (e.g. 17 or 16):', seasonYear >= 2021 ? 17 : 16) || 17, 10);
+  const numTeams = parseInt(prompt('Enter Number of Teams (e.g. 12):', 12) || 12, 10);
 
-  const teamOwnerMap = {
+  // Canonical Team to Owner Mapping
+  const OWNER_MAP = {
     'Globo Gym': 'Dylan', 'Ho Chi Win City': 'Phillip', 'Jelqaida': 'Mike', 'AARPFL': 'Casey',
     'Gl Hf (you’re gay)': 'Trace', "Gl Hf (you're gay)": 'Trace', 'Darnold Schwarzenegger': 'Alex',
     'Donkey Squad': 'Ryan', 'Aaron codger': 'Boaz', 'Dusty’s Dingleberries': 'Dustin',
@@ -25,14 +36,12 @@
   };
 
   const constraints = {
-    QB: 1,
-    RB: 2,
-    WR: (seasonYear === 2020 ? 2 : 3),
-    TE: 1,
-    FLEX: 1,
-    K: 1,
-    DEF: 1
+    QB: 1, RB: 2, WR: (seasonYear === 2020 ? 2 : 3), TE: 1, FLEX: 1, K: 1, DEF: 1
   };
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   function normalizePosition(slotOrPos) {
     if (!slotOrPos) return 'BN';
@@ -105,7 +114,6 @@
         if (isEligible) {
           const netGain = Number(((benchPlayer.points || 0) - (starter.points || 0)).toFixed(1));
           if (netGain > deficitNeeded) {
-            const winMargin = Number((netGain - deficitNeeded).toFixed(1));
             winningSwaps.push({
               starter: starter.player,
               starterPoints: starter.points || 0,
@@ -114,7 +122,7 @@
               benchPoints: benchPlayer.points || 0,
               netGain,
               deficitNeeded,
-              winMargin
+              winMargin: Number((netGain - deficitNeeded).toFixed(1))
             });
           }
         }
@@ -126,29 +134,48 @@
     return { dOhOccurred: true, bestSwap: winningSwaps[0] };
   }
 
-  function parsePlayersFromTable(table, isBenchOverride = false) {
+  function parsePlayersFromTableOrRows(containerEl, isExplicitBench = false) {
+    if (!containerEl) return [];
+    const rows = containerEl.querySelectorAll('tr');
     const players = [];
-    if (!table) return players;
 
-    table.querySelectorAll('tr').forEach(tr => {
-      const nameEl = tr.querySelector('.ysf-player-name a, a.F-link');
+    rows.forEach(tr => {
+      // Find player name link
+      const nameEl = tr.querySelector('.ysf-player-name a, a.F-link, a.name, a.playernote');
       if (!nameEl) return;
       const playerName = nameEl.textContent.trim();
-      if (!playerName || playerName === '(Empty)') return;
+      if (!playerName || playerName === '(Empty)' || playerName === 'Empty') return;
 
-      const slotEl = tr.querySelector('.pos-label, td.pos');
-      const slot = slotEl ? slotEl.textContent.trim().toUpperCase() : (isBenchOverride ? 'BN' : 'FLEX');
+      // Find slot
+      const slotEl = tr.querySelector('.pos-label, td.pos, .pos, td:first-child');
+      let slot = slotEl ? slotEl.textContent.trim().toUpperCase() : 'BN';
+      if (slot === playerName.toUpperCase()) slot = 'BN'; // Fallback if first td was name
 
-      const posEl = tr.querySelector('.Fz-xxs');
-      const posStr = posEl ? posEl.textContent.trim() : '';
-      const parts = posStr.split('-');
-      const nflTeam = parts[0] ? parts[0].trim() : '';
-      const rawPos = parts[1] ? parts[1].trim() : slot;
+      // Position and NFL Team
+      const posEl = tr.querySelector('.Fz-xxs, .player-pos-team, .pos-team');
+      let posStr = posEl ? posEl.textContent.trim() : '';
+      let nflTeam = '';
+      let rawPos = slot;
+      if (posStr.includes('-')) {
+        const parts = posStr.split('-');
+        nflTeam = parts[0].trim();
+        rawPos = parts[1].trim();
+      } else if (posStr) {
+        rawPos = posStr.trim();
+      }
 
-      const ptsEl = tr.querySelector('.Ta-end, td.points');
-      const points = ptsEl ? parseFloat(ptsEl.textContent.trim()) || 0.0 : 0.0;
+      // Fantasy Points scored
+      const ptsCells = [...tr.querySelectorAll('td.Ta-end, td.Ta-e, td.points, .points, td')];
+      let points = 0.0;
+      for (let i = ptsCells.length - 1; i >= 0; i--) {
+        const txt = ptsCells[i].textContent.trim();
+        if (/^-?\d+(\.\d+)?$/.test(txt)) {
+          points = parseFloat(txt) || 0.0;
+          break;
+        }
+      }
 
-      const isBench = isBenchOverride || slot.startsWith('BN') || slot.startsWith('IR');
+      const isBench = isExplicitBench || slot.startsWith('BN') || slot.startsWith('IR') || tr.closest('table')?.classList.contains('bench-table') || tr.closest('.bench-section') !== null;
 
       players.push({
         slot,
@@ -164,132 +191,206 @@
     return players;
   }
 
-  const allHarvestedMatchups = [];
+  function parseMatchupHTML(html, seasonYear, wk) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
 
-  for (let wk = 1; wk <= totalWeeks; wk++) {
-    console.log(`📡 Fetching Week ${wk}/${totalWeeks}...`);
-    try {
-      // 1. Fetch matchup week overview to find all matchup links
-      const overviewUrl = `https://football.fantasysports.yahoo.com/${seasonYear}/f1/${leagueId}?matchup_week=${wk}&module=matchups&lhst=matchups`;
-      const ovResp = await fetch(overviewUrl);
-      const ovHtml = await ovResp.text();
-      const ovParser = new DOMParser();
-      const ovDoc = ovParser.parseFromString(ovHtml, 'text/html');
+    // Strategy 1: Look for stat tables
+    const statTables = [...doc.querySelectorAll('table.stat-target, table[id^="statTable"], table.Table, #matchup-detail table')];
+    
+    // Find Team Names from Matchup Header Bar
+    const headerTeamLinks = [...doc.querySelectorAll('.ysf-matchup-header-team-name a, .team-header a.F-link, a.team-name, .matchup-header h3 a, .Ta-start a.F-link')];
+    let nameA = headerTeamLinks[0]?.textContent.trim() || null;
+    let nameB = headerTeamLinks[1]?.textContent.trim() || null;
 
-      // Extract matchup links (e.g. /matchup?week=1&mid1=1&mid2=2)
-      let matchupLinks = [...ovDoc.querySelectorAll('a[href*="matchup?week="]')].map(a => a.getAttribute('href'));
-      matchupLinks = [...new Set(matchupLinks)];
+    let playersA = [];
+    let playersB = [];
 
-      // If no sub-matchup links found, fallback to the main matchup page
-      if (matchupLinks.length === 0) {
-        matchupLinks = [`/${seasonYear}/f1/${leagueId}/matchup?week=${wk}`];
+    if (statTables.length >= 4) {
+      // 4-Table Layout: [TeamA Starters, TeamA Bench, TeamB Starters, TeamB Bench]
+      const startersA = parsePlayersFromTableOrRows(statTables[0], false);
+      const benchA = parsePlayersFromTableOrRows(statTables[1], true);
+      playersA = [...startersA, ...benchA];
+
+      const startersB = parsePlayersFromTableOrRows(statTables[2], false);
+      const benchB = parsePlayersFromTableOrRows(statTables[3], true);
+      playersB = [...startersB, ...benchB];
+
+      if (!nameA) nameA = statTables[0].querySelector('caption, th, a.F-link')?.textContent.trim();
+      if (!nameB) nameB = statTables[2].querySelector('caption, th, a.F-link')?.textContent.trim();
+    } else if (statTables.length === 2) {
+      // 2-Table Layout: [TeamA (Starters+Bench), TeamB (Starters+Bench)]
+      playersA = parsePlayersFromTableOrRows(statTables[0]);
+      playersB = parsePlayersFromTableOrRows(statTables[1]);
+
+      if (!nameA) nameA = statTables[0].querySelector('caption, th, a.F-link')?.textContent.trim();
+      if (!nameB) nameB = statTables[1].querySelector('caption, th, a.F-link')?.textContent.trim();
+    } else {
+      // Strategy 2: Team container sections
+      const teamSections = [...doc.querySelectorAll('#matchup-team-0, #matchup-team-1, .matchup-team-0, .matchup-team-1, section.team, .ysf-matchup-team')];
+      if (teamSections.length >= 2) {
+        playersA = parsePlayersFromTableOrRows(teamSections[0]);
+        playersB = parsePlayersFromTableOrRows(teamSections[1]);
+        if (!nameA) nameA = teamSections[0].querySelector('h3, .team-name, a.F-link')?.textContent.trim();
+        if (!nameB) nameB = teamSections[1].querySelector('h3, .team-name, a.F-link')?.textContent.trim();
       }
+    }
 
-      for (const mLink of matchupLinks) {
-        const fullUrl = mLink.startsWith('http') ? mLink : `https://football.fantasysports.yahoo.com${mLink}`;
-        const resp = await fetch(fullUrl);
-        const html = await resp.text();
-        const doc = new DOMParser().parseFromString(html, 'text/html');
+    if (playersA.length === 0 || playersB.length === 0) {
+      return null;
+    }
 
-        // Check for team headers
-        const teamHeaderLinks = [...doc.querySelectorAll('.team-header a.F-link, a.team-name, .Ta-start a.F-link')];
-        const team1Name = teamHeaderLinks[0] ? teamHeaderLinks[0].textContent.trim() : 'Team 1';
-        const team2Name = teamHeaderLinks[1] ? teamHeaderLinks[1].textContent.trim() : 'Team 2';
+    nameA = (nameA || 'Team A').replace(/\s+/g, ' ').trim();
+    nameB = (nameB || 'Team B').replace(/\s+/g, ' ').trim();
 
-        const tables = doc.querySelectorAll('table.stat-target, table.Table');
-        if (tables.length >= 4) {
-          // Table 0: Team 1 Starters, Table 1: Team 1 Bench
-          // Table 2: Team 2 Starters, Table 3: Team 2 Bench
-          const t1Starters = parsePlayersFromTable(tables[0], false);
-          const t1Bench = parsePlayersFromTable(tables[1], true);
-          const t1Players = [...t1Starters, ...t1Bench];
+    const optA = computeOptimal(playersA);
+    const optB = computeOptimal(playersB);
 
-          const t2Starters = parsePlayersFromTable(tables[2], false);
-          const t2Bench = parsePlayersFromTable(tables[3], true);
-          const t2Players = [...t2Starters, ...t2Bench];
+    const teamA = {
+      teamName: nameA,
+      ownerName: OWNER_MAP[nameA] || nameA,
+      seasonYear,
+      week: wk,
+      ...optA,
+      starters: playersA.filter(p => !p.isBench),
+      bench: playersA.filter(p => p.isBench)
+    };
 
-          const t1Opt = computeOptimal(t1Players);
-          const t2Opt = computeOptimal(t2Players);
+    const teamB = {
+      teamName: nameB,
+      ownerName: OWNER_MAP[nameB] || nameB,
+      seasonYear,
+      week: wk,
+      ...optB,
+      starters: playersB.filter(p => !p.isBench),
+      bench: playersB.filter(p => p.isBench)
+    };
 
-          const team1 = {
-            teamName: team1Name,
-            ownerName: teamOwnerMap[team1Name] || team1Name,
-            seasonYear,
-            week: wk,
-            ...t1Opt,
-            starters: t1Starters,
-            bench: t1Bench
-          };
+    teamA.isWin = teamA.actualScore > teamB.actualScore;
+    teamA.isLoss = teamA.actualScore < teamB.actualScore;
+    teamB.isWin = teamB.actualScore > teamA.actualScore;
+    teamB.isLoss = teamB.actualScore < teamA.actualScore;
 
-          const team2 = {
-            teamName: team2Name,
-            ownerName: teamOwnerMap[team2Name] || team2Name,
-            seasonYear,
-            week: wk,
-            ...t2Opt,
-            starters: t2Starters,
-            bench: t2Bench
-          };
+    if (teamA.isLoss) {
+      const dOh = checkDOh(teamA.starters, teamA.bench, teamB.actualScore, teamA.actualScore);
+      teamA.dOhOccurred = dOh.dOhOccurred;
+      teamA.dOhDetails = dOh.bestSwap;
+    }
+    if (teamB.isLoss) {
+      const dOh = checkDOh(teamB.starters, teamB.bench, teamA.actualScore, teamB.actualScore);
+      teamB.dOhOccurred = dOh.dOhOccurred;
+      teamB.dOhDetails = dOh.bestSwap;
+    }
 
-          team1.isWin = team1.actualScore > team2.actualScore;
-          team1.isLoss = team1.actualScore < team2.actualScore;
-          team2.isWin = team2.actualScore > team1.actualScore;
-          team2.isLoss = team2.actualScore < team1.actualScore;
+    return {
+      seasonYear,
+      week: wk,
+      homeTeam: teamA,
+      awayTeam: teamB,
+      margin: Number(Math.abs(teamA.actualScore - teamB.actualScore).toFixed(2))
+    };
+  }
 
-          if (team1.isLoss) {
-            const dOh = checkDOh(team1.starters, team1.bench, team2.actualScore, team1.actualScore);
-            team1.dOhOccurred = dOh.dOhOccurred;
-            team1.dOhDetails = dOh.bestSwap;
-          }
-          if (team2.isLoss) {
-            const dOh = checkDOh(team2.starters, team2.bench, team1.actualScore, team2.actualScore);
-            team2.dOhOccurred = dOh.dOhOccurred;
-            team2.dOhDetails = dOh.bestSwap;
-          }
-
-          allHarvestedMatchups.push({
-            seasonYear,
-            week: wk,
-            homeTeam: team1,
-            awayTeam: team2,
-            margin: Number(Math.abs(team1.actualScore - team2.actualScore).toFixed(2))
-          });
+  async function fetchWithRetry(url, maxRetries = 3) {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        const resp = await fetch(url, { headers: { 'Accept': 'text/html' } });
+        if (resp.status === 999) {
+          console.warn(`⏳ Yahoo rate limit (999) on ${url}. Backing off for ${1.5 * attempt}s...`);
+          await sleep(1500 * attempt);
+          continue;
         }
+        if (resp.ok) {
+          return await resp.text();
+        } else {
+          console.warn(`⚠️ HTTP ${resp.status} on ${url}`);
+        }
+      } catch (e) {
+        if (attempt === maxRetries) throw e;
+        await sleep(1000 * attempt);
       }
-    } catch (err) {
-      console.warn(`⚠️ Error on Week ${wk}:`, err.message);
+    }
+    return null;
+  }
+
+  // Standalone tester for 1 matchup
+  window.testYahooMatchup = async function(wk = 1, mid = 1) {
+    const basePath = seasonYear >= 2026 ? `/f1/${leagueId}` : `/${seasonYear}/f1/${leagueId}`;
+    const url = `${basePath}/matchup?week=${wk}&mid1=${mid}`;
+    console.log(`🔍 Testing single fetch: ${url}`);
+    const html = await fetchWithRetry(url);
+    if (!html) {
+      console.error('❌ Failed to fetch HTML.');
+      return;
+    }
+    const result = parseMatchupHTML(html, seasonYear, wk);
+    console.log('Parsed Matchup Result:', result);
+    return result;
+  };
+
+  const allHarvestedMatchups = [];
+  const processedMatchupKeys = new Set();
+
+  for (let wk = startWeek; wk <= endWeek; wk++) {
+    console.log(`📡 Crawling Season ${seasonYear} Week ${wk}/${endWeek}...`);
+    let weekMatchupsCount = 0;
+
+    for (let tId = 1; tId <= numTeams; tId++) {
+      if (weekMatchupsCount >= (numTeams / 2)) break; // All matchups for this week collected
+
+      try {
+        const basePath = seasonYear >= 2026 ? `/f1/${leagueId}` : `/${seasonYear}/f1/${leagueId}`;
+        const url = `${basePath}/matchup?week=${wk}&mid1=${tId}`;
+        
+        const html = await fetchWithRetry(url);
+        if (!html) continue;
+
+        const matchup = parseMatchupHTML(html, seasonYear, wk);
+        if (matchup && matchup.homeTeam && matchup.awayTeam && matchup.homeTeam.teamName !== matchup.awayTeam.teamName) {
+          const matchKey = `${wk}_${[matchup.homeTeam.teamName, matchup.awayTeam.teamName].sort().join('_vs_')}`;
+          if (!processedMatchupKeys.has(matchKey)) {
+            processedMatchupKeys.add(matchKey);
+            weekMatchupsCount++;
+            allHarvestedMatchups.push(matchup);
+            console.log(`   ✓ Wk ${wk} Matchup (${weekMatchupsCount}/${numTeams/2}): ${matchup.homeTeam.teamName} (${matchup.homeTeam.actualScore}) vs ${matchup.awayTeam.teamName} (${matchup.awayTeam.actualScore})`);
+          }
+        }
+
+        // Polite throttle to prevent 999 rate limit
+        await sleep(350);
+      } catch (err) {
+        console.error(`❌ Error on week ${wk} team ${tId}:`, err);
+        await sleep(500);
+      }
     }
   }
 
   console.log(`%c🎉 Harvest Complete! Extracted ${allHarvestedMatchups.length} matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
-
   window.__Y2K_HARVESTED_DATA = allHarvestedMatchups;
 
-  // Render on-screen modal so you can copy with 1 click
+  // Render Export Modal
   const modal = document.createElement('div');
-  modal.style = 'position:fixed;top:5%;left:5%;width:90%;height:90%;background:#020b05;border:3px solid #34d399;border-radius:12px;z-index:999999;padding:20px;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(52,211,153,0.5);';
-  
+  modal.style = 'position:fixed;top:5%;left:5%;width:90%;height:90%;background:#020b05;border:3px solid #34d399;border-radius:12px;z-index:999999;padding:20px;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(52,211,153,0.5);font-family:monospace;';
   modal.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #059669;padding-bottom:10px;margin-bottom:10px;font-family:monospace;color:#34d399;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #059669;padding-bottom:10px;margin-bottom:10px;color:#34d399;">
       <h2 style="margin:0;font-size:18px;">🏈 Y2K Harvest Complete: ${allHarvestedMatchups.length} Matchups Extracted (${seasonYear})</h2>
       <button id="y2k-close-btn" style="background:#dc2626;color:white;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-weight:bold;">✕ Close</button>
     </div>
-    <p style="color:#a7f3d0;font-family:monospace;font-size:12px;margin:0 0 10px 0;">
-      Click the green button below to copy the JSON directly, or press Cmd+C inside the box!
-    </p>
-    <div style="margin-bottom:10px;">
-      <button id="y2k-copy-btn" style="background:#059669;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:14px;font-family:monospace;">
+    <div style="margin-bottom:10px;display:flex;gap:10px;">
+      <button id="y2k-copy-btn" style="background:#059669;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:14px;">
         📋 COPY JSON TO CLIPBOARD
+      </button>
+      <button id="y2k-dl-btn" style="background:#2563eb;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:14px;">
+        💾 DOWNLOAD JSON FILE
       </button>
     </div>
     <textarea id="y2k-json-text" readonly style="flex-grow:1;background:#000;color:#6ee7b7;border:1px solid #047857;border-radius:6px;padding:10px;font-family:monospace;font-size:11px;resize:none;">${JSON.stringify(allHarvestedMatchups, null, 2)}</textarea>
   `;
 
   document.body.appendChild(modal);
-
   document.getElementById('y2k-close-btn').onclick = () => document.body.removeChild(modal);
 
   const copyBtn = document.getElementById('y2k-copy-btn');
+  const dlBtn = document.getElementById('y2k-dl-btn');
   const txtArea = document.getElementById('y2k-json-text');
 
   copyBtn.onclick = async () => {
@@ -305,7 +406,16 @@
     }
   };
 
-  // Auto-select text
+  dlBtn.onclick = () => {
+    const blob = new Blob([txtArea.value], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `y2k_${seasonYear}_matchups_lineups.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   txtArea.select();
   try {
     document.execCommand('copy');
