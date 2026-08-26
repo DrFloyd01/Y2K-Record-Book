@@ -49,9 +49,9 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
       const scChamps = championships.filter(ch => ch.scoringChampOwner === owner);
       const listStr = scChamps.map(ch => `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold ${dTheme.accentText}">${ch.scoringChampTeam}</span> (${ch.scoringChampPF ? ch.scoringChampPF.toFixed(1) : ''} PF)</div>`).join('');
       scHtml = `
-        <div class="tooltip-trigger tooltip-right inline-block cursor-pointer">
+        <div class="tooltip-trigger inline-block cursor-pointer">
           <span class="px-2 py-0.5 ${dTheme.scoringTitles.badge}">🎯 ${scTitles}</span>
-          <div class="tooltip-content${rowPopDir} p-3 ${dTheme.scoringTitles.container} text-xs shadow-2xl text-left min-w-[220px] z-50">
+          <div class="tooltip-content tooltip-content-right${rowPopDir} p-3 ${dTheme.scoringTitles.container} text-xs shadow-2xl text-left min-w-[220px] z-50">
             <div class="font-bold ${dTheme.accentText} border-b border-current/20 pb-1 mb-1 font-mono">🎯 ${owner}'s Scoring Titles (${scTitles})</div>
             ${listStr}
           </div>
@@ -77,17 +77,27 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
     const dOhCount = entry.dOhs || 0;
     if (dOhCount > 0) {
       const details = entry.dOhDetails || [];
-      const listStr = details.map(d => `
-        <div class="py-0.5">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="font-bold text-emerald-400">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-400 font-bold">+${d.netGain} PF Missed</span></div>
-      `).join('');
+      const isPride = theme.name === 'pride';
+      const badgeCls = isPride
+        ? 'px-2 py-0.5 bg-red-100 text-red-700 border border-red-300 font-extrabold rounded-lg text-xs shadow-sm hover:bg-red-200 transition-all'
+        : 'px-2 py-0.5 bg-red-950 text-red-400 border border-red-700 font-extrabold rounded text-xs shadow-sm hover:bg-red-900 transition-all';
+
+      const listStr = details.map(d => {
+        const benchCls = isPride ? 'font-bold text-pink-700' : 'font-bold text-emerald-400';
+        const startCls = isPride ? 'text-red-600' : 'text-red-400';
+        const gainCls = isPride ? 'text-amber-700 font-bold' : 'text-amber-400 font-bold';
+        return `
+          <div class="py-0.5 text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="${benchCls}">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${startCls}">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${gainCls}">+${d.netGain} PF</span></div>
+        `;
+      }).join('');
 
       dOhHtml = `
         <div class="tooltip-trigger inline-block cursor-pointer">
-          <span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-700 font-extrabold rounded text-xs shadow-sm">🤦‍♂️ ${dOhCount}</span>
-          <div class="tooltip-content${rowPopDir} p-3 ${dTheme.scoringTitles.container} text-xs shadow-2xl text-left min-w-[280px] z-50">
-            <div class="font-bold text-red-400 border-b border-current/20 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s D'Oh! Blunders (${dOhCount})</div>
+          <span class="${badgeCls}">🤦‍♂️ ${dOhCount}</span>
+          <div class="tooltip-content tooltip-content-right${rowPopDir} p-3 ${dTheme.scoringTitles.container} text-xs shadow-2xl text-left min-w-[280px] z-50">
+            <div class="font-bold text-red-500 border-b border-current/20 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s D'Oh! Blunders (${dOhCount})</div>
             ${listStr || '<div class="text-xs opacity-75">1-player swap win opportunities missed</div>'}
-            <div class="text-[10px] text-amber-400 font-bold pt-1 mt-1 border-t border-emerald-900 text-center">
+            <div class="text-[10px] text-amber-500 font-bold pt-1 mt-1 border-t border-current/20 text-center">
               Losses that would have been wins with 1 bench swap
             </div>
           </div>
