@@ -12,21 +12,26 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-pink-100/90 selection:text-purple-900">
 
-      <!-- Top Navigation Header -->
-  <header class="bg-white/90 backdrop-blur-xl border-b-2 border-pink-200 shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+      <!-- Navigation Header Bar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b-2 border-pink-200 shadow-sm w-full">
+    <div class="max-w-7xl w-full mx-auto px-4 py-2.5 flex items-center justify-between">
       
-      <!-- Brand Logo Title -->
+      <!-- Brand Identity -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-400 via-purple-400 via-cyan-300 to-amber-300 p-0.5 shadow-md flex items-center justify-center text-xl animate-bounce">
-          🦄
-        </div>
+        <a href="index.html" class="flex items-center gap-2 group" title="Return to Y2K Home">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-400 via-purple-400 to-cyan-300 p-0.5 shadow-md shadow-pink-300/40 group-hover:scale-105 transition-all">
+            <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
+              <span class="text-xl">🏈</span>
+            </div>
+          </div>
+        </a>
         <div>
-          <h1 class="text-2xl font-black font-fredoka rainbow-shimmer-text tracking-wide">
-            PRIDE GUYS FANTASY LEAGUE
-          </h1>
-          <p class="text-xs text-pink-600 font-bold flex items-center gap-1.5">
-            ✨ Slaying Fantasy &amp; Serving Championship Realness Since 2017 💅
+          <div class="flex items-center gap-1.5">
+            <span class="font-fredoka font-extrabold text-pink-700 text-lg tracking-wide leading-none">PRIDE GUYS</span>
+            <span class="text-xs bg-pink-100 text-pink-700 font-bold px-1.5 py-0.5 rounded-full border border-pink-300">EST. 2017</span>
+          </div>
+          <p class="text-[10px] text-purple-700 font-bold tracking-wider leading-tight">
+            THE OFFICIAL LEAGUE RECORD BOOK
           </p>
         </div>
       </div>
@@ -53,7 +58,7 @@
     </div>
   </header>
     <!-- Top Fabulous Pride Hero Banner & Tagline Rotator -->
-  <section class="max-w-7xl mx-auto mt-4 mb-6 p-5 sm:p-6 bg-white/90 border-2 border-pink-200 rounded-3xl shadow-xl backdrop-blur-xl relative overflow-hidden">
+  <section class="max-w-7xl w-full mx-auto mt-4 mb-6 p-5 sm:p-6 bg-white/90 border-2 border-pink-200 rounded-3xl shadow-xl backdrop-blur-xl relative overflow-hidden">
     <div class="absolute -right-16 -top-16 w-60 h-60 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -left-16 -bottom-16 w-60 h-60 bg-purple-200/40 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -108,7 +113,7 @@
   </section>
 
   <!-- Main Container -->
-  <main id="main-content" class="container mx-auto px-4 py-5 grow pb-24 lg:pb-8 font-sans">
+  <main id="main-content" class="max-w-7xl w-full mx-auto px-4 py-5 grow pb-24 lg:pb-8 font-sans">
 
     <!-- TAB 1: SEASONS -->
     <div id="tab-seasons" class="tab-content block">
