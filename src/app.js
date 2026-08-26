@@ -361,8 +361,8 @@ function renderLucideIcons() {
               dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
               dOhDetails: entry.dOhDetails || [],
               coachingEfficiency: entry.coachingEfficiency !== undefined ? entry.coachingEfficiency : null,
-              optimalPointsFor: entry.optimalPointsFor !== undefined ? entry.optimalPointsFor : null,
-              optPfg: entry.optimalPointsFor && (entry.wins + entry.losses > 0) ? Math.round((entry.optimalPointsFor / (entry.wins + entry.losses)) * 10) / 10 : null,
+              optimalPointsFor: entry.optimalPointsFor !== undefined ? entry.optimalPointsFor : (entry.optimalPF !== undefined ? entry.optimalPF : null),
+              optPfg: entry.optPfg !== undefined && entry.optPfg !== null ? entry.optPfg : ((entry.optimalPointsFor || entry.optimalPF) && (entry.wins + entry.losses > 0) ? Math.round(((entry.optimalPointsFor || entry.optimalPF) / (entry.wins + entry.losses)) * 10) / 10 : null),
               pointsFor: entry.pointsFor,
               pointsAgainst: entry.pointsAgainst
             };
@@ -373,8 +373,10 @@ function renderLucideIcons() {
           list = sData.standings.map(st => {
             const expW = parseInt((st.expRecord || '0-0').split('-')[0]) || 0;
             const luckVal = st.wins - expW;
+            const optVal = st.optimalPointsFor !== undefined ? st.optimalPointsFor : st.optimalPF;
             return {
               ...st,
+              optimalPointsFor: optVal,
               luck: luckVal
             };
           });
@@ -606,9 +608,10 @@ function renderLucideIcons() {
         const effVal = item.coachingEfficiency !== null && item.coachingEfficiency !== undefined ? `${Number(item.coachingEfficiency).toFixed(1)}%` : '-';
         const effCell = `<span class="font-bold font-mono text-emerald-300">${effVal}</span>`;
 
+        const rawOptVal = item.optimalPointsFor !== undefined && item.optimalPointsFor !== null ? item.optimalPointsFor : item.optimalPF;
         const optPfVal = currentSeason === 'allTime'
-          ? (item.optPfg !== undefined && item.optPfg !== null ? item.optPfg.toFixed(1) : (item.optimalPointsFor ? (item.optimalPointsFor / (item.wins + item.losses)).toFixed(1) : '-'))
-          : (item.optimalPointsFor !== undefined && item.optimalPointsFor !== null ? item.optimalPointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : '-');
+          ? (item.optPfg !== undefined && item.optPfg !== null ? Number(item.optPfg).toFixed(1) : (rawOptVal ? (Number(rawOptVal) / (item.wins + item.losses)).toFixed(1) : '-'))
+          : (rawOptVal !== undefined && rawOptVal !== null ? Number(rawOptVal).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : '-');
         const optPfCell = `<span class="font-mono text-emerald-400 font-bold">${optPfVal}</span>`;
 
         const wlCell = currentSeason === 'allTime'
@@ -2269,7 +2272,10 @@ let y2kLineupsData = null;
     async function loadY2KLineups() {
       if (y2kLineupsData) return y2kLineupsData;
       try {
-        const res = await fetch('data/lineups/y2k_lineups.json');
+        let res = await fetch('data/lineups/y2k_lineups.json');
+        if (!res.ok) {
+          res = await fetch('public/data/lineups/y2k_lineups.json');
+        }
         if (res.ok) {
           y2kLineupsData = await res.json();
         } else {
@@ -2474,9 +2480,9 @@ let y2kLineupsData = null;
     }
 
     // WEEKLY MATCHUP HUBS LOGIC
-    let currentMatchupSeason = 2026;
+    let currentMatchupSeason = 2025;
     let currentMatchupWeek = 1;
-    let currentMatchupMode = 'preview'; // 'preview' or 'recap'
+    let currentMatchupMode = 'recap'; // 'preview' or 'recap'
     let currentMatchupManager = 'all';
 
     function populateMatchupManagerDropdown() {

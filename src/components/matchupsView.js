@@ -112,19 +112,15 @@ export function buildWeeklyMatchupsGridHtml({
       }
     }
 
-    // Lineup Boxscore Drawer
-    let lineupExpander = '';
+    // Lineup Boxscore Drawer Button
+    let lineupExpanderBtn = '';
     if (lineupMatch) {
-      const lineupCardInnerHtml = buildMatchupLineupCardHtml({ matchup: lineupMatch, theme });
-      lineupExpander = `
+      lineupExpanderBtn = `
         <div class="mt-2.5 pt-2 border-t ${isCrt ? 'border-emerald-900/60' : 'border-pink-200'}">
           <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="w-full py-1 px-2 ${isCrt ? 'bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700' : 'bg-pink-100 hover:bg-pink-200 text-pink-700 border border-pink-300'} font-bold text-[11px] rounded transition-all flex items-center justify-between cursor-pointer">
             <span>📋 Box Score &amp; Best Ball</span>
             <span id="matchup-lineup-arrow-${mId}">▼</span>
           </button>
-          <div id="matchup-lineup-content-${mId}" class="hidden mt-2">
-            ${lineupCardInnerHtml}
-          </div>
         </div>
       `;
     }
@@ -149,7 +145,7 @@ export function buildWeeklyMatchupsGridHtml({
     const rowT1Bg = isRecap && isWinner1 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
     const rowT2Bg = isRecap && isWinner2 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
 
-    return `
+    const cardContent = `
       <div class="crt-box rounded-xl p-3 border ${cardBg} flex flex-col justify-between transition-all">
         <div>
           <!-- Header Bar: Matchup # & Rank Preview -->
@@ -205,9 +201,25 @@ export function buildWeeklyMatchupsGridHtml({
           ${commentaryHtml}
         </div>
 
-        ${lineupExpander}
+        ${lineupExpanderBtn}
       </div>
     `;
+
+    const fullWidthDrawer = lineupMatch ? `
+      <div id="matchup-lineup-content-${mId}" class="col-span-full hidden my-3 p-4 crt-box rounded-2xl border ${isCrt ? 'bg-black/95 border-emerald-500 text-emerald-300' : 'bg-white border-2 border-pink-300 shadow-2xl text-purple-950'} transition-all">
+        <div class="flex justify-between items-center pb-2 mb-3 border-b ${isCrt ? 'border-emerald-800 font-mono' : 'border-pink-200 font-fredoka'}">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-black ${isCrt ? 'text-emerald-300 crt-glow' : 'text-pink-700'}">📋 WEEK ${week} FULL BOX SCORE &amp; ROSTERS: ${t1} vs ${t2}</span>
+          </div>
+          <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="px-3 py-1 ${isCrt ? 'bg-emerald-950 text-emerald-300 border border-emerald-700 hover:bg-emerald-900' : 'bg-pink-100 text-pink-700 border border-pink-300 hover:bg-pink-200'} font-bold text-xs rounded-full transition-all cursor-pointer">
+            ✕ Close Box Score
+          </button>
+        </div>
+        ${buildMatchupLineupCardHtml({ matchup: lineupMatch, theme })}
+      </div>
+    ` : '';
+
+    return cardContent + fullWidthDrawer;
   }).join('');
 
   return `
@@ -293,18 +305,14 @@ export function buildManagerSeasonGameLogHtml({
       `;
     }
 
-    let lineupExpander = '';
+    let lineupExpanderBtn = '';
     if (lineupMatch) {
-      const lineupCardInnerHtml = buildMatchupLineupCardHtml({ matchup: lineupMatch, theme });
-      lineupExpander = `
+      lineupExpanderBtn = `
         <div class="mt-2.5 pt-2 border-t ${isCrt ? 'border-emerald-900/60' : 'border-pink-200'}">
           <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="w-full py-1 px-2 ${isCrt ? 'bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700' : 'bg-pink-100 hover:bg-pink-200 text-pink-700 border border-pink-300'} font-bold text-[11px] rounded transition-all flex items-center justify-between cursor-pointer">
             <span>📋 Box Score &amp; Starters</span>
             <span id="matchup-lineup-arrow-${mId}">▼</span>
           </button>
-          <div id="matchup-lineup-content-${mId}" class="hidden mt-2">
-            ${lineupCardInnerHtml}
-          </div>
         </div>
       `;
     }
@@ -316,7 +324,7 @@ export function buildManagerSeasonGameLogHtml({
       ? (isCrt ? '<span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-500 font-extrabold text-[10px] rounded">WIN</span>' : '<span class="px-2 py-0.5 bg-pink-100 text-pink-700 border border-pink-300 font-extrabold text-[10px] rounded">WIN</span>')
       : (isCrt ? '<span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-700 font-extrabold text-[10px] rounded">LOSS</span>' : '<span class="px-2 py-0.5 bg-purple-100 text-purple-700 border border-purple-300 font-extrabold text-[10px] rounded">LOSS</span>');
 
-    return `
+    const cardContent = `
       <div class="crt-box rounded-xl p-3 border ${isCrt ? 'bg-black/80 border-emerald-900 hover:border-emerald-600' : 'bg-white border-pink-200 hover:border-pink-400 shadow-md'} flex flex-col justify-between">
         <div>
           <!-- Card Header -->
@@ -351,9 +359,25 @@ export function buildManagerSeasonGameLogHtml({
           ${dOhBadge}
         </div>
 
-        ${lineupExpander}
+        ${lineupExpanderBtn}
       </div>
     `;
+
+    const fullWidthDrawer = lineupMatch ? `
+      <div id="matchup-lineup-content-${mId}" class="col-span-full hidden my-3 p-4 crt-box rounded-2xl border ${isCrt ? 'bg-black/95 border-emerald-500 text-emerald-300' : 'bg-white border-2 border-pink-300 shadow-2xl text-purple-950'} transition-all">
+        <div class="flex justify-between items-center pb-2 mb-3 border-b ${isCrt ? 'border-emerald-800 font-mono' : 'border-pink-200 font-fredoka'}">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-black ${isCrt ? 'text-emerald-300 crt-glow' : 'text-pink-700'}">📋 WEEK ${wk} FULL BOX SCORE &amp; ROSTERS: ${teamName} vs ${oppTeam}</span>
+          </div>
+          <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="px-3 py-1 ${isCrt ? 'bg-emerald-950 text-emerald-300 border border-emerald-700 hover:bg-emerald-900' : 'bg-pink-100 text-pink-700 border border-pink-300 hover:bg-pink-200'} font-bold text-xs rounded-full transition-all cursor-pointer">
+            ✕ Close Box Score
+          </button>
+        </div>
+        ${buildMatchupLineupCardHtml({ matchup: lineupMatch, theme })}
+      </div>
+    ` : '';
+
+    return cardContent + fullWidthDrawer;
   }).join('');
 
   const winPct = (totalWins + totalLosses > 0) ? Math.round((totalWins / (totalWins + totalLosses)) * 1000) / 10 : 0;
