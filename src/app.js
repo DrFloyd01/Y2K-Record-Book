@@ -558,6 +558,31 @@ function renderLucideIcons() {
           `;
         }
 
+        // 5. DO Badge (D'Ohs)
+        let doBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        const doCount = item.dOhs !== undefined ? item.dOhs : (item.dOhDetails ? item.dOhDetails.length : 0);
+        if (doCount > 0 && item.dOhDetails && item.dOhDetails.length > 0) {
+          let tooltipList = item.dOhDetails.map(d => {
+            const yrStr = d.year ? `${d.year} ` : '';
+            const swapStr = d.benchPlayer && d.starter
+              ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
+              : `Benched winning player for starter`;
+            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: ${swapStr}</div>`;
+          }).join('');
+
+          doBadge = `
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="px-2 py-0.5 bg-sky-950 text-sky-400 font-bold border border-sky-600 text-xs">${doCount}</span>
+              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-sky-300 rounded border border-sky-600 text-xs shadow-2xl min-w-[280px] text-left z-50">
+                <div class="font-bold text-sky-400 border-b border-sky-900 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
+                ${tooltipList}
+              </div>
+            </div>
+          `;
+        } else if (item.dOhs === 0) {
+          doBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        }
+
         const wlCell = currentSeason === 'allTime'
           ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>`
           : `${item.wins}-${item.losses}`;
@@ -580,6 +605,7 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${lwBadge}</td>
           <td class="p-2.5 text-center">${hbBadge}</td>
           <td class="p-2.5 text-center">${tlBadge}</td>
+          <td class="p-2.5 text-center">${doBadge}</td>
           <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
           <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
         `;
