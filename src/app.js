@@ -22,6 +22,7 @@ import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
 import { buildFranchiseProfileHtml } from './components/franchiseView.js';
 import { buildManagerialProwessHtml, buildMatchupLineupCardHtml } from './components/managerialView.js';
+import { buildWeeklyMatchupsGridHtml, buildManagerSeasonGameLogHtml } from './components/matchupsView.js';
 import { computeManagerialLeaderboard } from './analytics/managerial.js';
 
 // Setup Lucide icons wrapper
@@ -2476,10 +2477,45 @@ let y2kLineupsData = null;
     let currentMatchupSeason = 2026;
     let currentMatchupWeek = 1;
     let currentMatchupMode = 'preview'; // 'preview' or 'recap'
+    let currentMatchupManager = 'all';
+
+    function populateMatchupManagerDropdown() {
+      const select = document.getElementById('matchup-manager-select');
+      if (!select) return;
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
+      let owners = [];
+      if (sData && sData.standings) {
+        owners = sData.standings.map(st => st.ownerName);
+      } else {
+        owners = window.LEAGUE_DATA.allOwners || [];
+      }
+      const prevVal = currentMatchupManager;
+      select.innerHTML = '<option value="all">ALL MANAGERS (WEEKLY GRID)</option>';
+      owners.forEach(o => {
+        const opt = document.createElement('option');
+        opt.value = o;
+        opt.textContent = `👤 ${o.toUpperCase()}`;
+        if (o === prevVal) opt.selected = true;
+        select.appendChild(opt);
+      });
+      if (!owners.includes(prevVal) && prevVal !== 'all') {
+        currentMatchupManager = 'all';
+        select.value = 'all';
+      }
+    }
+
+    window.onMatchupManagerChange = function() {
+      const select = document.getElementById('matchup-manager-select');
+      if (select) {
+        currentMatchupManager = select.value;
+      }
+      renderMatchupsTab();
+    };
 
     function initMatchupsTab() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
+      populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
     }
@@ -2488,6 +2524,7 @@ let y2kLineupsData = null;
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2025;
       currentMatchupWeek = 1;
+      populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
     }
@@ -2532,7 +2569,6 @@ let y2kLineupsData = null;
       container.innerHTML = html;
     }
 
-
     window.toggleMatchupLineupBox = function(mId) {
       const content = document.getElementById(`matchup-lineup-content-${mId}`);
       const arrow = document.getElementById(`matchup-lineup-arrow-${mId}`);
@@ -2548,51 +2584,20 @@ let y2kLineupsData = null;
     };
 
     async function renderMatchupsTab() {
-      renderWeekPills();
-      const lineups = await loadY2KLineups();
+      populateMatchupManagerDropdown();
+      const pillsContainer = document.getElementById('matchup-week-pills-container');
       const container = document.getElementById('matchups-cards-container');
       const heading = document.getElementById('matchup-title-heading');
       const badge = document.getElementById('matchup-mode-badge');
       if (!container) return;
 
+      const lineups = await loadY2KLineups();
       const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
       const regWeeks = sData ? sData.settings.regularSeasonWeeks : 14;
       const isPlayoffWeek = currentMatchupWeek > regWeeks;
-
-      if (heading) {
-        heading.innerHTML = `🏈 ${currentMatchupSeason} Y2K: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
-      }
-      if (badge) {
-        badge.innerHTML = currentMatchupMode === 'preview'
-          ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>`
-          : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
-      }
-
-      // Filter matchups for selected season & week
-      let mList = [];
-      if (currentMatchupSeason === 2026 && sData && sData.schedule2026) {
-        mList = sData.schedule2026.filter(m => m.weekNumber === currentMatchupWeek);
-      } else {
-        mList = window.LEAGUE_DATA.allMatchups.filter(m => m.seasonYear === currentMatchupSeason && m.weekNumber === currentMatchupWeek);
-      }
-
-      if (mList.length === 0) {
-        container.innerHTML = `
-          <div class="crt-box rounded p-8 text-center border border-emerald-800 bg-emerald-950/20">
-            <div class="text-amber-400 font-black text-base mb-2 crt-glow">
-              &gt; NO MATCHUPS RECORDED FOR ${currentMatchupSeason} WEEK ${currentMatchupWeek}
-            </div>
-            <p class="text-xs text-emerald-400 max-w-md mx-auto leading-relaxed">
-              No game results or editorial write-ups exist for ${currentMatchupSeason} Week ${currentMatchupWeek}.
-            </p>
-          </div>
-        `;
-        return;
-      }
-
       const isRecap = (currentMatchupMode === 'recap');
 
-      // Compute standings ranks & records (prior to week if PREVIEW, up to week if RECAP)
+      // Rank Map
       const ownerStatsTarget = {};
       window.LEAGUE_DATA.allMatchups
         .filter(m => m.seasonYear === currentMatchupSeason && (isRecap ? m.weekNumber <= currentMatchupWeek : m.weekNumber < currentMatchupWeek))
@@ -2617,210 +2622,59 @@ let y2kLineupsData = null;
         rankMap[st.owner] = { rank: idx + 1, rec: `${st.w}-${st.l}` };
       });
 
-      // Fallback for Week 1 Preview mode
       if (!isRecap && currentMatchupWeek === 1 && sData && sData.standings) {
         sData.standings.forEach(st => {
           rankMap[st.ownerName] = { rank: st.rank, rec: '0-0' };
         });
       }
 
-      // Check if custom commentary exists for this season & week
       const seasonKey = String(currentMatchupSeason);
       const weekKey = String(currentMatchupWeek);
       const customComm = (window.LEAGUE_DATA.weeklyCommentary && window.LEAGUE_DATA.weeklyCommentary[seasonKey] && window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey]) ? window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey] : null;
 
-      let cardsHtml = '';
-
-      mList.forEach(m => {
-        const o1 = m.homeOwner;
-        const o2 = m.awayOwner;
-        const t1 = m.homeTeam;
-        const t2 = m.awayTeam;
-        const s1 = m.homeScore;
-        const s2 = m.awayScore;
-
-        const info1 = rankMap[o1] || { rank: '-', rec: '0-0' };
-        const info2 = rankMap[o2] || { rank: '-', rec: '0-0' };
-
-        // Calculate dynamic past H2H metrics (prior to week if PREVIEW, up to week if RECAP)
-        const pastGames = window.LEAGUE_DATA.allMatchups.filter(gm => {
-          const isPair = (gm.homeOwner === o1 && gm.awayOwner === o2) || (gm.homeOwner === o2 && gm.awayOwner === o1);
-          if (!isPair) return false;
-          if (gm.seasonYear < currentMatchupSeason) return true;
-          if (gm.seasonYear === currentMatchupSeason) {
-            return isRecap ? (gm.weekNumber <= currentMatchupWeek) : (gm.weekNumber < currentMatchupWeek);
-          }
-          return false;
-        }).sort((a, b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
-
-        let regW1 = 0, regW2 = 0, playW1 = 0, playW2 = 0;
-        let lastW = null, streakCount = 0, lastG = null;
-        let playGamesList = [];
-
-        let lastWinner = null;
-        let streakGames = [];
-        pastGames.forEach(g => {
-          const w = g.homeScore > g.awayScore ? g.homeOwner : (g.awayScore > g.homeScore ? g.awayOwner : 'Tie');
-          if (g.isPlayoff) {
-            playGamesList.push(g);
-            if (w === o1) playW1++; else if (w === o2) playW2++;
-          } else {
-            if (w === o1) regW1++; else if (w === o2) regW2++;
-          }
-          if (w !== 'Tie') {
-            if (w === lastWinner) {
-              streakGames.push(g);
-            } else {
-              lastWinner = w;
-              streakGames = [g];
-            }
-          }
+      if (currentMatchupManager !== 'all') {
+        // Manager single-view: show all season games for this manager
+        if (pillsContainer) pillsContainer.classList.add('hidden');
+        if (heading) heading.innerHTML = `👤 ${currentMatchupManager.toUpperCase()} — ${currentMatchupSeason} COMPLETE SCHEDULE &amp; LOG`;
+        if (badge) badge.innerHTML = `<span class="text-emerald-400">📅 ALL GAMES</span>`;
+        container.innerHTML = buildManagerSeasonGameLogHtml({
+          owner: currentMatchupManager,
+          season: currentMatchupSeason,
+          matchups: window.LEAGUE_DATA.allMatchups,
+          rankMap,
+          commentary: customComm,
+          lineups,
+          theme: CRT_THEME
         });
-
-        let streakStr = 'None';
-        if (lastWinner && streakGames.length > 0) {
-          const gameTags = streakGames.map(g => {
-            if (g.isPlayoff) {
-              return formatPlayoffStageTag(g.stage, g.seasonYear);
-            } else {
-              return `Wk${g.weekNumber}'${String(g.seasonYear).slice(2)}`;
-            }
-          }).join(', ');
-          streakStr = `${lastWinner} W${streakGames.length}; ${gameTags}`;
+      } else {
+        // Weekly Grid view
+        if (pillsContainer) pillsContainer.classList.remove('hidden');
+        renderWeekPills();
+        if (heading) heading.innerHTML = `🏈 ${currentMatchupSeason} Y2K: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
+        if (badge) {
+          badge.innerHTML = currentMatchupMode === 'preview'
+            ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>`
+            : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
         }
 
-        let playH2HStr = `${playW1}-${playW2}`;
-        if (playGamesList.length > 0) {
-          const gameStages = playGamesList.map(g => formatPlayoffStageTag(g.stage, g.seasonYear)).join(', ');
-          playH2HStr += `; ${gameStages}`;
-        }
-
-        // Check for ingested weekly player lineup box score
-        const lineupMatch = lineups.find(lm =>
-          String(lm.seasonYear) === String(currentMatchupSeason) &&
-          lm.week === currentMatchupWeek &&
-          ((lm.homeTeam?.ownerName === o1 && lm.awayTeam?.ownerName === o2) ||
-           (lm.homeTeam?.ownerName === o2 && lm.awayTeam?.ownerName === o1))
-        );
-
-        let lineupExpanderBox = '';
-        if (lineupMatch) {
-          const mId = `m_${currentMatchupSeason}_w${currentMatchupWeek}_${o1}_${o2}`.replace(/[^a-zA-Z0-9_]/g, '_');
-          const hasDOh = (lineupMatch.homeTeam?.dOhOccurred || lineupMatch.awayTeam?.dOhOccurred);
-          const dOhTeam = lineupMatch.homeTeam?.dOhOccurred ? lineupMatch.homeTeam : (lineupMatch.awayTeam?.dOhOccurred ? lineupMatch.awayTeam : null);
-          const dOhBadge = hasDOh && dOhTeam?.dOhDetails ? `
-            <span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-600 rounded text-[10px] font-bold">
-              🤦‍♂️ D'OH! BLUNDER: ${dOhTeam.ownerName} benched ${dOhTeam.dOhDetails.benchPlayer} (+${dOhTeam.dOhDetails.winMargin} pt win missed)
-            </span>
-          ` : '';
-
-          const lineupCardInnerHtml = buildMatchupLineupCardHtml({ matchup: lineupMatch, theme: CRT_THEME });
-
-          lineupExpanderBox = `
-            <div class="mt-3 pt-2.5 border-t border-emerald-900/60 font-mono">
-              <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
-                ${dOhBadge}
-              </div>
-              <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="w-full py-1.5 px-3 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600 text-emerald-300 font-bold text-xs rounded transition-all flex items-center justify-between cursor-pointer">
-                <span>📋 View Starters, Bench &amp; Optimal Scores</span>
-                <span id="matchup-lineup-arrow-${mId}">▼</span>
-              </button>
-              <div id="matchup-lineup-content-${mId}" class="hidden mt-2">
-                ${lineupCardInnerHtml}
-              </div>
-            </div>
-          `;
-        }
-
-        // Check for custom write-up commentary
-        let writeupText = null;
-        if (customComm && customComm.matchups) {
-          const customM = customComm.matchups.find(cm =>
-            (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
-          );
-          if (customM && customM.writeup) {
-            writeupText = customM.writeup;
-          }
-        }
-
-        const isWinner1 = s1 > s2;
-        const isWinner2 = s2 > s1;
-        const margin = Math.abs(s1 - s2);
-
-        // Header Title
-        const titleStr = `${info1.rank}. ${t1} (${info1.rec}) vs ${info2.rank}. ${t2} (${info2.rec})`;
-
-        // Score box if RECAP mode
-        let recapBox = '';
-        if (currentMatchupMode === 'recap') {
-          recapBox = `
-            <div class="mt-3 p-3 bg-black border border-emerald-700 rounded flex justify-between items-center flex-wrap gap-2 font-mono">
-              <div class="flex items-center gap-3">
-                <span class="${isWinner1 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
-                <span class="text-emerald-400">vs</span>
-                <span class="${isWinner2 ? 'text-amber-300 font-black text-lg crt-glow' : 'text-emerald-600 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
-              </div>
-              <div class="text-right">
-                <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 font-bold text-xs block">
-                  🏆 WINNER: ${isWinner1 ? o1 : o2} (+${margin.toFixed(2)} pts)
-                </span>
-              </div>
-            </div>
-          `;
-        }
-
-        // Writeup box
-        let writeupBox = '';
-        if (writeupText) {
-          writeupBox = `
-            <div class="mt-3 p-3 bg-black/90 border border-emerald-600 rounded font-mono text-xs text-emerald-300 leading-relaxed">
-              <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider block mb-1">&gt; EDITOR_COMMENTARY:</span>
-              ${writeupText}
-            </div>
-          `;
+        let mList = [];
+        if (currentMatchupSeason === 2026 && sData && sData.schedule2026) {
+          mList = sData.schedule2026.filter(m => m.weekNumber === currentMatchupWeek);
         } else {
-          writeupBox = `
-            <div class="mt-3 p-2.5 bg-black/40 border border-emerald-950 rounded font-mono text-xs text-emerald-600 italic">
-              &gt; NO EDITORIAL WRITE-UP RECORDED FOR THIS MATCHUP.
-            </div>
-          `;
+          mList = window.LEAGUE_DATA.allMatchups.filter(m => m.seasonYear === currentMatchupSeason && m.weekNumber === currentMatchupWeek);
         }
 
-        cardsHtml += `
-          <div class="crt-box rounded p-4 border border-emerald-800 hover:border-emerald-500 transition-all">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-emerald-900 pb-2.5">
-              <h3 class="text-base font-extrabold text-emerald-300 crt-glow">
-                ${titleStr}
-              </h3>
-              <div class="text-xs text-emerald-500 font-bold">
-                [${o1} vs ${o2}]
-              </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3 text-xs font-mono">
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">SEASON H2H</span>
-                <span class="font-bold text-emerald-300">${regW1}-${regW2}</span>
-              </div>
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">CURRENT STREAK</span>
-                <span class="font-bold text-emerald-300">${streakStr}</span>
-              </div>
-              <div class="bg-black/60 p-2 border border-emerald-900 rounded">
-                <span class="text-[10px] uppercase font-bold text-emerald-600 block">PLAYOFFS H2H</span>
-                <span class="font-bold text-emerald-300">${playH2HStr}</span>
-              </div>
-            </div>
-
-            ${recapBox}
-            ${writeupBox}
-            ${lineupExpanderBox}
-          </div>
-        `;
-      });
-
-      container.innerHTML = cardsHtml;
+        container.innerHTML = buildWeeklyMatchupsGridHtml({
+          matchups: mList,
+          rankMap,
+          season: currentMatchupSeason,
+          week: currentMatchupWeek,
+          mode: currentMatchupMode,
+          commentary: customComm,
+          lineups,
+          theme: CRT_THEME
+        });
+      }
     }
 
 // Bind top-level event handlers safely to window

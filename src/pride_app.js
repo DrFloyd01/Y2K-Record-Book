@@ -22,6 +22,8 @@ import { buildDynastyLeaderboardRows } from './components/standingsView.js';
 import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/h2hView.js';
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
 import { buildFranchiseProfileHtml } from './components/franchiseView.js';
+import { buildMatchupLineupCardHtml } from './components/managerialView.js';
+import { buildWeeklyMatchupsGridHtml, buildManagerSeasonGameLogHtml } from './components/matchupsView.js';
 
 // Setup Lucide icons wrapper
 function renderLucideIcons() {
@@ -2401,10 +2403,61 @@ function renderLucideIcons() {
     let currentMatchupSeason = 2026;
     let currentMatchupWeek = 1;
     let currentMatchupMode = 'preview'; // 'preview' or 'recap'
+    let currentMatchupManager = 'all';
+    let y2kLineupsData = null;
+
+    async function loadY2KLineups() {
+      if (y2kLineupsData) return y2kLineupsData;
+      try {
+        const res = await fetch('data/lineups/y2k_lineups.json');
+        if (res.ok) {
+          y2kLineupsData = await res.json();
+        } else {
+          y2kLineupsData = [];
+        }
+      } catch {
+        y2kLineupsData = [];
+      }
+      return y2kLineupsData;
+    }
+
+    function populateMatchupManagerDropdown() {
+      const select = document.getElementById('matchup-manager-select');
+      if (!select) return;
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
+      let owners = [];
+      if (sData && sData.standings) {
+        owners = sData.standings.map(st => st.ownerName);
+      } else {
+        owners = window.LEAGUE_DATA.allOwners || [];
+      }
+      const prevVal = currentMatchupManager;
+      select.innerHTML = '<option value="all">ALL MANAGERS (WEEKLY GRID)</option>';
+      owners.forEach(o => {
+        const opt = document.createElement('option');
+        opt.value = o;
+        opt.textContent = `👤 ${o.toUpperCase()}`;
+        if (o === prevVal) opt.selected = true;
+        select.appendChild(opt);
+      });
+      if (!owners.includes(prevVal) && prevVal !== 'all') {
+        currentMatchupManager = 'all';
+        select.value = 'all';
+      }
+    }
+
+    window.onMatchupManagerChange = function() {
+      const select = document.getElementById('matchup-manager-select');
+      if (select) {
+        currentMatchupManager = select.value;
+      }
+      renderMatchupsTab();
+    };
 
     function initMatchupsTab() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
+      populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
     }
@@ -2413,6 +2466,7 @@ function renderLucideIcons() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2025;
       currentMatchupWeek = 1;
+      populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
     }
@@ -2426,11 +2480,11 @@ function renderLucideIcons() {
     function switchMatchupMode(mode) {
       currentMatchupMode = mode;
       document.querySelectorAll('.matchup-mode-btn').forEach(btn => {
-        btn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700';
+        btn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
       });
       const activeBtn = document.getElementById(`matchup-mode-${mode}`);
       if (activeBtn) {
-        activeBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-100/90 text-pink-700 border border-pink-400';
+        activeBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
       }
       renderMatchupsTab();
     }
@@ -2457,51 +2511,35 @@ function renderLucideIcons() {
       container.innerHTML = html;
     }
 
-    function renderMatchupsTab() {
-      renderWeekPills();
+    window.toggleMatchupLineupBox = function(mId) {
+      const content = document.getElementById(`matchup-lineup-content-${mId}`);
+      const arrow = document.getElementById(`matchup-lineup-arrow-${mId}`);
+      if (content) {
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          if (arrow) arrow.innerText = '▲';
+        } else {
+          content.classList.add('hidden');
+          if (arrow) arrow.innerText = '▼';
+        }
+      }
+    };
+
+    async function renderMatchupsTab() {
+      populateMatchupManagerDropdown();
+      const pillsContainer = document.getElementById('matchup-week-pills-container');
       const container = document.getElementById('matchups-cards-container');
       const heading = document.getElementById('matchup-title-heading');
       const badge = document.getElementById('matchup-mode-badge');
       if (!container) return;
 
+      const lineups = await loadY2KLineups();
       const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
       const regWeeks = sData ? sData.settings.regularSeasonWeeks : 14;
       const isPlayoffWeek = currentMatchupWeek > regWeeks;
-
-      if (heading) {
-        heading.innerHTML = `🏈 ${currentMatchupSeason} Y2K: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
-      }
-      if (badge) {
-        badge.innerHTML = currentMatchupMode === 'preview' 
-          ? `<span class="text-pink-600">⚡ PRE-GAME PREVIEW</span>` 
-          : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
-      }
-
-      // Filter matchups for selected season & week
-      let mList = [];
-      if (currentMatchupSeason === 2026 && sData && sData.schedule2026) {
-        mList = sData.schedule2026.filter(m => m.weekNumber === currentMatchupWeek);
-      } else {
-        mList = window.LEAGUE_DATA.allMatchups.filter(m => m.seasonYear === currentMatchupSeason && m.weekNumber === currentMatchupWeek);
-      }
-
-      if (mList.length === 0) {
-        container.innerHTML = `
-          <div class="crt-box rounded p-8 text-center border border-pink-200 bg-pink-50/90/20">
-            <div class="text-amber-400 font-black text-base mb-2 crt-glow-pink-pink">
-              &gt; NO MATCHUPS RECORDED FOR ${currentMatchupSeason} WEEK ${currentMatchupWeek}
-            </div>
-            <p class="text-xs text-pink-600 max-w-md mx-auto leading-relaxed">
-              No game results or editorial write-ups exist for ${currentMatchupSeason} Week ${currentMatchupWeek}.
-            </p>
-          </div>
-        `;
-        return;
-      }
-
       const isRecap = (currentMatchupMode === 'recap');
 
-      // Compute standings ranks & records (prior to week if PREVIEW, up to week if RECAP)
+      // Rank Map
       const ownerStatsTarget = {};
       window.LEAGUE_DATA.allMatchups
         .filter(m => m.seasonYear === currentMatchupSeason && (isRecap ? m.weekNumber <= currentMatchupWeek : m.weekNumber < currentMatchupWeek))
@@ -2526,172 +2564,59 @@ function renderLucideIcons() {
         rankMap[st.owner] = { rank: idx + 1, rec: `${st.w}-${st.l}` };
       });
 
-      // Fallback for Week 1 Preview mode
       if (!isRecap && currentMatchupWeek === 1 && sData && sData.standings) {
         sData.standings.forEach(st => {
           rankMap[st.ownerName] = { rank: st.rank, rec: '0-0' };
         });
       }
 
-      // Check if custom commentary exists for this season & week
       const seasonKey = String(currentMatchupSeason);
       const weekKey = String(currentMatchupWeek);
       const customComm = (window.LEAGUE_DATA.weeklyCommentary && window.LEAGUE_DATA.weeklyCommentary[seasonKey] && window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey]) ? window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey] : null;
 
-      let cardsHtml = '';
-
-      mList.forEach(m => {
-        const o1 = m.homeOwner;
-        const o2 = m.awayOwner;
-        const t1 = m.homeTeam;
-        const t2 = m.awayTeam;
-        const s1 = m.homeScore;
-        const s2 = m.awayScore;
-
-        const info1 = rankMap[o1] || { rank: '-', rec: '0-0' };
-        const info2 = rankMap[o2] || { rank: '-', rec: '0-0' };
-
-        // Calculate dynamic past H2H metrics (prior to week if PREVIEW, up to week if RECAP)
-        const pastGames = window.LEAGUE_DATA.allMatchups.filter(gm => {
-          const isPair = (gm.homeOwner === o1 && gm.awayOwner === o2) || (gm.homeOwner === o2 && gm.awayOwner === o1);
-          if (!isPair) return false;
-          if (gm.seasonYear < currentMatchupSeason) return true;
-          if (gm.seasonYear === currentMatchupSeason) {
-            return isRecap ? (gm.weekNumber <= currentMatchupWeek) : (gm.weekNumber < currentMatchupWeek);
-          }
-          return false;
-        }).sort((a,b) => a.seasonYear !== b.seasonYear ? a.seasonYear - b.seasonYear : a.weekNumber - b.weekNumber);
-
-        let regW1 = 0, regW2 = 0, playW1 = 0, playW2 = 0;
-        let lastW = null, streakCount = 0, lastG = null;
-        let playGamesList = [];
-
-        let lastWinner = null;
-        let streakGames = [];
-        pastGames.forEach(g => {
-          const w = g.homeScore > g.awayScore ? g.homeOwner : (g.awayScore > g.homeScore ? g.awayOwner : 'Tie');
-          if (g.isPlayoff) {
-            playGamesList.push(g);
-            if (w === o1) playW1++; else if (w === o2) playW2++;
-          } else {
-            if (w === o1) regW1++; else if (w === o2) regW2++;
-          }
-          if (w !== 'Tie') {
-            if (w === lastWinner) {
-              streakGames.push(g);
-            } else {
-              lastWinner = w;
-              streakGames = [g];
-            }
-          }
+      if (currentMatchupManager !== 'all') {
+        // Manager single-view: show all season games for this manager
+        if (pillsContainer) pillsContainer.classList.add('hidden');
+        if (heading) heading.innerHTML = `👤 ${currentMatchupManager.toUpperCase()} — ${currentMatchupSeason} COMPLETE SCHEDULE &amp; LOG`;
+        if (badge) badge.innerHTML = `<span class="text-pink-600 font-bold font-fredoka">📅 ALL GAMES</span>`;
+        container.innerHTML = buildManagerSeasonGameLogHtml({
+          owner: currentMatchupManager,
+          season: currentMatchupSeason,
+          matchups: window.LEAGUE_DATA.allMatchups,
+          rankMap,
+          commentary: customComm,
+          lineups,
+          theme: PRIDE_THEME
         });
-
-        let streakStr = 'None';
-        if (lastWinner && streakGames.length > 0) {
-          const gameTags = streakGames.map(g => {
-            if (g.isPlayoff) {
-              return formatPlayoffStageTag(g.stage, g.seasonYear);
-            } else {
-              return `Wk${g.weekNumber}'${String(g.seasonYear).slice(2)}`;
-            }
-          }).join(', ');
-          streakStr = `${lastWinner} W${streakGames.length}; ${gameTags}`;
+      } else {
+        // Weekly Grid view
+        if (pillsContainer) pillsContainer.classList.remove('hidden');
+        renderWeekPills();
+        if (heading) heading.innerHTML = `🏈 ${currentMatchupSeason} PRIDE: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
+        if (badge) {
+          badge.innerHTML = currentMatchupMode === 'preview' 
+            ? `<span class="text-pink-600 font-bold font-fredoka">⚡ PRE-GAME PREVIEW</span>` 
+            : `<span class="text-amber-500 font-bold font-fredoka">📊 POST-GAME RECAP</span>`;
         }
 
-        let playH2HStr = `${playW1}-${playW2}`;
-        if (playGamesList.length > 0) {
-          const gameStages = playGamesList.map(g => formatPlayoffStageTag(g.stage, g.seasonYear)).join(', ');
-          playH2HStr += `; ${gameStages}`;
-        }
-
-        // Check for custom write-up commentary
-        let writeupText = null;
-        if (customComm && customComm.matchups) {
-          const customM = customComm.matchups.find(cm => 
-            (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
-          );
-          if (customM && customM.writeup) {
-            writeupText = customM.writeup;
-          }
-        }
-
-        const isWinner1 = s1 > s2;
-        const isWinner2 = s2 > s1;
-        const margin = Math.abs(s1 - s2);
-
-        // Header Title
-        const titleStr = `${info1.rank}. ${t1} (${info1.rec}) vs ${info2.rank}. ${t2} (${info2.rec})`;
-
-        // Score box if RECAP mode
-        let recapBox = '';
-        if (currentMatchupMode === 'recap') {
-          recapBox = `
-            <div class="mt-3 p-3 bg-white border border-purple-200 rounded flex justify-between items-center flex-wrap gap-2 font-sans">
-              <div class="flex items-center gap-3">
-                <span class="${isWinner1 ? 'text-amber-800 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t1}: <strong>${s1.toFixed(2)}</strong></span>
-                <span class="text-purple-800/60">vs</span>
-                <span class="${isWinner2 ? 'text-amber-800 font-black text-lg crt-glow-pink-pink' : 'text-purple-700 text-base'}">${t2}: <strong>${s2.toFixed(2)}</strong></span>
-              </div>
-              <div class="text-right">
-                <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 border border-pink-300 font-bold text-xs block">
-                  🏆 WINNER: ${isWinner1 ? o1 : o2} (+${margin.toFixed(2)} pts)
-                </span>
-              </div>
-            </div>
-          `;
-        }
-
-        // Writeup box
-        let writeupBox = '';
-        if (writeupText) {
-          writeupBox = `
-            <div class="mt-3 p-3 bg-white/90 border border-pink-300 rounded font-sans text-xs text-pink-700 leading-relaxed">
-              <span class="text-[10px] text-pink-600 font-bold uppercase tracking-wider block mb-1">&gt; EDITOR_COMMENTARY:</span>
-              ${writeupText}
-            </div>
-          `;
+        let mList = [];
+        if (currentMatchupSeason === 2026 && sData && sData.schedule2026) {
+          mList = sData.schedule2026.filter(m => m.weekNumber === currentMatchupWeek);
         } else {
-          writeupBox = `
-            <div class="mt-3 p-2.5 bg-white/40 border border-pink-100 rounded font-sans text-xs text-purple-700 italic">
-              &gt; NO EDITORIAL WRITE-UP RECORDED FOR THIS MATCHUP.
-            </div>
-          `;
+          mList = window.LEAGUE_DATA.allMatchups.filter(m => m.seasonYear === currentMatchupSeason && m.weekNumber === currentMatchupWeek);
         }
 
-        cardsHtml += `
-          <div class="crt-box rounded p-4 border border-pink-200 hover:border-pink-400 transition-all">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-pink-200 pb-2.5">
-              <h3 class="text-base font-extrabold text-pink-700 crt-glow-pink-pink">
-                ${titleStr}
-              </h3>
-              <div class="text-xs text-pink-600 font-bold">
-                [${o1} vs ${o2}]
-              </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3 text-xs font-sans">
-              <div class="bg-white/60 p-2 border border-pink-200 rounded">
-                <span class="text-[10px] uppercase font-bold text-purple-700 block">SEASON H2H</span>
-                <span class="font-bold text-pink-700">${regW1}-${regW2}</span>
-              </div>
-              <div class="bg-white/60 p-2 border border-pink-200 rounded">
-                <span class="text-[10px] uppercase font-bold text-purple-700 block">CURRENT STREAK</span>
-                <span class="font-bold text-pink-700">${streakStr}</span>
-              </div>
-              <div class="bg-white/60 p-2 border border-pink-200 rounded">
-                <span class="text-[10px] uppercase font-bold text-purple-700 block">PLAYOFFS H2H</span>
-                <span class="font-bold text-pink-700">${playH2HStr}</span>
-              </div>
-            </div>
-
-            ${recapBox}
-            ${writeupBox}
-          </div>
-        `;
-      });
-
-      container.innerHTML = cardsHtml;
+        container.innerHTML = buildWeeklyMatchupsGridHtml({
+          matchups: mList,
+          rankMap,
+          season: currentMatchupSeason,
+          week: currentMatchupWeek,
+          mode: currentMatchupMode,
+          commentary: customComm,
+          lineups,
+          theme: PRIDE_THEME
+        });
+      }
     }
 
 // Bind top-level event handlers safely to window

@@ -245,6 +245,15 @@
               </button>
             </div>
 
+            <!-- Manager Selector -->
+            <div class="flex items-center gap-1.5">
+              <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; MANAGER:</label>
+              <select id="matchup-manager-select" onchange="window.onMatchupManagerChange()"
+                class="bg-black border border-emerald-600 text-emerald-300 text-xs p-1 font-mono font-bold">
+                <option value="all" selected>ALL MANAGERS (WEEKLY GRID)</option>
+              </select>
+            </div>
+
             <!-- Season Selector -->
             <div class="flex items-center gap-1.5">
               <label class="text-xs font-bold uppercase text-emerald-400 whitespace-nowrap">&gt; SEASON:</label>
