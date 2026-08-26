@@ -990,34 +990,9 @@
         "5th_6th": [],
         "7th_12th": []
       },
-      "dOhs": 2,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 6,
-          "starter": "Courtland Sutton",
-          "starterPoints": 2.7,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "D'Andre Swift",
-          "benchPoints": 27.5,
-          "netGain": 24.8,
-          "deficitNeeded": 19.12,
-          "winMargin": 5.68
-        },
-        {
-          "year": 2025,
-          "week": 17,
-          "starter": "Jared Goff",
-          "starterPoints": -0.42,
-          "starterSlot": "QB",
-          "benchPlayer": "Caleb Williams",
-          "benchPoints": 27,
-          "netGain": 27.42,
-          "deficitNeeded": 10.91,
-          "winMargin": 16.51
-        }
-      ],
-      "coachingEfficiency": 92.4
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Jasper",
@@ -1265,7 +1240,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 98.6
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Ryan",
@@ -1847,46 +1822,9 @@
           }
         ]
       },
-      "dOhs": 3,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 3,
-          "starter": "Brock Bowers",
-          "starterPoints": 9.8,
-          "starterSlot": "TE",
-          "benchPlayer": "Jake Ferguson",
-          "benchPoints": 21.2,
-          "netGain": 11.4,
-          "deficitNeeded": 9.92,
-          "winMargin": 1.48
-        },
-        {
-          "year": 2025,
-          "week": 4,
-          "starter": "Daniel Jones",
-          "starterPoints": 10.38,
-          "starterSlot": "QB",
-          "benchPlayer": "Dak Prescott",
-          "benchPoints": 36.46,
-          "netGain": 26.08,
-          "deficitNeeded": 4.82,
-          "winMargin": 21.26
-        },
-        {
-          "year": 2025,
-          "week": 10,
-          "starter": "Rashid Shaheed",
-          "starterPoints": 6.65,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Zach Charbonnet",
-          "benchPoints": 14.3,
-          "netGain": 7.65,
-          "deficitNeeded": 2.47,
-          "winMargin": 5.18
-        }
-      ],
-      "coachingEfficiency": 85.3
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Dylan",
@@ -2487,7 +2425,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 83
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Dustin",
@@ -2866,58 +2804,9 @@
           }
         ]
       },
-      "dOhs": 4,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 6,
-          "starter": "Tee Higgins",
-          "starterPoints": 11.2,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Wan'Dale Robinson",
-          "benchPoints": 20.4,
-          "netGain": 9.2,
-          "deficitNeeded": 0.94,
-          "winMargin": 8.26
-        },
-        {
-          "year": 2025,
-          "week": 8,
-          "starter": "Wan'Dale Robinson",
-          "starterPoints": 7.8,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Travis Kelce",
-          "benchPoints": 21.9,
-          "netGain": 14.1,
-          "deficitNeeded": 1.38,
-          "winMargin": 12.72
-        },
-        {
-          "year": 2025,
-          "week": 13,
-          "starter": "Travis Kelce",
-          "starterPoints": 15.5,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Terry McLaurin",
-          "benchPoints": 22.6,
-          "netGain": 7.1,
-          "deficitNeeded": 6.86,
-          "winMargin": 0.24
-        },
-        {
-          "year": 2025,
-          "week": 17,
-          "starter": "Tee Higgins",
-          "starterPoints": 9.9,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Wan'Dale Robinson",
-          "benchPoints": 23.3,
-          "netGain": 13.4,
-          "deficitNeeded": 1.93,
-          "winMargin": 11.47
-        }
-      ],
-      "coachingEfficiency": 92.7
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Tess",
@@ -3046,22 +2935,9 @@
           }
         ]
       },
-      "dOhs": 1,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 2,
-          "starter": "Geno Smith",
-          "starterPoints": -1.3,
-          "starterSlot": "QB",
-          "benchPlayer": "Patrick Mahomes",
-          "benchPoints": 23.08,
-          "netGain": 24.38,
-          "deficitNeeded": 13.55,
-          "winMargin": 10.83
-        }
-      ],
-      "coachingEfficiency": 91.8
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Boaz",
@@ -3449,7 +3325,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 100
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Cooper",
@@ -4240,7 +4116,7 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 93.4
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Trace",
@@ -4946,34 +4822,9 @@
           }
         ]
       },
-      "dOhs": 2,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 14,
-          "starter": "Colts",
-          "starterPoints": 5.6,
-          "starterSlot": "DEF",
-          "benchPlayer": "Lions",
-          "benchPoints": 18.78,
-          "netGain": 13.18,
-          "deficitNeeded": 11.55,
-          "winMargin": 1.63
-        },
-        {
-          "year": 2025,
-          "week": 16,
-          "starter": "Emeka Egbuka",
-          "starterPoints": 6,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Parker Washington",
-          "benchPoints": 30.1,
-          "netGain": 24.1,
-          "deficitNeeded": 10.06,
-          "winMargin": 14.04
-        }
-      ],
-      "coachingEfficiency": 88.1
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Mike",
@@ -5501,46 +5352,9 @@
           }
         ]
       },
-      "dOhs": 3,
-      "dOhDetails": [
-        {
-          "year": 2025,
-          "week": 2,
-          "starter": "Travis Hunter",
-          "starterPoints": 5.2,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Tyrone Tracy Jr.",
-          "benchPoints": 15.7,
-          "netGain": 10.5,
-          "deficitNeeded": 2.76,
-          "winMargin": 7.74
-        },
-        {
-          "year": 2025,
-          "week": 8,
-          "starter": "Mark Andrews",
-          "starterPoints": 6.4,
-          "starterSlot": "W/R/T",
-          "benchPlayer": "Khalil Shakir",
-          "benchPoints": 22.2,
-          "netGain": 15.8,
-          "deficitNeeded": 7.53,
-          "winMargin": 8.27
-        },
-        {
-          "year": 2025,
-          "week": 9,
-          "starter": "Tucker Kraft",
-          "starterPoints": 4,
-          "starterSlot": "TE",
-          "benchPlayer": "Mark Andrews",
-          "benchPoints": 16.6,
-          "netGain": 12.6,
-          "deficitNeeded": 0.89,
-          "winMargin": 11.71
-        }
-      ],
-      "coachingEfficiency": 92.5
+      "dOhs": 0,
+      "dOhDetails": [],
+      "coachingEfficiency": null
     },
     {
       "ownerName": "Torin",
