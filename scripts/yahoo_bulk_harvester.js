@@ -1,19 +1,17 @@
 /**
- * Yahoo Fantasy Football Universal Matchup & Lineup Harvester (v5.2 - Dynamic Header Mapping Engine)
+ * Yahoo Fantasy Football Universal Matchup & Lineup Harvester (v5.3 - Position-Accurate Engine)
  *
  * Features:
  * - Dynamic <thead> header detector for exact column index mapping (t1Player, t1Pts, pos, t2Pts, t2Player)
- * - Guarantees both Left (Team 1) and Right (Team 2) teams extract accurate actual scores and rosters
- * - Fallback support for single-team tables, legacy layouts, and container formats
- * - Auto-detects Season, League ID, and active Week from URL or prompts
- * - Rate limit protection with polite delays & exponential backoff
- * - Copies JSON to clipboard, logs to console, and auto-downloads file
- * - Standalone `window.testYahooMatchup(week, mid)` for quick single-matchup testing
+ * - Automatic Position Resolver (inferred from player names, team names, and stat breakdown keywords)
+ * - Strict Positional Eligibility for D'Oh! Blunder Detection (e.g. only WR/RB/TE for FLEX; same pos for specific slots)
+ * - Exponential backoff & retry for polite 350ms throttling
+ * - 1-Click Clipboard Copy & direct JSON download
  */
 
 (async function initYahooHarvester() {
   console.clear();
-  console.log('%c🏈 Yahoo Matchup & Lineup Harvester v5.2 Initialized', 'color: #34d399; font-size: 16px; font-weight: bold;');
+  console.log('%c🏈 Yahoo Matchup & Lineup Harvester v5.3 Initialized', 'color: #34d399; font-size: 16px; font-weight: bold;');
 
   // Extract league metadata from URL
   const path = window.location.pathname;
@@ -25,7 +23,7 @@
   const leagueId = prompt('Enter Yahoo League ID:', detectedLeagueId) || detectedLeagueId;
   const startWeek = parseInt(prompt('Enter START Week (e.g. 1):', 1) || 1, 10);
   const endWeek = parseInt(prompt('Enter END Week (e.g. 17 or 16):', seasonYear >= 2021 ? 17 : 16) || 17, 10);
-  const numTeams = parseInt(prompt('Enter Number of Teams (e.g. 12):', 12) || 12, 10);
+  const numTeams = parseInt(prompt('Enter Number of Teams (e.g. 10 or 12):', seasonYear === 2025 ? 10 : 12) || 10, 10);
 
   // Canonical Team to Owner Mapping
   const OWNER_MAP = {
@@ -33,7 +31,8 @@
     'Gl Hf (you’re gay)': 'Trace', "Gl Hf (you're gay)": 'Trace', 'Darnold Schwarzenegger': 'Alex',
     'Donkey Squad': 'Ryan', 'Aaron codger': 'Boaz', 'Dusty’s Dingleberries': 'Dustin',
     "Dusty's Dingleberries": 'Dustin', 'Trenches cooper': 'Cooper', 'Tess Finesse': 'Tess',
-    "Blue's Balls": 'Jasper', 'Blue’s Balls': 'Jasper', 'The Dawn of Man-Ape': 'Dylan', 'TDS': 'Phillip'
+    "Blue's Balls": 'Jasper', 'Blue’s Balls': 'Jasper', 'The Dawn of Man-Ape': 'Dylan', 'TDS': 'Phillip',
+    'Bad team not good at football': 'Ryan'
   };
 
   const constraints = {
@@ -42,6 +41,59 @@
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  // Common NFL Defense Names
+  const DEF_TEAMS = new Set([
+    '49ers', 'Bears', 'Bengals', 'Bills', 'Broncos', 'Browns', 'Buccaneers', 'Cardinals',
+    'Chargers', 'Chiefs', 'Colts', 'Commanders', 'Cowboys', 'Dolphins', 'Eagles', 'Falcons',
+    'Giants', 'Jaguars', 'Jets', 'Lions', 'Packers', 'Panthers', 'Patriots', 'Raiders',
+    'Rams', 'Ravens', 'Saints', 'Seahawks', 'Steelers', 'Texans', 'Titans', 'Vikings'
+  ]);
+
+  // Player Position Lookup Dictionary
+  const PLAYER_POS_DB = {
+    // Top QBs
+    'Josh Allen': 'QB', 'Patrick Mahomes': 'QB', 'Lamar Jackson': 'QB', 'Jalen Hurts': 'QB',
+    'Joe Burrow': 'QB', 'Caleb Williams': 'QB', 'Baker Mayfield': 'QB', 'Jayden Daniels': 'QB',
+    'Kyler Murray': 'QB', 'Justin Herbert': 'QB', 'Dak Prescott': 'QB', 'Brock Purdy': 'QB',
+    'Jordan Love': 'QB', 'Jared Goff': 'QB', 'Drake Maye': 'QB', 'Justin Fields': 'QB',
+    'Bo Nix': 'QB', 'Michael Penix Jr.': 'QB', 'Matthew Stafford': 'QB', 'Daniel Jones': 'QB',
+    'Jaxson Dart': 'QB', 'C.J. Stroud': 'QB', 'Trevor Lawrence': 'QB', 'Kirk Cousins': 'QB',
+    'Geno Smith': 'QB', 'Aaron Rodgers': 'QB', 'Tua Tagovailoa': 'QB', 'Russell Wilson': 'QB',
+
+    // Top TEs
+    'T.J. Hockenson': 'TE', 'George Kittle': 'TE', 'Travis Kelce': 'TE', 'Trey McBride': 'TE',
+    'Sam LaPorta': 'TE', 'Brock Bowers': 'TE', 'Mark Andrews': 'TE', 'David Njoku': 'TE',
+    'Dalton Kincaid': 'TE', 'Kyle Pitts Sr.': 'TE', 'Kyle Pitts': 'TE', 'Tyler Warren': 'TE',
+    'Evan Engram': 'TE', 'Jake Ferguson': 'TE', 'Tucker Kraft': 'TE', 'Dallas Goedert': 'TE',
+    'Colston Loveland': 'TE', 'Hunter Henry': 'TE', 'Dalton Schultz': 'TE', 'Zach Ertz': 'TE',
+    'Cade Otton': 'TE', 'Juwan Johnson': 'TE', 'Isaiah Likely': 'TE', 'Cole Kmet': 'TE',
+    'Jonnu Smith': 'TE', 'Pat Freiermuth': 'TE', 'Chigoziem Okonkwo': 'TE',
+
+    // Top Ks
+    'Matt Gay': 'K', 'Brandon Aubrey': 'K', 'Chris Boswell': 'K', 'Younghoe Koo': 'K',
+    'Chase McLaughlin': 'K', 'Cameron Dicker': 'K', 'Wil Lutz': 'K', 'Evan McPherson': 'K',
+    'Jake Bates': 'K', 'Ka\'imi Fairbairn': 'K', 'Harrison Butker': 'K', 'Justin Tucker': 'K',
+    'Jake Moody': 'K', 'Tyler Loop': 'K', 'Matt Prater': 'K', 'Zane Gonzalez': 'K',
+    'Jason Myers': 'K', 'Dustin Hopkins': 'K', 'Blake Grupe': 'K', 'Cairo Santos': 'K'
+  };
+
+  function resolvePlayerPosition(name, slot, statSnippet = '') {
+    if (!name) return 'BN';
+    const trimmed = name.trim();
+
+    if (PLAYER_POS_DB[trimmed]) return PLAYER_POS_DB[trimmed];
+    if (DEF_TEAMS.has(trimmed) || trimmed.includes('DEF') || slot === 'DEF') return 'DEF';
+    if (slot === 'QB' || slot === 'K' || slot === 'DEF') return slot;
+
+    // Stat text clues
+    if (statSnippet.includes('Pass Yds') || statSnippet.includes('Pass TD')) return 'QB';
+    if (statSnippet.includes('FG Yds') || statSnippet.includes('PAT')) return 'K';
+    if (statSnippet.includes('Sack') || statSnippet.includes('Int') || statSnippet.includes('Pts Allow')) return 'DEF';
+
+    if (slot === 'WR' || slot === 'RB' || slot === 'TE') return slot;
+    return 'FLEX'; // Default eligible flex position
   }
 
   function normalizePosition(slotOrPos) {
@@ -106,19 +158,32 @@
     let winningSwaps = [];
 
     starters.forEach(starter => {
+      const sSlot = starter.slot;
+      const sPos = normalizePosition(starter.position || starter.slot);
+      const isFlex = sSlot === 'W/R/T' || sSlot === 'FLEX' || sSlot === 'W/R' || sSlot === 'W/T';
+
       bench.forEach(benchPlayer => {
-        const netGain = Number(((benchPlayer.points || 0) - (starter.points || 0)).toFixed(2));
-        if (netGain > deficitNeeded) {
-          winningSwaps.push({
-            starter: starter.player,
-            starterPoints: starter.points || 0,
-            starterSlot: starter.slot,
-            benchPlayer: benchPlayer.player,
-            benchPoints: benchPlayer.points || 0,
-            netGain,
-            deficitNeeded,
-            winMargin: Number((netGain - deficitNeeded).toFixed(2))
-          });
+        const bPos = normalizePosition(benchPlayer.position);
+        
+        // Strict positional eligibility
+        const isEligible = isFlex 
+          ? (bPos === 'RB' || bPos === 'WR' || bPos === 'TE' || bPos === 'FLEX' || bPos === 'BN')
+          : (bPos === sPos);
+
+        if (isEligible) {
+          const netGain = Number(((benchPlayer.points || 0) - (starter.points || 0)).toFixed(2));
+          if (netGain > deficitNeeded) {
+            winningSwaps.push({
+              starter: starter.player,
+              starterPoints: starter.points || 0,
+              starterSlot: starter.slot,
+              benchPlayer: benchPlayer.player,
+              benchPoints: benchPlayer.points || 0,
+              netGain,
+              deficitNeeded,
+              winMargin: Number((netGain - deficitNeeded).toFixed(2))
+            });
+          }
         }
       });
     });
@@ -183,6 +248,7 @@
         if (raw && !raw.includes('Empty')) t1Name = raw;
       }
       let t1Pts = parseFloat(cells[t1PtsCol].textContent.trim()) || 0.0;
+      let t1Pos = resolvePlayerPosition(t1Name, slot, cells[0]?.textContent || '');
 
       // Team 2 (Right)
       const t2Cell = cells[t2PlayerCol];
@@ -193,12 +259,13 @@
         if (raw && !raw.includes('Empty')) t2Name = raw;
       }
       let t2Pts = parseFloat(cells[t2PtsCol].textContent.trim()) || 0.0;
+      let t2Pos = resolvePlayerPosition(t2Name, slot, cells[cells.length - 1]?.textContent || '');
 
       if (t1Name && t1Name !== '(Empty)' && t1Name !== 'Empty') {
-        playersA.push({ slot, player: t1Name, playerName: t1Name, position: slot, nflTeam: '', points: t1Pts, isBench });
+        playersA.push({ slot, player: t1Name, playerName: t1Name, position: t1Pos, nflTeam: '', points: t1Pts, isBench });
       }
       if (t2Name && t2Name !== '(Empty)' && t2Name !== 'Empty') {
-        playersB.push({ slot, player: t2Name, playerName: t2Name, position: slot, nflTeam: '', points: t2Pts, isBench });
+        playersB.push({ slot, player: t2Name, playerName: t2Name, position: t2Pos, nflTeam: '', points: t2Pts, isBench });
       }
     });
 
@@ -301,22 +368,6 @@
     }
     return null;
   }
-
-  // Standalone tester for 1 matchup
-  window.testYahooMatchup = async function(wk = 1, mid = 1) {
-    const basePath = seasonYear >= 2026 ? `/f1/${leagueId}` : `/${seasonYear}/f1/${leagueId}`;
-    const url = `${basePath}/matchup?week=${wk}&mid1=${mid}`;
-    console.log(`🔍 Testing single fetch: ${url}`);
-    const html = await fetchWithRetry(url);
-    if (!html) {
-      console.error('❌ Failed to fetch HTML.');
-      return;
-    }
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const result = parseMatchupFromDoc(doc, seasonYear, wk);
-    console.log('Parsed Matchup Result:', result);
-    return result;
-  };
 
   const allHarvestedMatchups = [];
   const processedMatchupKeys = new Set();
