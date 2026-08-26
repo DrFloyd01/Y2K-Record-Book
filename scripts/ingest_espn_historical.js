@@ -5,10 +5,6 @@
  *
  * Ingests full box scores, weekly schedule, standings, advanced luck & badge metrics,
  * playoff brackets, and draft picks for historical ESPN seasons (e.g. 2020).
- *
- * Usage:
- *   node scripts/ingest_espn_historical.js --season 2020
- *   node scripts/ingest_espn_historical.js --all
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
@@ -70,25 +66,54 @@ const CANONICAL_OWNER_MAP = {
   'Brodie Pirtle': 'Brodie Pirtle'
 };
 
-async function ingestHistoricalSeason(seasonYear, leagueId, s2, swid, prideData) {
-  console.log(`\n======================================================`);
-  console.log(`📡 Ingesting Pride Guys ESPN Data for Season ${seasonYear} (League: ${leagueId})...`);
-  console.log(`======================================================`);
-
+async function fetchEspnSeasonData(seasonYear, leagueId, s2, swid) {
   const headers = {
     'Cookie': `espn_s2=${s2}; SWID=${swid};`,
     'Accept': 'application/json'
   };
 
-  const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/${leagueId}?view=mSettings&view=mTeam&view=mMatchupScore&view=mStandings&view=mRoster&view=mDraftDetail`;
-  
-  const res = await fetch(url, { headers });
-  if (!res.ok) {
-    console.error(`❌ ESPN API responded with HTTP ${res.status} ${res.statusText} for Season ${seasonYear}`);
+  const views = 'view=mSettings&view=mTeam&view=mMatchupScore&view=mStandings&view=mRoster&view=mDraftDetail';
+  const urls = [
+    `https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/${leagueId}?seasonId=${seasonYear}&${views}`,
+    `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/leagueHistory/${leagueId}?seasonId=${seasonYear}&${views}`,
+    `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/${leagueId}?${views}`,
+    `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/${leagueId}?${views}`
+  ];
+
+  for (const url of urls) {
+    try {
+      console.log(`🔍 Trying: ${url.split('?')[0]}?seasonId=${seasonYear}...`);
+      const res = await fetch(url, { headers });
+      console.log(`   HTTP Status: ${res.status} ${res.statusText}`);
+
+      if (res.ok) {
+        let json = await res.json();
+        if (Array.isArray(json)) {
+          console.log(`   Received array payload of ${json.length} seasons.`);
+          const seasonMatch = json.find(s => s.seasonId === seasonYear) || json[0];
+          return seasonMatch;
+        }
+        return json;
+      }
+    } catch (e) {
+      console.warn(`   Fetch failed: ${e.message}`);
+    }
+  }
+
+  return null;
+}
+
+async function ingestHistoricalSeason(seasonYear, leagueId, s2, swid, prideData) {
+  console.log(`\n======================================================`);
+  console.log(`📡 Ingesting Pride Guys ESPN Data for Season ${seasonYear} (League: ${leagueId})...`);
+  console.log(`======================================================`);
+
+  const data = await fetchEspnSeasonData(seasonYear, leagueId, s2, swid);
+  if (!data) {
+    console.error(`❌ Could not fetch data from ESPN for Season ${seasonYear}`);
     return false;
   }
 
-  const data = await res.json();
   console.log(`✅ Received ESPN payload for ${seasonYear}: ${data.teams?.length || 0} teams, ${data.schedule?.length || 0} matchups.`);
 
   // 1. Build Player Map from Rosters
