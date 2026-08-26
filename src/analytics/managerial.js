@@ -155,8 +155,11 @@ export function computeOptimalLineup(players = [], constraints = { QB: 1, RB: 2,
 
 /**
  * Evaluates whether a single bench-to-starter swap would have turned a loss into a win (The "D'Oh!" Metric 🤦‍♂️)
+ *
+ * Allows flex rearrangement: a bench RB/WR/TE can replace a starting WR/RB/TE even if they occupy
+ * different slots, provided the remaining starters still satisfy the minimum required position quotas.
  */
-export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamActualScore = null) {
+export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamActualScore = null, constraints = { QB: 1, RB: 2, WR: 3, TE: 1, FLEX: 1, K: 1, DEF: 1 }) {
   const actualScore = teamActualScore !== null ? Number(teamActualScore) : starters.reduce((sum, p) => sum + Number(p.points || 0), 0);
   const opp = Number(oppScore || 0);
 
@@ -171,24 +174,42 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
 
   const validBench = bench.filter(b => !b.injuryStatus || b.injuryStatus !== 'IR');
 
+  // Count starter positions
+  const starterPosCounts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0 };
   starters.forEach(s => {
-    const sPos = normalizePosition(s.position);
-    const sSlot = (s.slot || '').toUpperCase();
-    const sPts = Number(s.points || 0);
+    const p = normalizePosition(s.position);
+    if (starterPosCounts[p] !== undefined) starterPosCounts[p]++;
+  });
 
-    validBench.forEach(b => {
-      const bPos = normalizePosition(b.position);
-      const bPts = Number(b.points || 0);
+  const minRequired = {
+    QB: constraints.QB || 1,
+    RB: constraints.RB || 2,
+    WR: constraints.WR || 3,
+    TE: constraints.TE || 1,
+    K: constraints.K || 1,
+    DEF: constraints.DEF || 1
+  };
 
-      // Check eligibility:
-      // Case 1: Exact position match (e.g. RB for RB, WR for WR)
-      // Case 2: Starter was in FLEX, and bench is RB/WR/TE
-      // Case 3: Starter was RB/WR/TE, and we could swap if bench is same pos or flex-compatible
+  validBench.forEach(b => {
+    const bPos = normalizePosition(b.position);
+    const bPts = Number(b.points || 0);
+
+    starters.forEach(s => {
+      const sPos = normalizePosition(s.position);
+      const sPts = Number(s.points || 0);
+
       let isEligible = false;
+
       if (sPos === bPos) {
+        // Direct same-position swap
         isEligible = true;
-      } else if (sSlot.includes('FLEX') || sSlot.includes('W/R') || sSlot.includes('W/T')) {
-        if (bPos === 'RB' || bPos === 'WR' || bPos === 'TE') isEligible = true;
+      } else if (['RB', 'WR', 'TE'].includes(sPos) && ['RB', 'WR', 'TE'].includes(bPos)) {
+        // Flex-rearranged swap: dropping starter s leaves starterPosCounts[sPos] - 1
+        const remainingAfterDrop = (starterPosCounts[sPos] || 0) - 1;
+        const minNeed = minRequired[sPos] || 0;
+        if (remainingAfterDrop >= minNeed) {
+          isEligible = true;
+        }
       }
 
       if (isEligible && bPts > sPts) {
@@ -201,11 +222,11 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
             maxWinMargin = winMargin;
             bestSwap = {
               starter: s.playerName || s.player || s.name,
-              starterPosition: s.position,
+              starterPosition: sPos,
               starterSlot: s.slot,
               starterPoints: sPts,
               benchPlayer: b.playerName || b.player || b.name,
-              benchPosition: b.position,
+              benchPosition: bPos,
               benchPoints: bPts,
               netGain: Number(netGain.toFixed(2)),
               deficitNeeded: Number(deficit.toFixed(2)),

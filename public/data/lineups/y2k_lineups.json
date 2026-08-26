@@ -922,8 +922,20 @@
       ],
       "isWin": false,
       "isLoss": true,
-      "dOhOccurred": false,
-      "dOhDetails": null
+      "dOhOccurred": true,
+      "dOhDetails": {
+        "starter": "A.J. Brown",
+        "starterPosition": "WR",
+        "starterSlot": "WR",
+        "starterPoints": 1.8,
+        "benchPlayer": "TreVeyon Henderson",
+        "benchPosition": "RB",
+        "benchPoints": 13.25,
+        "netGain": 11.45,
+        "deficitNeeded": 2.02,
+        "winMargin": 9.43,
+        "projectedNewScore": 130.03
+      }
     },
     "awayTeam": {
       "teamName": "Blue's Balls",
@@ -3150,17 +3162,17 @@
       "isLoss": true,
       "dOhOccurred": true,
       "dOhDetails": {
-        "starter": "Derrick Henry",
-        "starterPosition": "RB",
-        "starterSlot": "RB",
-        "starterPoints": 2.3,
+        "starter": "Khalil Shakir",
+        "starterPosition": "WR",
+        "starterSlot": "WR",
+        "starterPoints": 2.2,
         "benchPlayer": "Tyrone Tracy Jr.",
         "benchPosition": "RB",
         "benchPoints": 15.7,
-        "netGain": 13.4,
+        "netGain": 13.5,
         "deficitNeeded": 2.76,
-        "winMargin": 10.64,
-        "projectedNewScore": 131.46
+        "winMargin": 10.74,
+        "projectedNewScore": 131.56
       }
     },
     "awayTeam": {
@@ -4106,17 +4118,17 @@
       "isLoss": true,
       "dOhOccurred": true,
       "dOhDetails": {
-        "starter": "Saquon Barkley",
-        "starterPosition": "RB",
-        "starterSlot": "RB",
-        "starterPoints": 9.5,
+        "starter": "Zay Flowers",
+        "starterPosition": "WR",
+        "starterSlot": "WR",
+        "starterPoints": 3.3,
         "benchPlayer": "Cam Skattebo",
         "benchPosition": "RB",
         "benchPoints": 24.1,
-        "netGain": 14.6,
+        "netGain": 20.8,
         "deficitNeeded": 9.92,
-        "winMargin": 4.68,
-        "projectedNewScore": 134.7
+        "winMargin": 10.88,
+        "projectedNewScore": 140.9
       }
     },
     "margin": 9.92
@@ -10892,17 +10904,17 @@
       "isLoss": true,
       "dOhOccurred": true,
       "dOhDetails": {
-        "starter": "Rome Odunze",
-        "starterPosition": "WR",
-        "starterSlot": "WR",
-        "starterPoints": 5.2,
+        "starter": "Rhamondre Stevenson",
+        "starterPosition": "RB",
+        "starterSlot": "RB",
+        "starterPoints": 1.8,
         "benchPlayer": "Ladd McConkey",
         "benchPosition": "WR",
         "benchPoints": 25,
-        "netGain": 19.8,
+        "netGain": 23.2,
         "deficitNeeded": 16.25,
-        "winMargin": 3.55,
-        "projectedNewScore": 140.69
+        "winMargin": 6.95,
+        "projectedNewScore": 144.09
       }
     },
     "margin": 16.25
@@ -24532,8 +24544,20 @@
       ],
       "isWin": false,
       "isLoss": true,
-      "dOhOccurred": false,
-      "dOhDetails": null
+      "dOhOccurred": true,
+      "dOhDetails": {
+        "starter": "Zay Flowers",
+        "starterPosition": "WR",
+        "starterSlot": "WR",
+        "starterPoints": 0.6,
+        "benchPlayer": "Zach Charbonnet",
+        "benchPosition": "RB",
+        "benchPoints": 11.2,
+        "netGain": 10.6,
+        "deficitNeeded": 9.08,
+        "winMargin": 1.52,
+        "projectedNewScore": 128.82
+      }
     },
     "awayTeam": {
       "teamName": "Blue's Balls",

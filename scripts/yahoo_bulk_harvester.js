@@ -157,28 +157,53 @@
     const deficitNeeded = Number((oppScore - teamActualScore).toFixed(2));
     let winningSwaps = [];
 
-    starters.forEach(starter => {
-      const sSlot = starter.slot;
-      const sPos = normalizePosition(starter.position || starter.slot);
-      const isFlex = sSlot === 'W/R/T' || sSlot === 'FLEX' || sSlot === 'W/R' || sSlot === 'W/T';
+    // Count starter positions
+    const starterPosCounts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0 };
+    starters.forEach(s => {
+      const p = normalizePosition(s.position);
+      if (starterPosCounts[p] !== undefined) starterPosCounts[p]++;
+    });
 
-      bench.forEach(benchPlayer => {
-        const bPos = normalizePosition(benchPlayer.position);
-        
-        // Strict positional eligibility
-        const isEligible = isFlex 
-          ? (bPos === 'RB' || bPos === 'WR' || bPos === 'TE' || bPos === 'FLEX' || bPos === 'BN')
-          : (bPos === sPos);
+    const minRequired = {
+      QB: constraints.QB || 1,
+      RB: constraints.RB || 2,
+      WR: constraints.WR || 3,
+      TE: constraints.TE || 1,
+      K: constraints.K || 1,
+      DEF: constraints.DEF || 1
+    };
+
+    bench.forEach(benchPlayer => {
+      const bPos = normalizePosition(benchPlayer.position);
+      const bPts = Number(benchPlayer.points || 0);
+
+      starters.forEach(starter => {
+        const sPos = normalizePosition(starter.position);
+        const sPts = Number(starter.points || 0);
+
+        let isEligible = false;
+
+        if (sPos === bPos) {
+          isEligible = true;
+        } else if (['RB', 'WR', 'TE'].includes(sPos) && ['RB', 'WR', 'TE'].includes(bPos)) {
+          const remainingAfterDrop = (starterPosCounts[sPos] || 0) - 1;
+          const minNeed = minRequired[sPos] || 0;
+          if (remainingAfterDrop >= minNeed) {
+            isEligible = true;
+          }
+        }
 
         if (isEligible) {
-          const netGain = Number(((benchPlayer.points || 0) - (starter.points || 0)).toFixed(2));
+          const netGain = Number((bPts - sPts).toFixed(2));
           if (netGain > deficitNeeded) {
             winningSwaps.push({
               starter: starter.player,
-              starterPoints: starter.points || 0,
+              starterPoints: sPts,
               starterSlot: starter.slot,
+              starterPosition: sPos,
               benchPlayer: benchPlayer.player,
-              benchPoints: benchPlayer.points || 0,
+              benchPoints: bPts,
+              benchPosition: bPos,
               netGain,
               deficitNeeded,
               winMargin: Number((netGain - deficitNeeded).toFixed(2))

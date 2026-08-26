@@ -79,22 +79,23 @@ describe('Managerial Prowess Analytics Engine', () => {
         { slot: 'RB2', player: 'Javonte Williams', position: 'RB', points: 4.5 },
         { slot: 'WR1', player: 'Justin Jefferson', position: 'WR', points: 18.0 },
         { slot: 'WR2', player: 'Terry McLaurin', position: 'WR', points: 7.0 },
+        { slot: 'WR3', player: 'Garrett Wilson', position: 'WR', points: 10.0 },
         { slot: 'TE', player: 'Travis Kelce', position: 'TE', points: 10.0 },
         { slot: 'FLEX', player: 'Christian Watson', position: 'WR', points: 3.2 }
       ];
-      // Team Total = 76.7 pts
+      // Team Total = 86.7 pts
 
       const bench = [
         { slot: 'BN', player: 'James Conner', position: 'RB', points: 22.5 },
         { slot: 'BN', player: 'Romeo Doubs', position: 'WR', points: 5.0 }
       ];
 
-      const oppScore = 88.0; // Deficit = 11.3 pts
+      const oppScore = 98.0; // Deficit = 11.3 pts
 
       const dOh = analyzeDOhMoment(starters, bench, oppScore);
       expect(dOh.dOhOccurred).toBe(true);
       expect(dOh.bestSwap).not.toBeNull();
-      // Swapping Conner (22.5) for Watson (3.2) gives +19.3 pts -> 76.7 + 19.3 = 96.0 > 88.0 (Win by 8.0 pts)
+      // Swapping Conner (22.5) for Watson (3.2) gives +19.3 pts -> 86.7 + 19.3 = 106.0 > 98.0 (Win by 8.0 pts)
       expect(dOh.bestSwap.benchPlayer).toBe('James Conner');
       expect(dOh.bestSwap.starter).toBe('Christian Watson');
       expect(dOh.bestSwap.netGain).toBe(19.3);
@@ -109,6 +110,36 @@ describe('Managerial Prowess Analytics Engine', () => {
       const dOh = analyzeDOhMoment(starters, bench, oppScore);
       expect(dOh.dOhOccurred).toBe(false);
       expect(dOh.bestSwap).toBeNull();
+    });
+
+    it('should detect flex rearrangement swap (bench RB replacing lowest WR when another WR is in FLEX)', () => {
+      const starters = [
+        { slot: 'QB', player: 'Josh Allen', position: 'QB', points: 20.0 },
+        { slot: 'RB1', player: 'Breece Hall', position: 'RB', points: 15.0 },
+        { slot: 'RB2', player: 'Alvin Kamara', position: 'RB', points: 12.0 },
+        { slot: 'WR1', player: 'Puka Nacua', position: 'WR', points: 22.0 },
+        { slot: 'WR2', player: 'Malik Nabers', position: 'WR', points: 14.0 },
+        { slot: 'WR3', player: 'DeVonta Smith', position: 'WR', points: 4.0 }, // Lowest WR
+        { slot: 'TE', player: 'T.J. Hockenson', position: 'TE', points: 6.0 },
+        { slot: 'W/R/T', player: 'Jerry Jeudy', position: 'WR', points: 11.0 }, // 4th WR in FLEX
+        { slot: 'K', player: 'Matt Gay', position: 'K', points: 7.0 },
+        { slot: 'DEF', player: 'Rams', position: 'DEF', points: 8.0 }
+      ];
+      // Team Total = 119.0
+
+      const bench = [
+        { slot: 'BN', player: 'Javonte Williams', position: 'RB', points: 20.0 } // +16.0 gain over DeVonta
+      ];
+
+      const oppScore = 130.0; // Deficit = 11.0
+
+      const constraints = { QB: 1, RB: 2, WR: 3, TE: 1, FLEX: 1, K: 1, DEF: 1 };
+      const dOh = analyzeDOhMoment(starters, bench, oppScore, 119.0, constraints);
+      expect(dOh.dOhOccurred).toBe(true);
+      expect(dOh.bestSwap.starter).toBe('DeVonta Smith');
+      expect(dOh.bestSwap.benchPlayer).toBe('Javonte Williams');
+      expect(dOh.bestSwap.netGain).toBe(16.0); // 20.0 - 4.0
+      expect(dOh.bestSwap.winMargin).toBe(5.0); // 135.0 - 130.0
     });
 
     it('should return false if no single bench swap could overcome the deficit', () => {
