@@ -48,4 +48,16 @@ describe('H2H Analytics Module', () => {
     expect(breakdown.o1Pts).toBe(365.5);
     expect(breakdown.o2Pts).toBe(323.2);
   });
+
+  it('should handle names with apostrophes (e.g. Aidan O\'Sullivan) without crashing', () => {
+    const mockLeagueData = {
+      matchups: [
+        { year: 2024, week: 1, homeOwner: "Aidan O'Sullivan", awayOwner: 'Trace Bakulich', homeScore: 125.0, awayScore: 110.0, isPlayoff: false }
+      ]
+    };
+    const breakdown = getH2HBreakdown(mockLeagueData, "Aidan O'Sullivan", 'Trace Bakulich');
+    expect(breakdown.totalGames).toBe(1);
+    expect(breakdown.o1TotalWins).toBe(1);
+    expect(breakdown.o2TotalWins).toBe(0);
+  });
 });
