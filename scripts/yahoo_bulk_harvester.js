@@ -7,8 +7,8 @@
  * 2. Open Developer Tools (Cmd+Option+I on Mac or F12) and go to the "Console" tab.
  * 3. Paste this entire script into the console and press Enter.
  * 4. The script will automatically loop through all 17 weeks of matchups, extract
- *    starter & bench player points, compute optimal lineups & D'Oh moments, and
- *    automatically trigger a download of `y2k_lineups.json`!
+ *    starter & bench player points, compute optimal lineups & D'Oh moments,
+ *    and COPIES THE COMPLETE JSON DIRECTLY TO YOUR CLIPBOARD (as well as downloading).
  */
 
 (async function harvestAllYahooLineups() {
@@ -245,13 +245,46 @@
 
   console.log(`%c🎉 Harvest Complete! Extracted ${allHarvestedMatchups.length} total matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
 
-  // Trigger JSON download
-  const blob = new Blob([JSON.stringify(allHarvestedMatchups, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `y2k_${seasonYear}_lineups.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  console.log(`💾 Downloaded y2k_${seasonYear}_lineups.json! Drop this file into public/data/raw_matchups/ and run 'node scripts/backfill_all_seasons.js'.`);
+  const jsonString = JSON.stringify(allHarvestedMatchups, null, 2);
+  window.__Y2K_HARVESTED_DATA = allHarvestedMatchups;
+
+  // 1. Copy directly to Clipboard
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(jsonString);
+      console.log('%c📋 COPIED TO CLIPBOARD! Entire JSON is now on your clipboard.', 'color: #38bdf8; font-size: 14px; font-weight: bold;');
+    } else if (typeof copy === 'function') {
+      copy(allHarvestedMatchups);
+      console.log('%c📋 COPIED TO CLIPBOARD via Chrome DevTools copy()!', 'color: #38bdf8; font-size: 14px; font-weight: bold;');
+    }
+  } catch (clipErr) {
+    // Fallback using textarea
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = jsonString;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      console.log('%c📋 COPIED TO CLIPBOARD via textarea fallback!', 'color: #38bdf8; font-size: 14px; font-weight: bold;');
+    } catch (e) {
+      console.log('💡 Type copy(__Y2K_HARVESTED_DATA) in console to copy to clipboard.');
+    }
+  }
+
+  // 2. Trigger download
+  try {
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `y2k_${seasonYear}_lineups.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    console.log(`💾 Download triggered for y2k_${seasonYear}_lineups.json!`);
+  } catch (dlErr) {
+    console.log('💡 Data is saved in window.__Y2K_HARVESTED_DATA and copied to clipboard.');
+  }
+
+  alert(`🎉 Success! Harvested ${allHarvestedMatchups.length} matchups for ${seasonYear}!\n\n📋 The JSON data has been copied directly to your clipboard.`);
 })();
