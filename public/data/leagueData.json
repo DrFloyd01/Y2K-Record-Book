@@ -13428,8 +13428,8 @@
           "dOhs": 0,
           "dOhDetails": [],
           "coachingEfficiency": 93.3,
-          "optimalPointsFor": 2417.1,
-          "optimalPF": 2417.1,
+          "optimalPointsFor": 2510.2,
+          "optimalPF": 2510.2,
           "dOhCount": 1
         },
         {
@@ -13596,10 +13596,10 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 93.2,
-          "optimalPointsFor": 2292.6,
-          "optimalPF": 2292.6,
-          "dOhCount": 0
+          "coachingEfficiency": 91.6,
+          "optimalPointsFor": 2441.3,
+          "optimalPF": 2441.3,
+          "dOhCount": 1
         },
         {
           "seasonYear": 2022,
@@ -13712,9 +13712,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 98.2,
-          "optimalPointsFor": 2393.8,
-          "optimalPF": 2393.8,
+          "coachingEfficiency": 98.1,
+          "optimalPointsFor": 2529.4,
+          "optimalPF": 2529.4,
           "dOhCount": 0
         },
         {
@@ -13984,9 +13984,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 97.5,
-          "optimalPointsFor": 2145.8,
-          "optimalPF": 2145.8,
+          "coachingEfficiency": 97.4,
+          "optimalPointsFor": 2275.8,
+          "optimalPF": 2275.8,
           "dOhCount": 0
         },
         {
@@ -14065,10 +14065,10 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 92.5,
-          "optimalPointsFor": 2176.2,
-          "optimalPF": 2176.2,
-          "dOhCount": 3
+          "coachingEfficiency": 94.2,
+          "optimalPointsFor": 4450.9,
+          "optimalPF": 4450.9,
+          "dOhCount": 4
         },
         {
           "seasonYear": 2022,
@@ -14153,9 +14153,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 92.5,
-          "optimalPointsFor": 2125.5,
-          "optimalPF": 2125.5,
+          "coachingEfficiency": 93.4,
+          "optimalPointsFor": 2221.9,
+          "optimalPF": 2221.9,
           "dOhCount": 1
         },
         {
@@ -14244,10 +14244,10 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 94.1,
-          "optimalPointsFor": 1862.6,
-          "optimalPF": 1862.6,
-          "dOhCount": 2
+          "coachingEfficiency": 93.3,
+          "optimalPointsFor": 1978,
+          "optimalPF": 1978,
+          "dOhCount": 3
         }
       ],
       "statRecords": {
