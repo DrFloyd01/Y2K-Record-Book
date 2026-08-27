@@ -2407,24 +2407,33 @@ function renderLucideIcons() {
     let currentMatchupWeek = 1;
     let currentMatchupMode = 'recap'; // 'preview' or 'recap'
     let currentMatchupManager = 'all';
-    let y2kLineupsData = null;
+    let prideGuysLineupsData = null;
 
     async function loadY2KLineups() {
-      if (y2kLineupsData) return y2kLineupsData;
+      if (prideGuysLineupsData) return prideGuysLineupsData;
       try {
-        let res = await fetch('data/lineups/y2k_lineups.json');
+        let res = await fetch('data/lineups/pride_guys_lineups.json');
         if (!res.ok) {
-          res = await fetch('public/data/lineups/y2k_lineups.json');
+          res = await fetch('public/data/lineups/pride_guys_lineups.json');
         }
         if (res.ok) {
-          y2kLineupsData = await res.json();
+          const raw = await res.json();
+          if (Array.isArray(raw)) {
+            prideGuysLineupsData = raw;
+          } else if (raw && typeof raw === 'object') {
+            prideGuysLineupsData = Object.entries(raw).flatMap(([yr, arr]) => 
+              Array.isArray(arr) ? arr.map(m => ({ ...m, seasonYear: Number(yr) })) : []
+            );
+          } else {
+            prideGuysLineupsData = [];
+          }
         } else {
-          y2kLineupsData = [];
+          prideGuysLineupsData = [];
         }
       } catch {
-        y2kLineupsData = [];
+        prideGuysLineupsData = [];
       }
-      return y2kLineupsData;
+      return prideGuysLineupsData;
     }
 
     function populateMatchupManagerDropdown() {
