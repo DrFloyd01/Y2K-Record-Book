@@ -724,7 +724,6 @@
         {
           "year": 2022,
           "week": 4,
-          "team": "Race Mixon",
           "starter": "Tony Pollard",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -740,7 +739,6 @@
         {
           "year": 2022,
           "week": 15,
-          "team": "Race Mixon",
           "starter": "Dalton Schultz",
           "starterPosition": "TE",
           "starterSlot": "TE",
@@ -756,7 +754,6 @@
         {
           "year": 2022,
           "week": 17,
-          "team": "Race Mixon",
           "starter": "Zonovan Knight",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -772,7 +769,6 @@
         {
           "year": 2023,
           "week": 4,
-          "team": "L Central",
           "starter": "Mike Evans",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -788,7 +784,6 @@
         {
           "year": 2023,
           "week": 5,
-          "team": "L Central",
           "starter": "Joshua Dobbs",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -804,7 +799,6 @@
         {
           "year": 2023,
           "week": 6,
-          "team": "L Central",
           "starter": "Davante Adams",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -820,7 +814,6 @@
         {
           "year": 2023,
           "week": 17,
-          "team": "L Central",
           "starter": "James Cook",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -836,7 +829,6 @@
         {
           "year": 2024,
           "week": 12,
-          "team": "L Central",
           "starter": "Javonte Williams",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -852,7 +844,6 @@
         {
           "year": 2025,
           "week": 14,
-          "team": "L Central",
           "starter": "Zach Charbonnet",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -866,9 +857,10 @@
           "projectedNewScore": 115.26
         }
       ],
-      "optPfg": 122.6,
-      "optimalPF": 6864.12,
-      "optimalPointsFor": 6864.12
+      "optPfg": 123.4,
+      "optimalPF": 8270.1,
+      "optimalPointsFor": 8270.1,
+      "dOhCount": 9
     },
     {
       "ownerName": "Sean Belcher",
@@ -1457,7 +1449,6 @@
         {
           "year": 2022,
           "week": 8,
-          "team": "McCarry My Team Pls",
           "starter": "Michael Carter",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -1473,7 +1464,6 @@
         {
           "year": 2023,
           "week": 15,
-          "team": "Light.Camera.Jackson",
           "starter": "Tyler Lockett",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -1489,7 +1479,6 @@
         {
           "year": 2025,
           "week": 1,
-          "team": "Milkshake Baddies",
           "starter": "Calvin Ridley",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -1505,7 +1494,6 @@
         {
           "year": 2025,
           "week": 7,
-          "team": "Milkshake Baddies",
           "starter": "Rome Odunze",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -1521,7 +1509,6 @@
         {
           "year": 2025,
           "week": 12,
-          "team": "Milkshake Baddies",
           "starter": "Alvin Kamara",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -1535,9 +1522,10 @@
           "projectedNewScore": 108.48
         }
       ],
-      "optPfg": 114.7,
-      "optimalPF": 6424.4,
-      "optimalPointsFor": 6424.4
+      "optPfg": 117.1,
+      "optimalPF": 7845.4,
+      "optimalPointsFor": 7845.4,
+      "dOhCount": 5
     },
     {
       "ownerName": "Aidan O'Sullivan",
@@ -2008,7 +1996,6 @@
         {
           "year": 2022,
           "week": 12,
-          "team": "BIG DlCC DERRICK",
           "starter": "Tua Tagovailoa",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -2024,7 +2011,6 @@
         {
           "year": 2022,
           "week": 15,
-          "team": "BIG DlCC DERRICK",
           "starter": "Brandon Aiyuk",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -2040,7 +2026,6 @@
         {
           "year": 2022,
           "week": 16,
-          "team": "BIG DlCC DERRICK",
           "starter": "Latavius Murray",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -2056,7 +2041,6 @@
         {
           "year": 2023,
           "week": 11,
-          "team": "BBCEEDEE",
           "starter": "Travis Etienne Jr.",
           "starterPosition": "RB",
           "starterSlot": "RB",
@@ -2072,7 +2056,6 @@
         {
           "year": 2023,
           "week": 13,
-          "team": "BBCEEDEE",
           "starter": "Adam Thielen",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -2088,7 +2071,6 @@
         {
           "year": 2024,
           "week": 3,
-          "team": "The Diversity Hires",
           "starter": "Jordan Addison",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -2104,7 +2086,6 @@
         {
           "year": 2024,
           "week": 7,
-          "team": "The Diversity Hires",
           "starter": "Austin Ekeler",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -2120,7 +2101,6 @@
         {
           "year": 2024,
           "week": 9,
-          "team": "The Diversity Hires",
           "starter": "A.J. Brown",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -2136,7 +2116,6 @@
         {
           "year": 2024,
           "week": 11,
-          "team": "The Diversity Hires",
           "starter": "Rico Dowdle",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -2152,7 +2131,6 @@
         {
           "year": 2025,
           "week": 3,
-          "team": "JD Vance in Drag",
           "starter": "Malik Nabers",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -2168,7 +2146,6 @@
         {
           "year": 2025,
           "week": 5,
-          "team": "JD Vance in Drag",
           "starter": "Wan'Dale Robinson",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -2184,7 +2161,6 @@
         {
           "year": 2025,
           "week": 13,
-          "team": "JD Vance in Drag",
           "starter": "Dallas Goedert",
           "starterPosition": "TE",
           "starterSlot": "TE",
@@ -2198,9 +2174,10 @@
           "projectedNewScore": 111.4
         }
       ],
-      "optPfg": 125.6,
-      "optimalPF": 7036.12,
-      "optimalPointsFor": 7036.12
+      "optPfg": 127.5,
+      "optimalPF": 8541.8,
+      "optimalPointsFor": 8541.8,
+      "dOhCount": 12
     },
     {
       "ownerName": "James Carter",
@@ -2522,7 +2499,6 @@
         {
           "year": 2022,
           "week": 3,
-          "team": " . Anal Hurts",
           "starter": "AJ Dillon",
           "starterPosition": "RB",
           "starterSlot": "RB",
@@ -2536,9 +2512,10 @@
           "projectedNewScore": 99.5
         }
       ],
-      "optPfg": 107.2,
-      "optimalPF": 1500.5,
-      "optimalPointsFor": 1500.5
+      "optPfg": 109.3,
+      "optimalPF": 1857.5,
+      "optimalPointsFor": 1857.5,
+      "dOhCount": 1
     },
     {
       "ownerName": "Austin Geller",
@@ -2891,7 +2868,6 @@
         {
           "year": 2022,
           "week": 2,
-          "team": "Dark Brandon Is Rising",
           "starter": "Antonio Gibson",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -2907,7 +2883,6 @@
         {
           "year": 2022,
           "week": 8,
-          "team": "Dark Brandon Is Rising",
           "starter": "Brian Robinson Jr.",
           "starterPosition": "RB",
           "starterSlot": "RB",
@@ -2923,7 +2898,6 @@
         {
           "year": 2023,
           "week": 8,
-          "team": "Oneohtrix Point Trevor (RIP)",
           "starter": "Alexander Mattison",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -2939,7 +2913,6 @@
         {
           "year": 2024,
           "week": 14,
-          "team": "HALL-QAEDA",
           "starter": "Ladd McConkey",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -2953,9 +2926,10 @@
           "projectedNewScore": 160.54
         }
       ],
-      "optPfg": 120.4,
-      "optimalPF": 6743.22,
-      "optimalPointsFor": 6743.22
+      "optPfg": 121.4,
+      "optimalPF": 8131.8,
+      "optimalPointsFor": 8131.8,
+      "dOhCount": 4
     },
     {
       "ownerName": "Dylan Soth",
@@ -3329,7 +3303,6 @@
         {
           "year": 2022,
           "week": 5,
-          "team": "Halman ETs",
           "starter": "Garrett Wilson",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -3345,7 +3318,6 @@
         {
           "year": 2022,
           "week": 10,
-          "team": "Halman ETs",
           "starter": "Jerry Jeudy",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -3361,7 +3333,6 @@
         {
           "year": 2022,
           "week": 17,
-          "team": "Halman ETs",
           "starter": "Garrett Wilson",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -3377,7 +3348,6 @@
         {
           "year": 2024,
           "week": 3,
-          "team": "Tanking for Tua",
           "starter": "Rashid Shaheed",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -3393,7 +3363,6 @@
         {
           "year": 2024,
           "week": 4,
-          "team": "Tanking for Tua",
           "starter": "Amari Cooper",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -3409,7 +3378,6 @@
         {
           "year": 2024,
           "week": 8,
-          "team": "Tanking for Tua",
           "starter": "Amari Cooper",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -3425,7 +3393,6 @@
         {
           "year": 2024,
           "week": 13,
-          "team": "Tanking for Tua",
           "starter": "Tank Dell",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -3441,7 +3408,6 @@
         {
           "year": 2024,
           "week": 14,
-          "team": "Tanking for Tua",
           "starter": "Tee Higgins",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -3457,7 +3423,6 @@
         {
           "year": 2024,
           "week": 15,
-          "team": "Tanking for Tua",
           "starter": "Amari Cooper",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -3473,7 +3438,6 @@
         {
           "year": 2025,
           "week": 13,
-          "team": "Human Eros TDs",
           "starter": "Travis Etienne Jr.",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -3487,9 +3451,10 @@
           "projectedNewScore": 110.84
         }
       ],
-      "optPfg": 119.7,
-      "optimalPF": 6702.42,
-      "optimalPointsFor": 6702.42
+      "optPfg": 122.5,
+      "optimalPF": 8332.8,
+      "optimalPointsFor": 8332.8,
+      "dOhCount": 10
     },
     {
       "ownerName": "Trace Bakulich",
@@ -4081,7 +4046,6 @@
         {
           "year": 2023,
           "week": 6,
-          "team": "ProudER",
           "starter": "Jerry Jeudy",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -4097,7 +4061,6 @@
         {
           "year": 2024,
           "week": 1,
-          "team": "ProudER",
           "starter": "Marvin Harrison Jr.",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4113,7 +4076,6 @@
         {
           "year": 2024,
           "week": 4,
-          "team": "ProudER",
           "starter": "Deebo Samuel Sr.",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4129,7 +4091,6 @@
         {
           "year": 2024,
           "week": 8,
-          "team": "ProudER",
           "starter": "Amon-Ra St. Brown",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4145,7 +4106,6 @@
         {
           "year": 2025,
           "week": 2,
-          "team": "ProudER",
           "starter": "Keon Coleman",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -4161,7 +4121,6 @@
         {
           "year": 2025,
           "week": 3,
-          "team": "ProudER",
           "starter": "Keon Coleman",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -4175,9 +4134,10 @@
           "projectedNewScore": 123.72
         }
       ],
-      "optPfg": 124.6,
-      "optimalPF": 6976.3,
-      "optimalPointsFor": 6976.3
+      "optPfg": 123.6,
+      "optimalPF": 8283.8,
+      "optimalPointsFor": 8283.8,
+      "dOhCount": 6
     },
     {
       "ownerName": "Michael Anderson",
@@ -4818,7 +4778,6 @@
         {
           "year": 2022,
           "week": 7,
-          "team": "2011 Eagles Dream Team",
           "starter": "Amon-Ra St. Brown",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4834,7 +4793,6 @@
         {
           "year": 2022,
           "week": 13,
-          "team": "2011 Eagles Dream Team",
           "starter": "Travis Etienne Jr.",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -4850,7 +4808,6 @@
         {
           "year": 2023,
           "week": 17,
-          "team": "Run CMC",
           "starter": "Zamir White",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -4866,7 +4823,6 @@
         {
           "year": 2024,
           "week": 1,
-          "team": "CTESPN",
           "starter": "Drake London",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4882,7 +4838,6 @@
         {
           "year": 2024,
           "week": 11,
-          "team": "CTESPN",
           "starter": "Garrett Wilson",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4898,7 +4853,6 @@
         {
           "year": 2024,
           "week": 16,
-          "team": "CTESPN",
           "starter": "Aaron Rodgers",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -4914,7 +4868,6 @@
         {
           "year": 2025,
           "week": 6,
-          "team": "CTESPN",
           "starter": "Quinshon Judkins",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -4930,7 +4883,6 @@
         {
           "year": 2025,
           "week": 8,
-          "team": "CTESPN",
           "starter": "Rico Dowdle",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -4946,7 +4898,6 @@
         {
           "year": 2025,
           "week": 16,
-          "team": "CTESPN",
           "starter": "DK Metcalf",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -4960,9 +4911,10 @@
           "projectedNewScore": 103.78
         }
       ],
-      "optPfg": 123.4,
-      "optimalPF": 6911.62,
-      "optimalPointsFor": 6911.62
+      "optPfg": 123.6,
+      "optimalPF": 8155,
+      "optimalPointsFor": 8155,
+      "dOhCount": 9
     },
     {
       "ownerName": "Javier",
@@ -5839,7 +5791,6 @@
         {
           "year": 2022,
           "week": 1,
-          "team": "Defense Contractor #1",
           "starter": "Darnell Mooney",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -5855,7 +5806,6 @@
         {
           "year": 2022,
           "week": 5,
-          "team": "Defense Contractor #1",
           "starter": "Devin Singletary",
           "starterPosition": "RB",
           "starterSlot": "RB",
@@ -5871,7 +5821,6 @@
         {
           "year": 2022,
           "week": 6,
-          "team": "Defense Contractor #1",
           "starter": "Courtland Sutton",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -5887,7 +5836,6 @@
         {
           "year": 2022,
           "week": 16,
-          "team": "Defense Contractor #1",
           "starter": "Raheem Mostert",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -5903,7 +5851,6 @@
         {
           "year": 2023,
           "week": 3,
-          "team": "Defense Contractor #1",
           "starter": "Drake London",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -5919,7 +5866,6 @@
         {
           "year": 2023,
           "week": 7,
-          "team": "Defense Contractor #1",
           "starter": "Michael Wilson",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -5935,7 +5881,6 @@
         {
           "year": 2024,
           "week": 10,
-          "team": "Defense Contractor #1",
           "starter": "Xavier Worthy",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -5951,7 +5896,6 @@
         {
           "year": 2024,
           "week": 17,
-          "team": "Defense Contractor #1",
           "starter": "Texans D/ST",
           "starterPosition": "DEF",
           "starterSlot": "DEF",
@@ -5967,7 +5911,6 @@
         {
           "year": 2025,
           "week": 1,
-          "team": "Defense Contractor #1",
           "starter": "Xavier Worthy",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -5983,7 +5926,6 @@
         {
           "year": 2025,
           "week": 4,
-          "team": "Defense Contractor #1",
           "starter": "Keenan Allen",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -5997,9 +5939,10 @@
           "projectedNewScore": 130.5
         }
       ],
-      "optPfg": 115.6,
-      "optimalPF": 6472.52,
-      "optimalPointsFor": 6472.52
+      "optPfg": 117.1,
+      "optimalPF": 7842.8,
+      "optimalPointsFor": 7842.8,
+      "dOhCount": 10
     },
     {
       "ownerName": "Brendan Sanders",
@@ -6116,7 +6059,6 @@
         {
           "year": 2025,
           "week": 6,
-          "team": "Stroking my penix",
           "starter": "Josh Allen",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -6132,7 +6074,6 @@
         {
           "year": 2025,
           "week": 17,
-          "team": "Stroking my penix",
           "starter": "Isiah Pacheco",
           "starterPosition": "RB",
           "starterSlot": "RB",
@@ -6146,9 +6087,10 @@
           "projectedNewScore": 101.38
         }
       ],
-      "optPfg": 111.7,
-      "optimalPF": 1563.2,
-      "optimalPointsFor": 1563.2
+      "optPfg": 115,
+      "optimalPF": 1955,
+      "optimalPointsFor": 1955,
+      "dOhCount": 2
     },
     {
       "ownerName": "Mike Petro",
@@ -6285,7 +6227,6 @@
         {
           "year": 2024,
           "week": 17,
-          "team": "Chaos Two The Chaos Boogaloo",
           "starter": "Josh Downs",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -6299,9 +6240,10 @@
           "projectedNewScore": 90.22
         }
       ],
-      "optPfg": 105.9,
-      "optimalPF": 1481.9,
-      "optimalPointsFor": 1481.9
+      "optPfg": 104.3,
+      "optimalPF": 1772.6,
+      "optimalPointsFor": 1772.6,
+      "dOhCount": 1
     },
     {
       "ownerName": "Tyler Hicks",
@@ -6503,7 +6445,6 @@
         {
           "year": 2022,
           "week": 9,
-          "team": "Burreaux and Affiliates ",
           "starter": "Joe Burrow",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -6519,7 +6460,6 @@
         {
           "year": 2022,
           "week": 14,
-          "team": "Burreaux and Affiliates ",
           "starter": "Tyler Boyd",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -6535,7 +6475,6 @@
         {
           "year": 2022,
           "week": 15,
-          "team": "Burreaux and Affiliates ",
           "starter": "D'Onta Foreman",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -6551,7 +6490,6 @@
         {
           "year": 2023,
           "week": 8,
-          "team": "Ridley and the Underwhelmers",
           "starter": "Jakobi Meyers",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -6567,7 +6505,6 @@
         {
           "year": 2023,
           "week": 14,
-          "team": "Ridley and the Underwhelmers",
           "starter": "Josh Downs",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -6583,7 +6520,6 @@
         {
           "year": 2024,
           "week": 8,
-          "team": "Burrow My Nuts in Ur Mom",
           "starter": "Kareem Hunt",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -6597,9 +6533,10 @@
           "projectedNewScore": 122.36
         }
       ],
-      "optPfg": 129.4,
-      "optimalPF": 5435.08,
-      "optimalPointsFor": 5435.08
+      "optPfg": 130,
+      "optimalPF": 6630.4,
+      "optimalPointsFor": 6630.4,
+      "dOhCount": 6
     },
     {
       "ownerName": "Andrew Hullett",
@@ -7189,7 +7126,6 @@
         {
           "year": 2023,
           "week": 7,
-          "team": "big cheeks",
           "starter": "Curtis Samuel",
           "starterPosition": "WR",
           "starterSlot": "FLEX",
@@ -7205,7 +7141,6 @@
         {
           "year": 2023,
           "week": 14,
-          "team": "big cheeks",
           "starter": "Jordan Love",
           "starterPosition": "QB",
           "starterSlot": "QB",
@@ -7221,7 +7156,6 @@
         {
           "year": 2025,
           "week": 1,
-          "team": "I Love Joey Chestnut",
           "starter": "Jerome Ford",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -7237,7 +7171,6 @@
         {
           "year": 2025,
           "week": 3,
-          "team": "I Love Joey Chestnut",
           "starter": "Rachaad White",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -7253,7 +7186,6 @@
         {
           "year": 2025,
           "week": 14,
-          "team": "I Love Joey Chestnut",
           "starter": "Ashton Jeanty",
           "starterPosition": "RB",
           "starterSlot": "FLEX",
@@ -7269,7 +7201,6 @@
         {
           "year": 2025,
           "week": 16,
-          "team": "I Love Joey Chestnut",
           "starter": "Michael Pittman Jr.",
           "starterPosition": "WR",
           "starterSlot": "WR",
@@ -7283,9 +7214,10 @@
           "projectedNewScore": 113.58
         }
       ],
-      "optPfg": 119.4,
-      "optimalPF": 3342.38,
-      "optimalPointsFor": 3342.38
+      "optPfg": 116.5,
+      "optimalPF": 3962.4,
+      "optimalPointsFor": 3962.4,
+      "dOhCount": 6
     }
   ],
   "seasonData": {
@@ -22504,11 +22436,12 @@
           "ovrWinPct": 78.4,
           "ovrRecord": "98-27",
           "rank": 1,
-          "coachingEfficiency": 88.4,
+          "coachingEfficiency": 87.9,
           "dOhs": 0,
           "dOhDetails": [],
-          "optimalPF": 1904.5,
-          "optimalPointsFor": 1904.5
+          "optimalPF": 2141.5,
+          "optimalPointsFor": 2141.5,
+          "dOhCount": 0
         },
         {
           "ownerName": "Sean Belcher",
@@ -22589,7 +22522,7 @@
           "ovrWinPct": 55.6,
           "ovrRecord": "70-56",
           "rank": 2,
-          "coachingEfficiency": 89.9,
+          "coachingEfficiency": 90.8,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -22608,8 +22541,9 @@
               "projectedNewScore": 140
             }
           ],
-          "optimalPF": 1633.5,
-          "optimalPointsFor": 1633.5
+          "optimalPF": 1828,
+          "optimalPointsFor": 1828,
+          "dOhCount": 1
         },
         {
           "ownerName": "Aidan O'Sullivan",
@@ -22678,8 +22612,8 @@
           "ovrWinPct": 58.7,
           "ovrRecord": "74-52",
           "rank": 3,
-          "coachingEfficiency": 83.6,
-          "dOhs": 1,
+          "coachingEfficiency": 83.3,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2022,
@@ -22695,10 +22629,41 @@
               "deficitNeeded": 9,
               "winMargin": 3,
               "projectedNewScore": 92
+            },
+            {
+              "year": 2022,
+              "week": 15,
+              "starter": "Brandon Aiyuk",
+              "starterPosition": "WR",
+              "starterSlot": "FLEX",
+              "starterPoints": 2,
+              "benchPlayer": "Latavius Murray",
+              "benchPosition": "RB",
+              "benchPoints": 20.5,
+              "netGain": 18.5,
+              "deficitNeeded": 15,
+              "winMargin": 3.5,
+              "projectedNewScore": 125
+            },
+            {
+              "year": 2022,
+              "week": 16,
+              "starter": "Latavius Murray",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 5.5,
+              "benchPlayer": "Jakobi Meyers",
+              "benchPosition": "WR",
+              "benchPoints": 17,
+              "netGain": 11.5,
+              "deficitNeeded": 8,
+              "winMargin": 3.5,
+              "projectedNewScore": 115
             }
           ],
-          "optimalPF": 1814.5,
-          "optimalPointsFor": 1814.5
+          "optimalPF": 2188,
+          "optimalPointsFor": 2188,
+          "dOhCount": 3
         },
         {
           "ownerName": "Tyler Hicks",
@@ -22763,8 +22728,8 @@
           "ovrWinPct": 54.8,
           "ovrRecord": "69-57",
           "rank": 4,
-          "coachingEfficiency": 84,
-          "dOhs": 2,
+          "coachingEfficiency": 83.5,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2022,
@@ -22795,10 +22760,26 @@
               "deficitNeeded": 9,
               "winMargin": 7.5,
               "projectedNewScore": 90
+            },
+            {
+              "year": 2022,
+              "week": 15,
+              "starter": "D'Onta Foreman",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 0,
+              "benchPlayer": "Cordarrelle Patterson",
+              "benchPosition": "RB",
+              "benchPoints": 11.5,
+              "netGain": 11.5,
+              "deficitNeeded": 10.5,
+              "winMargin": 1,
+              "projectedNewScore": 143
             }
           ],
-          "optimalPF": 1772.5,
-          "optimalPointsFor": 1772.5
+          "optimalPF": 2166,
+          "optimalPointsFor": 2166,
+          "dOhCount": 3
         },
         {
           "ownerName": "Nathan Wells",
@@ -22888,8 +22869,8 @@
           "ovrWinPct": 44,
           "ovrRecord": "55-70",
           "rank": 5,
-          "coachingEfficiency": 86.7,
-          "dOhs": 3,
+          "coachingEfficiency": 86.4,
+          "dOhs": 4,
           "dOhDetails": [
             {
               "year": 2022,
@@ -22935,10 +22916,26 @@
               "deficitNeeded": 11.5,
               "winMargin": 5,
               "projectedNewScore": 69.5
+            },
+            {
+              "year": 2022,
+              "week": 16,
+              "starter": "Raheem Mostert",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 3,
+              "benchPlayer": "Pat Freiermuth",
+              "benchPosition": "TE",
+              "benchPoints": 9.5,
+              "netGain": 6.5,
+              "deficitNeeded": 3,
+              "winMargin": 3.5,
+              "projectedNewScore": 118.5
             }
           ],
-          "optimalPF": 1529.5,
-          "optimalPointsFor": 1529.5
+          "optimalPF": 1961,
+          "optimalPointsFor": 1961,
+          "dOhCount": 4
         },
         {
           "ownerName": "Austin Geller",
@@ -23024,7 +23021,7 @@
           "ovrWinPct": 50,
           "ovrRecord": "62-62",
           "rank": 6,
-          "coachingEfficiency": 88.2,
+          "coachingEfficiency": 87.8,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -23058,8 +23055,9 @@
               "projectedNewScore": 110.5
             }
           ],
-          "optimalPF": 1667,
-          "optimalPointsFor": 1667
+          "optimalPF": 2077.5,
+          "optimalPointsFor": 2077.5,
+          "dOhCount": 2
         },
         {
           "ownerName": "Dylan Soth",
@@ -23131,8 +23129,8 @@
           "ovrWinPct": 39.7,
           "ovrRecord": "50-76",
           "rank": 7,
-          "coachingEfficiency": 81.5,
-          "dOhs": 2,
+          "coachingEfficiency": 80.8,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2022,
@@ -23163,10 +23161,26 @@
               "deficitNeeded": 13.5,
               "winMargin": 0.5,
               "projectedNewScore": 90.5
+            },
+            {
+              "year": 2022,
+              "week": 17,
+              "starter": "Garrett Wilson",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.5,
+              "benchPlayer": "Allen Lazard",
+              "benchPosition": "WR",
+              "benchPoints": 7.5,
+              "netGain": 5,
+              "deficitNeeded": 2,
+              "winMargin": 3,
+              "projectedNewScore": 97
             }
           ],
-          "optimalPF": 1654,
-          "optimalPointsFor": 1654
+          "optimalPF": 1965.5,
+          "optimalPointsFor": 1965.5,
+          "dOhCount": 3
         },
         {
           "ownerName": "Andrew Wilson",
@@ -23222,8 +23236,8 @@
           "ovrWinPct": 42.1,
           "ovrRecord": "53-73",
           "rank": 8,
-          "coachingEfficiency": 84.1,
-          "dOhs": 1,
+          "coachingEfficiency": 84.2,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2022,
@@ -23239,10 +23253,41 @@
               "deficitNeeded": 8,
               "winMargin": 4.5,
               "projectedNewScore": 116
+            },
+            {
+              "year": 2022,
+              "week": 15,
+              "starter": "Dalton Schultz",
+              "starterPosition": "TE",
+              "starterSlot": "TE",
+              "starterPoints": 2,
+              "benchPlayer": "Gerald Everett",
+              "benchPosition": "TE",
+              "benchPoints": 6,
+              "netGain": 4,
+              "deficitNeeded": 3.5,
+              "winMargin": 0.5,
+              "projectedNewScore": 72
+            },
+            {
+              "year": 2022,
+              "week": 17,
+              "starter": "Zonovan Knight",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 4,
+              "benchPlayer": "D'Andre Swift",
+              "benchPosition": "RB",
+              "benchPoints": 24,
+              "netGain": 20,
+              "deficitNeeded": 6.5,
+              "winMargin": 13.5,
+              "projectedNewScore": 114
             }
           ],
-          "optimalPF": 1624,
-          "optimalPointsFor": 1624
+          "optimalPF": 1937,
+          "optimalPointsFor": 1937,
+          "dOhCount": 3
         },
         {
           "ownerName": "Michael Anderson",
@@ -23325,7 +23370,7 @@
           "ovrWinPct": 40.5,
           "ovrRecord": "51-75",
           "rank": 9,
-          "coachingEfficiency": 86.6,
+          "coachingEfficiency": 87.2,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -23359,8 +23404,9 @@
               "projectedNewScore": 101
             }
           ],
-          "optimalPF": 1534,
-          "optimalPointsFor": 1534
+          "optimalPF": 1880,
+          "optimalPointsFor": 1880,
+          "dOhCount": 2
         },
         {
           "ownerName": "James Carter",
@@ -23423,7 +23469,7 @@
           "ovrWinPct": 36.5,
           "ovrRecord": "46-80",
           "rank": 10,
-          "coachingEfficiency": 88.3,
+          "coachingEfficiency": 83.1,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -23442,8 +23488,9 @@
               "projectedNewScore": 99.5
             }
           ],
-          "optimalPF": 1500.5,
-          "optimalPointsFor": 1500.5
+          "optimalPF": 1857.5,
+          "optimalPointsFor": 1857.5,
+          "dOhCount": 1
         }
       ],
       "statRecords": {},
@@ -26811,11 +26858,28 @@
           "ovrWinPct": 53.2,
           "ovrRecord": "67-59",
           "rank": 1,
-          "coachingEfficiency": 90.5,
-          "dOhs": 0,
-          "dOhDetails": [],
-          "optimalPF": 1648.5,
-          "optimalPointsFor": 1648.5
+          "coachingEfficiency": 91.2,
+          "dOhs": 1,
+          "dOhDetails": [
+            {
+              "year": 2023,
+              "week": 17,
+              "starter": "Zamir White",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 12.5,
+              "benchPlayer": "Darius Slayton",
+              "benchPosition": "WR",
+              "benchPoints": 18,
+              "netGain": 5.5,
+              "deficitNeeded": 4,
+              "winMargin": 1.5,
+              "projectedNewScore": 118.5
+            }
+          ],
+          "optimalPF": 1897.5,
+          "optimalPointsFor": 1897.5,
+          "dOhCount": 1
         },
         {
           "ownerName": "Aidan O'Sullivan",
@@ -26901,7 +26965,7 @@
           "ovrWinPct": 66.4,
           "ovrRecord": "83-42",
           "rank": 2,
-          "coachingEfficiency": 87.9,
+          "coachingEfficiency": 86.5,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -26935,8 +26999,9 @@
               "projectedNewScore": 122.5
             }
           ],
-          "optimalPF": 1814,
-          "optimalPointsFor": 1814
+          "optimalPF": 2083,
+          "optimalPointsFor": 2083,
+          "dOhCount": 2
         },
         {
           "ownerName": "Dylan Soth",
@@ -27008,11 +27073,12 @@
           "ovrWinPct": 51.6,
           "ovrRecord": "65-61",
           "rank": 3,
-          "coachingEfficiency": 90.8,
+          "coachingEfficiency": 90.1,
           "dOhs": 0,
           "dOhDetails": [],
-          "optimalPF": 1601,
-          "optimalPointsFor": 1601
+          "optimalPF": 1962.5,
+          "optimalPointsFor": 1962.5,
+          "dOhCount": 0
         },
         {
           "ownerName": "Trace Bakulich",
@@ -27079,7 +27145,7 @@
           "ovrWinPct": 48.8,
           "ovrRecord": "61-64",
           "rank": 4,
-          "coachingEfficiency": 88,
+          "coachingEfficiency": 88.3,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -27098,8 +27164,9 @@
               "projectedNewScore": 111.5
             }
           ],
-          "optimalPF": 1597.5,
-          "optimalPointsFor": 1597.5
+          "optimalPF": 1930.5,
+          "optimalPointsFor": 1930.5,
+          "dOhCount": 1
         },
         {
           "ownerName": "Austin Geller",
@@ -27151,7 +27218,7 @@
           "ovrWinPct": 42.9,
           "ovrRecord": "54-72",
           "rank": 5,
-          "coachingEfficiency": 85.9,
+          "coachingEfficiency": 87.1,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -27170,8 +27237,9 @@
               "projectedNewScore": 104.5
             }
           ],
-          "optimalPF": 1616.5,
-          "optimalPointsFor": 1616.5
+          "optimalPF": 2025.5,
+          "optimalPointsFor": 2025.5,
+          "dOhCount": 1
         },
         {
           "ownerName": "Andrew Wilson",
@@ -27257,8 +27325,8 @@
           "ovrWinPct": 54,
           "ovrRecord": "68-58",
           "rank": 6,
-          "coachingEfficiency": 86.3,
-          "dOhs": 3,
+          "coachingEfficiency": 84.8,
+          "dOhs": 4,
           "dOhDetails": [
             {
               "year": 2023,
@@ -27304,10 +27372,26 @@
               "deficitNeeded": 10.5,
               "winMargin": 0.5,
               "projectedNewScore": 84.5
+            },
+            {
+              "year": 2023,
+              "week": 17,
+              "starter": "James Cook",
+              "starterPosition": "RB",
+              "starterSlot": "FLEX",
+              "starterPoints": 4.5,
+              "benchPlayer": "De'Von Achane",
+              "benchPosition": "RB",
+              "benchPoints": 21,
+              "netGain": 16.5,
+              "deficitNeeded": 4,
+              "winMargin": 12.5,
+              "projectedNewScore": 126.5
             }
           ],
-          "optimalPF": 1812.5,
-          "optimalPointsFor": 1812.5
+          "optimalPF": 2226,
+          "optimalPointsFor": 2226,
+          "dOhCount": 4
         },
         {
           "ownerName": "Phillip Busick",
@@ -27370,7 +27454,7 @@
           "ovrWinPct": 56.3,
           "ovrRecord": "71-55",
           "rank": 7,
-          "coachingEfficiency": 87,
+          "coachingEfficiency": 84.6,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -27404,8 +27488,9 @@
               "projectedNewScore": 120
             }
           ],
-          "optimalPF": 1727,
-          "optimalPointsFor": 1727
+          "optimalPF": 2045,
+          "optimalPointsFor": 2045,
+          "dOhCount": 2
         },
         {
           "ownerName": "Tyler Hicks",
@@ -27479,7 +27564,7 @@
           "ovrWinPct": 54,
           "ovrRecord": "68-58",
           "rank": 8,
-          "coachingEfficiency": 83,
+          "coachingEfficiency": 83.2,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -27513,8 +27598,9 @@
               "projectedNewScore": 99.5
             }
           ],
-          "optimalPF": 1795,
-          "optimalPointsFor": 1795
+          "optimalPF": 2148,
+          "optimalPointsFor": 2148,
+          "dOhCount": 2
         },
         {
           "ownerName": "Nathan Wells",
@@ -27597,7 +27683,7 @@
           "ovrWinPct": 38.1,
           "ovrRecord": "48-78",
           "rank": 9,
-          "coachingEfficiency": 90.3,
+          "coachingEfficiency": 89.2,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -27631,8 +27717,9 @@
               "projectedNewScore": 119.5
             }
           ],
-          "optimalPF": 1523.5,
-          "optimalPointsFor": 1523.5
+          "optimalPF": 1872.5,
+          "optimalPointsFor": 1872.5,
+          "dOhCount": 2
         },
         {
           "ownerName": "Sean Belcher",
@@ -27704,11 +27791,28 @@
           "ovrWinPct": 34.9,
           "ovrRecord": "44-82",
           "rank": 10,
-          "coachingEfficiency": 90.4,
-          "dOhs": 0,
-          "dOhDetails": [],
-          "optimalPF": 1518,
-          "optimalPointsFor": 1518
+          "coachingEfficiency": 88.8,
+          "dOhs": 1,
+          "dOhDetails": [
+            {
+              "year": 2023,
+              "week": 15,
+              "starter": "Tyler Lockett",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 3.5,
+              "benchPlayer": "Tee Higgins",
+              "benchPosition": "WR",
+              "benchPoints": 20,
+              "netGain": 16.5,
+              "deficitNeeded": 12.5,
+              "winMargin": 4,
+              "projectedNewScore": 106
+            }
+          ],
+          "optimalPF": 1933.5,
+          "optimalPointsFor": 1933.5,
+          "dOhCount": 1
         }
       ],
       "statRecords": {},
@@ -30818,7 +30922,7 @@
           "ovrWinPct": 54.8,
           "ovrRecord": "69-57",
           "rank": 1,
-          "coachingEfficiency": 89.6,
+          "coachingEfficiency": 90,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -30837,8 +30941,9 @@
               "projectedNewScore": 118.1
             }
           ],
-          "optimalPF": 1825.92,
-          "optimalPointsFor": 1825.92
+          "optimalPF": 2155.2,
+          "optimalPointsFor": 2155.2,
+          "dOhCount": 1
         },
         {
           "ownerName": "Nathan Wells",
@@ -30901,8 +31006,8 @@
           "ovrWinPct": 55.6,
           "ovrRecord": "70-56",
           "rank": 2,
-          "coachingEfficiency": 90.7,
-          "dOhs": 1,
+          "coachingEfficiency": 90.1,
+          "dOhs": 2,
           "dOhDetails": [
             {
               "year": 2024,
@@ -30918,10 +31023,26 @@
               "deficitNeeded": 0.78,
               "winMargin": 7.12,
               "projectedNewScore": 109.12
+            },
+            {
+              "year": 2024,
+              "week": 17,
+              "starter": "Texans D/ST",
+              "starterPosition": "DEF",
+              "starterSlot": "DEF",
+              "starterPoints": -1,
+              "benchPlayer": "Dolphins D/ST",
+              "benchPosition": "DEF",
+              "benchPoints": 11,
+              "netGain": 12,
+              "deficitNeeded": 6.8,
+              "winMargin": 5.2,
+              "projectedNewScore": 106.68
             }
           ],
-          "optimalPF": 1720.8,
-          "optimalPointsFor": 1720.8
+          "optimalPF": 1963.3,
+          "optimalPointsFor": 1963.3,
+          "dOhCount": 2
         },
         {
           "ownerName": "Austin Geller",
@@ -30969,7 +31090,7 @@
           "ovrWinPct": 57.1,
           "ovrRecord": "72-54",
           "rank": 3,
-          "coachingEfficiency": 88.2,
+          "coachingEfficiency": 88.4,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -30988,8 +31109,9 @@
               "projectedNewScore": 160.54
             }
           ],
-          "optimalPF": 1773.9,
-          "optimalPointsFor": 1773.9
+          "optimalPF": 2118.9,
+          "optimalPointsFor": 2118.9,
+          "dOhCount": 1
         },
         {
           "ownerName": "Mike Petro",
@@ -31079,11 +31201,28 @@
           "ovrWinPct": 31.7,
           "ovrRecord": "40-86",
           "rank": 4,
-          "coachingEfficiency": 92.7,
-          "dOhs": 0,
-          "dOhDetails": [],
-          "optimalPF": 1481.9,
-          "optimalPointsFor": 1481.9
+          "coachingEfficiency": 93,
+          "dOhs": 1,
+          "dOhDetails": [
+            {
+              "year": 2024,
+              "week": 17,
+              "starter": "Josh Downs",
+              "starterPosition": "WR",
+              "starterSlot": "FLEX",
+              "starterPoints": 3.7,
+              "benchPlayer": "Kyle Pitts",
+              "benchPosition": "TE",
+              "benchPoints": 12.4,
+              "netGain": 8.7,
+              "deficitNeeded": 8.58,
+              "winMargin": 0.12,
+              "projectedNewScore": 90.22
+            }
+          ],
+          "optimalPF": 1772.6,
+          "optimalPointsFor": 1772.6,
+          "dOhCount": 1
         },
         {
           "ownerName": "Michael Anderson",
@@ -31188,8 +31327,8 @@
           "ovrWinPct": 58.7,
           "ovrRecord": "74-52",
           "rank": 5,
-          "coachingEfficiency": 86.8,
-          "dOhs": 2,
+          "coachingEfficiency": 85.9,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2024,
@@ -31220,10 +31359,26 @@
               "deficitNeeded": 2.98,
               "winMargin": 2.02,
               "projectedNewScore": 124.48
+            },
+            {
+              "year": 2024,
+              "week": 16,
+              "starter": "Aaron Rodgers",
+              "starterPosition": "QB",
+              "starterSlot": "QB",
+              "starterPoints": 12.84,
+              "benchPlayer": "Justin Herbert",
+              "benchPosition": "QB",
+              "benchPoints": 22.16,
+              "netGain": 9.32,
+              "deficitNeeded": 3.98,
+              "winMargin": 5.34,
+              "projectedNewScore": 149.76
             }
           ],
-          "optimalPF": 1901.4,
-          "optimalPointsFor": 1901.4
+          "optimalPF": 2315.4,
+          "optimalPointsFor": 2315.4,
+          "dOhCount": 3
         },
         {
           "ownerName": "Aidan O'Sullivan",
@@ -31301,7 +31456,7 @@
           "ovrWinPct": 57.9,
           "ovrRecord": "73-53",
           "rank": 6,
-          "coachingEfficiency": 89.9,
+          "coachingEfficiency": 90.7,
           "dOhs": 4,
           "dOhDetails": [
             {
@@ -31365,8 +31520,9 @@
               "projectedNewScore": 107.34
             }
           ],
-          "optimalPF": 1804.42,
-          "optimalPointsFor": 1804.42
+          "optimalPF": 2229.8,
+          "optimalPointsFor": 2229.8,
+          "dOhCount": 4
         },
         {
           "ownerName": "Tyler Hicks",
@@ -31452,7 +31608,7 @@
           "ovrWinPct": 55.6,
           "ovrRecord": "70-56",
           "rank": 7,
-          "coachingEfficiency": 86,
+          "coachingEfficiency": 85.1,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -31471,8 +31627,9 @@
               "projectedNewScore": 122.36
             }
           ],
-          "optimalPF": 1867.58,
-          "optimalPointsFor": 1867.58
+          "optimalPF": 2316.4,
+          "optimalPointsFor": 2316.4,
+          "dOhCount": 1
         },
         {
           "ownerName": "Trace Bakulich",
@@ -31556,7 +31713,7 @@
           "ovrWinPct": 52.4,
           "ovrRecord": "66-60",
           "rank": 8,
-          "coachingEfficiency": 91.8,
+          "coachingEfficiency": 91.9,
           "dOhs": 3,
           "dOhDetails": [
             {
@@ -31605,8 +31762,9 @@
               "projectedNewScore": 152.98
             }
           ],
-          "optimalPF": 1723.78,
-          "optimalPointsFor": 1723.78
+          "optimalPF": 2109.8,
+          "optimalPointsFor": 2109.8,
+          "dOhCount": 3
         },
         {
           "ownerName": "Sean Belcher",
@@ -31669,11 +31827,12 @@
           "ovrWinPct": 34.1,
           "ovrRecord": "43-83",
           "rank": 9,
-          "coachingEfficiency": 92.7,
+          "coachingEfficiency": 92.6,
           "dOhs": 0,
           "dOhDetails": [],
-          "optimalPF": 1511.2,
-          "optimalPointsFor": 1511.2
+          "optimalPF": 1952.2,
+          "optimalPointsFor": 1952.2,
+          "dOhCount": 0
         },
         {
           "ownerName": "Dylan Soth",
@@ -31760,8 +31919,8 @@
           "ovrWinPct": 42.1,
           "ovrRecord": "53-73",
           "rank": 10,
-          "coachingEfficiency": 87.3,
-          "dOhs": 5,
+          "coachingEfficiency": 87,
+          "dOhs": 6,
           "dOhDetails": [
             {
               "year": 2024,
@@ -31837,10 +31996,26 @@
               "deficitNeeded": 8.4,
               "winMargin": 1.6,
               "projectedNewScore": 149.18
+            },
+            {
+              "year": 2024,
+              "week": 15,
+              "starter": "Amari Cooper",
+              "starterPosition": "WR",
+              "starterSlot": "FLEX",
+              "starterPoints": 0,
+              "benchPlayer": "Quentin Johnston",
+              "benchPosition": "WR",
+              "benchPoints": 13,
+              "netGain": 13,
+              "deficitNeeded": 5.96,
+              "winMargin": 7.04,
+              "projectedNewScore": 151.68
             }
           ],
-          "optimalPF": 1693.46,
-          "optimalPointsFor": 1693.46
+          "optimalPF": 2119.5,
+          "optimalPointsFor": 2119.5,
+          "dOhCount": 6
         }
       ],
       "statRecords": {},
@@ -34844,11 +35019,12 @@
           "ovrWinPct": 55.6,
           "ovrRecord": "70-56",
           "rank": 1,
-          "coachingEfficiency": 92.2,
+          "coachingEfficiency": 91.5,
           "dOhs": 0,
           "dOhDetails": [],
-          "optimalPF": 1685.82,
-          "optimalPointsFor": 1685.82
+          "optimalPF": 1909.8,
+          "optimalPointsFor": 1909.8,
+          "dOhCount": 0
         },
         {
           "ownerName": "Brendan Sanders",
@@ -34934,8 +35110,8 @@
           "ovrWinPct": 46,
           "ovrRecord": "58-68",
           "rank": 2,
-          "coachingEfficiency": 91.1,
-          "dOhs": 1,
+          "coachingEfficiency": 87.9,
+          "dOhs": 2,
           "dOhDetails": [
             {
               "year": 2025,
@@ -34951,10 +35127,26 @@
               "deficitNeeded": 2.58,
               "winMargin": 9.26,
               "projectedNewScore": 78.84
+            },
+            {
+              "year": 2025,
+              "week": 17,
+              "starter": "Isiah Pacheco",
+              "starterPosition": "RB",
+              "starterSlot": "RB",
+              "starterPoints": 3.2,
+              "benchPlayer": "Devin Singletary",
+              "benchPosition": "RB",
+              "benchPoints": 15,
+              "netGain": 11.8,
+              "deficitNeeded": 3.96,
+              "winMargin": 7.84,
+              "projectedNewScore": 101.38
             }
           ],
-          "optimalPF": 1563.2,
-          "optimalPointsFor": 1563.2
+          "optimalPF": 1955,
+          "optimalPointsFor": 1955,
+          "dOhCount": 2
         },
         {
           "ownerName": "Michael Anderson",
@@ -35027,8 +35219,8 @@
           "ovrWinPct": 56.3,
           "ovrRecord": "71-55",
           "rank": 3,
-          "coachingEfficiency": 86.9,
-          "dOhs": 2,
+          "coachingEfficiency": 87.4,
+          "dOhs": 3,
           "dOhDetails": [
             {
               "year": 2025,
@@ -35059,10 +35251,26 @@
               "deficitNeeded": 3.24,
               "winMargin": 1.46,
               "projectedNewScore": 104.38
+            },
+            {
+              "year": 2025,
+              "week": 16,
+              "starter": "DK Metcalf",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 6.2,
+              "benchPlayer": "Ladd McConkey",
+              "benchPosition": "WR",
+              "benchPoints": 12.3,
+              "netGain": 6.1,
+              "deficitNeeded": 0.5,
+              "winMargin": 5.6,
+              "projectedNewScore": 103.78
             }
           ],
-          "optimalPF": 1827.72,
-          "optimalPointsFor": 1827.72
+          "optimalPF": 2062.1,
+          "optimalPointsFor": 2062.1,
+          "dOhCount": 3
         },
         {
           "ownerName": "Trace Bakulich",
@@ -35131,7 +35339,7 @@
           "ovrWinPct": 63.5,
           "ovrRecord": "80-46",
           "rank": 4,
-          "coachingEfficiency": 89.9,
+          "coachingEfficiency": 88.6,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -35165,8 +35373,9 @@
               "projectedNewScore": 123.72
             }
           ],
-          "optimalPF": 1750.52,
-          "optimalPointsFor": 1750.52
+          "optimalPF": 2102,
+          "optimalPointsFor": 2102,
+          "dOhCount": 2
         },
         {
           "ownerName": "Dylan Soth",
@@ -35247,7 +35456,7 @@
           "ovrWinPct": 52.4,
           "ovrRecord": "66-60",
           "rank": 5,
-          "coachingEfficiency": 85.7,
+          "coachingEfficiency": 87.1,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -35266,8 +35475,9 @@
               "projectedNewScore": 110.84
             }
           ],
-          "optimalPF": 1753.96,
-          "optimalPointsFor": 1753.96
+          "optimalPF": 2285.3,
+          "optimalPointsFor": 2285.3,
+          "dOhCount": 1
         },
         {
           "ownerName": "Sean Belcher",
@@ -35388,7 +35598,7 @@
           "ovrWinPct": 61.1,
           "ovrRecord": "77-49",
           "rank": 6,
-          "coachingEfficiency": 93.3,
+          "coachingEfficiency": 94,
           "dOhs": 3,
           "dOhDetails": [
             {
@@ -35437,8 +35647,9 @@
               "projectedNewScore": 108.48
             }
           ],
-          "optimalPF": 1761.7,
-          "optimalPointsFor": 1761.7
+          "optimalPF": 2131.7,
+          "optimalPointsFor": 2131.7,
+          "dOhCount": 3
         },
         {
           "ownerName": "Nathan Wells",
@@ -35497,7 +35708,7 @@
           "ovrWinPct": 52.4,
           "ovrRecord": "66-60",
           "rank": 7,
-          "coachingEfficiency": 89.3,
+          "coachingEfficiency": 86.2,
           "dOhs": 2,
           "dOhDetails": [
             {
@@ -35531,8 +35742,9 @@
               "projectedNewScore": 130.5
             }
           ],
-          "optimalPF": 1698.72,
-          "optimalPointsFor": 1698.72
+          "optimalPF": 2046,
+          "optimalPointsFor": 2046,
+          "dOhCount": 2
         },
         {
           "ownerName": "Aidan O'Sullivan",
@@ -35588,7 +35800,7 @@
           "ovrWinPct": 38.9,
           "ovrRecord": "49-77",
           "rank": 8,
-          "coachingEfficiency": 87.5,
+          "coachingEfficiency": 86.8,
           "dOhs": 3,
           "dOhDetails": [
             {
@@ -35637,8 +35849,9 @@
               "projectedNewScore": 111.4
             }
           ],
-          "optimalPF": 1603.2,
-          "optimalPointsFor": 1603.2
+          "optimalPF": 2041,
+          "optimalPointsFor": 2041,
+          "dOhCount": 3
         },
         {
           "ownerName": "Andrew Wilson",
@@ -35697,7 +35910,7 @@
           "ovrWinPct": 42.1,
           "ovrRecord": "53-73",
           "rank": 9,
-          "coachingEfficiency": 89.2,
+          "coachingEfficiency": 88.9,
           "dOhs": 1,
           "dOhDetails": [
             {
@@ -35716,8 +35929,9 @@
               "projectedNewScore": 115.26
             }
           ],
-          "optimalPF": 1601.7,
-          "optimalPointsFor": 1601.7
+          "optimalPF": 1951.8,
+          "optimalPointsFor": 1951.8,
+          "dOhCount": 1
         },
         {
           "ownerName": "Phillip Busick",
@@ -35773,8 +35987,8 @@
           "ovrWinPct": 31.7,
           "ovrRecord": "40-86",
           "rank": 10,
-          "coachingEfficiency": 86.5,
-          "dOhs": 3,
+          "coachingEfficiency": 86.4,
+          "dOhs": 4,
           "dOhDetails": [
             {
               "year": 2025,
@@ -35820,10 +36034,26 @@
               "deficitNeeded": 6.6,
               "winMargin": 11.5,
               "projectedNewScore": 125.14
+            },
+            {
+              "year": 2025,
+              "week": 16,
+              "starter": "Michael Pittman Jr.",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 5.2,
+              "benchPlayer": "Romeo Doubs",
+              "benchPosition": "WR",
+              "benchPoints": 16.9,
+              "netGain": 11.7,
+              "deficitNeeded": 7.02,
+              "winMargin": 4.68,
+              "projectedNewScore": 113.58
             }
           ],
-          "optimalPF": 1615.38,
-          "optimalPointsFor": 1615.38
+          "optimalPF": 1917.4,
+          "optimalPointsFor": 1917.4,
+          "dOhCount": 4
         }
       ],
       "statRecords": {},
