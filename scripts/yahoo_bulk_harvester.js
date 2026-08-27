@@ -250,11 +250,11 @@
 
   function parseYahooTables(table, isBench) {
     if (!table) return { playersA: [], playersB: [] };
-    const theadThs = [...table.querySelectorAll('thead th')];
+    const theadThs = [...table.querySelectorAll('thead th, tr:first-child th, tr:first-child td')];
     
     let t1PlayerCol = 1;
     let t1PtsCol = 3;
-    let posCol = 5;
+    let posCol = -1;
     let t2PtsCol = 7;
     let t2PlayerCol = 9;
 
@@ -262,17 +262,23 @@
     let playerCols = [];
     theadThs.forEach((th, idx) => {
       const title = (th.title || '').toLowerCase();
-      const text = th.textContent.toLowerCase().trim();
-      if (title.includes('fantasy points') || text === 'fan pts') {
+      const text = (th.textContent || '').toLowerCase().trim();
+      if (title.includes('fantasy points') || text === 'fan pts' || text === 'pts' || text.includes('points')) {
         fanPtsCols.push(idx);
       }
-      if (text === 'player') {
+      if (text === 'player' || text.includes('player')) {
         playerCols.push(idx);
       }
-      if ((th.className.includes('Ta-c') || th.className.includes('Bdrstart')) && text.includes('pos')) {
+      if ((th.className && (th.className.includes('Ta-c') || th.className.includes('Bdrstart'))) || text === 'pos' || text.includes('pos')) {
         posCol = idx;
       }
     });
+
+    if (posCol === -1) {
+      // Find middle column containing 'pos'
+      posCol = theadThs.findIndex(th => (th.textContent || '').toLowerCase().includes('pos'));
+      if (posCol === -1) posCol = Math.floor(theadThs.length / 2);
+    }
 
     if (fanPtsCols.length >= 2) {
       t1PtsCol = fanPtsCols[0];
@@ -286,40 +292,42 @@
     const playersA = [];
     const playersB = [];
 
-    const rows = table.querySelectorAll('tbody tr');
+    const rows = table.querySelectorAll('tbody tr, tr');
     rows.forEach(tr => {
       if (tr.classList.contains('Last') && tr.textContent.includes('TOTAL')) return;
+      if (tr.querySelector('th') && !tr.querySelector('td')) return; // Header row
       const cells = [...tr.querySelectorAll('td, th')];
       if (cells.length <= Math.max(t1PlayerCol, t1PtsCol, posCol, t2PtsCol, t2PlayerCol)) return;
 
-      const slot = cells[posCol].textContent.trim();
+      const slot = (cells[posCol]?.textContent || '').trim();
+      if (!slot || slot.toLowerCase() === 'pos') return;
 
       // Team 1 (Left)
       const t1Cell = cells[t1PlayerCol];
-      const t1NameEl = t1Cell.querySelector('.ysf-player-name a.name, a.name, a.F-link');
+      const t1NameEl = t1Cell ? t1Cell.querySelector('.ysf-player-name a.name, a.name, a.F-link') : null;
       let t1Name = t1NameEl ? t1NameEl.textContent.trim() : '';
-      if (!t1Name) {
+      if (!t1Name && t1Cell) {
         const raw = t1Cell.textContent.split('Final')[0].split('Video')[0].trim();
-        if (raw && !raw.includes('Empty')) t1Name = raw;
+        if (raw && !raw.includes('Empty') && !raw.includes('TOTAL')) t1Name = raw;
       }
-      let t1Pts = parseFloat(cells[t1PtsCol].textContent.trim()) || 0.0;
+      let t1Pts = parseFloat(cells[t1PtsCol]?.textContent?.trim() || '0') || 0.0;
       let t1Pos = resolvePlayerPosition(t1Name, slot, cells[0]?.textContent || '');
 
       // Team 2 (Right)
       const t2Cell = cells[t2PlayerCol];
-      const t2NameEl = t2Cell.querySelector('.ysf-player-name a.name, a.name, a.F-link');
+      const t2NameEl = t2Cell ? t2Cell.querySelector('.ysf-player-name a.name, a.name, a.F-link') : null;
       let t2Name = t2NameEl ? t2NameEl.textContent.trim() : '';
-      if (!t2Name) {
+      if (!t2Name && t2Cell) {
         const raw = t2Cell.textContent.split('Final')[0].split('Video')[0].trim();
-        if (raw && !raw.includes('Empty')) t2Name = raw;
+        if (raw && !raw.includes('Empty') && !raw.includes('TOTAL')) t2Name = raw;
       }
-      let t2Pts = parseFloat(cells[t2PtsCol].textContent.trim()) || 0.0;
+      let t2Pts = parseFloat(cells[t2PtsCol]?.textContent?.trim() || '0') || 0.0;
       let t2Pos = resolvePlayerPosition(t2Name, slot, cells[cells.length - 1]?.textContent || '');
 
-      if (t1Name && t1Name !== '(Empty)' && t1Name !== 'Empty') {
+      if (t1Name && t1Name !== '(Empty)' && t1Name !== 'Empty' && t1Name !== 'TOTAL') {
         playersA.push({ slot, player: t1Name, playerName: t1Name, position: t1Pos, nflTeam: '', points: t1Pts, isBench });
       }
-      if (t2Name && t2Name !== '(Empty)' && t2Name !== 'Empty') {
+      if (t2Name && t2Name !== '(Empty)' && t2Name !== 'Empty' && t2Name !== 'TOTAL') {
         playersB.push({ slot, player: t2Name, playerName: t2Name, position: t2Pos, nflTeam: '', points: t2Pts, isBench });
       }
     });
@@ -328,33 +336,55 @@
   }
 
   function parseMatchupFromDoc(doc, seasonYear, wk) {
-    const header = doc.querySelector('#matchup-header');
+    const header = doc.querySelector('#matchup-header, .matchup-header, #matchup-detail');
     let nameA = 'Team A';
     let ownerA = 'Owner A';
     let nameB = 'Team B';
     let ownerB = 'Owner B';
 
     if (header) {
-      const teamDivs = header.querySelectorAll('.Grid-u-1-3');
+      const teamDivs = header.querySelectorAll('.Grid-u-1-3, .team-header');
       if (teamDivs.length >= 3) {
-        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameA;
-        ownerA = teamDivs[0].querySelector('.user-id')?.textContent.trim() || ownerA;
-        nameB = teamDivs[2].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameB;
-        ownerB = teamDivs[2].querySelector('.user-id')?.textContent.trim() || ownerB;
+        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameA;
+        ownerA = teamDivs[0].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerA;
+        nameB = teamDivs[2].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameB;
+        ownerB = teamDivs[2].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerB;
+      } else if (teamDivs.length >= 2) {
+        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameA;
+        ownerA = teamDivs[0].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerA;
+        nameB = teamDivs[1].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameB;
+        ownerB = teamDivs[1].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerB;
       }
     }
 
     nameA = nameA.replace(/â€™/g, '’').replace(/\s+/g, ' ').trim();
     nameB = nameB.replace(/â€™/g, '’').replace(/\s+/g, ' ').trim();
-    if (!ownerA || ownerA.startsWith('Owner')) ownerA = OWNER_MAP[nameA] || nameA;
-    if (!ownerB || ownerB.startsWith('Owner')) ownerB = OWNER_MAP[nameB] || nameB;
 
-    const table1 = doc.getElementById('statTable1') || doc.querySelector('#statTable1, table.stat-target');
-    const table2 = doc.getElementById('statTable2') || doc.querySelector('#statTable2, table.stat-target:nth-of-type(2)');
+    // Semantic player table discovery
+    const allTables = [...doc.querySelectorAll('table')];
+    const playerTables = allTables.filter(tbl => {
+      const text = (tbl.textContent || '').toLowerCase();
+      return text.includes('pos') && (text.includes('pts') || text.includes('player') || text.includes('proj'));
+    });
+
+    const table1 = doc.getElementById('statTable1') || doc.querySelector('#statTable1, table[id*="statTable1"]') || playerTables[0];
+    const table2 = doc.getElementById('statTable2') || doc.querySelector('#statTable2, table[id*="statTable2"]') || playerTables[1];
 
     if (!table1) {
-      console.warn(`⚠️ [Parser] Roster table not found for Week ${wk} (mid1=${doc.location?.href || 'unknown'})`);
+      console.warn(`⚠️ [Parser] Roster table not found for Week ${wk} (mid1=${doc.location?.href || 'unknown'}) among ${allTables.length} tables`);
     }
+
+    // Fallback team names from table headers if header was missing
+    if ((nameA === 'Team A' || nameB === 'Team B') && table1) {
+      const thLinks = table1.querySelectorAll('thead th a, thead th .ysf-team-name, thead th');
+      if (thLinks.length >= 2) {
+        if (nameA === 'Team A' && thLinks[0].textContent) nameA = thLinks[0].textContent.trim();
+        if (nameB === 'Team B' && thLinks[1].textContent) nameB = thLinks[1].textContent.trim();
+      }
+    }
+
+    if (!ownerA || ownerA.startsWith('Owner')) ownerA = OWNER_MAP[nameA] || nameA;
+    if (!ownerB || ownerB.startsWith('Owner')) ownerB = OWNER_MAP[nameB] || nameB;
 
     const s = parseYahooTables(table1, false);
     const b = parseYahooTables(table2, true);
@@ -363,7 +393,7 @@
     const playersB = [...s.playersB, ...b.playersB];
 
     if (playersA.length === 0 || playersB.length === 0) {
-      console.warn(`⚠️ [Parser] 0 players extracted (Team A: ${playersA.length}, Team B: ${playersB.length}) on Week ${wk}`);
+      console.warn(`⚠️ [Parser] 0 players extracted (Team A: ${playersA.length}, Team B: ${playersB.length}) on Week ${wk} from table1: ${!!table1}, table2: ${!!table2}`);
       return null;
     }
 
