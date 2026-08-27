@@ -534,14 +534,41 @@
       if (weekMatchupsCount >= (numTeams / 2)) break;
 
       try {
-        const basePath = seasonYear >= 2026 ? `/f1/${leagueId}` : `/${seasonYear}/f1/${leagueId}`;
-        const url = `${basePath}/matchup?week=${wk}&mid1=${tId}`;
-        
-        const html = await fetchWithRetry(url);
+        let basePath = window.location.pathname.includes(`/f1/${leagueId}`)
+          ? window.location.pathname.split(`/f1/${leagueId}`)[0] + `/f1/${leagueId}`
+          : (seasonYear >= 2026 ? `/f1/${leagueId}` : `/${seasonYear}/f1/${leagueId}`);
+
+        let url = `${basePath}/matchup?week=${wk}&mid1=${tId}`;
+        let html = await fetchWithRetry(url);
         if (!html) continue;
 
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        const matchup = parseMatchupFromDoc(doc, seasonYear, wk);
+        let doc = new DOMParser().parseFromString(html, 'text/html');
+        let matchup = parseMatchupFromDoc(doc, seasonYear, wk);
+
+        // Fallback: If 0 tables found, try root /f1/<leagueId> or archive path
+        if (!matchup && !doc.querySelector('table, #matchup-header, .matchup-header')) {
+          console.log(`⚠️ Document Title: "${doc.title}". Trying alternate URL patterns...`);
+          const altUrls = [
+            `/f1/${leagueId}/matchup?week=${wk}&mid1=${tId}`,
+            `/${seasonYear}/f1/${leagueId}/matchup?week=${wk}&mid1=${tId}`,
+            `/archive/nfl/${seasonYear}/${leagueId}/matchup?week=${wk}&mid1=${tId}`
+          ].filter(u => u !== url);
+
+          for (const altUrl of altUrls) {
+            console.log(`   🔄 Testing Alt URL: ${altUrl}...`);
+            const altHtml = await fetchWithRetry(altUrl, 2);
+            if (altHtml) {
+              const altDoc = new DOMParser().parseFromString(altHtml, 'text/html');
+              const altMatchup = parseMatchupFromDoc(altDoc, seasonYear, wk);
+              if (altMatchup) {
+                console.log(`   ✅ Success on alternate path: ${altUrl}!`);
+                matchup = altMatchup;
+                url = altUrl;
+                break;
+              }
+            }
+          }
+        }
         if (matchup && matchup.homeTeam && matchup.awayTeam && matchup.homeTeam.teamName !== matchup.awayTeam.teamName) {
           const matchKey = `${wk}_${[matchup.homeTeam.teamName, matchup.awayTeam.teamName].sort().join('_vs_')}`;
           if (!processedMatchupKeys.has(matchKey)) {
