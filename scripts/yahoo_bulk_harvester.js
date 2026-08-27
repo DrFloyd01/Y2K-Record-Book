@@ -250,7 +250,8 @@
 
   function parseYahooTables(table, isBench) {
     if (!table) return { playersA: [], playersB: [] };
-    const theadThs = [...table.querySelectorAll('thead th, tr:first-child th, tr:first-child td')];
+    const theadRow = table.querySelector('thead tr:last-child') || table.querySelector('thead tr') || table.querySelector('tr');
+    const theadThs = theadRow ? [...theadRow.querySelectorAll('th, td')] : [];
     
     let t1PlayerCol = 1;
     let t1PtsCol = 3;
