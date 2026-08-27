@@ -42,9 +42,16 @@ function lineupSaverPlugin() {
               const lineupsDir = resolve(process.cwd(), 'public/data/lineups');
               if (!existsSync(lineupsDir)) mkdirSync(lineupsDir, { recursive: true });
 
-              // 1. Save seasonal file
+              // 1. Save seasonal file (Merge with existing weeks to prevent resume overwrite)
               const seasonFile = resolve(lineupsDir, `y2k_${seasonYear}_lineups.json`);
-              writeFileSync(seasonFile, JSON.stringify(matchups, null, 2), 'utf8');
+              let existingSeasonData = [];
+              if (existsSync(seasonFile)) {
+                try { existingSeasonData = JSON.parse(readFileSync(seasonFile, 'utf8')); } catch { existingSeasonData = []; }
+              }
+              const incomingWeeks = new Set(matchups.map(m => m.week));
+              const retainedExisting = existingSeasonData.filter(m => !incomingWeeks.has(m.week));
+              const mergedSeason = [...retainedExisting, ...matchups].sort((a, b) => a.week - b.week);
+              writeFileSync(seasonFile, JSON.stringify(mergedSeason, null, 2), 'utf8');
 
               // 2. Merge into master y2k_lineups.json
               const masterFile = resolve(lineupsDir, 'y2k_lineups.json');
@@ -52,9 +59,9 @@ function lineupSaverPlugin() {
               if (existsSync(masterFile)) {
                 try { masterData = JSON.parse(readFileSync(masterFile, 'utf8')); } catch { masterData = []; }
               }
-              // Replace entries for this season
+              // Replace entries for this season with merged season data
               const otherSeasons = masterData.filter(m => m.seasonYear !== seasonYear);
-              const updatedMaster = [...otherSeasons, ...matchups].sort((a, b) => {
+              const updatedMaster = [...otherSeasons, ...mergedSeason].sort((a, b) => {
                 if (b.seasonYear !== a.seasonYear) return b.seasonYear - a.seasonYear;
                 return a.week - b.week;
               });

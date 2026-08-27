@@ -1,0 +1,1938 @@
+[
+  {
+    "seasonYear": 2018,
+    "week": 1,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "The Waterboys",
+      "ownerName": "Dylan",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 164.43,
+      "optimalScore": 164.43,
+      "coachingEfficiency": 100,
+      "pointsLeftOnBench": 0,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Kirk Cousins",
+          "playerName": "Kirk Cousins",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 22.73,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Antonio Brown",
+          "playerName": "Antonio Brown",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 19.65,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Keenan Allen",
+          "playerName": "Keenan Allen",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 20.4,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Adam Thielen",
+          "playerName": "Adam Thielen",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 12.1,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Ezekiel Elliott",
+          "playerName": "Ezekiel Elliott",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 16.75,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Devonta Freeman",
+          "playerName": "Devonta Freeman",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 7.3,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Travis Kelce",
+          "playerName": "Travis Kelce",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 1.3,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Joe Mixon",
+          "playerName": "Joe Mixon",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 23.2,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Greg Zuerlein",
+          "playerName": "Greg Zuerlein",
+          "position": "K",
+          "nflTeam": "",
+          "points": 16,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Vikings",
+          "playerName": "Vikings",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 25,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Golden Tate",
+          "playerName": "Golden Tate",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 16.95,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Andrew Luck",
+          "playerName": "Andrew Luck",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 22.33,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Chris Hogan",
+          "playerName": "Chris Hogan",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 1.55,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Royce Freeman",
+          "playerName": "Royce Freeman",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 7.1,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Kyle Rudolph",
+          "playerName": "Kyle Rudolph",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 7.55,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Bears",
+          "playerName": "Bears",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 20,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "Show Me Dem TDS",
+      "ownerName": "Phillip",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 115.27,
+      "optimalScore": 146.2,
+      "coachingEfficiency": 78.8,
+      "pointsLeftOnBench": 30.9,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Jared Goff",
+          "playerName": "Jared Goff",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 19.67,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Davante Adams",
+          "playerName": "Davante Adams",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 16.4,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Doug Baldwin",
+          "playerName": "Doug Baldwin",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Jarvis Landry",
+          "playerName": "Jarvis Landry",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 13.3,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Saquon Barkley",
+          "playerName": "Saquon Barkley",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 22.7,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Kareem Hunt",
+          "playerName": "Kareem Hunt",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 4.9,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Delanie Walker",
+          "playerName": "Delanie Walker",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 6.6,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Kenyan Drake",
+          "playerName": "Kenyan Drake",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 8.7,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Wil Lutz",
+          "playerName": "Wil Lutz",
+          "position": "K",
+          "nflTeam": "",
+          "points": 6,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Jaguars",
+          "playerName": "Jaguars",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 17,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Jimmy Graham",
+          "playerName": "Jimmy Graham",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 2.4,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Le'Veon Bell",
+          "playerName": "Le'Veon Bell",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Amari Cooper",
+          "playerName": "Amari Cooper",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 2.35,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Lamar Miller",
+          "playerName": "Lamar Miller",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 11.35,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Drew Brees",
+          "playerName": "Drew Brees",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 39.63,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Chargers",
+          "playerName": "Chargers",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": -2,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": false,
+      "dOhDetails": null
+    },
+    "margin": 49.16
+  },
+  {
+    "seasonYear": 2018,
+    "week": 1,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "Good football team!!",
+      "ownerName": "Casey",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 157.83,
+      "optimalScore": 160.23,
+      "coachingEfficiency": 98.5,
+      "pointsLeftOnBench": 2.4,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Russell Wilson",
+          "playerName": "Russell Wilson",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 26.43,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Michael Thomas",
+          "playerName": "Michael Thomas",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 31.5,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "A.J. Green",
+          "playerName": "A.J. Green",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 14.6,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Stefon Diggs",
+          "playerName": "Stefon Diggs",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 11.95,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Todd Gurley",
+          "playerName": "Todd Gurley",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 22.75,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Dalvin Cook",
+          "playerName": "Dalvin Cook",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 10.75,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Zach Ertz",
+          "playerName": "Zach Ertz",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 7.4,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Robert Woods",
+          "playerName": "Robert Woods",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 5.45,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Justin Tucker",
+          "playerName": "Justin Tucker",
+          "position": "K",
+          "nflTeam": "",
+          "points": 12,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Eagles",
+          "playerName": "Eagles",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 15,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Josh Gordon",
+          "playerName": "Josh Gordon",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 7.85,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "David Njoku",
+          "playerName": "David Njoku",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 3.65,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "Ronny Man",
+      "ownerName": "Mike",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 131.93,
+      "optimalScore": 153.91,
+      "coachingEfficiency": 85.7,
+      "pointsLeftOnBench": 22,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Matthew Stafford",
+          "playerName": "Matthew Stafford",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 7.13,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Odell Beckham Jr.",
+          "playerName": "Odell Beckham Jr.",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 17.45,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "T.Y. Hilton",
+          "playerName": "T.Y. Hilton",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 13.3,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Michael Crabtree",
+          "playerName": "Michael Crabtree",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 10.9,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Leonard Fournette",
+          "playerName": "Leonard Fournette",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 7.8,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Jay Ajayi",
+          "playerName": "Jay Ajayi",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 20.2,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Jack Doyle",
+          "playerName": "Jack Doyle",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 8,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Demaryius Thomas",
+          "playerName": "Demaryius Thomas",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 15.15,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Matt Bryant",
+          "playerName": "Matt Bryant",
+          "position": "K",
+          "nflTeam": "",
+          "points": 7,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Ravens",
+          "playerName": "Ravens",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 25,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Tyrod Taylor",
+          "playerName": "Tyrod Taylor",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 24.27,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jordy Nelson",
+          "playerName": "Jordy Nelson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 4.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Devin Funchess",
+          "playerName": "Devin Funchess",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 5.05,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Philip Rivers",
+          "playerName": "Philip Rivers",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 37.13,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Titans",
+          "playerName": "Titans",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 14,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": false,
+      "dOhDetails": null
+    },
+    "margin": 25.9
+  },
+  {
+    "seasonYear": 2018,
+    "week": 1,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "Trace's Team",
+      "ownerName": "Trace",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 172.33,
+      "optimalScore": 180.23,
+      "coachingEfficiency": 95.6,
+      "pointsLeftOnBench": 7.9,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Aaron Rodgers",
+          "playerName": "Aaron Rodgers",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 31.03,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Julio Jones",
+          "playerName": "Julio Jones",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 22.05,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "DeAndre Hopkins",
+          "playerName": "DeAndre Hopkins",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 11.2,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "JuJu Smith-Schuster",
+          "playerName": "JuJu Smith-Schuster",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 12.95,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Melvin Gordon III",
+          "playerName": "Melvin Gordon III",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 23.5,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Alvin Kamara",
+          "playerName": "Alvin Kamara",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 38.5,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Greg Olsen",
+          "playerName": "Greg Olsen",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 3.65,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Jordan Howard",
+          "playerName": "Jordan Howard",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 14.45,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Chris Boswell",
+          "playerName": "Chris Boswell",
+          "position": "K",
+          "nflTeam": "",
+          "points": 2,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Texans",
+          "playerName": "Texans",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 13,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Mike Evans",
+          "playerName": "Mike Evans",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 22.35,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "LeSean McCoy",
+          "playerName": "LeSean McCoy",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 3.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Alex Collins",
+          "playerName": "Alex Collins",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 6.6,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Allen Robinson",
+          "playerName": "Allen Robinson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 7.05,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Adrian Peterson",
+          "playerName": "Adrian Peterson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 20.1,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Deshaun Watson",
+          "playerName": "Deshaun Watson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 11.87,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "The Mongol Horde",
+      "ownerName": "Ryan",
+      "seasonYear": 2018,
+      "week": 1,
+      "actualScore": 167.17,
+      "optimalScore": 185.1,
+      "coachingEfficiency": 90.3,
+      "pointsLeftOnBench": 17.9,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Cam Newton",
+          "playerName": "Cam Newton",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 17.17,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Tyreek Hill",
+          "playerName": "Tyreek Hill",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 41.15,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Larry Fitzgerald",
+          "playerName": "Larry Fitzgerald",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 10.8,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Tyler Lockett",
+          "playerName": "Tyler Lockett",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 14.95,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "David Johnson",
+          "playerName": "David Johnson",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 16.2,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Christian McCaffrey",
+          "playerName": "Christian McCaffrey",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 11.25,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Rob Gronkowski",
+          "playerName": "Rob Gronkowski",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 18.15,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Chris Carson",
+          "playerName": "Chris Carson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 7.5,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Stephen Gostkowski",
+          "playerName": "Stephen Gostkowski",
+          "position": "K",
+          "nflTeam": "",
+          "points": 9,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Rams",
+          "playerName": "Rams",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 21,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Derrick Henry",
+          "playerName": "Derrick Henry",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 3.85,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Cooper Kupp",
+          "playerName": "Cooper Kupp",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 15.2,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Tom Brady",
+          "playerName": "Tom Brady",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 25.43,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Trey Burton",
+          "playerName": "Trey Burton",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 1.75,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Mohamed Sanu",
+          "playerName": "Mohamed Sanu",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 4.9,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Saints",
+          "playerName": "Saints",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": -4,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": true,
+      "dOhDetails": {
+        "starter": "Chris Carson",
+        "starterPoints": 7.5,
+        "starterSlot": "W/R/T",
+        "starterPosition": "FLEX",
+        "benchPlayer": "Tom Brady",
+        "benchPoints": 25.43,
+        "benchPosition": "FLEX",
+        "netGain": 17.93,
+        "deficitNeeded": 5.16,
+        "winMargin": 12.77
+      }
+    },
+    "margin": 5.16
+  },
+  {
+    "seasonYear": 2018,
+    "week": 2,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "The Waterboys",
+      "ownerName": "Dylan",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 162.97,
+      "optimalScore": 189.27,
+      "coachingEfficiency": 86.1,
+      "pointsLeftOnBench": 26.3,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Kirk Cousins",
+          "playerName": "Kirk Cousins",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 44.67,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Antonio Brown",
+          "playerName": "Antonio Brown",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 12.35,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Keenan Allen",
+          "playerName": "Keenan Allen",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 10.35,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Adam Thielen",
+          "playerName": "Adam Thielen",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 25.55,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Ezekiel Elliott",
+          "playerName": "Ezekiel Elliott",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 19.25,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Joe Mixon",
+          "playerName": "Joe Mixon",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 9.55,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Travis Kelce",
+          "playerName": "Travis Kelce",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 25.45,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Royce Freeman",
+          "playerName": "Royce Freeman",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 8.8,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Greg Zuerlein",
+          "playerName": "Greg Zuerlein",
+          "position": "K",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Vikings",
+          "playerName": "Vikings",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 7,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Devonta Freeman",
+          "playerName": "Devonta Freeman",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Golden Tate",
+          "playerName": "Golden Tate",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 15.35,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Andrew Luck",
+          "playerName": "Andrew Luck",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 14.17,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Chris Hogan",
+          "playerName": "Chris Hogan",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 17.1,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Kyle Rudolph",
+          "playerName": "Kyle Rudolph",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 10.6,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Bears",
+          "playerName": "Bears",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 25,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "Good football team!!",
+      "ownerName": "Casey",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 154.63,
+      "optimalScore": 164.78,
+      "coachingEfficiency": 93.8,
+      "pointsLeftOnBench": 10.2,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Alex Smith",
+          "playerName": "Alex Smith",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 11.13,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "A.J. Green",
+          "playerName": "A.J. Green",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 26.45,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Robert Woods",
+          "playerName": "Robert Woods",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 10.05,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Josh Gordon",
+          "playerName": "Josh Gordon",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Todd Gurley",
+          "playerName": "Todd Gurley",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 30.75,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "James Conner",
+          "playerName": "James Conner",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 17.1,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Zach Ertz",
+          "playerName": "Zach Ertz",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 15.7,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Michael Thomas",
+          "playerName": "Michael Thomas",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 26.45,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Justin Tucker",
+          "playerName": "Justin Tucker",
+          "position": "K",
+          "nflTeam": "",
+          "points": 7,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Eagles",
+          "playerName": "Eagles",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 10,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Dalvin Cook",
+          "playerName": "Dalvin Cook",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 9.4,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Stefon Diggs",
+          "playerName": "Stefon Diggs",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 31.5,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Russell Wilson",
+          "playerName": "Russell Wilson",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 16.23,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "David Njoku",
+          "playerName": "David Njoku",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 5,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Will Dissly",
+          "playerName": "Will Dissly",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 11.1,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": false,
+      "dOhDetails": null
+    },
+    "margin": 8.34
+  },
+  {
+    "seasonYear": 2018,
+    "week": 2,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "Show Me Dem TDS",
+      "ownerName": "Phillip",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 137.9,
+      "optimalScore": 139.05,
+      "coachingEfficiency": 99.2,
+      "pointsLeftOnBench": 1.2,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Drew Brees",
+          "playerName": "Drew Brees",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 21,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Davante Adams",
+          "playerName": "Davante Adams",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 17.2,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Jarvis Landry",
+          "playerName": "Jarvis Landry",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 8.45,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Emmanuel Sanders",
+          "playerName": "Emmanuel Sanders",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 8.8,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Saquon Barkley",
+          "playerName": "Saquon Barkley",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 20.8,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Kareem Hunt",
+          "playerName": "Kareem Hunt",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 14.75,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Jordan Reed",
+          "playerName": "Jordan Reed",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 6.75,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Kenyan Drake",
+          "playerName": "Kenyan Drake",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 16.15,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Wil Lutz",
+          "playerName": "Wil Lutz",
+          "position": "K",
+          "nflTeam": "",
+          "points": 7,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Chargers",
+          "playerName": "Chargers",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 17,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Amari Cooper",
+          "playerName": "Amari Cooper",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 16.8,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jimmy Graham",
+          "playerName": "Jimmy Graham",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 10.75,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jared Goff",
+          "playerName": "Jared Goff",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 21.5,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Le'Veon Bell",
+          "playerName": "Le'Veon Bell",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Lamar Miller",
+          "playerName": "Lamar Miller",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 8.9,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jaguars",
+          "playerName": "Jaguars",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 8,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "The Mongol Horde",
+      "ownerName": "Ryan",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 129.53,
+      "optimalScore": 142.13,
+      "coachingEfficiency": 91.1,
+      "pointsLeftOnBench": 12.6,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Cam Newton",
+          "playerName": "Cam Newton",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 33.37,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Tyreek Hill",
+          "playerName": "Tyreek Hill",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 15.5,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Larry Fitzgerald",
+          "playerName": "Larry Fitzgerald",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 4.4,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Tyler Lockett",
+          "playerName": "Tyler Lockett",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 14.56,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "David Johnson",
+          "playerName": "David Johnson",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 5.95,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Christian McCaffrey",
+          "playerName": "Christian McCaffrey",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 23.8,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Rob Gronkowski",
+          "playerName": "Rob Gronkowski",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 2.75,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Brandon Marshall",
+          "playerName": "Brandon Marshall",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 6.2,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Stephen Gostkowski",
+          "playerName": "Stephen Gostkowski",
+          "position": "K",
+          "nflTeam": "",
+          "points": 8,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Rams",
+          "playerName": "Rams",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 15,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Chris Carson",
+          "playerName": "Chris Carson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 2.4,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Derrick Henry",
+          "playerName": "Derrick Henry",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 5.87,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Cooper Kupp",
+          "playerName": "Cooper Kupp",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 9.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Tom Brady",
+          "playerName": "Tom Brady",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 18.8,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Trey Burton",
+          "playerName": "Trey Burton",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 11.2,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Saints",
+          "playerName": "Saints",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 10,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": true,
+      "dOhDetails": {
+        "starter": "Brandon Marshall",
+        "starterPoints": 6.2,
+        "starterSlot": "W/R/T",
+        "starterPosition": "FLEX",
+        "benchPlayer": "Tom Brady",
+        "benchPoints": 18.8,
+        "benchPosition": "FLEX",
+        "netGain": 12.6,
+        "deficitNeeded": 8.37,
+        "winMargin": 4.23
+      }
+    },
+    "margin": 8.37
+  },
+  {
+    "seasonYear": 2018,
+    "week": 2,
+    "isPlayoff": false,
+    "homeTeam": {
+      "teamName": "Trace's Team",
+      "ownerName": "Trace",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 126.47,
+      "optimalScore": 145.7,
+      "coachingEfficiency": 86.8,
+      "pointsLeftOnBench": 19.2,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Aaron Rodgers",
+          "playerName": "Aaron Rodgers",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 16.17,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Julio Jones",
+          "playerName": "Julio Jones",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 8.2,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "DeAndre Hopkins",
+          "playerName": "DeAndre Hopkins",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 18.5,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "JuJu Smith-Schuster",
+          "playerName": "JuJu Smith-Schuster",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 26.05,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Melvin Gordon III",
+          "playerName": "Melvin Gordon III",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 28.7,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Alvin Kamara",
+          "playerName": "Alvin Kamara",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 15.25,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "George Kittle",
+          "playerName": "George Kittle",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 3.1,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Adrian Peterson",
+          "playerName": "Adrian Peterson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 6.5,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Chris Boswell",
+          "playerName": "Chris Boswell",
+          "position": "K",
+          "nflTeam": "",
+          "points": 1,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Texans",
+          "playerName": "Texans",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 3,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Jordan Howard",
+          "playerName": "Jordan Howard",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 8.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Mike Evans",
+          "playerName": "Mike Evans",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 18.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "LeSean McCoy",
+          "playerName": "LeSean McCoy",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 9.35,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Alex Collins",
+          "playerName": "Alex Collins",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 9.25,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Allen Robinson",
+          "playerName": "Allen Robinson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 14.15,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Deshaun Watson",
+          "playerName": "Deshaun Watson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 25.73,
+          "isBench": true
+        }
+      ],
+      "isWin": true,
+      "isLoss": false
+    },
+    "awayTeam": {
+      "teamName": "Ronny Man",
+      "ownerName": "Mike",
+      "seasonYear": 2018,
+      "week": 2,
+      "actualScore": 84.05,
+      "optimalScore": 111.79,
+      "coachingEfficiency": 75.2,
+      "pointsLeftOnBench": 27.7,
+      "starters": [
+        {
+          "slot": "QB",
+          "player": "Philip Rivers",
+          "playerName": "Philip Rivers",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 27.03,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Odell Beckham Jr.",
+          "playerName": "Odell Beckham Jr.",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 6.67,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "T.Y. Hilton",
+          "playerName": "T.Y. Hilton",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 17.15,
+          "isBench": false
+        },
+        {
+          "slot": "WR",
+          "player": "Michael Crabtree",
+          "playerName": "Michael Crabtree",
+          "position": "WR",
+          "nflTeam": "",
+          "points": 7.8,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Leonard Fournette",
+          "playerName": "Leonard Fournette",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 0,
+          "isBench": false
+        },
+        {
+          "slot": "RB",
+          "player": "Jay Ajayi",
+          "playerName": "Jay Ajayi",
+          "position": "RB",
+          "nflTeam": "",
+          "points": 9.5,
+          "isBench": false
+        },
+        {
+          "slot": "TE",
+          "player": "Jack Doyle",
+          "playerName": "Jack Doyle",
+          "position": "TE",
+          "nflTeam": "",
+          "points": 3,
+          "isBench": false
+        },
+        {
+          "slot": "W/R/T",
+          "player": "Demaryius Thomas",
+          "playerName": "Demaryius Thomas",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 5.9,
+          "isBench": false
+        },
+        {
+          "slot": "K",
+          "player": "Matt Bryant",
+          "playerName": "Matt Bryant",
+          "position": "K",
+          "nflTeam": "",
+          "points": 8,
+          "isBench": false
+        },
+        {
+          "slot": "DEF",
+          "player": "Ravens",
+          "playerName": "Ravens",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": -1,
+          "isBench": false
+        }
+      ],
+      "bench": [
+        {
+          "slot": "BN",
+          "player": "Matthew Stafford",
+          "playerName": "Matthew Stafford",
+          "position": "QB",
+          "nflTeam": "",
+          "points": 31.87,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Tyrod Taylor",
+          "playerName": "Tyrod Taylor",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 15.8,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jordy Nelson",
+          "playerName": "Jordy Nelson",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 3.78,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Devin Funchess",
+          "playerName": "Devin Funchess",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 10.85,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Jamaal Williams",
+          "playerName": "Jamaal Williams",
+          "position": "FLEX",
+          "nflTeam": "",
+          "points": 9.5,
+          "isBench": true
+        },
+        {
+          "slot": "BN",
+          "player": "Titans",
+          "playerName": "Titans",
+          "position": "DEF",
+          "nflTeam": "",
+          "points": 12,
+          "isBench": true
+        }
+      ],
+      "isWin": false,
+      "isLoss": true,
+      "dOhOccurred": false,
+      "dOhDetails": null
+    },
+    "margin": 42.42
+  }
+]
