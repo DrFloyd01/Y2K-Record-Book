@@ -1023,9 +1023,11 @@
           "projectedNewScore": 136.26
         }
       ],
-      "coachingEfficiency": 89.2,
+      "coachingEfficiency": 93.2,
       "optimalPointsFor": 2743.24,
-      "optimalPF": 2743.24
+      "optimalPF": 19983,
+      "optPfg": 154.9,
+      "dOhCount": 10
     },
     {
       "ownerName": "Jasper",
@@ -1273,9 +1275,11 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 92.3,
+      "coachingEfficiency": 94.5,
       "optimalPointsFor": 2426.96,
-      "optimalPF": 2426.96
+      "optimalPF": 9291.5,
+      "optPfg": 140.8,
+      "dOhCount": 2
     },
     {
       "ownerName": "Ryan",
@@ -1935,9 +1939,11 @@
           "projectedNewScore": 128.82
         }
       ],
-      "coachingEfficiency": 78.3,
+      "coachingEfficiency": 90.4,
       "optimalPointsFor": 2564.54,
-      "optimalPF": 2564.54
+      "optimalPF": 18825.3,
+      "optPfg": 148.2,
+      "dOhCount": 17
     },
     {
       "ownerName": "Dylan",
@@ -2569,9 +2575,11 @@
           "projectedNewScore": 147.5
         }
       ],
-      "coachingEfficiency": 89.4,
+      "coachingEfficiency": 92.6,
       "optimalPointsFor": 2689.26,
-      "optimalPF": 2689.26
+      "optimalPF": 19400.5,
+      "optPfg": 150.4,
+      "dOhCount": 13
     },
     {
       "ownerName": "Dustin",
@@ -3043,9 +3051,11 @@
           "projectedNewScore": 117
         }
       ],
-      "coachingEfficiency": 85.5,
+      "coachingEfficiency": 91.1,
       "optimalPointsFor": 2443.1,
-      "optimalPF": 2443.1
+      "optimalPF": 12149.4,
+      "optPfg": 151.9,
+      "dOhCount": 12
     },
     {
       "ownerName": "Tess",
@@ -3192,9 +3202,11 @@
           "projectedNewScore": 150.7
         }
       ],
-      "coachingEfficiency": 89.9,
+      "coachingEfficiency": 90.7,
       "optimalPointsFor": 2714.7,
-      "optimalPF": 2714.7
+      "optimalPF": 5190.6,
+      "optPfg": 157.3,
+      "dOhCount": 3
     },
     {
       "ownerName": "Boaz",
@@ -3582,9 +3594,11 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": 89.5,
+      "coachingEfficiency": 92.9,
       "optimalPointsFor": 2388.77,
-      "optimalPF": 2388.77
+      "optimalPF": 11261,
+      "optPfg": 140.8,
+      "dOhCount": 3
     },
     {
       "ownerName": "Cooper",
@@ -3745,9 +3759,11 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null,
+      "coachingEfficiency": 97.8,
       "optimalPointsFor": null,
-      "optimalPF": null
+      "optimalPF": 4588.3,
+      "optPfg": 135,
+      "dOhCount": 1
     },
     {
       "ownerName": "Casey",
@@ -4393,9 +4409,11 @@
           "projectedNewScore": 138.88
         }
       ],
-      "coachingEfficiency": 93.6,
+      "coachingEfficiency": 94,
       "optimalPointsFor": 2359.4,
-      "optimalPF": 2359.4
+      "optimalPF": 17683.2,
+      "optPfg": 141.5,
+      "dOhCount": 10
     },
     {
       "ownerName": "Trace",
@@ -5149,9 +5167,11 @@
           "projectedNewScore": 138
         }
       ],
-      "coachingEfficiency": 93.2,
+      "coachingEfficiency": 92.8,
       "optimalPointsFor": 2579.93,
-      "optimalPF": 2579.93
+      "optimalPF": 18137.3,
+      "optPfg": 141.7,
+      "dOhCount": 22
     },
     {
       "ownerName": "Mike",
@@ -5742,9 +5762,11 @@
           "projectedNewScore": 137.37
         }
       ],
-      "coachingEfficiency": 87.4,
+      "coachingEfficiency": 91.9,
       "optimalPointsFor": 2430.34,
-      "optimalPF": 2430.34
+      "optimalPF": 17940.4,
+      "optPfg": 139.1,
+      "dOhCount": 10
     },
     {
       "ownerName": "Torin",
@@ -5846,9 +5868,11 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null,
+      "coachingEfficiency": 84.1,
       "optimalPointsFor": null,
-      "optimalPF": null
+      "optimalPF": 2170.4,
+      "optPfg": 135.6,
+      "dOhCount": 4
     },
     {
       "ownerName": "Nick",
@@ -5930,9 +5954,11 @@
       },
       "dOhs": 0,
       "dOhDetails": [],
-      "coachingEfficiency": null,
+      "coachingEfficiency": 85.9,
       "optimalPointsFor": null,
-      "optimalPF": null
+      "optimalPF": 2155.4,
+      "optPfg": 134.7,
+      "dOhCount": 2
     }
   ],
   "seasonData": {
@@ -6081,10 +6107,10 @@
           "playoffWinPct": 100,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 87.8,
-          "optimalPointsFor": 640.8,
-          "optimalPF": 640.8,
-          "dOhCount": 0
+          "coachingEfficiency": 92,
+          "optimalPointsFor": 2645.4,
+          "optimalPF": 2645.4,
+          "dOhCount": 1
         },
         {
           "seasonYear": 2018,
@@ -6191,10 +6217,10 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 90.9,
-          "optimalPointsFor": 703.6,
-          "optimalPF": 703.6,
-          "dOhCount": 0
+          "coachingEfficiency": 92.5,
+          "optimalPointsFor": 2559.7,
+          "optimalPF": 2559.7,
+          "dOhCount": 2
         },
         {
           "seasonYear": 2018,
@@ -6345,10 +6371,10 @@
           "playoffWinPct": 50,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 90.7,
-          "optimalPointsFor": 633.2,
-          "optimalPF": 633.2,
-          "dOhCount": 0
+          "coachingEfficiency": 94,
+          "optimalPointsFor": 2541.2,
+          "optimalPF": 2541.2,
+          "dOhCount": 1
         },
         {
           "seasonYear": 2018,
@@ -6511,10 +6537,10 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 93.5,
-          "optimalPointsFor": 720.2,
-          "optimalPF": 720.2,
-          "dOhCount": 0
+          "coachingEfficiency": 94.2,
+          "optimalPointsFor": 2727.1,
+          "optimalPF": 2727.1,
+          "dOhCount": 1
         },
         {
           "seasonYear": 2018,
@@ -6619,9 +6645,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 91.6,
-          "optimalPointsFor": 611.1,
-          "optimalPF": 611.1,
+          "coachingEfficiency": 91.2,
+          "optimalPointsFor": 2330.6,
+          "optimalPF": 2330.6,
           "dOhCount": 2
         },
         {
@@ -6699,9 +6725,9 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 81.4,
-          "optimalPointsFor": 531.5,
-          "optimalPF": 531.5,
+          "coachingEfficiency": 88.5,
+          "optimalPointsFor": 1947.7,
+          "optimalPF": 1947.7,
           "dOhCount": 0
         }
       ],
