@@ -40,7 +40,8 @@
 
   const detectedLeagueId = urlMatch && urlMatch[2] ? urlMatch[2] : (cfg.leagueId || '141011');
   const leagueId = cfg.leagueId || detectedLeagueId;
-  const startWeek = cfg.startWeek || 1;
+  const startWeekPrompt = prompt(`Enter START Week (1 to ${cfg.endWeek || 17}) to crawl or resume from:`, 1);
+  const startWeek = parseInt(startWeekPrompt || '1', 10);
   const endWeek = cfg.endWeek || (seasonYear >= 2021 ? 17 : 16);
   const numTeams = cfg.teams || 10;
 
@@ -127,26 +128,26 @@
 
   function normalizePosition(slotOrPos) {
     if (!slotOrPos) return 'BN';
-    const s = slotOrPos.toUpperCase().trim();
-    if (s.includes('QB')) return 'QB';
-    if (s.includes('RB')) return 'RB';
-    if (s.includes('WR')) return 'WR';
-    if (s.includes('TE')) return 'TE';
-    if (s.includes('K')) return 'K';
-    if (s.includes('DEF') || s.includes('D/ST') || s.includes('DST')) return 'DEF';
-    if (s.includes('W/R/T') || s.includes('FLEX') || s.includes('W/R') || s.includes('W/T')) return 'FLEX';
+    const pos = slotOrPos.toUpperCase().trim();
+    if (pos.includes('QB')) return 'QB';
+    if (pos.includes('RB')) return 'RB';
+    if (pos.includes('WR')) return 'WR';
+    if (pos.includes('TE')) return 'TE';
+    if (pos.includes('K') || pos.includes('PK')) return 'K';
+    if (pos.includes('DEF') || pos.includes('DST')) return 'DEF';
+    if (pos.includes('FLEX') || pos.includes('W/R') || pos.includes('W/T')) return 'FLEX';
     return 'BN';
   }
 
-  function computeOptimal(players) {
-    let starters = players.filter(p => !p.isBench);
-    let bench = players.filter(p => p.isBench);
-    let actualScore = starters.reduce((sum, p) => sum + (p.points || 0), 0);
+  function computeOptimal(allPlayers) {
+    let actualStarters = allPlayers.filter(p => !p.isBench);
+    let actualScore = actualStarters.reduce((sum, p) => sum + (p.points || 0), 0);
 
-    let allAvailable = players.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
+    let allAvailable = [...allPlayers].sort((a, b) => (b.points || 0) - (a.points || 0));
     let optStarters = [];
 
-    ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'].forEach(pos => {
+    const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
+    positions.forEach(pos => {
       let needed = constraints[pos] || 0;
       for (let i = 0; i < allAvailable.length && needed > 0; i++) {
         if (normalizePosition(allAvailable[i].position) === pos) {
@@ -327,19 +328,20 @@
   }
 
   function parseMatchupFromDoc(doc, seasonYear, wk) {
-    const header = doc.querySelector('#matchup-header');
+    const header = doc.querySelector('#matchup-header, .matchup-header, #matchup-detail, .ysf-matchup-header');
     let nameA = 'Team A';
     let ownerA = 'Owner A';
     let nameB = 'Team B';
     let ownerB = 'Owner B';
 
     if (header) {
-      const teamDivs = header.querySelectorAll('.Grid-u-1-3');
-      if (teamDivs.length >= 3) {
-        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameA;
-        ownerA = teamDivs[0].querySelector('.user-id')?.textContent.trim() || ownerA;
-        nameB = teamDivs[2].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameB;
-        ownerB = teamDivs[2].querySelector('.user-id')?.textContent.trim() || ownerB;
+      const teamDivs = header.querySelectorAll('.Grid-u-1-3, .team-header');
+      if (teamDivs.length >= 2) {
+        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameA;
+        ownerA = teamDivs[0].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerA;
+        const lastDiv = teamDivs[teamDivs.length - 1];
+        nameB = lastDiv.querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameB;
+        ownerB = lastDiv.querySelector('.user-id, .owner-name')?.textContent.trim() || ownerB;
       }
     }
 
@@ -409,22 +411,39 @@
     };
   }
 
-  async function fetchWithRetry(url, maxRetries = 3) {
+  async function fetchWithRetry(url, maxRetries = 5) {
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
         const resp = await fetch(url, { headers: { 'Accept': 'text/html' } });
         if (resp.status === 999) {
-          console.warn(`⏳ Yahoo rate limit (999) on ${url}. Backing off for ${1.5 * attempt}s...`);
-          await sleep(1500 * attempt);
+          const pauseSec = 15 * attempt;
+          console.warn(`⏳ Yahoo 999 Bot Limit hit on ${url}. Pausing politely for ${pauseSec}s before retry ${attempt}/${maxRetries}...`);
+          await sleep(pauseSec * 1000);
           continue;
         }
         if (resp.ok) return await resp.text();
       } catch (e) {
         if (attempt === maxRetries) throw e;
-        await sleep(1000 * attempt);
+        await sleep(2000 * attempt);
       }
     }
     return null;
+  }
+
+  // Helper to sync harvested data directly to local development server on disk
+  async function streamToLocalDisk(matchups) {
+    try {
+      const res = await fetch('http://localhost:5173/api/save-lineups', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ seasonYear, matchups })
+      });
+      if (res.ok) {
+        console.log(`💾 Auto-saved ${matchups.length} matchups directly to local repository disk!`);
+      }
+    } catch {
+      // Local server might not be running or CORS blocked; fallback to on-screen download
+    }
   }
 
   const allHarvestedMatchups = [];
@@ -456,16 +475,23 @@
           }
         }
 
-        await sleep(350);
+        // Polite randomized throttling (650ms - 1100ms) to avoid Yahoo 999 triggers
+        await sleep(650 + Math.floor(Math.random() * 450));
       } catch (err) {
         console.error(`❌ Error on week ${wk} team ${tId}:`, err);
-        await sleep(500);
+        await sleep(1500);
       }
     }
+
+    // Stream save to local disk after every completed week!
+    await streamToLocalDisk(allHarvestedMatchups);
   }
 
   console.log(`%c🎉 Harvest Complete! Extracted ${allHarvestedMatchups.length} matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
   window.__Y2K_HARVESTED_DATA = allHarvestedMatchups;
+
+  // Final sync to disk
+  await streamToLocalDisk(allHarvestedMatchups);
 
   // Render on-page interactive floating modal
   const existingModal = document.getElementById('y2k-harvester-modal');
