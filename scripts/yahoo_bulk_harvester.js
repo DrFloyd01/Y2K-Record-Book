@@ -349,13 +349,23 @@
     if (!ownerA || ownerA.startsWith('Owner')) ownerA = OWNER_MAP[nameA] || nameA;
     if (!ownerB || ownerB.startsWith('Owner')) ownerB = OWNER_MAP[nameB] || nameB;
 
-    const s = parseYahooTables(doc.getElementById('statTable1'), false);
-    const b = parseYahooTables(doc.getElementById('statTable2'), true);
+    const table1 = doc.getElementById('statTable1') || doc.querySelector('#statTable1, table.stat-target');
+    const table2 = doc.getElementById('statTable2') || doc.querySelector('#statTable2, table.stat-target:nth-of-type(2)');
+
+    if (!table1) {
+      console.warn(`⚠️ [Parser] Roster table not found for Week ${wk} (mid1=${doc.location?.href || 'unknown'})`);
+    }
+
+    const s = parseYahooTables(table1, false);
+    const b = parseYahooTables(table2, true);
 
     const playersA = [...s.playersA, ...b.playersA];
     const playersB = [...s.playersB, ...b.playersB];
 
-    if (playersA.length === 0 || playersB.length === 0) return null;
+    if (playersA.length === 0 || playersB.length === 0) {
+      console.warn(`⚠️ [Parser] 0 players extracted (Team A: ${playersA.length}, Team B: ${playersB.length}) on Week ${wk}`);
+      return null;
+    }
 
     const optA = computeOptimal(playersA);
     const optB = computeOptimal(playersB);
@@ -409,15 +419,25 @@
   async function fetchWithRetry(url, maxRetries = 5) {
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
+        console.log(`🌐 [Fetch] ${url} (Attempt ${attempt}/${maxRetries})...`);
         const resp = await fetch(url, { headers: { 'Accept': 'text/html' } });
         if (resp.status === 999) {
           const pauseSec = 15 * attempt;
           console.warn(`⏳ Yahoo 999 Bot Limit hit on ${url}. Pausing politely for ${pauseSec}s before retry ${attempt}/${maxRetries}...`);
+          const statusEl = document.getElementById('y2k-crawler-status');
+          if (statusEl) statusEl.textContent = `⏳ Yahoo 999 cooldown... Pausing ${pauseSec}s`;
           await sleep(pauseSec * 1000);
           continue;
         }
-        if (resp.ok) return await resp.text();
+        if (resp.ok) {
+          const text = await resp.text();
+          console.log(`   ✓ HTTP ${resp.status} (${Math.round(text.length / 1024)} KB)`);
+          return text;
+        } else {
+          console.warn(`⚠️ HTTP ${resp.status} ${resp.statusText} on ${url}`);
+        }
       } catch (e) {
+        console.error(`❌ Network error on ${url}:`, e.message);
         if (attempt === maxRetries) throw e;
         await sleep(2000 * attempt);
       }
