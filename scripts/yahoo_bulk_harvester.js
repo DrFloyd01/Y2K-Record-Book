@@ -328,20 +328,19 @@
   }
 
   function parseMatchupFromDoc(doc, seasonYear, wk) {
-    const header = doc.querySelector('#matchup-header, .matchup-header, #matchup-detail, .ysf-matchup-header');
+    const header = doc.querySelector('#matchup-header');
     let nameA = 'Team A';
     let ownerA = 'Owner A';
     let nameB = 'Team B';
     let ownerB = 'Owner B';
 
     if (header) {
-      const teamDivs = header.querySelectorAll('.Grid-u-1-3, .team-header');
-      if (teamDivs.length >= 2) {
-        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameA;
-        ownerA = teamDivs[0].querySelector('.user-id, .owner-name')?.textContent.trim() || ownerA;
-        const lastDiv = teamDivs[teamDivs.length - 1];
-        nameB = lastDiv.querySelector('.Fz-xxl a, .F-link, a.name')?.textContent.trim() || nameB;
-        ownerB = lastDiv.querySelector('.user-id, .owner-name')?.textContent.trim() || ownerB;
+      const teamDivs = header.querySelectorAll('.Grid-u-1-3');
+      if (teamDivs.length >= 3) {
+        nameA = teamDivs[0].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameA;
+        ownerA = teamDivs[0].querySelector('.user-id')?.textContent.trim() || ownerA;
+        nameB = teamDivs[2].querySelector('.Fz-xxl a, .F-link')?.textContent.trim() || nameB;
+        ownerB = teamDivs[2].querySelector('.user-id')?.textContent.trim() || ownerB;
       }
     }
 
@@ -350,12 +349,8 @@
     if (!ownerA || ownerA.startsWith('Owner')) ownerA = OWNER_MAP[nameA] || nameA;
     if (!ownerB || ownerB.startsWith('Owner')) ownerB = OWNER_MAP[nameB] || nameB;
 
-    const statTables = [...doc.querySelectorAll('#statTable1, #statTable2, table.stat-target, table[id*="statTable"], table.team-roster, #matchup-detail table')];
-    const tableStarters = doc.getElementById('statTable1') || statTables[0];
-    const tableBench = doc.getElementById('statTable2') || statTables[1];
-
-    const s = parseYahooTables(tableStarters, false);
-    const b = parseYahooTables(tableBench, true);
+    const s = parseYahooTables(doc.getElementById('statTable1'), false);
+    const b = parseYahooTables(doc.getElementById('statTable2'), true);
 
     const playersA = [...s.playersA, ...b.playersA];
     const playersB = [...s.playersB, ...b.playersB];
