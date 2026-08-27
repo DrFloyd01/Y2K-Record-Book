@@ -232,6 +232,23 @@ export function buildManagerialProwessHtml({
 }
 
 /**
+ * Rank weights for fantasy football roster slots
+ */
+function getStarterSlotRank(slot = '', pos = '') {
+  const s = String(slot || '').toUpperCase().trim();
+  const p = String(pos || '').toUpperCase().trim();
+
+  if (s === 'QB' || p === 'QB') return 10;
+  if (s.startsWith('RB') || (p === 'RB' && !s.includes('FLEX') && !s.includes('W/R'))) return 20;
+  if (s.startsWith('WR') || (p === 'WR' && !s.includes('FLEX') && !s.includes('W/R'))) return 30;
+  if (s.startsWith('TE') || (p === 'TE' && !s.includes('FLEX') && !s.includes('W/R'))) return 40;
+  if (s.includes('FLEX') || s.includes('W/R/T') || s.includes('W/R') || s.includes('W/T') || s.includes('R/W/T') || s === 'FLX') return 50;
+  if (s === 'K' || p === 'K' || s.startsWith('PK')) return 60;
+  if (s.includes('DEF') || s.includes('D/ST') || s.includes('DST') || p.includes('DEF') || p.includes('DST')) return 70;
+  return 80;
+}
+
+/**
  * Builds HTML for an expandable Matchup Lineup Card showing starters, bench, and optimal tags
  */
 export function buildMatchupLineupCardHtml({ matchup, theme = CRT_THEME }) {
@@ -245,8 +262,26 @@ export function buildMatchupLineupCardHtml({ matchup, theme = CRT_THEME }) {
     const { optimalStarters } = computeOptimalLineup(allPlayers);
     const optPlayerNames = new Set(optimalStarters.map(p => (p.player || p.playerName || '').trim().toLowerCase()));
 
+    // Sort starters: QB, RBs, WRs, TEs, FLEXs, K, D/ST, then points desc
+    const sortedStarters = [...(team.starters || [])].sort((a, b) => {
+      const rA = getStarterSlotRank(a.slot, a.position || a.normPos);
+      const rB = getStarterSlotRank(b.slot, b.position || b.normPos);
+      if (rA !== rB) return rA - rB;
+      return Number(b.points || 0) - Number(a.points || 0);
+    });
+
+    // Sort bench: Missed optimal players first, then points desc
+    const sortedBench = [...(team.bench || [])].sort((a, b) => {
+      const nameA = (a.player || a.playerName || '').trim().toLowerCase();
+      const nameB = (b.player || b.playerName || '').trim().toLowerCase();
+      const isMissedA = optPlayerNames.has(nameA) || a.isOptimal ? 1 : 0;
+      const isMissedB = optPlayerNames.has(nameB) || b.isOptimal ? 1 : 0;
+      if (isMissedA !== isMissedB) return isMissedB - isMissedA;
+      return Number(b.points || 0) - Number(a.points || 0);
+    });
+
     let startersHtml = '';
-    (team.starters || []).forEach(p => {
+    sortedStarters.forEach(p => {
       const pName = p.player || p.playerName || 'Unknown Player';
       const isOpt = optPlayerNames.has(pName.trim().toLowerCase()) || p.isOptimal;
       startersHtml += `
@@ -265,7 +300,7 @@ export function buildMatchupLineupCardHtml({ matchup, theme = CRT_THEME }) {
     });
 
     let benchHtml = '';
-    (team.bench || []).forEach(p => {
+    sortedBench.forEach(p => {
       const pName = p.player || p.playerName || 'Unknown Player';
       const isMissed = optPlayerNames.has(pName.trim().toLowerCase()) || p.isOptimal;
       benchHtml += `

@@ -102,4 +102,70 @@ describe('Managerial View Component', () => {
     expect(cardHtml).toContain("D'OH! MOMENT");
     expect(cardHtml).toContain('James Conner');
   });
+
+  it('should sort starters by standard slot order (QB, RB, WR, TE, FLEX, K, DEF) and bench with MISSED at top', () => {
+    const mockMatchup = {
+      week: 2,
+      margin: 10.0,
+      homeTeam: {
+        ownerName: 'Dylan',
+        teamName: 'Globo Gym',
+        actualScore: 120.0,
+        optimalScore: 140.0,
+        coachingEfficiency: 85.7,
+        starters: [
+          { slot: 'K', position: 'K', player: 'Harrison Butker', points: 7.0 },
+          { slot: 'WR', position: 'WR', player: 'Puka Nacua', points: 18.0 },
+          { slot: 'DEF', position: 'DEF', player: 'Rams', points: 8.0 },
+          { slot: 'QB', position: 'QB', player: 'Josh Allen', points: 28.0 },
+          { slot: 'FLEX', position: 'WR', player: 'Jerry Jeudy', points: 12.0 },
+          { slot: 'TE', position: 'TE', player: 'Travis Kelce', points: 14.0 },
+          { slot: 'RB', position: 'RB', player: 'Breece Hall', points: 20.0 },
+          { slot: 'RB', position: 'RB', player: 'Alvin Kamara', points: 13.0 }
+        ],
+        bench: [
+          { slot: 'BN', position: 'WR', player: 'Calvin Ridley', points: 6.0 },
+          { slot: 'BN', position: 'RB', player: 'Javonte Williams', points: 22.0 }, // Optimal Missed
+          { slot: 'BN', position: 'DEF', player: 'Bills', points: 9.0 }
+        ]
+      },
+      awayTeam: {
+        ownerName: 'Phillip',
+        teamName: 'Ho Chi Win City',
+        actualScore: 110.0,
+        optimalScore: 125.0,
+        coachingEfficiency: 88.0,
+        starters: [],
+        bench: []
+      }
+    };
+
+    const cardHtml = buildMatchupLineupCardHtml({ matchup: mockMatchup, theme: PRIDE_THEME });
+    
+    // Check starter order: QB (Josh Allen) appears before RB (Breece Hall), before WR (Puka Nacua), before TE (Travis Kelce), before FLEX (Jerry Jeudy), before K (Harrison Butker), before DEF (Rams)
+    const idxQB = cardHtml.indexOf('Josh Allen');
+    const idxRB = cardHtml.indexOf('Breece Hall');
+    const idxWR = cardHtml.indexOf('Puka Nacua');
+    const idxTE = cardHtml.indexOf('Travis Kelce');
+    const idxFLEX = cardHtml.indexOf('Jerry Jeudy');
+    const idxK = cardHtml.indexOf('Harrison Butker');
+    const idxDEF = cardHtml.indexOf('Rams');
+
+    expect(idxQB).toBeLessThan(idxRB);
+    expect(idxRB).toBeLessThan(idxWR);
+    expect(idxWR).toBeLessThan(idxTE);
+    expect(idxTE).toBeLessThan(idxFLEX);
+    expect(idxFLEX).toBeLessThan(idxK);
+    expect(idxK).toBeLessThan(idxDEF);
+
+    // Check bench order: Javonte Williams (MISSED) appears before Bills (9.0 pts), before Calvin Ridley (6.0 pts)
+    const idxJavonte = cardHtml.indexOf('Javonte Williams');
+    const idxBills = cardHtml.indexOf('Bills');
+    const idxRidley = cardHtml.indexOf('Calvin Ridley');
+
+    expect(idxJavonte).toBeLessThan(idxBills);
+    expect(idxBills).toBeLessThan(idxRidley);
+    expect(cardHtml).toContain('⭐ OPT');
+    expect(cardHtml).toContain('⚠️ MISSED');
+  });
 });
