@@ -432,6 +432,7 @@
 
   // Helper to sync harvested data directly to local development server on disk
   async function streamToLocalDisk(matchups) {
+    if (!matchups || matchups.length === 0) return;
     try {
       const res = await fetch('http://localhost:5173/api/save-lineups', {
         method: 'POST',

@@ -27,9 +27,15 @@ function lineupSaverPlugin() {
               const matchups = Array.isArray(payload) ? payload : (payload.matchups || []);
               const seasonYear = payload.seasonYear || matchups[0]?.seasonYear;
 
-              if (!seasonYear || matchups.length === 0) {
+              if (!seasonYear) {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ error: 'Missing seasonYear or matchups' }));
+                res.end(JSON.stringify({ error: 'Missing seasonYear' }));
+                return;
+              }
+
+              if (matchups.length === 0) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, count: 0, message: 'No matchups to save yet' }));
                 return;
               }
 
