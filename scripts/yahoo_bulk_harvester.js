@@ -13,16 +13,16 @@
   console.clear();
   console.log('%c🏈 Yahoo Matchup & Lineup Harvester v5.3 Initialized', 'color: #34d399; font-size: 16px; font-weight: bold;');
 
-  // Pre-configured historical metadata for Y2K League
+  // Pre-configured historical metadata for Y2K League (Verified from Yahoo Archive)
   const SEASON_CONFIG = {
     2025: { leagueId: '97974', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
-    2024: { leagueId: '141011', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
-    2023: { leagueId: '96417', teams: 12, startWeek: 1, endWeek: 17, wrCount: 3 },
-    2022: { leagueId: '172828', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
-    2021: { leagueId: '213942', teams: 8, startWeek: 1, endWeek: 17, wrCount: 3 },
-    2020: { leagueId: '183921', teams: 6, startWeek: 1, endWeek: 16, wrCount: 2 },
-    2019: { leagueId: '201948', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 },
-    2018: { leagueId: '102941', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 }
+    2024: { leagueId: '548113', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2023: { leagueId: '768370', teams: 12, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2022: { leagueId: '238518', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2021: { leagueId: '647517', teams: 8, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2020: { leagueId: '350973', teams: 6, startWeek: 1, endWeek: 16, wrCount: 2 },
+    2019: { leagueId: '499753', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 },
+    2018: { leagueId: '1286518', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 }
   };
 
   // Extract league metadata from URL if available

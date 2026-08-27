@@ -22,16 +22,16 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { resolve } from 'path';
 import { parseRosterConstraints, computeOptimalLineup, analyzeDOhMoment } from '../src/analytics/managerial.js';
 
-// Canonical Y2K League & Game IDs
+// Canonical Y2K League & Game IDs (Verified from Yahoo Archives)
 export const Y2K_SEASONS_CONFIG = {
   2025: { leagueId: '97974', gameKey: '449', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2024: { leagueId: '141011', gameKey: '423', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2023: { leagueId: '96417', gameKey: '414', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2022: { leagueId: '172828', gameKey: '406', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2021: { leagueId: '213942', gameKey: '399', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2020: { leagueId: '183921', gameKey: '390', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x2, TE x1, W/R/T x1, K x1, DEF x1, BN x7' },
-  2019: { leagueId: '201948', gameKey: '380', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
-  2018: { leagueId: '102941', gameKey: '371', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' }
+  2024: { leagueId: '548113', gameKey: '423', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
+  2023: { leagueId: '768370', gameKey: '414', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
+  2022: { leagueId: '238518', gameKey: '406', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
+  2021: { leagueId: '647517', gameKey: '399', regularWeeks: 14, totalWeeks: 17, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
+  2020: { leagueId: '350973', gameKey: '390', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x2, TE x1, W/R/T x1, K x1, DEF x1, BN x7' },
+  2019: { leagueId: '499753', gameKey: '380', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' },
+  2018: { leagueId: '1286518', gameKey: '371', regularWeeks: 13, totalWeeks: 16, defaultRoster: 'QB x1, RB x2, WR x3, TE x1, W/R/T x1, K x1, DEF x1, BN x6' }
 };
 
 export const Y2K_TEAM_OWNER_MAP = {
