@@ -446,14 +446,45 @@
     }
   }
 
+  window.__STOP_Y2K_CRAWLER = false;
+
+  // Mount floating active crawler control immediately
+  const existingActiveBox = document.getElementById('y2k-harvester-modal');
+  if (existingActiveBox) existingActiveBox.remove();
+
+  const controlBox = document.createElement('div');
+  controlBox.id = 'y2k-harvester-modal';
+  controlBox.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #0f172a; color: #f8fafc; border: 2px solid #38bdf8; border-radius: 12px; padding: 14px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7); font-family: ui-monospace, monospace; max-width: 320px;';
+  controlBox.innerHTML = `
+    <div style="font-weight: 900; color: #38bdf8; font-size: 13px; margin-bottom: 4px;">📡 Y2K CRAWLER ACTIVE (${seasonYear})</div>
+    <div id="y2k-crawler-status" style="font-size: 11px; color: #94a3b8; margin-bottom: 10px;">Starting Week ${startWeek}...</div>
+    <button id="y2k-stop-btn" style="background: #dc2626; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 11px; width: 100%;">🛑 Stop Crawler (Keep Harvested Data)</button>
+  `;
+  document.body.appendChild(controlBox);
+
+  document.getElementById('y2k-stop-btn').addEventListener('click', () => {
+    window.__STOP_Y2K_CRAWLER = true;
+    const statusEl = document.getElementById('y2k-crawler-status');
+    if (statusEl) statusEl.textContent = 'Stopping crawler... saving data...';
+  });
+
   const allHarvestedMatchups = [];
   const processedMatchupKeys = new Set();
 
   for (let wk = startWeek; wk <= endWeek; wk++) {
+    if (window.__STOP_Y2K_CRAWLER) {
+      console.log('🛑 Crawler stopped by user.');
+      break;
+    }
+
     console.log(`📡 Crawling Season ${seasonYear} Week ${wk}/${endWeek}...`);
+    const statusEl = document.getElementById('y2k-crawler-status');
+    if (statusEl) statusEl.textContent = `Crawling Week ${wk}/${endWeek} (${allHarvestedMatchups.length} matchups saved)...`;
+
     let weekMatchupsCount = 0;
 
     for (let tId = 1; tId <= numTeams; tId++) {
+      if (window.__STOP_Y2K_CRAWLER) break;
       if (weekMatchupsCount >= (numTeams / 2)) break;
 
       try {
@@ -487,21 +518,15 @@
     await streamToLocalDisk(allHarvestedMatchups);
   }
 
-  console.log(`%c🎉 Harvest Complete! Extracted ${allHarvestedMatchups.length} matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
+  console.log(`%c🎉 Harvest Finished! Extracted ${allHarvestedMatchups.length} matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
   window.__Y2K_HARVESTED_DATA = allHarvestedMatchups;
 
   // Final sync to disk
   await streamToLocalDisk(allHarvestedMatchups);
 
   // Render on-page interactive floating modal
-  const existingModal = document.getElementById('y2k-harvester-modal');
-  if (existingModal) existingModal.remove();
-
-  const modal = document.createElement('div');
-  modal.id = 'y2k-harvester-modal';
-  modal.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #0f172a; color: #f8fafc; border: 2px solid #10b981; border-radius: 12px; padding: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7); font-family: ui-monospace, monospace; max-width: 360px;';
-  modal.innerHTML = `
-    <div style="font-weight: 900; color: #34d399; font-size: 14px; margin-bottom: 6px;">🏈 Y2K HARVEST COMPLETE (${seasonYear})</div>
+  controlBox.innerHTML = `
+    <div style="font-weight: 900; color: #34d399; font-size: 14px; margin-bottom: 6px;">🏈 Y2K HARVEST FINISHED (${seasonYear})</div>
     <div style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Extracted ${allHarvestedMatchups.length} total matchups (Weeks ${startWeek}-${endWeek}).</div>
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <button id="y2k-dl-btn" style="background: #059669; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 12px;">📥 Download ${seasonYear} JSON File</button>
@@ -512,7 +537,6 @@
       <button id="y2k-close-btn" style="background: transparent; color: #64748b; border: none; font-size: 11px; cursor: pointer; margin-top: 4px;">Close</button>
     </div>
   `;
-  document.body.appendChild(modal);
 
   document.getElementById('y2k-dl-btn').addEventListener('click', () => {
     const blob = new Blob([JSON.stringify(allHarvestedMatchups, null, 2)], { type: 'application/json' });
