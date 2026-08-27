@@ -458,9 +458,9 @@ function renderLucideIcons() {
         </th>
         <th onclick="sortStandings('coachingEfficiency')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">🧠 EFF</span>
+            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">🧠 EFF%</span>
             <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[260px]">
-              🧠 <span class="font-bold text-emerald-400">Coaching Efficiency:</span> Actual PF / Optimal Best Ball PF. Measures how close start/sit decisions were to the max possible points.
+              🧠 <span class="font-bold text-emerald-400">Coaching Efficiency %:</span> Actual PF / Optimal Best Ball PF. Measures how close start/sit decisions were to the max possible points.
             </div>
           </div>
         </th>
@@ -1698,6 +1698,20 @@ function renderLucideIcons() {
             `;
           }
 
+          const sData = window.LEAGUE_DATA.seasonData && window.LEAGUE_DATA.seasonData[String(yr)];
+          let champEffBadge = '';
+          let scEffBadge = '';
+          if (sData && sData.standings) {
+            const cStanding = sData.standings.find(st => st.rank === 1 || st.ownerName === c.firstOwner);
+            if (cStanding && cStanding.coachingEfficiency) {
+              champEffBadge = `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(cStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+            }
+            const scStanding = sData.standings.find(st => st.isScoringChamp || st.ownerName === c.scoringChampOwner);
+            if (scStanding && scStanding.coachingEfficiency) {
+              scEffBadge = `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(scStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+            }
+          }
+
           const div = document.createElement('div');
           div.className = 'crt-box p-4 rounded flex flex-col justify-between shadow-md bg-black/60 border border-emerald-900';
 
@@ -1712,7 +1726,10 @@ function renderLucideIcons() {
               <div class="mb-3 p-3 bg-emerald-950/80 border border-emerald-500 rounded">
                 <span class="text-[10px] uppercase font-bold text-amber-400 block font-mono">🥇 NEBUCHADNEZZAR CUP CHAMPION</span>
                 <span class="text-base font-black text-emerald-300 crt-glow block mt-0.5">${c.firstTeam}</span>
-                <span class="text-xs text-emerald-400 font-bold">[${c.firstOwner}]</span>
+                <div class="flex items-center mt-1">
+                  <span class="text-xs text-emerald-400 font-bold">[${c.firstOwner}]</span>
+                  ${champEffBadge}
+                </div>
               </div>
 
               <!-- 2nd and 3rd Podium Finishers -->
@@ -1731,7 +1748,10 @@ function renderLucideIcons() {
               <div class="mt-2.5 p-2.5 bg-black border border-emerald-800 rounded text-xs flex items-center justify-between font-mono">
                 <div>
                   <span class="text-[10px] font-extrabold text-emerald-400 block">🎯 SCORING CHAMPION</span>
-                  <span class="font-bold text-emerald-300 text-xs">${scTeam} <span class="text-[10px] text-emerald-500 font-normal">[${scOwner}]</span></span>
+                  <div class="flex items-center mt-0.5">
+                    <span class="font-bold text-emerald-300 text-xs">${scTeam} <span class="text-[10px] text-emerald-500 font-normal">[${scOwner}]</span></span>
+                    ${scEffBadge}
+                  </div>
                 </div>
                 <span class="font-mono font-black text-emerald-300 text-sm crt-glow">${scPF} pts</span>
               </div>

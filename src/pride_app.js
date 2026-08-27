@@ -467,9 +467,9 @@ function renderLucideIcons() {
         </th>
         <th onclick="sortStandings('coachingEfficiency')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">🧠 EFF</span>
+            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">🧠 EFF%</span>
             <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[260px]">
-              🧠 <span class="font-bold text-pink-600">Coaching Efficiency:</span> Actual PF / Optimal Best Ball PF. Measures start/sit accuracy.
+              🧠 <span class="font-bold text-pink-600">Coaching Efficiency %:</span> Actual PF / Optimal Best Ball PF. Measures start/sit accuracy.
             </div>
           </div>
         </th>
@@ -1719,6 +1719,20 @@ function renderLucideIcons() {
             `;
           }
 
+          const sData = window.LEAGUE_DATA.seasonData && window.LEAGUE_DATA.seasonData[String(yr)];
+          let champEffBadge = '';
+          let scEffBadge = '';
+          if (sData && sData.standings) {
+            const cStanding = sData.standings.find(st => st.rank === 1 || st.ownerName === c.firstOwner);
+            if (cStanding && cStanding.coachingEfficiency) {
+              champEffBadge = `<span class="ml-1.5 px-2 py-0.5 bg-pink-100 text-purple-900 border border-pink-300 rounded-full text-[10px] font-bold">🧠 ${Number(cStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+            }
+            const scStanding = sData.standings.find(st => st.isScoringChamp || st.ownerName === c.scoringChampOwner);
+            if (scStanding && scStanding.coachingEfficiency) {
+              scEffBadge = `<span class="ml-1.5 px-2 py-0.5 bg-pink-100 text-purple-900 border border-pink-300 rounded-full text-[10px] font-bold">🧠 ${Number(scStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+            }
+          }
+
           const div = document.createElement('div');
           div.className = 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
 
@@ -1733,7 +1747,10 @@ function renderLucideIcons() {
               <div class="mb-3 p-3 bg-amber-50/90 border-2 border-amber-300 rounded-xl">
                 <span class="text-[10px] uppercase font-bold text-amber-800 block">🥇 THE PRIDE CUP CHAMPION</span>
                 <span class="text-base font-black text-purple-950 block mt-0.5">${c.firstTeam}</span>
-                <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
+                <div class="flex items-center mt-1">
+                  <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
+                  ${champEffBadge}
+                </div>
               </div>
 
               <!-- 2nd and 3rd Podium Finishers -->
@@ -1752,7 +1769,10 @@ function renderLucideIcons() {
               <div class="mt-2.5 p-2.5 bg-pink-50/80 border border-pink-300 rounded-xl text-xs flex items-center justify-between">
                 <div>
                   <span class="text-[10px] font-extrabold text-pink-700 block">🎯 SCORING CHAMPION</span>
-                  <span class="font-bold text-purple-950 text-xs">${scTeam} <span class="text-[10px] text-pink-600 font-normal">[${scOwner}]</span></span>
+                  <div class="flex items-center mt-0.5">
+                    <span class="font-bold text-purple-950 text-xs">${scTeam} <span class="text-[10px] text-pink-600 font-normal">[${scOwner}]</span></span>
+                    ${scEffBadge}
+                  </div>
                 </div>
                 <span class="font-mono font-black text-pink-700 text-sm">${scPF} pts</span>
               </div>
