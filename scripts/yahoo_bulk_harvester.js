@@ -580,11 +580,11 @@
           }
         }
 
-        // Polite randomized throttling (650ms - 1100ms) to avoid Yahoo 999 triggers
-        await sleep(650 + Math.floor(Math.random() * 450));
+        // Snappy polite throttling (220ms - 320ms) for fast season crawling
+        await sleep(220 + Math.floor(Math.random() * 100));
       } catch (err) {
         console.error(`❌ Error on week ${wk} team ${tId}:`, err);
-        await sleep(1500);
+        await sleep(400);
       }
     }
 
