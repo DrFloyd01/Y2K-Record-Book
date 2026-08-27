@@ -348,8 +348,12 @@
     if (!ownerA || ownerA.startsWith('Owner')) ownerA = OWNER_MAP[nameA] || nameA;
     if (!ownerB || ownerB.startsWith('Owner')) ownerB = OWNER_MAP[nameB] || nameB;
 
-    const s = parseYahooTables(doc.getElementById('statTable1'), false);
-    const b = parseYahooTables(doc.getElementById('statTable2'), true);
+    const statTables = [...doc.querySelectorAll('#statTable1, #statTable2, table.stat-target, table[id*="statTable"], table.team-roster, #matchup-detail table')];
+    const tableStarters = doc.getElementById('statTable1') || statTables[0];
+    const tableBench = doc.getElementById('statTable2') || statTables[1];
+
+    const s = parseYahooTables(tableStarters, false);
+    const b = parseYahooTables(tableBench, true);
 
     const playersA = [...s.playersA, ...b.playersA];
     const playersB = [...s.playersB, ...b.playersB];
@@ -463,17 +467,28 @@
   console.log(`%c🎉 Harvest Complete! Extracted ${allHarvestedMatchups.length} matchups for Season ${seasonYear}.`, 'color: #34d399; font-size: 16px; font-weight: bold;');
   window.__Y2K_HARVESTED_DATA = allHarvestedMatchups;
 
-  // Auto-copy to clipboard
-  try {
-    const jsonStr = JSON.stringify(allHarvestedMatchups, null, 2);
-    await navigator.clipboard.writeText(jsonStr);
-    console.log('📋 JSON auto-copied to clipboard!');
-  } catch (e) {
-    console.log('💡 Type copy(__Y2K_HARVESTED_DATA) in console if needed.');
-  }
+  // Render on-page interactive floating modal
+  const existingModal = document.getElementById('y2k-harvester-modal');
+  if (existingModal) existingModal.remove();
 
-  // Auto-download JSON file
-  try {
+  const modal = document.createElement('div');
+  modal.id = 'y2k-harvester-modal';
+  modal.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #0f172a; color: #f8fafc; border: 2px solid #10b981; border-radius: 12px; padding: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7); font-family: ui-monospace, monospace; max-width: 360px;';
+  modal.innerHTML = `
+    <div style="font-weight: 900; color: #34d399; font-size: 14px; margin-bottom: 6px;">🏈 Y2K HARVEST COMPLETE (${seasonYear})</div>
+    <div style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">Extracted ${allHarvestedMatchups.length} total matchups (Weeks ${startWeek}-${endWeek}).</div>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <button id="y2k-dl-btn" style="background: #059669; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 12px;">📥 Download ${seasonYear} JSON File</button>
+      <div style="display: flex; gap: 6px;">
+        <button id="y2k-copy-part1" style="flex: 1; background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 6px 8px; border-radius: 6px; cursor: pointer; font-size: 11px;">📋 Copy W1-8</button>
+        <button id="y2k-copy-part2" style="flex: 1; background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 6px 8px; border-radius: 6px; cursor: pointer; font-size: 11px;">📋 Copy W9-17</button>
+      </div>
+      <button id="y2k-close-btn" style="background: transparent; color: #64748b; border: none; font-size: 11px; cursor: pointer; margin-top: 4px;">Close</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('y2k-dl-btn').addEventListener('click', () => {
     const blob = new Blob([JSON.stringify(allHarvestedMatchups, null, 2)], { type: 'application/json' });
     const downloadUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -483,5 +498,21 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(downloadUrl);
-  } catch (e) {}
+  });
+
+  document.getElementById('y2k-copy-part1').addEventListener('click', async (e) => {
+    const p1 = allHarvestedMatchups.filter(m => m.week <= 8);
+    await navigator.clipboard.writeText(JSON.stringify(p1, null, 2));
+    e.target.textContent = '✅ Copied W1-8!';
+    setTimeout(() => e.target.textContent = '📋 Copy W1-8', 2000);
+  });
+
+  document.getElementById('y2k-copy-part2').addEventListener('click', async (e) => {
+    const p2 = allHarvestedMatchups.filter(m => m.week > 8);
+    await navigator.clipboard.writeText(JSON.stringify(p2, null, 2));
+    e.target.textContent = '✅ Copied W9-17!';
+    setTimeout(() => e.target.textContent = '📋 Copy W9-17', 2000);
+  });
+
+  document.getElementById('y2k-close-btn').addEventListener('click', () => modal.remove());
 })();
