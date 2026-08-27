@@ -13,30 +13,59 @@
   console.clear();
   console.log('%c🏈 Yahoo Matchup & Lineup Harvester v5.3 Initialized', 'color: #34d399; font-size: 16px; font-weight: bold;');
 
-  // Extract league metadata from URL
+  // Pre-configured historical metadata for Y2K League
+  const SEASON_CONFIG = {
+    2025: { leagueId: '97974', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2024: { leagueId: '141011', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2023: { leagueId: '96417', teams: 12, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2022: { leagueId: '172828', teams: 10, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2021: { leagueId: '213942', teams: 8, startWeek: 1, endWeek: 17, wrCount: 3 },
+    2020: { leagueId: '183921', teams: 6, startWeek: 1, endWeek: 16, wrCount: 2 },
+    2019: { leagueId: '201948', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 },
+    2018: { leagueId: '102941', teams: 6, startWeek: 1, endWeek: 16, wrCount: 3 }
+  };
+
+  // Extract league metadata from URL if available
   const path = window.location.pathname;
   const urlMatch = path.match(/(?:(?:(\d{4})\/)?f1\/(\d+))/);
-  const detectedYear = urlMatch && urlMatch[1] ? parseInt(urlMatch[1], 10) : (new Date().getFullYear());
-  const detectedLeagueId = urlMatch && urlMatch[2] ? urlMatch[2] : '97974';
+  const detectedYear = urlMatch && urlMatch[1] ? parseInt(urlMatch[1], 10) : 2024;
 
-  const seasonYear = parseInt(prompt('Enter Season Year (e.g. 2025, 2024, 2020):', detectedYear) || detectedYear, 10);
-  const leagueId = prompt('Enter Yahoo League ID:', detectedLeagueId) || detectedLeagueId;
-  const startWeek = parseInt(prompt('Enter START Week (e.g. 1):', 1) || 1, 10);
-  const endWeek = parseInt(prompt('Enter END Week (e.g. 17 or 16):', seasonYear >= 2021 ? 17 : 16) || 17, 10);
-  const numTeams = parseInt(prompt('Enter Number of Teams (e.g. 10 or 12):', seasonYear === 2025 ? 10 : 12) || 10, 10);
+  const inputYear = prompt('Enter Season Year (2018-2025):', detectedYear);
+  if (!inputYear) {
+    console.log('❌ Harvester cancelled.');
+    return;
+  }
+  const seasonYear = parseInt(inputYear, 10);
+  const cfg = SEASON_CONFIG[seasonYear] || {};
 
-  // Canonical Team to Owner Mapping
+  const detectedLeagueId = urlMatch && urlMatch[2] ? urlMatch[2] : (cfg.leagueId || '141011');
+  const leagueId = cfg.leagueId || detectedLeagueId;
+  const startWeek = cfg.startWeek || 1;
+  const endWeek = cfg.endWeek || (seasonYear >= 2021 ? 17 : 16);
+  const numTeams = cfg.teams || 10;
+
+  console.log(`%c🚀 Target Configured: Season ${seasonYear} | League ID: ${leagueId} | ${numTeams} Teams | Weeks ${startWeek}-${endWeek}`, 'color: #38bdf8; font-weight: bold;');
+
+  // Canonical Team to Owner Mapping across all seasons (2018-2025)
   const OWNER_MAP = {
-    'Globo Gym': 'Dylan', 'Ho Chi Win City': 'Phillip', 'Jelqaida': 'Mike', 'AARPFL': 'Casey',
-    'Gl Hf (you’re gay)': 'Trace', "Gl Hf (you're gay)": 'Trace', 'Darnold Schwarzenegger': 'Alex',
-    'Donkey Squad': 'Ryan', 'Aaron codger': 'Boaz', 'Dusty’s Dingleberries': 'Dustin',
-    "Dusty's Dingleberries": 'Dustin', 'Trenches cooper': 'Cooper', 'Tess Finesse': 'Tess',
-    "Blue's Balls": 'Jasper', 'Blue’s Balls': 'Jasper', 'The Dawn of Man-Ape': 'Dylan', 'TDS': 'Phillip',
-    'Bad team not good at football': 'Ryan'
+    'Globo Gym': 'Dylan', 'The Dawn of Man-Ape': 'Dylan', 'Zaza Zealots': 'Dylan', '#BrainTrauma': 'Dylan', '#2020BrainTrauma': 'Dylan', 'Hood Phenomenons': 'Dylan', 'The Waterboys': 'Dylan',
+    'Ho Chi Win City': 'Phillip', 'Bak2Bak': 'Phillip', 'Show Me Dem TDS': 'Phillip', 'TDS': 'Phillip',
+    'Jelqaida': 'Mike', 'Team Chaos': 'Mike', 'Justin Time': 'Mike', 'Ouchie': 'Mike', 'Pacific Islanders': 'Mike', "Matt's Team": 'Mike', 'Ronny Man': 'Mike', 'RonnyMan2': 'Mike',
+    'AARPFL': 'Casey', 'Skibidi Football': 'Casey', 'Awesome Baller-Winners': 'Casey', 'The Mr. Unlimited’s': 'Casey', 'Just pain': 'Casey', 'CUBA': 'Casey', 'FUNdamentals': 'Casey', 'Good football team!!': 'Casey',
+    'Gl Hf (you’re gay)': 'Trace', "Gl Hf (you're gay)": 'Trace', "I'm gonna win you're gay": 'Trace', 'Poopy Butt': 'Trace', '#1 CumBoy': 'Trace', "Trace's Team": 'Trace',
+    'Darnold Schwarzenegger': 'Alex',
+    'Donkey Squad': 'Ryan', 'Bad team not good at football': 'Ryan', 'Old Leech': 'Ryan', 'Trilobite Terror': 'Ryan', 'Rats!': 'Ryan', 'LIBYA rip Gaddafi': 'Ryan', 'The Janissaries': 'Ryan', 'The Mamluks': 'Ryan', 'The Mongol Horde': 'Ryan',
+    'Aaron codger': 'Boaz', 'No I’m gonna win UR gay': 'Boaz',
+    'Dusty’s Dingleberries': 'Dustin', "Dusty's Dingleberries": 'Dustin', 'Dusty Dynasty 🏆': 'Dustin', 'Let’s Ride 😤': 'Dustin', '#MOONGANG 🚀🌚': 'Dustin',
+    'Trenches cooper': 'Cooper', 'coop’s shit': 'Cooper',
+    'Tess Finesse': 'Tess',
+    "Blue's Balls": 'Jasper', 'Blue’s Balls': 'Jasper',
+    'Can I Hit Your Vape?': 'Torin',
+    "nick's Great Team": 'Nick'
   };
 
   const constraints = {
-    QB: 1, RB: 2, WR: (seasonYear === 2020 ? 2 : 3), TE: 1, FLEX: 1, K: 1, DEF: 1
+    QB: 1, RB: 2, WR: (cfg.wrCount || (seasonYear === 2020 ? 2 : 3)), TE: 1, FLEX: 1, K: 1, DEF: 1
   };
 
   function sleep(ms) {

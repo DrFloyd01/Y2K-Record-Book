@@ -26,25 +26,22 @@
 
   console.log(`📡 Extracting Week ${weekNum} for Season ${seasonYear} (League: ${leagueId})...`);
 
-  // Canonical Team to Owner Mapping
+  // Canonical Team to Owner Mapping across all seasons (2018-2025)
   const OWNER_MAP = {
-    'Globo Gym': 'Dylan',
-    'Ho Chi Win City': 'Phillip',
-    'Jelqaida': 'Mike',
-    'AARPFL': 'Casey',
-    'Gl Hf (you’re gay)': 'Trace',
-    'Gl Hf (you\'re gay)': 'Trace',
+    'Globo Gym': 'Dylan', 'The Dawn of Man-Ape': 'Dylan', 'Zaza Zealots': 'Dylan', '#BrainTrauma': 'Dylan', '#2020BrainTrauma': 'Dylan', 'Hood Phenomenons': 'Dylan', 'The Waterboys': 'Dylan',
+    'Ho Chi Win City': 'Phillip', 'Bak2Bak': 'Phillip', 'Show Me Dem TDS': 'Phillip', 'TDS': 'Phillip',
+    'Jelqaida': 'Mike', 'Team Chaos': 'Mike', 'Justin Time': 'Mike', 'Ouchie': 'Mike', 'Pacific Islanders': 'Mike', "Matt's Team": 'Mike', 'Ronny Man': 'Mike', 'RonnyMan2': 'Mike',
+    'AARPFL': 'Casey', 'Skibidi Football': 'Casey', 'Awesome Baller-Winners': 'Casey', 'The Mr. Unlimited’s': 'Casey', 'Just pain': 'Casey', 'CUBA': 'Casey', 'FUNdamentals': 'Casey', 'Good football team!!': 'Casey',
+    'Gl Hf (you’re gay)': 'Trace', "Gl Hf (you're gay)": 'Trace', "I'm gonna win you're gay": 'Trace', 'Poopy Butt': 'Trace', '#1 CumBoy': 'Trace', "Trace's Team": 'Trace',
     'Darnold Schwarzenegger': 'Alex',
-    'Donkey Squad': 'Ryan',
-    'Aaron codger': 'Boaz',
-    'Dusty’s Dingleberries': 'Dustin',
-    "Dusty's Dingleberries": 'Dustin',
-    'Trenches cooper': 'Cooper',
+    'Donkey Squad': 'Ryan', 'Bad team not good at football': 'Ryan', 'Old Leech': 'Ryan', 'Trilobite Terror': 'Ryan', 'Rats!': 'Ryan', 'LIBYA rip Gaddafi': 'Ryan', 'The Janissaries': 'Ryan', 'The Mamluks': 'Ryan', 'The Mongol Horde': 'Ryan',
+    'Aaron codger': 'Boaz', 'No I’m gonna win UR gay': 'Boaz',
+    'Dusty’s Dingleberries': 'Dustin', "Dusty's Dingleberries": 'Dustin', 'Dusty Dynasty 🏆': 'Dustin', 'Let’s Ride 😤': 'Dustin', '#MOONGANG 🚀🌚': 'Dustin',
+    'Trenches cooper': 'Cooper', 'coop’s shit': 'Cooper',
     'Tess Finesse': 'Tess',
-    "Blue's Balls": 'Jasper',
-    'Blue’s Balls': 'Jasper',
-    'The Dawn of Man-Ape': 'Dylan',
-    'TDS': 'Phillip'
+    "Blue's Balls": 'Jasper', 'Blue’s Balls': 'Jasper',
+    'Can I Hit Your Vape?': 'Torin',
+    "nick's Great Team": 'Nick'
   };
 
   const matchupBlocks = document.querySelectorAll('#matchup-detail, .matchup-sub-module, table.stat-target');
