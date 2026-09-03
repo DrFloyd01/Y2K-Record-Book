@@ -1,7 +1,7 @@
 # 🏈 2026 AUTODRAFT PRIORITY BOARD (COMMISSIONER COPY)
 
 **Manager**: Dylan (Average Joes)  
-**Draft Slot**: #12 (12-Team Snake — Picks at the Turns)  
+**Draft Slot**: #12 (12-Team Snake — Picks on the Back-to-Back Turns)  
 
 ### 📌 GOLDEN RULE FOR COMMISSIONER:
 For each pick, **draft the FIRST player on that round's list who is still available on the board**.
@@ -56,7 +56,7 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 
 ### 🟢 Round 10 | Pick #109 (WR)
 
-> **Godwin, Pittman, Wan'Dale.Robinson, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon**
+> **Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon**
 
 
 ### 🟢 Round 11 | Pick #132 (QB)
@@ -66,17 +66,17 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 
 ### 🟢 Round 12 | Pick #133 (WR)
 
-> **Downs, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs**
+> **Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs**
 
 
 ### 🟢 Round 13 | Pick #156 (WR)
 
-> **Shakir, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane**
+> **Shakir, Golden, Coker, Doubs, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane**
 
 
 ### 🟢 Round 14 | Pick #157 (WR)
 
-> **Shakir, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks**
+> **Shakir, Golden, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks**
 
 
 ---
@@ -94,9 +94,9 @@ Rd	Pick	Position	Ranking
 7	84	TE	McBride, Bowers, Loveland, Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson
 8	85	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton
 9	108	RB	Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones
-10	109	WR	Godwin, Pittman, Wan'Dale.Robinson, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon
+10	109	WR	Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon
 11	132	QB	Lawrence, Prescott, Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough
-12	133	WR	Downs, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs
-13	156	WR	Shakir, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane
-14	157	WR	Shakir, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks
+12	133	WR	Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs
+13	156	WR	Shakir, Golden, Coker, Doubs, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane
+14	157	WR	Shakir, Golden, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks
 ```
