@@ -3,9 +3,9 @@
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Picks on the Back-to-Back Turns)  
 
-### 📌 GOLDEN RULE FOR COMMISSIONER:
-For each pick, **draft the FIRST player on that round's list who is still available on the board**.
-*(Lists are fully inclusive: top-tier sliders and fallers are included at the front of each list so no elite talent slips through the cracks!)*
+### 📌 COMMISSIONER MASTER RULE (EASY 2-STEP PARSE):
+1. **Check for Earlier Sliders**: If anyone listed from an **EARLIER** round at this position is miraculously still on the board, take them immediately!
+2. **Otherwise**: Draft the **FIRST** player on this round's realistic list who is still available.
 
 ---
 
@@ -16,17 +16,17 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 
 ### 🟢 Round 2 | Pick #13 (WR)
 
-> **JSN, St. Brown, Lamb, Jefferson, London, AJ.Brown, Collins, Olave**
+> **JSN, St. Brown, Lamb, Jefferson, London**
 
 
 ### 🟢 Round 3 | Pick #36 (RB)
 
-> **Jeanty, Henry, Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving**
+> **Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving**
 
 
 ### 🟢 Round 4 | Pick #37 (WR)
 
-> **AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins**
+> **Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle**
 
 
 ### 🟢 Round 5 | Pick #60 (RB)
@@ -36,12 +36,12 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 
 ### 🟢 Round 6 | Pick #61 (WR)
 
-> **Waddle, T.McMillan, Higgins, Egbuka, Burden, McLaurin, Adams, DJ.Moore, Jamo.Williams, Watson, P.Washington, Odunze, Evans**
+> **Waddle, Burden, McLaurin, Adams, DJ.Moore, Jamo.Williams, Watson, P.Washington, Odunze, Evans**
 
 
 ### 🟢 Round 7 | Pick #84 (TE)
 
-> **McBride, Bowers, Loveland, Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson**
+> **Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson**
 
 
 ### 🟢 Round 8 | Pick #85 (WR)
@@ -56,27 +56,27 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 
 ### 🟢 Round 10 | Pick #109 (WR)
 
-> **Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon**
+> **Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion**
 
 
 ### 🟢 Round 11 | Pick #132 (QB)
 
-> **Lawrence, Prescott, Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough**
+> **Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough**
 
 
 ### 🟢 Round 12 | Pick #133 (WR)
 
-> **Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs**
+> **Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs**
 
 
 ### 🟢 Round 13 | Pick #156 (WR)
 
-> **Shakir, Golden, Coker, Doubs, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane**
+> **Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker**
 
 
 ### 🟢 Round 14 | Pick #157 (WR)
 
-> **Shakir, Golden, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks**
+> **Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks**
 
 
 ---
@@ -86,17 +86,17 @@ For each pick, **draft the FIRST player on that round's list who is still availa
 ```tsv
 Rd	Pick	Position	Ranking
 1	12	RB	Cook, C.Brown, Achane, Barkley, Walker, Hampton
-2	13	WR	JSN, St. Brown, Lamb, Jefferson, London, AJ.Brown, Collins, Olave
-3	36	RB	Jeanty, Henry, Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving
-4	37	WR	AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins
+2	13	WR	JSN, St. Brown, Lamb, Jefferson, London
+3	36	RB	Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving
+4	37	WR	Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle
 5	60	RB	Swift, Irving, Montgomery, Judkins, Tuten, Price, Henderson, Stevenson, Warren
-6	61	WR	Waddle, T.McMillan, Higgins, Egbuka, Burden, McLaurin, Adams, DJ.Moore, Jamo.Williams, Watson, P.Washington, Odunze, Evans
-7	84	TE	McBride, Bowers, Loveland, Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson
+6	61	WR	Waddle, Burden, McLaurin, Adams, DJ.Moore, Jamo.Williams, Watson, P.Washington, Odunze, Evans
+7	84	TE	Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson
 8	85	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton
 9	108	RB	Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones
-10	109	WR	Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton, Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon
-11	132	QB	Lawrence, Prescott, Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough
-12	133	WR	Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs
-13	156	WR	Shakir, Golden, Coker, Doubs, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, K.Allen, Lane
-14	157	WR	Shakir, Golden, Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks
+10	109	WR	Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion
+11	132	QB	Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough
+12	133	WR	Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs
+13	156	WR	Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker
+14	157	WR	Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks
 ```
