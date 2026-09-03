@@ -1,20 +1,20 @@
-# 🏈 2026 AUTODRAFT PRIORITY BOARD (COMMISSIONER COPY)
+# 🏈 2026 OFFICIAL AUTODRAFT PRIORITY BOARD (COMMISSIONER COPY)
 
 **Manager**: Dylan (Average Joes)  
-**Draft Slot**: #12 (12-Team Snake — Picks on the Back-to-Back Turns)  
-**Core Strategy**: 
-* Turn 1 (Picks 12 & 13): **RB + RB** (Dual-Anchor Backfield)
-* Turn 2 (Picks 36 & 37): **WR + WR** (Dual-WR Target Stack)
-* Turn 3 (Picks 60 & 61): **RB + TE** (Anchor RB3 + Elite TE Pivot)
-* Turn 4 (Picks 84 & 85): **WR + WR** (PPR WR Value Double-Dip)
+**Draft Slot**: #12 (12-Team Snake — Back-to-Back Turn Picks)  
+**Proven Mock Flow**: 
+* Turn 1 (Picks 12 & 13): **RB + RB** (Dual-Anchor Backfield: C.Brown + Achane)
+* Turn 2 (Picks 36 & 37): **WR + WR** (Alpha WR Duo: G.Wilson + McConkey/Higgins)
+* Turn 3 (Picks 60 & 61): **RB + TE** (Workhorse RB3: Price/Henderson + Elite TE: Fannin/Kraft)
+* Turn 4 (Picks 84 & 85): **WR + RB** (PPR WR: Godwin/Metcalf + Bellcow RB4: Harvey/White)
+* Turn 5 (Picks 108 & 109): **WR + WR** (Slot Target-Hogs: Downs + Reed)
+* Turn 6 (Picks 132 & 133): **QB + RB** (Rushing QB1: Murray/Goff + Handcuff RB5: Allgeier)
+* Turn 7 (Picks 156 & 157): **WR + WR** (Breakout Fliers: Boston + M.Washington)
 
-### 📌 COMMISSIONER MASTER RULES:
-1. **Consecutive Turn Execution**: Picks 12/13, 36/37, 60/61, and 84/85 are executed back-to-back with zero picks in between.
-2. **Turn 1 (Picks 12 & 13)**: Select the **TOP TWO AVAILABLE RBs** from the Round 1/2 list.
-3. **Turn 2 (Picks 36 & 37)**: Select the **TOP TWO AVAILABLE WRs** from the Round 3/4 list.
-4. **Turn 3 (Picks 60 & 61)**: Select the **TOP RB** at #60, then the **TOP TE** at #61.
-5. **Turn 4 (Picks 84 & 85)**: Select the **TOP TWO AVAILABLE WRs** from the Round 7/8 list.
-6. **Earlier Sliders Rule**: If any player from an earlier round at that position is miraculously still on the board, take them first!
+### 📌 COMMISSIONER EXECUTION RULES:
+1. **Strict Back-to-Back Turns**: Every pair of picks is executed consecutively with 0 picks between them.
+2. **Turn Selections**: For each pick, select the **FIRST available player on that specific round's ranking list** who is still on the board.
+3. **Earlier Sliders Rule**: If any player from an earlier round at that position is miraculously still on the board, take them first!
 
 ---
 
@@ -53,14 +53,14 @@
 > **Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton**
 
 
-### 🟢 Round 8 | Pick #85 (WR)
-
-> **Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton**
-
-
-### 🟢 Round 9 | Pick #108 (RB)
+### 🟢 Round 8 | Pick #85 (RB)
 
 > **Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones, Allgeier**
+
+
+### 🟢 Round 9 | Pick #108 (WR)
+
+> **Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion**
 
 
 ### 🟢 Round 10 | Pick #109 (WR)
@@ -73,19 +73,19 @@
 > **Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough, Darnold, Stroud, D.Jones**
 
 
-### 🟢 Round 12 | Pick #133 (WR)
+### 🟢 Round 12 | Pick #133 (RB)
 
-> **Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs**
+> **Allgeier, Spears, Coleman, Sampson, K.Mitchell, Charbonnet, Kamara, Bigsby, Tracy, B.Allen, Vidal**
 
 
 ### 🟢 Round 13 | Pick #156 (WR)
 
-> **Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker**
+> **Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, M.Washington**
 
 
 ### 🟢 Round 14 | Pick #157 (WR)
 
-> **Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks**
+> **Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks, M.Washington**
 
 
 ---
@@ -101,11 +101,11 @@ Rd	Pick	Position	Ranking
 5	60	RB	Swift, Irving, Montgomery, Judkins, Tuten, Price, Henderson, Stevenson, Warren, Pollard
 6	61	TE	Loveland, Warren (TE), Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely
 7	84	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton
-8	85	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, Wan'Dale.Robinson, Sutton
-9	108	RB	Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones, Allgeier
+8	85	RB	Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones, Allgeier
+9	108	WR	Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion
 10	109	WR	Downs, M.Wilson, Diggs, Johnston, Pierce, Reed, Lemon, Meyers, Concepcion
 11	132	QB	Purdy, Dart, Nix, Mahomes, Goff, Murray, J.Love (QB), Mayfield, Shough, Darnold, Stroud, D.Jones
-12	133	WR	Meyers, Concepcion, Stribling, Shakir, Golden, Coker, Doubs
-13	156	WR	Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker
-14	157	WR	Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks
+12	133	RB	Allgeier, Spears, Coleman, Sampson, K.Mitchell, Charbonnet, Kamara, Bigsby, Tracy, B.Allen, Vidal
+13	156	WR	Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, M.Washington
+14	157	WR	Coker, Tyson, Shaheed, Boston, Tucker, Jeudy, K.Allen, Lane, Wicks, M.Washington
 ```

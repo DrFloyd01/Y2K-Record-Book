@@ -1,9 +1,14 @@
-# 📊 2026 DRAFT BOARD: ECR vs. ADP CROSS-CHECK & EVALUATION
+# 📊 2026 DRAFT BOARD: ECR vs. ADP CROSS-CHECK & EVALUATION (FINAL LOCKED BOARD)
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
-**Core Flow**: Turn 1 (RB+RB) ➔ Turn 2 (WR+WR) ➔ Turn 3 (RB+TE) ➔ Turn 4 (WR+WR)
-**Benchmark 1**: FantasyPros Expert Consensus Rankings (ECR 'ALL')
-**Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
+**Winning Mock Flow**: 
+* Turn 1 (Picks 12 & 13): **RB + RB** (Chase Brown + Achane)
+* Turn 2 (Picks 36 & 37): **WR + WR** (Garrett Wilson + Ladd McConkey)
+* Turn 3 (Picks 60 & 61): **RB + TE** (Jadarian Price + Harold Fannin Jr.)
+* Turn 4 (Picks 84 & 85): **WR + RB** (Chris Godwin Jr. + RJ Harvey)
+* Turn 5 (Picks 108 & 109): **WR + WR** (Josh Downs + Jayden Reed)
+* Turn 6 (Picks 132 & 133): **QB + RB** (Kyler Murray + Tyler Allgeier)
+* Turn 7 (Picks 156 & 157): **WR + WR** (Denzel Boston + Malik Washington)
 
 ---
 
@@ -120,38 +125,37 @@
 
 ---
 
-## 🟢 Round 8 | Pick #85 (Target: WR)
+## 🟢 Round 8 | Pick #85 (Target: RB)
 
 | Priority | Player | Team | Pos | ECR Rank (Tier) | Consensus ADP (2) | ECR vs ADP Delta | Projected Availability at #85 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Christian Watson** | GB | WR27 | **#53** (T6) | **#66** (Avg 67.4) | +13 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Mike Evans** | SF | WR30 | **#60** (T6) | **#68** (Avg 67.6) | +8 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Carnell Tate** | TEN | WR31 | **#66** (T6) | **#74** (Avg 74.2) | +8 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Marvin Harrison Jr.** | ARI | WR32 | **#67** (T6) | **#72** (Avg 73.2) | +5 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Chris Godwin Jr.** | TB | WR33 | **#70** (T6) | **#89** (Avg 91.4) | +19 (Faller in ADP) | ✅ Likely Available |
-| **6** | **DK Metcalf** | PIT | WR34 | **#78** (T7) | **#80** (Avg 80.6) | +2 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Brian Thomas Jr.** | JAC | WR35 | **#79** (T7) | **#84** (Avg 85.8) | +5 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **8** | **Michael Pittman Jr.** | PIT | WR36 | **#80** (T7) | **#96** (Avg 99.8) | +16 (Faller in ADP) | 💎 Value Lock |
-| **9** | **Wan'Dale Robinson** | TEN | WR37 | **#82** (T7) | **#101** (Avg 103.8) | +19 (Faller in ADP) | 💎 Value Lock |
-| **10** | **Courtland Sutton** | DEN | WR38 | **#84** (T7) | **#77** (Avg 77.2) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **1** | **RJ Harvey** | DEN | RB31 | **#91** (T7) | **#85** (Avg 87.8) | -6 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **2** | **Kenny Gainwell** | TB | RB32 | **#97** (T7) | **#94** (Avg 99.4) | -3 (Reached in ADP) | 💎 Value Lock |
+| **3** | **Chuba Hubbard** | CAR | RB33 | **#99** (T8) | **#90** (Avg 92.6) | -9 (Reached in ADP) | ✅ Likely Available |
+| **4** | **J.K. Dobbins** | DEN | RB34 | **#100** (T8) | **#88** (Avg 91.0) | -12 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **MarShawn Lloyd** | GB | RB35 | **#104** (T8) | **#103** (Avg 104.4) | -1 (Reached in ADP) | 💎 Value Lock |
+| **6** | **Blake Corum** | LAR | RB36 | **#110** (T8) | **#99** (Avg 101.6) | -11 (Reached in ADP) | 💎 Value Lock |
+| **7** | **Rachaad White** | WAS | RB37 | **#112** (T8) | **#118** (Avg 113.8) | +6 (Faller in ADP) | 💎 Value Lock |
+| **8** | **Jordan Mason** | MIN | RB38 | **#113** (T8) | **#100** (Avg 103.6) | -13 (Reached in ADP) | 💎 Value Lock |
+| **9** | **Jacory Croskey-Merritt** | WAS | RB39 | **#115** (T8) | **#109** (Avg 109.6) | -6 (Reached in ADP) | 💎 Value Lock |
+| **10** | **Aaron Jones Sr.** | MIN | RB40 | **#118** (T8) | **#120** (Avg 115.8) | +2 (Faller in ADP) | 💎 Value Lock |
+| **11** | **Tyler Allgeier** | ARI | RB43 | **#134** (T9) | **#141** (Avg 142.2) | +7 (Faller in ADP) | 💎 Value Lock |
 
 ---
 
-## 🟢 Round 9 | Pick #108 (Target: RB)
+## 🟢 Round 9 | Pick #108 (Target: WR)
 
 | Priority | Player | Team | Pos | ECR Rank (Tier) | Consensus ADP (2) | ECR vs ADP Delta | Projected Availability at #108 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **RJ Harvey** | DEN | RB31 | **#91** (T7) | **#85** (Avg 87.8) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Kenny Gainwell** | TB | RB32 | **#97** (T7) | **#94** (Avg 99.4) | -3 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Chuba Hubbard** | CAR | RB33 | **#99** (T8) | **#90** (Avg 92.6) | -9 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **J.K. Dobbins** | DEN | RB34 | **#100** (T8) | **#88** (Avg 91.0) | -12 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **MarShawn Lloyd** | GB | RB35 | **#104** (T8) | **#103** (Avg 104.4) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **Blake Corum** | LAR | RB36 | **#110** (T8) | **#99** (Avg 101.6) | -11 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **7** | **Rachaad White** | WAS | RB37 | **#112** (T8) | **#118** (Avg 113.8) | +6 (Faller in ADP) | 💎 Value Lock |
-| **8** | **Jordan Mason** | MIN | RB38 | **#113** (T8) | **#100** (Avg 103.6) | -13 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **9** | **Jacory Croskey-Merritt** | WAS | RB39 | **#115** (T8) | **#109** (Avg 109.6) | -6 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **10** | **Aaron Jones Sr.** | MIN | RB40 | **#118** (T8) | **#120** (Avg 115.8) | +2 (Faller in ADP) | 💎 Value Lock |
-| **11** | **Tyler Allgeier** | ARI | RB43 | **#134** (T9) | **#141** (Avg 142.2) | +7 (Faller in ADP) | 💎 Value Lock |
+| **1** | **Josh Downs** | IND | WR39 | **#86** (T7) | **#119** (Avg 114.6) | +33 (Faller in ADP) | 💎 Value Lock |
+| **2** | **Michael Wilson** | ARI | WR40 | **#87** (T7) | **#86** (Avg 88.6) | -1 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Stefon Diggs** | WAS | WR41 | **#89** (T7) | **#98** (Avg 100.8) | +9 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Quentin Johnston** | LAC | WR42 | **#90** (T7) | **#104** (Avg 104.6) | +14 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **Alec Pierce** | IND | WR43 | **#98** (T8) | **#91** (Avg 96.8) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **6** | **Jayden Reed** | GB | WR44 | **#101** (T8) | **#121** (Avg 116.8) | +20 (Faller in ADP) | 💎 Value Lock |
+| **7** | **Makai Lemon** | PHI | WR45 | **#106** (T8) | **#117** (Avg 112.8) | +11 (Faller in ADP) | 💎 Value Lock |
+| **8** | **Jakobi Meyers** | JAC | WR46 | **#107** (T8) | **#123** (Avg 121.0) | +16 (Faller in ADP) | 💎 Value Lock |
+| **9** | **KC Concepcion** | CLE | WR48 | **#109** (T8) | **#126** (Avg 122.8) | +17 (Faller in ADP) | 💎 Value Lock |
 
 ---
 
@@ -190,17 +194,21 @@
 
 ---
 
-## 🟢 Round 12 | Pick #133 (Target: WR)
+## 🟢 Round 12 | Pick #133 (Target: RB)
 
 | Priority | Player | Team | Pos | ECR Rank (Tier) | Consensus ADP (2) | ECR vs ADP Delta | Projected Availability at #133 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Jakobi Meyers** | JAC | WR46 | **#107** (T8) | **#123** (Avg 121.0) | +16 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **KC Concepcion** | CLE | WR48 | **#109** (T8) | **#126** (Avg 122.8) | +17 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **De'Zhaun Stribling** | SF | WR49 | **#123** (T8) | **#111** (Avg 111.0) | -12 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Khalil Shakir** | BUF | WR50 | **#124** (T8) | **#147** (Avg 147.6) | +23 (Faller in ADP) | 💎 Value Lock |
-| **5** | **Matthew Golden** | GB | WR51 | **#125** (T8) | **#127** (Avg 123.8) | +2 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **6** | **Jalen Coker** | CAR | WR52 | **#126** (T8) | **#142** (Avg 142.4) | +16 (Faller in ADP) | 💎 Value Lock |
-| **7** | **Romeo Doubs** | NE | WR53 | **#128** (T8) | **#129** (Avg 133.6) | +1 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **1** | **Tyler Allgeier** | ARI | RB43 | **#134** (T9) | **#141** (Avg 142.2) | +7 (Faller in ADP) | ✅ Likely Available |
+| **2** | **Tyjae Spears** | TEN | RB44 | **#137** (T9) | **#143** (Avg 145.0) | +6 (Faller in ADP) | 💎 Value Lock |
+| **3** | **Jonah Coleman** | DEN | RB46 | **#143** (T9) | **#154** (Avg 160.0) | +11 (Faller in ADP) | 💎 Value Lock |
+| **4** | **Dylan Sampson** | CLE | RB47 | **#144** (T9) | **#171** (Avg 175.8) | +27 (Faller in ADP) | 💎 Value Lock |
+| **5** | **Keaton Mitchell** | LAC | RB49 | **#146** (T9) | **#160** (Avg 167.6) | +14 (Faller in ADP) | 💎 Value Lock |
+| **6** | **Zach Charbonnet** | SEA | RB50 | **#148** (T9) | **#144** (Avg 145.6) | -4 (Reached in ADP) | 💎 Value Lock |
+| **7** | **Alvin Kamara** | NO | RB52 | **#157** (T9) | **#158** (Avg 163.6) | +1 (Faller in ADP) | 💎 Value Lock |
+| **8** | **Tank Bigsby** | PHI | RB53 | **#160** (T9) | **#169** (Avg 174.2) | +9 (Faller in ADP) | 💎 Value Lock |
+| **9** | **Tyrone Tracy Jr.** | NYG | RB54 | **#163** (T10) | **#192** (Avg 152.0) | +29 (Faller in ADP) | 💎 Value Lock |
+| **10** | **Braelon Allen** | NYJ | RB55 | **#164** (T10) | **#198** (Avg 181.3) | +34 (Faller in ADP) | 💎 Value Lock |
+| **11** | **Kimani Vidal** | LAC | RB60 | **#195** (T10) | **#243** (Avg 234.7) | +48 (Faller in ADP) | 💎 Value Lock |
 
 ---
 
@@ -217,6 +225,7 @@
 | **7** | **Rashid Shaheed** | SEA | WR57 | **#142** (T9) | **#145** (Avg 145.8) | +3 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
 | **8** | **Denzel Boston** | CLE | WR58 | **#147** (T9) | **#172** (Avg 177.6) | +25 (Faller in ADP) | 💎 Value Lock |
 | **9** | **Tre Tucker** | LV | WR59 | **#152** (T9) | **#173** (Avg 177.6) | +21 (Faller in ADP) | 💎 Value Lock |
+| **10** | **Malik Washington** | MIA | WR70 | **#179** (T10) | **#225** (Avg 182.3) | +46 (Faller in ADP) | 💎 Value Lock |
 
 ---
 
@@ -233,6 +242,7 @@
 | **7** | **Keenan Allen** | IND | WR71 | **#184** (T10) | **#163** (Avg 169.0) | -21 (Reached in ADP) | ✅ Likely Available |
 | **8** | **Ja'Kobi Lane** | BAL | WR76 | **#205** (T11) | **#176** (Avg 179.8) | -29 (Reached in ADP) | 💎 Value Lock |
 | **9** | **Dontayvion Wicks** | PHI | WR67 | **#174** (T10) | **#256** (Avg 175.5) | +82 (Faller in ADP) | 💎 Value Lock |
+| **10** | **Malik Washington** | MIA | WR70 | **#179** (T10) | **#225** (Avg 182.3) | +46 (Faller in ADP) | 💎 Value Lock |
 
 ---
 
