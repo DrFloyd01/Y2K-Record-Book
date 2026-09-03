@@ -1,8 +1,9 @@
 # 📊 2026 DRAFT BOARD: CUSTOM ECR (SUBVERT) vs. ADP CROSS-CHECK & EVALUATION (FINAL LOCKED 16-ROUND CARD)
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
+**Status**: 🔒 LOCKED & LOADED (Fully Calibrated via Live Mock Audit)
 **Swapped Structure**: Round 6 = WR (PPR volume) | Round 7 = TE (Targeting Kittle / Kelce at Pick #84)
-**Fallers Integrated**: Stevenson in Rd 8, Wan'Dale Robinson in Rd 9, MarShawn Lloyd in Rd 12, Spears/Tyson in Rd 13/14.
+**Fallers Integrated**: J.Taylor in Rd 1, Stevenson in Rd 8, Wan'Dale Robinson in Rd 9, Mahomes/Purdy in Rd 11, MarShawn Lloyd in Rd 12, Shakir/Boston in Rd 13/14.
 **Benchmark 1**: Subvertadown Custom PPR Positional Value Curve mapped to Official ECR Player Order
 **Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
 
@@ -12,14 +13,15 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #12 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
-| **6** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
-| **8** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ✅ Likely Available |
+| **1** | **Jonathan Taylor** | IND | RB4 | **#4** (T1) | **#7** (Avg 6.2) | +3 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **2** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
+| **7** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **8** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
+| **9** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ✅ Likely Available |
 
 ---
 
@@ -27,14 +29,15 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #13 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
-| **6** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
-| **8** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ⚠️ 50/50 Toss-Up (Target) |
+| **1** | **Jonathan Taylor** | IND | RB4 | **#4** (T1) | **#7** (Avg 6.2) | +3 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **2** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
+| **7** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **8** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
+| **9** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ⚠️ 50/50 Toss-Up (Target) |
 
 ---
 
@@ -184,12 +187,15 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #132 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Jared Goff** | DET | QB15 | **#117** (T9) | **#125** (Avg 122.8) | +8 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Kyler Murray** | MIN | QB17 | **#138** (T10) | **#137** (Avg 139.2) | -1 (Reached in ADP) | ✅ Likely Available |
-| **3** | **Jordan Love** | GB | QB18 | **#160** (T11) | **#148** (Avg 149.4) | -12 (Reached in ADP) | 💎 Value Lock |
-| **4** | **Baker Mayfield** | TB | QB19 | **#171** (T12) | **#138** (Avg 139.8) | -33 (Reached in ADP) | ✅ Likely Available |
-| **5** | **Tyler Shough** | NO | QB20 | **#194** (T12) | **#152** (Avg 158.4) | -42 (Reached in ADP) | 💎 Value Lock |
-| **6** | **C.J. Stroud** | UNK | QB | **#200** (T12) | **#179** (Avg 187.2) | -21 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Patrick Mahomes II** | KC | QB14 | **#114** (T9) | **#108** (Avg 109.0) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Brock Purdy** | SF | QB11 | **#108** (T9) | **#112** (Avg 111.0) | +4 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Bo Nix** | DEN | QB13 | **#111** (T9) | **#114** (Avg 112.2) | +3 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Jared Goff** | DET | QB15 | **#117** (T9) | **#125** (Avg 122.8) | +8 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Kyler Murray** | MIN | QB17 | **#138** (T10) | **#137** (Avg 139.2) | -1 (Reached in ADP) | ✅ Likely Available |
+| **6** | **Jordan Love** | GB | QB18 | **#160** (T11) | **#148** (Avg 149.4) | -12 (Reached in ADP) | 💎 Value Lock |
+| **7** | **Baker Mayfield** | TB | QB19 | **#171** (T12) | **#138** (Avg 139.8) | -33 (Reached in ADP) | ✅ Likely Available |
+| **8** | **Tyler Shough** | NO | QB20 | **#194** (T12) | **#152** (Avg 158.4) | -42 (Reached in ADP) | 💎 Value Lock |
+| **9** | **C.J. Stroud** | UNK | QB | **#200** (T12) | **#179** (Avg 187.2) | -21 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
