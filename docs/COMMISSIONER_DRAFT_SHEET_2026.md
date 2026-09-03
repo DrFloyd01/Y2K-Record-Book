@@ -2,31 +2,34 @@
 
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Picks on the Back-to-Back Turns)  
+**Core Strategy**: RB ➔ RB ➔ WR ➔ WR (Dual-Anchor Backfield + Dual WR Stack)  
 
-### 📌 COMMISSIONER MASTER RULE (EASY 2-STEP PARSE):
-1. **Check for Earlier Sliders**: If anyone listed from an **EARLIER** round at this position is miraculously still on the board, take them immediately!
-2. **Otherwise**: Draft the **FIRST** player on this round's realistic list who is still available.
+### 📌 COMMISSIONER MASTER RULES:
+1. **Back-to-Back Turns**: Picks 12/13 and 36/37 are consecutive turn picks with zero managers in between.
+2. **Turn 1 (Picks 12 & 13)**: Select the **TOP TWO AVAILABLE RUNNING BACKS** from the Round 1/2 list.
+3. **Turn 2 (Picks 36 & 37)**: Select the **TOP TWO AVAILABLE WIDE RECEIVERS** from the Round 3/4 list.
+4. **Earlier Sliders Rule**: If any player from an earlier round at that position is miraculously still on the board, take them first!
 
 ---
 
 ### 🟢 Round 1 | Pick #12 (RB)
 
-> **Cook, C.Brown, Achane, Barkley, Walker, Hampton**
+> **Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty**
 
 
-### 🟢 Round 2 | Pick #13 (WR)
+### 🟢 Round 2 | Pick #13 (RB)
 
-> **JSN, St. Brown, Lamb, Jefferson, London**
+> **Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty**
 
 
-### 🟢 Round 3 | Pick #36 (RB)
+### 🟢 Round 3 | Pick #36 (WR)
 
-> **Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving**
+> **Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins**
 
 
 ### 🟢 Round 4 | Pick #37 (WR)
 
-> **Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle**
+> **Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins**
 
 
 ### 🟢 Round 5 | Pick #60 (RB)
@@ -85,10 +88,10 @@
 
 ```tsv
 Rd	Pick	Position	Ranking
-1	12	RB	Cook, C.Brown, Achane, Barkley, Walker, Hampton
-2	13	WR	JSN, St. Brown, Lamb, Jefferson, London
-3	36	RB	Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving
-4	37	WR	Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle
+1	12	RB	Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty
+2	13	RB	Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty
+3	36	WR	Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins
+4	37	WR	Pickens, D.Smith, Nabers, Rice, G.Wilson, Flowers, McConkey, Waddle, T.McMillan, Higgins
 5	60	RB	Swift, Irving, Montgomery, Judkins, Tuten, Price, Henderson, Stevenson, Warren
 6	61	WR	Waddle, Burden, McLaurin, Adams, DJ.Moore, Jamo.Williams, Watson, P.Washington, Odunze, Evans
 7	84	TE	Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Ferguson

@@ -1,6 +1,7 @@
 # 📊 2026 DRAFT BOARD: ECR vs. ADP CROSS-CHECK & EVALUATION
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
+**Strategy**: **RB ➔ RB ➔ WR ➔ WR** (Dual-Anchor Backfield + Dual WR Stack)
 **Benchmark 1**: FantasyPros Expert Consensus Rankings (ECR 'ALL')
 **Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
 
@@ -16,32 +17,38 @@
 | **4** | **Saquon Barkley** | PHI | RB8 | **#22** (T3) | **#14** (Avg 13.8) | -8 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
 | **5** | **Kenneth Walker III** | KC | RB9 | **#24** (T4) | **#17** (Avg 17.8) | -7 (Reached in ADP) | ✅ Likely Available |
 | **6** | **Omarion Hampton** | LAC | RB10 | **#25** (T4) | **#15** (Avg 15.6) | -10 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Ashton Jeanty** | LV | RB11 | **#28** (T4) | **#18** (Avg 18.0) | -10 (Reached in ADP) | ✅ Likely Available |
 
 ---
 
-## 🟢 Round 2 | Pick #13 (Target: WR)
+## 🟢 Round 2 | Pick #13 (Target: RB)
 
 | Priority | Player | Team | Pos | ECR Rank (Tier) | Consensus ADP (2) | ECR vs ADP Delta | Projected Availability at #13 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Jaxon Smith-Njigba** | SEA | WR3 | **#5** (T1) | **#6** (Avg 6.0) | +1 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Amon-Ra St. Brown** | DET | WR4 | **#6** (T1) | **#8** (Avg 8.2) | +2 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **CeeDee Lamb** | DAL | WR5 | **#7** (T2) | **#10** (Avg 11.4) | +3 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **Justin Jefferson** | MIN | WR6 | **#8** (T2) | **#12** (Avg 12.0) | +4 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Drake London** | ATL | WR7 | **#11** (T2) | **#20** (Avg 19.6) | +9 (Faller in ADP) | ✅ Likely Available |
+| **1** | **James Cook III** | BUF | RB5 | **#13** (T3) | **#9** (Avg 8.8) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **2** | **Chase Brown** | CIN | RB6 | **#15** (T3) | **#13** (Avg 12.6) | -2 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **De'Von Achane** | MIA | RB7 | **#20** (T3) | **#11** (Avg 11.6) | -9 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **Saquon Barkley** | PHI | RB8 | **#22** (T3) | **#14** (Avg 13.8) | -8 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **Kenneth Walker III** | KC | RB9 | **#24** (T4) | **#17** (Avg 17.8) | -7 (Reached in ADP) | ✅ Likely Available |
+| **6** | **Omarion Hampton** | LAC | RB10 | **#25** (T4) | **#15** (Avg 15.6) | -10 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Ashton Jeanty** | LV | RB11 | **#28** (T4) | **#18** (Avg 18.0) | -10 (Reached in ADP) | ✅ Likely Available |
 
 ---
 
-## 🟢 Round 3 | Pick #36 (Target: RB)
+## 🟢 Round 3 | Pick #36 (Target: WR)
 
 | Priority | Player | Team | Pos | ECR Rank (Tier) | Consensus ADP (2) | ECR vs ADP Delta | Projected Availability at #36 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Breece Hall** | NYJ | RB13 | **#39** (T5) | **#33** (Avg 33.6) | -6 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **Jeremiyah Love** | ARI | RB14 | **#40** (T5) | **#31** (Avg 29.0) | -9 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Kyren Williams** | LAR | RB15 | **#42** (T5) | **#28** (Avg 28.2) | -14 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Javonte Williams** | DAL | RB16 | **#43** (T5) | **#29** (Avg 28.4) | -14 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Travis Etienne Jr.** | NO | RB17 | **#44** (T5) | **#34** (Avg 36.0) | -10 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **D'Andre Swift** | CHI | RB18 | **#49** (T5) | **#44** (Avg 43.0) | -5 (Reached in ADP) | ✅ Likely Available |
-| **7** | **Bucky Irving** | TB | RB19 | **#54** (T6) | **#47** (Avg 46.8) | -7 (Reached in ADP) | 💎 Value Lock |
+| **1** | **George Pickens** | DAL | WR11 | **#18** (T3) | **#24** (Avg 24.0) | +6 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **DeVonta Smith** | PHI | WR12 | **#21** (T3) | **#32** (Avg 32.2) | +11 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **Malik Nabers** | NYG | WR13 | **#23** (T4) | **#27** (Avg 27.2) | +4 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Rashee Rice** | KC | WR14 | **#27** (T4) | **#30** (Avg 29.0) | +3 (Faller in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Garrett Wilson** | NYJ | WR15 | **#29** (T4) | **#39** (Avg 41.0) | +10 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Zay Flowers** | BAL | WR16 | **#30** (T4) | **#35** (Avg 36.6) | +5 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Ladd McConkey** | LAC | WR17 | **#32** (T4) | **#43** (Avg 42.6) | +11 (Faller in ADP) | ✅ Likely Available |
+| **8** | **Jaylen Waddle** | DEN | WR18 | **#33** (T4) | **#46** (Avg 46.2) | +13 (Faller in ADP) | 💎 Value Lock |
+| **9** | **Tetairoa McMillan** | CAR | WR19 | **#34** (T4) | **#36** (Avg 39.8) | +2 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **10** | **Tee Higgins** | CIN | WR20 | **#36** (T5) | **#40** (Avg 41.2) | +4 (Faller in ADP) | ✅ Likely Available |
 
 ---
 
@@ -57,6 +64,8 @@
 | **6** | **Zay Flowers** | BAL | WR16 | **#30** (T4) | **#35** (Avg 36.6) | +5 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
 | **7** | **Ladd McConkey** | LAC | WR17 | **#32** (T4) | **#43** (Avg 42.6) | +11 (Faller in ADP) | ✅ Likely Available |
 | **8** | **Jaylen Waddle** | DEN | WR18 | **#33** (T4) | **#46** (Avg 46.2) | +13 (Faller in ADP) | 💎 Value Lock |
+| **9** | **Tetairoa McMillan** | CAR | WR19 | **#34** (T4) | **#36** (Avg 39.8) | +2 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **10** | **Tee Higgins** | CIN | WR20 | **#36** (T5) | **#40** (Avg 41.2) | +4 (Faller in ADP) | ⚠️ 50/50 Toss-Up (Target) |
 
 ---
 
