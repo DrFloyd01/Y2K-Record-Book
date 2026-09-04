@@ -11,15 +11,15 @@
 * Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye / Daniels + Montgomery / Tuten / Price)
 * Turn 4 (Picks 84 & 85): **WR + WR** (Double-Tap Starting WR3 & WR4: Watson / Godwin / Metcalf / Pittman / WD Robinson)
 * Turn 5 (Picks 108 & 109): **TE + RB** (Late TE Value + Bellcow RB4: Fannin / Kittle / Kelce / Kraft + Dowdle / Brooks / Harvey / Lloyd)
-* Turn 6 (Picks 132 & 133): **FLEX + FLEX** (High-Ceiling Breakout Stash: Allgeier / Spears / Meyers / Shakir / Golden / Coker / Worthy)
-* Turn 7 (Picks 156 & 157): **FLEX + FLEX** (High-Ceiling Breakout Stash: Shakir / Golden / Coker / Worthy / Tyson / Sampson / Coleman)
+* Turn 6 (Picks 132 & 133): **FLEX + FLEX** (High-Ceiling Breakout Stash: Allgeier / Pittman / Spears / Downs / C.Rodriguez / Kincaid / Likely / Meyers / Shakir / Golden / Coker / Worthy)
+* Turn 7 (Picks 156 & 157): **FLEX + FLEX** (High-Ceiling Breakout Stash: Tyson / Sampson / Coleman / Samuel / Shaheed / Boston / Andrews / Tucker / Jeudy / Strange / Schultz / M.Washington / Charbonnet)
 * Turn 8 (Picks 180 & 181): **DST + K** (Top Streaming Defense + Elite Kicker: Chargers / Jaguars + Dicker / Little)
 
 ### 📌 COMMISSIONER EXECUTION RULES:
 1. **Back-to-Back Turn Execution**: Picks 12/13, 36/37, 60/61, 84/85, 108/109, 132/133, 156/157, and 180/181 are executed consecutively with zero picks between them.
 2. **Turn Selections**: For each pick, select the **FIRST available player on that round's ranking list** who is still on the board.
 3. **Turn 4 (Picks 84 & 85 WR + WR)**: Select the **TOP TWO AVAILABLE WRs** from the Round 7/8 list.
-4. **Turn 6 & 7 (Picks 132/133 & 156/157 FLEX)**: Select the **TOP TWO AVAILABLE PLAYERS** from that turn's combined FLEX list regardless of RB or WR.
+4. **Turn 6 & 7 (Picks 132/133 & 156/157 FLEX)**: Select the **TOP TWO AVAILABLE PLAYERS** from that turn's combined FLEX list regardless of RB, WR, or TE.
 5. **Earlier Sliders Rule**: If any player from an earlier round at that position is miraculously still on the board, take them first!
 
 ---
@@ -76,22 +76,22 @@
 
 ### 🟢 Round 11 | Pick #132 (FLEX)
 
-> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston**
+> **Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet**
 
 
 ### 🟢 Round 12 | Pick #133 (FLEX)
 
-> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston (Take 2nd best available player from Turn 6 list)**
+> **Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet (Take 2nd best available player from Turn 6 list)**
 
 
 ### 🟢 Round 13 | Pick #156 (FLEX)
 
-> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet**
+> **Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet**
 
 
 ### 🟢 Round 14 | Pick #157 (FLEX)
 
-> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet (Take 2nd best available player from Turn 7 list)**
+> **Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet (Take 2nd best available player from Turn 7 list)**
 
 
 ### 🟢 Round 15 | Pick #180 (DST)
@@ -120,9 +120,9 @@ Rd	Pick	Position	Ranking
 8	85	WR	
 9	108	TE	Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews
 10	109	RB	Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones
-11	132	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston
+11	132	FLEX	Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet
 12	133	FLEX	
-13	156	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet
+13	156	FLEX	Allgeier, Pittman, Spears, Downs, C.Rodriguez, M.Wilson, Johnston, Diggs, Pierce, Kincaid, Likely, Goedert, Reed, Meyers, Ferguson, J.Johnson, Addison, Lemon, Concepcion, Stribling, Shakir, Golden, Coker, Doubs, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Andrews, Tucker, Jeudy, Strange, Schultz, M.Washington, Charbonnet
 14	157	FLEX	
 15	180	DEF	LAC, JAX, LV, TEN
 16	181	K	Dicker, Little, Bates, McPherson, Boswell, Santos
