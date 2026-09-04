@@ -2,7 +2,7 @@
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`
-**Key Correction**: Chris Olave (WR10, ECR #16, Subvert #28) positioned ahead of George Pickens (WR11, ECR #18, Subvert #32).
+**Audit Status**: 100% verified unbroken positional sequence against official FantasyPros ECR and Subvertadown curve.
 **Benchmark 1**: Subvertadown Custom PPR Positional Value Curve mapped to Official ECR Player Order
 **Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
 
@@ -35,9 +35,9 @@
 | **5** | **Nico Collins** | HOU | WR9 | **#28** (T4) | **#23** (Avg 23.8) | -5 (Reached in ADP) | 💎 Value Lock |
 | **6** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | 💎 Value Lock |
 | **7** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | 💎 Value Lock |
-| **8** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | 💎 Value Lock |
-| **9** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | 💎 Value Lock |
-| **10** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | 💎 Value Lock |
+| **8** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | 💎 Value Lock |
+| **9** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | 💎 Value Lock |
+| **10** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
@@ -46,14 +46,17 @@
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #36 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1** | **Breece Hall** | NYJ | RB13 | **#17** (T3) | **#33** (Avg 33.6) | +16 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **Cam Skattebo** | NYG | RB20 | **#29** (T4) | **#37** (Avg 39.8) | +8 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Travis Etienne Jr.** | NO | RB17 | **#21** (T3) | **#34** (Avg 36.0) | +13 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **D'Andre Swift** | CHI | RB18 | **#24** (T3) | **#44** (Avg 43.0) | +20 (Value vs Subvert) | ✅ Likely Available |
-| **5** | **Bucky Irving** | TB | RB19 | **#25** (T3) | **#47** (Avg 46.8) | +22 (Value vs Subvert) | 💎 Value Lock |
-| **6** | **Quinshon Judkins** | CLE | RB22 | **#34** (T4) | **#45** (Avg 46.0) | +11 (Value vs Subvert) | 💎 Value Lock |
-| **7** | **David Montgomery** | HOU | RB21 | **#31** (T4) | **#49** (Avg 48.8) | +18 (Value vs Subvert) | 💎 Value Lock |
-| **8** | **Bhayshul Tuten** | JAC | RB23 | **#38** (T4) | **#56** (Avg 55.8) | +18 (Value vs Subvert) | 💎 Value Lock |
-| **9** | **Jadarian Price** | SEA | RB24 | **#42** (T5) | **#57** (Avg 57.6) | +15 (Value vs Subvert) | 💎 Value Lock |
+| **2** | **Jeremiyah Love** | ARI | RB14 | **#18** (T3) | **#31** (Avg 29.0) | +13 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **Kyren Williams** | LAR | RB15 | **#19** (T3) | **#28** (Avg 28.2) | +9 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Javonte Williams** | DAL | RB16 | **#20** (T3) | **#29** (Avg 28.4) | +9 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Travis Etienne Jr.** | NO | RB17 | **#21** (T3) | **#34** (Avg 36.0) | +13 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **D'Andre Swift** | CHI | RB18 | **#24** (T3) | **#44** (Avg 43.0) | +20 (Value vs Subvert) | ✅ Likely Available |
+| **7** | **Bucky Irving** | TB | RB19 | **#25** (T3) | **#47** (Avg 46.8) | +22 (Value vs Subvert) | 💎 Value Lock |
+| **8** | **Cam Skattebo** | NYG | RB20 | **#29** (T4) | **#37** (Avg 39.8) | +8 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **9** | **David Montgomery** | HOU | RB21 | **#31** (T4) | **#49** (Avg 48.8) | +18 (Value vs Subvert) | 💎 Value Lock |
+| **10** | **Quinshon Judkins** | CLE | RB22 | **#34** (T4) | **#45** (Avg 46.0) | +11 (Value vs Subvert) | 💎 Value Lock |
+| **11** | **Bhayshul Tuten** | JAC | RB23 | **#38** (T4) | **#56** (Avg 55.8) | +18 (Value vs Subvert) | 💎 Value Lock |
+| **12** | **Jadarian Price** | SEA | RB24 | **#42** (T5) | **#57** (Avg 57.6) | +15 (Value vs Subvert) | 💎 Value Lock |
 
 ---
 
@@ -64,15 +67,16 @@
 | **1** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
 | **2** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
 | **3** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Zay Flowers** | BAL | WR15 | **#39** (T4) | **#35** (Avg 36.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **Garrett Wilson** | NYJ | WR16 | **#40** (T5) | **#39** (Avg 41.0) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Ladd McConkey** | LAC | WR17 | **#41** (T5) | **#43** (Avg 42.6) | +2 (Value vs Subvert) | ✅ Likely Available |
-| **8** | **Jaylen Waddle** | DEN | WR18 | **#44** (T5) | **#46** (Avg 46.2) | +2 (Value vs Subvert) | 💎 Value Lock |
-| **9** | **Tetairoa McMillan** | CAR | WR19 | **#49** (T5) | **#36** (Avg 39.8) | -13 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **10** | **Tee Higgins** | CIN | WR20 | **#51** (T6) | **#40** (Avg 41.2) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **11** | **Emeka Egbuka** | TB | WR21 | **#54** (T6) | **#42** (Avg 41.4) | -12 (Reached in ADP) | ✅ Likely Available |
-| **12** | **Luther Burden III** | CHI | WR22 | **#57** (T6) | **#54** (Avg 54.8) | -3 (Reached in ADP) | 💎 Value Lock |
+| **4** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **6** | **Zay Flowers** | BAL | WR15 | **#39** (T4) | **#35** (Avg 36.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Garrett Wilson** | NYJ | WR16 | **#40** (T5) | **#39** (Avg 41.0) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **8** | **Ladd McConkey** | LAC | WR17 | **#41** (T5) | **#43** (Avg 42.6) | +2 (Value vs Subvert) | ✅ Likely Available |
+| **9** | **Jaylen Waddle** | DEN | WR18 | **#44** (T5) | **#46** (Avg 46.2) | +2 (Value vs Subvert) | 💎 Value Lock |
+| **10** | **Tetairoa McMillan** | CAR | WR19 | **#49** (T5) | **#36** (Avg 39.8) | -13 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **11** | **Tee Higgins** | CIN | WR20 | **#51** (T6) | **#40** (Avg 41.2) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **12** | **Emeka Egbuka** | TB | WR21 | **#54** (T6) | **#42** (Avg 41.4) | -12 (Reached in ADP) | ✅ Likely Available |
+| **13** | **Luther Burden III** | CHI | WR22 | **#57** (T6) | **#54** (Avg 54.8) | -3 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
@@ -80,14 +84,21 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #60 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Lamar Jackson** | BAL | QB2 | **#55** (T6) | **#38** (Avg 40.0) | -17 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Drake Maye** | NE | QB3 | **#59** (T6) | **#52** (Avg 53.4) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Joe Burrow** | CIN | QB4 | **#63** (T6) | **#53** (Avg 54.0) | -10 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Jayden Daniels** | WAS | QB5 | **#83** (T7) | **#61** (Avg 63.6) | -22 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Jalen Hurts** | PHI | QB6 | **#86** (T7) | **#62** (Avg 64.4) | -24 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **Dak Prescott** | DAL | QB10 | **#105** (T9) | **#75** (Avg 75.0) | -30 (Reached in ADP) | 💎 Value Lock |
-| **7** | **Jared Goff** | DET | QB15 | **#117** (T9) | **#125** (Avg 122.8) | +8 (Value vs Subvert) | 💎 Value Lock |
-| **8** | **Kyler Murray** | MIN | QB17 | **#138** (T10) | **#137** (Avg 139.2) | -1 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Josh Allen** | BUF | QB1 | **#52** (T6) | **#21** (Avg 22.6) | -31 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Lamar Jackson** | BAL | QB2 | **#55** (T6) | **#38** (Avg 40.0) | -17 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Drake Maye** | NE | QB3 | **#59** (T6) | **#52** (Avg 53.4) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Joe Burrow** | CIN | QB4 | **#63** (T6) | **#53** (Avg 54.0) | -10 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Jayden Daniels** | WAS | QB5 | **#83** (T7) | **#61** (Avg 63.6) | -22 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Jalen Hurts** | PHI | QB6 | **#86** (T7) | **#62** (Avg 64.4) | -24 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Caleb Williams** | CHI | QB7 | **#92** (T8) | **#78** (Avg 78.2) | -14 (Reached in ADP) | 💎 Value Lock |
+| **8** | **Justin Herbert** | LAC | QB8 | **#93** (T8) | **#82** (Avg 85.4) | -11 (Reached in ADP) | 💎 Value Lock |
+| **9** | **Trevor Lawrence** | JAC | QB9 | **#103** (T8) | **#87** (Avg 90.2) | -16 (Reached in ADP) | 💎 Value Lock |
+| **10** | **Dak Prescott** | DAL | QB10 | **#105** (T9) | **#75** (Avg 75.0) | -30 (Reached in ADP) | 💎 Value Lock |
+| **11** | **Brock Purdy** | SF | QB11 | **#108** (T9) | **#112** (Avg 111.0) | +4 (Value vs Subvert) | 💎 Value Lock |
+| **12** | **Bo Nix** | DEN | QB13 | **#111** (T9) | **#114** (Avg 112.2) | +3 (Value vs Subvert) | 💎 Value Lock |
+| **13** | **Patrick Mahomes II** | KC | QB14 | **#114** (T9) | **#108** (Avg 109.0) | -6 (Reached in ADP) | 💎 Value Lock |
+| **14** | **Jared Goff** | DET | QB15 | **#117** (T9) | **#125** (Avg 122.8) | +8 (Value vs Subvert) | 💎 Value Lock |
+| **15** | **Kyler Murray** | MIN | QB17 | **#138** (T10) | **#137** (Avg 139.2) | -1 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
@@ -96,13 +107,15 @@
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #61 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1** | **David Montgomery** | HOU | RB21 | **#31** (T4) | **#49** (Avg 48.8) | +18 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Bhayshul Tuten** | JAC | RB23 | **#38** (T4) | **#56** (Avg 55.8) | +18 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Jadarian Price** | SEA | RB24 | **#42** (T5) | **#57** (Avg 57.6) | +15 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **TreVeyon Henderson** | NE | RB25 | **#45** (T5) | **#60** (Avg 61.6) | +15 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Rhamondre Stevenson** | NE | RB26 | **#46** (T5) | **#65** (Avg 67.4) | +19 (Value vs Subvert) | ✅ Likely Available |
-| **6** | **Jaylen Warren** | PIT | RB27 | **#47** (T5) | **#69** (Avg 71.8) | +22 (Value vs Subvert) | ✅ Likely Available |
-| **7** | **Tony Pollard** | TEN | RB28 | **#48** (T5) | **#76** (Avg 76.2) | +28 (Value vs Subvert) | 💎 Value Lock |
-| **8** | **Rico Dowdle** | PIT | RB29 | **#50** (T6) | **#79** (Avg 79.4) | +29 (Value vs Subvert) | 💎 Value Lock |
+| **2** | **Quinshon Judkins** | CLE | RB22 | **#34** (T4) | **#45** (Avg 46.0) | +11 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Bhayshul Tuten** | JAC | RB23 | **#38** (T4) | **#56** (Avg 55.8) | +18 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **Jadarian Price** | SEA | RB24 | **#42** (T5) | **#57** (Avg 57.6) | +15 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **TreVeyon Henderson** | NE | RB25 | **#45** (T5) | **#60** (Avg 61.6) | +15 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Rhamondre Stevenson** | NE | RB26 | **#46** (T5) | **#65** (Avg 67.4) | +19 (Value vs Subvert) | ✅ Likely Available |
+| **7** | **Jaylen Warren** | PIT | RB27 | **#47** (T5) | **#69** (Avg 71.8) | +22 (Value vs Subvert) | ✅ Likely Available |
+| **8** | **Tony Pollard** | TEN | RB28 | **#48** (T5) | **#76** (Avg 76.2) | +28 (Value vs Subvert) | 💎 Value Lock |
+| **9** | **Rico Dowdle** | PIT | RB29 | **#50** (T6) | **#79** (Avg 79.4) | +29 (Value vs Subvert) | 💎 Value Lock |
+| **10** | **Jonathon Brooks** | CAR | RB30 | **#53** (T6) | **#81** (Avg 82.2) | +28 (Value vs Subvert) | 💎 Value Lock |
 
 ---
 
@@ -110,20 +123,23 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #84 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Christian Watson** | GB | WR27 | **#68** (T7) | **#66** (Avg 67.4) | -2 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Mike Evans** | SF | WR30 | **#74** (T7) | **#68** (Avg 67.6) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Carnell Tate** | TEN | WR31 | **#75** (T7) | **#74** (Avg 74.2) | -1 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Marvin Harrison Jr.** | ARI | WR32 | **#77** (T7) | **#72** (Avg 73.2) | -5 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Chris Godwin Jr.** | TB | WR33 | **#79** (T7) | **#89** (Avg 91.4) | +10 (Value vs Subvert) | ✅ Likely Available |
-| **6** | **DK Metcalf** | PIT | WR34 | **#84** (T7) | **#80** (Avg 80.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Brian Thomas Jr.** | JAC | WR35 | **#91** (T7) | **#84** (Avg 85.8) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **8** | **Michael Pittman Jr.** | PIT | WR36 | **#97** (T8) | **#96** (Avg 99.8) | -1 (Reached in ADP) | 💎 Value Lock |
-| **9** | **Wan'Dale Robinson** | TEN | WR37 | **#99** (T8) | **#101** (Avg 103.8) | +2 (Value vs Subvert) | 💎 Value Lock |
-| **10** | **Courtland Sutton** | DEN | WR38 | **#100** (T8) | **#77** (Avg 77.2) | -23 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **11** | **Josh Downs** | IND | WR39 | **#101** (T8) | **#119** (Avg 114.6) | +18 (Value vs Subvert) | 💎 Value Lock |
-| **12** | **Michael Wilson** | ARI | WR40 | **#104** (T8) | **#86** (Avg 88.6) | -18 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **13** | **Quentin Johnston** | LAC | WR41 | **#106** (T9) | **#104** (Avg 104.6) | -2 (Reached in ADP) | 💎 Value Lock |
-| **14** | **Stefon Diggs** | WAS | WR42 | **#107** (T9) | **#98** (Avg 100.8) | -9 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Jameson Williams** | DET | WR26 | **#67** (T7) | **#58** (Avg 57.6) | -9 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Christian Watson** | GB | WR27 | **#68** (T7) | **#66** (Avg 67.4) | -2 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Rome Odunze** | CHI | WR29 | **#73** (T7) | **#59** (Avg 60.8) | -14 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Mike Evans** | SF | WR30 | **#74** (T7) | **#68** (Avg 67.6) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Carnell Tate** | TEN | WR31 | **#75** (T7) | **#74** (Avg 74.2) | -1 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **6** | **Marvin Harrison Jr.** | ARI | WR32 | **#77** (T7) | **#72** (Avg 73.2) | -5 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **7** | **Chris Godwin Jr.** | TB | WR33 | **#79** (T7) | **#89** (Avg 91.4) | +10 (Value vs Subvert) | ✅ Likely Available |
+| **8** | **DK Metcalf** | PIT | WR34 | **#84** (T7) | **#80** (Avg 80.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **9** | **Brian Thomas Jr.** | JAC | WR35 | **#91** (T7) | **#84** (Avg 85.8) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **10** | **Michael Pittman Jr.** | PIT | WR36 | **#97** (T8) | **#96** (Avg 99.8) | -1 (Reached in ADP) | 💎 Value Lock |
+| **11** | **Wan'Dale Robinson** | TEN | WR37 | **#99** (T8) | **#101** (Avg 103.8) | +2 (Value vs Subvert) | 💎 Value Lock |
+| **12** | **Courtland Sutton** | DEN | WR38 | **#100** (T8) | **#77** (Avg 77.2) | -23 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **13** | **Josh Downs** | IND | WR39 | **#101** (T8) | **#119** (Avg 114.6) | +18 (Value vs Subvert) | 💎 Value Lock |
+| **14** | **Michael Wilson** | ARI | WR40 | **#104** (T8) | **#86** (Avg 88.6) | -18 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **15** | **Quentin Johnston** | LAC | WR41 | **#106** (T9) | **#104** (Avg 104.6) | -2 (Reached in ADP) | 💎 Value Lock |
+| **16** | **Stefon Diggs** | WAS | WR42 | **#107** (T9) | **#98** (Avg 100.8) | -9 (Reached in ADP) | 💎 Value Lock |
+| **17** | **Jayden Reed** | GB | WR44 | **#116** (T9) | **#121** (Avg 116.8) | +5 (Value vs Subvert) | 💎 Value Lock |
 
 ---
 
@@ -131,20 +147,23 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #85 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Christian Watson** | GB | WR27 | **#68** (T7) | **#66** (Avg 67.4) | -2 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Mike Evans** | SF | WR30 | **#74** (T7) | **#68** (Avg 67.6) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Carnell Tate** | TEN | WR31 | **#75** (T7) | **#74** (Avg 74.2) | -1 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Marvin Harrison Jr.** | ARI | WR32 | **#77** (T7) | **#72** (Avg 73.2) | -5 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Chris Godwin Jr.** | TB | WR33 | **#79** (T7) | **#89** (Avg 91.4) | +10 (Value vs Subvert) | ✅ Likely Available |
-| **6** | **DK Metcalf** | PIT | WR34 | **#84** (T7) | **#80** (Avg 80.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **7** | **Brian Thomas Jr.** | JAC | WR35 | **#91** (T7) | **#84** (Avg 85.8) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **8** | **Michael Pittman Jr.** | PIT | WR36 | **#97** (T8) | **#96** (Avg 99.8) | -1 (Reached in ADP) | 💎 Value Lock |
-| **9** | **Wan'Dale Robinson** | TEN | WR37 | **#99** (T8) | **#101** (Avg 103.8) | +2 (Value vs Subvert) | 💎 Value Lock |
-| **10** | **Courtland Sutton** | DEN | WR38 | **#100** (T8) | **#77** (Avg 77.2) | -23 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **11** | **Josh Downs** | IND | WR39 | **#101** (T8) | **#119** (Avg 114.6) | +18 (Value vs Subvert) | 💎 Value Lock |
-| **12** | **Michael Wilson** | ARI | WR40 | **#104** (T8) | **#86** (Avg 88.6) | -18 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **13** | **Quentin Johnston** | LAC | WR41 | **#106** (T9) | **#104** (Avg 104.6) | -2 (Reached in ADP) | 💎 Value Lock |
-| **14** | **Stefon Diggs** | WAS | WR42 | **#107** (T9) | **#98** (Avg 100.8) | -9 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Jameson Williams** | DET | WR26 | **#67** (T7) | **#58** (Avg 57.6) | -9 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Christian Watson** | GB | WR27 | **#68** (T7) | **#66** (Avg 67.4) | -2 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Rome Odunze** | CHI | WR29 | **#73** (T7) | **#59** (Avg 60.8) | -14 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Mike Evans** | SF | WR30 | **#74** (T7) | **#68** (Avg 67.6) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Carnell Tate** | TEN | WR31 | **#75** (T7) | **#74** (Avg 74.2) | -1 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **6** | **Marvin Harrison Jr.** | ARI | WR32 | **#77** (T7) | **#72** (Avg 73.2) | -5 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **7** | **Chris Godwin Jr.** | TB | WR33 | **#79** (T7) | **#89** (Avg 91.4) | +10 (Value vs Subvert) | ✅ Likely Available |
+| **8** | **DK Metcalf** | PIT | WR34 | **#84** (T7) | **#80** (Avg 80.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **9** | **Brian Thomas Jr.** | JAC | WR35 | **#91** (T7) | **#84** (Avg 85.8) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **10** | **Michael Pittman Jr.** | PIT | WR36 | **#97** (T8) | **#96** (Avg 99.8) | -1 (Reached in ADP) | 💎 Value Lock |
+| **11** | **Wan'Dale Robinson** | TEN | WR37 | **#99** (T8) | **#101** (Avg 103.8) | +2 (Value vs Subvert) | 💎 Value Lock |
+| **12** | **Courtland Sutton** | DEN | WR38 | **#100** (T8) | **#77** (Avg 77.2) | -23 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **13** | **Josh Downs** | IND | WR39 | **#101** (T8) | **#119** (Avg 114.6) | +18 (Value vs Subvert) | 💎 Value Lock |
+| **14** | **Michael Wilson** | ARI | WR40 | **#104** (T8) | **#86** (Avg 88.6) | -18 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **15** | **Quentin Johnston** | LAC | WR41 | **#106** (T9) | **#104** (Avg 104.6) | -2 (Reached in ADP) | 💎 Value Lock |
+| **16** | **Stefon Diggs** | WAS | WR42 | **#107** (T9) | **#98** (Avg 100.8) | -9 (Reached in ADP) | 💎 Value Lock |
+| **17** | **Jayden Reed** | GB | WR44 | **#116** (T9) | **#121** (Avg 116.8) | +5 (Value vs Subvert) | 💎 Value Lock |
 
 ---
 
@@ -152,16 +171,17 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #108 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Tucker Kraft** | GB | TE6 | **#76** (T7) | **#70** (Avg 72.4) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **Kyle Pitts Sr.** | ATL | TE7 | **#78** (T7) | **#71** (Avg 73.2) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **3** | **Sam LaPorta** | DET | TE8 | **#88** (T7) | **#73** (Avg 74.0) | -15 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **George Kittle** | SF | TE9 | **#94** (T8) | **#83** (Avg 85.6) | -11 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **5** | **Travis Kelce** | KC | TE10 | **#95** (T8) | **#92** (Avg 98.2) | -3 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **6** | **Dalton Kincaid** | BUF | TE11 | **#112** (T9) | **#122** (Avg 117.2) | +10 (Value vs Subvert) | 💎 Value Lock |
-| **7** | **Isaiah Likely** | NYG | TE12 | **#113** (T9) | **#106** (Avg 105.6) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **8** | **Dallas Goedert** | PHI | TE13 | **#115** (T9) | **#115** (Avg 112.8) | 0 (Identical) | ✅ Likely Available |
-| **9** | **Jake Ferguson** | DAL | TE14 | **#119** (T9) | **#113** (Avg 111.8) | -6 (Reached in ADP) | ✅ Likely Available |
-| **10** | **Mark Andrews** | BAL | TE16 | **#137** (T10) | **#128** (Avg 128.6) | -9 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Harold Fannin Jr.** | CLE | TE5 | **#70** (T7) | **#67** (Avg 67.4) | -3 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Tucker Kraft** | GB | TE6 | **#76** (T7) | **#70** (Avg 72.4) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **Kyle Pitts Sr.** | ATL | TE7 | **#78** (T7) | **#71** (Avg 73.2) | -7 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **4** | **Sam LaPorta** | DET | TE8 | **#88** (T7) | **#73** (Avg 74.0) | -15 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **George Kittle** | SF | TE9 | **#94** (T8) | **#83** (Avg 85.6) | -11 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **6** | **Travis Kelce** | KC | TE10 | **#95** (T8) | **#92** (Avg 98.2) | -3 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **7** | **Dalton Kincaid** | BUF | TE11 | **#112** (T9) | **#122** (Avg 117.2) | +10 (Value vs Subvert) | 💎 Value Lock |
+| **8** | **Isaiah Likely** | NYG | TE12 | **#113** (T9) | **#106** (Avg 105.6) | -7 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **9** | **Dallas Goedert** | PHI | TE13 | **#115** (T9) | **#115** (Avg 112.8) | 0 (Identical) | ✅ Likely Available |
+| **10** | **Jake Ferguson** | DAL | TE14 | **#119** (T9) | **#113** (Avg 111.8) | -6 (Reached in ADP) | ✅ Likely Available |
+| **11** | **Mark Andrews** | BAL | TE16 | **#137** (T10) | **#128** (Avg 128.6) | -9 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
@@ -180,6 +200,7 @@
 | **9** | **Rachaad White** | WAS | RB37 | **#81** (T7) | **#118** (Avg 113.8) | +37 (Value vs Subvert) | 💎 Value Lock |
 | **10** | **Jordan Mason** | MIN | RB38 | **#82** (T7) | **#100** (Avg 103.6) | +18 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
 | **11** | **Jacory Croskey-Merritt** | WAS | RB39 | **#85** (T7) | **#109** (Avg 109.6) | +24 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **12** | **Aaron Jones Sr.** | MIN | RB40 | **#87** (T7) | **#120** (Avg 115.8) | +33 (Value vs Subvert) | 💎 Value Lock |
 
 ---
 

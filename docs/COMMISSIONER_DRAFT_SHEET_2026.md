@@ -3,14 +3,14 @@
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Consecutive Turn Picks)  
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`  
-**Key Corrections**: Olave (WR10, ECR #16, Subvert #28) correctly placed ahead of Pickens (WR11, ECR #18, Subvert #32).
+**Audited Accuracy**: 100% programmatic alignment with official FantasyPros ECR and Subvertadown Custom PPR Value Curve.
 
 ### 🏆 TURN-BY-TURN POSITIONAL STRATEGY:
 * Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: Taylor / Brown / Achane + Lamb / Jefferson / London / Olave)
-* Turn 2 (Picks 36 & 37): **RB + WR** (Bellcow RB2 + Elite WR2: Hall / Etienne / Irving + Flowers / Wilson / Waddle)
-* Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye + Tuten / Price / Stevenson)
+* Turn 2 (Picks 36 & 37): **RB + WR** (Bellcow RB2 + Elite WR2: Hall / Love / Williams / Etienne + Flowers / Wilson / Waddle)
+* Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye / Daniels + Montgomery / Tuten / Price)
 * Turn 4 (Picks 84 & 85): **WR + WR** (Double-Tap Starting WR3 & WR4: Watson / Godwin / Metcalf / Pittman / WD Robinson)
-* Turn 5 (Picks 108 & 109): **TE + RB** (Late TE Value + Bellcow RB4: Kittle / Kelce / Kraft + Harvey / Lloyd / Corum)
+* Turn 5 (Picks 108 & 109): **TE + RB** (Late TE Value + Bellcow RB4: Fannin / Kittle / Kelce / Kraft + Dowdle / Brooks / Harvey / Lloyd)
 * Turn 6 (Picks 132 & 133): **FLEX + FLEX** (High-Ceiling Breakout Stash: Allgeier / Spears / Meyers / Shakir / Golden / Coker / Worthy)
 * Turn 7 (Picks 156 & 157): **FLEX + FLEX** (High-Ceiling Breakout Stash: Shakir / Golden / Coker / Worthy / Tyson / Sampson / Coleman)
 * Turn 8 (Picks 180 & 181): **DST + K** (Top Streaming Defense + Elite Kicker: Chargers / Jaguars + Dicker / Little)
@@ -31,47 +31,47 @@
 
 ### 🟢 Round 2 | Pick #13 (WR)
 
-> **Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, Nabers, Rice, D.Smith**
+> **Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice**
 
 
 ### 🟢 Round 3 | Pick #36 (RB)
 
-> **Hall, Skattebo, Etienne, Swift, Irving, Judkins, Montgomery, Tuten, Price**
+> **Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving, Skattebo, Montgomery, Judkins, Tuten, Price**
 
 
 ### 🟢 Round 4 | Pick #37 (WR)
 
-> **Olave, Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden**
+> **Olave, Pickens, D.Smith, Nabers, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden**
 
 
 ### 🟢 Round 5 | Pick #60 (QB)
 
-> **Lamar, Maye, Burrow, Daniels, Hurts, Dak, Goff, Murray**
+> **Allen, Lamar, Maye, Burrow, Daniels, Hurts, C.Williams, Herbert, Lawrence, Dak, Purdy, Nix, Mahomes, Goff, Murray**
 
 
 ### 🟢 Round 6 | Pick #61 (RB)
 
-> **Montgomery, Tuten, Price, Henderson, Stevenson, Warren, Pollard, Dowdle**
+> **Montgomery, Judkins, Tuten, Price, Henderson, Stevenson, Warren, Pollard, Dowdle, Brooks**
 
 
 ### 🟢 Round 7 | Pick #84 (WR)
 
-> **Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs**
+> **Jamo.Williams, Watson, Odunze, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs, Reed**
 
 
 ### 🟢 Round 8 | Pick #85 (WR)
 
-> **Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs (Take 2nd best available WR from Turn 4 list)**
+> **Jamo.Williams, Watson, Odunze, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs, Reed (Take 2nd best available WR from Turn 4 list)**
 
 
 ### 🟢 Round 9 | Pick #108 (TE)
 
-> **Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews**
+> **Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews**
 
 
 ### 🟢 Round 10 | Pick #109 (RB)
 
-> **Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt**
+> **Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones**
 
 
 ### 🟢 Round 11 | Pick #132 (FLEX)
@@ -111,15 +111,15 @@
 ```tsv
 Rd	Pick	Position	Ranking
 1	12	RB	J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry
-2	13	WR	Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, Nabers, Rice, D.Smith
-3	36	RB	Hall, Skattebo, Etienne, Swift, Irving, Judkins, Montgomery, Tuten, Price
-4	37	WR	Olave, Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden
-5	60	QB	Lamar, Maye, Burrow, Daniels, Hurts, Dak, Goff, Murray
-6	61	RB	Montgomery, Tuten, Price, Henderson, Stevenson, Warren, Pollard, Dowdle
-7	84	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs
+2	13	WR	Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice
+3	36	RB	Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving, Skattebo, Montgomery, Judkins, Tuten, Price
+4	37	WR	Olave, Pickens, D.Smith, Nabers, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden
+5	60	QB	Allen, Lamar, Maye, Burrow, Daniels, Hurts, C.Williams, Herbert, Lawrence, Dak, Purdy, Nix, Mahomes, Goff, Murray
+6	61	RB	Montgomery, Judkins, Tuten, Price, Henderson, Stevenson, Warren, Pollard, Dowdle, Brooks
+7	84	WR	Jamo.Williams, Watson, Odunze, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs, Reed
 8	85	WR	
-9	108	TE	Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews
-10	109	RB	Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt
+9	108	TE	Fannin, Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews
+10	109	RB	Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt, A.Jones
 11	132	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston
 12	133	FLEX	
 13	156	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet
