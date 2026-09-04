@@ -3,10 +3,10 @@
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Consecutive Turn Picks)  
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`  
-**Audited Accuracy**: 100% programmatic alignment with official FantasyPros ECR and Subvertadown Custom PPR Value Curve.
+**Elite Faller Anchors**: CMC added to Rd 1; JSN & Amon-Ra added to Rd 2 for ultimate slider coverage.
 
 ### 🏆 TURN-BY-TURN POSITIONAL STRATEGY:
-* Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: Taylor / Brown / Achane + Lamb / Jefferson / London / Olave)
+* Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: CMC / Taylor / Brown / Achane + JSN / Amon-Ra / Lamb / Jefferson)
 * Turn 2 (Picks 36 & 37): **RB + WR** (Bellcow RB2 + Elite WR2: Hall / Love / Williams / Etienne + Flowers / Wilson / Waddle)
 * Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye / Daniels + Montgomery / Tuten / Price)
 * Turn 4 (Picks 84 & 85): **WR + WR** (Double-Tap Starting WR3 & WR4: Watson / Godwin / Metcalf / Pittman / WD Robinson)
@@ -26,12 +26,12 @@
 
 ### 🟢 Round 1 | Pick #12 (RB)
 
-> **J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry**
+> **CMC, J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry**
 
 
 ### 🟢 Round 2 | Pick #13 (WR)
 
-> **Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice**
+> **JSN, Amon-Ra, Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice**
 
 
 ### 🟢 Round 3 | Pick #36 (RB)
@@ -110,8 +110,8 @@
 
 ```tsv
 Rd	Pick	Position	Ranking
-1	12	RB	J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry
-2	13	WR	Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice
+1	12	RB	CMC, J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry
+2	13	WR	JSN, Amon-Ra, Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, D.Smith, Nabers, Rice
 3	36	RB	Hall, Love, K.Williams, J.Williams, Etienne, Swift, Irving, Skattebo, Montgomery, Judkins, Tuten, Price
 4	37	WR	Olave, Pickens, D.Smith, Nabers, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden
 5	60	QB	Allen, Lamar, Maye, Burrow, Daniels, Hurts, C.Williams, Herbert, Lawrence, Dak, Purdy, Nix, Mahomes, Goff, Murray

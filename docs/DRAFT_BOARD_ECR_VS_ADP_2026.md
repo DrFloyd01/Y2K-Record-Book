@@ -2,7 +2,7 @@
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`
-**Audit Status**: 100% verified unbroken positional sequence against official FantasyPros ECR and Subvertadown curve.
+**Elite Anchors Included**: CMC added to Rd 1; JSN & Amon-Ra added to Rd 2 for ultimate slider capture.
 **Benchmark 1**: Subvertadown Custom PPR Positional Value Curve mapped to Official ECR Player Order
 **Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
 
@@ -12,15 +12,16 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #12 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **Jonathan Taylor** | IND | RB4 | **#4** (T1) | **#7** (Avg 6.2) | +3 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **4** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
-| **7** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
-| **8** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
-| **9** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ✅ Likely Available |
+| **1** | **Christian McCaffrey** | SF | RB3 | **#3** (T1) | **#5** (Avg 5.8) | +2 (Value vs Subvert) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Jonathan Taylor** | IND | RB4 | **#4** (T1) | **#7** (Avg 6.2) | +3 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **James Cook III** | BUF | RB5 | **#7** (T1) | **#9** (Avg 8.8) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **Chase Brown** | CIN | RB6 | **#8** (T1) | **#13** (Avg 12.6) | +5 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **De'Von Achane** | MIA | RB7 | **#9** (T1) | **#11** (Avg 11.6) | +2 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Saquon Barkley** | PHI | RB8 | **#10** (T1) | **#14** (Avg 13.8) | +4 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Kenneth Walker III** | KC | RB9 | **#13** (T2) | **#17** (Avg 17.8) | +4 (Value vs Subvert) | ✅ Likely Available |
+| **8** | **Omarion Hampton** | LAC | RB10 | **#14** (T2) | **#15** (Avg 15.6) | +1 (Value vs Subvert) | ⚠️ 50/50 Toss-Up (Target) |
+| **9** | **Ashton Jeanty** | LV | RB11 | **#15** (T2) | **#18** (Avg 18.0) | +3 (Value vs Subvert) | ✅ Likely Available |
+| **10** | **Derrick Henry** | BAL | RB12 | **#16** (T3) | **#16** (Avg 16.8) | 0 (Identical) | ✅ Likely Available |
 
 ---
 
@@ -28,16 +29,18 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #13 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **CeeDee Lamb** | DAL | WR5 | **#22** (T3) | **#10** (Avg 11.4) | -12 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **2** | **Justin Jefferson** | MIN | WR6 | **#23** (T3) | **#12** (Avg 12.0) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Drake London** | ATL | WR7 | **#26** (T3) | **#20** (Avg 19.6) | -6 (Reached in ADP) | ✅ Likely Available |
-| **4** | **A.J. Brown** | NE | WR8 | **#27** (T3) | **#19** (Avg 18.0) | -8 (Reached in ADP) | ✅ Likely Available |
-| **5** | **Nico Collins** | HOU | WR9 | **#28** (T4) | **#23** (Avg 23.8) | -5 (Reached in ADP) | 💎 Value Lock |
-| **6** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | 💎 Value Lock |
-| **7** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | 💎 Value Lock |
-| **8** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | 💎 Value Lock |
-| **9** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | 💎 Value Lock |
-| **10** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Jaxon Smith-Njigba** | SEA | WR3 | **#11** (T2) | **#6** (Avg 6.0) | -5 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **Amon-Ra St. Brown** | DET | WR4 | **#12** (T2) | **#8** (Avg 8.2) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **3** | **CeeDee Lamb** | DAL | WR5 | **#22** (T3) | **#10** (Avg 11.4) | -12 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **Justin Jefferson** | MIN | WR6 | **#23** (T3) | **#12** (Avg 12.0) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **5** | **Drake London** | ATL | WR7 | **#26** (T3) | **#20** (Avg 19.6) | -6 (Reached in ADP) | ✅ Likely Available |
+| **6** | **A.J. Brown** | NE | WR8 | **#27** (T3) | **#19** (Avg 18.0) | -8 (Reached in ADP) | ✅ Likely Available |
+| **7** | **Nico Collins** | HOU | WR9 | **#28** (T4) | **#23** (Avg 23.8) | -5 (Reached in ADP) | 💎 Value Lock |
+| **8** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | 💎 Value Lock |
+| **9** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | 💎 Value Lock |
+| **10** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | 💎 Value Lock |
+| **11** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | 💎 Value Lock |
+| **12** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
