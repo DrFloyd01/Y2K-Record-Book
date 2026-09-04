@@ -3,10 +3,10 @@
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Consecutive Turn Picks)  
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`  
-**Flex Order**: 100% unified to pure Subvertadown Custom PPR Value Curve.
+**Key Corrections**: Olave (WR10, ECR #16, Subvert #28) correctly placed ahead of Pickens (WR11, ECR #18, Subvert #32).
 
 ### 🏆 TURN-BY-TURN POSITIONAL STRATEGY:
-* Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: Taylor / Brown / Achane + Lamb / Jefferson / London)
+* Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: Taylor / Brown / Achane + Lamb / Jefferson / London / Olave)
 * Turn 2 (Picks 36 & 37): **RB + WR** (Bellcow RB2 + Elite WR2: Hall / Etienne / Irving + Flowers / Wilson / Waddle)
 * Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye + Tuten / Price / Stevenson)
 * Turn 4 (Picks 84 & 85): **WR + WR** (Double-Tap Starting WR3 & WR4: Watson / Godwin / Metcalf / Pittman / WD Robinson)
@@ -31,7 +31,7 @@
 
 ### 🟢 Round 2 | Pick #13 (WR)
 
-> **Lamb, Jefferson, London, AJ.Brown, Collins, Pickens, Olave, Nabers, Rice, D.Smith**
+> **Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, Nabers, Rice, D.Smith**
 
 
 ### 🟢 Round 3 | Pick #36 (RB)
@@ -41,7 +41,7 @@
 
 ### 🟢 Round 4 | Pick #37 (WR)
 
-> **Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden**
+> **Olave, Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden**
 
 
 ### 🟢 Round 5 | Pick #60 (QB)
@@ -111,9 +111,9 @@
 ```tsv
 Rd	Pick	Position	Ranking
 1	12	RB	J.Taylor, Cook, C.Brown, Achane, Barkley, Walker, Hampton, Jeanty, Henry
-2	13	WR	Lamb, Jefferson, London, AJ.Brown, Collins, Pickens, Olave, Nabers, Rice, D.Smith
+2	13	WR	Lamb, Jefferson, London, AJ.Brown, Collins, Olave, Pickens, Nabers, Rice, D.Smith
 3	36	RB	Hall, Skattebo, Etienne, Swift, Irving, Judkins, Montgomery, Tuten, Price
-4	37	WR	Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden
+4	37	WR	Olave, Pickens, D.Smith, Rice, Flowers, G.Wilson, McConkey, Waddle, T.McMillan, Higgins, Egbuka, Burden
 5	60	QB	Lamar, Maye, Burrow, Daniels, Hurts, Dak, Goff, Murray
 6	61	RB	Montgomery, Tuten, Price, Henderson, Stevenson, Warren, Pollard, Dowdle
 7	84	WR	Watson, Evans, Tate, Harrison, Godwin, Metcalf, Thomas, Pittman, WD.Robinson, Sutton, Downs, M.Wilson, Johnston, Diggs

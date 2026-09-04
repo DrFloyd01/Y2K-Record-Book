@@ -2,7 +2,7 @@
 
 **Team**: Average Joes (Dylan) | **Draft Slot**: #12 (12-Team Snake)
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`
-**Flex Order**: 100% unified to pure Subvertadown Custom PPR Value Curve.
+**Key Correction**: Chris Olave (WR10, ECR #16, Subvert #28) positioned ahead of George Pickens (WR11, ECR #18, Subvert #32).
 **Benchmark 1**: Subvertadown Custom PPR Positional Value Curve mapped to Official ECR Player Order
 **Benchmark 2**: FantasyPros Consensus ADP (2) (Live Market Drafter Behavior)
 
@@ -33,8 +33,8 @@
 | **3** | **Drake London** | ATL | WR7 | **#26** (T3) | **#20** (Avg 19.6) | -6 (Reached in ADP) | ✅ Likely Available |
 | **4** | **A.J. Brown** | NE | WR8 | **#27** (T3) | **#19** (Avg 18.0) | -8 (Reached in ADP) | ✅ Likely Available |
 | **5** | **Nico Collins** | HOU | WR9 | **#28** (T4) | **#23** (Avg 23.8) | -5 (Reached in ADP) | 💎 Value Lock |
-| **6** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | 💎 Value Lock |
-| **7** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | 💎 Value Lock |
+| **6** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | 💎 Value Lock |
+| **7** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | 💎 Value Lock |
 | **8** | **Malik Nabers** | NYG | WR13 | **#35** (T4) | **#27** (Avg 27.2) | -8 (Reached in ADP) | 💎 Value Lock |
 | **9** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | 💎 Value Lock |
 | **10** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | 💎 Value Lock |
@@ -61,17 +61,18 @@
 
 | Priority | Player / Unit | Team | Pos | Custom ECR Rank (Tier) | Consensus ADP (2) | Custom ECR vs ADP Delta | Projected Availability at #37 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **2** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **3** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
-| **4** | **Zay Flowers** | BAL | WR15 | **#39** (T4) | **#35** (Avg 36.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **5** | **Garrett Wilson** | NYJ | WR16 | **#40** (T5) | **#39** (Avg 41.0) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **6** | **Ladd McConkey** | LAC | WR17 | **#41** (T5) | **#43** (Avg 42.6) | +2 (Value vs Subvert) | ✅ Likely Available |
-| **7** | **Jaylen Waddle** | DEN | WR18 | **#44** (T5) | **#46** (Avg 46.2) | +2 (Value vs Subvert) | 💎 Value Lock |
-| **8** | **Tetairoa McMillan** | CAR | WR19 | **#49** (T5) | **#36** (Avg 39.8) | -13 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **9** | **Tee Higgins** | CIN | WR20 | **#51** (T6) | **#40** (Avg 41.2) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
-| **10** | **Emeka Egbuka** | TB | WR21 | **#54** (T6) | **#42** (Avg 41.4) | -12 (Reached in ADP) | ✅ Likely Available |
-| **11** | **Luther Burden III** | CHI | WR22 | **#57** (T6) | **#54** (Avg 54.8) | -3 (Reached in ADP) | 💎 Value Lock |
+| **1** | **Chris Olave** | NO | WR10 | **#30** (T4) | **#26** (Avg 26.0) | -4 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **2** | **George Pickens** | DAL | WR11 | **#32** (T4) | **#24** (Avg 24.0) | -8 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **3** | **DeVonta Smith** | PHI | WR12 | **#33** (T4) | **#32** (Avg 32.2) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **4** | **Rashee Rice** | KC | WR14 | **#36** (T4) | **#30** (Avg 29.0) | -6 (Reached in ADP) | ❌ Gone by ADP (Wishlist) |
+| **5** | **Zay Flowers** | BAL | WR15 | **#39** (T4) | **#35** (Avg 36.6) | -4 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **6** | **Garrett Wilson** | NYJ | WR16 | **#40** (T5) | **#39** (Avg 41.0) | -1 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **7** | **Ladd McConkey** | LAC | WR17 | **#41** (T5) | **#43** (Avg 42.6) | +2 (Value vs Subvert) | ✅ Likely Available |
+| **8** | **Jaylen Waddle** | DEN | WR18 | **#44** (T5) | **#46** (Avg 46.2) | +2 (Value vs Subvert) | 💎 Value Lock |
+| **9** | **Tetairoa McMillan** | CAR | WR19 | **#49** (T5) | **#36** (Avg 39.8) | -13 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **10** | **Tee Higgins** | CIN | WR20 | **#51** (T6) | **#40** (Avg 41.2) | -11 (Reached in ADP) | ⚠️ 50/50 Toss-Up (Target) |
+| **11** | **Emeka Egbuka** | TB | WR21 | **#54** (T6) | **#42** (Avg 41.4) | -12 (Reached in ADP) | ✅ Likely Available |
+| **12** | **Luther Burden III** | CHI | WR22 | **#57** (T6) | **#54** (Avg 54.8) | -3 (Reached in ADP) | 💎 Value Lock |
 
 ---
 
