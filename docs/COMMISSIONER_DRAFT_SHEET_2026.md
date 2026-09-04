@@ -3,7 +3,7 @@
 **Manager**: Dylan (Average Joes)  
 **Draft Slot**: #12 (12-Team Snake — Consecutive Turn Picks)  
 **Strategy Architecture**: `RB, WR, RB, WR, QB, RB, WR, WR, TE, RB, FLEXx4, DST, K`  
-**Updated ECR**: Synced with latest FantasyPros ECR updates (`Flowers > Wilson`, `Sampson > Coleman`, `Johnston > Diggs`, `Goedert > Ferguson`).
+**Flex Order**: 100% unified to pure Subvertadown Custom PPR Value Curve.
 
 ### 🏆 TURN-BY-TURN POSITIONAL STRATEGY:
 * Turn 1 (Picks 12 & 13): **RB + WR** (Hero RB Anchor + Alpha WR1: Taylor / Brown / Achane + Lamb / Jefferson / London)
@@ -11,8 +11,8 @@
 * Turn 3 (Picks 60 & 61): **QB + RB** (Elite Starting QB1 + Workhorse RB3: Lamar / Burrow / Maye + Tuten / Price / Stevenson)
 * Turn 4 (Picks 84 & 85): **WR + WR** (Double-Tap Starting WR3 & WR4: Watson / Godwin / Metcalf / Pittman / WD Robinson)
 * Turn 5 (Picks 108 & 109): **TE + RB** (Late TE Value + Bellcow RB4: Kittle / Kelce / Kraft + Harvey / Lloyd / Corum)
-* Turn 6 (Picks 132 & 133): **FLEX + FLEX** (High-Ceiling Breakout Stash: Allgeier / Spears / Sampson / Coleman / Worthy)
-* Turn 7 (Picks 156 & 157): **FLEX + FLEX** (High-Ceiling Breakout Stash: Shakir / Boston / Tyson / Samuel / Shaheed)
+* Turn 6 (Picks 132 & 133): **FLEX + FLEX** (High-Ceiling Breakout Stash: Allgeier / Spears / Meyers / Shakir / Golden / Coker / Worthy)
+* Turn 7 (Picks 156 & 157): **FLEX + FLEX** (High-Ceiling Breakout Stash: Shakir / Golden / Coker / Worthy / Tyson / Sampson / Coleman)
 * Turn 8 (Picks 180 & 181): **DST + K** (Top Streaming Defense + Elite Kicker: Chargers / Jaguars + Dicker / Little)
 
 ### 📌 COMMISSIONER EXECUTION RULES:
@@ -76,22 +76,22 @@
 
 ### 🟢 Round 11 | Pick #132 (FLEX)
 
-> **Allgeier, Spears, Sampson, Coleman, Worthy, Shakir, Golden, Coker, Tyson, Samuel, Shaheed, Boston**
+> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston**
 
 
 ### 🟢 Round 12 | Pick #133 (FLEX)
 
-> **Allgeier, Spears, Sampson, Coleman, Worthy, Shakir, Golden, Coker, Tyson, Samuel, Shaheed, Boston (Take 2nd best available player from Turn 6 list)**
+> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston (Take 2nd best available player from Turn 6 list)**
 
 
 ### 🟢 Round 13 | Pick #156 (FLEX)
 
-> **Allgeier, Spears, Sampson, Coleman, Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, Meyers, Jeudy, M.Washington, Charbonnet**
+> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet**
 
 
 ### 🟢 Round 14 | Pick #157 (FLEX)
 
-> **Allgeier, Spears, Sampson, Coleman, Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, Meyers, Jeudy, M.Washington, Charbonnet (Take 2nd best available player from Turn 7 list)**
+> **Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet (Take 2nd best available player from Turn 7 list)**
 
 
 ### 🟢 Round 15 | Pick #180 (DST)
@@ -120,9 +120,9 @@ Rd	Pick	Position	Ranking
 8	85	WR	
 9	108	TE	Kraft, Pitts, LaPorta, Kittle, Kelce, Kincaid, Likely, Goedert, Ferguson, Andrews
 10	109	RB	Dowdle, Brooks, Harvey, Gainwell, Hubbard, Dobbins, Lloyd, Corum, White, Mason, Croskey-Merritt
-11	132	FLEX	Allgeier, Spears, Sampson, Coleman, Worthy, Shakir, Golden, Coker, Tyson, Samuel, Shaheed, Boston
+11	132	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston
 12	133	FLEX	
-13	156	FLEX	Allgeier, Spears, Sampson, Coleman, Shakir, Golden, Coker, Worthy, Tyson, Samuel, Shaheed, Boston, Tucker, Meyers, Jeudy, M.Washington, Charbonnet
+13	156	FLEX	Allgeier, Spears, Meyers, Shakir, Golden, Coker, Worthy, Tyson, Sampson, Coleman, Samuel, Shaheed, Boston, Tucker, Jeudy, M.Washington, Charbonnet
 14	157	FLEX	
 15	180	DEF	LAC, JAX, LV, TEN
 16	181	K	Dicker, Little, Bates, McPherson, Boswell, Santos
