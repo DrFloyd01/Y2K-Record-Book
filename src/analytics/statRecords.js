@@ -32,10 +32,13 @@ export function formatPlayoffWeek(season, week, stage) {
   
   if (yr < 2022) {
     if (yr === 2020) {
+      // Pride Guys 2020 finals were in Week 14
+      if (wk === 14 && stage && (stage.includes('Final') || stage.includes('3rd') || stage.includes('5th'))) return 'WEEK 14';
       if (wk === 13 || wk === 14 || (stage && (stage.includes('Semi') || stage.includes('Wild')))) return 'WEEKS 13+14';
       if (wk === 15 || wk === 16 || (stage && (stage.includes('Final') || stage.includes('3rd') || stage.includes('5th')))) return 'WEEKS 15+16';
     } else {
-      // 2017, 2018, 2019, 2021
+      // Pride Guys 2017-2021 finals were in Week 15 (in Y2K, week 15 was Semis)
+      if (wk === 15 && stage && (stage.includes('Final') || stage.includes('3rd') || stage.includes('5th'))) return 'WEEK 15';
       if (wk === 14 || wk === 15 || (stage && (stage.includes('Semi') || stage.includes('Wild')))) return 'WEEKS 14+15';
       if (wk === 16 || wk === 17 || (stage && (stage.includes('Final') || stage.includes('3rd') || stage.includes('5th')))) return 'WEEKS 16+17';
     }

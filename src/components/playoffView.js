@@ -199,14 +199,14 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
       <div class="crt-box rounded p-8 text-center">
         <div class="text-xs text-emerald-500 font-mono mb-1">&gt;_ NO_POSTSEASON_DATA</div>
         <p class="text-sm text-emerald-300 font-bold">Postseason brackets for ${season} have not yet commenced.</p>
-        <p class="text-xs text-emerald-600 mt-2">Select a completed season (e.g. 2018–2025) from the selector above to view historical playoff brackets.</p>
+        <p class="text-xs text-emerald-600 mt-2">Select a completed season (e.g. 2017–2025) from the selector above to view historical playoff brackets.</p>
       </div>
     ` : `
       <div class="cute-card rounded-2xl p-8 text-center">
         <div class="text-3xl mb-2">🏆✨</div>
         <h3 class="font-fredoka text-lg font-bold text-purple-900 mb-1">${season} Postseason Coming Soon!</h3>
         <p class="text-xs text-purple-600">Tournament brackets for ${season} will populate once the regular season concludes.</p>
-        <p class="text-xs text-pink-500 font-bold mt-2">Select 2018–2025 from the season selector above to view previous brackets &amp; champions! 🌈</p>
+        <p class="text-xs text-pink-500 font-bold mt-2">Select 2017–2025 from the season selector above to view previous brackets &amp; champions! 🌈</p>
       </div>
     `;
   }
@@ -261,7 +261,7 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
             <div class="flex justify-between items-center p-1.5 rounded ${homeWinnerClass}">
               <div class="flex items-center gap-1.5">
                 <span class="px-1.5 py-0.5 rounded text-[10px] font-black ${seedBadge}">#${m.homeSeed || 1}</span>
-                <span class="${homeTextClass}">${m.homeTeam}</span>
+                <span class="${homeTextClass}">${m.homeTeam || m.homeOwner}</span>
                 <span class="text-[10px] ${isCrt ? 'text-emerald-700' : 'text-purple-800/60'} font-normal">[${m.homeOwner}]</span>
               </div>
               <span class="${isCrt ? 'font-mono' : 'font-sans'} font-bold ${homeTextClass}">${(m.homeScore || 0).toFixed(2)}</span>
@@ -270,7 +270,7 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
             <div class="flex justify-between items-center p-1.5 rounded ${awayWinnerClass}">
               <div class="flex items-center gap-1.5">
                 <span class="px-1.5 py-0.5 rounded text-[10px] font-black ${seedBadge}">#${m.awaySeed || 2}</span>
-                <span class="${awayTextClass}">${m.awayTeam}</span>
+                <span class="${awayTextClass}">${m.awayTeam || m.awayOwner}</span>
                 <span class="text-[10px] ${isCrt ? 'text-emerald-700' : 'text-purple-800/60'} font-normal">[${m.awayOwner}]</span>
               </div>
               <span class="${isCrt ? 'font-mono' : 'font-sans'} font-bold ${awayTextClass}">${(m.awayScore || 0).toFixed(2)}</span>
