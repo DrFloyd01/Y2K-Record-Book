@@ -52,13 +52,13 @@
     {
       "seasonYear": 2020,
       "firstOwner": "Sean Belcher",
-      "firstTeam": "Cookin\u2019 the Competition\u2122",
+      "firstTeam": "Cookin’ the Competition™",
       "secondOwner": "Zack Wolfskeil",
       "secondTeam": "Old Man Full gay ",
       "thirdOwner": "Michael Anderson",
       "thirdTeam": "First Down Syndrome",
       "scoringChampOwner": "Sean Belcher",
-      "scoringChampTeam": "Cookin\u2019 the Competition\u2122",
+      "scoringChampTeam": "Cookin’ the Competition™",
       "scoringChampPF": 1541.5
     },
     {
@@ -916,13 +916,13 @@
           "year": 2020,
           "week": 9,
           "score": 160.5,
-          "teamName": "Cookin\u2019 the Competition\u2122"
+          "teamName": "Cookin’ the Competition™"
         },
         {
           "year": 2020,
           "week": 10,
           "score": 115,
-          "teamName": "Cookin\u2019 the Competition\u2122"
+          "teamName": "Cookin’ the Competition™"
         },
         {
           "year": 2021,
@@ -1180,7 +1180,7 @@
         },
         {
           "owner": "Sean Belcher",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "score": 153,
           "oppOwner": "Zack Wolfskeil",
           "oppScore": 176,
@@ -1293,7 +1293,7 @@
         },
         {
           "owner": "Sean Belcher",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "score": 153,
           "oppOwner": "Zack Wolfskeil",
           "oppScore": 176,
@@ -1395,7 +1395,7 @@
           {
             "year": 2020,
             "rank": 1,
-            "teamName": "Cookin\u2019 the Competition\u2122"
+            "teamName": "Cookin’ the Competition™"
           }
         ],
         "2nd": [
@@ -16617,7 +16617,7 @@
       "standings": [
         {
           "ownerName": "Sean Belcher",
-          "teamName": "Cookin\u2019 the Competition\u2122",
+          "teamName": "Cookin’ the Competition™",
           "wins": 10,
           "losses": 2,
           "ties": 0,
@@ -16640,13 +16640,13 @@
               "year": 2020,
               "week": 9,
               "score": 160.5,
-              "teamName": "Cookin\u2019 the Competition\u2122"
+              "teamName": "Cookin’ the Competition™"
             },
             {
               "year": 2020,
               "week": 10,
               "score": 115,
-              "teamName": "Cookin\u2019 the Competition\u2122"
+              "teamName": "Cookin’ the Competition™"
             }
           ],
           "luckiestWins": 0,
@@ -16655,7 +16655,7 @@
           "hbDetails": [
             {
               "owner": "Sean Belcher",
-              "team": "Cookin\u2019 the Competition\u2122",
+              "team": "Cookin’ the Competition™",
               "score": 153,
               "oppOwner": "Zack Wolfskeil",
               "oppScore": 176,
@@ -17156,7 +17156,7 @@
           "week": 13,
           "stage": "Semi-Finals",
           "homeOwner": "Sean Belcher",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeScore": 217,
           "homeSeed": 1,
           "awayOwner": "Andrew Wilson",
@@ -17228,7 +17228,7 @@
           "week": 14,
           "stage": "Championship Final",
           "homeOwner": "Sean Belcher",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeScore": 231.5,
           "homeSeed": 1,
           "awayOwner": "Zack Wolfskeil",
@@ -17299,7 +17299,7 @@
       ],
       "scoringChampion": {
         "owner": "Sean Belcher",
-        "team": "Cookin\u2019 the Competition\u2122",
+        "team": "Cookin’ the Competition™",
         "pointsFor": 1541.5
       },
       "draftPicks": [
@@ -17349,7 +17349,7 @@
           "player": "Dalvin Cook",
           "position": "RB",
           "nflTeam": "MIN",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17466,7 +17466,7 @@
           "player": "Miles Sanders",
           "position": "RB",
           "nflTeam": "PHI",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17557,7 +17557,7 @@
           "player": "Travis Kelce",
           "position": "TE",
           "nflTeam": "KC",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17674,7 +17674,7 @@
           "player": "DJ Moore",
           "position": "WR",
           "nflTeam": "CAR",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17765,7 +17765,7 @@
           "player": "Chris Carson",
           "position": "RB",
           "nflTeam": "SEA",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17882,7 +17882,7 @@
           "player": "Terry McLaurin",
           "position": "WR",
           "nflTeam": "WSH",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -17973,7 +17973,7 @@
           "player": "Player 3115394",
           "position": "FLEX",
           "nflTeam": "NFL",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18090,7 +18090,7 @@
           "player": "Kyler Murray",
           "position": "QB",
           "nflTeam": "ARI",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18181,7 +18181,7 @@
           "player": "Antonio Gibson",
           "position": "RB",
           "nflTeam": "WSH",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18298,7 +18298,7 @@
           "player": "D'Andre Swift",
           "position": "RB",
           "nflTeam": "DET",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18389,7 +18389,7 @@
           "player": "Marvin Jones Jr.",
           "position": "WR",
           "nflTeam": "DET",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18506,7 +18506,7 @@
           "player": "Player 13217",
           "position": "FLEX",
           "nflTeam": "NFL",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18597,7 +18597,7 @@
           "player": "Player 4241475",
           "position": "FLEX",
           "nflTeam": "NFL",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18714,7 +18714,7 @@
           "player": "Player -16017",
           "position": "FLEX",
           "nflTeam": "NFL",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18805,7 +18805,7 @@
           "player": "Latavius Murray",
           "position": "RB",
           "nflTeam": "NO",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18922,7 +18922,7 @@
           "player": "Josh Allen",
           "position": "QB",
           "nflTeam": "BUF",
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "year": 2020,
           "isKeeper": false,
@@ -18975,7 +18975,7 @@
           "homeTeam": "Team 0 points",
           "homeOwner": "The Big Dongler",
           "homeScore": 122,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 123,
           "winner": "Sean Belcher",
@@ -19024,7 +19024,7 @@
         {
           "week": 2,
           "matchupId": 4,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 153,
           "awayTeam": "Old Man Full gay ",
@@ -19079,7 +19079,7 @@
           "homeTeam": "Fresh prince  Of Helaire",
           "homeOwner": "Andrew Wilson",
           "homeScore": 128.5,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 112,
           "winner": "Andrew Wilson",
@@ -19128,7 +19128,7 @@
         {
           "week": 4,
           "matchupId": 12,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 144,
           "awayTeam": "Poopy Butt",
@@ -19222,7 +19222,7 @@
           "homeTeam": "First Down Syndrome",
           "homeOwner": "Michael Anderson",
           "homeScore": 100,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 122,
           "winner": "Sean Belcher",
@@ -19258,7 +19258,7 @@
         {
           "week": 6,
           "matchupId": 22,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 114.5,
           "awayTeam": " . Camt Touch This",
@@ -19300,7 +19300,7 @@
           "homeTeam": "Jeffrey Epstein Alive in Israel",
           "homeOwner": "Aidan O'Sullivan",
           "homeScore": 119,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 131.5,
           "winner": "Sean Belcher",
@@ -19336,7 +19336,7 @@
         {
           "week": 8,
           "matchupId": 28,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 126,
           "awayTeam": "Team 0 points",
@@ -19391,7 +19391,7 @@
           "homeTeam": "Old Man Full gay ",
           "homeOwner": "Zack Wolfskeil",
           "homeScore": 81.5,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 160.5,
           "winner": "Sean Belcher",
@@ -19440,7 +19440,7 @@
         {
           "week": 10,
           "matchupId": 36,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 115,
           "awayTeam": "Fresh prince  Of Helaire",
@@ -19492,7 +19492,7 @@
         {
           "week": 11,
           "matchupId": 40,
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "homeOwner": "Sean Belcher",
           "homeScore": 126,
           "awayTeam": "Poopy Butt",
@@ -19586,7 +19586,7 @@
           "homeTeam": "First Down Syndrome",
           "homeOwner": "Michael Anderson",
           "homeScore": 103.5,
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "awayOwner": "Sean Belcher",
           "awayScore": 114,
           "winner": "Sean Belcher",
@@ -40909,11 +40909,11 @@
         {
           "week": 12,
           "matchupId": 67,
-          "homeTeam": "Football",
-          "homeOwner": "Austin Geller",
+          "homeTeam": "ProudER",
+          "homeOwner": "Trace Bakulich",
           "homeScore": 0,
-          "awayTeam": "CTESPN",
-          "awayOwner": "Michael Anderson",
+          "awayTeam": "Football",
+          "awayOwner": "Austin Geller",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -40922,11 +40922,11 @@
         {
           "week": 12,
           "matchupId": 68,
-          "homeTeam": "Milkshake Baddies",
-          "homeOwner": "Sean Belcher",
+          "homeTeam": "CTESPN",
+          "homeOwner": "Michael Anderson",
           "homeScore": 0,
-          "awayTeam": "Defense Contractor #1",
-          "awayOwner": "Nathan Wells",
+          "awayTeam": "L Central",
+          "awayOwner": "Andrew Wilson",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -40935,11 +40935,11 @@
         {
           "week": 12,
           "matchupId": 69,
-          "homeTeam": "Stroking my penix",
-          "homeOwner": "Brendan Sanders",
+          "homeTeam": "tyler's Talented Team",
+          "homeOwner": "Tyler Hicks",
           "homeScore": 0,
-          "awayTeam": "ProudER",
-          "awayOwner": "Trace Bakulich",
+          "awayTeam": "Defense Contractor #1",
+          "awayOwner": "Nathan Wells",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -40951,8 +40951,8 @@
           "homeTeam": "JD Vance in Drag",
           "homeOwner": "Aidan O'Sullivan",
           "homeScore": 0,
-          "awayTeam": "tyler's Talented Team",
-          "awayOwner": "Tyler Hicks",
+          "awayTeam": "Milkshake Baddies",
+          "awayOwner": "Sean Belcher",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -40961,11 +40961,11 @@
         {
           "week": 12,
           "matchupId": 71,
-          "homeTeam": "L Central",
-          "homeOwner": "Andrew Wilson",
+          "homeTeam": "Stroking my penix",
+          "homeOwner": "Brendan Sanders",
           "homeScore": 0,
-          "awayTeam": "Human Eros TDs",
-          "awayOwner": "Dylan Soth",
+          "awayTeam": "BloodSword2000",
+          "awayOwner": "Brodie Pirtle",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -40974,8 +40974,8 @@
         {
           "week": 12,
           "matchupId": 72,
-          "homeTeam": "BloodSword2000",
-          "homeOwner": "Brodie Pirtle",
+          "homeTeam": "Human Eros TDs",
+          "homeOwner": "Dylan Soth",
           "homeScore": 0,
           "awayTeam": "Joey Chestnuts",
           "awayOwner": "Phillip Busick",
@@ -40987,11 +40987,11 @@
         {
           "week": 13,
           "matchupId": 73,
-          "homeTeam": "Defense Contractor #1",
-          "homeOwner": "Nathan Wells",
+          "homeTeam": "Stroking my penix",
+          "homeOwner": "Brendan Sanders",
           "homeScore": 0,
-          "awayTeam": "Football",
-          "awayOwner": "Austin Geller",
+          "awayTeam": "Joey Chestnuts",
+          "awayOwner": "Phillip Busick",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -41000,8 +41000,8 @@
         {
           "week": 13,
           "matchupId": 74,
-          "homeTeam": "ProudER",
-          "homeOwner": "Trace Bakulich",
+          "homeTeam": "Human Eros TDs",
+          "homeOwner": "Dylan Soth",
           "homeScore": 0,
           "awayTeam": "Milkshake Baddies",
           "awayOwner": "Sean Belcher",
@@ -41013,11 +41013,11 @@
         {
           "week": 13,
           "matchupId": 75,
-          "homeTeam": "tyler's Talented Team",
-          "homeOwner": "Tyler Hicks",
+          "homeTeam": "Football",
+          "homeOwner": "Austin Geller",
           "homeScore": 0,
-          "awayTeam": "Stroking my penix",
-          "awayOwner": "Brendan Sanders",
+          "awayTeam": "tyler's Talented Team",
+          "awayOwner": "Tyler Hicks",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -41026,8 +41026,8 @@
         {
           "week": 13,
           "matchupId": 76,
-          "homeTeam": "Human Eros TDs",
-          "homeOwner": "Dylan Soth",
+          "homeTeam": "L Central",
+          "homeOwner": "Andrew Wilson",
           "homeScore": 0,
           "awayTeam": "JD Vance in Drag",
           "awayOwner": "Aidan O'Sullivan",
@@ -41039,21 +41039,8 @@
         {
           "week": 13,
           "matchupId": 77,
-          "homeTeam": "Joey Chestnuts",
-          "homeOwner": "Phillip Busick",
-          "homeScore": 0,
-          "awayTeam": "L Central",
-          "awayOwner": "Andrew Wilson",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
-          "isPlayoff": false
-        },
-        {
-          "week": 13,
-          "matchupId": 78,
-          "homeTeam": "CTESPN",
-          "homeOwner": "Michael Anderson",
+          "homeTeam": "ProudER",
+          "homeOwner": "Trace Bakulich",
           "homeScore": 0,
           "awayTeam": "BloodSword2000",
           "awayOwner": "Brodie Pirtle",
@@ -41063,10 +41050,23 @@
           "isPlayoff": false
         },
         {
+          "week": 13,
+          "matchupId": 78,
+          "homeTeam": "Defense Contractor #1",
+          "homeOwner": "Nathan Wells",
+          "homeScore": 0,
+          "awayTeam": "CTESPN",
+          "awayOwner": "Michael Anderson",
+          "awayScore": 0,
+          "winner": "TBD",
+          "margin": 0,
+          "isPlayoff": false
+        },
+        {
           "week": 14,
           "matchupId": 79,
-          "homeTeam": "Football",
-          "homeOwner": "Austin Geller",
+          "homeTeam": "CTESPN",
+          "homeOwner": "Michael Anderson",
           "homeScore": 0,
           "awayTeam": "ProudER",
           "awayOwner": "Trace Bakulich",
@@ -41078,8 +41078,8 @@
         {
           "week": 14,
           "matchupId": 80,
-          "homeTeam": "Milkshake Baddies",
-          "homeOwner": "Sean Belcher",
+          "homeTeam": "Stroking my penix",
+          "homeOwner": "Brendan Sanders",
           "homeScore": 0,
           "awayTeam": "tyler's Talented Team",
           "awayOwner": "Tyler Hicks",
@@ -41091,11 +41091,11 @@
         {
           "week": 14,
           "matchupId": 81,
-          "homeTeam": "Stroking my penix",
-          "homeOwner": "Brendan Sanders",
+          "homeTeam": "Milkshake Baddies",
+          "homeOwner": "Sean Belcher",
           "homeScore": 0,
-          "awayTeam": "Human Eros TDs",
-          "awayOwner": "Dylan Soth",
+          "awayTeam": "L Central",
+          "awayOwner": "Andrew Wilson",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -41104,8 +41104,8 @@
         {
           "week": 14,
           "matchupId": 82,
-          "homeTeam": "JD Vance in Drag",
-          "homeOwner": "Aidan O'Sullivan",
+          "homeTeam": "Defense Contractor #1",
+          "homeOwner": "Nathan Wells",
           "homeScore": 0,
           "awayTeam": "Joey Chestnuts",
           "awayOwner": "Phillip Busick",
@@ -41117,11 +41117,11 @@
         {
           "week": 14,
           "matchupId": 83,
-          "homeTeam": "L Central",
-          "homeOwner": "Andrew Wilson",
+          "homeTeam": "JD Vance in Drag",
+          "homeOwner": "Aidan O'Sullivan",
           "homeScore": 0,
-          "awayTeam": "CTESPN",
-          "awayOwner": "Michael Anderson",
+          "awayTeam": "Football",
+          "awayOwner": "Austin Geller",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -41133,8 +41133,8 @@
           "homeTeam": "BloodSword2000",
           "homeOwner": "Brodie Pirtle",
           "homeScore": 0,
-          "awayTeam": "Defense Contractor #1",
-          "awayOwner": "Nathan Wells",
+          "awayTeam": "Human Eros TDs",
+          "awayOwner": "Dylan Soth",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -43987,13 +43987,13 @@
               "year": 2020,
               "week": 9,
               "score": 160.5,
-              "teamName": "Cookin\u2019 the Competition\u2122"
+              "teamName": "Cookin’ the Competition™"
             },
             {
               "year": 2020,
               "week": 10,
               "score": 115,
-              "teamName": "Cookin\u2019 the Competition\u2122"
+              "teamName": "Cookin’ the Competition™"
             },
             {
               "year": 2021,
@@ -44251,7 +44251,7 @@
             },
             {
               "owner": "Sean Belcher",
-              "team": "Cookin\u2019 the Competition\u2122",
+              "team": "Cookin’ the Competition™",
               "score": 153,
               "oppOwner": "Zack Wolfskeil",
               "oppScore": 176,
@@ -44364,7 +44364,7 @@
             },
             {
               "owner": "Sean Belcher",
-              "team": "Cookin\u2019 the Competition\u2122",
+              "team": "Cookin’ the Competition™",
               "score": 153,
               "oppOwner": "Zack Wolfskeil",
               "oppScore": 176,
@@ -44466,7 +44466,7 @@
               {
                 "year": 2020,
                 "rank": 1,
-                "teamName": "Cookin\u2019 the Competition\u2122"
+                "teamName": "Cookin’ the Competition™"
               }
             ],
             "2nd": [
@@ -51594,7 +51594,7 @@
       "homeTeam": "Team 0 points",
       "homeScore": 122,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 123,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -51643,7 +51643,7 @@
       "seasonYear": 2020,
       "weekNumber": 2,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 153,
       "awayOwner": "Zack Wolfskeil",
       "awayTeam": "Old Man Full gay ",
@@ -51698,7 +51698,7 @@
       "homeTeam": "Fresh prince  Of Helaire",
       "homeScore": 128.5,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 112,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -51747,7 +51747,7 @@
       "seasonYear": 2020,
       "weekNumber": 4,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 144,
       "awayOwner": "Trace Bakulich",
       "awayTeam": "Poopy Butt",
@@ -51841,7 +51841,7 @@
       "homeTeam": "First Down Syndrome",
       "homeScore": 100,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 122,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -51877,7 +51877,7 @@
       "seasonYear": 2020,
       "weekNumber": 6,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 114.5,
       "awayOwner": "James Carter",
       "awayTeam": " . Camt Touch This",
@@ -51919,7 +51919,7 @@
       "homeTeam": "Jeffrey Epstein Alive in Israel",
       "homeScore": 119,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 131.5,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -51955,7 +51955,7 @@
       "seasonYear": 2020,
       "weekNumber": 8,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 126,
       "awayOwner": "Javier",
       "awayTeam": "Team 0 points",
@@ -52010,7 +52010,7 @@
       "homeTeam": "Old Man Full gay ",
       "homeScore": 81.5,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 160.5,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -52059,7 +52059,7 @@
       "seasonYear": 2020,
       "weekNumber": 10,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 115,
       "awayOwner": "Andrew Wilson",
       "awayTeam": "Fresh prince  Of Helaire",
@@ -52111,7 +52111,7 @@
       "seasonYear": 2020,
       "weekNumber": 11,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 126,
       "awayOwner": "Trace Bakulich",
       "awayTeam": "Poopy Butt",
@@ -52205,7 +52205,7 @@
       "homeTeam": "First Down Syndrome",
       "homeScore": 103.5,
       "awayOwner": "Sean Belcher",
-      "awayTeam": "Cookin\u2019 the Competition\u2122",
+      "awayTeam": "Cookin’ the Competition™",
       "awayScore": 114,
       "isPlayoff": false,
       "rawTier": "NONE",
@@ -52215,7 +52215,7 @@
       "seasonYear": 2020,
       "weekNumber": 13,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 217,
       "awayOwner": "Andrew Wilson",
       "awayTeam": "Fresh prince  Of Helaire",
@@ -52275,7 +52275,7 @@
       "seasonYear": 2020,
       "weekNumber": 14,
       "homeOwner": "Sean Belcher",
-      "homeTeam": "Cookin\u2019 the Competition\u2122",
+      "homeTeam": "Cookin’ the Competition™",
       "homeScore": 231.5,
       "awayOwner": "Zack Wolfskeil",
       "awayTeam": "Old Man Full gay ",
@@ -58834,7 +58834,7 @@
           "homeOwner": "Javier",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Team 0 points",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 122,
           "awayScore": 123,
           "owner1Score": 122,
@@ -58848,7 +58848,7 @@
           "week": 8,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Javier",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Team 0 points",
           "homeScore": 126,
           "awayScore": 73.5,
@@ -59686,7 +59686,7 @@
           "homeOwner": "Andrew Wilson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Fresh prince  Of Helaire",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 128.5,
           "awayScore": 112,
           "owner1Score": 128.5,
@@ -59700,7 +59700,7 @@
           "week": 10,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Andrew Wilson",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Fresh prince  Of Helaire",
           "homeScore": 115,
           "awayScore": 101,
@@ -59715,7 +59715,7 @@
           "week": 13,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Andrew Wilson",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Fresh prince  Of Helaire",
           "homeScore": 217,
           "awayScore": 184.5,
@@ -60426,7 +60426,7 @@
           "week": 4,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Trace Bakulich",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Poopy Butt",
           "homeScore": 144,
           "awayScore": 143,
@@ -60441,7 +60441,7 @@
           "week": 11,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Trace Bakulich",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Poopy Butt",
           "homeScore": 126,
           "awayScore": 114.5,
@@ -61450,7 +61450,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 100,
           "awayScore": 122,
           "owner1Score": 100,
@@ -61465,7 +61465,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 103.5,
           "awayScore": 114,
           "owner1Score": 103.5,
@@ -62253,7 +62253,7 @@
           "week": 2,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Zack Wolfskeil",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Old Man Full gay ",
           "homeScore": 153,
           "awayScore": 176,
@@ -62269,7 +62269,7 @@
           "homeOwner": "Zack Wolfskeil",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Old Man Full gay ",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 81.5,
           "awayScore": 160.5,
           "owner1Score": 160.5,
@@ -62283,7 +62283,7 @@
           "week": 14,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Zack Wolfskeil",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Old Man Full gay ",
           "homeScore": 231.5,
           "awayScore": 224,
@@ -63180,7 +63180,7 @@
           "week": 6,
           "homeOwner": "Sean Belcher",
           "awayOwner": "James Carter",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": " . Camt Touch This",
           "homeScore": 114.5,
           "awayScore": 86,
@@ -64273,7 +64273,7 @@
           "homeOwner": "Aidan O'Sullivan",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Jeffrey Epstein Alive in Israel",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 119,
           "awayScore": 131.5,
           "owner1Score": 119,
@@ -75365,7 +75365,7 @@
           "week": 10,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Andrew Wilson",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Fresh prince  Of Helaire",
           "homeScore": 115,
           "awayScore": 101,
@@ -75380,7 +75380,7 @@
           "week": 13,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Andrew Wilson",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Fresh prince  Of Helaire",
           "homeScore": 217,
           "awayScore": 184.5,
@@ -76135,7 +76135,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 100,
           "awayScore": 122,
           "owner1Score": 100,
@@ -76150,7 +76150,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 103.5,
           "awayScore": 114,
           "owner1Score": 103.5,
@@ -76193,7 +76193,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 100,
           "awayScore": 122,
           "owner1Score": 100,
@@ -76208,7 +76208,7 @@
           "homeOwner": "Michael Anderson",
           "awayOwner": "Sean Belcher",
           "homeTeam": "First Down Syndrome",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 103.5,
           "awayScore": 114,
           "owner1Score": 103.5,
@@ -82037,7 +82037,7 @@
           "week": 10,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Andrew Wilson",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Fresh prince  Of Helaire",
           "homeScore": 115,
           "awayScore": 101,
@@ -82554,7 +82554,7 @@
           "homeOwner": "Javier",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Team 0 points",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 122,
           "awayScore": 123,
           "owner1Score": 122,
@@ -82568,7 +82568,7 @@
           "week": 8,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Javier",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Team 0 points",
           "homeScore": 126,
           "awayScore": 73.5,
@@ -82597,7 +82597,7 @@
           "homeOwner": "Javier",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Team 0 points",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 122,
           "awayScore": 123,
           "owner1Score": 122,
@@ -82611,7 +82611,7 @@
           "week": 8,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Javier",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Team 0 points",
           "homeScore": 126,
           "awayScore": 73.5,
@@ -82855,7 +82855,7 @@
           "homeOwner": "Zack Wolfskeil",
           "awayOwner": "Sean Belcher",
           "homeTeam": "Old Man Full gay ",
-          "awayTeam": "Cookin\u2019 the Competition\u2122",
+          "awayTeam": "Cookin’ the Competition™",
           "homeScore": 81.5,
           "awayScore": 160.5,
           "owner1Score": 160.5,
@@ -82869,7 +82869,7 @@
           "week": 14,
           "homeOwner": "Sean Belcher",
           "awayOwner": "Zack Wolfskeil",
-          "homeTeam": "Cookin\u2019 the Competition\u2122",
+          "homeTeam": "Cookin’ the Competition™",
           "awayTeam": "Old Man Full gay ",
           "homeScore": 231.5,
           "awayScore": 224,
@@ -85426,7 +85426,7 @@
       {
         "pick": 4,
         "ownerName": "Sean Belcher",
-        "teamName": "Cookin\u2019 the Competition\u2122",
+        "teamName": "Cookin’ the Competition™",
         "prevRank": 1,
         "prevRecord": "10-2",
         "curRank": 1,
@@ -86665,7 +86665,7 @@
     },
     "2020": {
       "seasonYear": 2020,
-      "championTeam": "Cookin\u2019 the Competition\u2122",
+      "championTeam": "Cookin’ the Competition™",
       "championOwner": "Sean Belcher",
       "starters": [
         {
@@ -87709,7 +87709,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 3 (Pick #20)"
@@ -87809,7 +87809,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 2 (Pick #13)"
@@ -87832,7 +87832,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 4 (Pick #29)"
@@ -87855,7 +87855,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 7 (Pick #52)"
@@ -87878,7 +87878,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 9 (Pick #68)"
@@ -87901,7 +87901,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 16 (Pick #125)"
@@ -88783,7 +88783,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 1 (Pick #4)"
@@ -88798,7 +88798,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 5 (Pick #36)"
@@ -88813,7 +88813,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 6 (Pick #45)"
@@ -88828,7 +88828,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 8 (Pick #61)"
@@ -88843,7 +88843,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 10 (Pick #77)"
@@ -88858,7 +88858,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 11 (Pick #84)"
@@ -88873,7 +88873,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 12 (Pick #93)"
@@ -88888,7 +88888,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 13 (Pick #100)"
@@ -88903,7 +88903,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 14 (Pick #109)"
@@ -88918,7 +88918,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 15 (Pick #116)"
@@ -89684,7 +89684,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 3 (Pick #20)"
@@ -89780,7 +89780,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 2 (Pick #13)"
@@ -89802,7 +89802,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 4 (Pick #29)"
@@ -89824,7 +89824,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 7 (Pick #52)"
@@ -89846,7 +89846,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 9 (Pick #68)"
@@ -89868,7 +89868,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Drafted Contributor",
           "draftInfo": "Drafted Rd 16 (Pick #125)"
@@ -90696,7 +90696,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 1 (Pick #4)"
@@ -90710,7 +90710,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 5 (Pick #36)"
@@ -90724,7 +90724,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 6 (Pick #45)"
@@ -90738,7 +90738,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Starter",
           "draftInfo": "Drafted Rd 8 (Pick #61)"
@@ -90752,7 +90752,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 10 (Pick #77)"
@@ -90766,7 +90766,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 11 (Pick #84)"
@@ -90780,7 +90780,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 12 (Pick #93)"
@@ -90794,7 +90794,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 13 (Pick #100)"
@@ -90808,7 +90808,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 14 (Pick #109)"
@@ -90822,7 +90822,7 @@
         {
           "year": 2020,
           "ringNumber": 1,
-          "team": "Cookin\u2019 the Competition\u2122",
+          "team": "Cookin’ the Competition™",
           "owner": "Sean Belcher",
           "role": "Bench",
           "draftInfo": "Drafted Rd 15 (Pick #116)"
@@ -91532,7 +91532,7 @@
   },
   "draftProfiles": {
     "Andrew Wilson": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": 4,
       "reachRating": "Moderate Reacher (+4.0 ahead of ADP)",
       "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
@@ -91557,7 +91557,7 @@
       }
     },
     "Sean Belcher": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": 7.7,
       "reachRating": "Aggressive Reacher (+7.7 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
@@ -91582,7 +91582,7 @@
       }
     },
     "Aidan O'Sullivan": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": -0.3,
       "reachRating": "Consensus Drafter (-0.3 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
@@ -91607,7 +91607,7 @@
       }
     },
     "James Carter": {
-      "yearsSample": "2021\u20132022 (2 Drafts)",
+      "yearsSample": "2021–2022 (2 Drafts)",
       "avgReach": -1.4,
       "reachRating": "Consensus Drafter (-1.4 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
@@ -91632,7 +91632,7 @@
       }
     },
     "Austin Geller": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": -0.1,
       "reachRating": "Consensus Drafter (-0.1 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
@@ -91657,7 +91657,7 @@
       }
     },
     "Dylan Soth": {
-      "yearsSample": "2022\u20132025 (4 Drafts)",
+      "yearsSample": "2022–2025 (4 Drafts)",
       "avgReach": -0.1,
       "reachRating": "Consensus Drafter (-0.1 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
@@ -91682,7 +91682,7 @@
       }
     },
     "Trace Bakulich": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": 4.2,
       "reachRating": "Moderate Reacher (+4.2 ahead of ADP)",
       "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
@@ -91707,7 +91707,7 @@
       }
     },
     "Michael Anderson": {
-      "yearsSample": "2021\u20132025 (5 Drafts)",
+      "yearsSample": "2021–2025 (5 Drafts)",
       "avgReach": 4,
       "reachRating": "Moderate Reacher (+4.0 ahead of ADP)",
       "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
@@ -91732,7 +91732,7 @@
       }
     },
     "Javier": {
-      "yearsSample": "2021\u20132021 (1 Drafts)",
+      "yearsSample": "2021–2021 (1 Drafts)",
       "avgReach": -5.3,
       "reachRating": "Value Drafter (-5.3 after ADP)",
       "reachColor": "text-emerald-700 bg-emerald-50 border-emerald-300",
@@ -91757,7 +91757,7 @@
       }
     },
     "Nathan Wells": {
-      "yearsSample": "2022\u20132025 (4 Drafts)",
+      "yearsSample": "2022–2025 (4 Drafts)",
       "avgReach": 5.4,
       "reachRating": "Moderate Reacher (+5.4 ahead of ADP)",
       "reachColor": "text-amber-700 bg-amber-50 border-amber-300",
@@ -91782,7 +91782,7 @@
       }
     },
     "Brendan Sanders": {
-      "yearsSample": "2025\u20132025 (1 Drafts)",
+      "yearsSample": "2025–2025 (1 Drafts)",
       "avgReach": -2,
       "reachRating": "Value Drafter (-2.0 after ADP)",
       "reachColor": "text-emerald-700 bg-emerald-50 border-emerald-300",
@@ -91807,7 +91807,7 @@
       }
     },
     "Mike Petro": {
-      "yearsSample": "2024\u20132024 (1 Drafts)",
+      "yearsSample": "2024–2024 (1 Drafts)",
       "avgReach": 0.2,
       "reachRating": "Consensus Drafter (+0.2 vs ADP)",
       "reachColor": "text-purple-700 bg-purple-50 border-purple-300",
@@ -91832,7 +91832,7 @@
       }
     },
     "Tyler Hicks": {
-      "yearsSample": "2022\u20132024 (3 Drafts)",
+      "yearsSample": "2022–2024 (3 Drafts)",
       "avgReach": 7.1,
       "reachRating": "Aggressive Reacher (+7.1 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
@@ -91857,7 +91857,7 @@
       }
     },
     "Phillip Busick": {
-      "yearsSample": "2023\u20132025 (2 Drafts)",
+      "yearsSample": "2023–2025 (2 Drafts)",
       "avgReach": 12.7,
       "reachRating": "Aggressive Reacher (+12.7 ahead of ADP)",
       "reachColor": "text-pink-700 bg-pink-50 border-pink-300",
