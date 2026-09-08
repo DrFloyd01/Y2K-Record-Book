@@ -18570,7 +18570,7 @@
   {
     "seasonYear": 2021,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -18889,7 +18889,7 @@
   {
     "seasonYear": 2021,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Matt's Team",
       "ownerName": "Mike",
@@ -19217,7 +19217,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -19554,7 +19554,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Matt's Team",
       "ownerName": "Mike",
@@ -19902,7 +19902,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "No I’m gonna win UR gay",
       "ownerName": "Boaz",
@@ -20203,7 +20203,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -20540,7 +20540,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -20868,7 +20868,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "I'm gonna win you're gay",
       "ownerName": "Trace",

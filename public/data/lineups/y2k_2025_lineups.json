@@ -26634,7 +26634,7 @@
   {
     "seasonYear": 2025,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -27016,7 +27016,7 @@
   {
     "seasonYear": 2025,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "AARPFL",
       "ownerName": "Casey",
@@ -27388,7 +27388,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -27770,7 +27770,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -28132,7 +28132,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -28526,7 +28526,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Jelqaida",
       "ownerName": "Mike",
@@ -28908,7 +28908,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Aaron codger",
       "ownerName": "Boaz",
@@ -29260,7 +29260,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -29644,7 +29644,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Jelqaida",
       "ownerName": "Mike",
@@ -30006,7 +30006,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Bad team not good at football",
       "ownerName": "Ryan",
@@ -30400,7 +30400,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Tess Finesse",
       "ownerName": "Tess",

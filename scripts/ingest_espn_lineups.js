@@ -204,9 +204,11 @@ async function ingestSeasonLineups(seasonYear, leagueId, s2, swid) {
         team2.dOhDetails = dOh.bestSwap;
       }
 
+      const regWeeks = seasonYear >= 2022 ? 14 : 13;
       harvestedMatchups.push({
         seasonYear,
         week: wk,
+        isPlayoff: wk > regWeeks,
         homeTeam: team1,
         awayTeam: team2,
         margin: parseFloat(Math.abs(team1.actualScore - team2.actualScore).toFixed(2))
@@ -254,8 +256,10 @@ async function main() {
     const sObj = prideData.seasonData[yrStr];
     if (!sObj || !sObj.standings) continue;
 
+    const regWeeks = sObj.settings?.regularSeasonWeeks || (yr >= 2022 ? 14 : 13);
     const managerLineupStats = {};
     matchups.forEach(m => {
+      if (m.week > regWeeks) return; // Only count regular season toward standings!
       [m.homeTeam, m.awayTeam].forEach(t => {
         if (!t || !t.ownerName) return;
         if (!managerLineupStats[t.ownerName]) {
@@ -270,6 +274,7 @@ async function main() {
           allTimeOwnerStats[t.ownerName] = {
             totalActual: 0,
             totalOptimal: 0,
+            totalGames: 0,
             dOhs: 0,
             dOhGameLogs: []
           };
@@ -279,6 +284,7 @@ async function main() {
         managerLineupStats[t.ownerName].totalOptimal += (t.optimalScore || 0);
         allTimeOwnerStats[t.ownerName].totalActual += (t.actualScore || 0);
         allTimeOwnerStats[t.ownerName].totalOptimal += (t.optimalScore || 0);
+        allTimeOwnerStats[t.ownerName].totalGames += 1;
 
         if (t.dOhOccurred) {
           managerLineupStats[t.ownerName].dOhs += 1;
@@ -301,6 +307,8 @@ async function main() {
       const lStat = managerLineupStats[st.ownerName];
       if (lStat && lStat.totalOptimal > 0) {
         st.coachingEfficiency = parseFloat((lStat.totalActual / lStat.totalOptimal * 100).toFixed(1));
+        st.optimalPF = parseFloat(lStat.totalOptimal.toFixed(1));
+        st.optimalPointsFor = parseFloat(lStat.totalOptimal.toFixed(1));
         st.dOhs = lStat.dOhs;
         st.dOhDetails = lStat.dOhGameLogs;
       }
@@ -313,10 +321,16 @@ async function main() {
       const aStat = allTimeOwnerStats[st.ownerName];
       if (aStat && aStat.totalOptimal > 0) {
         st.coachingEfficiency = parseFloat((aStat.totalActual / aStat.totalOptimal * 100).toFixed(1));
+        st.optimalPF = parseFloat(aStat.totalOptimal.toFixed(1));
+        st.optimalPointsFor = parseFloat(aStat.totalOptimal.toFixed(1));
+        st.optPfg = parseFloat((aStat.totalOptimal / aStat.totalGames).toFixed(1));
         st.dOhs = aStat.dOhs;
         st.dOhDetails = aStat.dOhGameLogs;
       } else {
         st.coachingEfficiency = null;
+        st.optimalPF = null;
+        st.optimalPointsFor = null;
+        st.optPfg = null;
         st.dOhs = 0;
         st.dOhDetails = [];
       }

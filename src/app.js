@@ -2330,10 +2330,10 @@ let y2kLineupsData = null;
             games: (s.wins + s.losses) || 1,
             record: `${s.wins}-${s.losses}`,
             actualPF: Number((s.pointsFor || 0).toFixed(1)),
-            optimalPF: Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
+            optimalPF: (s.optimalPF !== undefined && s.optimalPF !== null) ? Number(s.optimalPF.toFixed(1)) : Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
             coachingEfficiency: s.coachingEfficiency || 90.0,
-            pointsLeftOnBench: Number((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0)).toFixed(1)),
-            benchPFPerGame: Number((((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
+            pointsLeftOnBench: Number((((s.optimalPF !== undefined && s.optimalPF !== null ? s.optimalPF : ((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)))) - (s.pointsFor || 0)).toFixed(1)),
+            benchPFPerGame: Number((((((s.optimalPF !== undefined && s.optimalPF !== null ? s.optimalPF : ((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)))) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
             dOhCount: s.dOhs || 0,
             dOhRate: s.losses > 0 ? Number(((s.dOhs || 0) / s.losses * 100).toFixed(1)) : 0,
             mostPainfulDOh: (s.dOhDetails && s.dOhDetails.length > 0) ? s.dOhDetails[0] : null
@@ -2343,7 +2343,7 @@ let y2kLineupsData = null;
         leaderboard = [];
       } else {
         const lineups = await loadY2KLineups();
-        const seasonLineups = lineups.filter(m => String(m.seasonYear) === String(selSeason));
+        const seasonLineups = lineups.filter(m => String(m.seasonYear) === String(selSeason) && !m.isPlayoff && m.week <= 14);
         const allTeamLineups = [];
         seasonLineups.forEach(m => {
           if (m.homeTeam) allTeamLineups.push(m.homeTeam);
@@ -2364,10 +2364,10 @@ let y2kLineupsData = null;
                 games: (s.wins + s.losses) || 1,
                 record: `${s.wins}-${s.losses}`,
                 actualPF: Number((s.pointsFor || 0).toFixed(1)),
-                optimalPF: Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
+                optimalPF: (s.optimalPF !== undefined && s.optimalPF !== null) ? Number(s.optimalPF.toFixed(1)) : Number(((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)).toFixed(1)),
                 coachingEfficiency: s.coachingEfficiency || 90.0,
-                pointsLeftOnBench: Number((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0)).toFixed(1)),
-                benchPFPerGame: Number((((((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
+                pointsLeftOnBench: Number((((s.optimalPF !== undefined && s.optimalPF !== null ? s.optimalPF : ((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)))) - (s.pointsFor || 0)).toFixed(1)),
+                benchPFPerGame: Number((((((s.optimalPF !== undefined && s.optimalPF !== null ? s.optimalPF : ((s.pointsFor || 0) / (s.coachingEfficiency ? (s.coachingEfficiency / 100) : 0.90)))) - (s.pointsFor || 0))) / ((s.wins + s.losses) || 1)).toFixed(1)),
                 dOhCount: s.dOhs || 0,
                 dOhRate: s.losses > 0 ? Number(((s.dOhs || 0) / s.losses * 100).toFixed(1)) : 0,
                 mostPainfulDOh: (s.dOhDetails && s.dOhDetails.length > 0) ? s.dOhDetails[0] : null

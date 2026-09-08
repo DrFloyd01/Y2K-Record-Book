@@ -13812,7 +13812,7 @@
   {
     "seasonYear": 2020,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#2020BrainTrauma",
       "ownerName": "Dylan",
@@ -14140,7 +14140,7 @@
   {
     "seasonYear": 2020,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -14479,7 +14479,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#2020BrainTrauma",
       "ownerName": "Dylan",
@@ -14807,7 +14807,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -15135,7 +15135,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "CUBA",
       "ownerName": "Casey",

@@ -236,9 +236,14 @@ export function updateLeagueDataWithLineups(lineups) {
   const dohDetailsByOwnerSeason = {};
   const effByOwnerSeason = {};
 
+  const allTimeAct = {};
+  const allTimeOpt = {};
+  const allTimeGames = {};
+
   lineups.forEach(m => {
     const yr = m.seasonYear;
     const wk = m.week;
+    if (m.isPlayoff || wk > 14) return; // Exclude playoff games from standings!
     [m.homeTeam, m.awayTeam].forEach(t => {
       if (!t) return;
       const o = t.ownerName;
@@ -262,7 +267,6 @@ export function updateLeagueDataWithLineups(lineups) {
 
   const allTimeDoh = {};
   const allTimeDohDetails = {};
-  const allTimeEff = {};
 
   Object.entries(leagueData.seasonData || {}).forEach(([yrStr, sData]) => {
     if (!yrStr.match(/^\d+$/)) return;
@@ -276,20 +280,28 @@ export function updateLeagueDataWithLineups(lineups) {
         const effList = effByOwnerSeason[k];
         const totAct = effList.reduce((sum, x) => sum + x.actual, 0);
         const totOpt = effList.reduce((sum, x) => sum + x.optimal, 0);
+        st.optimalPF = Number(totOpt.toFixed(1));
+        st.optimalPointsFor = Number(totOpt.toFixed(1));
         st.coachingEfficiency = totOpt > 0 ? Number((totAct / totOpt * 100).toFixed(1)) : 100.0;
 
         if (!allTimeDoh[o]) {
           allTimeDoh[o] = 0;
           allTimeDohDetails[o] = [];
-          allTimeEff[o] = [];
+          allTimeAct[o] = 0;
+          allTimeOpt[o] = 0;
+          allTimeGames[o] = 0;
         }
         allTimeDoh[o] += st.dOhs;
         allTimeDohDetails[o].push(...st.dOhDetails);
-        allTimeEff[o].push(st.coachingEfficiency);
+        allTimeAct[o] += totAct;
+        allTimeOpt[o] += totOpt;
+        allTimeGames[o] += effList.length;
       } else {
         st.dOhs = 0;
         st.dOhDetails = [];
         st.coachingEfficiency = null;
+        st.optimalPF = null;
+        st.optimalPointsFor = null;
       }
     });
   });
@@ -298,8 +310,20 @@ export function updateLeagueDataWithLineups(lineups) {
     const o = st.ownerName;
     st.dOhs = allTimeDoh[o] || 0;
     st.dOhDetails = allTimeDohDetails[o] || [];
-    const effs = allTimeEff[o] || [];
-    st.coachingEfficiency = effs.length > 0 ? Number((effs.reduce((a, b) => a + b, 0) / effs.length).toFixed(1)) : null;
+    const totOpt = allTimeOpt[o] || 0;
+    const totAct = allTimeAct[o] || 0;
+    const games = allTimeGames[o] || 0;
+    if (totOpt > 0) {
+      st.optimalPF = Number(totOpt.toFixed(1));
+      st.optimalPointsFor = Number(totOpt.toFixed(1));
+      st.coachingEfficiency = Number(((totAct / totOpt) * 100).toFixed(1));
+      st.optPfg = games > 0 ? Number((totOpt / games).toFixed(1)) : null;
+    } else {
+      st.optimalPF = null;
+      st.optimalPointsFor = null;
+      st.coachingEfficiency = null;
+      st.optPfg = null;
+    }
   });
 
   writeFileSync(leagueDataPath, JSON.stringify(leagueData, null, 2), 'utf8');

@@ -23556,7 +23556,7 @@
   {
     "seasonYear": 2022,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Blue's Balls",
       "ownerName": "Jasper",
@@ -23911,7 +23911,7 @@
   {
     "seasonYear": 2022,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "No I’m gonna win UR gay",
       "ownerName": "Boaz",
@@ -24248,7 +24248,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Dawn of Man-Ape",
       "ownerName": "Dylan",
@@ -24567,7 +24567,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -24895,7 +24895,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Mr. Unlimited’s",
       "ownerName": "Casey",
@@ -25223,7 +25223,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Rats!",
       "ownerName": "Ryan",
@@ -25569,7 +25569,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Blue's Balls",
       "ownerName": "Jasper",
@@ -25924,7 +25924,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Dawn of Man-Ape",
       "ownerName": "Dylan",
@@ -26263,7 +26263,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -26948,7 +26948,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Mr. Unlimited’s",
       "ownerName": "Casey",

@@ -13845,7 +13845,7 @@
   {
     "seasonYear": 2019,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Hood Phenomenons",
       "ownerName": "Dylan",
@@ -14173,7 +14173,7 @@
   {
     "seasonYear": 2019,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Bak2Bak",
       "ownerName": "Phillip",
@@ -14501,7 +14501,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Hood Phenomenons",
       "ownerName": "Dylan",
@@ -14840,7 +14840,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#1 CumBoy",
       "ownerName": "Trace",
@@ -15150,7 +15150,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "RonnyMan2",
       "ownerName": "Mike",

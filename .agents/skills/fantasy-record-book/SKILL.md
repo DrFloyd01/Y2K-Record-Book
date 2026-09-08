@@ -75,3 +75,24 @@ When updating datasets or adding features:
 4. **Automated Verification**:
    - `npm run test` (Vitest unit tests)
    - `npm run build` (Vite production bundle check)
+
+---
+
+## 4. Matchup Previews & Editorial Style Guidelines
+
+When writing weekly previews, match teasers, or editorial recaps:
+- **Meta Block**:
+  - `Team A vs Team B`
+  - `h2h: X-Y`
+  - `streak: N (WkX'YY, Score-Score)`: Cite the specific last game with week, year, and score line. If no prior meetings, use `streak: 0`.
+  - `playoffs: X-Y` (include round, year, and score line if applicable; omit post season winning streak line if 0-0).
+- **Voice & Tone**:
+  - Refer to founding managers as **"OGs"** (e.g. "Both OGs", "The final OG").
+  - Use casual league terminology: **"chip"** for championship, **"three piece"** for three-peat.
+  - Use informal handles when natural (e.g., "Bo" for Boaz).
+  - Use current season team names (e.g. "IRKed") with historical references where relevant.
+- **Analytical Rigor & Parenthetical Record Tie-Ins**:
+  - Call out exact playoff seedings or placement stakes resulting from historical games (e.g., "the difference b/w 5th and 7th place", "clinched his #2 seed bye week").
+  - Anchor historical anomalies to record holders with parenthetical citations (e.g., `(Casey'19-22)`, `(T1-Trace'23)`, `(T-Mike all-time)`).
+  - For rookies without H2H history, spotlight drafted anchors with round.pick slots (e.g., `Bijan (1.1), McBride (2.24), Lamar(4.48)`).
+

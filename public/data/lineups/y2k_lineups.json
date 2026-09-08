@@ -26634,7 +26634,7 @@
   {
     "seasonYear": 2025,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -27016,7 +27016,7 @@
   {
     "seasonYear": 2025,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "AARPFL",
       "ownerName": "Casey",
@@ -27388,7 +27388,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -27770,7 +27770,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -28132,7 +28132,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -28526,7 +28526,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Jelqaida",
       "ownerName": "Mike",
@@ -28908,7 +28908,7 @@
   {
     "seasonYear": 2025,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Aaron codger",
       "ownerName": "Boaz",
@@ -29260,7 +29260,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -29644,7 +29644,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Jelqaida",
       "ownerName": "Mike",
@@ -30006,7 +30006,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Bad team not good at football",
       "ownerName": "Ryan",
@@ -30400,7 +30400,7 @@
   {
     "seasonYear": 2025,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Tess Finesse",
       "ownerName": "Tess",
@@ -54460,7 +54460,7 @@
   {
     "seasonYear": 2024,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -54779,7 +54779,7 @@
   {
     "seasonYear": 2024,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Skibidi Football",
       "ownerName": "Casey",
@@ -55098,7 +55098,7 @@
   {
     "seasonYear": 2024,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -55435,7 +55435,7 @@
   {
     "seasonYear": 2024,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -55763,7 +55763,7 @@
   {
     "seasonYear": 2024,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Skibidi Football",
       "ownerName": "Casey",
@@ -56073,7 +56073,7 @@
   {
     "seasonYear": 2024,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Team Chaos",
       "ownerName": "Mike",
@@ -56401,7 +56401,7 @@
   {
     "seasonYear": 2024,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Old Leech",
       "ownerName": "Ryan",
@@ -56738,7 +56738,7 @@
   {
     "seasonYear": 2024,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Globo Gym",
       "ownerName": "Dylan",
@@ -57084,7 +57084,7 @@
   {
     "seasonYear": 2024,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -57412,7 +57412,7 @@
   {
     "seasonYear": 2024,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -57740,7 +57740,7 @@
   {
     "seasonYear": 2024,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Tess Finesse",
       "ownerName": "Tess",
@@ -86405,7 +86405,7 @@
   {
     "seasonYear": 2023,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -86735,7 +86735,7 @@
   {
     "seasonYear": 2023,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Awesome Baller-Winners",
       "ownerName": "Casey",
@@ -87083,7 +87083,7 @@
   {
     "seasonYear": 2023,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Justin Time",
       "ownerName": "Mike",
@@ -87411,7 +87411,7 @@
   {
     "seasonYear": 2023,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "coop’s shit",
       "ownerName": "Cooper",
@@ -87757,7 +87757,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Zaza Zealots",
       "ownerName": "Dylan",
@@ -88085,7 +88085,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -88413,7 +88413,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Awesome Baller-Winners",
       "ownerName": "Casey",
@@ -88741,7 +88741,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Trilobite Terror",
       "ownerName": "Ryan",
@@ -89051,7 +89051,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Dusty Dynasty 🏆",
       "ownerName": "Dustin",
@@ -89388,7 +89388,7 @@
   {
     "seasonYear": 2023,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Can I Hit Your Vape?",
       "ownerName": "Torin",
@@ -89734,7 +89734,7 @@
   {
     "seasonYear": 2023,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Zaza Zealots",
       "ownerName": "Dylan",
@@ -90071,7 +90071,7 @@
   {
     "seasonYear": 2023,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -90408,7 +90408,7 @@
   {
     "seasonYear": 2023,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Gl Hf (you’re gay)",
       "ownerName": "Trace",
@@ -90720,7 +90720,7 @@
   {
     "seasonYear": 2023,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Justin Time",
       "ownerName": "Mike",
@@ -114602,7 +114602,7 @@
   {
     "seasonYear": 2022,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Blue's Balls",
       "ownerName": "Jasper",
@@ -114957,7 +114957,7 @@
   {
     "seasonYear": 2022,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "No I’m gonna win UR gay",
       "ownerName": "Boaz",
@@ -115294,7 +115294,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Dawn of Man-Ape",
       "ownerName": "Dylan",
@@ -115613,7 +115613,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -115941,7 +115941,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Mr. Unlimited’s",
       "ownerName": "Casey",
@@ -116269,7 +116269,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Rats!",
       "ownerName": "Ryan",
@@ -116615,7 +116615,7 @@
   {
     "seasonYear": 2022,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Blue's Balls",
       "ownerName": "Jasper",
@@ -116970,7 +116970,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Dawn of Man-Ape",
       "ownerName": "Dylan",
@@ -117309,7 +117309,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -117994,7 +117994,7 @@
   {
     "seasonYear": 2022,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Mr. Unlimited’s",
       "ownerName": "Casey",
@@ -136890,7 +136890,7 @@
   {
     "seasonYear": 2021,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -137209,7 +137209,7 @@
   {
     "seasonYear": 2021,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Matt's Team",
       "ownerName": "Mike",
@@ -137537,7 +137537,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -137874,7 +137874,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Matt's Team",
       "ownerName": "Mike",
@@ -138222,7 +138222,7 @@
   {
     "seasonYear": 2021,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "No I’m gonna win UR gay",
       "ownerName": "Boaz",
@@ -138523,7 +138523,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#BrainTrauma",
       "ownerName": "Dylan",
@@ -138860,7 +138860,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -139188,7 +139188,7 @@
   {
     "seasonYear": 2021,
     "week": 17,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "I'm gonna win you're gay",
       "ownerName": "Trace",
@@ -153317,7 +153317,7 @@
   {
     "seasonYear": 2020,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#2020BrainTrauma",
       "ownerName": "Dylan",
@@ -153645,7 +153645,7 @@
   {
     "seasonYear": 2020,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -153984,7 +153984,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#2020BrainTrauma",
       "ownerName": "Dylan",
@@ -154312,7 +154312,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ho Chi Win City",
       "ownerName": "Phillip",
@@ -154640,7 +154640,7 @@
   {
     "seasonYear": 2020,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "CUBA",
       "ownerName": "Casey",
@@ -168784,7 +168784,7 @@
   {
     "seasonYear": 2019,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Hood Phenomenons",
       "ownerName": "Dylan",
@@ -169112,7 +169112,7 @@
   {
     "seasonYear": 2019,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Bak2Bak",
       "ownerName": "Phillip",
@@ -169440,7 +169440,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Hood Phenomenons",
       "ownerName": "Dylan",
@@ -169779,7 +169779,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "#1 CumBoy",
       "ownerName": "Trace",
@@ -170089,7 +170089,7 @@
   {
     "seasonYear": 2019,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "RonnyMan2",
       "ownerName": "Mike",
@@ -184212,7 +184212,7 @@
   {
     "seasonYear": 2018,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Waterboys",
       "ownerName": "Dylan",
@@ -184560,7 +184560,7 @@
   {
     "seasonYear": 2018,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Good football team!!",
       "ownerName": "Casey",
@@ -184888,7 +184888,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Waterboys",
       "ownerName": "Dylan",
@@ -185225,7 +185225,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Show Me Dem TDS",
       "ownerName": "Phillip",
@@ -185564,7 +185564,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ronny Man",
       "ownerName": "Mike",

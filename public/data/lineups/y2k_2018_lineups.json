@@ -13797,7 +13797,7 @@
   {
     "seasonYear": 2018,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Waterboys",
       "ownerName": "Dylan",
@@ -14145,7 +14145,7 @@
   {
     "seasonYear": 2018,
     "week": 15,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Good football team!!",
       "ownerName": "Casey",
@@ -14473,7 +14473,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "The Waterboys",
       "ownerName": "Dylan",
@@ -14810,7 +14810,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Show Me Dem TDS",
       "ownerName": "Phillip",
@@ -15149,7 +15149,7 @@
   {
     "seasonYear": 2018,
     "week": 16,
-    "isPlayoff": false,
+    "isPlayoff": true,
     "homeTeam": {
       "teamName": "Ronny Man",
       "ownerName": "Mike",
