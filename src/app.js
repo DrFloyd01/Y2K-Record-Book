@@ -60,11 +60,17 @@ function renderLucideIcons() {
         renderLucideIcons();
 
         // Direct Deep Linking Support via URL Hash (e.g. #challenges or #bounties)
-        const initialHash = window.location.hash.replace('#', '').toLowerCase();
-        const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties'];
+        const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
+        const initialHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+        const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties', 'playoffs', 'bracket'];
         if (initialHash && validTabs.includes(initialHash)) {
-          const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
-          switchTab(targetTab);
+          if (initialHash === 'playoffs' || initialHash === 'bracket') {
+            switchTab('seasons');
+            if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+          } else {
+            const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
+            switchTab(targetTab);
+          }
         }
       } catch (err) {
         console.error('Error initializing Y2K Record Book app:', err);
@@ -72,11 +78,17 @@ function renderLucideIcons() {
     }
 
     window.addEventListener('hashchange', () => {
-      const validTabs = ['seasons', 'h2h', 'matchups', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties'];
-      const newHash = window.location.hash.replace('#', '').toLowerCase();
+      const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
+      const newHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+      const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'challenges', 'bounties', 'playoffs', 'bracket'];
       if (newHash && validTabs.includes(newHash)) {
-        const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
-        if (currentTab !== targetTab) switchTab(targetTab);
+        if (newHash === 'playoffs' || newHash === 'bracket') {
+          switchTab('seasons');
+          if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+        } else {
+          const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
+          if (currentTab !== targetTab) switchTab(targetTab);
+        }
       }
     });
 

@@ -60,11 +60,17 @@ function renderLucideIcons() {
         renderLucideIcons();
 
         // Direct Deep Linking Support via URL Hash
-        const initialHash = window.location.hash.replace('#', '').toLowerCase();
-        const validTabs = ['seasons', 'h2h', 'champs', 'teams', 'draft', 'analytics'];
+        const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
+        const initialHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+        const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'playoffs', 'bracket'];
         if (initialHash && validTabs.includes(initialHash)) {
-          const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
-          switchTab(targetTab);
+          if (initialHash === 'playoffs' || initialHash === 'bracket') {
+            switchTab('seasons');
+            if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+          } else {
+            const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
+            switchTab(targetTab);
+          }
         } else {
           setTimeout(() => updateNavIndicator(currentTab), 50);
         }
@@ -96,11 +102,17 @@ function renderLucideIcons() {
     }
 
     window.addEventListener('hashchange', () => {
-      const validTabs = ['seasons', 'h2h', 'champs', 'teams', 'draft', 'analytics'];
-      const newHash = window.location.hash.replace('#', '').toLowerCase();
+      const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
+      const newHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+      const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'playoffs', 'bracket'];
       if (newHash && validTabs.includes(newHash)) {
-        const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
-        if (currentTab !== targetTab) switchTab(targetTab);
+        if (newHash === 'playoffs' || newHash === 'bracket') {
+          switchTab('seasons');
+          if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+        } else {
+          const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
+          if (currentTab !== targetTab) switchTab(targetTab);
+        }
       }
     });
 
@@ -141,6 +153,7 @@ function renderLucideIcons() {
       if (activeNav) {
         activeNav.className = 'nav-btn relative z-10 px-4 py-1.5 text-xs font-black font-fredoka rounded-full transition-all duration-200 text-white';
         updateNavIndicator(tabId);
+        setTimeout(() => updateNavIndicator(tabId), 50);
       }
 
       // Mobile Nav update
@@ -857,9 +870,11 @@ function renderLucideIcons() {
         if (!isExact2023 && (isOneYearManager(m.homeOwner) || isOneYearManager(m.awayOwner))) return false;
 
         const isPlayoff = m.isPlayoff !== undefined ? m.isPlayoff : false;
+        const isConsolation = m.isConsolation || m.stage === 'Consolation Round Robin' || m.rawTier === 'LOSERS_CONSOLATION_LADDER';
 
-        if (currentStatsStage === 'regular' && isPlayoff) return false;
-        if (currentStatsStage === 'playoffs' && !isPlayoff) return false;
+        if (currentStatsStage === 'regular' && (isPlayoff || isConsolation)) return false;
+        if (currentStatsStage === 'playoffs' && (!isPlayoff || isConsolation)) return false;
+        if (currentStatsStage === 'combined' && isConsolation) return false;
 
         return true;
       });
@@ -1116,6 +1131,9 @@ function renderLucideIcons() {
       const playGames = [];
 
       games.forEach(g => {
+        if (g.stage === 'Consolation Round Robin' || g.stage === 'Consolation Ladder' || g.stage === 'Consolation Matchup' || g.isConsolation || g.rawTier === 'LOSERS_CONSOLATION_LADDER') {
+          return;
+        }
         const sData = window.LEAGUE_DATA.seasonData[g.year];
         const regWeeks = sData ? sData.settings.regularSeasonWeeks : 14;
         const isPlayoff = g.week > regWeeks;

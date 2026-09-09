@@ -1,13 +1,13 @@
 Human Eros TDs vs tyler's Talented Team
 h2h: 1-2
 streak: Tyler 1 (Wk6'24, 91.3-132.42)
-playoffs: 0-1 (CL'24, 104.26-128.58)
+playoffs: 0-0
 Human Eros TDs enters his 5th season as the reigning Pride Guys Champion! After qualifying as the #5 seed in 2025, Dylan caught absolute fire in the postseason, knocking off the #4, #1, and #6 seeds to capture his first franchise banner. tyler's Talented Team returns for his 4th season after a 1-year hiatus. After a strong rookie run to 4th place in 2022, Tyler missed the postseason in 2023 and 2024 and is hungry to get back into the playoff hunt. Tyler holds a 2-1 regular season edge over Dylan and took their 2024 consolation matchup.
 
 Milkshake Baddies vs Football
 h2h: 4-6
 streak: Geller 1 (Wk10'25, 116.22-118.04)
-playoffs: 1-1 (CL'21, SF'22)
+playoffs: 0-1 (SF'22, 118.0-126.0)
 A heavyweight showdown between two former champions. Milkshake Baddies, an OG entering his 10th season, is a 2x champion (2017, 2020) and 3x Scoring Champion. Sean came within inches of a 3rd chip last year, finishing runner-up to Dylan in the 2025 title game. Football enters his 6th season riding the longest active playoff streak in Pride Guys at 4 consecutive seasons (2022–2025). The 2022 champion captured the #1 regular season seed in 2025 (9-5) before finishing 4th in the playoffs. Geller holds a 6-4 regular season edge and won their dramatic 2022 semifinal showdown (126 to 118) on his way to his championship title.
 
 CTESPN vs Defense Contractor #1
@@ -31,5 +31,5 @@ ProudER, an OG, enters his 10th season as the all-time winningest manager in lea
 L Central vs JD Vance in Drag
 h2h: 5-8
 streak: Aidan 1 (Wk12'25, 128.46-134.66)
-playoffs: 2-2 (SF '21, SF '23, 1st'24, CL '25)
-Game of the Week: One of the most storied rivalries in Pride Guys history. L Central, an OG entering his 10th season, is the league's all-time banner king with 3 championships (2018, 2021, 2024), but is looking to rebound from a 4-10 championship hangover that saw him miss the playoffs last year. JD Vance in Drag enters his 8th season as the 2023 champion and 2024 runner-up, having seen his 5-year playoff streak snapped in 2025 with an 8th-place finish. These two titans have squared off in four postseason clashes—including the 2021 semifinals (won by Andrew otw to a title), 2023 semifinals (won by Aidan otw to a title), and the 2024 Championship itself (won by Andrew for his 3rd ring). Aidan holds an 8-5 regular season edge and took their last two matchups, last time in the consolation ladder to secure J.Gibbs (1.1) and relegating L Central to draft J.Chase (1.3).
+playoffs: 2-1 (SF '21, SF '23, 1st'24)
+Game of the Week: One of the most storied rivalries in Pride Guys history. L Central, an OG entering his 10th season, is the league's all-time banner king with 3 championships (2018, 2021, 2024), but is looking to rebound from a 4-10 championship hangover that saw him miss the playoffs last year. JD Vance in Drag enters his 8th season as the 2023 champion and 2024 runner-up, having seen his 5-year playoff streak snapped in 2025 with an 8th-place finish. These two titans have squared off in three postseason clashes: the 2021 semifinals (won by Andrew otw to a title), 2023 semifinals (won by Aidan otw to a title), and the 2024 Championship itself (won by Andrew for his 3rd ring). Aidan holds an 8-5 regular season edge and took their last two matchups, last time in the consolation ladder to secure J.Gibbs (1.1) and relegating L Central to draft J.Chase (1.3).

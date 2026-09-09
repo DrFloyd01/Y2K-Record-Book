@@ -79,7 +79,7 @@ export function getStatCardTop5(leagueData, metricKey, season) {
     }
   }
 
-  let matchups = leagueData.allMatchups || [];
+  let matchups = (leagueData.allMatchups || []).filter(m => !m.isConsolation && m.stage !== 'Consolation Round Robin' && m.rawTier !== 'LOSERS_CONSOLATION_LADDER');
   if (season === 'playoffs') {
     matchups = matchups.filter(m => m.isPlayoff && m.homeScore > 0 && m.awayScore > 0);
     matchups = matchups.filter(m => !isOneYearManager(m.homeOwner) && !isOneYearManager(m.awayOwner));
@@ -223,6 +223,7 @@ export function getGlobalAllTimeStatRecords(leagueData) {
   let maxJug = null, minFeath = null, maxCake = null, minNail = null, maxHb = null, minCrim = null;
 
   leagueData.allMatchups.forEach(m => {
+    if (m.isConsolation || m.stage === 'Consolation Round Robin' || m.rawTier === 'LOSERS_CONSOLATION_LADDER') return;
     if (isOneYearManager(m.homeOwner) || isOneYearManager(m.awayOwner)) return;
 
     const yr = m.seasonYear, wk = m.weekNumber;
