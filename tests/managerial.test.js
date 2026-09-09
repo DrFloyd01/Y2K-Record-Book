@@ -157,6 +157,36 @@ describe('Managerial Prowess Analytics Engine', () => {
       expect(dOh.dOhOccurred).toBe(false);
       expect(dOh.bestSwap).toBeNull();
     });
+
+    it('should disallow cross-position QB swaps into FLEX slots or for non-QBs', () => {
+      const starters = [
+        { slot: 'QB', player: 'Patrick Mahomes', position: 'QB', points: 34.8 },
+        { slot: 'RB1', player: 'Kareem Hunt', position: 'RB', points: 31.6 },
+        { slot: 'RB2', player: 'Lamar Miller', position: 'RB', points: 5.45 },
+        { slot: 'WR1', player: 'Jarvis Landry', position: 'WR', points: 8.5 },
+        { slot: 'WR2', player: 'Davante Adams', position: 'WR', points: 14.0 },
+        { slot: 'WR3', player: 'Emmanuel Sanders', position: 'WR', points: 8.35 },
+        { slot: 'TE', player: 'David Njoku', position: 'TE', points: 6.65 },
+        { slot: 'W/R/T', player: 'Phillip Lindsay', position: 'RB', points: 9.2 },
+        { slot: 'K', player: 'Wil Lutz', position: 'K', points: 11.0 },
+        { slot: 'DEF', player: 'Panthers', position: 'DEF', points: 11.0 }
+      ];
+      // Team Total = 140.55
+      const bench = [
+        { slot: 'BN', player: 'Drew Brees', position: 'QB', points: 40.63 }, // QB +5.83 over Mahomes, cannot play W/R/T
+        { slot: 'BN', player: 'Julian Edelman', position: 'WR', points: 13.58 } // +8.13 over Lamar Miller
+      ];
+      const oppScore = 156.53; // Deficit = 15.98
+
+      const constraints = { QB: 1, RB: 2, WR: 3, TE: 1, FLEX: 1, K: 1, DEF: 1 };
+      const dOh = analyzeDOhMoment(starters, bench, oppScore, 140.55, constraints);
+      // Brees cannot swap for Lindsay in W/R/T (which would have been +31.43 pts).
+      // Brees for Mahomes is only +5.83 (146.38 < 156.53).
+      // Edelman for Miller is only +8.13 (148.68 < 156.53).
+      // So no legal swap can overcome the deficit!
+      expect(dOh.dOhOccurred).toBe(false);
+      expect(dOh.bestSwap).toBeNull();
+    });
   });
 
   describe('Seasonal Managerial Summary & Leaderboard', () => {

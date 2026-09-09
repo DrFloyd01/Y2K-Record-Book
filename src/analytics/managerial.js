@@ -198,9 +198,10 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
       const sPos = normalizePosition(s.position);
       const sPts = Number(s.points || 0);
 
+      const validDirectPositions = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
       let isEligible = false;
 
-      if (sPos === bPos) {
+      if (validDirectPositions.includes(sPos) && sPos === bPos) {
         // Direct same-position swap
         isEligible = true;
       } else if (['RB', 'WR', 'TE'].includes(sPos) && ['RB', 'WR', 'TE'].includes(bPos)) {
