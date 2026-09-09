@@ -2500,9 +2500,9 @@ let y2kLineupsData = null;
     }
 
     // WEEKLY MATCHUP HUBS LOGIC
-    let currentMatchupSeason = 2025;
+    let currentMatchupSeason = 2026;
     let currentMatchupWeek = 1;
-    let currentMatchupMode = 'recap'; // 'preview' or 'recap'
+    let currentMatchupMode = 'preview'; // 'preview' or 'recap'
     let currentMatchupManager = 'all';
 
     function populateMatchupManagerDropdown() {
@@ -2541,6 +2541,17 @@ let y2kLineupsData = null;
     function initMatchupsTab() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
+      const previewBtn = document.getElementById('matchup-mode-preview');
+      const recapBtn = document.getElementById('matchup-mode-recap');
+      if (previewBtn && recapBtn) {
+        if (currentMatchupMode === 'preview') {
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+        } else {
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+        }
+      }
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
@@ -2548,8 +2559,15 @@ let y2kLineupsData = null;
 
     function onMatchupSeasonChange() {
       const seasonSelect = document.getElementById('matchup-season-select');
-      if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2025;
+      if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2026;
       currentMatchupWeek = 1;
+      if (currentMatchupSeason === 2026) {
+        currentMatchupMode = 'preview';
+        switchMatchupMode('preview');
+      } else {
+        currentMatchupMode = 'recap';
+        switchMatchupMode('recap');
+      }
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();

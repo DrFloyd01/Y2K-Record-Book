@@ -127,21 +127,38 @@ export function buildWeeklyMatchupsGridHtml({
 
     // Editorial Commentary
     let commentaryHtml = '';
+    let isGameOfWeek = false;
     if (commentary && commentary.matchups) {
       const customM = commentary.matchups.find(cm =>
         (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
       );
       if (customM && customM.writeup) {
+        isGameOfWeek = Boolean(customM.isGameOfTheWeek || (customM.writeup && customM.writeup.startsWith('Game of the Week:')));
+        const metaH2H = customM.h2h || customM.seasonH2H;
+        const metaStreak = customM.streak;
+        const metaPlayoffs = customM.playoffs || customM.playoffH2H;
+        const hasMeta = Boolean(metaH2H || (metaStreak !== undefined && metaStreak !== null) || metaPlayoffs);
+
         commentaryHtml = `
-          <div class="mt-2 p-2 ${isCrt ? 'bg-black/90 border border-emerald-800 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
-            <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-pink-600'} block mb-0.5">&gt; RECAP_NOTES:</span>
-            ${customM.writeup}
+          <div class="mt-2 p-2.5 ${isCrt ? 'bg-black/90 border border-emerald-800/80 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
+            <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? 'RECAP_NOTES' : 'MATCHUP_PREVIEW'}:</span>
+            ${hasMeta ? `
+              <div class="flex flex-wrap gap-x-2.5 gap-y-0.5 text-[10px] font-mono mb-1.5 pb-1 border-b ${isCrt ? 'border-emerald-900/60 text-emerald-400' : 'border-pink-200 text-purple-700'}">
+                ${metaH2H ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">H2H:</strong> ${metaH2H}</span>` : ''}
+                ${metaStreak !== undefined && metaStreak !== null ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">STREAK:</strong> ${metaStreak}</span>` : ''}
+                ${metaPlayoffs ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">PLAYOFFS:</strong> ${metaPlayoffs}</span>` : ''}
+              </div>
+            ` : ''}
+            <div class="text-[11px] leading-relaxed">${customM.writeup}</div>
           </div>
         `;
       }
     }
 
-    const cardBg = isCrt ? 'bg-black/80 border-emerald-800 hover:border-emerald-500' : 'bg-white border-pink-200 hover:border-pink-400 shadow-md';
+    const baseBorder = isGameOfWeek
+      ? (isCrt ? 'border-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.2)]' : 'border-amber-400 shadow-md')
+      : (isCrt ? 'border-emerald-800 hover:border-emerald-500' : 'border-pink-200 hover:border-pink-400 shadow-md');
+    const cardBg = isCrt ? `bg-black/80 ${baseBorder}` : `bg-white ${baseBorder}`;
     const rowT1Bg = isRecap && isWinner1 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
     const rowT2Bg = isRecap && isWinner2 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
 
@@ -150,7 +167,10 @@ export function buildWeeklyMatchupsGridHtml({
         <div>
           <!-- Header Bar: Matchup # & Rank Preview -->
           <div class="flex items-center justify-between pb-1.5 mb-2 border-b ${isCrt ? 'border-emerald-900/80 font-mono text-[11px]' : 'border-pink-200 font-fredoka text-xs'}">
-            <span class="${isCrt ? 'text-emerald-400 font-bold' : 'text-pink-600 font-bold'}">MATCHUP #${idx + 1}</span>
+            <div class="flex items-center gap-1.5">
+              <span class="${isCrt ? 'text-emerald-400 font-bold' : 'text-pink-600 font-bold'}">MATCHUP #${idx + 1}</span>
+              ${isGameOfWeek ? `<span class="px-1.5 py-0.2 rounded ${isCrt ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'bg-amber-100 text-amber-800 border border-amber-300'} text-[9px] font-black tracking-wide">🔥 GOTW</span>` : ''}
+            </div>
             <span class="${isCrt ? 'text-amber-400 font-bold' : 'text-purple-700 font-bold'}">#${info1.rank} vs #${info2.rank}</span>
           </div>
 

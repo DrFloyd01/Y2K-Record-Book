@@ -2423,9 +2423,9 @@ function renderLucideIcons() {
     }
 
     // WEEKLY MATCHUP HUBS LOGIC
-    let currentMatchupSeason = 2025;
+    let currentMatchupSeason = 2026;
     let currentMatchupWeek = 1;
-    let currentMatchupMode = 'recap'; // 'preview' or 'recap'
+    let currentMatchupMode = 'preview'; // 'preview' or 'recap'
     let currentMatchupManager = 'all';
     let prideGuysLineupsData = null;
 
@@ -2492,6 +2492,17 @@ function renderLucideIcons() {
     function initMatchupsTab() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
+      const previewBtn = document.getElementById('matchup-mode-preview');
+      const recapBtn = document.getElementById('matchup-mode-recap');
+      if (previewBtn && recapBtn) {
+        if (currentMatchupMode === 'preview') {
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+        } else {
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+        }
+      }
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
@@ -2499,8 +2510,15 @@ function renderLucideIcons() {
 
     function onMatchupSeasonChange() {
       const seasonSelect = document.getElementById('matchup-season-select');
-      if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2025;
+      if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2026;
       currentMatchupWeek = 1;
+      if (currentMatchupSeason === 2026) {
+        currentMatchupMode = 'preview';
+        switchMatchupMode('preview');
+      } else {
+        currentMatchupMode = 'recap';
+        switchMatchupMode('recap');
+      }
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
