@@ -240,20 +240,19 @@ async function ingestHistoricalSeason(seasonYear, leagueId, s2, swid, prideData)
   const completedWeeks = Object.keys(weeklyScoresMap).map(Number).sort((a, b) => a - b);
   completedWeeks.forEach(wk => {
     const weekEntries = weeklyScoresMap[wk];
-    const sortedByScore = [...weekEntries].sort((a, b) => b.score - a.score);
-    const highScorer = sortedByScore[0];
-
-    if (highScorer && highScorer.score > 0) {
-      if (managerStats[highScorer.owner]) {
-        managerStats[highScorer.owner].weeklyWins += 1;
-        managerStats[highScorer.owner].wwDetails.push({
+    const maxScore = Math.max(...weekEntries.map(e => e.score));
+    const topScorers = weekEntries.filter(e => e.score === maxScore && e.score > 0);
+    topScorers.forEach(ts => {
+      if (managerStats[ts.owner]) {
+        managerStats[ts.owner].weeklyWins += 1;
+        managerStats[ts.owner].wwDetails.push({
           year: seasonYear,
           week: wk,
-          score: highScorer.score,
-          teamName: highScorer.team
+          score: ts.score,
+          teamName: ts.team
         });
       }
-    }
+    });
 
     weekEntries.forEach(entry => {
       const stat = managerStats[entry.owner];
@@ -279,52 +278,76 @@ async function ingestHistoricalSeason(seasonYear, leagueId, s2, swid, prideData)
           else if (entry.score < opp.score) stat.ovrLosses += 1;
         }
       });
-
-      const rankThisWeek = sortedByScore.findIndex(e => e.owner === entry.owner) + 1;
-      const totalTeams = weekEntries.length;
-
-      if (entry.won && rankThisWeek > Math.ceil(totalTeams / 2)) {
-        stat.luckiestWins += 1;
-        stat.lwDetails.push({
-          owner: entry.owner,
-          team: entry.team,
-          score: entry.score,
-          oppOwner: entry.oppOwner,
-          oppScore: entry.oppScore,
-          year: seasonYear,
-          week: wk
-        });
-      }
-
-      if (!entry.won && rankThisWeek <= 3) {
-        stat.heartbreaks += 1;
-        stat.hbDetails.push({
-          owner: entry.owner,
-          team: entry.team,
-          score: entry.score,
-          oppOwner: entry.oppOwner,
-          oppScore: entry.oppScore,
-          margin: parseFloat(Math.abs(entry.score - entry.oppScore).toFixed(2)),
-          year: seasonYear,
-          week: wk
-        });
-      }
-
-      const diff = entry.oppScore - entry.score;
-      if (!entry.won && diff > 0 && diff <= 5.0) {
-        stat.toughestLosses += 1;
-        stat.tlDetails.push({
-          owner: entry.owner,
-          team: entry.team,
-          score: entry.score,
-          oppOwner: entry.oppOwner,
-          oppScore: entry.oppScore,
-          margin: parseFloat(diff.toFixed(2)),
-          year: seasonYear,
-          week: wk
-        });
-      }
     });
+
+    const winners = weekEntries.filter(e => e.won);
+    const losers = weekEntries.filter(e => !e.won && e.score < e.oppScore);
+
+    // Luckiest Win: Lowest score among winning teams of the week
+    if (winners.length > 0) {
+      const minWinScore = Math.min(...winners.map(w => w.score));
+      const lowestWinners = winners.filter(w => w.score === minWinScore);
+      lowestWinners.forEach(lw => {
+        const stat = managerStats[lw.owner];
+        if (stat) {
+          stat.luckiestWins += 1;
+          stat.lwDetails.push({
+            owner: lw.owner,
+            team: lw.team,
+            score: lw.score,
+            oppOwner: lw.oppOwner,
+            oppScore: lw.oppScore,
+            margin: parseFloat(Math.abs(lw.score - lw.oppScore).toFixed(2)),
+            year: seasonYear,
+            week: wk
+          });
+        }
+      });
+    }
+
+    // Heartbreak: Smallest margin of defeat among losing teams of the week (closest loss)
+    if (losers.length > 0) {
+      const minMargin = Math.min(...losers.map(l => Math.abs(l.oppScore - l.score)));
+      const heartbreakLosers = losers.filter(l => Math.abs(Math.abs(l.oppScore - l.score) - minMargin) < 0.001);
+      heartbreakLosers.forEach(hb => {
+        const stat = managerStats[hb.owner];
+        if (stat) {
+          stat.heartbreaks += 1;
+          stat.hbDetails.push({
+            owner: hb.owner,
+            team: hb.team,
+            score: hb.score,
+            oppOwner: hb.oppOwner,
+            oppScore: hb.oppScore,
+            margin: parseFloat(Math.abs(hb.oppScore - hb.score).toFixed(2)),
+            year: seasonYear,
+            week: wk
+          });
+        }
+      });
+    }
+
+    // Toughest Loss: Highest score among losing teams of the week (best losing score)
+    if (losers.length > 0) {
+      const maxLossScore = Math.max(...losers.map(l => l.score));
+      const toughestLosers = losers.filter(l => l.score === maxLossScore);
+      toughestLosers.forEach(tl => {
+        const stat = managerStats[tl.owner];
+        if (stat) {
+          stat.toughestLosses += 1;
+          stat.tlDetails.push({
+            owner: tl.owner,
+            team: tl.team,
+            score: tl.score,
+            oppOwner: tl.oppOwner,
+            oppScore: tl.oppScore,
+            margin: parseFloat(Math.abs(tl.oppScore - tl.score).toFixed(2)),
+            year: seasonYear,
+            week: wk
+          });
+        }
+      });
+    }
   });
 
   const standingsList = Object.values(managerStats).map(st => {
