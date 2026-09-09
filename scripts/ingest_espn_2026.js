@@ -174,13 +174,28 @@ async function ingestEspn2026() {
 
   console.log(`✅ Processed ${schedule2026.length} regular season matchups.`);
 
-  // 5. Initialize 2026 Standings (Clean 0-0 pre-season state)
-  const standings2026 = data.teams.map((t, idx) => {
-    const tInfo = teamMap[t.id];
+  // 5. Build 2026 Draft Order (Round 1 picks)
+  const draftOrder2026 = processedDraftPicks.slice(0, 12).map((p, idx) => {
+    return {
+      pick: p.overallPick,
+      ownerName: p.ownerName,
+      teamName: p.teamName,
+      prevRank: 0,
+      prevRecord: '0-0',
+      curRank: idx + 1,
+      curRecord: '0-0',
+      curPF: 0.0,
+      movement: 0
+    };
+  });
+
+  // 6. Initialize 2026 Standings by Reverse Draft Order (Pick 12 = Rank 1 Champion)
+  const reverseDraftOrder = [...draftOrder2026].reverse();
+  const standings2026 = reverseDraftOrder.map((d, idx) => {
     return {
       rank: idx + 1,
-      ownerName: tInfo.ownerName,
-      teamName: tInfo.teamName,
+      ownerName: d.ownerName,
+      teamName: d.teamName,
       wins: 0,
       losses: 0,
       ties: 0,
@@ -208,21 +223,6 @@ async function ingestEspn2026() {
       playoffLosses: 0,
       playoffRecord: '0-0',
       playoffWinPct: 0.0
-    };
-  });
-
-  // 6. Build 2026 Draft Order (Round 1 picks)
-  const draftOrder2026 = processedDraftPicks.slice(0, 12).map((p, idx) => {
-    return {
-      pick: p.overallPick,
-      ownerName: p.ownerName,
-      teamName: p.teamName,
-      prevRank: 0,
-      prevRecord: '0-0',
-      curRank: idx + 1,
-      curRecord: '0-0',
-      curPF: 0.0,
-      movement: 0
     };
   });
 
