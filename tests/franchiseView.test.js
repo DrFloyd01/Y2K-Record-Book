@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildFranchiseProfileHtml } from '../src/components/franchiseView.js';
+import { buildFranchiseProfileHtml, formatFinishRank } from '../src/components/franchiseView.js';
 import { CRT_THEME, PRIDE_THEME } from '../src/theme/theme.js';
 
 describe('Franchise View Component', () => {
@@ -47,6 +47,15 @@ describe('Franchise View Component', () => {
     }
   };
 
+  it('should format finish ranks correctly', () => {
+    expect(formatFinishRank(1)).toBe('🥇 1st');
+    expect(formatFinishRank(2)).toBe('🥈 2nd');
+    expect(formatFinishRank(3)).toBe('🥉 3rd');
+    expect(formatFinishRank(4)).toBe('4th');
+    expect(formatFinishRank(10)).toBe('10th');
+    expect(formatFinishRank(null)).toBe('-');
+  });
+
   it('should render franchise profile card with CRT theme', () => {
     const html = buildFranchiseProfileHtml({
       owner: 'Dylan',
@@ -79,5 +88,84 @@ describe('Franchise View Component', () => {
     expect(html).toContain('Globo Gym');
     expect(html).toContain('text-pink-700');
     expect(html).toContain('The Value Harvester');
+  });
+
+  it('should resolve true finish rank from finishes and render all accolades badges', () => {
+    const traceStandings = [
+      {
+        ownerName: 'Trace',
+        teamName: 'Proud ER',
+        wins: 13,
+        losses: 1,
+        finishes: {
+          '1st': [],
+          '2nd': [{ year: 2022, rank: 2, teamName: 'Proud ER' }]
+        },
+        championships: { '1st': 0, '2nd': 1, scoringTitles: 1 }
+      }
+    ];
+
+    const multiSeasonData = {
+      '2022': {
+        standings: [
+          {
+            ownerName: 'Trace',
+            teamName: 'Proud ER',
+            rank: 1, // regular season seed was 1, but true finish is 2
+            wins: 13,
+            losses: 1,
+            playoffRecord: '1-1',
+            pointsFor: 1684.5,
+            weeklyWins: 4,
+            luckiestWins: 2,
+            heartbreaks: 1,
+            toughestLosses: 3,
+            dOhs: 2,
+            coachingEfficiency: 95.5
+          },
+          {
+            ownerName: 'Austin',
+            teamName: 'Dark Brandon',
+            rank: 2,
+            wins: 8,
+            losses: 6,
+            playoffRecord: '3-0',
+            pointsFor: 1500.0,
+            weeklyWins: 1,
+            luckiestWins: 0,
+            heartbreaks: 0,
+            toughestLosses: 0,
+            dOhs: 0,
+            coachingEfficiency: 88.0
+          }
+        ]
+      }
+    };
+
+    const html = buildFranchiseProfileHtml({
+      owner: 'Trace',
+      allTimeStandings: traceStandings,
+      seasons: [2022],
+      seasonData: multiSeasonData,
+      championships: [{ seasonYear: 2022, firstOwner: 'Austin', scoringChampOwner: 'Trace' }],
+      theme: CRT_THEME
+    });
+
+    // Should display 🥈 2nd as the finish rank, NOT 1st!
+    expect(html).toContain('🥈 2nd');
+    expect(html).not.toContain('🥇 1st');
+
+    // Should display playoff record 1-1
+    expect(html).toContain('1-1');
+
+    // Should display all accolades Trace earned in 2022:
+    // Scoring Champ, Most WWs (4), Most LWs (2), Most HBs (1), Most TLs (3), Most DOs (2), Top EFF% (95.5%)
+    expect(html).toContain('🎯 Scoring Champ');
+    expect(html).toContain('⚡ Most WWs (4)');
+    expect(html).toContain('🍀 Most LWs (2)');
+    expect(html).toContain('💔 Most HBs (1)');
+    expect(html).toContain('😤 Most TLs (3)');
+    expect(html).toContain('🤦‍♂️ Most DOs (2)');
+    expect(html).toContain('🧠 Top EFF% (95.5%)');
   });
 });

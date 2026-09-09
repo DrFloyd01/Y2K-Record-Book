@@ -5,6 +5,27 @@ import { CRT_THEME } from '../theme/theme.js';
 
 /**
  * Builds HTML for a manager's career franchise profile
+/**
+ * Format finish rank with medals/ordinals
+ */
+export function formatFinishRank(r) {
+  if (r === undefined || r === null || r === '-' || r === '') return '-';
+  const num = parseInt(r, 10);
+  if (isNaN(num)) return r;
+  if (num === 1) return '🥇 1st';
+  if (num === 2) return '🥈 2nd';
+  if (num === 3) return '🥉 3rd';
+  const lastDigit = num % 10;
+  const lastTwo = num % 100;
+  if (lastTwo >= 11 && lastTwo <= 13) return `${num}th`;
+  if (lastDigit === 1) return `${num}st`;
+  if (lastDigit === 2) return `${num}nd`;
+  if (lastDigit === 3) return `${num}rd`;
+  return `${num}th`;
+}
+
+/**
+ * Builds HTML for a manager's career franchise profile
  */
 export function buildFranchiseProfileHtml({
   owner,
@@ -12,6 +33,7 @@ export function buildFranchiseProfileHtml({
   seasons = [],
   seasonData = {},
   draftProfiles = {},
+  championships = [],
   theme = CRT_THEME
 }) {
   if (!owner) return '';
@@ -27,18 +49,83 @@ export function buildFranchiseProfileHtml({
   seasons.forEach(yr => {
     const sData = seasonData[yr];
     if (sData && sData.standings) {
-      const entry = sData.standings.find(s => s.ownerName === owner);
+      const entry = sData.standings.find(s => s.ownerName === owner || (owner === 'Javier' && (s.ownerName === 'The Big Dongler' || s.ownerName === 'Javier Benjamin')));
       if (entry) {
+        // Resolve true finish rank from allTimeStandings.finishes as ultimate source of truth
+        let finishRank = entry.rank;
+        if (st && st.finishes) {
+          for (const bin of Object.values(st.finishes)) {
+            if (Array.isArray(bin)) {
+              const found = bin.find(f => String(f.year) === String(yr));
+              if (found && found.rank !== undefined) {
+                finishRank = found.rank;
+                break;
+              }
+            }
+          }
+        }
+
+        const pRec = entry.playoffRecord || (entry.playoffWins !== undefined ? `${entry.playoffWins}-${entry.playoffLosses}` : '-');
+
+        // Accolades calculations for season yr
+        const standings = sData.standings;
+        const champObj = (championships || []).find(c => String(c.seasonYear) === String(yr));
+
+        const maxPF = Math.max(...standings.map(s => s.pointsFor || 0), 0);
+        const maxWW = Math.max(...standings.map(s => s.weeklyWins || 0), 0);
+        const maxLW = Math.max(...standings.map(s => s.luckiestWins || 0), 0);
+        const maxHB = Math.max(...standings.map(s => s.heartbreaks || 0), 0);
+        const maxTL = Math.max(...standings.map(s => s.toughestLosses || 0), 0);
+
+        const getDO = s => (s.dOhs !== undefined && s.dOhs !== null ? s.dOhs : (s.dOhDetails ? s.dOhDetails.length : 0));
+        const maxDO = Math.max(...standings.map(getDO), 0);
+        const entryDO = getDO(entry);
+
+        const getEff = s => ((s.coachingEfficiency !== undefined && s.coachingEfficiency !== null) ? parseFloat(s.coachingEfficiency) : 0);
+        const maxEff = Math.max(...standings.map(getEff), 0);
+        const entryEff = getEff(entry);
+
+        const isChampion = Boolean(
+          finishRank === 1 ||
+          (champObj && (champObj.firstOwner === owner || (owner === 'Javier' && champObj.firstOwner === 'The Big Dongler')))
+        );
+
+        const isScoringChamp = Boolean(
+          entry.isScoringChamp ||
+          (champObj && (champObj.scoringChampOwner === owner || (owner === 'Javier' && champObj.scoringChampOwner === 'The Big Dongler'))) ||
+          (maxPF > 0 && entry.pointsFor === maxPF)
+        );
+
+        const hasMostWW = maxWW > 0 && entry.weeklyWins === maxWW;
+        const hasMostLW = maxLW > 0 && entry.luckiestWins === maxLW;
+        const hasMostHB = maxHB > 0 && entry.heartbreaks === maxHB;
+        const hasMostTL = maxTL > 0 && entry.toughestLosses === maxTL;
+        const hasMostDO = maxDO > 0 && entryDO === maxDO;
+        const hasTopEff = maxEff > 0 && Math.abs(entryEff - maxEff) < 0.05;
+
         teamNames.push({
           yr: yr,
           name: entry.teamName,
-          rank: entry.rank,
+          rank: finishRank,
           rec: `${entry.wins}-${entry.losses}`,
-          pRec: entry.playoffRecord || '-',
+          pRec: pRec,
           pf: entry.pointsFor,
-          isScoringChamp: entry.isScoringChamp,
+          isChampion,
+          isScoringChamp,
+          hasMostWW,
+          wwCount: entry.weeklyWins || 0,
+          hasMostLW,
+          lwCount: entry.luckiestWins || 0,
+          hasMostHB,
+          hbCount: entry.heartbreaks || 0,
+          hasMostTL,
+          tlCount: entry.toughestLosses || 0,
+          hasMostDO,
+          doCount: entryDO,
+          hasTopEff,
+          effVal: entryEff,
           coachingEfficiency: entry.coachingEfficiency,
-          dOhs: entry.dOhs !== undefined ? entry.dOhs : (entry.dOhDetails ? entry.dOhDetails.length : 0),
+          dOhs: entryDO,
           dOhDetails: entry.dOhDetails || []
         });
       }
@@ -47,10 +134,66 @@ export function buildFranchiseProfileHtml({
 
   let historyRows = '';
   teamNames.forEach((tn, rIdx) => {
-    const scBadge = tn.isScoringChamp
-      ? (isCrt
-        ? `<span class="px-1.5 py-0.5 bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-[10px]">🎯 Scoring Champ</span>`
-        : `<span class="px-1.5 py-0.5 bg-pink-100 border border-pink-300 text-pink-700 font-bold text-[10px]">🎯 Scoring Champ</span>`)
+    const badges = [];
+
+    if (tn.isChampion) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-amber-950/80 border border-amber-500 text-amber-300 font-bold text-[10px] whitespace-nowrap rounded" title="League Champion">🏆 Champion</span>`
+        : `<span class="px-1.5 py-0.5 bg-amber-100 border border-amber-300 text-amber-800 font-bold text-[10px] whitespace-nowrap rounded-md" title="League Champion">🏆 Champion</span>`
+      );
+    }
+
+    if (tn.isScoringChamp) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-[10px] whitespace-nowrap rounded" title="League Scoring Champion (${(tn.pf || 0).toFixed(1)} PF)">🎯 Scoring Champ</span>`
+        : `<span class="px-1.5 py-0.5 bg-pink-100 border border-pink-300 text-pink-700 font-bold text-[10px] whitespace-nowrap rounded-md" title="League Scoring Champion (${(tn.pf || 0).toFixed(1)} PF)">🎯 Scoring Champ</span>`
+      );
+    }
+
+    if (tn.hasMostWW) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-amber-950/60 border border-amber-600 text-amber-400 font-bold text-[10px] whitespace-nowrap rounded" title="Most Weekly Wins in League (${tn.wwCount})">⚡ Most WWs (${tn.wwCount})</span>`
+        : `<span class="px-1.5 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-bold text-[10px] whitespace-nowrap rounded-md" title="Most Weekly Wins in League (${tn.wwCount})">⚡ Most WWs (${tn.wwCount})</span>`
+      );
+    }
+
+    if (tn.hasMostLW) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-teal-950 border border-teal-500 text-teal-300 font-bold text-[10px] whitespace-nowrap rounded" title="Most Luckiest Wins in League (${tn.lwCount})">🍀 Most LWs (${tn.lwCount})</span>`
+        : `<span class="px-1.5 py-0.5 bg-emerald-50 border border-emerald-300 text-emerald-700 font-bold text-[10px] whitespace-nowrap rounded-md" title="Most Luckiest Wins in League (${tn.lwCount})">🍀 Most LWs (${tn.lwCount})</span>`
+      );
+    }
+
+    if (tn.hasMostHB) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-rose-950 border border-rose-600 text-rose-300 font-bold text-[10px] whitespace-nowrap rounded" title="Most Heartbreak Losses (${tn.hbCount})">💔 Most HBs (${tn.hbCount})</span>`
+        : `<span class="px-1.5 py-0.5 bg-rose-50 border border-rose-200 text-rose-700 font-bold text-[10px] whitespace-nowrap rounded-md" title="Most Heartbreak Losses (${tn.hbCount})">💔 Most HBs (${tn.hbCount})</span>`
+      );
+    }
+
+    if (tn.hasMostTL) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-orange-950 border border-orange-600 text-orange-300 font-bold text-[10px] whitespace-nowrap rounded" title="Most Toughest Losses (${tn.tlCount})">😤 Most TLs (${tn.tlCount})</span>`
+        : `<span class="px-1.5 py-0.5 bg-orange-50 border border-orange-200 text-orange-800 font-bold text-[10px] whitespace-nowrap rounded-md" title="Most Toughest Losses (${tn.tlCount})">😤 Most TLs (${tn.tlCount})</span>`
+      );
+    }
+
+    if (tn.hasMostDO) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-red-950 border border-red-600 text-red-300 font-bold text-[10px] whitespace-nowrap rounded" title="Most D'Oh! Blunders (${tn.doCount})">🤦‍♂️ Most DOs (${tn.doCount})</span>`
+        : `<span class="px-1.5 py-0.5 bg-red-100 border border-red-300 text-red-700 font-bold text-[10px] whitespace-nowrap rounded-md" title="Most D'Oh! Blunders (${tn.doCount})">🤦‍♂️ Most DOs (${tn.doCount})</span>`
+      );
+    }
+
+    if (tn.hasTopEff) {
+      badges.push(isCrt
+        ? `<span class="px-1.5 py-0.5 bg-cyan-950 border border-cyan-500 text-cyan-300 font-bold text-[10px] whitespace-nowrap rounded" title="Top Coaching Efficiency (${tn.effVal.toFixed(1)}%)">🧠 Top EFF% (${tn.effVal.toFixed(1)}%)</span>`
+        : `<span class="px-1.5 py-0.5 bg-purple-100 border border-purple-300 text-purple-800 font-bold text-[10px] whitespace-nowrap rounded-md" title="Top Coaching Efficiency (${tn.effVal.toFixed(1)}%)">🧠 Top EFF% (${tn.effVal.toFixed(1)}%)</span>`
+      );
+    }
+
+    const accoladesCell = badges.length > 0
+      ? `<div class="flex flex-wrap items-center justify-center gap-1">${badges.join('')}</div>`
       : (isCrt ? '<span class="text-emerald-900">-</span>' : '<span class="text-purple-300">-</span>');
 
     const rowPopDir = rIdx < 3 ? ' tooltip-content-bottom' : '';
@@ -78,11 +221,11 @@ export function buildFranchiseProfileHtml({
       <tr class="border-b ${isCrt ? 'border-emerald-950 hover:bg-emerald-950/30' : 'border-pink-100 hover:bg-pink-50/50'}">
         <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600 font-sans'}">${tn.yr}</td>
         <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'}">${tn.name}</td>
-        <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-pink-600'}">${tn.rank}</td>
+        <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-pink-600'}">${formatFinishRank(tn.rank)}</td>
         <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-200' : 'text-purple-900'}">${tn.rec}</td>
         <td class="p-2.5 text-center font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600'}">${tn.pRec}</td>
         <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-300' : 'text-purple-900'} text-xs">${(tn.pf || 0).toFixed(1)}</td>
-        <td class="p-2.5 text-center">${scBadge}</td>
+        <td class="p-2.5 text-center">${accoladesCell}</td>
         <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-purple-900'}">${tn.coachingEfficiency ? `${tn.coachingEfficiency}%` : '-'}</td>
         <td class="p-2.5 text-center">${dOhCell}</td>
       </tr>
@@ -291,7 +434,7 @@ export function buildFranchiseProfileHtml({
         &gt;_ FRANCHISE_HISTORY_EVOLUTION
       </div>
       <div class="table-scroll-container">
-        <table class="w-full min-w-[680px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : 'font-sans'}">
+        <table class="w-full min-w-[800px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : 'font-sans'}">
           <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-600' : 'bg-pink-50 text-pink-600 border-b border-pink-200'} font-bold text-xs">
             <tr>
               <th class="p-2.5">YEAR</th>

@@ -1887,6 +1887,7 @@ function renderLucideIcons() {
         seasons: window.LEAGUE_DATA.seasons,
         seasonData: window.LEAGUE_DATA.seasonData,
         draftProfiles: window.LEAGUE_DATA.draftProfiles || {},
+        championships: window.LEAGUE_DATA.championships || [],
         theme: CRT_THEME
       });
 
