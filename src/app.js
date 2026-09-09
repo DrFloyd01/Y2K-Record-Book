@@ -20,7 +20,7 @@ import {
 import { buildDynastyLeaderboardRows } from './components/standingsView.js';
 import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/h2hView.js';
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
-import { buildFranchiseProfileHtml } from './components/franchiseView.js';
+import { buildFranchiseProfileHtml, isConcludedSeason } from './components/franchiseView.js';
 import { buildManagerialProwessHtml, buildMatchupLineupCardHtml } from './components/managerialView.js';
 import { buildWeeklyMatchupsGridHtml, buildManagerSeasonGameLogHtml } from './components/matchupsView.js';
 import { computeManagerialLeaderboard } from './analytics/managerial.js';
@@ -1905,6 +1905,7 @@ function renderLucideIcons() {
 
       let availableDraftYears = [];
       window.LEAGUE_DATA.seasons.forEach(yr => {
+        if (!isConcludedSeason(yr, window.LEAGUE_DATA.seasonData, window.LEAGUE_DATA.championships)) return;
         const sData = window.LEAGUE_DATA.seasonData[yr];
         if (sData && sData.draftPicks && sData.draftPicks.some(p => p.ownerName === owner && p.player && p.player !== 'Empty / Bye')) {
           availableDraftYears.push(yr);

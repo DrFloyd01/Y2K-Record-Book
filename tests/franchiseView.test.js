@@ -168,4 +168,46 @@ describe('Franchise View Component', () => {
     expect(html).toContain('🤦‍♂️ Most DOs (2)');
     expect(html).toContain('🧠 Top EFF% (95.5%)');
   });
+
+  it('should hide 2026 from franchise history and draft history until the season concludes', () => {
+    const seasons = [2025, 2026];
+    const seasonData = {
+      '2025': {
+        standings: [
+          { ownerName: 'Dylan', teamName: 'Globo Gym', rank: 1, wins: 10, losses: 4, playoffRecord: '2-0', pointsFor: 1800.0 }
+        ],
+        draftPicks: [
+          { ownerName: 'Dylan', player: 'C.McCaffrey', round: 1, pickNumber: 1 }
+        ]
+      },
+      '2026': {
+        standings: [
+          { ownerName: 'Dylan', teamName: 'Globo Gym', rank: 1, wins: 0, losses: 0, playoffRecord: '0-0', pointsFor: 0.0 }
+        ],
+        draftPicks: [
+          { ownerName: 'Dylan', player: 'Bijan Robinson', round: 1, pickNumber: 1 }
+        ]
+      }
+    };
+    const championships = [
+      { seasonYear: 2025, firstOwner: 'Dylan', scoringChampOwner: 'Dylan' }
+    ];
+
+    const html = buildFranchiseProfileHtml({
+      owner: 'Dylan',
+      allTimeStandings: mockStandings,
+      seasons,
+      seasonData,
+      championships,
+      theme: CRT_THEME
+    });
+
+    // 2025 should be included
+    expect(html).toContain('2025');
+    expect(html).toContain('btn-franchise-draft-2025');
+
+    // 2026 should be completely hidden until season concludes
+    expect(html).not.toContain('btn-franchise-draft-2026');
+    expect(html).not.toMatch(/<td[^>]*>2026<\/td>/);
+  });
 });

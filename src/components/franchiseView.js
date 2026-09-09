@@ -25,6 +25,21 @@ export function formatFinishRank(r) {
 }
 
 /**
+ * Determines whether a season has concluded (games played, playoffs complete, champion crowned)
+ */
+export function isConcludedSeason(yr, seasonData = {}, championships = []) {
+  if (parseInt(yr, 10) >= 2026) {
+    const sData = seasonData ? (seasonData[yr] || seasonData[String(yr)]) : null;
+    const champ = (championships || []).find(c => String(c.seasonYear) === String(yr));
+    const hasChamp = Boolean(champ && (champ.firstOwner || champ.firstTeam));
+    const hasGames = Boolean(sData && sData.standings && sData.standings.some(s => (s.wins || 0) + (s.losses || 0) > 0));
+    const hasPlayoffs = Boolean(sData && sData.playoffMatchups && sData.playoffMatchups.length > 0);
+    return Boolean(hasChamp && hasGames && hasPlayoffs);
+  }
+  return true;
+}
+
+/**
  * Builds HTML for a manager's career franchise profile
  */
 export function buildFranchiseProfileHtml({
@@ -47,6 +62,7 @@ export function buildFranchiseProfileHtml({
 
   let teamNames = [];
   seasons.forEach(yr => {
+    if (!isConcludedSeason(yr, seasonData, championships)) return;
     const sData = seasonData[yr];
     if (sData && sData.standings) {
       const entry = sData.standings.find(s => s.ownerName === owner || (owner === 'Javier' && (s.ownerName === 'The Big Dongler' || s.ownerName === 'Javier Benjamin')));
@@ -308,6 +324,7 @@ export function buildFranchiseProfileHtml({
   // Build Draft History By Year buttons
   let availableDraftYears = [];
   seasons.forEach(yr => {
+    if (!isConcludedSeason(yr, seasonData, championships)) return;
     const sData = seasonData[yr];
     if (sData && sData.draftPicks && sData.draftPicks.some(p => p.ownerName === owner && p.player && p.player !== 'Empty / Bye')) {
       availableDraftYears.push(yr);
