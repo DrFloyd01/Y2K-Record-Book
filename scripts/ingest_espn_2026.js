@@ -251,6 +251,19 @@ async function ingestEspn2026() {
     weeklyScores: [],
     weeklyStandings: {},
     schedule: schedule2026,
+    schedule2026: schedule2026.map(m => ({
+      seasonYear: 2026,
+      weekNumber: m.week,
+      homeOwner: m.homeOwner,
+      homeTeam: m.homeTeam,
+      homeScore: m.homeScore,
+      awayOwner: m.awayOwner,
+      awayTeam: m.awayTeam,
+      awayScore: m.awayScore,
+      isPlayoff: m.isPlayoff,
+      rawTier: 'NONE',
+      stage: 'Regular Season'
+    })),
     playoffMatchups: [],
     scoringChampion: {
       owner: '-',
@@ -259,6 +272,13 @@ async function ingestEspn2026() {
     },
     draftPicks: processedDraftPicks
   };
+
+  // Sync allMatchups for 2026
+  if (prideData.allMatchups) {
+    prideData.allMatchups = prideData.allMatchups
+      .filter(m => m.seasonYear !== 2026)
+      .concat(prideData.seasonData['2026'].schedule2026);
+  }
 
   if (!prideData.draftOrders) {
     prideData.draftOrders = {};

@@ -2682,10 +2682,13 @@ let y2kLineupsData = null;
         if (pillsContainer) pillsContainer.classList.add('hidden');
         if (heading) heading.innerHTML = `👤 ${currentMatchupManager.toUpperCase()} — ${currentMatchupSeason} COMPLETE SCHEDULE &amp; LOG`;
         if (badge) badge.innerHTML = `<span class="text-emerald-400">📅 ALL GAMES</span>`;
+        const sMatchups = (currentMatchupSeason === 2026 && sData && sData.schedule2026)
+          ? sData.schedule2026
+          : window.LEAGUE_DATA.allMatchups;
         container.innerHTML = buildManagerSeasonGameLogHtml({
           owner: currentMatchupManager,
           season: currentMatchupSeason,
-          matchups: window.LEAGUE_DATA.allMatchups,
+          matchups: sMatchups,
           rankMap,
           commentary: customComm,
           lineups,
