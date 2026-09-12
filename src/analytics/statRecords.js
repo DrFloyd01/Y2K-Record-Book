@@ -187,23 +187,23 @@ export function getStatCardTop5(leagueData, metricKey, season) {
     const yrPrefix = (season === 'allTime' || season === 'playoffs') ? `${yr} ` : '';
 
     if (metricKey === 'juggernaut' || metricKey === 'apex') {
-      list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
-      list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
+      list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: aO });
+      list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: hO });
     } else if (metricKey === 'featherweight' || metricKey === 'potato') {
-      list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})` });
-      list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})` });
+      list.push({ owner: hO, team: hT, score: hS, valStr: `${hS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${aO} (${hS.toFixed(1)}-${aS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: aO });
+      list.push({ owner: aO, team: aT, score: aS, valStr: `${aS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${hO} (${aS.toFixed(1)}-${hS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: hO });
     } else if (hS !== aS) {
       const wS = hS > aS ? hS : aS, wO = hS > aS ? hO : aO, wT = hS > aS ? hT : aT;
       const lS = hS > aS ? aS : hS, lO = hS > aS ? aO : hO, lT = hS > aS ? aT : hT;
 
       if (metricKey === 'cakewalk' || metricKey === 'massacre') {
-        list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
+        list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: lO });
       } else if (metricKey === 'nailbiter') {
-        list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})` });
+        list.push({ owner: wO, team: wT, margin: margin, valStr: `+${margin.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (${wS.toFixed(1)}-${lS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: lO });
       } else if (metricKey === 'gutpunch') {
-        list.push({ owner: lO, team: lT, score: lS, valStr: `${lS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${wO} (Lost ${lS.toFixed(1)}-${wS.toFixed(1)})` });
+        list.push({ owner: lO, team: lT, score: lS, valStr: `${lS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${wO} (Lost ${lS.toFixed(1)}-${wS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: wO });
       } else if (metricKey === 'criminal') {
-        list.push({ owner: wO, team: wT, score: wS, valStr: `${wS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (Won ${wS.toFixed(1)}-${lS.toFixed(1)})` });
+        list.push({ owner: wO, team: wT, score: wS, valStr: `${wS.toFixed(2)} pts`, sub: `${yrPrefix}W${wk}${stageStr} vs ${lO} (Won ${wS.toFixed(1)}-${lS.toFixed(1)})`, year: yr, week: wk, homeOwner: hO, awayOwner: aO, oppOwner: lO });
       }
     }
   });

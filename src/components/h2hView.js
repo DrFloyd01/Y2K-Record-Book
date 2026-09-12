@@ -76,14 +76,17 @@ export function buildH2HGameLogRows({ games = [], theme = CRT_THEME }) {
     const stageColor = g.isPlayoff ? 'text-amber-400 font-medium text-xs' : `${isCrt ? 'text-emerald-500' : 'text-pink-600'} font-medium text-xs`;
 
     return `
-      <tr class="${rowClass}">
+      <tr class="${rowClass} cursor-pointer hover:bg-emerald-950/60 transition-all group" onclick="window.jumpToMatchup(${g.year}, ${g.week}, '${g.homeOwner}', '${g.awayOwner}')" title="Click to jump to ${g.year} Week ${g.week} Matchup Box Score">
         <td class="p-2 text-center ${yearClass}">${g.year}</td>
         <td class="p-2 text-center ${subText}">W${g.week}</td>
         <td class="p-2 text-center ${stageColor}">${stageText}</td>
         <td class="p-2 text-right ${teamText}">${g.homeTeam} <span class="text-[10px] ${subText} font-normal">[${g.homeOwner}]</span></td>
         <td class="p-2 text-center ${scoreText}">${(g.homeScore || 0).toFixed(2)} - ${(g.awayScore || 0).toFixed(2)}</td>
         <td class="p-2 text-left ${teamText}">${g.awayTeam} <span class="text-[10px] ${subText} font-normal">[${g.awayOwner}]</span></td>
-        <td class="p-2 text-center">${winnerBadge}</td>
+        <td class="p-2 text-center">
+          ${winnerBadge}
+          <span class="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity ml-1.5 ${isCrt ? 'text-amber-400 font-mono font-bold' : 'text-pink-600 font-bold'}">📋 Box ➔</span>
+        </td>
       </tr>
     `;
   }).join('');

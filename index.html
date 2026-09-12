@@ -281,9 +281,23 @@
       <!-- Matchups Grid Header Banner -->
       <div id="matchup-header-banner"
         class="crt-box rounded p-3 mb-4 bg-emerald-950/40 flex justify-between items-center flex-wrap gap-2">
-        <span id="matchup-title-heading" class="text-sm font-black text-emerald-300 crt-glow"></span>
-        <span id="matchup-mode-badge"
-          class="px-2 py-0.5 bg-black border border-emerald-600 text-emerald-400 font-bold text-xs"></span>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="matchup-title-heading" class="text-sm font-black text-emerald-300 crt-glow"></span>
+          <span id="matchup-mode-badge"
+            class="px-2 py-0.5 bg-black border border-emerald-600 text-emerald-400 font-bold text-xs"></span>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <button id="matchup-toggle-report" onclick="window.toggleMatchupReportDetails()"
+            class="px-2.5 py-1 bg-black hover:bg-emerald-950 border border-emerald-700 text-emerald-300 font-mono text-xs font-bold rounded transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+            title="Toggle scores in badge chips for static report sharing">
+            <span>📄 Details: <span id="matchup-toggle-report-label">OFF</span></span>
+          </button>
+          <button id="matchup-copy-report" onclick="window.copyMatchupsReportText()"
+            class="px-2.5 py-1 bg-emerald-900/80 hover:bg-emerald-800 border border-emerald-500 text-emerald-200 font-mono text-xs font-bold rounded transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+            title="Copy weekly matchup report markdown to clipboard">
+            <span>📋 Copy Report</span>
+          </button>
+        </div>
       </div>
 
       <!-- Matchup Cards Container -->
@@ -350,7 +364,7 @@
               class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
           </div>
         </div>
-        <div class="p-3 table-scroll-container">
+        <div class="p-2 sm:p-3 h2h-matrix-container no-scrollbar">
           <table class="w-full text-xs text-center border-collapse">
             <thead id="h2h-matrix-header"></thead>
             <tbody id="h2h-matrix-body"></tbody>

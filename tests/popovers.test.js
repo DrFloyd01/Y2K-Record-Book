@@ -59,4 +59,19 @@ describe('Popovers Component Module', () => {
     const prideRing = getPlayerRingBadgeHtml({ playerName: 'Travis Kelce', leagueData: mockLeagueData, theme: PRIDE_THEME });
     expect(prideRing).toContain('border-amber-300');
   });
+
+  it('should verify that crt.css and pride.css suppress visible scrollbars on tooltip-content and popovers', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const crtCss = fs.readFileSync(path.resolve(__dirname, '../src/styles/crt.css'), 'utf-8');
+    const prideCss = fs.readFileSync(path.resolve(__dirname, '../src/styles/pride.css'), 'utf-8');
+
+    expect(crtCss).toContain('scrollbar-width: none !important');
+    expect(crtCss).toContain('.tooltip-content::-webkit-scrollbar');
+    expect(crtCss).toContain('display: none !important');
+
+    expect(prideCss).toContain('scrollbar-width: none !important');
+    expect(prideCss).toContain('.tooltip-content::-webkit-scrollbar');
+    expect(prideCss).toContain('display: none !important');
+  });
 });

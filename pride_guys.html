@@ -13,7 +13,7 @@
 <body class="min-h-screen flex flex-col selection:bg-pink-100/90 selection:text-purple-900">
 
       <!-- Navigation Header Bar -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b-2 border-pink-200 shadow-sm w-full">
+  <header class="sticky top-0 z-40 bg-white/95 border-b-2 border-pink-200 shadow-sm w-full">
     <div class="max-w-[1600px] w-full mx-auto px-4 py-2.5 flex items-center justify-between">
       
       <!-- Brand Identity -->
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Desktop Sliding Indicator Navigation Bar -->
-      <nav class="hidden lg:flex items-center relative bg-pink-50/90 p-1.5 rounded-full border-2 border-pink-200 backdrop-blur shadow-inner" id="desktop-nav">
+      <nav class="hidden lg:flex items-center relative bg-pink-50/90 p-1.5 rounded-full border-2 border-pink-200 shadow-inner" id="desktop-nav">
         <!-- Sliding Indicator Pill with Vibrant Smooth Gradient -->
         <div id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-md shadow-pink-400/40 transition-all duration-300 ease-out z-0 pointer-events-none opacity-0" style="left: 0; width: 0;"></div>
 
@@ -53,20 +53,20 @@
 
       <!-- Status Pill -->
       <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-pink-100/80 rounded-full border-2 border-pink-300 text-xs font-bold text-pink-700">
-        <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse"></span>
         <span>🦄 2026 Season Ready 💖</span>
       </div>
     </div>
   </header>
     <!-- Top Fabulous Pride Hero Banner & Tagline Rotator -->
-  <section class="max-w-[1600px] w-full mx-auto mt-4 mb-6 p-5 sm:p-6 bg-white/90 border-2 border-pink-200 rounded-3xl shadow-xl backdrop-blur-xl relative overflow-hidden">
-    <div class="absolute -right-16 -top-16 w-60 h-60 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -left-16 -bottom-16 w-60 h-60 bg-purple-200/40 rounded-full blur-3xl pointer-events-none"></div>
+  <section class="max-w-[1600px] w-full mx-auto mt-4 mb-6 p-5 sm:p-6 bg-white border-2 border-pink-200 rounded-3xl shadow-xl relative overflow-hidden">
+    <div class="absolute -right-16 -top-16 w-60 h-60 bg-pink-200/30 rounded-full pointer-events-none"></div>
+    <div class="absolute -left-16 -bottom-16 w-60 h-60 bg-purple-200/30 rounded-full pointer-events-none"></div>
 
     <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
       <!-- Title & Branding -->
       <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl p-1 bg-gradient-to-tr from-pink-400 via-purple-400 via-cyan-300 to-amber-300 shadow-lg shadow-pink-200/60 flex-shrink-0 animate-bounce">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl p-1 bg-gradient-to-tr from-pink-400 via-purple-400 via-cyan-300 to-amber-300 shadow-lg shadow-pink-200/60 flex-shrink-0 hover:scale-105 transition-transform duration-300">
           <img src="pride_guys_hero.jpg" alt="Pride Guys Emblem" class="w-full h-full object-cover rounded-2xl border-2 border-white shadow">
         </div>
 
@@ -243,7 +243,7 @@
 
     <!-- TAB: WEEKLY MATCHUP HUBS -->
     <div id="tab-matchups" class="tab-content hidden">
-      <div class="crt-box rounded-3xl p-5 mb-6 bg-white/90 border-2 border-pink-200 shadow-lg backdrop-blur">
+      <div class="crt-box rounded-3xl p-5 mb-6 bg-white border-2 border-pink-200 shadow-lg">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1 font-fredoka">✨ WEEKLY_MATCHUP_ARCHIVE ✨</div>
@@ -295,8 +295,22 @@
 
       <!-- Matchups Grid Header Banner -->
       <div id="matchup-header-banner" class="crt-box rounded-2xl p-3 mb-4 bg-pink-50/80 border border-pink-300 flex justify-between items-center flex-wrap gap-2">
-        <span id="matchup-title-heading" class="text-sm font-black text-pink-700 font-fredoka"></span>
-        <span id="matchup-mode-badge" class="px-2.5 py-0.5 bg-white border border-pink-300 text-pink-700 font-bold text-xs rounded-full"></span>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="matchup-title-heading" class="text-sm font-black text-pink-700 font-fredoka"></span>
+          <span id="matchup-mode-badge" class="px-2.5 py-0.5 bg-white border border-pink-300 text-pink-700 font-bold text-xs rounded-full"></span>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <button id="matchup-toggle-report" onclick="window.toggleMatchupReportDetails()"
+            class="px-2.5 py-1 bg-white hover:bg-pink-100 border border-pink-300 text-pink-700 font-sans text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+            title="Toggle scores in badge chips for static report sharing">
+            <span>📄 Details: <span id="matchup-toggle-report-label">OFF</span></span>
+          </button>
+          <button id="matchup-copy-report" onclick="window.copyMatchupsReportText()"
+            class="px-2.5 py-1 bg-pink-600 hover:bg-pink-700 text-white font-sans text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+            title="Copy weekly matchup report markdown to clipboard">
+            <span>📋 Copy Report</span>
+          </button>
+        </div>
       </div>
 
       <!-- Matchup Cards Container -->
@@ -357,7 +371,7 @@
           </div>
           <span class="text-[10px] text-pink-600 font-normal">Click any cell to query H2H matchup breakdown &amp; game log</span>
         </div>
-        <div class="p-3 table-scroll-container">
+        <div class="p-2 sm:p-3 h2h-matrix-container no-scrollbar">
           <table class="w-full text-xs text-center border-collapse">
             <thead id="h2h-matrix-header"></thead>
             <tbody id="h2h-matrix-body"></tbody>
@@ -591,7 +605,7 @@
     </main>
 
   <!-- Mobile Bottom Navigation Bar -->
-  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 border-t border-pink-300 shadow-2xl z-40 backdrop-blur-sm">
+  <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 border-t border-pink-300 shadow-2xl z-40">
     <div class="flex justify-around items-center h-14 font-sans text-[11px]">
       <button onclick="switchTab('seasons')" id="mobile-nav-seasons" class="mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-600 font-bold">
         <span>SEASONS</span>
