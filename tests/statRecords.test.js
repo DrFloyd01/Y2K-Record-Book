@@ -24,11 +24,22 @@ describe('Stat Records Analytics Module', () => {
     expect(formatPlayoffStageTag('Consolation Round Robin', 2025)).toBe("RR'25");
   });
 
-  it('should format aggregate playoff weeks for pre-2022 ESPN seasons', () => {
-    expect(formatPlayoffWeek(2020, 13, 'Semi-Finals')).toBe('WEEKS 13+14');
-    expect(formatPlayoffWeek(2020, 15, 'Championship Final')).toBe('WEEKS 15+16');
-    expect(formatPlayoffWeek(2019, 14, 'Semi-Finals')).toBe('WEEKS 14+15');
-    expect(formatPlayoffWeek(2019, 16, 'Championship Final')).toBe('WEEKS 16+17');
+  it('should format aggregate playoff weeks for pre-2022 Pride Guys and single weeks for Y2K', () => {
+    // Pride Guys pre-2022 2-week aggregate rounds
+    expect(formatPlayoffWeek(2020, 13, 'Semi-Finals', true)).toBe('WEEKS 13+14');
+    expect(formatPlayoffWeek(2020, 15, 'Championship Final', true)).toBe('WEEKS 15+16');
+    expect(formatPlayoffWeek(2019, 14, 'Semi-Finals', true)).toBe('WEEKS 14+15');
+    expect(formatPlayoffWeek(2019, 16, 'Championship Final', true)).toBe('WEEKS 16+17');
+    expect(formatPlayoffWeek(2024, 16, 'Championship Final', true)).toBe('WEEK 16');
+
+    // Y2K pre-2022 single-week rounds
+    expect(formatPlayoffWeek(2018, 15, 'Semi-Finals', false)).toBe('WEEK 15');
+    expect(formatPlayoffWeek(2018, 16, 'Nebuchadnezzar Cup', false)).toBe('WEEK 16');
+    expect(formatPlayoffWeek(2020, 15, 'Semi-Finals')).toBe('WEEK 15');
+    expect(formatPlayoffWeek(2020, 16, 'Nebuchadnezzar Cup')).toBe('WEEK 16');
+    expect(formatPlayoffWeek(2021, 15, 'Wild Card')).toBe('WEEK 15');
+    expect(formatPlayoffWeek(2021, 16, 'Semi-Finals')).toBe('WEEK 16');
+    expect(formatPlayoffWeek(2021, 17, 'Nebuchadnezzar Cup')).toBe('WEEK 17');
     expect(formatPlayoffWeek(2024, 16, 'Championship Final')).toBe('WEEK 16');
   });
 
