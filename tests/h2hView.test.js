@@ -164,5 +164,132 @@ describe('H2H View Component', () => {
     expect(prideCss).toContain('.h2h-matrix-container');
     expect(prideCss).toContain('overflow-y: hidden !important');
   });
+
+  it('should expand 6-win multi-ties into individual rows and hide streaks outside top 20', () => {
+    const mockStreaks = [
+      { winner: 'Michael', loser: 'Dylan', streak: 9, active: true, type: 'overall' },
+      { winner: 'Andrew', loser: 'Michael', streak: 7, active: false, type: 'overall' },
+      // 6W tier with 3 streaks (Ranks 3, 4, 5) - must all be expanded
+      { winner: 'Michael', loser: 'Austin', streak: 6, active: false, type: 'overall' },
+      { winner: 'Michael', loser: 'Trace', streak: 6, active: false, type: 'overall' },
+      { winner: 'Michael', loser: 'James', streak: 6, active: false, type: 'overall' },
+      // 5W tier
+      { winner: 'Aidan', loser: 'Trace', streak: 5, active: true, type: 'overall' },
+      { winner: 'Austin', loser: 'Sean', streak: 5, active: false, type: 'overall' },
+      // 4W tier: 2 active, 4 past (starts at rank 8)
+      { winner: 'Sean', loser: 'Aidan', streak: 4, active: true, type: 'overall' },
+      { winner: 'Aidan', loser: 'Nathan', streak: 4, active: true, type: 'overall' },
+      { winner: 'Sean', loser: 'Dylan', streak: 4, active: false, type: 'overall' },
+      { winner: 'Trace', loser: 'Sean', streak: 4, active: false, type: 'overall' },
+      { winner: 'Aidan', loser: 'Michael', streak: 4, active: false, type: 'overall' },
+      { winner: 'Sean', loser: 'Tyler', streak: 4, active: false, type: 'overall' },
+      // 3W tier: starts at rank 14, count 10 -> terminates after rank 14 + 10 = 24
+      ...Array.from({ length: 10 }, (_, i) => ({
+        winner: `Winner${i}`, loser: `Loser${i}`, streak: 3, active: false, type: 'overall'
+      })),
+      // 2W tier: starts at rank 24 > 20 -> must be hidden!
+      { winner: 'OutsideTop20', loser: 'Hidden', streak: 2, active: false, type: 'overall' }
+    ];
+
+    mockStreaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : (b.active ? 1 : 0) - (a.active ? 1 : 0));
+
+    const rows = [];
+    let i = 0;
+    let rankNumber = 1;
+    let activeSurfaced = 0;
+
+    while (i < mockStreaks.length && rankNumber <= 20) {
+      const curStreakVal = mockStreaks[i].streak;
+      let j = i;
+      while (j < mockStreaks.length && mockStreaks[j].streak === curStreakVal) j++;
+      const group = mockStreaks.slice(i, j);
+      const countWithVal = group.length;
+
+      const activeInGroup = group.filter(s => s.active);
+      const pastInGroup = group.filter(s => !s.active);
+
+      const shouldExpandAll = rankNumber === 1 || countWithVal <= 2 || curStreakVal >= 6;
+
+      if (shouldExpandAll) {
+        for (let k = 0; k < group.length; k++) {
+          const s = group[k];
+          const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
+          rows.push({ type: 'single', rank: rankNumber, displayRank: displayRank, item: s });
+          if (s.active) activeSurfaced++;
+        }
+      } else {
+        const activeToSurface = [];
+        const activeToKeepInTie = [];
+        activeInGroup.forEach(s => {
+          if (activeSurfaced < 10) {
+            activeToSurface.push(s);
+            activeSurfaced++;
+          } else {
+            activeToKeepInTie.push(s);
+          }
+        });
+
+        activeToSurface.forEach(s => {
+          rows.push({ type: 'single', rank: rankNumber, displayRank: `T-#${rankNumber}`, item: s });
+        });
+
+        const remainingTied = [...activeToKeepInTie, ...pastInGroup];
+        if (remainingTied.length === 1) {
+          rows.push({ type: 'single', rank: rankNumber, displayRank: `T-#${rankNumber}`, item: remainingTied[0] });
+        } else if (remainingTied.length > 1) {
+          rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: remainingTied.length, items: remainingTied });
+        }
+      }
+
+      rankNumber += countWithVal;
+      i = j;
+    }
+
+    const finalRows = rows.filter(r => r.rank <= 20);
+
+    // 1. Verify 6-win multi-ties are expanded into individual single rows with T-#3
+    const sixWinRows = finalRows.filter(r => r.type === 'single' && r.item.streak === 6);
+    expect(sixWinRows.length).toBe(3);
+    sixWinRows.forEach(r => {
+      expect(r.displayRank).toBe('T-#3');
+      expect(r.rank).toBe(3);
+    });
+
+    // 2. Verify all rendered streaks have rank <= 20
+    expect(finalRows.every(r => r.rank <= 20)).toBe(true);
+
+    // 3. Verify streaks outside top 20 are completely excluded
+    expect(finalRows.some(r => r.item && r.item.winner === 'OutsideTop20')).toBe(false);
+  });
+
+  it('should verify streak and matrix scope buttons exist in HTML and are bound in JS', async () => {
+    const fs = await import('fs');
+    const appJs = fs.readFileSync('src/app.js', 'utf8');
+    const prideAppJs = fs.readFileSync('src/pride_app.js', 'utf8');
+    const indexHtml = fs.readFileSync('index.html', 'utf8');
+    const prideHtml = fs.readFileSync('pride_guys.html', 'utf8');
+
+    // Both HTML files have streak scope buttons
+    expect(indexHtml).toContain('id="streak-scope-active"');
+    expect(indexHtml).toContain('id="streak-scope-all"');
+    expect(prideHtml).toContain('id="streak-scope-active"');
+    expect(prideHtml).toContain('id="streak-scope-all"');
+
+    // Both HTML files have matrix scope buttons
+    expect(indexHtml).toContain('id="matrix-scope-active"');
+    expect(indexHtml).toContain('id="matrix-scope-all"');
+    expect(prideHtml).toContain('id="matrix-scope-active"');
+    expect(prideHtml).toContain('id="matrix-scope-all"');
+
+    // Both JS files define and export toggleStreakScope
+    expect(appJs).toContain('function toggleStreakScope');
+    expect(appJs).toContain('window.toggleStreakScope = toggleStreakScope');
+    expect(prideAppJs).toContain('function toggleStreakScope');
+    expect(prideAppJs).toContain('window.toggleStreakScope = toggleStreakScope');
+
+    // Both JS files default to active scope
+    expect(appJs).toContain("let currentStreakScope = 'active'");
+    expect(prideAppJs).toContain("let currentStreakScope = 'active'");
+  });
 });
 

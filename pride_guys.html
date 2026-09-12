@@ -330,11 +330,17 @@
       <div class="crt-box rounded overflow-visible mb-6">
         <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span>🔥 H2H Winning Streaks Leaderboard</span>
-          <div class="flex items-center gap-1 flex-wrap justify-center">
-            <button onclick="filterH2HStreaks('all')" id="streak-filter-all" class="streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-xs">ALL STREAKS</button>
-            <button onclick="filterH2HStreaks('active')" id="streak-filter-active" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">🔥 ACTIVE ONLY</button>
-            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">REGULAR SEASON</button>
-            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">PLAYOFFS</button>
+          <div class="flex items-center gap-2 flex-wrap justify-center">
+            <div class="flex items-center gap-1 flex-wrap justify-center" id="h2h-streak-filter-buttons">
+              <button onclick="filterH2HStreaks('all')" id="streak-filter-all" class="streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-xs">ALL STREAKS</button>
+              <button onclick="filterH2HStreaks('active')" id="streak-filter-active" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">🔥 ACTIVE ONLY</button>
+              <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">REGULAR SEASON</button>
+              <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff" class="streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs">PLAYOFFS</button>
+            </div>
+            <div class="flex gap-1 ml-1 border-l border-pink-300 pl-2" id="h2h-streak-scope-buttons">
+              <button id="streak-scope-active" onclick="toggleStreakScope('active')" class="streak-scope-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full">ACTIVE MANAGERS</button>
+              <button id="streak-scope-all" onclick="toggleStreakScope('all')" class="streak-scope-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full">ALL MANAGERS</button>
+            </div>
           </div>
         </div>
         <div class="table-scroll-container">

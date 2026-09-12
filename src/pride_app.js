@@ -1320,14 +1320,23 @@ function renderLucideIcons() {
 
       renderH2HComparison();
       renderH2HMatrix();
-      renderH2HStreaks('all');
+      renderH2HStreaks('all', 'active');
     }
+
+    let currentStreakFilter = 'all';
+    let currentStreakScope = 'active';
 
     function filterH2HStreaks(filterType = 'all') {
-      renderH2HStreaks(filterType);
+      currentStreakFilter = filterType;
+      renderH2HStreaks(filterType, currentStreakScope);
     }
 
-    function renderH2HStreaks(filterType = 'all') {
+    function toggleStreakScope(scope = 'active') {
+      currentStreakScope = scope;
+      renderH2HStreaks(currentStreakFilter, scope);
+    }
+
+    function renderH2HStreaks(filterType = currentStreakFilter, scope = currentStreakScope) {
       const tbody = document.getElementById('h2h-streaks-table-body');
       if (!tbody) return;
       tbody.innerHTML = '';
@@ -1338,6 +1347,14 @@ function renderLucideIcons() {
       const activeBtn = document.getElementById(`streak-filter-${filterType}`);
       if (activeBtn) {
         activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-xs';
+      }
+
+      document.querySelectorAll('.streak-scope-btn').forEach(btn => {
+        btn.className = 'streak-scope-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full';
+      });
+      const activeScopeBtn = document.getElementById(`streak-scope-${scope}`);
+      if (activeScopeBtn) {
+        activeScopeBtn.className = 'streak-scope-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full';
       }
 
       let streaks = window.LEAGUE_DATA.h2hStreaks || [];
@@ -1352,6 +1369,16 @@ function renderLucideIcons() {
         streaks = streaks.filter(s => s.type === 'overall');
       }
 
+      const seasonsList = window.LEAGUE_DATA.seasons || [];
+      const latestYr = seasonsList[seasonsList.length - 1] || '2025';
+      const activeSeasonStandings = (window.LEAGUE_DATA.seasonData[latestYr] && window.LEAGUE_DATA.seasonData[latestYr].standings)
+        ? window.LEAGUE_DATA.seasonData[latestYr].standings.map(s => s.ownerName)
+        : [];
+
+      if (scope === 'active') {
+        streaks = streaks.filter(s => activeSeasonStandings.includes(s.winner) && activeSeasonStandings.includes(s.loser));
+      }
+
       if (streaks.length === 0) {
         tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-purple-700 italic">No head-to-head streaks recorded for this filter.</td></tr>`;
         return;
@@ -1364,7 +1391,7 @@ function renderLucideIcons() {
       let rankNumber = 1;
       let activeSurfaced = 0;
 
-      while (i < streaks.length && (activeSurfaced < 10 || rows.length < 10) && rows.length < 25) {
+      while (i < streaks.length && rankNumber <= 20) {
         const curStreakVal = streaks[i].streak;
         let j = i;
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
@@ -1374,7 +1401,9 @@ function renderLucideIcons() {
         const activeInGroup = group.filter(s => s.active);
         const pastInGroup = group.filter(s => !s.active);
 
-        if (rankNumber === 1 || countWithVal <= 2) {
+        const shouldExpandAll = rankNumber === 1 || countWithVal <= 2 || curStreakVal >= 6;
+
+        if (shouldExpandAll) {
           for (let k = 0; k < group.length; k++) {
             const s = group[k];
             const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
@@ -1409,8 +1438,11 @@ function renderLucideIcons() {
         i = j;
       }
 
-      rows.forEach((r, idx) => {
+      const finalRows = rows.filter(r => r.rank <= 20);
+
+      finalRows.forEach((r, idx) => {
         const tr = document.createElement('tr');
+        const rowPopDir = idx < Math.ceil(finalRows.length / 2) ? ' tooltip-content-bottom' : '';
 
         if (r.type === 'single') {
           const s = r.item;
@@ -1447,7 +1479,6 @@ function renderLucideIcons() {
             gameScoreListHtml = `<div class="text-xs text-purple-700 italic font-sans">Game-by-game scores recorded in database.</div>`;
           }
 
-          const rowPopDir = idx < Math.ceil(rows.length / 2) ? ' tooltip-content-bottom' : '';
           const streakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm rounded shadow-sm hover:bg-pink-100 transition-all">${s.streak} WINS</span>
@@ -1492,7 +1523,6 @@ function renderLucideIcons() {
             </div>
           `).join('');
 
-          const rowPopDir = idx < Math.ceil(rows.length / 2) ? ' tooltip-content-bottom' : '';
           const multiStreakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-pink-400 bg-pink-100 text-pink-700 font-black text-xs rounded shadow-sm hover:bg-pink-200 transition-all">${r.streakVal} WINS EACH</span>
@@ -3113,6 +3143,7 @@ if (typeof onMatchupSeasonChange === "function") window.onMatchupSeasonChange = 
 if (typeof filterH2HStreaks === "function") window.filterH2HStreaks = filterH2HStreaks;
 if (typeof filterH2HMatrix === "function") window.filterH2HMatrix = filterH2HMatrix;
 if (typeof toggleMatrixScope === "function") window.toggleMatrixScope = toggleMatrixScope;
+if (typeof toggleStreakScope === "function") window.toggleStreakScope = toggleStreakScope;
 if (typeof selectH2HMatchup === "function") window.selectH2HMatchup = selectH2HMatchup;
 if (typeof renderH2HComparison === "function") window.renderH2HComparison = renderH2HComparison;
 if (typeof renderFranchiseProfile === "function") window.renderFranchiseProfile = renderFranchiseProfile;
