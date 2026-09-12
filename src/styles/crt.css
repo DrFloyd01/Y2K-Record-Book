@@ -104,24 +104,16 @@ body {
   height: 0;
 }
 
-/* Popover scrollbar styling */
+/* Popover scrollbar styling (suppressed for clean retro terminal aesthetic) */
 .popover-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #00aa44 #040d06;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 .popover-scrollbar::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-
-.popover-scrollbar::-webkit-scrollbar-track {
-  background: #040d06;
-}
-
-.popover-scrollbar::-webkit-scrollbar-thumb {
-  background: #00aa44;
-  border-radius: 2px;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* Tooltip & Popover Layout Engine */
@@ -138,51 +130,50 @@ body {
 #stat-cards-grid > div:hover,
 #stat-cards-grid > div:has(.tooltip-trigger:hover),
 .crt-box:has(.tooltip-trigger:hover),
-.record-card:hover {
+.record-card:hover,
+.matchup-card-container:hover,
+.matchup-card-container:has(.tooltip-trigger:hover) {
   position: relative;
   z-index: 99999 !important;
 }
 
 .tooltip-content {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   position: absolute !important;
   z-index: 999999 !important;
-  bottom: calc(100% + 10px) !important;
+  bottom: calc(100% + 8px) !important;
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: auto !important;
+  pointer-events: none;
   cursor: default;
   width: 288px !important;
   max-width: 90vw !important;
-  max-height: 220px !important;
+  max-height: 250px !important;
   overflow-y: auto !important;
   white-space: normal;
   box-sizing: border-box !important;
-  scrollbar-width: thin;
-  scrollbar-color: #00ff66 #020b05;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 102, 0.2);
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition-delay: 0.3s;
 }
 
 .tooltip-content::-webkit-scrollbar {
-  width: 4px;
-}
-.tooltip-content::-webkit-scrollbar-track {
-  background: #020b05;
-  border-radius: 4px;
-}
-.tooltip-content::-webkit-scrollbar-thumb {
-  background: #00ff66;
-  border-radius: 4px;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* Hover Bridge to keep popover open when cursor travels into it */
 .tooltip-content::before {
   content: '';
   position: absolute;
-  top: -14px;
-  left: 0;
-  right: 0;
-  height: 14px;
+  top: -18px;
+  left: -12px;
+  right: -12px;
+  height: 22px;
   display: block;
   pointer-events: auto;
 }
@@ -190,17 +181,21 @@ body {
 .tooltip-content::after {
   content: '';
   position: absolute;
-  bottom: -14px;
-  left: 0;
-  right: 0;
-  height: 14px;
+  bottom: -18px;
+  left: -12px;
+  right: -12px;
+  height: 22px;
   display: block;
   pointer-events: auto;
 }
 
 .tooltip-trigger:hover > .tooltip-content,
-.tooltip-trigger:focus-within > .tooltip-content {
-  display: block !important;
+.tooltip-trigger:focus-within > .tooltip-content,
+.tooltip-content:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition-delay: 0s !important;
 }
 
 .tooltip-content-left,
@@ -219,5 +214,43 @@ body {
 
 .tooltip-content-bottom {
   bottom: auto !important;
-  top: calc(100% + 10px) !important;
+  top: calc(100% + 8px) !important;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Matchup Stakes Popover: fixed window view, no outer scrollbars */
+.matchup-stakes-popover {
+  overflow: hidden !important;
+  max-height: none !important;
+  scrollbar-width: none !important;
+}
+.matchup-stakes-popover::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* H2H Matrix Container: clean fixed matrix view, no scrollbars */
+.h2h-matrix-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.h2h-matrix-container::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }

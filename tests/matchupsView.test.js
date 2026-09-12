@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   sortMatchupsByStandingRank,
+  computeMatchupStakes,
   buildWeeklyMatchupsGridHtml,
   buildManagerSeasonGameLogHtml,
   formatPlayoffStageTag
@@ -29,6 +30,14 @@ describe('Matchups View Component', () => {
     { seasonYear: 2025, weekNumber: 1, homeOwner: 'Casey', homeTeam: 'Casey Team', homeScore: 130.0, awayOwner: 'Boaz', awayTeam: 'Boaz Team', awayScore: 128.0 }
   ];
 
+  const mockHistory = [
+    // 2024 games between Dylan and Tess
+    { seasonYear: 2024, weekNumber: 5, homeOwner: 'Dylan', homeScore: 130.0, awayOwner: 'Tess', awayScore: 110.0, isPlayoff: false },
+    { seasonYear: 2024, weekNumber: 12, homeOwner: 'Dylan', homeScore: 145.0, awayOwner: 'Tess', awayScore: 115.0, isPlayoff: false },
+    // 2024 playoff game between Dylan and Tess
+    { seasonYear: 2024, weekNumber: 16, homeOwner: 'Dylan', homeScore: 155.0, awayOwner: 'Tess', awayScore: 140.0, isPlayoff: true, stage: 'Semifinals' }
+  ];
+
   it('should sort matchups by standing ranks so marquee games come first', () => {
     const sorted = sortMatchupsByStandingRank(mockMatchups, mockRankMap);
     expect(sorted[0].homeOwner).toBe('Dylan'); // #1 vs #4
@@ -36,23 +45,89 @@ describe('Matchups View Component', () => {
     expect(sorted[sorted.length - 1].homeOwner).toBe('Dustin'); // #9 vs #10
   });
 
-  it('should render 5-across weekly grid in CRT theme', () => {
+  it('should compute matchup stakes with all streak games and all playoff games', () => {
+    const stakes = computeMatchupStakes({
+      o1: 'Dylan',
+      o2: 'Tess',
+      season: 2025,
+      week: 1,
+      allMatchups: mockHistory
+    });
+
+    expect(stakes.h2hClean).toBe('3-0');
+    expect(stakes.streakLeader).toBe('Dylan');
+    expect(stakes.streakCount).toBe(3);
+    expect(stakes.streakGames.length).toBe(3);
+    expect(stakes.streakGames[0].year).toBe(2024);
+    expect(stakes.streakGames[0].week).toBe(16);
+    expect(stakes.playoffRec).toBe('1-0');
+    expect(stakes.playoffGames.length).toBe(1);
+    expect(stakes.playoffGames[0].stage).toBe('Semifinals');
+  });
+
+  it('should render 3x2 responsive grid with Top Stakes Bar in CRT theme', () => {
     const html = buildWeeklyMatchupsGridHtml({
       matchups: mockMatchups,
       rankMap: mockRankMap,
       season: 2025,
       week: 1,
       mode: 'recap',
+      allMatchups: mockHistory,
       theme: CRT_THEME
     });
 
-    expect(html).toContain('MATCHUP #1');
+    expect(html).not.toContain('MATCHUP #1');
     expect(html).toContain('Globo Gym');
     expect(html).toContain('150.10');
-    expect(html).toContain('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5');
+    expect(html).toContain('grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4');
+    expect(html).toContain('window.jumpToH2H');
+    expect(html).toContain('⚡ STREAK:');
+    expect(html).toContain('🏆 PLAYOFFS:');
+    expect(html).toContain('tooltip-trigger');
+    expect(html).toContain('matchup-stakes-popover');
+    expect(html).toContain('no-scrollbar');
+    expect(html).toContain('window.jumpToMatchup(2024, 16, \'Dylan\', \'Tess\')');
   });
 
-  it('should render 5-across weekly grid in Pride theme', () => {
+  it('should render clean badge labels when showReportScores is false and details when true', () => {
+    const customComm = {
+      matchups: [
+        {
+          homeOwner: 'Dylan',
+          awayOwner: 'Tess',
+          streak: 'Dylan 3 (Wk16\'24, 155.00-140.00)',
+          playoffs: '1-0 (SF\'24, 155.00-140.00)'
+        }
+      ]
+    };
+
+    const cleanHtml = buildWeeklyMatchupsGridHtml({
+      matchups: [mockMatchups[1]], // Dylan vs Tess
+      rankMap: mockRankMap,
+      season: 2025,
+      week: 1,
+      commentary: customComm,
+      showReportScores: false,
+      theme: CRT_THEME
+    });
+    // In clean mode, parentheses should not be in the badge chip
+    expect(cleanHtml).toContain('Dylan 3');
+    expect(cleanHtml).not.toContain('Dylan 3 (Wk16');
+
+    const detailedHtml = buildWeeklyMatchupsGridHtml({
+      matchups: [mockMatchups[1]],
+      rankMap: mockRankMap,
+      season: 2025,
+      week: 1,
+      commentary: customComm,
+      showReportScores: true,
+      theme: CRT_THEME
+    });
+    // In report details mode, full score details should be present
+    expect(detailedHtml).toContain('Dylan 3 (Wk16\'24, 155.00-140.00)');
+  });
+
+  it('should render 3x2 weekly grid in Pride theme', () => {
     const html = buildWeeklyMatchupsGridHtml({
       matchups: mockMatchups,
       rankMap: mockRankMap,
@@ -62,9 +137,10 @@ describe('Matchups View Component', () => {
       theme: PRIDE_THEME
     });
 
-    expect(html).toContain('MATCHUP #1');
+    expect(html).not.toContain('MATCHUP #1');
     expect(html).toContain('Globo Gym');
     expect(html).toContain('border-pink-200');
+    expect(html).toContain('grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4');
   });
 
   it('should render manager full-season game log', () => {

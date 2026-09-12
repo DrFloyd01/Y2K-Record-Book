@@ -118,9 +118,10 @@ export function buildConsolationLadderHtml({ season, consolationMatchups = [], s
         : (isAwayWin ? 'font-bold text-pink-700 bg-pink-50/80 px-1 py-0.5 rounded border border-pink-300 crt-glow-pink-pink' : 'text-purple-800 px-1');
 
       wkListHtml += `
-        <div class="${isCrt ? 'bg-black/95 border-emerald-900' : 'bg-white/95 border-pink-200'} p-2.5 rounded-xl border shadow-sm text-xs space-y-1">
+        <div class="${isCrt ? 'bg-black/95 border-emerald-900 hover:border-emerald-500' : 'bg-white/95 border-pink-200 hover:border-pink-400'} p-2.5 rounded-xl border shadow-sm text-xs space-y-1 cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${m.homeOwner}', '${m.awayOwner}')" title="Click to view consolation matchup & rosters">
           <div class="text-[9px] font-bold ${isCrt ? 'text-emerald-500 border-emerald-950' : 'text-purple-900/70 border-pink-100'} border-b pb-0.5 flex justify-between">
             <span>${rungLabel}</span>
+            <span class="text-[8px] opacity-0 group-hover:opacity-100 transition-opacity ${isCrt ? 'text-amber-400 font-mono' : 'text-pink-600 font-bold'}">📋 Box ➔</span>
           </div>
           <div class="flex justify-between items-center ${homeCardHighlight}">
             <span class="truncate">#${m.homeSeed} ${m.homeTeam} <span class="text-[10px] ${isCrt ? 'text-emerald-700' : 'text-purple-700'} font-normal">[${m.homeOwner}]</span></span>
@@ -252,10 +253,10 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
       const wkLabel = formatPlayoffWeek(season, m.weekNumber || m.week, m.stage);
 
       mListHtml += `
-        <div class="${isCrt ? 'bg-black/90' : 'bg-white/90'} p-3 rounded border ${cardBorder}">
+        <div class="${isCrt ? 'bg-black/90 hover:border-emerald-400' : 'bg-white/90 hover:border-pink-400'} p-3 rounded border ${cardBorder} cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${m.homeOwner}', '${m.awayOwner}')" title="Click to view playoff box score & rosters">
           <div class="text-[10px] font-bold tracking-wider ${isCrt ? 'text-emerald-500' : 'text-pink-600'} mb-2 flex justify-between uppercase">
             <span>[${m.stage}]</span>
-            <span>${wkLabel}</span>
+            <span class="flex items-center gap-1">${wkLabel} <span class="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity ${isCrt ? 'text-amber-400 font-mono font-bold' : 'text-pink-600 font-bold'}">📋 Box ➔</span></span>
           </div>
           <div class="space-y-1.5 text-xs">
             <div class="flex justify-between items-center p-1.5 rounded ${homeWinnerClass}">

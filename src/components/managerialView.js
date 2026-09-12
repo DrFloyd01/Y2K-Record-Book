@@ -128,6 +128,13 @@ export function buildManagerialProwessHtml({
             <span class="text-[10px] text-emerald-400 block">Net Win Margin</span>
           </div>
         </div>
+
+        <div class="mt-3 text-center">
+          <button type="button" onclick="window.jumpToMatchup(${topDOh.year || (selectedSeason !== 'allTime' ? selectedSeason : 2025)}, ${topDOh.week}, '${topDOh.ownerName}')" class="w-full sm:w-auto px-4 py-1.5 ${isCrt ? 'bg-red-950 hover:bg-red-900 border border-red-600 text-red-200 font-mono' : 'bg-red-100 hover:bg-red-200 border border-red-300 text-red-800 font-sans'} font-bold text-xs rounded transition-all inline-flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+            <span>🏈 JUMP TO WEEK ${topDOh.week} MATCHUP &amp; ROSTERS</span>
+            <span>➔</span>
+          </button>
+        </div>
       </div>
     `;
   }

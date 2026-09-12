@@ -23,7 +23,12 @@ import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
 import { buildFranchiseProfileHtml, isConcludedSeason } from './components/franchiseView.js';
 import { buildMatchupLineupCardHtml } from './components/managerialView.js';
-import { buildWeeklyMatchupsGridHtml, buildManagerSeasonGameLogHtml } from './components/matchupsView.js';
+import {
+  buildWeeklyMatchupsGridHtml,
+  buildManagerSeasonGameLogHtml,
+  computeMatchupStakes,
+  sortMatchupsByStandingRank
+} from './components/matchupsView.js';
 
 // Setup Lucide icons wrapper
 function renderLucideIcons() {
@@ -40,6 +45,7 @@ function renderLucideIcons() {
     let standingsSortAsc = true;
     let luckChartInstance = null;
     let pfPaChartInstance = null;
+    const renderedTabs = new Set(['seasons']);
 
     window.addEventListener('resize', () => updateNavIndicator(currentTab));
 
@@ -50,23 +56,27 @@ function renderLucideIcons() {
         initStatsYearSelects();
         renderStandings();
         renderStatRecords();
-        initH2HSelects();
-        renderChamps();
-        initTeamOwnerSelect();
-        renderAnalytics();
-        renderStatsTable();
-        initDraftTab();
-        initMatchupsTab();
         renderLucideIcons();
 
         // Direct Deep Linking Support via URL Hash
-        const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
-        const initialHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+        const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
+        const initialHash = rawHash.split('?')[0].split('&')[0].split('/')[0].toLowerCase();
         const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'playoffs', 'bracket'];
         if (initialHash && validTabs.includes(initialHash)) {
           if (initialHash === 'playoffs' || initialHash === 'bracket') {
             switchTab('seasons');
             if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+          } else if (initialHash === 'matchups' || initialHash === 'matchup') {
+            const urlParams = new URLSearchParams(window.location.hash.includes('?') ? window.location.hash.split('?')[1] : '');
+            const s = urlParams.get('season') || urlParams.get('year') || urlParams.get('y');
+            const w = urlParams.get('week') || urlParams.get('w');
+            const o1 = urlParams.get('o1') || urlParams.get('owner1');
+            const o2 = urlParams.get('o2') || urlParams.get('owner2');
+            if (s && w && typeof jumpToMatchup === 'function') {
+              jumpToMatchup(s, w, o1, o2);
+            } else {
+              switchTab('matchups');
+            }
           } else {
             const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
             switchTab(targetTab);
@@ -102,17 +112,47 @@ function renderLucideIcons() {
     }
 
     window.addEventListener('hashchange', () => {
-      const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase().trim();
-      const newHash = rawHash.split('?')[0].split('&')[0].split('/')[0];
+      const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
+      const newHash = rawHash.split('?')[0].split('&')[0].split('/')[0].toLowerCase();
       const validTabs = ['seasons', 'stats', 'matchups', 'h2h', 'champs', 'teams', 'draft', 'analytics', 'playoffs', 'bracket'];
       if (newHash && validTabs.includes(newHash)) {
         if (newHash === 'playoffs' || newHash === 'bracket') {
           switchTab('seasons');
           if (typeof switchSeasonsSubTab === 'function') switchSeasonsSubTab('playoff');
+        } else if (newHash === 'matchups' || newHash === 'matchup') {
+          const urlParams = new URLSearchParams(window.location.hash.includes('?') ? window.location.hash.split('?')[1] : '');
+          const s = urlParams.get('season') || urlParams.get('year') || urlParams.get('y');
+          const w = urlParams.get('week') || urlParams.get('w');
+          const o1 = urlParams.get('o1') || urlParams.get('owner1');
+          const o2 = urlParams.get('o2') || urlParams.get('owner2');
+          if (s && w && typeof jumpToMatchup === 'function') {
+            jumpToMatchup(s, w, o1, o2);
+          } else {
+            if (currentTab !== 'matchups') switchTab('matchups');
+          }
         } else {
           const targetTab = (newHash === 'bounties') ? 'challenges' : newHash;
           if (currentTab !== targetTab) switchTab(targetTab);
         }
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      const isInputActive = document.activeElement && (
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName) ||
+        document.activeElement.isContentEditable
+      );
+      if (e.key === 'Escape' || (!isInputActive && (e.key === 'Backspace' || e.key === 'BrowserBack'))) {
+        if (window.matchupReturnHistory && currentTab === 'matchups') {
+          e.preventDefault();
+          returnFromMatchupJump();
+        }
+      }
+    });
+
+    window.addEventListener('popstate', (e) => {
+      if (window.matchupReturnHistory && currentTab === 'matchups') {
+        returnFromMatchupJump();
       }
     });
 
@@ -137,9 +177,14 @@ function renderLucideIcons() {
       currentTab = tabId;
       window.scrollTo(0, 0);
       if (typeof window !== 'undefined' && window.location && window.history && window.history.replaceState) {
-        if (window.location.hash !== `#${tabId}`) {
+        const currentHash = (window.location.hash || '').replace(/^#/, '').split('?')[0].toLowerCase();
+        if (currentHash !== tabId) {
           history.replaceState(null, null, `#${tabId}`);
         }
+      }
+      if (tabId !== 'matchups') {
+        window.matchupReturnHistory = null;
+        updateMatchupReturnUI();
       }
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       const activeTabEl = document.getElementById(`tab-${tabId}`);
@@ -165,22 +210,23 @@ function renderLucideIcons() {
         activeMobileNav.className = 'mobile-nav-btn flex flex-col items-center justify-center flex-1 text-pink-600 font-black scale-105 transition-all';
       }
 
-      if (tabId === 'h2h') {
-        renderH2HComparison();
-        renderH2HMatrix();
-        renderH2HStreaks('all');
-      } else if (tabId === 'champs') {
-        renderChamps();
-      } else if (tabId === 'teams') {
-        initTeamOwnerSelect();
-      } else if (tabId === 'stats') {
-        renderStatsTable();
-      } else if (tabId === 'matchups') {
-        renderMatchupsTab();
-      } else if (tabId === 'draft') {
-        initDraftTab();
-      } else if (tabId === 'analytics') {
-        renderAnalyticsCharts();
+      if (!renderedTabs.has(tabId)) {
+        if (tabId === 'h2h') {
+          initH2HSelects();
+        } else if (tabId === 'champs') {
+          renderChamps();
+        } else if (tabId === 'teams') {
+          initTeamOwnerSelect();
+        } else if (tabId === 'stats') {
+          renderStatsTable();
+        } else if (tabId === 'matchups') {
+          initMatchupsTab();
+        } else if (tabId === 'draft') {
+          initDraftTab();
+        } else if (tabId === 'analytics') {
+          renderAnalytics();
+        }
+        renderedTabs.add(tabId);
       }
     }
 
@@ -527,8 +573,13 @@ function renderLucideIcons() {
         const wwCount = item.weeklyWins || 0;
         if (wwCount > 0 && item.wwDetails) {
           let tooltipList = item.wwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span></div>`;
+            const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
+            const yrStr = yr ? `${yr} ` : '';
+            const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
+            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-pink-50 hover:text-pink-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+              <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span></span>
+              <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+            </div>`;
           }).join('');
 
           wwBadge = `
@@ -547,8 +598,13 @@ function renderLucideIcons() {
         const lwCount = item.luckiestWins || 0;
         if (lwCount > 0 && item.lwDetails) {
           let tooltipList = item.lwDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</div>`;
+            const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
+            const yrStr = yr ? `${yr} ` : '';
+            const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
+            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-pink-50 hover:text-pink-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+              <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</span>
+              <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+            </div>`;
           }).join('');
 
           lwBadge = `
@@ -567,8 +623,13 @@ function renderLucideIcons() {
         const hbCount = item.heartbreaks || 0;
         if (hbCount > 0 && item.hbDetails) {
           let tooltipList = item.hbDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</div>`;
+            const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
+            const yrStr = yr ? `${yr} ` : '';
+            const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
+            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-red-50 hover:text-red-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+              <span>• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</span>
+              <span class="text-[9px] text-red-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+            </div>`;
           }).join('');
 
           hbBadge = `
@@ -587,8 +648,13 @@ function renderLucideIcons() {
         const tlCount = item.toughestLosses || 0;
         if (tlCount > 0 && item.tlDetails) {
           let tooltipList = item.tlDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-700">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</div>`;
+            const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
+            const yrStr = yr ? `${yr} ` : '';
+            const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
+            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-amber-50 hover:text-amber-900 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+              <span>• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-700">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</span>
+              <span class="text-[9px] text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+            </div>`;
           }).join('');
 
           tlBadge = `
@@ -607,11 +673,16 @@ function renderLucideIcons() {
         const doCount = item.dOhs !== undefined ? item.dOhs : (item.dOhDetails ? item.dOhDetails.length : 0);
         if (doCount > 0 && item.dOhDetails && item.dOhDetails.length > 0) {
           let tooltipList = item.dOhDetails.map(d => {
-            const yrStr = d.year ? `${d.year} ` : '';
+            const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
+            const yrStr = yr ? `${yr} ` : '';
+            const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}')"` : '';
             const swapStr = d.benchPlayer && d.starter 
               ? `Benched <span class="text-pink-700 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-purple-600 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-600 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
               : `Benched winning player for starter`;
-            return `<div class="py-0.5 text-xs text-left">• ${yrStr}Week ${d.week}: ${swapStr}</div>`;
+            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-sky-50 hover:text-sky-900 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+              <div>• ${yrStr}Week ${d.week}: ${swapStr}</div>
+              <span class="text-[9px] text-sky-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0 font-fredoka">📋 Box ➔</span>
+            </div>`;
           }).join('');
 
           doBadge = `
@@ -728,27 +799,27 @@ function renderLucideIcons() {
         const cardDefs = [
           { 
             title: 'JUGGERNAUT', key: 'juggernaut', subtitle: 'Single-game high score', 
-            data: topJugg ? { val: topJugg.valStr, owner: topJugg.owner, team: topJugg.team, sub: topJugg.sub } : null 
+            data: topJugg ? { val: topJugg.valStr, owner: topJugg.owner, team: topJugg.team, sub: topJugg.sub, year: topJugg.year, week: topJugg.week, homeOwner: topJugg.homeOwner, awayOwner: topJugg.awayOwner } : null 
           },
           { 
             title: 'FEATHERWEIGHT', key: 'featherweight', subtitle: 'Single-game low score', 
-            data: topFeather ? { val: topFeather.valStr, owner: topFeather.owner, team: topFeather.team, sub: topFeather.sub } : null 
+            data: topFeather ? { val: topFeather.valStr, owner: topFeather.owner, team: topFeather.team, sub: topFeather.sub, year: topFeather.year, week: topFeather.week, homeOwner: topFeather.homeOwner, awayOwner: topFeather.awayOwner } : null 
           },
           { 
             title: 'CAKEWALK', key: 'cakewalk', subtitle: 'Largest blowout margin', 
-            data: topCake ? { val: topCake.valStr, owner: topCake.owner, team: topCake.team, sub: topCake.sub } : null 
+            data: topCake ? { val: topCake.valStr, owner: topCake.owner, team: topCake.team, sub: topCake.sub, year: topCake.year, week: topCake.week, homeOwner: topCake.homeOwner, awayOwner: topCake.awayOwner } : null 
           },
           { 
             title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win', 
-            data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null 
+            data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub, year: topNail.year, week: topNail.week, homeOwner: topNail.homeOwner, awayOwner: topNail.awayOwner } : null 
           },
           { 
             title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score', 
-            data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null 
+            data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub, year: topGut.year, week: topGut.week, homeOwner: topGut.homeOwner, awayOwner: topGut.awayOwner } : null 
           },
           { 
             title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win', 
-            data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null 
+            data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub, year: topCrim.year, week: topCrim.week, homeOwner: topCrim.homeOwner, awayOwner: topCrim.awayOwner } : null 
           },
           { 
             title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Longest win streak', 
@@ -770,6 +841,14 @@ function renderLucideIcons() {
           const owner = card.data ? card.data.owner : '-';
           const sub = card.data ? card.data.sub : '';
 
+          if (card.data && card.data.year && card.data.week) {
+            div.onclick = (e) => {
+              if (e.target.closest('.tooltip-content')) return;
+              window.jumpToMatchup && window.jumpToMatchup(card.data.year, card.data.week, card.data.homeOwner, card.data.awayOwner);
+            };
+            div.title = `Click to jump to ${card.data.year} Week ${card.data.week} Matchup`;
+          }
+
           let popoverHtml = buildStatCardTop5Popover(card.title, card.key, currentSeason, rowPopDir);
           if (idx % 4 >= 2) {
             popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
@@ -780,7 +859,7 @@ function renderLucideIcons() {
           div.innerHTML = `
             <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">
               <span>&gt; ${card.title}</span>
-              <span class="text-[9px] text-purple-700 font-normal">Hover Top 5 🔍</span>
+              <span class="text-[9px] text-purple-700 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
             </div>
             <p class="text-xl font-black text-pink-700 crt-glow-pink-pink">${val}</p>
             <p class="text-xs font-bold text-purple-900 truncate mt-1">${team} <span class="text-[10px] text-pink-600 font-normal">[${owner}]</span></p>
@@ -1285,24 +1364,50 @@ function renderLucideIcons() {
       const rows = [];
       let i = 0;
       let rankNumber = 1;
+      let activeSurfaced = 0;
 
-      while (i < streaks.length && rows.length < 10) {
+      while (i < streaks.length && (activeSurfaced < 10 || rows.length < 10) && rows.length < 25) {
         const curStreakVal = streaks[i].streak;
         let j = i;
         while (j < streaks.length && streaks[j].streak === curStreakVal) j++;
-        const countWithVal = j - i;
+        const group = streaks.slice(i, j);
+        const countWithVal = group.length;
 
-        if (rankNumber === 1 || countWithVal <= 2 || rows.length + countWithVal <= 10) {
-          for (let k = i; k < j; k++) {
+        const activeInGroup = group.filter(s => s.active);
+        const pastInGroup = group.filter(s => !s.active);
+
+        if (rankNumber === 1 || countWithVal <= 2) {
+          for (let k = 0; k < group.length; k++) {
+            const s = group[k];
             const displayRank = countWithVal > 1 ? `T-#${rankNumber}` : `#${rankNumber}`;
-            rows.push({ type: 'single', rank: rankNumber, displayRank: displayRank, item: streaks[k] });
+            rows.push({ type: 'single', rank: rankNumber, displayRank: displayRank, item: s });
+            if (s.active) activeSurfaced++;
           }
-          rankNumber += countWithVal;
         } else {
-          const tiedGroup = streaks.slice(i, j);
-          rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: tiedGroup.length, items: tiedGroup });
-          rankNumber += countWithVal;
+          const activeToSurface = [];
+          const activeToKeepInTie = [];
+          activeInGroup.forEach(s => {
+            if (activeSurfaced < 10) {
+              activeToSurface.push(s);
+              activeSurfaced++;
+            } else {
+              activeToKeepInTie.push(s);
+            }
+          });
+
+          activeToSurface.forEach(s => {
+            rows.push({ type: 'single', rank: rankNumber, displayRank: `T-#${rankNumber}`, item: s });
+          });
+
+          const remainingTied = [...activeToKeepInTie, ...pastInGroup];
+          if (remainingTied.length === 1) {
+            rows.push({ type: 'single', rank: rankNumber, displayRank: `T-#${rankNumber}`, item: remainingTied[0] });
+          } else if (remainingTied.length > 1) {
+            rows.push({ type: 'tiedGroup', rank: rankNumber, streakVal: curStreakVal, count: remainingTied.length, items: remainingTied });
+          }
         }
+
+        rankNumber += countWithVal;
         i = j;
       }
 
@@ -1331,9 +1436,13 @@ function renderLucideIcons() {
               const hIsW = g.homeScore >= g.awayScore;
               const wS = hIsW ? (g.homeScore || 0) : (g.awayScore || 0);
               const lS = hIsW ? (g.awayScore || 0) : (g.homeScore || 0);
-              return `<div class="py-1 border-b border-pink-100 flex items-center justify-between text-xs">
+              const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${wk}, '${(s.winner || '').replace(/'/g, "\\'")}', '${(s.loser || '').replace(/'/g, "\\'")}')"` : '';
+              return `<div class="py-1 border-b border-pink-100 flex items-center justify-between text-xs cursor-pointer hover:bg-pink-50 hover:text-pink-800 px-1 rounded transition-colors group/row" ${clickAttr} title="Click to view matchup box score">
                 <span class="font-bold text-pink-700">${yr} ${stgTag}</span>
-                <span class="font-mono text-purple-950 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-mono text-purple-950 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+                  <span class="text-[9px] text-pink-600 opacity-0 group-hover/row:opacity-100 transition-opacity font-fredoka">📋 Box ➔</span>
+                </div>
               </div>`;
             }).join('');
           } else {
@@ -1351,7 +1460,7 @@ function renderLucideIcons() {
                 </div>
                 ${gameScoreListHtml}
                 <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
-                  🏈 Game-by-game scores for this streak
+                  💡 Click any score to jump to matchup &amp; box score
                 </div>
               </div>
             </div>
@@ -1464,14 +1573,24 @@ function renderLucideIcons() {
       const sel1 = document.getElementById('h2h-owner-1');
       const sel2 = document.getElementById('h2h-owner-2');
       if (sel1 && sel2) {
-        sel1.value = o1;
-        sel2.value = o2;
+        const opt1 = Array.from(sel1.options).find(o => o.value === o1 || o.value.toLowerCase() === (o1 || '').toLowerCase());
+        const opt2 = Array.from(sel2.options).find(o => o.value === o2 || o.value.toLowerCase() === (o2 || '').toLowerCase());
+        if (opt1) sel1.value = opt1.value;
+        else sel1.value = o1;
+        if (opt2) sel2.value = opt2.value;
+        else sel2.value = o2;
         renderH2HComparison();
         const targetSection = document.getElementById('h2h-compare-section');
         if (targetSection) {
           targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    }
+
+    function jumpToH2H(o1, o2) {
+      if (typeof switchTab === 'function') switchTab('h2h');
+      else if (typeof window.switchTab === 'function') window.switchTab('h2h');
+      selectH2HMatchup(o1, o2);
     }
 
         let currentMatrixFilter = 'all';
@@ -1528,11 +1647,9 @@ function renderLucideIcons() {
       headerTr += '</tr>';
       header.innerHTML = headerTr;
 
-      owners.forEach((o1, idx1) => {
-        const rowPopDir = idx1 < Math.ceil(owners.length / 2) ? ' tooltip-content-bottom' : '';
+      owners.forEach(o1 => {
         let tr = `<tr class="border-b border-pink-100"><td class="p-1.5 font-bold text-left text-pink-700 bg-white/60">${o1}</td>`;
-        owners.forEach((o2, idx2) => {
-          const colPopDir = idx2 >= Math.floor(owners.length / 2) ? ' tooltip-content-right' : '';
+        owners.forEach(o2 => {
           if (o1 === o2) {
             tr += `<td class="p-1.5 text-pink-600/40 bg-white">-</td>`;
           } else {
@@ -1579,26 +1696,9 @@ function renderLucideIcons() {
               }
 
               tr += `
-                <td class="p-1.5 ${cellClass} cursor-pointer hover:scale-105 hover:bg-pink-100 transition-all text-center rounded-lg" data-o1="${encodeURIComponent(o1)}" data-o2="${encodeURIComponent(o2)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-o1')), decodeURIComponent(this.getAttribute('data-o2')))">
-                  <div class="tooltip-trigger inline-block">
-                    <span>${cellTotalStr}</span>
-                    ${diffBadge}
-                    <div class="tooltip-content${rowPopDir}${colPopDir} p-3 bg-white text-pink-700 rounded border border-pink-400 text-xs shadow-2xl space-y-1 text-left min-w-[240px] z-50">
-                      <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">${o1} vs ${o2} H2H Breakdown</div>
-                      <div class="text-xs text-pink-700">• <span class="font-bold text-pink-600">Regular Season:</span> ${o1} ${b.regW1} - ${b.regW2} ${o2}</div>
-                      <div class="text-xs text-amber-800">• <span class="font-bold text-amber-400">Playoffs &amp; RR:</span> ${o1} ${b.playW1} - ${b.playW2} ${o2}</div>
-                      <div class="text-xs text-pink-600 font-bold">• <span class="text-purple-900">Total Lifetime:</span> ${o1} ${b.totW1} - ${b.totW2} ${o2}</div>
-                      <div class="pt-1 border-t border-pink-200 text-xs text-pink-600 font-bold">
-                        🔥 <span class="text-pink-700">Active Win Streak:</span> <span class="text-amber-800">${b.ovrStreak}</span>
-                      </div>
-                      <div class="text-[11px] text-purple-700">
-                        (Reg: ${b.regStreak} | Playoff/RR: ${b.playStreak})
-                      </div>
-                      <div class="text-[10px] text-amber-400 font-bold pt-1 border-t border-pink-200 text-center">
-                        🔍 Click cell to query full game log
-                      </div>
-                    </div>
-                  </div>
+                <td class="p-1.5 ${cellClass} cursor-pointer hover:bg-pink-100 transition-colors text-center rounded-lg" data-o1="${encodeURIComponent(o1)}" data-o2="${encodeURIComponent(o2)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-o1')), decodeURIComponent(this.getAttribute('data-o2')))" title="Click to view ${o1} vs ${o2} rivalry log">
+                  <span class="font-bold">${cellTotalStr}</span>
+                  ${diffBadge}
                 </td>
               `;
             } else {
@@ -1690,6 +1790,7 @@ function renderLucideIcons() {
 
         champs.forEach(c => {
           const yr = c.seasonYear;
+          const titleWk = yr >= 2021 ? 17 : 16;
           const scOwner = c.scoringChampOwner || '-';
           const scTeam = c.scoringChampTeam || '-';
           const scPF = c.scoringChampPF ? c.scoringChampPF.toFixed(1) : '-';
@@ -1769,17 +1870,20 @@ function renderLucideIcons() {
                   <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
                   ${champEffBadge}
                 </div>
+                <button type="button" onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.firstOwner || '').replace(/'/g, "\\'")}', '${(c.secondOwner || '').replace(/'/g, "\\'")}')" class="mt-2 w-full flex items-center justify-center gap-1.5 py-1 px-2.5 bg-amber-200/80 hover:bg-amber-300 text-amber-950 border border-amber-400 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all shadow-sm cursor-pointer">
+                  🏆 JUMP TO TITLE GAME ➔
+                </button>
               </div>
 
               <!-- 2nd and 3rd Podium Finishers -->
               <div class="space-y-1.5 text-xs border-t border-b border-pink-100 py-2.5 my-2 text-purple-950">
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center group cursor-pointer hover:text-purple-700" onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.firstOwner || '').replace(/'/g, "\\'")}', '${(c.secondOwner || '').replace(/'/g, "\\'")}')" title="Jump to Title Game Matchup">
                   <span class="text-slate-600 font-bold">🥈 2nd Place:</span>
-                  <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span></span>
+                  <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span> <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">📋 Box ➔</span></span>
                 </div>
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center ${c.thirdOwner ? 'group cursor-pointer hover:text-purple-700' : ''}" ${c.thirdOwner ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.thirdOwner || '').replace(/'/g, "\\'")}', '${(c.fourthOwner || '').replace(/'/g, "\\'")}')" title="Jump to 3rd Place Matchup"` : ''}>
                   <span class="text-amber-800 font-bold">🥉 3rd Place:</span>
-                  <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span></span>
+                  <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span> ${c.thirdOwner ? '<span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">📋 Box ➔</span>' : ''}</span>
                 </div>
               </div>
 
@@ -1840,12 +1944,12 @@ function renderLucideIcons() {
         const topDump = getStatCardTop5('dumpsterFire', 'playoffs')[0];
 
         const cardDefs = [
-          { title: 'APEX PREDATOR', key: 'juggernaut', subtitle: 'Highest playoff score', data: topApex ? { val: topApex.valStr, owner: topApex.owner, team: topApex.team, sub: topApex.sub } : null },
-          { title: 'POTATO BOWL', key: 'featherweight', subtitle: 'Lowest playoff score', data: topPotato ? { val: topPotato.valStr, owner: topPotato.owner, team: topPotato.team, sub: topPotato.sub } : null },
-          { title: 'MASSACRE', key: 'cakewalk', subtitle: 'Largest playoff blowout', data: topMass ? { val: topMass.valStr, owner: topMass.owner, team: topMass.team, sub: topMass.sub } : null },
-          { title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest playoff win', data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub } : null },
-          { title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing playoff score', data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub } : null },
-          { title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in playoff win', data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub } : null },
+          { title: 'APEX PREDATOR', key: 'juggernaut', subtitle: 'Highest playoff score', data: topApex ? { val: topApex.valStr, owner: topApex.owner, team: topApex.team, sub: topApex.sub, year: topApex.year, week: topApex.week, homeOwner: topApex.homeOwner, awayOwner: topApex.awayOwner } : null },
+          { title: 'POTATO BOWL', key: 'featherweight', subtitle: 'Lowest playoff score', data: topPotato ? { val: topPotato.valStr, owner: topPotato.owner, team: topPotato.team, sub: topPotato.sub, year: topPotato.year, week: topPotato.week, homeOwner: topPotato.homeOwner, awayOwner: topPotato.awayOwner } : null },
+          { title: 'MASSACRE', key: 'cakewalk', subtitle: 'Largest playoff blowout', data: topMass ? { val: topMass.valStr, owner: topMass.owner, team: topMass.team, sub: topMass.sub, year: topMass.year, week: topMass.week, homeOwner: topMass.homeOwner, awayOwner: topMass.awayOwner } : null },
+          { title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest playoff win', data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub, year: topNail.year, week: topNail.week, homeOwner: topNail.homeOwner, awayOwner: topNail.awayOwner } : null },
+          { title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing playoff score', data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub, year: topGut.year, week: topGut.week, homeOwner: topGut.homeOwner, awayOwner: topGut.awayOwner } : null },
+          { title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in playoff win', data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub, year: topCrim.year, week: topCrim.week, homeOwner: topCrim.homeOwner, awayOwner: topCrim.awayOwner } : null },
           { title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Playoff make streak', data: topVic ? { val: topVic.valStr, owner: topVic.owner, team: topVic.team, sub: topVic.sub } : null },
           { title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Playoff drought streak', data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null }
         ];
@@ -1859,13 +1963,21 @@ function renderLucideIcons() {
           const owner = card.data ? card.data.owner : '-';
           const sub = card.data ? card.data.sub : '';
 
+          if (card.data && card.data.year && card.data.week) {
+            div.onclick = (e) => {
+              if (e.target.closest('.tooltip-content')) return;
+              window.jumpToMatchup && window.jumpToMatchup(card.data.year, card.data.week, card.data.homeOwner, card.data.awayOwner);
+            };
+            div.title = `Click to jump to ${card.data.year} Week ${card.data.week} Playoff Matchup`;
+          }
+
           let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs', rowPopDir);
           if (idx % 4 >= 2) popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
 
           div.innerHTML = `
             <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">
               <span>&gt; ${card.title}</span>
-              <span class="text-[9px] text-purple-700 font-normal">Hover Top 5 🔍</span>
+              <span class="text-[9px] text-purple-700 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
             </div>
             <p class="text-xl font-black text-pink-700 crt-glow-pink-pink">${val}</p>
             <p class="text-xs font-bold text-purple-900 truncate mt-1">${team} <span class="text-[10px] text-pink-600 font-normal">[${owner}]</span></p>
@@ -2598,6 +2710,94 @@ function renderLucideIcons() {
       }
     };
 
+    let matchupShowReportScores = false;
+
+    function toggleMatchupReportDetails() {
+      matchupShowReportScores = !matchupShowReportScores;
+      const label = document.getElementById('matchup-toggle-report-label');
+      const btn = document.getElementById('matchup-toggle-report');
+      if (label) {
+        label.innerText = matchupShowReportScores ? 'ON' : 'OFF';
+      }
+      if (btn) {
+        if (matchupShowReportScores) {
+          btn.classList.add('bg-pink-100', 'border-pink-500', 'text-pink-800');
+        } else {
+          btn.classList.remove('bg-pink-100', 'border-pink-500', 'text-pink-800');
+        }
+      }
+      renderMatchupsTab();
+    }
+
+    function copyMatchupsReportText() {
+      const season = currentMatchupSeason;
+      const week = currentMatchupWeek;
+      const mode = currentMatchupMode;
+      const sData = window.LEAGUE_DATA.seasonData[season];
+      const regWeeks = sData?.settings?.regularSeasonWeeks || 14;
+      const isPlayoffWeek = week > regWeeks;
+
+      let mList = [];
+      if (season === 2026 && sData && sData.schedule2026) {
+        mList = sData.schedule2026.filter(m => m.weekNumber === week);
+      } else {
+        mList = (window.LEAGUE_DATA.allMatchups || []).filter(m => (m.seasonYear || m.year) === season && (m.weekNumber || m.week) === week);
+      }
+
+      const sortedM = sortMatchupsByStandingRank(mList, window.currentRankMap || {});
+      const customComm = window.LEAGUE_DATA.weeklyCommentary?.[String(season)]?.[String(week)];
+
+      let text = `# 🏈 ${season} Pride Guys: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
+
+      sortedM.forEach((m, idx) => {
+        const o1 = m.homeOwner;
+        const o2 = m.awayOwner;
+        const t1 = m.homeTeam;
+        const t2 = m.awayTeam;
+        const s1 = Number(m.homeScore || 0);
+        const s2 = Number(m.awayScore || 0);
+
+        const customM = customComm?.matchups?.find(cm =>
+          (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
+        );
+
+        const stakes = computeMatchupStakes({
+          o1,
+          o2,
+          season,
+          week,
+          customM,
+          allMatchups: window.LEAGUE_DATA.allMatchups
+        });
+
+        const isWinner1 = s1 > s2;
+        const isWinner2 = s2 > s1;
+
+        text += `### Matchup #${idx + 1}: ${t1} (${o1}) vs ${t2} (${o2})\n`;
+        text += `- **H2H**: ${stakes.h2hFull}\n`;
+        text += `- **Streak**: ${stakes.streakFull}\n`;
+        text += `- **Playoffs**: ${stakes.playoffFull}\n`;
+        if (mode === 'recap') {
+          text += `- **Result**: ${isWinner1 ? `${t1} def. ${t2}` : (isWinner2 ? `${t2} def. ${t1}` : 'Tie')} (${s1.toFixed(2)} - ${s2.toFixed(2)})\n`;
+        }
+        if (customM && customM.writeup) {
+          text += `- **Notes**: ${customM.writeup}\n`;
+        }
+        text += `\n`;
+      });
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('matchup-copy-report');
+        if (btn) {
+          const origHtml = btn.innerHTML;
+          btn.innerHTML = '<span>✅ Copied!</span>';
+          setTimeout(() => { btn.innerHTML = origHtml; }, 2000);
+        }
+      }).catch(err => {
+        console.error('Failed to copy report: ', err);
+      });
+    }
+
     async function renderMatchupsTab() {
       populateMatchupManagerDropdown();
       const pillsContainer = document.getElementById('matchup-week-pills-container');
@@ -2636,11 +2836,13 @@ function renderLucideIcons() {
       sortedOwnersTarget.forEach((st, idx) => {
         rankMap[st.owner] = { rank: idx + 1, rec: `${st.w}-${st.l}` };
       });
+      window.currentRankMap = rankMap;
 
       if (!isRecap && currentMatchupWeek === 1 && sData && sData.standings) {
         sData.standings.forEach(st => {
           rankMap[st.ownerName] = { rank: st.rank, rec: '0-0' };
         });
+        window.currentRankMap = rankMap;
       }
 
       const seasonKey = String(currentMatchupSeason);
@@ -2690,12 +2892,215 @@ function renderLucideIcons() {
           mode: currentMatchupMode,
           commentary: customComm,
           lineups,
+          allMatchups: window.LEAGUE_DATA.allMatchups,
+          showReportScores: matchupShowReportScores,
           theme: PRIDE_THEME
         });
       }
     }
 
+    function getSourceLabel(tab, subTab, season, owner) {
+      if (tab === 'seasons') {
+        if (subTab === 'stats') return `Records & Badges (${season})`;
+        if (subTab === 'doh') return `DOH Leaderboard (${season})`;
+        if (subTab === 'playoff') return `Playoff Bracket (${season})`;
+        return `Seasons (${season})`;
+      }
+      if (tab === 'champs') return 'Championships & Rings';
+      if (tab === 'h2h') return 'Head-to-Head Hub';
+      if (tab === 'teams') return owner ? `${owner} Franchise` : 'Teams';
+      if (tab === 'draft') return 'Draft History';
+      if (tab === 'stats') return 'Career Stats';
+      if (tab === 'challenges') return 'Challenges & Bounties';
+      return tab ? tab.charAt(0).toUpperCase() + tab.slice(1) : 'Previous View';
+    }
+
+    function updateMatchupReturnUI() {
+      const hist = window.matchupReturnHistory;
+      let banner = document.getElementById('matchup-return-banner');
+      let floatingBtn = document.getElementById('matchup-return-floating-btn');
+
+      if (!hist || currentTab !== 'matchups') {
+        if (banner) banner.classList.add('hidden');
+        if (floatingBtn) floatingBtn.classList.add('hidden');
+        return;
+      }
+
+      const bannerHtml = `
+        <div class="flex items-center justify-between px-4 py-3 bg-amber-50/95 border-2 border-amber-300 text-amber-950 rounded-2xl text-xs mb-5 shadow-sm font-sans">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-700 font-extrabold">↩ DEEPLINK ACTIVE:</span>
+            <span>Jumped from <span class="font-bold text-purple-900 underline">${hist.sourceLabel}</span></span>
+          </div>
+          <button type="button" onclick="window.returnFromMatchupJump()" class="px-3.5 py-1.5 bg-amber-200 hover:bg-amber-300 text-amber-950 border border-amber-400 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+            <span>↩ Return to ${hist.sourceLabel}</span>
+            <kbd class="px-1.5 py-0.5 bg-white text-amber-900 border border-amber-300 rounded text-[10px]">Esc</kbd>
+          </button>
+        </div>
+      `;
+
+      if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'matchup-return-banner';
+        const tabMatchups = document.getElementById('tab-matchups');
+        if (tabMatchups) tabMatchups.insertBefore(banner, tabMatchups.firstChild);
+      }
+      banner.innerHTML = bannerHtml;
+      banner.classList.remove('hidden');
+
+      const floatingBtnHtml = `
+        <button type="button" onclick="window.returnFromMatchupJump()" class="flex items-center gap-2 px-4 py-2.5 bg-white/95 text-pink-700 border-2 border-pink-400 rounded-full shadow-[0_4px_20px_rgba(236,72,153,0.35)] font-sans text-xs font-extrabold hover:bg-pink-50 hover:border-pink-500 hover:scale-105 transition-all cursor-pointer">
+          <span>↩ Return to ${hist.sourceLabel}</span>
+          <kbd class="px-1.5 py-0.5 bg-pink-100 text-pink-700 border border-pink-300 rounded text-[10px]">Esc</kbd>
+        </button>
+      `;
+
+      if (!floatingBtn) {
+        floatingBtn = document.createElement('div');
+        floatingBtn.id = 'matchup-return-floating-btn';
+        floatingBtn.className = 'fixed bottom-6 right-6 z-50';
+        document.body.appendChild(floatingBtn);
+      }
+      floatingBtn.innerHTML = floatingBtnHtml;
+      floatingBtn.classList.remove('hidden');
+    }
+
+    function returnFromMatchupJump() {
+      if (!window.matchupReturnHistory) return;
+      const hist = window.matchupReturnHistory;
+      window.matchupReturnHistory = null;
+      updateMatchupReturnUI();
+
+      switchTab(hist.tab);
+
+      if (hist.tab === 'seasons') {
+        if (hist.season && typeof selectSeason === 'function') {
+          selectSeason(hist.season);
+        }
+        if (hist.seasonsSubTab && typeof switchSeasonsSubTab === 'function') {
+          switchSeasonsSubTab(hist.seasonsSubTab);
+        }
+      } else if (hist.tab === 'teams') {
+        if (hist.franchiseOwner && typeof selectFranchiseByName === 'function') {
+          selectFranchiseByName(hist.franchiseOwner);
+        }
+      }
+
+      if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, `#${hist.tab}`);
+      }
+
+      if (typeof hist.scrollY === 'number') {
+        setTimeout(() => {
+          window.scrollTo({ top: hist.scrollY, behavior: 'smooth' });
+        }, 100);
+      }
+    }
+
+    async function jumpToMatchup(season, week, owner1 = null, owner2 = null, options = {}) {
+      if (!season || !week) return;
+      const s = parseInt(season);
+      const w = parseInt(week);
+      if (isNaN(s) || isNaN(w)) return;
+
+      // Save previous location for Return button & hotkey
+      if (currentTab !== 'matchups') {
+        const sLabel = getSourceLabel(currentTab, currentSeasonsSubTab, currentSeason, currentFranchiseOwner);
+        window.matchupReturnHistory = {
+          tab: currentTab,
+          seasonsSubTab: typeof currentSeasonsSubTab !== 'undefined' ? currentSeasonsSubTab : null,
+          season: typeof currentSeason !== 'undefined' ? currentSeason : null,
+          franchiseOwner: typeof currentFranchiseOwner !== 'undefined' ? currentFranchiseOwner : null,
+          scrollY: window.scrollY || window.pageYOffset || 0,
+          sourceLabel: sLabel
+        };
+      }
+
+      // Switch to matchups tab
+      switchTab('matchups');
+
+      // Update Return navigation UI
+      updateMatchupReturnUI();
+
+      currentMatchupSeason = s;
+      currentMatchupWeek = w;
+      currentMatchupManager = 'all';
+      currentMatchupMode = (s === 2026 && w >= 1) ? 'preview' : 'recap';
+
+      // Synchronize UI dropdowns & pills
+      const seasonSelect = document.getElementById('matchup-season-select');
+      if (seasonSelect) seasonSelect.value = String(s);
+
+      const managerSelect = document.getElementById('matchup-manager-select');
+      if (managerSelect) managerSelect.value = 'all';
+
+      const previewBtn = document.getElementById('matchup-mode-preview');
+      const recapBtn = document.getElementById('matchup-mode-recap');
+      if (previewBtn && recapBtn) {
+        if (currentMatchupMode === 'preview') {
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+        } else {
+          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+        }
+      }
+
+      // Update URL hash with history entry for browser Back button
+      if (typeof window !== 'undefined' && window.history) {
+        let newHash = `#matchups?season=${s}&week=${w}`;
+        if (owner1) newHash += `&o1=${encodeURIComponent(owner1)}`;
+        if (owner2) newHash += `&o2=${encodeURIComponent(owner2)}`;
+        if (window.history.pushState) {
+          window.history.pushState({ isMatchupJump: true }, null, newHash);
+        } else if (window.history.replaceState) {
+          window.history.replaceState(null, null, newHash);
+        }
+      }
+
+      // Render the matchups tab
+      await renderMatchupsTab();
+
+      // Find the card and scroll + pulse + open drawer
+      setTimeout(() => {
+        let card = null;
+        if (owner1 && owner2) {
+          const key1 = `${s}-w${w}-${[owner1, owner2].sort().join('-')}`;
+          card = document.querySelector(`[data-matchup-key="${key1.replace(/"/g, '\\"')}"]`);
+        }
+        if (!card && owner1) {
+          card = document.querySelector(`[data-season="${s}"][data-week="${w}"][data-owner1="${owner1.replace(/"/g, '\\"')}"]`)
+              || document.querySelector(`[data-season="${s}"][data-week="${w}"][data-owner2="${owner1.replace(/"/g, '\\"')}"]`);
+        }
+        if (!card && owner2) {
+          card = document.querySelector(`[data-season="${s}"][data-week="${w}"][data-owner1="${owner2.replace(/"/g, '\\"')}"]`)
+              || document.querySelector(`[data-season="${s}"][data-week="${w}"][data-owner2="${owner2.replace(/"/g, '\\"')}"]`);
+        }
+        if (!card) {
+          card = document.querySelector(`[data-season="${s}"][data-week="${w}"]`);
+        }
+
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('ring-4', 'ring-pink-500', 'shadow-[0_0_30px_rgba(236,72,153,0.8)]', 'transition-all', 'duration-500');
+          setTimeout(() => {
+            card.classList.remove('ring-4', 'ring-pink-500', 'shadow-[0_0_30px_rgba(236,72,153,0.8)]');
+          }, 3500);
+
+          if (card.id && card.id.startsWith('matchup-card-')) {
+            const mId = card.id.replace('matchup-card-', '');
+            const content = document.getElementById(`matchup-lineup-content-${mId}`);
+            if (content && content.classList.contains('hidden') && typeof window.toggleMatchupLineupBox === 'function') {
+              window.toggleMatchupLineupBox(mId);
+            }
+          }
+        }
+      }, 150);
+    }
+
 // Bind top-level event handlers safely to window
+if (typeof jumpToMatchup === "function") window.jumpToMatchup = jumpToMatchup;
+if (typeof returnFromMatchupJump === "function") window.returnFromMatchupJump = returnFromMatchupJump;
 if (typeof switchTab === "function") window.switchTab = switchTab;
 if (typeof switchSeasonsSubTab === "function") window.switchSeasonsSubTab = switchSeasonsSubTab;
 if (typeof selectSeason === "function") window.selectSeason = selectSeason;
@@ -2728,3 +3133,6 @@ if (typeof renderAnalytics === "function") window.renderAnalytics = renderAnalyt
 if (typeof initDraftTab === "function") window.initDraftTab = initDraftTab;
 if (typeof initMatchupsTab === "function") window.initMatchupsTab = initMatchupsTab;
 if (typeof renderLucideIcons === "function") window.renderLucideIcons = renderLucideIcons;
+if (typeof jumpToH2H === "function") window.jumpToH2H = jumpToH2H;
+if (typeof toggleMatchupReportDetails === "function") window.toggleMatchupReportDetails = toggleMatchupReportDetails;
+if (typeof copyMatchupsReportText === "function") window.copyMatchupsReportText = copyMatchupsReportText;

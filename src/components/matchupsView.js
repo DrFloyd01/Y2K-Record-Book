@@ -36,7 +36,250 @@ export function sortMatchupsByStandingRank(matchups, rankMap) {
 }
 
 /**
- * Builds HTML for the 5-across weekly matchups grid
+ * Computes stakes (H2H record, active streak games, and playoff history) between two owners
+ */
+export function computeMatchupStakes({
+  o1,
+  o2,
+  season = 2025,
+  week = 1,
+  customM = null,
+  allMatchups = []
+}) {
+  const currentSeason = Number(season);
+  const currentWeek = Number(week);
+
+  // Fallback to window.LEAGUE_DATA.allMatchups if allMatchups array is empty
+  const sourceMatchups = (allMatchups && allMatchups.length > 0)
+    ? allMatchups
+    : (typeof window !== 'undefined' && window.LEAGUE_DATA?.allMatchups ? window.LEAGUE_DATA.allMatchups : []);
+
+  // Filter completed games between o1 and o2 played strictly before the current matchup
+  const pastGames = sourceMatchups
+    .filter(m => {
+      const isPair = (m.homeOwner === o1 && m.awayOwner === o2) || (m.homeOwner === o2 && m.awayOwner === o1);
+      if (!isPair) return false;
+      const yr = Number(m.seasonYear ?? m.year ?? 0);
+      const wk = Number(m.weekNumber ?? m.week ?? 0);
+      if (yr > currentSeason) return false;
+      if (yr === currentSeason && wk >= currentWeek) return false;
+      const sH = Number(m.homeScore || 0);
+      const sA = Number(m.awayScore || 0);
+      return (sH > 0 || sA > 0);
+    })
+    .sort((a, b) => {
+      const yrA = Number(a.seasonYear ?? a.year ?? 0);
+      const yrB = Number(b.seasonYear ?? b.year ?? 0);
+      if (yrA !== yrB) return yrA - yrB;
+      return (Number(a.weekNumber ?? a.week ?? 0)) - (Number(b.weekNumber ?? b.week ?? 0));
+    });
+
+  // Calculate lifetime H2H record
+  let o1Wins = 0, o2Wins = 0, ties = 0;
+  pastGames.forEach(m => {
+    const sH = Number(m.homeScore || 0);
+    const sA = Number(m.awayScore || 0);
+    if (m.homeOwner === o1) {
+      if (sH > sA) o1Wins++;
+      else if (sA > sH) o2Wins++;
+      else ties++;
+    } else {
+      if (sA > sH) o1Wins++;
+      else if (sH > sA) o2Wins++;
+      else ties++;
+    }
+  });
+
+  let h2hClean = `${o1Wins}-${o2Wins}${ties > 0 ? `-${ties}` : ''}`;
+  let h2hFull = h2hClean;
+
+  if (customM && (customM.h2h || customM.seasonH2H)) {
+    const customH2hStr = String(customM.h2h || customM.seasonH2H);
+    h2hFull = customH2hStr;
+    if (pastGames.length === 0) {
+      h2hClean = customH2hStr.replace(/\s*\(.*?\)/g, '').trim();
+    }
+  }
+
+  // Calculate active winning streak games
+  const streakGames = [];
+  let streakLeader = null;
+  let streakCount = 0;
+
+  if (pastGames.length > 0) {
+    const lastGame = pastGames[pastGames.length - 1];
+    const sH = Number(lastGame.homeScore || 0);
+    const sA = Number(lastGame.awayScore || 0);
+    if (sH !== sA) {
+      streakLeader = sH > sA ? lastGame.homeOwner : lastGame.awayOwner;
+      for (let i = pastGames.length - 1; i >= 0; i--) {
+        const gm = pastGames[i];
+        const gh = Number(gm.homeScore || 0);
+        const ga = Number(gm.awayScore || 0);
+        const gWinner = gh > ga ? gm.homeOwner : (ga > gh ? gm.awayOwner : null);
+        if (gWinner === streakLeader) {
+          const gLoser = gWinner === gm.homeOwner ? gm.awayOwner : gm.homeOwner;
+          streakGames.push({
+            year: Number(gm.seasonYear ?? gm.year),
+            week: Number(gm.weekNumber ?? gm.week),
+            stage: gm.stage || (gm.isPlayoff ? 'Playoffs' : 'Regular Season'),
+            winner: gWinner,
+            loser: gLoser,
+            winnerScore: Math.max(gh, ga),
+            loserScore: Math.min(gh, ga),
+            margin: Math.abs(gh - ga)
+          });
+        } else {
+          break;
+        }
+      }
+      streakCount = streakGames.length;
+    }
+  }
+
+  // Parse customM.streak if available for fallback or enhancement
+  if (customM && customM.streak !== undefined && customM.streak !== null) {
+    const sStr = String(customM.streak).trim();
+    if (sStr === '0' || sStr.toLowerCase() === 'none') {
+      if (streakGames.length === 0) {
+        streakLeader = null;
+        streakCount = 0;
+      }
+    } else {
+      const match = sStr.match(/^([A-Za-z0-9_'\s]+?)\s*(?:W)?(\d+)(?:[,\s]*\((.*?)\)|,\s*(.*))?$/);
+      if (match) {
+        const parsedLeader = match[1].trim();
+        const parsedCount = parseInt(match[2], 10);
+        const parsedDetail = match[3] || match[4] || '';
+        if (streakGames.length === 0 && parsedCount > 0) {
+          streakLeader = parsedLeader;
+          streakCount = parsedCount;
+          let synWk = 1, synYr = 2025, synWScore = 0, synLScore = 0;
+          const dMatch = parsedDetail.match(/Wk(\d+)(?:'(\d+))?(?:,\s*([\d.]+)-([\d.]+))?/i);
+          if (dMatch) {
+            synWk = parseInt(dMatch[1], 10);
+            synYr = dMatch[2] ? (parseInt(dMatch[2], 10) < 100 ? 2000 + parseInt(dMatch[2], 10) : parseInt(dMatch[2], 10)) : 2025;
+            synWScore = dMatch[3] ? parseFloat(dMatch[3]) : 0;
+            synLScore = dMatch[4] ? parseFloat(dMatch[4]) : 0;
+          }
+          const synLoser = (parsedLeader === o1) ? o2 : o1;
+          streakGames.push({
+            year: synYr,
+            week: synWk,
+            stage: 'Regular Season',
+            winner: parsedLeader,
+            loser: synLoser,
+            winnerScore: synWScore,
+            loserScore: synLScore,
+            margin: Math.abs(synWScore - synLScore)
+          });
+        }
+      }
+    }
+  }
+
+  let streakClean = '0';
+  if (streakCount > 0 && streakLeader) {
+    streakClean = `${streakLeader} ${streakCount}`;
+  }
+  let streakFull = streakClean;
+  if (customM && customM.streak !== undefined && customM.streak !== null) {
+    streakFull = String(customM.streak);
+  } else if (streakCount > 0 && streakGames.length > 0) {
+    const topG = streakGames[0];
+    streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+  }
+
+  // Calculate historical playoff matchups
+  const playoffGames = pastGames
+    .filter(m => Boolean(m.isPlayoff || (m.stage && !m.stage.toLowerCase().includes('regular'))))
+    .map(m => {
+      const gh = Number(m.homeScore || 0);
+      const ga = Number(m.awayScore || 0);
+      const winner = gh > ga ? m.homeOwner : (ga > gh ? m.awayOwner : (m.winner || 'Tie'));
+      const loser = winner === m.homeOwner ? m.awayOwner : m.homeOwner;
+      return {
+        year: Number(m.seasonYear ?? m.year),
+        week: Number(m.weekNumber ?? m.week),
+        stage: m.stage || (Number(m.weekNumber ?? m.week) >= 17 ? 'Finals' : (Number(m.weekNumber ?? m.week) === 16 ? 'Semifinals' : 'Playoffs')),
+        winner,
+        loser,
+        winnerScore: Math.max(gh, ga),
+        loserScore: Math.min(gh, ga),
+        margin: Math.abs(gh - ga)
+      };
+    })
+    .reverse(); // Most recent first
+
+  // Parse customM.playoffs if available and playoffGames is empty
+  if (playoffGames.length === 0 && customM && (customM.playoffs || customM.playoffH2H)) {
+    const pStr = String(customM.playoffs || customM.playoffH2H).trim();
+    if (pStr && pStr !== '0-0') {
+      const match = pStr.match(/^(\d+-\d+)(?:[,\s]*\((.*?)\)|,\s*(.*))?$/);
+      if (match) {
+        const pDetail = match[2] || match[3] || '';
+        if (pDetail) {
+          const dMatch = pDetail.match(/([A-Za-z0-9_]+)'?(\d+)?(?:,\s*([\d.]+)-([\d.]+))?/i);
+          if (dMatch) {
+            const synStage = dMatch[1];
+            const synYr = dMatch[2] ? (parseInt(dMatch[2], 10) < 100 ? 2000 + parseInt(dMatch[2], 10) : parseInt(dMatch[2], 10)) : 2025;
+            const synWScore = dMatch[3] ? parseFloat(dMatch[3]) : 0;
+            const synLScore = dMatch[4] ? parseFloat(dMatch[4]) : 0;
+            playoffGames.push({
+              year: synYr,
+              week: 17,
+              stage: synStage,
+              winner: o1,
+              loser: o2,
+              winnerScore: synWScore,
+              loserScore: synLScore,
+              margin: Math.abs(synWScore - synLScore)
+            });
+          }
+        }
+      }
+    }
+  }
+
+  let o1PlayoffWins = playoffGames.filter(g => g.winner === o1).length;
+  let o2PlayoffWins = playoffGames.filter(g => g.winner === o2).length;
+  let playoffRec = `${o1PlayoffWins}-${o2PlayoffWins}`;
+
+  if (playoffGames.length === 0 && customM && (customM.playoffs || customM.playoffH2H)) {
+    const pRaw = String(customM.playoffs || customM.playoffH2H);
+    const cleanRec = pRaw.replace(/\s*\(.*?\)/g, '').split(',')[0].trim();
+    if (cleanRec) playoffRec = cleanRec;
+  }
+
+  let playoffClean = playoffRec;
+  let playoffFull = playoffRec;
+  if (customM && customM.playoffs) {
+    playoffFull = String(customM.playoffs);
+  } else if (customM && customM.playoffH2H) {
+    playoffFull = String(customM.playoffH2H);
+  } else if (playoffGames.length > 0) {
+    const topP = playoffGames[0];
+    playoffFull = `${playoffRec} (${topP.stage}'${String(topP.year).slice(-2)}, ${topP.winnerScore.toFixed(2)}-${topP.loserScore.toFixed(2)})`;
+  }
+
+  return {
+    h2hStr: h2hClean,
+    h2hClean,
+    h2hFull,
+    streakLeader,
+    streakCount,
+    streakGames,
+    streakClean,
+    streakFull,
+    playoffRec,
+    playoffGames,
+    playoffClean,
+    playoffFull
+  };
+}
+
+/**
+ * Builds HTML for the weekly matchups grid (3x2 on desktop, 1 col on mobile)
  */
 export function buildWeeklyMatchupsGridHtml({
   matchups = [],
@@ -46,6 +289,8 @@ export function buildWeeklyMatchupsGridHtml({
   mode = 'recap',
   commentary = null,
   lineups = [],
+  allMatchups = [],
+  showReportScores = false,
   theme = CRT_THEME
 }) {
   const isCrt = theme.name === 'crt';
@@ -98,6 +343,138 @@ export function buildWeeklyMatchupsGridHtml({
 
     const mId = `m_${season}_w${week}_${o1}_${o2}_${idx}`.replace(/[^a-zA-Z0-9_]/g, '_');
 
+    // Editorial Commentary lookup
+    let customM = null;
+    let isGameOfWeek = false;
+    if (commentary && commentary.matchups) {
+      customM = commentary.matchups.find(cm =>
+        (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
+      );
+      if (customM) {
+        isGameOfWeek = Boolean(customM.isGameOfTheWeek || (customM.writeup && customM.writeup.startsWith('Game of the Week:')));
+      }
+    }
+
+    // Compute stakes: H2H, Streak (with all games), Playoffs (with all games)
+    const stakes = computeMatchupStakes({
+      o1,
+      o2,
+      season,
+      week,
+      customM,
+      allMatchups
+    });
+
+    const h2hBadgeText = showReportScores ? stakes.h2hFull : stakes.h2hClean;
+    const streakBadgeText = showReportScores ? stakes.streakFull : stakes.streakClean;
+    const playoffBadgeText = showReportScores ? stakes.playoffFull : stakes.playoffClean;
+
+    // Popover for Streak: shows every game in the winning streak
+    const streakPopoverHtml = `
+      <div class="tooltip-content tooltip-content-bottom matchup-stakes-popover p-2.5 ${isCrt ? 'bg-[#020b05] text-emerald-100 border-2 border-emerald-500' : 'bg-white text-purple-950 border-2 border-pink-400'} rounded-lg text-xs shadow-2xl text-left font-normal min-w-[270px] z-50 overflow-hidden" style="max-height: none !important; overflow: hidden !important;">
+        <div class="font-bold text-[11px] pb-1.5 mb-1.5 border-b ${isCrt ? 'border-emerald-800 text-amber-300' : 'border-pink-200 text-pink-700'} flex items-center justify-between">
+          <span>⚡ ACTIVE STREAK: ${stakes.streakLeader || 'None'} ${stakes.streakCount > 0 ? `(${stakes.streakCount} Game${stakes.streakCount === 1 ? '' : 's'})` : ''}</span>
+          <span class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'}">${stakes.streakClean}</span>
+        </div>
+        ${stakes.streakGames.length > 0 ? `
+          <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
+            ${stakes.streakGames.map(g => `
+              <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${g.winner}', '${g.loser}')"
+                   title="Jump to ${g.year} Week ${g.week} Box Score">
+                <div class="min-w-0">
+                  <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
+                    ${g.year} Wk ${g.week} ${g.stage && !g.stage.toLowerCase().includes('regular') ? `• ${g.stage}` : ''}
+                  </div>
+                  <div class="text-[11px] font-bold truncate">
+                    <span class="${isCrt ? 'text-amber-300' : 'text-pink-700'} font-extrabold">${g.winner}</span> ${g.winnerScore.toFixed(2)} - ${g.loserScore.toFixed(2)} ${g.loser}
+                  </div>
+                  <div class="text-[9px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} font-mono">Margin: +${g.margin.toFixed(2)} pts</div>
+                </div>
+                <span class="text-[10px] font-mono shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
+                  Box ➔
+                </span>
+              </div>
+            `).join('')}
+          </div>
+        ` : `
+          <div class="text-[11px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} py-1 text-center">
+            No active winning streak between these teams.
+          </div>
+        `}
+      </div>
+    `;
+
+    // Popover for Playoffs: shows every historical playoff game
+    const playoffPopoverHtml = `
+      <div class="tooltip-content tooltip-content-right tooltip-content-bottom matchup-stakes-popover p-2.5 ${isCrt ? 'bg-[#020b05] text-emerald-100 border-2 border-emerald-500' : 'bg-white text-purple-950 border-2 border-pink-400'} rounded-lg text-xs shadow-2xl text-left font-normal min-w-[270px] z-50 overflow-hidden" style="max-height: none !important; overflow: hidden !important;">
+        <div class="font-bold text-[11px] pb-1.5 mb-1.5 border-b ${isCrt ? 'border-emerald-800 text-amber-300' : 'border-pink-200 text-pink-700'} flex items-center justify-between">
+          <span>🏆 POSTSEASON HISTORY (${stakes.playoffGames.length} Game${stakes.playoffGames.length === 1 ? '' : 's'})</span>
+          <span class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'}">${stakes.playoffRec}</span>
+        </div>
+        ${stakes.playoffGames.length > 0 ? `
+          <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
+            ${stakes.playoffGames.map(g => `
+              <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${g.winner}', '${g.loser}')"
+                   title="Jump to ${g.year} Week ${g.week} Playoff Box Score">
+                <div class="min-w-0">
+                  <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
+                    ${g.year} ${formatPlayoffStageTag(g.stage, g.year)} (Wk ${g.week})
+                  </div>
+                  <div class="text-[11px] font-bold truncate">
+                    <span class="${isCrt ? 'text-amber-300' : 'text-pink-700'} font-extrabold">${g.winner}</span> ${g.winnerScore.toFixed(2)} - ${g.loserScore.toFixed(2)} ${g.loser}
+                  </div>
+                  <div class="text-[9px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} font-mono">Margin: +${g.margin.toFixed(2)} pts</div>
+                </div>
+                <span class="text-[10px] font-mono shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
+                  Box ➔
+                </span>
+              </div>
+            `).join('')}
+          </div>
+        ` : `
+          <div class="text-[11px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} py-1 text-center">
+            No previous playoff matchups recorded.
+          </div>
+        `}
+      </div>
+    `;
+
+    // Top Stakes Marquee Bar
+    const topStakesBarHtml = `
+      <div class="flex items-center justify-between gap-1 mb-2.5 pb-2 border-b ${isCrt ? 'border-emerald-900/80 font-mono' : 'border-pink-200 font-sans'} text-[10px] flex-wrap sm:flex-nowrap">
+        ${isGameOfWeek ? `<span class="px-1.5 py-0.5 rounded ${isCrt ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-black text-[9px] tracking-wide animate-pulse shrink-0">🔥 GOTW</span>` : ''}
+        <!-- H2H Deeplink Chip -->
+        <button type="button" onclick="event.stopPropagation(); window.jumpToH2H('${o1}', '${o2}')"
+                class="px-2 py-1 rounded ${isCrt ? 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-700/80 hover:border-emerald-500' : 'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-300'} font-bold transition-all cursor-pointer flex items-center gap-1 shadow-sm shrink-0"
+                title="Jump to Head-to-Head Hub for ${o1} vs ${o2}">
+          <span>⚔️ H2H: <strong class="${isCrt ? 'text-amber-300' : 'text-purple-900'}">${h2hBadgeText}</strong></span>
+          <span class="text-[9px] opacity-70">➔</span>
+        </button>
+
+        <!-- Streak Popover Chip -->
+        <div class="tooltip-trigger relative inline-flex">
+          <button type="button" class="px-2 py-1 rounded ${isCrt ? 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-700/80 hover:border-emerald-500' : 'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-300'} font-bold transition-all cursor-pointer flex items-center gap-1 shadow-sm shrink-0"
+                  title="Inspect active winning streak game details">
+            <span>⚡ STREAK: <strong class="${isCrt ? 'text-amber-300' : 'text-purple-900'}">${streakBadgeText}</strong></span>
+            <span class="text-[9px] opacity-70">▾</span>
+          </button>
+          ${streakPopoverHtml}
+        </div>
+
+        <!-- Playoffs Popover Chip -->
+        <div class="tooltip-trigger relative inline-flex">
+          <button type="button" class="px-2 py-1 rounded ${isCrt ? 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-700/80 hover:border-emerald-500' : 'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-300'} font-bold transition-all cursor-pointer flex items-center gap-1 shadow-sm shrink-0"
+                  title="Inspect playoff matchup history">
+            <span>🏆 PLAYOFFS: <strong class="${isCrt ? 'text-amber-300' : 'text-purple-900'}">${playoffBadgeText}</strong></span>
+            <span class="text-[9px] opacity-70">▾</span>
+          </button>
+          ${playoffPopoverHtml}
+        </div>
+      </div>
+    `;
+
     // D'Oh Blunder banner
     let dOhBadge = '';
     const hasDOh = (lineupMatch?.homeTeam?.dOhOccurred || lineupMatch?.awayTeam?.dOhOccurred);
@@ -125,54 +502,29 @@ export function buildWeeklyMatchupsGridHtml({
       `;
     }
 
-    // Editorial Commentary
+    // Editorial Commentary without redundant duplicate meta line
     let commentaryHtml = '';
-    let isGameOfWeek = false;
-    if (commentary && commentary.matchups) {
-      const customM = commentary.matchups.find(cm =>
-        (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
-      );
-      if (customM && customM.writeup) {
-        isGameOfWeek = Boolean(customM.isGameOfTheWeek || (customM.writeup && customM.writeup.startsWith('Game of the Week:')));
-        const metaH2H = customM.h2h || customM.seasonH2H;
-        const metaStreak = customM.streak;
-        const metaPlayoffs = customM.playoffs || customM.playoffH2H;
-        const hasMeta = Boolean(metaH2H || (metaStreak !== undefined && metaStreak !== null) || metaPlayoffs);
-
-        commentaryHtml = `
-          <div class="mt-2 p-2.5 ${isCrt ? 'bg-black/90 border border-emerald-800/80 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
-            <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? 'RECAP_NOTES' : 'MATCHUP_PREVIEW'}:</span>
-            ${hasMeta ? `
-              <div class="flex flex-wrap gap-x-2.5 gap-y-0.5 text-[10px] font-mono mb-1.5 pb-1 border-b ${isCrt ? 'border-emerald-900/60 text-emerald-400' : 'border-pink-200 text-purple-700'}">
-                ${metaH2H ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">H2H:</strong> ${metaH2H}</span>` : ''}
-                ${metaStreak !== undefined && metaStreak !== null ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">STREAK:</strong> ${metaStreak}</span>` : ''}
-                ${metaPlayoffs ? `<span><strong class="${isCrt ? 'text-emerald-500' : 'text-purple-900'}">PLAYOFFS:</strong> ${metaPlayoffs}</span>` : ''}
-              </div>
-            ` : ''}
-            <div class="text-[11px] leading-relaxed">${customM.writeup}</div>
-          </div>
-        `;
-      }
+    if (customM && customM.writeup) {
+      commentaryHtml = `
+        <div class="mt-2 p-2.5 ${isCrt ? 'bg-black/90 border border-emerald-800/80 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
+          <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? 'RECAP_NOTES' : 'MATCHUP_PREVIEW'}:</span>
+          <div class="text-[11px] leading-relaxed">${customM.writeup}</div>
+        </div>
+      `;
     }
 
     const baseBorder = isGameOfWeek
-      ? (isCrt ? 'border-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.2)]' : 'border-amber-400 shadow-md')
+      ? (isCrt ? 'border-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.25)]' : 'border-amber-400 shadow-lg')
       : (isCrt ? 'border-emerald-800 hover:border-emerald-500' : 'border-pink-200 hover:border-pink-400 shadow-md');
     const cardBg = isCrt ? `bg-black/80 ${baseBorder}` : `bg-white ${baseBorder}`;
     const rowT1Bg = isRecap && isWinner1 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
     const rowT2Bg = isRecap && isWinner2 ? (isCrt ? 'bg-emerald-950/60 border-l-2 border-emerald-400' : 'bg-pink-50/80 border-l-2 border-pink-500') : '';
 
     const cardContent = `
-      <div class="crt-box rounded-xl p-3 border ${cardBg} flex flex-col justify-between transition-all">
+      <div id="matchup-card-${mId}" data-season="${season}" data-week="${week}" data-owner1="${o1}" data-owner2="${o2}" data-matchup-key="${season}-w${week}-${[o1, o2].sort().join('-')}" class="matchup-card-container crt-box rounded-xl p-3 border ${cardBg} flex flex-col justify-between transition-all overflow-visible relative">
         <div>
-          <!-- Header Bar: Matchup # & Rank Preview -->
-          <div class="flex items-center justify-between pb-1.5 mb-2 border-b ${isCrt ? 'border-emerald-900/80 font-mono text-[11px]' : 'border-pink-200 font-fredoka text-xs'}">
-            <div class="flex items-center gap-1.5">
-              <span class="${isCrt ? 'text-emerald-400 font-bold' : 'text-pink-600 font-bold'}">MATCHUP #${idx + 1}</span>
-              ${isGameOfWeek ? `<span class="px-1.5 py-0.2 rounded ${isCrt ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'bg-amber-100 text-amber-800 border border-amber-300'} text-[9px] font-black tracking-wide">🔥 GOTW</span>` : ''}
-            </div>
-            <span class="${isCrt ? 'text-amber-400 font-bold' : 'text-purple-700 font-bold'}">#${info1.rank} vs #${info2.rank}</span>
-          </div>
+          <!-- Top Stakes Marquee Bar -->
+          ${topStakesBarHtml}
 
           <!-- Team 1 Row -->
           <div class="p-2 rounded mb-1.5 flex items-center justify-between gap-2 ${rowT1Bg}">
@@ -243,7 +595,7 @@ export function buildWeeklyMatchupsGridHtml({
   }).join('');
 
   return `
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       ${cardsHtml}
     </div>
   `;
@@ -345,7 +697,7 @@ export function buildManagerSeasonGameLogHtml({
       : (isCrt ? '<span class="px-2 py-0.5 bg-red-950 text-red-400 border border-red-700 font-extrabold text-[10px] rounded">LOSS</span>' : '<span class="px-2 py-0.5 bg-purple-100 text-purple-700 border border-purple-300 font-extrabold text-[10px] rounded">LOSS</span>');
 
     const cardContent = `
-      <div class="crt-box rounded-xl p-3 border ${isCrt ? 'bg-black/80 border-emerald-900 hover:border-emerald-600' : 'bg-white border-pink-200 hover:border-pink-400 shadow-md'} flex flex-col justify-between">
+      <div id="matchup-card-${mId}" data-season="${season}" data-week="${wk}" data-owner1="${owner}" data-owner2="${oppOwner}" data-matchup-key="${season}-w${wk}-${[owner, oppOwner].sort().join('-')}" class="matchup-card-container crt-box rounded-xl p-3 border ${isCrt ? 'bg-black/80 border-emerald-900 hover:border-emerald-600' : 'bg-white border-pink-200 hover:border-pink-400 shadow-md'} flex flex-col justify-between transition-all overflow-visible relative">
         <div>
           <!-- Card Header -->
           <div class="flex items-center justify-between pb-1.5 mb-2 border-b ${isCrt ? 'border-emerald-900/80 font-mono text-xs' : 'border-pink-200 font-fredoka text-xs'}">

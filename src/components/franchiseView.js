@@ -219,7 +219,12 @@ export function buildFranchiseProfileHtml({
         const swapStr = d.benchPlayer && d.starter
           ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
           : `Benched winning player for starter`;
-        return `<div class="py-0.5 text-xs text-left">• Week ${d.week}: ${swapStr}</div>`;
+        return `
+          <div class="py-1 px-1.5 rounded hover:bg-white/10 transition-colors flex items-center justify-between cursor-pointer group" onclick="event.stopPropagation(); window.jumpToMatchup(${tn.yr}, ${d.week}, '${owner}')" title="Click to view ${tn.yr} Week ${d.week} Matchup Box Score">
+            <div class="text-xs text-left">• Week ${d.week}: ${swapStr}</div>
+            <span class="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity ml-1.5 shrink-0 font-bold ${isCrt ? 'text-amber-400 font-mono' : 'text-pink-600 font-sans'}">➔ Box</span>
+          </div>
+        `;
       }).join('');
 
       dOhCell = `

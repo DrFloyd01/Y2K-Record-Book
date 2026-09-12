@@ -22,9 +22,16 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
       const count = list.length;
       if (count === 0) return `<span class="opacity-40 font-bold">0</span>`;
 
-      const listStr = list.map(item => `
-        <div class="py-0.5">• ${item.year}: <span class="font-bold ${dTheme.accentText}">${item.teamName || owner}</span> <span class="text-[10px] opacity-75">(${item.rank}${item.rank === 1 ? 'st' : (item.rank === 2 ? 'nd' : (item.rank === 3 ? 'rd' : 'th'))} Place)</span></div>
-      `).join('');
+      const listStr = list.map(item => {
+        const finalWk = item.year >= 2021 ? 17 : 16;
+        const clickAttr = item.year ? `onclick="event.stopPropagation(); window.jumpToMatchup(${item.year}, ${finalWk}, '${(owner || '').replace(/'/g, "\\'")}')"` : '';
+        return `
+          <div class="py-0.5 cursor-pointer hover:bg-white/10 px-1 rounded transition-colors flex items-center justify-between group/bin" ${clickAttr} title="Jump to ${item.year} Playoff Matchup">
+            <span>• ${item.year}: <span class="font-bold ${dTheme.accentText}">${item.teamName || owner}</span> <span class="text-[10px] opacity-75">(${item.rank}${item.rank === 1 ? 'st' : (item.rank === 2 ? 'nd' : (item.rank === 3 ? 'rd' : 'th'))} Place)</span></span>
+            <span class="text-[9px] opacity-0 group-hover/bin:opacity-100 transition-opacity font-mono font-bold text-amber-400 ml-1">📋 Box ➔</span>
+          </div>
+        `;
+      }).join('');
 
       return `
         <div class="tooltip-trigger inline-block cursor-pointer">
@@ -47,7 +54,15 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
     let scHtml = `<span class="opacity-40 font-bold">0</span>`;
     if (scTitles > 0) {
       const scChamps = championships.filter(ch => ch.scoringChampOwner === owner);
-      const listStr = scChamps.map(ch => `<div class="py-0.5">• ${ch.seasonYear}: <span class="font-bold ${dTheme.accentText}">${ch.scoringChampTeam}</span> (${ch.scoringChampPF ? ch.scoringChampPF.toFixed(1) : ''} PF)</div>`).join('');
+      const listStr = scChamps.map(ch => {
+        const clickAttr = `onclick="event.stopPropagation(); window.jumpToMatchup(${ch.seasonYear}, 1, '${(owner || '').replace(/'/g, "\\'")}')"`;
+        return `
+          <div class="py-0.5 cursor-pointer hover:bg-white/10 px-1 rounded transition-colors flex items-center justify-between group/sc" ${clickAttr} title="Jump to ${ch.seasonYear} Season">
+            <span>• ${ch.seasonYear}: <span class="font-bold ${dTheme.accentText}">${ch.scoringChampTeam}</span> (${ch.scoringChampPF ? ch.scoringChampPF.toFixed(1) : ''} PF)</span>
+            <span class="text-[9px] opacity-0 group-hover/sc:opacity-100 transition-opacity font-mono font-bold text-amber-400 ml-1">📋 Box ➔</span>
+          </div>
+        `;
+      }).join('');
       scHtml = `
         <div class="tooltip-trigger inline-block cursor-pointer">
           <span class="px-2 py-0.5 ${dTheme.scoringTitles.badge}">🎯 ${scTitles}</span>
@@ -61,7 +76,16 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
 
     let playoffHtml = `<span class="font-bold ${dTheme.accentText}">${entry.playoffPct}%</span>`;
     if (entry.playoffYears && entry.playoffYears.length > 0) {
-      const listStr = entry.playoffYears.map(yr => `<div class="py-0.5 text-xs text-left">• ${yr} Playoff Qualifier</div>`).join('');
+      const listStr = entry.playoffYears.map(yr => {
+        const playWk = yr >= 2021 ? 15 : 14;
+        const clickAttr = `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${playWk}, '${(owner || '').replace(/'/g, "\\'")}')"`;
+        return `
+          <div class="py-0.5 text-xs text-left cursor-pointer hover:bg-white/10 px-1 rounded transition-colors flex items-center justify-between group/po" ${clickAttr} title="Jump to ${yr} Playoffs">
+            <span>• ${yr} Playoff Qualifier</span>
+            <span class="text-[9px] opacity-0 group-hover/po:opacity-100 transition-opacity font-mono font-bold text-amber-400 ml-1">📋 Box ➔</span>
+          </div>
+        `;
+      }).join('');
       playoffHtml = `
         <div class="tooltip-trigger inline-block cursor-pointer">
           <span class="px-2 py-0.5 ${dTheme.playoffApps.badge}">${entry.playoffPct}%</span>
@@ -86,8 +110,13 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
         const benchCls = isPride ? 'font-bold text-pink-700' : 'font-bold text-emerald-400';
         const startCls = isPride ? 'text-red-600' : 'text-red-400';
         const gainCls = isPride ? 'text-amber-700 font-bold' : 'text-amber-400 font-bold';
+        const targetYr = d.year || (typeof currentSeason !== 'undefined' ? currentSeason : '');
+        const clickAttr = `onclick="event.stopPropagation(); window.jumpToMatchup(${targetYr || 'window.currentMatchupSeason'}, ${d.week}, '${owner}')"`;
         return `
-          <div class="py-0.5 text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="${benchCls}">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${startCls}">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${gainCls}">+${d.netGain} PF</span></div>
+          <div class="py-1 px-1.5 rounded hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer group" ${clickAttr} title="Click to view Week ${d.week} Matchup & Box Score">
+            <div class="text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="${benchCls}">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${startCls}">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${gainCls}">+${d.netGain} PF</span></div>
+            <span class="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity ml-1.5 shrink-0 font-bold ${isPride ? 'text-pink-600' : 'text-amber-400 font-mono'}">➔ Box</span>
+          </div>
         `;
       }).join('');
 
@@ -98,7 +127,7 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
             <div class="font-bold text-red-500 border-b border-current/20 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s D'Oh! Blunders (${dOhCount})</div>
             ${listStr || '<div class="text-xs opacity-75">1-player swap win opportunities missed</div>'}
             <div class="text-[10px] text-amber-500 font-bold pt-1 mt-1 border-t border-current/20 text-center">
-              Losses that would have been wins with 1 bench swap
+              💡 Click any blunder to view full matchup box score
             </div>
           </div>
         </div>
