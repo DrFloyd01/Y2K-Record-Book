@@ -146,9 +146,11 @@ describe('H2H View Component', () => {
     const prideCss = fs.readFileSync('src/styles/pride.css', 'utf8');
 
     // Matrix rendering function in app.js and pride_app.js should not attach tooltip-content or tooltip-trigger
-    const renderMatrixApp = appJs.slice(appJs.indexOf('function renderH2HMatrix'), appJs.indexOf('function renderH2HStreaks'));
-    const renderMatrixPride = prideAppJs.slice(prideAppJs.indexOf('function renderH2HMatrix'), prideAppJs.indexOf('function renderH2HStreaks'));
+    const renderMatrixApp = appJs.slice(appJs.indexOf('function renderH2HMatrix'), appJs.indexOf('TAB 4: CHAMPS'));
+    const renderMatrixPride = prideAppJs.slice(prideAppJs.indexOf('function renderH2HMatrix'), prideAppJs.indexOf('TAB 4: CHAMPS'));
 
+    expect(renderMatrixApp.length).toBeGreaterThan(100);
+    expect(renderMatrixPride.length).toBeGreaterThan(100);
     expect(renderMatrixApp).not.toContain('tooltip-trigger');
     expect(renderMatrixApp).not.toContain('tooltip-content');
     expect(renderMatrixPride).not.toContain('tooltip-trigger');
@@ -290,6 +292,41 @@ describe('H2H View Component', () => {
     // Both JS files default to active scope
     expect(appJs).toContain("let currentStreakScope = 'active'");
     expect(prideAppJs).toContain("let currentStreakScope = 'active'");
+  });
+
+  it('should verify MATCHUPS tab comes before H2H in Y2K nav and Pride matrix cells have no borders', async () => {
+    const fs = await import('fs');
+    const indexHtml = fs.readFileSync('index.html', 'utf8');
+    const prideAppJs = fs.readFileSync('src/pride_app.js', 'utf8');
+
+    // Desktop nav in index.html: nav-matchups before nav-h2h
+    const matchupsDesktopIdx = indexHtml.indexOf('id="nav-matchups"');
+    const h2hDesktopIdx = indexHtml.indexOf('id="nav-h2h"');
+    expect(matchupsDesktopIdx).toBeGreaterThan(0);
+    expect(h2hDesktopIdx).toBeGreaterThan(0);
+    expect(matchupsDesktopIdx).toBeLessThan(h2hDesktopIdx);
+
+    // Mobile nav in index.html: mobile-nav-matchups before mobile-nav-h2h
+    const matchupsMobileIdx = indexHtml.indexOf('id="mobile-nav-matchups"');
+    const h2hMobileIdx = indexHtml.indexOf('id="mobile-nav-h2h"');
+    expect(matchupsMobileIdx).toBeGreaterThan(0);
+    expect(h2hMobileIdx).toBeGreaterThan(0);
+    expect(matchupsMobileIdx).toBeLessThan(h2hMobileIdx);
+
+    // Pride matrix cells should not contain conditional borders
+    const prideMatrixCode = prideAppJs.slice(prideAppJs.indexOf('function renderH2HMatrix'), prideAppJs.indexOf('TAB 4: CHAMPS'));
+    expect(prideMatrixCode.length).toBeGreaterThan(100);
+    expect(prideMatrixCode).not.toContain('border-2 border-pink-500');
+    expect(prideMatrixCode).not.toContain('border border-pink-300');
+    expect(prideMatrixCode).not.toContain('border-2 border-rose-400');
+    expect(prideMatrixCode).not.toContain('border border-rose-200');
+
+    // Pride matrix cells should still contain the color gradient scale
+    expect(prideMatrixCode).toContain('bg-pink-200');
+    expect(prideMatrixCode).toContain('bg-pink-100');
+    expect(prideMatrixCode).toContain('bg-pink-50');
+    expect(prideMatrixCode).toContain('bg-rose-100');
+    expect(prideMatrixCode).toContain('bg-rose-50');
   });
 });
 

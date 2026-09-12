@@ -1695,11 +1695,11 @@ function renderLucideIcons() {
 
               if (diff >= 7) {
                 // Super Lopsided (+7 or more games ahead)
-                cellClass = 'bg-pink-200 text-purple-950 font-black border-2 border-pink-500 shadow-md';
+                cellClass = 'bg-pink-200 text-purple-950 font-black';
                 diffBadge = `<span class="text-[9px] text-pink-700 block font-bold leading-none mt-0.5">+${diff}</span>`;
               } else if (diff >= 4) {
                 // Heavy Dominance (+4 to +6 games ahead)
-                cellClass = 'bg-pink-100 text-pink-800 font-bold border border-pink-300';
+                cellClass = 'bg-pink-100 text-pink-800 font-bold';
                 diffBadge = `<span class="text-[9px] text-pink-600 block font-semibold leading-none mt-0.5">+${diff}</span>`;
               } else if (diff >= 2) {
                 // Moderate Advantage (+2 to +3 games ahead)
@@ -1712,11 +1712,11 @@ function renderLucideIcons() {
                 cellClass = 'text-purple-700/60 bg-purple-50/40 font-normal';
               } else if (diff <= -7) {
                 // Super Lopsided Deficit (-7 or more games behind)
-                cellClass = 'bg-rose-100 text-rose-950 font-bold border-2 border-rose-400 shadow-sm';
+                cellClass = 'bg-rose-100 text-rose-950 font-bold';
                 diffBadge = `<span class="text-[9px] text-rose-700 block font-bold leading-none mt-0.5">${diff}</span>`;
               } else if (diff <= -4) {
                 // Heavy Deficit (-4 to -6 games behind)
-                cellClass = 'bg-rose-50 text-rose-800 font-medium border border-rose-200';
+                cellClass = 'bg-rose-50 text-rose-800 font-medium';
                 diffBadge = `<span class="text-[9px] text-rose-600 block font-normal leading-none mt-0.5">${diff}</span>`;
               } else {
                 // Moderate / Slight Deficit (-1 to -3 games behind)

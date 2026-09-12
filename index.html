@@ -37,10 +37,10 @@
       <nav class="hidden lg:flex items-center space-x-1 bg-black/60 p-1 border border-emerald-900/80 rounded" id="desktop-nav">
         <button onclick="switchTab('seasons')" id="nav-seasons"
           class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-500 bg-emerald-900/60 text-emerald-300 rounded-sm transition-all">SEASONS</button>
-        <button onclick="switchTab('h2h')" id="nav-h2h"
-          class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">H2H</button>
         <button onclick="switchTab('matchups')" id="nav-matchups"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">MATCHUPS</button>
+        <button onclick="switchTab('h2h')" id="nav-h2h"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">H2H</button>
         <button onclick="switchTab('champs')" id="nav-champs"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">CHAMPS</button>
         <button onclick="switchTab('teams')" id="nav-teams"
@@ -1257,13 +1257,13 @@
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-400 font-bold">
         <span>SEASONS</span>
       </button>
+      <button onclick="switchTab('matchups')" id="mobile-nav-matchups"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
+        <span>MATCHUPS</span>
+      </button>
       <button onclick="switchTab('h2h')" id="mobile-nav-h2h"
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
         <span>H2H</span>
-      </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups"
-        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
-        <span>WEEKLY</span>
       </button>
       <button onclick="switchTab('champs')" id="mobile-nav-champs"
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
