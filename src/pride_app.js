@@ -483,7 +483,14 @@ function renderLucideIcons() {
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">OVR_W-L</th>
+        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-purple-50 transition-all inline-block shadow-sm">🌐 OVR</span>
+            <div class="tooltip-content tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[240px]">
+              🌐 <span class="font-bold text-pink-600">All-Play Record (OVR):</span> Your record if you played every manager every regular season week.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-purple-50 transition-all inline-block shadow-sm">⚡ WW</span>
@@ -533,14 +540,6 @@ function renderLucideIcons() {
           </div>
         </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
-        <th onclick="sortStandings('optimalPointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
-          <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">${currentSeason === 'allTime' ? 'OPT/G' : 'OPT_PF'}</span>
-            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-300 text-xs shadow-2xl text-left font-normal min-w-[240px]">
-              🎯 <span class="font-bold text-pink-600">Optimal PF (Best Ball):</span> Maximum points achievable with optimal start/sit decisions.
-            </div>
-          </div>
-        </th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
@@ -732,7 +731,6 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${doBadge}</td>
           <td class="p-2.5 text-center">${effCell}</td>
           <td class="p-2.5 text-center font-bold text-pink-700">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-          <td class="p-2.5 text-center">${optPfCell}</td>
           <td class="p-2.5 text-center text-pink-600">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
         `;
         tbody.appendChild(tr);
@@ -1449,7 +1447,7 @@ function renderLucideIcons() {
             gameScoreListHtml = `<div class="text-xs text-purple-700 italic font-sans">Game-by-game scores recorded in database.</div>`;
           }
 
-          const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
+          const rowPopDir = idx < Math.ceil(rows.length / 2) ? ' tooltip-content-bottom' : '';
           const streakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm rounded shadow-sm hover:bg-pink-100 transition-all">${s.streak} WINS</span>
@@ -1494,7 +1492,7 @@ function renderLucideIcons() {
             </div>
           `).join('');
 
-          const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
+          const rowPopDir = idx < Math.ceil(rows.length / 2) ? ' tooltip-content-bottom' : '';
           const multiStreakBadge = `
             <div class="tooltip-trigger inline-block cursor-pointer">
               <span class="px-2 py-0.5 border border-pink-400 bg-pink-100 text-pink-700 font-black text-xs rounded shadow-sm hover:bg-pink-200 transition-all">${r.streakVal} WINS EACH</span>

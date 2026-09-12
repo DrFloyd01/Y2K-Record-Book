@@ -478,7 +478,14 @@ function renderLucideIcons() {
             </div>
           </div>
         </th>
-        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">OVR_W-L</th>
+        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-900 transition-all inline-block shadow-sm">🌐 OVR</span>
+            <div class="tooltip-content tooltip-content-bottom p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[240px]">
+              🌐 <span class="font-bold text-emerald-400">All-Play Record (OVR):</span> Your record if you played every manager every regular season week.
+            </div>
+          </div>
+        </th>
         <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
           <div class="tooltip-trigger inline-block cursor-pointer">
             <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-500 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">⚡ WW</span>
@@ -528,14 +535,6 @@ function renderLucideIcons() {
           </div>
         </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
-        <th onclick="sortStandings('optimalPointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">
-          <div class="tooltip-trigger inline-block cursor-pointer">
-            <span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-600 rounded text-xs hover:bg-emerald-800 transition-all inline-block shadow-sm">${currentSeason === 'allTime' ? 'OPT/G' : 'OPT_PF'}</span>
-            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-black text-emerald-300 rounded border border-emerald-500 text-xs shadow-2xl text-left font-normal min-w-[240px]">
-              🎯 <span class="font-bold text-emerald-400">Optimal PF (Best Ball):</span> Theoretical maximum points possible with perfect weekly lineup decisions.
-            </div>
-          </div>
-        </th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
       `;
 
@@ -727,7 +726,6 @@ function renderLucideIcons() {
           <td class="p-2.5 text-center">${doBadge}</td>
           <td class="p-2.5 text-center">${effCell}</td>
           <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
-          <td class="p-2.5 text-center">${optPfCell}</td>
           <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
         `;
         tbody.appendChild(tr);
@@ -1415,7 +1413,7 @@ function renderLucideIcons() {
 
       rows.forEach((r, idx) => {
         const tr = document.createElement('tr');
-        const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
+        const rowPopDir = idx < Math.ceil(rows.length / 2) ? ' tooltip-content-bottom' : '';
 
         if (r.type === 'single') {
           const s = r.item;
