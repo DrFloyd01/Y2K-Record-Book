@@ -10,6 +10,7 @@ import { formatPlayoffWeek } from '../analytics/statRecords.js';
 export function buildConsolationLadderHtml({ season, consolationMatchups = [], standings = [], theme = CRT_THEME }) {
   if (!consolationMatchups || consolationMatchups.length === 0) return '';
   const isCrt = theme.name === 'crt';
+  const isPride = Boolean(theme && theme.name === 'pride');
 
   // Group Consolation Games by Week
   const consByWk = {};
@@ -91,7 +92,7 @@ export function buildConsolationLadderHtml({ season, consolationMatchups = [], s
     const isFinalWk = wIdx === allWeeks.length - 1;
     const isFirstWk = wIdx === 0;
 
-    const wkLabel = formatPlayoffWeek(season, wk, 'Consolation');
+    const wkLabel = formatPlayoffWeek(season, wk, 'Consolation', isPride);
     let wkTitle = `${wkLabel} LADDER MATCHUPS`;
     if (isFirstWk) wkTitle = `${wkLabel}: OPENING RUNGS (7v8 & 9v10)`;
     else if (isFinalWk) wkTitle = `${wkLabel}: LADDER FINALS (7v8 & 9v10)`;
@@ -184,6 +185,7 @@ export function buildConsolationLadderHtml({ season, consolationMatchups = [], s
  */
 export function buildPlayoffBracketHtml({ season, playoffMatchups = [], championship = null, standings = [], theme = CRT_THEME }) {
   const isCrt = theme.name === 'crt';
+  const isPride = Boolean(theme && theme.name === 'pride');
 
   const champStageOrder = ['Wild Card', 'Semi-Finals', 'Championship Final', 'Nebuchadnezzar Cup', '3rd Place Game', '5th Place Game'];
   const champStages = champStageOrder.filter(stg => playoffMatchups.some(m => m.stage === stg));
@@ -250,7 +252,7 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
         ? 'bg-emerald-900 text-emerald-300 border border-emerald-700'
         : 'bg-pink-100/90 text-pink-700 border border-purple-200';
 
-      const wkLabel = formatPlayoffWeek(season, m.weekNumber || m.week, m.stage);
+      const wkLabel = formatPlayoffWeek(season, m.weekNumber || m.week, m.stage, isPride);
 
       mListHtml += `
         <div class="${isCrt ? 'bg-black/90 hover:border-emerald-400' : 'bg-white/90 hover:border-pink-400'} p-3 rounded border ${cardBorder} cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${m.homeOwner}', '${m.awayOwner}')" title="Click to view playoff box score & rosters">
@@ -295,7 +297,7 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
     }
 
     const firstWk = stgMatchups[0] ? (stgMatchups[0].weekNumber || stgMatchups[0].week) : '';
-    const stgWkLabel = formatPlayoffWeek(season, firstWk, stg);
+    const stgWkLabel = formatPlayoffWeek(season, firstWk, stg, isPride);
 
     pCardsHtml += `
       <div class="crt-box rounded p-4">

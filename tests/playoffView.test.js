@@ -43,4 +43,36 @@ describe('Playoff View Component', () => {
 
     expect(html).toContain('NO_POSTSEASON_DATA');
   });
+
+  it('should render 1-week labels for 2018 Y2K and 2-week labels for 2018 Pride Guys', () => {
+    const y2kMatchups = [
+      { seasonYear: 2018, weekNumber: 15, stage: 'Semi-Finals', homeOwner: 'Dylan', homeTeam: 'The Waterboys', homeScore: 134.37, awayOwner: 'Phillip', awayTeam: 'TDS', awayScore: 136.85, homeSeed: 1, awaySeed: 4 },
+      { seasonYear: 2018, weekNumber: 16, stage: 'Nebuchadnezzar Cup', homeOwner: 'Phillip', homeTeam: 'TDS', homeScore: 159.34, awayOwner: 'Trace', awayTeam: 'ProudER', awayScore: 156.14, homeSeed: 1, awaySeed: 2 }
+    ];
+
+    const y2kHtml = buildPlayoffBracketHtml({
+      season: 2018,
+      playoffMatchups: y2kMatchups,
+      championship: null,
+      theme: CRT_THEME
+    });
+
+    expect(y2kHtml).toContain('WEEK 15');
+    expect(y2kHtml).toContain('WEEK 16');
+    expect(y2kHtml).not.toContain('WEEKS 14+15');
+    expect(y2kHtml).not.toContain('WEEKS 16+17');
+
+    const prideMatchups = [
+      { seasonYear: 2018, weekNumber: 14, stage: 'Semi-Finals', homeOwner: 'Trace', homeTeam: 'ProudER', homeScore: 198, awayOwner: 'James', awayTeam: 'Beating Goff', awayScore: 193, homeSeed: 1, awaySeed: 4 }
+    ];
+
+    const prideHtml = buildPlayoffBracketHtml({
+      season: 2018,
+      playoffMatchups: prideMatchups,
+      championship: null,
+      theme: PRIDE_THEME
+    });
+
+    expect(prideHtml).toContain('WEEKS 14+15');
+  });
 });

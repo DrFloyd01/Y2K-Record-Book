@@ -23,14 +23,15 @@ export function formatPlayoffStageTag(stage, year) {
 
 /**
  * Helper: Format Playoff Week / Aggregate Round Labels
- * Pre-2022 ESPN leagues used 2-week playoff rounds (e.g. Weeks 14+15 and 16+17)
+ * Pre-2022 ESPN Pride Guys used 2-week playoff rounds (e.g. Weeks 14+15 and 16+17),
+ * whereas Y2K and modern seasons use standard 1-week playoff rounds.
  */
-export function formatPlayoffWeek(season, week, stage) {
+export function formatPlayoffWeek(season, week, stage, isPride = false) {
   const yr = parseInt(season, 10);
   const wk = parseInt(week, 10);
   if (!yr || isNaN(yr)) return `WEEK ${week || ''}`.trim();
   
-  if (yr < 2022) {
+  if (isPride && yr < 2022) {
     if (yr === 2020) {
       // Pride Guys 2020 finals were in Week 14
       if (wk === 14 && stage && (stage.includes('Final') || stage.includes('3rd') || stage.includes('5th'))) return 'WEEK 14';
@@ -44,7 +45,7 @@ export function formatPlayoffWeek(season, week, stage) {
     }
   }
 
-  return `WEEK ${week || ''}`.trim();
+  return `WEEK ${wk || week || ''}`.trim();
 }
 
 export function getPlayoffMatchupResult(leagueData, yr, stage) {
