@@ -37,10 +37,10 @@
       <nav class="hidden lg:flex items-center space-x-1 bg-black/60 p-1 border border-emerald-900/80 rounded" id="desktop-nav">
         <button onclick="switchTab('seasons')" id="nav-seasons"
           class="nav-btn px-3 py-1 text-xs font-bold border border-emerald-500 bg-emerald-900/60 text-emerald-300 rounded-sm transition-all">SEASONS</button>
-        <button onclick="switchTab('h2h')" id="nav-h2h"
-          class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">H2H</button>
         <button onclick="switchTab('matchups')" id="nav-matchups"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">MATCHUPS</button>
+        <button onclick="switchTab('h2h')" id="nav-h2h"
+          class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">H2H</button>
         <button onclick="switchTab('champs')" id="nav-champs"
           class="nav-btn px-3 py-1 text-xs font-bold border border-transparent text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 rounded-sm transition-all">CHAMPS</button>
         <button onclick="switchTab('teams')" id="nav-teams"
@@ -319,18 +319,26 @@
         <div
           class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span>&gt;_ H2H_WINNING_STREAKS_LEADERBOARD</span>
-          <div class="flex items-center gap-1 flex-wrap justify-center">
-            <button onclick="filterH2HStreaks('all')" id="streak-filter-all"
-              class="streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs">ALL
-              STREAKS</button>
-            <button onclick="filterH2HStreaks('active')" id="streak-filter-active"
-              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">🔥
-              ACTIVE ONLY</button>
-            <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular"
-              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">REGULAR
-              SEASON</button>
-            <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff"
-              class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
+          <div class="flex items-center gap-2 flex-wrap justify-center">
+            <div class="flex items-center gap-1 flex-wrap justify-center" id="h2h-streak-filter-buttons">
+              <button onclick="filterH2HStreaks('all')" id="streak-filter-all"
+                class="streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs">ALL
+                STREAKS</button>
+              <button onclick="filterH2HStreaks('active')" id="streak-filter-active"
+                class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">🔥
+                ACTIVE ONLY</button>
+              <button onclick="filterH2HStreaks('regular')" id="streak-filter-regular"
+                class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">REGULAR
+                SEASON</button>
+              <button onclick="filterH2HStreaks('playoff')" id="streak-filter-playoff"
+                class="streak-filter-btn px-2.5 py-1 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-xs">PLAYOFFS</button>
+            </div>
+            <div class="flex gap-1 ml-1 border-l border-emerald-800 pl-2" id="h2h-streak-scope-buttons">
+              <button id="streak-scope-active" onclick="toggleStreakScope('active')"
+                class="streak-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded">ACTIVE MANAGERS</button>
+              <button id="streak-scope-all" onclick="toggleStreakScope('all')"
+                class="streak-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded">ALL MANAGERS</button>
+            </div>
           </div>
         </div>
         <div class="table-scroll-container">
@@ -355,13 +363,21 @@
         <div
           class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>&gt;_ LIFETIME_H2H_GRID_MATRIX</span>
-          <div class="flex items-center gap-1.5" id="h2h-matrix-filter-buttons">
-            <button id="matrix-filter-all" onclick="filterH2HMatrix('all')"
-              class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
-            <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')"
-              class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
-            <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')"
-              class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
+          <div class="flex items-center gap-2 flex-wrap justify-center">
+            <div class="flex items-center gap-1.5" id="h2h-matrix-filter-buttons">
+              <button id="matrix-filter-all" onclick="filterH2HMatrix('all')"
+                class="matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]">ALL</button>
+              <button id="matrix-filter-regular" onclick="filterH2HMatrix('regular')"
+                class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">REGULAR</button>
+              <button id="matrix-filter-playoff" onclick="filterH2HMatrix('playoff')"
+                class="matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]">PLAYOFFS</button>
+            </div>
+            <div class="flex gap-1 ml-1 border-l border-emerald-800 pl-2" id="h2h-matrix-scope-buttons">
+              <button id="matrix-scope-active" onclick="toggleMatrixScope('active')"
+                class="matrix-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded">ACTIVE MANAGERS</button>
+              <button id="matrix-scope-all" onclick="toggleMatrixScope('all')"
+                class="matrix-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded">ALL MANAGERS</button>
+            </div>
           </div>
         </div>
         <div class="p-2 sm:p-3 h2h-matrix-container no-scrollbar">
@@ -1241,13 +1257,13 @@
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-400 font-bold">
         <span>SEASONS</span>
       </button>
+      <button onclick="switchTab('matchups')" id="mobile-nav-matchups"
+        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
+        <span>MATCHUPS</span>
+      </button>
       <button onclick="switchTab('h2h')" id="mobile-nav-h2h"
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
         <span>H2H</span>
-      </button>
-      <button onclick="switchTab('matchups')" id="mobile-nav-matchups"
-        class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
-        <span>WEEKLY</span>
       </button>
       <button onclick="switchTab('champs')" id="mobile-nav-champs"
         class="mobile-nav-btn flex flex-col items-center justify-center flex-1 py-1 text-emerald-700">
