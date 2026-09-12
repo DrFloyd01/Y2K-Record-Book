@@ -76,6 +76,7 @@ function lineupSaverPlugin() {
                   if (lData.seasonData && lData.seasonData[sKey]) {
                     const sData = lData.seasonData[sKey];
                     // Aggregate stats per owner
+                    const ownerAgg = {};
                     const regWeeks = sData.settings?.regularSeasonWeeks || 14;
                     matchups.forEach(m => {
                       if (m.isPlayoff || m.week > regWeeks) return;
