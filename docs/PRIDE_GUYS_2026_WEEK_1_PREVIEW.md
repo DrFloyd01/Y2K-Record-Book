@@ -14,7 +14,7 @@ CTESPN vs Defense Contractor #1
 h2h: 3-5
 streak: Nathan 2 (Wk11'25, 101.7-119.4)
 playoffs: 1-0 (3rd'24, 101.48-94.68)
-CTESPN, another OG, enters his 10th season on an active 3-year playoff streak (qualifying in 6 of 9 seasons). With 5 career podium finishes (2x runner-up, 3x 3rd place, including back-to-back 3rd place runs in '24 and '25), Michael remains the most decorated manager in Pride Guys history without a chip. Defense Contractor #1 enters his 5th season looking to return to playoff contention after finishing 8th in 2025 (7-7), having previously finished 3rd in 2022 and 4th in 2024 (as the regular season #2 seed). Nathan has owned recent regular season clashes with 3 straight wins and a 5-3 series edge, but CTESPN took their lone playoff meeting in the 2024 bronze match.
+CTESPN, another OG, enters his 10th season on an active 3-year playoff streak (qualifying in 7 of 9 seasons). With 5 career podium finishes (2x runner-up, 3x 3rd place, including back-to-back 3rd place runs in '24 and '25), Michael remains the most decorated manager in Pride Guys history without a chip. Defense Contractor #1 enters his 5th season looking to return to playoff contention after finishing 8th in 2025 (7-7), having previously finished 3rd in 2022 and 4th in 2024 (as the regular season #2 seed). Nathan has owned recent regular season clashes with 3 straight wins and a 5-3 series edge, but CTESPN took their lone playoff meeting in the 2024 bronze match.
 
 Stroking my penix vs BloodSword2000
 h2h: 0-0
@@ -26,7 +26,7 @@ ProudER vs Joey Chestnuts
 h2h: 3-1
 streak: Trace 2 (Wk10'25, 122.2-125.72)
 playoffs: 0-0
-ProudER, an OG, enters his 10th season as the all-time winningest manager in league history with 68 career wins and 8 playoff berths in 9 seasons. Despite unmatched regular season consistency, Trace is a 3-time runner-up (2017, 2018, 2022) still fighting to break the league's ultimate bridesmaid curse and capture his first chip. Joey Chestnuts enters his 3rd season in Pride Guys looking for a complete turnaround after finishing 10th in 2025, still searching for his first career postseason berth. ProudER swept both meetings against Phil last season to push his active streak to 2.
+ProudER, an OG, enters his 10th season as the all-time winningest manager in league history with 68 career wins and 7 playoff berths in 9 seasons. Despite unmatched regular season consistency, Trace is a 3-time runner-up (2017, 2018, 2022) still fighting to break the league's ultimate bridesmaid curse and capture his first chip. Joey Chestnuts enters his 3rd season in Pride Guys looking for a complete turnaround after finishing 10th (last) in both 2024 and 2025, still searching for his first career postseason berth. ProudER swept both meetings against Phil last season to push his active streak to 2.
 
 L Central vs JD Vance in Drag
 h2h: 5-8
