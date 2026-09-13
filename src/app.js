@@ -1204,7 +1204,17 @@ function renderLucideIcons() {
 
       if (!h2h) return null;
 
-      const games = [...h2h.games].sort((a, b) => a.year !== b.year ? a.year - b.year : a.week - b.week);
+      const isLadderGame = g => Boolean(
+        g.stage === 'Consolation Round Robin' ||
+        g.stage === 'Consolation Ladder' ||
+        g.stage === 'Consolation Matchup' ||
+        g.isConsolation ||
+        g.rawTier === 'LOSERS_CONSOLATION_LADDER'
+      );
+
+      const games = [...h2h.games]
+        .filter(g => !isLadderGame(g))
+        .sort((a, b) => a.year !== b.year ? a.year - b.year : a.week - b.week);
 
       let regW1 = 0, regW2 = 0, regTies = 0;
       let playW1 = 0, playW2 = 0, playTies = 0;

@@ -947,7 +947,7 @@ function renderLucideIcons() {
         if (!isExact2023 && (isOneYearManager(m.homeOwner) || isOneYearManager(m.awayOwner))) return false;
 
         const isPlayoff = m.isPlayoff !== undefined ? m.isPlayoff : false;
-        const isConsolation = m.isConsolation || m.stage === 'Consolation Round Robin' || m.rawTier === 'LOSERS_CONSOLATION_LADDER';
+        const isConsolation = m.isConsolation || m.stage === 'Consolation Round Robin' || m.stage === 'Consolation Ladder' || m.stage === 'Consolation Matchup' || m.rawTier === 'LOSERS_CONSOLATION_LADDER';
 
         if (currentStatsStage === 'regular' && (isPlayoff || isConsolation)) return false;
         if (currentStatsStage === 'playoffs' && (!isPlayoff || isConsolation)) return false;
@@ -1199,7 +1199,17 @@ function renderLucideIcons() {
 
       if (!h2h) return null;
 
-      const games = [...h2h.games].sort((a, b) => a.year !== b.year ? a.year - b.year : a.week - b.week);
+      const isLadderGame = g => Boolean(
+        g.stage === 'Consolation Round Robin' ||
+        g.stage === 'Consolation Ladder' ||
+        g.stage === 'Consolation Matchup' ||
+        g.isConsolation ||
+        g.rawTier === 'LOSERS_CONSOLATION_LADDER'
+      );
+
+      const games = [...h2h.games]
+        .filter(g => !isLadderGame(g))
+        .sort((a, b) => a.year !== b.year ? a.year - b.year : a.week - b.week);
       
       let regW1 = 0, regW2 = 0, regTies = 0;
       let playW1 = 0, playW2 = 0, playTies = 0;
@@ -1208,9 +1218,6 @@ function renderLucideIcons() {
       const playGames = [];
 
       games.forEach(g => {
-        if (g.stage === 'Consolation Round Robin' || g.stage === 'Consolation Ladder' || g.stage === 'Consolation Matchup' || g.isConsolation || g.rawTier === 'LOSERS_CONSOLATION_LADDER') {
-          return;
-        }
         const sData = window.LEAGUE_DATA.seasonData[g.year];
         const regWeeks = sData ? sData.settings.regularSeasonWeeks : 14;
         const isPlayoff = g.week > regWeeks;

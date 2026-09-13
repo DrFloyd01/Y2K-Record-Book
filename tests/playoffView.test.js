@@ -75,4 +75,21 @@ describe('Playoff View Component', () => {
 
     expect(prideHtml).toContain('WEEKS 14+15');
   });
+
+  it('should render consolation ladder and draft order tournament when ladder matchups exist', () => {
+    const ladderMatchups = [
+      { seasonYear: 2025, weekNumber: 15, stage: 'Consolation Ladder', homeOwner: 'Nathan', homeTeam: 'Defense #1', homeScore: 100, awayOwner: 'Aidan', awayTeam: 'JD Vance', awayScore: 110, rawTier: 'LOSERS_CONSOLATION_LADDER' },
+      { seasonYear: 2025, weekNumber: 16, stage: 'Consolation Ladder', homeOwner: 'Nathan', homeTeam: 'Defense #1', homeScore: 95, awayOwner: 'Phil', awayTeam: 'Joey Chestnuts', awayScore: 90, rawTier: 'LOSERS_CONSOLATION_LADDER' }
+    ];
+
+    const html = buildPlayoffBracketHtml({
+      season: 2025,
+      playoffMatchups: ladderMatchups,
+      championship: null,
+      theme: PRIDE_THEME
+    });
+
+    expect(html).toContain('CONSOLATION LADDER &amp; DRAFT ORDER TOURNAMENT');
+    expect(html).toContain('FINAL LADDER PLACEMENT');
+  });
 });

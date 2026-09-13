@@ -92,7 +92,7 @@ export function getH2HBreakdown(leagueData, o1, o2) {
   let o1Pts = 0, o2Pts = 0;
 
   for (const m of leagueData.matchups) {
-    if (m.isConsolation || m.stage === 'Consolation Round Robin' || m.playoffStage === 'Consolation Round Robin' || m.rawTier === 'LOSERS_CONSOLATION_LADDER') continue;
+    if (m.isConsolation || m.stage === 'Consolation Round Robin' || m.stage === 'Consolation Ladder' || m.stage === 'Consolation Matchup' || m.playoffStage === 'Consolation Round Robin' || m.rawTier === 'LOSERS_CONSOLATION_LADDER') continue;
     const isM = (m.homeOwner === o1 && m.awayOwner === o2) || (m.homeOwner === o2 && m.awayOwner === o1);
     if (!isM) continue;
 

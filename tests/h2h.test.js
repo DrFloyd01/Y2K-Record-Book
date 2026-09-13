@@ -60,4 +60,19 @@ describe('H2H Analytics Module', () => {
     expect(breakdown.o1TotalWins).toBe(1);
     expect(breakdown.o2TotalWins).toBe(0);
   });
+
+  it('should ignore consolation and ladder games from H2H breakdown', () => {
+    const mockLeagueData = {
+      matchups: [
+        { year: 2024, week: 1, homeOwner: 'Dylan', awayOwner: 'Tyler', homeScore: 120.0, awayScore: 110.0, isPlayoff: false },
+        { year: 2024, week: 15, homeOwner: 'Dylan', awayOwner: 'Tyler', homeScore: 100.0, awayScore: 130.0, isPlayoff: false, isConsolation: true, stage: 'Consolation Ladder', rawTier: 'LOSERS_CONSOLATION_LADDER' },
+        { year: 2024, week: 16, homeOwner: 'Dylan', awayOwner: 'Tyler', homeScore: 90.0, awayScore: 115.0, isPlayoff: false, isConsolation: true, stage: 'Consolation Round Robin', rawTier: 'LOSERS_CONSOLATION_LADDER' }
+      ]
+    };
+    const breakdown = getH2HBreakdown(mockLeagueData, 'Dylan', 'Tyler');
+    expect(breakdown.totalGames).toBe(1);
+    expect(breakdown.o1TotalWins).toBe(1);
+    expect(breakdown.o2TotalWins).toBe(0);
+    expect(breakdown.games.length).toBe(1);
+  });
 });
