@@ -2831,7 +2831,7 @@
           "starterSlot": "QB",
           "starterPosition": "QB",
           "benchPlayer": "Deshaun Watson",
-          "benchPoints": 33.0,
+          "benchPoints": 33,
           "benchPosition": "QB",
           "netGain": 21.77,
           "deficitNeeded": 0.67,
@@ -6765,7 +6765,7 @@
           "projectedNewScore": 137.37
         }
       ],
-      "coachingEfficiency": 92.0,
+      "coachingEfficiency": 92,
       "optimalPointsFor": 15318.9,
       "optimalPF": 15318.9,
       "optPfg": 136.8,
@@ -7035,8 +7035,8 @@
         }
       ],
       "coachingEfficiency": 86.3,
-      "optimalPointsFor": 1885.0,
-      "optimalPF": 1885.0,
+      "optimalPointsFor": 1885,
+      "optimalPF": 1885,
       "optPfg": 134.6,
       "dOhCount": 2
     }
@@ -7853,7 +7853,7 @@
           "playoffWinPct": 0,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 88.0,
+          "coachingEfficiency": 88,
           "optimalPointsFor": 1778.7,
           "optimalPF": 1778.7,
           "dOhCount": 0
@@ -9313,8 +9313,8 @@
             }
           ],
           "coachingEfficiency": 94.1,
-          "optimalPointsFor": 2286.0,
-          "optimalPF": 2286.0,
+          "optimalPointsFor": 2286,
+          "optimalPF": 2286,
           "dOhCount": 4
         },
         {
@@ -9449,7 +9449,7 @@
               "starterSlot": "QB",
               "starterPosition": "QB",
               "benchPlayer": "Deshaun Watson",
-              "benchPoints": 33.0,
+              "benchPoints": 33,
               "benchPosition": "QB",
               "netGain": 21.77,
               "deficitNeeded": 0.67,
@@ -11047,7 +11047,7 @@
               "winMargin": 7.03
             }
           ],
-          "coachingEfficiency": 90.0,
+          "coachingEfficiency": 90,
           "optimalPointsFor": 1977.8,
           "optimalPF": 1977.8,
           "dOhCount": 1
@@ -11545,7 +11545,7 @@
               "winMargin": 8.67
             }
           ],
-          "coachingEfficiency": 91.0,
+          "coachingEfficiency": 91,
           "optimalPointsFor": 1676.2,
           "optimalPF": 1676.2,
           "dOhCount": 2
@@ -13648,7 +13648,7 @@
               "winMargin": 6.58
             }
           ],
-          "coachingEfficiency": 93.0,
+          "coachingEfficiency": 93,
           "optimalPointsFor": 1718.1,
           "optimalPF": 1718.1,
           "dOhCount": 3
@@ -15150,9 +15150,9 @@
           "playoffWinPct": 66.7,
           "dOhs": 0,
           "dOhDetails": [],
-          "coachingEfficiency": 100.0,
-          "optimalPointsFor": 2070.0,
-          "optimalPF": 2070.0,
+          "coachingEfficiency": 100,
+          "optimalPointsFor": 2070,
+          "optimalPF": 2070,
           "dOhCount": 0
         },
         {
@@ -15459,8 +15459,8 @@
             }
           ],
           "coachingEfficiency": 96.6,
-          "optimalPointsFor": 1896.0,
-          "optimalPF": 1896.0,
+          "optimalPointsFor": 1896,
+          "optimalPF": 1896,
           "dOhCount": 1
         },
         {
@@ -15586,8 +15586,8 @@
             }
           ],
           "coachingEfficiency": 92.8,
-          "optimalPointsFor": 2026.0,
-          "optimalPF": 2026.0,
+          "optimalPointsFor": 2026,
+          "optimalPF": 2026,
           "dOhCount": 1
         },
         {
@@ -18158,8 +18158,8 @@
             }
           ],
           "coachingEfficiency": 93.4,
-          "optimalPointsFor": 2056.0,
-          "optimalPF": 2056.0,
+          "optimalPointsFor": 2056,
+          "optimalPF": 2056,
           "dOhCount": 2
         },
         {
@@ -18587,8 +18587,8 @@
             }
           ],
           "coachingEfficiency": 86.3,
-          "optimalPointsFor": 1885.0,
-          "optimalPF": 1885.0,
+          "optimalPointsFor": 1885,
+          "optimalPF": 1885,
           "dOhCount": 2
         },
         {
@@ -21202,7 +21202,7 @@
               "winMargin": 9.42
             }
           ],
-          "coachingEfficiency": 89.0,
+          "coachingEfficiency": 89,
           "optimalPF": 2252.8,
           "optimalPointsFor": 2252.8,
           "dOhCount": 2
@@ -21559,8 +21559,8 @@
           "dOhs": 0,
           "dOhDetails": [],
           "coachingEfficiency": 95.4,
-          "optimalPointsFor": 1926.0,
-          "optimalPF": 1926.0,
+          "optimalPointsFor": 1926,
+          "optimalPF": 1926,
           "dOhCount": 0
         },
         {
@@ -21910,9 +21910,9 @@
               "winMargin": 0.96
             }
           ],
-          "coachingEfficiency": 95.0,
-          "optimalPF": 1736.0,
-          "optimalPointsFor": 1736.0,
+          "coachingEfficiency": 95,
+          "optimalPF": 1736,
+          "optimalPointsFor": 1736,
           "dOhCount": 1
         }
       ],
@@ -23628,7 +23628,7 @@
               "projectedNewScore": 147.5
             }
           ],
-          "coachingEfficiency": 91.0,
+          "coachingEfficiency": 91,
           "optimalPointsFor": 2323.3,
           "optimalPF": 2323.3,
           "dOhCount": 2
@@ -24078,8 +24078,8 @@
             }
           ],
           "coachingEfficiency": 93.9,
-          "optimalPointsFor": 2277.0,
-          "optimalPF": 2277.0,
+          "optimalPointsFor": 2277,
+          "optimalPF": 2277,
           "dOhCount": 2
         },
         {
@@ -24326,9 +24326,9 @@
               "projectedNewScore": 137.37
             }
           ],
-          "coachingEfficiency": 86.0,
-          "optimalPointsFor": 2063.0,
-          "optimalPF": 2063.0,
+          "coachingEfficiency": 86,
+          "optimalPointsFor": 2063,
+          "optimalPF": 2063,
           "dOhCount": 4
         },
         {
@@ -24605,8 +24605,8 @@
             }
           ],
           "coachingEfficiency": 86.9,
-          "optimalPointsFor": 2151.0,
-          "optimalPF": 2151.0,
+          "optimalPointsFor": 2151,
+          "optimalPF": 2151,
           "dOhCount": 5
         },
         {
@@ -29371,8 +29371,8 @@
           "homeTeam": "Globo Gym",
           "homeOwner": "Dylan",
           "homeScore": 0,
-          "awayTeam": "IRKed",
-          "awayOwner": "Mike",
+          "awayTeam": "IRked",
+          "awayOwner": "IRked",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -29394,19 +29394,6 @@
         {
           "week": 1,
           "matchupId": 3,
-          "homeTeam": "Blue's Balls",
-          "homeOwner": "Jasper",
-          "homeScore": 0,
-          "awayTeam": "Tess Finesse",
-          "awayOwner": "Tess",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
-          "isPlayoff": false
-        },
-        {
-          "week": 1,
-          "matchupId": 4,
           "homeTeam": "Gl Hf (you’re gay)",
           "homeOwner": "Trace",
           "homeScore": 0,
@@ -29419,12 +29406,25 @@
         },
         {
           "week": 1,
-          "matchupId": 5,
-          "homeTeam": "Aaron codger",
-          "homeOwner": "Boaz",
+          "matchupId": 4,
+          "homeTeam": "Donkey Squad",
+          "homeOwner": "Ryan",
           "homeScore": 0,
-          "awayTeam": "Donkey Squad",
-          "awayOwner": "Ryan",
+          "awayTeam": "Aaron codger",
+          "awayOwner": "Boaz",
+          "awayScore": 0,
+          "winner": "TBD",
+          "margin": 0,
+          "isPlayoff": false
+        },
+        {
+          "week": 1,
+          "matchupId": 5,
+          "homeTeam": "Dusty’s Dingleberries",
+          "homeOwner": "Dustin",
+          "homeScore": 0,
+          "awayTeam": "Trenches cooper",
+          "awayOwner": "Cooper",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
@@ -29433,11 +29433,11 @@
         {
           "week": 1,
           "matchupId": 6,
-          "homeTeam": "Dusty’s Dingleberries",
-          "homeOwner": "Dustin",
+          "homeTeam": "Tess Finesse",
+          "homeOwner": "Tess",
           "homeScore": 0,
-          "awayTeam": "Trenches cooper",
-          "awayOwner": "Cooper",
+          "awayTeam": "Blue's Balls",
+          "awayOwner": "Jasper",
           "awayScore": 0,
           "winner": "TBD",
           "margin": 0,
