@@ -160,3 +160,128 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
     `;
   }).join('');
 }
+
+/**
+ * Maps a clicked standings column to its effective target field
+ */
+export function getStandingsTargetField(field, currentSeason) {
+  let targetField = field;
+  if (targetField === 'teamName') targetField = 'wins';
+  if (currentSeason === 'allTime') {
+    if (targetField === 'wins' || targetField === 'winPct') targetField = 'winPct';
+    if (targetField === 'ovrRecord' || targetField === 'ovrWinPct') targetField = 'ovrWinPct';
+  }
+  return targetField;
+}
+
+/**
+ * Determines default sort direction (rank is ascending 1..12, others descending)
+ */
+export function getStandingsDefaultSortAsc(targetField) {
+  return targetField === 'rank';
+}
+
+/**
+ * Checks whether the current sort is based on Win-Loss / standing rank
+ */
+export function isStandingsWLSort(sortField) {
+  return sortField === 'rank' || sortField === 'wins' || sortField === 'winPct';
+}
+
+/**
+ * Extracts numerical overall record metrics (winPct, wins, losses)
+ */
+export function getOvrSortMetrics(entry) {
+  let wins = 0;
+  let losses = 0;
+  let winPct = 0;
+
+  if (typeof entry.ovrWins === 'number' && !isNaN(entry.ovrWins)) {
+    wins = entry.ovrWins;
+    losses = typeof entry.ovrLosses === 'number' && !isNaN(entry.ovrLosses) ? entry.ovrLosses : 0;
+    winPct = entry.ovrWinPct !== undefined && !isNaN(entry.ovrWinPct)
+      ? Number(entry.ovrWinPct)
+      : (wins + losses > 0 ? (wins / (wins + losses)) * 100 : 0);
+  } else if (typeof entry.ovrRecord === 'string' && entry.ovrRecord.includes('-')) {
+    const parts = entry.ovrRecord.split('-').map(s => parseFloat(s.trim()));
+    wins = !isNaN(parts[0]) ? parts[0] : 0;
+    losses = !isNaN(parts[1]) ? parts[1] : 0;
+    winPct = entry.ovrWinPct !== undefined && !isNaN(entry.ovrWinPct)
+      ? Number(entry.ovrWinPct)
+      : (wins + losses > 0 ? (wins / (wins + losses)) * 100 : 0);
+  } else if (typeof entry.ovrWinPct === 'number' && !isNaN(entry.ovrWinPct)) {
+    winPct = entry.ovrWinPct;
+  }
+
+  return { wins, losses, winPct };
+}
+
+/**
+ * Sorts a standings array with robust numerical and tiebreaking rules
+ */
+export function sortStandingsList(list, { sortField, sortAsc, currentSeason }) {
+  return list.sort((a, b) => {
+    let field = sortField;
+    if (currentSeason === 'allTime') {
+      if (field === 'wins') field = 'winPct';
+      if (field === 'ovrRecord') field = 'ovrWinPct';
+      if (field === 'pointsFor') field = 'pfg';
+      if (field === 'optimalPointsFor' || field === 'optimalPF') field = 'optPfg';
+      if (field === 'pointsAgainst') field = 'pag';
+    }
+
+    if (field === 'rank') {
+      const rA = a.rank !== undefined ? a.rank : 999;
+      const rB = b.rank !== undefined ? b.rank : 999;
+      return sortAsc ? rA - rB : rB - rA;
+    }
+
+    if (field === 'wins') {
+      const wA = a.wins !== undefined ? a.wins : 0;
+      const wB = b.wins !== undefined ? b.wins : 0;
+      if (wA !== wB) return sortAsc ? wA - wB : wB - wA;
+      const pfA = a.pointsFor !== undefined ? a.pointsFor : 0;
+      const pfB = b.pointsFor !== undefined ? b.pointsFor : 0;
+      if (pfA !== pfB) return sortAsc ? pfA - pfB : pfB - pfA;
+      return sortAsc ? (b.rank || 0) - (a.rank || 0) : (a.rank || 0) - (b.rank || 0);
+    }
+
+    if (field === 'winPct') {
+      const pA = a.winPct !== undefined ? a.winPct : 0;
+      const pB = b.winPct !== undefined ? b.winPct : 0;
+      if (pA !== pB) return sortAsc ? pA - pB : pB - pA;
+      const wA = a.wins !== undefined ? a.wins : 0;
+      const wB = b.wins !== undefined ? b.wins : 0;
+      if (wA !== wB) return sortAsc ? wA - wB : wB - wA;
+      const pfA = a.pointsFor !== undefined ? a.pointsFor : 0;
+      const pfB = b.pointsFor !== undefined ? b.pointsFor : 0;
+      if (pfA !== pfB) return sortAsc ? pfA - pfB : pfB - pfA;
+      return sortAsc ? (b.rank || 0) - (a.rank || 0) : (a.rank || 0) - (b.rank || 0);
+    }
+
+    if (field === 'ovrRecord' || field === 'ovrWinPct') {
+      const ovrA = getOvrSortMetrics(a);
+      const ovrB = getOvrSortMetrics(b);
+      if (ovrA.winPct !== ovrB.winPct) {
+        return sortAsc ? ovrA.winPct - ovrB.winPct : ovrB.winPct - ovrA.winPct;
+      }
+      if (ovrA.wins !== ovrB.wins) {
+        return sortAsc ? ovrA.wins - ovrB.wins : ovrB.wins - ovrA.wins;
+      }
+      const pfA = a.pointsFor !== undefined ? a.pointsFor : 0;
+      const pfB = b.pointsFor !== undefined ? b.pointsFor : 0;
+      if (pfA !== pfB) return sortAsc ? pfA - pfB : pfB - pfA;
+      return sortAsc ? (b.rank || 0) - (a.rank || 0) : (a.rank || 0) - (b.rank || 0);
+    }
+
+    let vA = a[field];
+    let vB = b[field];
+    if (vA === null || vA === undefined) vA = sortAsc ? Infinity : -Infinity;
+    if (vB === null || vB === undefined) vB = sortAsc ? Infinity : -Infinity;
+    if (typeof vA === 'string') vA = vA.toLowerCase();
+    if (typeof vB === 'string') vB = vB.toLowerCase();
+    if (vA < vB) return sortAsc ? -1 : 1;
+    if (vA > vB) return sortAsc ? 1 : -1;
+    return (a.rank || 0) - (b.rank || 0);
+  });
+}

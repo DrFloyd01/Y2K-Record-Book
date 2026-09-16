@@ -18,7 +18,13 @@ import {
   getPlayerLifetimeDraftPopover as sharedGetPlayerLifetimeDraftPopover,
   getPlayerRingBadgeHtml as sharedGetPlayerRingBadgeHtml
 } from './components/popovers.js';
-import { buildDynastyLeaderboardRows } from './components/standingsView.js';
+import {
+  buildDynastyLeaderboardRows,
+  getStandingsTargetField,
+  getStandingsDefaultSortAsc,
+  isStandingsWLSort,
+  sortStandingsList
+} from './components/standingsView.js';
 import { buildH2HComparisonBannerHtml, buildH2HGameLogRows } from './components/h2hView.js';
 import { buildPlayoffBracketHtml } from './components/playoffView.js';
 import { buildFranchiseProfileHtml, isConcludedSeason } from './components/franchiseView.js';
@@ -302,17 +308,13 @@ function renderLucideIcons() {
     }
 
     function sortStandings(field) {
-      let targetField = field;
-      if (currentSeason === 'allTime') {
-        if (field === 'wins' || field === 'winPct') targetField = 'winPct';
-        if (field === 'ovrRecord' || field === 'ovrWinPct') targetField = 'ovrWinPct';
-      }
+      const targetField = getStandingsTargetField(field, currentSeason);
 
       if (standingsSortField === targetField) {
         standingsSortAsc = !standingsSortAsc;
       } else {
         standingsSortField = targetField;
-        standingsSortAsc = (targetField === 'rank' || targetField === 'teamName') ? true : false;
+        standingsSortAsc = getStandingsDefaultSortAsc(targetField);
       }
       renderStandings();
     }
@@ -453,28 +455,15 @@ function renderLucideIcons() {
         }
       }
 
-      list.sort((a, b) => {
-        let field = standingsSortField;
-        if (currentSeason === 'allTime') {
-          if (field === 'wins') field = 'winPct';
-          if (field === 'ovrRecord') field = 'ovrWinPct';
-          if (field === 'pointsFor') field = 'pfg';
-          if (field === 'optimalPointsFor' || field === 'optimalPF') field = 'optPfg';
-          if (field === 'pointsAgainst') field = 'pag';
-        }
-
-        let vA = a[field];
-        let vB = b[field];
-        if (typeof vA === 'string') vA = vA.toLowerCase();
-        if (typeof vB === 'string') vB = vB.toLowerCase();
-        if (vA < vB) return standingsSortAsc ? -1 : 1;
-        if (vA > vB) return standingsSortAsc ? 1 : -1;
-        return 0;
+      sortStandingsList(list, {
+        sortField: standingsSortField,
+        sortAsc: standingsSortAsc,
+        currentSeason: currentSeason
       });
 
       headerTr.innerHTML = `
         <th onclick="sortStandings('rank')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">#</th>
-        <th onclick="sortStandings('teamName')" class="p-2.5 cursor-pointer hover:bg-pink-100/90">FRANCHISE_TEAM</th>
+        <th onclick="sortStandings('wins')" class="p-2.5 cursor-pointer hover:bg-pink-100/90">FRANCHISE_TEAM</th>
         <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">W-L</th>
         <th class="p-2.5 text-center">FORM</th>
         <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
@@ -716,8 +705,11 @@ function renderLucideIcons() {
           ? `<span class="text-pink-600 font-bold">${item.ovrRecord || '0-0'}</span> <span class="text-[10px] text-pink-600 font-normal">(${item.ovrWinPct || 0}%)</span>` 
           : (item.ovrRecord || '0-0');
 
+        const isWLSort = isStandingsWLSort(standingsSortField);
+        const rowNumber = isWLSort ? (item.rank || (idx + 1)) : (idx + 1);
+
         tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold text-pink-700">${item.rank || (idx + 1)}</td>
+          <td class="p-2.5 text-center font-bold ${isWLSort ? 'text-pink-700' : 'text-purple-600/80'}">${rowNumber}</td>
           <td class="p-2.5">
             <span class="font-bold block text-pink-700 hover:underline cursor-pointer" data-owner="${encodeURIComponent(item.ownerName)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
             <span class="text-[11px] text-purple-700">[${item.ownerName}]</span>
