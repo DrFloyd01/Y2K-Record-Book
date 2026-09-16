@@ -43,9 +43,12 @@
 
 ---
 
-## 📅 14-WEEK CHALLENGE SCHEDULE REFERENCE
+## 📅 14-WEEK CHALLENGE SCHEDULE REFERENCE & RESULTS
 
-- **Week 01**: Hot Start — Highest single-team score of opening week
+- **Week 01**: Hot Start — Highest single-team score of opening week  
+  - 👑 **Winner**: **Dylan** (`Globo Gym`) — **197.70 pts**  
+  - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $5.00/win)  
+  - 🥈 **Runner-Up**: Alex (`Darnold Schwarzenegger`) — 180.56 pts
 - **Week 02**: Zero to Hero — Largest positive points jump from Week 1 to Week 2
 - **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team
 - **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot
@@ -59,3 +62,23 @@
 - **Week 12**: Thanksgiving Feast — Most combined points from players in Thanksgiving/Black Friday games
 - **Week 13**: The Cardiac Arrest II — Closest margin of victory across the league
 - **Week 14**: Regular Season Scoring Title — Overall Total Points For (PF) champion heading into playoffs
+
+---
+
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 1)
+
+| Manager | Wins | Total Payout | Status |
+| :--- | :---: | :---: | :--- |
+| **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
+| **Dusty** (Dustin) | 0 | $0.00 | Needs Win #1 to qualify ($25 repeat rate) |
+| **Bo** (Boaz) | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
+| **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
+| **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
+| **Alex** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Cooper** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Casey** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Ryan** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Mike** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+
