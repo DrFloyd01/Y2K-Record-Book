@@ -42,6 +42,14 @@ jobs:
       - name: 3. Sync Yahoo Y2K Matchup Lineups & Managerial Metrics
         run: node scripts/sync_yahoo_lineups.js 2026
 
+      - name: 4. Sync ESPN Pride Guys Lineups & Managerial Metrics
+        env:
+          ESPN_LEAGUE_ID: ${{ secrets.ESPN_LEAGUE_ID || '1629523' }}
+          ESPN_SEASON: '2026'
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+        run: node scripts/ingest_espn_lineups.js 2026
+
       - name: Run Automated Vitest Tests
         run: npm test
 

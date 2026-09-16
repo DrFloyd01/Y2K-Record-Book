@@ -353,8 +353,47 @@ async function updateEspnScores() {
     standingsList.sort((a, b) => b.wins !== a.wins ? b.wins - a.wins : b.pointsFor - a.pointsFor);
     standingsList.forEach((st, idx) => st.rank = idx + 1);
 
+    // Preserve existing managerial metrics (coachingEfficiency, optimalPF, dOhs)
+    const existingStandingsMap = {};
+    (prideData.seasonData[seasonYear.toString()]?.standings || []).forEach(st => {
+      existingStandingsMap[st.ownerName] = st;
+    });
+
+    standingsList.forEach(st => {
+      const prev = existingStandingsMap[st.ownerName];
+      if (prev) {
+        if (prev.coachingEfficiency !== undefined) st.coachingEfficiency = prev.coachingEfficiency;
+        if (prev.optimalPF !== undefined) st.optimalPF = prev.optimalPF;
+        if (prev.optimalPointsFor !== undefined) st.optimalPointsFor = prev.optimalPointsFor;
+        if (prev.dOhs !== undefined) st.dOhs = prev.dOhs;
+        if (prev.dOhCount !== undefined) st.dOhCount = prev.dOhCount;
+        if (prev.dOhDetails !== undefined) st.dOhDetails = prev.dOhDetails;
+      }
+    });
+
     prideData.seasonData[seasonYear.toString()].standings = standingsList;
     prideData.seasonData[seasonYear.toString()].schedule = updatedSchedule;
+    if (seasonYear === 2026) {
+      prideData.seasonData['2026'].schedule2026 = updatedSchedule;
+    }
+
+    // Sync updatedSchedule into allMatchups
+    if (prideData.allMatchups && Array.isArray(prideData.allMatchups)) {
+      updatedSchedule.forEach(m => {
+        const match = prideData.allMatchups.find(am =>
+          (am.seasonYear || am.year) === seasonYear &&
+          (am.weekNumber || am.week) === (m.weekNumber || m.week) &&
+          am.homeOwner === m.homeOwner &&
+          am.awayOwner === m.awayOwner
+        );
+        if (match) {
+          match.homeScore = m.homeScore;
+          match.awayScore = m.awayScore;
+          match.winner = m.winner;
+          match.margin = m.margin;
+        }
+      });
+    }
   }
 
   writeFileSync(dataPath, JSON.stringify(prideData, null, 2), 'utf8');

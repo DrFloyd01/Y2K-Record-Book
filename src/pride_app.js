@@ -2601,9 +2601,10 @@ function renderLucideIcons() {
     async function loadY2KLineups() {
       if (prideGuysLineupsData) return prideGuysLineupsData;
       try {
-        let res = await fetch('data/lineups/pride_guys_lineups.json');
+        const cacheBust = `v=${Date.now()}`;
+        let res = await fetch(`data/lineups/pride_guys_lineups.json?${cacheBust}`, { cache: 'no-store' });
         if (!res.ok) {
-          res = await fetch('public/data/lineups/pride_guys_lineups.json');
+          res = await fetch(`public/data/lineups/pride_guys_lineups.json?${cacheBust}`, { cache: 'no-store' });
         }
         if (res.ok) {
           const raw = await res.json();

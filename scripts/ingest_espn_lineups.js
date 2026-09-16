@@ -187,6 +187,8 @@ async function ingestSeasonLineups(seasonYear, leagueId, s2, swid) {
       const team2 = parseEspnRoster(m.away);
 
       if (team1.starters.length === 0 && team2.starters.length === 0) return;
+      // Skip future unplayed weeks (both teams have 0 points scored)
+      if (team1.actualScore === 0 && team2.actualScore === 0) return;
 
       team1.isWin = team1.actualScore > team2.actualScore;
       team1.isLoss = team1.actualScore < team2.actualScore;
@@ -235,8 +237,18 @@ async function main() {
     mkdirSync(outputDir, { recursive: true });
   }
 
-  const allLineups = {};
-  const availableSeasons = [2025, 2024, 2023, 2022];
+  const lineupsPath = resolve(outputDir, 'pride_guys_lineups.json');
+  let allLineups = {};
+  if (existsSync(lineupsPath)) {
+    try {
+      allLineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
+    } catch {
+      allLineups = {};
+    }
+  }
+
+  const cliSeason = process.argv[2] ? parseInt(process.argv[2], 10) : null;
+  const availableSeasons = cliSeason ? [cliSeason] : [2026, 2025, 2024, 2023, 2022];
 
   for (const yr of availableSeasons) {
     const seasonMatchups = await ingestSeasonLineups(yr, leagueId, s2, swid);
@@ -245,7 +257,6 @@ async function main() {
     }
   }
 
-  const lineupsPath = resolve(outputDir, 'pride_guys_lineups.json');
   writeFileSync(lineupsPath, JSON.stringify(allLineups, null, 2), 'utf8');
   const prideDataPath = resolve(process.cwd(), 'public/data/prideGuysData.json');
   const prideData = JSON.parse(readFileSync(prideDataPath, 'utf8'));
@@ -310,6 +321,7 @@ async function main() {
         st.optimalPF = parseFloat(lStat.totalOptimal.toFixed(1));
         st.optimalPointsFor = parseFloat(lStat.totalOptimal.toFixed(1));
         st.dOhs = lStat.dOhs;
+        st.dOhCount = lStat.dOhs;
         st.dOhDetails = lStat.dOhGameLogs;
       }
     });
@@ -325,6 +337,7 @@ async function main() {
         st.optimalPointsFor = parseFloat(aStat.totalOptimal.toFixed(1));
         st.optPfg = parseFloat((aStat.totalOptimal / aStat.totalGames).toFixed(1));
         st.dOhs = aStat.dOhs;
+        st.dOhCount = aStat.dOhs;
         st.dOhDetails = aStat.dOhGameLogs;
       } else {
         st.coachingEfficiency = null;
@@ -332,6 +345,7 @@ async function main() {
         st.optimalPointsFor = null;
         st.optPfg = null;
         st.dOhs = 0;
+        st.dOhCount = 0;
         st.dOhDetails = [];
       }
     });

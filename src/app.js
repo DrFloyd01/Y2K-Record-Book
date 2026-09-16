@@ -2464,9 +2464,10 @@ let y2kLineupsData = null;
     async function loadY2KLineups() {
       if (y2kLineupsData) return y2kLineupsData;
       try {
-        let res = await fetch('data/lineups/y2k_lineups.json');
+        const cacheBust = `v=${Date.now()}`;
+        let res = await fetch(`data/lineups/y2k_lineups.json?${cacheBust}`, { cache: 'no-store' });
         if (!res.ok) {
-          res = await fetch('public/data/lineups/y2k_lineups.json');
+          res = await fetch(`public/data/lineups/y2k_lineups.json?${cacheBust}`, { cache: 'no-store' });
         }
         if (res.ok) {
           y2kLineupsData = await res.json();

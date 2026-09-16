@@ -704,8 +704,8 @@
           }
         ]
       },
-      "coachingEfficiency": 87.3,
-      "dOhs": 6,
+      "coachingEfficiency": 87,
+      "dOhs": 7,
       "dOhDetails": [
         {
           "year": 2022,
@@ -802,12 +802,28 @@
           "deficitNeeded": 0.02,
           "winMargin": 6.98,
           "projectedNewScore": 115.26
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "team": "L Central",
+          "starter": "Ja'Marr Chase",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 2.2,
+          "benchPlayer": "Jalen Coker",
+          "benchPosition": "WR",
+          "benchPoints": 31.8,
+          "netGain": 29.6,
+          "deficitNeeded": 23.5,
+          "winMargin": 6.1,
+          "projectedNewScore": 150.56
         }
       ],
-      "optPfg": 122.6,
-      "optimalPF": 6864.1,
-      "optimalPointsFor": 6864.1,
-      "dOhCount": 9
+      "optPfg": 123.4,
+      "optimalPF": 7031.8,
+      "optimalPointsFor": 7031.8,
+      "dOhCount": 7
     },
     {
       "ownerName": "Sean Belcher",
@@ -1448,10 +1464,10 @@
           "projectedNewScore": 108.48
         }
       ],
-      "optPfg": 114.7,
-      "optimalPF": 6424.4,
-      "optimalPointsFor": 6424.4,
-      "dOhCount": 5
+      "optPfg": 114.5,
+      "optimalPF": 6526.1,
+      "optimalPointsFor": 6526.1,
+      "dOhCount": 4
     },
     {
       "ownerName": "Aidan O'Sullivan",
@@ -2036,7 +2052,7 @@
           }
         ]
       },
-      "coachingEfficiency": 87.2,
+      "coachingEfficiency": 87.3,
       "dOhs": 10,
       "dOhDetails": [
         {
@@ -2200,10 +2216,10 @@
           "projectedNewScore": 111.4
         }
       ],
-      "optPfg": 125.6,
-      "optimalPF": 7036.1,
-      "optimalPointsFor": 7036.1,
-      "dOhCount": 12
+      "optPfg": 126.2,
+      "optimalPF": 7193.3,
+      "optimalPointsFor": 7193.3,
+      "dOhCount": 10
     },
     {
       "ownerName": "James Carter",
@@ -2895,7 +2911,7 @@
           }
         ]
       },
-      "coachingEfficiency": 88.6,
+      "coachingEfficiency": 88.5,
       "dOhs": 4,
       "dOhDetails": [
         {
@@ -2963,9 +2979,9 @@
           "projectedNewScore": 160.54
         }
       ],
-      "optPfg": 120.4,
-      "optimalPF": 6743.2,
-      "optimalPointsFor": 6743.2,
+      "optPfg": 120.8,
+      "optimalPF": 6886,
+      "optimalPointsFor": 6886,
       "dOhCount": 4
     },
     {
@@ -3305,7 +3321,7 @@
         ]
       },
       "coachingEfficiency": 86.3,
-      "dOhs": 8,
+      "dOhs": 9,
       "dOhDetails": [
         {
           "year": 2022,
@@ -3434,12 +3450,28 @@
           "deficitNeeded": 9.9,
           "winMargin": 8.9,
           "projectedNewScore": 110.84
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "team": "Human Eros TDs",
+          "starter": "Quentin Johnston",
+          "starterPosition": "WR",
+          "starterSlot": "FLEX",
+          "starterPoints": 2.7,
+          "benchPlayer": "Dalton Kincaid",
+          "benchPosition": "TE",
+          "benchPoints": 17.5,
+          "netGain": 14.8,
+          "deficitNeeded": 6.52,
+          "winMargin": 8.28,
+          "projectedNewScore": 115.5
         }
       ],
-      "optPfg": 119.7,
-      "optimalPF": 6702.4,
-      "optimalPointsFor": 6702.4,
-      "dOhCount": 10
+      "optPfg": 119.6,
+      "optimalPF": 6819.5,
+      "optimalPointsFor": 6819.5,
+      "dOhCount": 9
     },
     {
       "ownerName": "Trace Bakulich",
@@ -4029,7 +4061,7 @@
           }
         ]
       },
-      "coachingEfficiency": 89.5,
+      "coachingEfficiency": 89.6,
       "dOhs": 6,
       "dOhDetails": [
         {
@@ -4129,9 +4161,9 @@
           "projectedNewScore": 123.72
         }
       ],
-      "optPfg": 124.6,
-      "optimalPF": 6976.3,
-      "optimalPointsFor": 6976.3,
+      "optPfg": 124.5,
+      "optimalPF": 7097,
+      "optimalPointsFor": 7097,
       "dOhCount": 6
     },
     {
@@ -4847,7 +4879,7 @@
           }
         ]
       },
-      "coachingEfficiency": 87.6,
+      "coachingEfficiency": 87.8,
       "dOhs": 6,
       "dOhDetails": [
         {
@@ -4947,10 +4979,10 @@
           "projectedNewScore": 104.38
         }
       ],
-      "optPfg": 123.4,
-      "optimalPF": 6911.6,
-      "optimalPointsFor": 6911.6,
-      "dOhCount": 9
+      "optPfg": 123.1,
+      "optimalPF": 7018.6,
+      "optimalPointsFor": 7018.6,
+      "dOhCount": 6
     },
     {
       "ownerName": "Javier",
@@ -5206,7 +5238,11 @@
       },
       "coachingEfficiency": null,
       "dOhs": 0,
-      "dOhDetails": []
+      "dOhDetails": [],
+      "optimalPF": null,
+      "optimalPointsFor": null,
+      "optPfg": null,
+      "dOhCount": 0
     },
     {
       "ownerName": "Zack Wolfskeil",
@@ -5453,7 +5489,11 @@
       },
       "coachingEfficiency": null,
       "dOhs": 0,
-      "dOhDetails": []
+      "dOhDetails": [],
+      "optimalPF": null,
+      "optimalPointsFor": null,
+      "optPfg": null,
+      "dOhCount": 0
     },
     {
       "ownerName": "Nathan Wells",
@@ -5777,7 +5817,7 @@
           }
         ]
       },
-      "coachingEfficiency": 89.3,
+      "coachingEfficiency": 89.4,
       "dOhs": 8,
       "dOhDetails": [
         {
@@ -5909,10 +5949,10 @@
           "projectedNewScore": 130.5
         }
       ],
-      "optPfg": 115.6,
-      "optimalPF": 6472.5,
-      "optimalPointsFor": 6472.5,
-      "dOhCount": 10
+      "optPfg": 115.9,
+      "optimalPF": 6605.7,
+      "optimalPointsFor": 6605.7,
+      "dOhCount": 8
     },
     {
       "ownerName": "Brendan Sanders",
@@ -6033,7 +6073,7 @@
         ],
         "7th_12th": []
       },
-      "coachingEfficiency": 91.1,
+      "coachingEfficiency": 91.3,
       "dOhs": 1,
       "dOhDetails": [
         {
@@ -6053,10 +6093,10 @@
           "projectedNewScore": 78.84
         }
       ],
-      "optPfg": 111.7,
-      "optimalPF": 1563.2,
-      "optimalPointsFor": 1563.2,
-      "dOhCount": 2
+      "optPfg": 113.2,
+      "optimalPF": 1697.9,
+      "optimalPointsFor": 1697.9,
+      "dOhCount": 1
     },
     {
       "ownerName": "Mike Petro",
@@ -6183,7 +6223,7 @@
       "optPfg": 105.9,
       "optimalPF": 1481.9,
       "optimalPointsFor": 1481.9,
-      "dOhCount": 1
+      "dOhCount": 0
     },
     {
       "ownerName": "Tyler Hicks",
@@ -6379,7 +6419,7 @@
           }
         ]
       },
-      "coachingEfficiency": 84.4,
+      "coachingEfficiency": 84.5,
       "dOhs": 5,
       "dOhDetails": [
         {
@@ -6463,10 +6503,10 @@
           "projectedNewScore": 122.36
         }
       ],
-      "optPfg": 129.4,
-      "optimalPF": 5435.1,
-      "optimalPointsFor": 5435.1,
-      "dOhCount": 6
+      "optPfg": 129.1,
+      "optimalPF": 5552.4,
+      "optimalPointsFor": 5552.4,
+      "dOhCount": 5
     },
     {
       "ownerName": "Andrew Hullett",
@@ -6584,7 +6624,11 @@
       },
       "coachingEfficiency": null,
       "dOhs": 0,
-      "dOhDetails": []
+      "dOhDetails": [],
+      "optimalPF": null,
+      "optimalPointsFor": null,
+      "optPfg": null,
+      "dOhCount": 0
     },
     {
       "ownerName": "Jeffrey Belcher",
@@ -6869,7 +6913,11 @@
       },
       "coachingEfficiency": null,
       "dOhs": 0,
-      "dOhDetails": []
+      "dOhDetails": [],
+      "optimalPF": null,
+      "optimalPointsFor": null,
+      "optPfg": null,
+      "dOhCount": 0
     },
     {
       "ownerName": "Phillip Busick",
@@ -7000,7 +7048,7 @@
           }
         ]
       },
-      "coachingEfficiency": 86.8,
+      "coachingEfficiency": 87.1,
       "dOhs": 5,
       "dOhDetails": [
         {
@@ -7084,10 +7132,10 @@
           "projectedNewScore": 125.14
         }
       ],
-      "optPfg": 119.4,
-      "optimalPF": 3342.4,
-      "optimalPointsFor": 3342.4,
-      "dOhCount": 6
+      "optPfg": 118.5,
+      "optimalPF": 3437.1,
+      "optimalPointsFor": 3437.1,
+      "dOhCount": 5
     }
   ],
   "seasonData": {
@@ -41318,7 +41366,13 @@
           "luck": 0,
           "ovrWinPct": 100,
           "ovrRecord": "11-0",
-          "rank": 1
+          "rank": 1,
+          "coachingEfficiency": 91.9,
+          "optimalPF": 157.2,
+          "optimalPointsFor": 157.2,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Brendan Sanders",
@@ -41348,7 +41402,13 @@
           "luck": 0,
           "ovrWinPct": 90.9,
           "ovrRecord": "10-1",
-          "rank": 2
+          "rank": 2,
+          "coachingEfficiency": 94,
+          "optimalPF": 134.7,
+          "optimalPointsFor": 134.7,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Nathan Wells",
@@ -41378,7 +41438,13 @@
           "luck": 0,
           "ovrWinPct": 81.8,
           "ovrRecord": "9-2",
-          "rank": 3
+          "rank": 3,
+          "coachingEfficiency": 93.5,
+          "optimalPF": 133.2,
+          "optimalPointsFor": 133.2,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Austin Geller",
@@ -41408,7 +41474,13 @@
           "luck": 0,
           "ovrWinPct": 63.6,
           "ovrRecord": "7-4",
-          "rank": 4
+          "rank": 4,
+          "coachingEfficiency": 83.1,
+          "optimalPF": 142.8,
+          "optimalPointsFor": 142.8,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Trace Bakulich",
@@ -41438,7 +41510,13 @@
           "luck": 0,
           "ovrWinPct": 54.5,
           "ovrRecord": "6-5",
-          "rank": 5
+          "rank": 5,
+          "coachingEfficiency": 94.4,
+          "optimalPF": 120.7,
+          "optimalPointsFor": 120.7,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Tyler Hicks",
@@ -41479,7 +41557,13 @@
           "luck": 1,
           "ovrWinPct": 45.5,
           "ovrRecord": "5-6",
-          "rank": 6
+          "rank": 6,
+          "coachingEfficiency": 91.4,
+          "optimalPF": 117.3,
+          "optimalPointsFor": 117.3,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Andrew Wilson",
@@ -41520,7 +41604,30 @@
           "luck": -1,
           "ovrWinPct": 72.7,
           "ovrRecord": "8-3",
-          "rank": 7
+          "rank": 7,
+          "coachingEfficiency": 72.1,
+          "optimalPF": 167.7,
+          "optimalPointsFor": 167.7,
+          "dOhs": 1,
+          "dOhCount": 1,
+          "dOhDetails": [
+            {
+              "year": 2026,
+              "week": 1,
+              "team": "L Central",
+              "starter": "Ja'Marr Chase",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.2,
+              "benchPlayer": "Jalen Coker",
+              "benchPosition": "WR",
+              "benchPoints": 31.8,
+              "netGain": 29.6,
+              "deficitNeeded": 23.5,
+              "winMargin": 6.1,
+              "projectedNewScore": 150.56
+            }
+          ]
         },
         {
           "ownerName": "Michael Anderson",
@@ -41550,7 +41657,13 @@
           "luck": 0,
           "ovrWinPct": 36.4,
           "ovrRecord": "4-7",
-          "rank": 8
+          "rank": 8,
+          "coachingEfficiency": 100,
+          "optimalPF": 107,
+          "optimalPointsFor": 107,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Brodie Pirtle",
@@ -41580,7 +41693,13 @@
           "luck": 0,
           "ovrWinPct": 27.3,
           "ovrRecord": "3-8",
-          "rank": 9
+          "rank": 9,
+          "coachingEfficiency": 74.7,
+          "optimalPF": 139,
+          "optimalPointsFor": 139,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Dylan Soth",
@@ -41621,7 +41740,30 @@
           "luck": 0,
           "ovrWinPct": 18.2,
           "ovrRecord": "2-9",
-          "rank": 10
+          "rank": 10,
+          "coachingEfficiency": 86,
+          "optimalPF": 117.1,
+          "optimalPointsFor": 117.1,
+          "dOhs": 1,
+          "dOhCount": 1,
+          "dOhDetails": [
+            {
+              "year": 2026,
+              "week": 1,
+              "team": "Human Eros TDs",
+              "starter": "Quentin Johnston",
+              "starterPosition": "WR",
+              "starterSlot": "FLEX",
+              "starterPoints": 2.7,
+              "benchPlayer": "Dalton Kincaid",
+              "benchPosition": "TE",
+              "benchPoints": 17.5,
+              "netGain": 14.8,
+              "deficitNeeded": 6.52,
+              "winMargin": 8.28,
+              "projectedNewScore": 115.5
+            }
+          ]
         },
         {
           "ownerName": "Phillip Busick",
@@ -41651,7 +41793,13 @@
           "luck": 0,
           "ovrWinPct": 9.1,
           "ovrRecord": "1-10",
-          "rank": 11
+          "rank": 11,
+          "coachingEfficiency": 100,
+          "optimalPF": 94.7,
+          "optimalPointsFor": 94.7,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         },
         {
           "ownerName": "Sean Belcher",
@@ -41681,7 +41829,13 @@
           "luck": 0,
           "ovrWinPct": 0,
           "ovrRecord": "0-11",
-          "rank": 12
+          "rank": 12,
+          "coachingEfficiency": 91.2,
+          "optimalPF": 101.7,
+          "optimalPointsFor": 101.7,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
         }
       ],
       "weeklyScores": [],
