@@ -39,3 +39,7 @@ When writing weekly matchup previews, power rankings, or league editorial conten
   - For rookies or expansion teams without H2H history, highlight drafted core talent with round.pick capital (e.g., `Bijan (1.1), McBride (2.24), Lamar (4.48)`).
   - Use italics for emphasis on dramatic milestones (e.g., `*ever*`).
 
+## 5. Matchups Tab Default Schedule Rules
+- On **Tuesdays** (day 2, post-sync): default the Matchups tab to the **previous completed week's recap** (e.g., `mode: 'recap'`, `week: maxCompletedWeek`).
+- On **Wednesdays through Mondays**: default the Matchups tab to the **upcoming/current week's preview** (e.g., `mode: 'preview'`, `week: maxCompletedWeek + 1`), capped at regular season weeks.
+- Logic is centralized in `getWeeklyMatchupDefaultState(activeSeasonData, currentSeasonYear, now)` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).

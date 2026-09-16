@@ -27,7 +27,8 @@ import {
   buildWeeklyMatchupsGridHtml,
   buildManagerSeasonGameLogHtml,
   computeMatchupStakes,
-  sortMatchupsByStandingRank
+  sortMatchupsByStandingRank,
+  getWeeklyMatchupDefaultState
 } from './components/matchupsView.js';
 
 // Setup Lucide icons wrapper
@@ -2657,6 +2658,16 @@ function renderLucideIcons() {
     };
 
     function initMatchupsTab() {
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason] || {};
+      const defState = getWeeklyMatchupDefaultState({
+        season: currentMatchupSeason,
+        seasonData: sData,
+        now: new Date(),
+        regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
+      });
+      currentMatchupWeek = defState.week;
+      currentMatchupMode = defState.mode;
+
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
       const previewBtn = document.getElementById('matchup-mode-preview');
@@ -2678,14 +2689,16 @@ function renderLucideIcons() {
     function onMatchupSeasonChange() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2026;
-      currentMatchupWeek = 1;
-      if (currentMatchupSeason === 2026) {
-        currentMatchupMode = 'preview';
-        switchMatchupMode('preview');
-      } else {
-        currentMatchupMode = 'recap';
-        switchMatchupMode('recap');
-      }
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason] || {};
+      const defState = getWeeklyMatchupDefaultState({
+        season: currentMatchupSeason,
+        seasonData: sData,
+        now: new Date(),
+        regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
+      });
+      currentMatchupWeek = defState.week;
+      currentMatchupMode = defState.mode;
+      switchMatchupMode(currentMatchupMode);
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
@@ -2693,8 +2706,11 @@ function renderLucideIcons() {
 
     function switchMatchupWeek(wk) {
       currentMatchupWeek = wk;
-      renderWeekPills();
-      renderMatchupsTab();
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
+      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
+      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+      currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
+      switchMatchupMode(currentMatchupMode);
     }
 
     function switchMatchupMode(mode) {
@@ -2815,8 +2831,9 @@ function renderLucideIcons() {
         if (mode === 'recap') {
           text += `- **Result**: ${isWinner1 ? `${t1} def. ${t2}` : (isWinner2 ? `${t2} def. ${t1}` : 'Tie')} (${s1.toFixed(2)} - ${s2.toFixed(2)})\n`;
         }
-        if (customM && customM.writeup) {
-          text += `- **Notes**: ${customM.writeup}\n`;
+        const writeupText = (mode === 'recap') ? (customM?.recapWriteup || customM?.writeup) : (customM?.previewWriteup || customM?.writeup);
+        if (customM && writeupText) {
+          text += `- **Notes**: ${writeupText}\n`;
         }
         text += `\n`;
       });
@@ -3060,7 +3077,10 @@ function renderLucideIcons() {
       currentMatchupSeason = s;
       currentMatchupWeek = w;
       currentMatchupManager = 'all';
-      currentMatchupMode = (s === 2026 && w >= 1) ? 'preview' : 'recap';
+      const sData = window.LEAGUE_DATA.seasonData[s];
+      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === w);
+      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+      currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
 
       // Synchronize UI dropdowns & pills
       const seasonSelect = document.getElementById('matchup-season-select');

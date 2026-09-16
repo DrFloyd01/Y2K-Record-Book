@@ -5,16 +5,21 @@
  *
  * Automatically fetches matchups, scores, and schedules directly from Yahoo's
  * public web endpoints without requiring Developer API tokens or session cookies.
+ * Recomputes 2026 standings, all-play OVR records, luck indices, weekly badges,
+ * and season stat records with dual-site parity to ESPN.
  */
 
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 // Canonical Y2K Team to Owner Mapping
-const Y2K_TEAM_OWNER_MAP = {
+export const Y2K_TEAM_OWNER_MAP = {
   'Globo Gym': 'Dylan',
+  'The Dawn of Man-Ape': 'Dylan',
   'Ho Chi Win City': 'Phillip',
+  'TDS': 'Phillip',
   'Jelqaida': 'Mike',
+  'IRked': 'Mike',
   'AARPFL': 'Casey',
   'Gl Hf (you’re gay)': 'Trace',
   'Gl Hf (you\'re gay)': 'Trace',
@@ -26,12 +31,10 @@ const Y2K_TEAM_OWNER_MAP = {
   'Trenches cooper': 'Cooper',
   'Tess Finesse': 'Tess',
   "Blue's Balls": 'Jasper',
-  'Blue’s Balls': 'Jasper',
-  'The Dawn of Man-Ape': 'Dylan',
-  'TDS': 'Phillip'
+  'Blue’s Balls': 'Jasper'
 };
 
-async function fetchWeekMatchups(leagueId, week) {
+export async function fetchWeekMatchups(leagueId, week) {
   const url = `https://football.fantasysports.yahoo.com/f1/${leagueId}?matchup_week=${week}&module=matchups&lhst=matchups`;
   const res = await fetch(url, {
     headers: {
@@ -48,34 +51,49 @@ async function fetchWeekMatchups(leagueId, week) {
   const mwMatch = html.match(/<section[^>]*id="matchupweek"[^>]*>([\s\S]*?)<\/section>/i);
   const block = mwMatch ? mwMatch[1] : html;
 
-  // Extract matchup sub-modules / pairs
-  const subModules = [...block.matchAll(/<li[^>]*class="[^"]*matchup-sub-module[^"]*"[^>]*>([\s\S]*?)<\/li>/gi)].map(m => m[1]);
+  // Modern Yahoo matchup items: <li class='Linkable Listitem...' data-target='/f1/.../matchup?...'>
+  const listItems = [...block.matchAll(/<li[^>]*class=['"][^'"]*Linkable Listitem[^'"]*['"][^>]*>([\s\S]*?)<\/li>/gi)].map(m => m[1]);
 
   const matchups = [];
 
-  if (subModules.length > 0) {
-    subModules.forEach((sm, idx) => {
-      const teams = [...sm.matchAll(/<a class="F-link" href="https:\/\/football\.fantasysports\.yahoo\.com\/f1\/\d+\/(\d+)">([^<]+)<\/a>/g)].map(m => ({
+  if (listItems.length > 0) {
+    listItems.forEach((itemHtml, idx) => {
+      const teams = [...itemHtml.matchAll(/<a class="F-link" href="https:\/\/football\.fantasysports\.yahoo\.com\/f1\/\d+\/(\d+)">([^<]+)<\/a>/g)].map(m => ({
         teamId: parseInt(m[1], 10),
         teamName: m[2].trim()
       }));
 
-      const scores = [...sm.matchAll(/<span[^>]*class="[^"]*score[^"]*"[^>]*>([0-9.]+)<\/span>/gi)].map(m => parseFloat(m[1]));
+      // Scores are in <div class='Fz-lg ...'>XX.XX</div>
+      const scores = [...itemHtml.matchAll(/<div class=['"]Fz-lg\s*[^'"]*['"]>([0-9.]+)<\/div>/gi)].map(m => parseFloat(m[1]));
 
       if (teams.length >= 2) {
-        const s1 = scores[0] || 0.0;
-        const s2 = scores[1] || 0.0;
+        const s1 = scores[0] !== undefined ? scores[0] : 0.0;
+        const s2 = scores[1] !== undefined ? scores[1] : 0.0;
+        const o1 = Y2K_TEAM_OWNER_MAP[teams[0].teamName] || teams[0].teamName;
+        const o2 = Y2K_TEAM_OWNER_MAP[teams[1].teamName] || teams[1].teamName;
+
         matchups.push({
           matchupId: idx + 1,
           week: week,
+          weekNumber: week,
+          seasonYear: 2026,
+          year: 2026,
           team1: teams[0].teamName,
-          owner1: Y2K_TEAM_OWNER_MAP[teams[0].teamName] || teams[0].teamName,
+          homeTeam: teams[0].teamName,
+          owner1: o1,
+          homeOwner: o1,
           score1: s1,
+          homeScore: s1,
           team2: teams[1].teamName,
-          owner2: Y2K_TEAM_OWNER_MAP[teams[1].teamName] || teams[1].teamName,
+          awayTeam: teams[1].teamName,
+          owner2: o2,
+          awayOwner: o2,
           score2: s2,
-          winner: s1 > s2 ? (Y2K_TEAM_OWNER_MAP[teams[0].teamName] || teams[0].teamName) : (s2 > s1 ? (Y2K_TEAM_OWNER_MAP[teams[1].teamName] || teams[1].teamName) : (s1 > 0 && s2 > 0 ? 'Tie' : 'TBD')),
-          margin: parseFloat(Math.abs(s1 - s2).toFixed(2))
+          awayScore: s2,
+          winner: s1 > s2 ? o1 : (s2 > s1 ? o2 : (s1 > 0 && s2 > 0 ? 'Tie' : 'TBD')),
+          margin: parseFloat(Math.abs(s1 - s2).toFixed(2)),
+          isPlayoff: false,
+          stage: 'Regular Season'
         });
       }
     });
@@ -90,17 +108,30 @@ async function fetchWeekMatchups(leagueId, week) {
 
     for (let i = 0; i < Math.min(12, unique.length); i += 2) {
       if (unique[i + 1]) {
+        const o1 = Y2K_TEAM_OWNER_MAP[unique[i].teamName] || unique[i].teamName;
+        const o2 = Y2K_TEAM_OWNER_MAP[unique[i + 1].teamName] || unique[i + 1].teamName;
         matchups.push({
           matchupId: (i / 2) + 1,
           week: week,
+          weekNumber: week,
+          seasonYear: 2026,
+          year: 2026,
           team1: unique[i].teamName,
-          owner1: Y2K_TEAM_OWNER_MAP[unique[i].teamName] || unique[i].teamName,
+          homeTeam: unique[i].teamName,
+          owner1: o1,
+          homeOwner: o1,
           score1: 0.0,
+          homeScore: 0.0,
           team2: unique[i + 1].teamName,
-          owner2: Y2K_TEAM_OWNER_MAP[unique[i + 1].teamName] || unique[i + 1].teamName,
+          awayTeam: unique[i + 1].teamName,
+          owner2: o2,
+          awayOwner: o2,
           score2: 0.0,
+          awayScore: 0.0,
           winner: 'TBD',
-          margin: 0.0
+          margin: 0.0,
+          isPlayoff: false,
+          stage: 'Regular Season'
         });
       }
     }
@@ -115,11 +146,25 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
   console.log(`===============================================================`);
 
   const allWeeksMatchups = [];
+  const weeklyScoresMap = {}; // { week: [ { owner, team, score, oppOwner, oppScore, won } ] }
+
   for (let wk = 1; wk <= totalWeeks; wk++) {
     try {
       const wkMatchups = await fetchWeekMatchups(leagueId, wk);
       console.log(`• Week ${wk.toString().padStart(2, '0')}: Fetched ${wkMatchups.length} matchups.`);
       allWeeksMatchups.push(...wkMatchups);
+
+      // Detect completed games in this week
+      const completedThisWeek = wkMatchups.filter(m => m.homeScore > 0 || m.awayScore > 0);
+      if (completedThisWeek.length > 0) {
+        weeklyScoresMap[wk] = [];
+        completedThisWeek.forEach(m => {
+          weeklyScoresMap[wk].push(
+            { owner: m.homeOwner, team: m.homeTeam, score: m.homeScore, oppOwner: m.awayOwner, oppScore: m.awayScore, won: m.homeScore > m.awayScore },
+            { owner: m.awayOwner, team: m.awayTeam, score: m.awayScore, oppOwner: m.homeOwner, oppScore: m.homeScore, won: m.awayScore > m.homeScore }
+          );
+        });
+      }
     } catch (err) {
       console.error(`❌ Error fetching Week ${wk}: ${err.message}`);
     }
@@ -153,41 +198,56 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
     };
   }
 
-  // Attach full schedule to 2026
-  leagueData.seasonData['2026'].schedule = allWeeksMatchups.map(m => ({
+  // Attach full schedule to 2026 (both schedule and schedule2026)
+  const formattedSchedule = allWeeksMatchups.map(m => ({
     week: m.week,
+    weekNumber: m.week,
+    seasonYear: 2026,
+    year: 2026,
     matchupId: m.matchupId,
-    homeTeam: m.team1,
-    homeOwner: m.owner1,
-    homeScore: m.score1,
-    awayTeam: m.team2,
-    awayOwner: m.owner2,
-    awayScore: m.score2,
+    homeTeam: m.homeTeam,
+    homeOwner: m.homeOwner,
+    homeScore: m.homeScore,
+    awayTeam: m.awayTeam,
+    awayOwner: m.awayOwner,
+    awayScore: m.awayScore,
     winner: m.winner,
     margin: m.margin,
-    isPlayoff: false
+    isPlayoff: false,
+    stage: 'Regular Season'
   }));
+
+  leagueData.seasonData['2026'].schedule = formattedSchedule;
+  leagueData.seasonData['2026'].schedule2026 = formattedSchedule;
 
   // Update completed games in allMatchups
   let completedCount = 0;
   allWeeksMatchups.forEach(m => {
-    if (m.score1 > 0 || m.score2 > 0) {
+    if (m.homeScore > 0 || m.awayScore > 0) {
       completedCount++;
       const gameEntry = {
+        seasonYear: 2026,
         year: 2026,
+        weekNumber: m.week,
         week: m.week,
-        homeTeam: m.team1,
-        homeOwner: m.owner1,
-        homeScore: m.score1,
-        awayTeam: m.team2,
-        awayOwner: m.owner2,
-        awayScore: m.score2,
+        homeTeam: m.homeTeam,
+        homeOwner: m.homeOwner,
+        homeScore: m.homeScore,
+        awayTeam: m.awayTeam,
+        awayOwner: m.awayOwner,
+        awayScore: m.awayScore,
         winner: m.winner,
         margin: m.margin,
-        isPlayoff: false
+        isPlayoff: false,
+        stage: 'Regular Season'
       };
 
-      const existingIdx = leagueData.allMatchups.findIndex(gm => gm.year === 2026 && gm.week === m.week && gm.homeTeam === m.team1 && gm.awayTeam === m.team2);
+      const existingIdx = leagueData.allMatchups.findIndex(
+        gm => (gm.seasonYear === 2026 || gm.year === 2026) &&
+              (gm.weekNumber === m.week || gm.week === m.week) &&
+              gm.homeOwner === m.homeOwner &&
+              gm.awayOwner === m.awayOwner
+      );
       if (existingIdx >= 0) {
         leagueData.allMatchups[existingIdx] = gameEntry;
       } else {
@@ -195,6 +255,246 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
       }
     }
   });
+
+  const completedWeeks = Object.keys(weeklyScoresMap).map(Number).sort((a, b) => a - b);
+
+  if (completedWeeks.length === 0) {
+    console.log('ℹ️ Pre-season / Week 0: No games completed yet. Standings cleanly default to 0-0.');
+  } else {
+    console.log(`📊 Processing completed games across ${completedWeeks.length} weeks...`);
+
+    // Extract all current 2026 owners & teams from schedule
+    const managerStats = {};
+    allWeeksMatchups.filter(m => m.week === 1).forEach(m => {
+      [
+        { owner: m.homeOwner, team: m.homeTeam },
+        { owner: m.awayOwner, team: m.awayTeam }
+      ].forEach(entry => {
+        if (!managerStats[entry.owner]) {
+          managerStats[entry.owner] = {
+            seasonYear: 2026,
+            ownerName: entry.owner,
+            teamName: entry.team,
+            wins: 0,
+            losses: 0,
+            ties: 0,
+            pointsFor: 0.0,
+            pointsAgainst: 0.0,
+            form: [],
+            expWins: 0,
+            expLosses: 0,
+            ovrWins: 0,
+            ovrLosses: 0,
+            weeklyWins: 0,
+            wwDetails: [],
+            luckiestWins: 0,
+            lwDetails: [],
+            heartbreaks: 0,
+            hbDetails: [],
+            toughestLosses: 0,
+            tlDetails: [],
+            dOhs: 0,
+            dOhDetails: [],
+            coachingEfficiency: null,
+            optimalPointsFor: null,
+            optimalPF: null
+          };
+        }
+      });
+    });
+
+    // Stat records tracking
+    let highestScore = { owner: '-', team: '-', score: 0.0, week: 0 };
+    let lowestScore = { owner: '-', team: '-', score: 9999.0, week: 0 };
+    let closestMargin = { winner: '-', loser: '-', margin: 9999.0, scoreStr: '-' };
+    let biggestBlowout = { winner: '-', loser: '-', margin: 0.0, scoreStr: '-' };
+
+    completedWeeks.forEach(wk => {
+      const weekEntries = weeklyScoresMap[wk];
+      const maxScore = Math.max(...weekEntries.map(e => e.score));
+      const topScorers = weekEntries.filter(e => e.score === maxScore && e.score > 0);
+      topScorers.forEach(ts => {
+        if (managerStats[ts.owner]) {
+          managerStats[ts.owner].weeklyWins += 1;
+          managerStats[ts.owner].wwDetails.push({
+            year: 2026,
+            week: wk,
+            score: ts.score,
+            teamName: ts.team
+          });
+        }
+      });
+
+      weekEntries.forEach(entry => {
+        const stat = managerStats[entry.owner];
+        if (!stat) return;
+
+        stat.pointsFor += entry.score;
+        stat.pointsAgainst += entry.oppScore;
+
+        if (entry.score > entry.oppScore) {
+          stat.wins += 1;
+          stat.form.push('W');
+        } else if (entry.score < entry.oppScore) {
+          stat.losses += 1;
+          stat.form.push('L');
+        } else {
+          stat.ties += 1;
+          stat.form.push('T');
+        }
+
+        // Check high/low score records
+        if (entry.score > highestScore.score) {
+          highestScore = { owner: entry.owner, team: entry.team, score: entry.score, week: wk };
+        }
+        if (entry.score < lowestScore.score) {
+          lowestScore = { owner: entry.owner, team: entry.team, score: entry.score, week: wk };
+        }
+
+        // All-Play (OVR Record) against all opponents in the league that week
+        weekEntries.forEach(opp => {
+          if (opp.owner !== entry.owner) {
+            if (entry.score > opp.score) stat.ovrWins += 1;
+            else if (entry.score < opp.score) stat.ovrLosses += 1;
+          }
+        });
+      });
+
+      // Margin records from actual matchups of the week
+      const wkMatchups = allWeeksMatchups.filter(m => m.week === wk && (m.homeScore > 0 || m.awayScore > 0));
+      wkMatchups.forEach(m => {
+        const winOwner = m.homeScore > m.awayScore ? m.homeOwner : m.awayOwner;
+        const loseOwner = m.homeScore > m.awayScore ? m.awayOwner : m.homeOwner;
+        const winScore = Math.max(m.homeScore, m.awayScore);
+        const loseScore = Math.min(m.homeScore, m.awayScore);
+        const mMargin = parseFloat(Math.abs(winScore - loseScore).toFixed(2));
+
+        if (mMargin < closestMargin.margin) {
+          closestMargin = {
+            winner: winOwner,
+            loser: loseOwner,
+            margin: mMargin,
+            scoreStr: `${winScore.toFixed(2)} - ${loseScore.toFixed(2)}`
+          };
+        }
+        if (mMargin > biggestBlowout.margin) {
+          biggestBlowout = {
+            winner: winOwner,
+            loser: loseOwner,
+            margin: mMargin,
+            scoreStr: `${winScore.toFixed(2)} - ${loseScore.toFixed(2)}`
+          };
+        }
+      });
+
+      const winners = weekEntries.filter(e => e.won);
+      const losers = weekEntries.filter(e => !e.won && e.score < e.oppScore);
+
+      // Luckiest Win: Lowest score among winning teams of the week
+      if (winners.length > 0) {
+        const minWinScore = Math.min(...winners.map(w => w.score));
+        const lowestWinners = winners.filter(w => w.score === minWinScore);
+        lowestWinners.forEach(lw => {
+          const stat = managerStats[lw.owner];
+          if (stat) {
+            stat.luckiestWins += 1;
+            stat.lwDetails.push({
+              owner: lw.owner,
+              team: lw.team,
+              score: lw.score,
+              oppOwner: lw.oppOwner,
+              oppScore: lw.oppScore,
+              margin: parseFloat(Math.abs(lw.score - lw.oppScore).toFixed(2)),
+              year: 2026,
+              week: wk
+            });
+          }
+        });
+      }
+
+      // Heartbreak: Smallest margin of defeat among losing teams of the week (closest loss)
+      if (losers.length > 0) {
+        const minMargin = Math.min(...losers.map(l => Math.abs(l.oppScore - l.score)));
+        const heartbreakLosers = losers.filter(l => Math.abs(Math.abs(l.oppScore - l.score) - minMargin) < 0.001);
+        heartbreakLosers.forEach(hb => {
+          const stat = managerStats[hb.owner];
+          if (stat) {
+            stat.heartbreaks += 1;
+            stat.hbDetails.push({
+              owner: hb.owner,
+              team: hb.team,
+              score: hb.score,
+              oppOwner: hb.oppOwner,
+              oppScore: hb.oppScore,
+              margin: parseFloat(Math.abs(hb.oppScore - hb.score).toFixed(2)),
+              year: 2026,
+              week: wk
+            });
+          }
+        });
+      }
+
+      // Toughest Loss: Highest score among losing teams of the week (best losing score)
+      if (losers.length > 0) {
+        const maxLossScore = Math.max(...losers.map(l => l.score));
+        const toughestLosers = losers.filter(l => l.score === maxLossScore);
+        toughestLosers.forEach(tl => {
+          const stat = managerStats[tl.owner];
+          if (stat) {
+            stat.toughestLosses += 1;
+            stat.tlDetails.push({
+              owner: tl.owner,
+              team: tl.team,
+              score: tl.score,
+              oppOwner: tl.oppOwner,
+              oppScore: tl.oppScore,
+              margin: parseFloat(Math.abs(tl.oppScore - tl.score).toFixed(2)),
+              year: 2026,
+              week: wk
+            });
+          }
+        });
+      }
+    });
+
+    // Compute Win Pct, Exp Record, and Standings Ranking
+    const standingsList = Object.values(managerStats).map(st => {
+      const totalGames = st.wins + st.losses + st.ties;
+      const winPct = totalGames > 0 ? Math.round((st.wins / totalGames) * 1000) / 10 : 0.0;
+      const ovrTotal = st.ovrWins + st.ovrLosses;
+      const ovrWinPct = ovrTotal > 0 ? Math.round((st.ovrWins / ovrTotal) * 1000) / 10 : 0.0;
+
+      const expWins = ovrTotal > 0 ? Math.round((st.ovrWins / (ovrTotal / totalGames))) : 0;
+      const expLosses = totalGames - expWins;
+      const luckVal = st.wins - expWins;
+
+      return {
+        ...st,
+        winPct,
+        pointsFor: parseFloat(st.pointsFor.toFixed(2)),
+        pointsAgainst: parseFloat(st.pointsAgainst.toFixed(2)),
+        expWins,
+        expLosses,
+        expRecord: `${expWins}-${expLosses}`,
+        luck: luckVal,
+        ovrWinPct,
+        ovrRecord: `${st.ovrWins}-${st.ovrLosses}`,
+        form: st.form.slice(-5)
+      };
+    });
+
+    // Sort by wins -> pointsFor
+    standingsList.sort((a, b) => b.wins !== a.wins ? b.wins - a.wins : b.pointsFor - a.pointsFor);
+    standingsList.forEach((st, idx) => st.rank = idx + 1);
+
+    leagueData.seasonData['2026'].standings = standingsList;
+    leagueData.seasonData['2026'].statRecords = {
+      highestScore,
+      lowestScore: lowestScore.score === 9999.0 ? { owner: '-', team: '-', score: 0.0, week: 0 } : lowestScore,
+      closestMargin: closestMargin.margin === 9999.0 ? { winner: '-', loser: '-', margin: 0.0, scoreStr: '-' } : closestMargin,
+      biggestBlowout
+    };
+  }
 
   writeFileSync(dataPath, JSON.stringify(leagueData, null, 2), 'utf8');
   console.log(`🎉 Successfully saved 2026 schedule (${allWeeksMatchups.length} matchups, ${completedCount} completed) to public/data/leagueData.json!`);

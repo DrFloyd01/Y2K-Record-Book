@@ -351,7 +351,8 @@ export function buildWeeklyMatchupsGridHtml({
         (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
       );
       if (customM) {
-        isGameOfWeek = Boolean(customM.isGameOfTheWeek || (customM.writeup && customM.writeup.startsWith('Game of the Week:')));
+        const checkText = customM.writeup || customM.previewWriteup || customM.recapWriteup || '';
+        isGameOfWeek = Boolean(customM.isGameOfTheWeek || checkText.startsWith('Game of the Week:'));
       }
     }
 
@@ -504,11 +505,15 @@ export function buildWeeklyMatchupsGridHtml({
 
     // Editorial Commentary without redundant duplicate meta line
     let commentaryHtml = '';
-    if (customM && customM.writeup) {
+    const writeupText = isRecap
+      ? (customM?.recapWriteup || customM?.writeup)
+      : (customM?.previewWriteup || customM?.writeup);
+
+    if (customM && writeupText) {
       commentaryHtml = `
         <div class="mt-2 p-2.5 ${isCrt ? 'bg-black/90 border border-emerald-800/80 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
           <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? 'RECAP_NOTES' : 'MATCHUP_PREVIEW'}:</span>
-          <div class="text-[11px] leading-relaxed">${customM.writeup}</div>
+          <div class="text-[11px] leading-relaxed">${writeupText}</div>
         </div>
       `;
     }
@@ -792,3 +797,66 @@ export function buildManagerSeasonGameLogHtml({
     </div>
   `;
 }
+
+/**
+ * Determines the default matchup week and view mode (preview vs recap)
+ * based on weekly schedule rules:
+ * - Tuesday (day 2): defaults to the freshly completed week's post-game recap.
+ * - Wednesday through Monday (days 3, 4, 5, 6, 0, 1): defaults to upcoming week's pre-game preview.
+ * - Pre-season (no games completed): defaults to Week 1 preview.
+ * - Fully completed season (all weeks played): defaults to final week recap.
+ */
+export function getWeeklyMatchupDefaultState({
+  season = 2026,
+  seasonData = {},
+  now = new Date(),
+  regularSeasonWeeks = 14
+} = {}) {
+  const schedule = seasonData.schedule || seasonData.schedule2026 || [];
+
+  // Identify weeks with completed games
+  const completedWeeks = new Set();
+  schedule.forEach(m => {
+    const sH = Number(m.homeScore || 0);
+    const sA = Number(m.awayScore || 0);
+    const wk = Number(m.weekNumber || m.week || 0);
+    if ((sH > 0 || sA > 0) && wk > 0) {
+      completedWeeks.add(wk);
+    }
+  });
+
+  const maxCompletedWeek = completedWeeks.size > 0 ? Math.max(...completedWeeks) : 0;
+  const dayOfWeek = now.getDay(); // 0 = Sun, 1 = Mon, 2 = Tue, 3 = Wed, 4 = Thu, 5 = Fri, 6 = Sat
+
+  // Pre-season (0 weeks completed)
+  if (maxCompletedWeek === 0) {
+    return {
+      week: 1,
+      mode: 'preview'
+    };
+  }
+
+  // Completed or historical season (all regular season weeks played)
+  if (maxCompletedWeek >= regularSeasonWeeks) {
+    return {
+      week: maxCompletedWeek,
+      mode: 'recap'
+    };
+  }
+
+  // Tuesday: Default to the freshly completed week's post-game recap
+  if (dayOfWeek === 2) {
+    return {
+      week: maxCompletedWeek,
+      mode: 'recap'
+    };
+  }
+
+  // Wednesday through Monday: Shift focus to upcoming week's pre-game preview
+  const upcomingWeek = Math.min(maxCompletedWeek + 1, regularSeasonWeeks + 3);
+  return {
+    week: upcomingWeek,
+    mode: 'preview'
+  };
+}
+

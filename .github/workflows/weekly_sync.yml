@@ -39,6 +39,9 @@ jobs:
       - name: 2. Sync Yahoo Y2K Record Book Scores
         run: node scripts/sync_yahoo_direct.js
 
+      - name: 3. Sync Yahoo Y2K Matchup Lineups & Managerial Metrics
+        run: node scripts/sync_yahoo_lineups.js 2026
+
       - name: Run Automated Vitest Tests
         run: npm test
 

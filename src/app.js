@@ -26,7 +26,8 @@ import {
   buildWeeklyMatchupsGridHtml,
   buildManagerSeasonGameLogHtml,
   computeMatchupStakes,
-  sortMatchupsByStandingRank
+  sortMatchupsByStandingRank,
+  getWeeklyMatchupDefaultState
 } from './components/matchupsView.js';
 import { computeManagerialLeaderboard } from './analytics/managerial.js';
 
@@ -192,7 +193,7 @@ function renderLucideIcons() {
       } else if (tabId === 'stats') {
         renderStatsTable();
       } else if (tabId === 'matchups') {
-        renderMatchupsTab();
+        initMatchupsTab();
       } else if (tabId === 'draft') {
         initDraftTab();
       } else if (tabId === 'analytics') {
@@ -2709,6 +2710,16 @@ let y2kLineupsData = null;
     };
 
     function initMatchupsTab() {
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason] || {};
+      const defState = getWeeklyMatchupDefaultState({
+        season: currentMatchupSeason,
+        seasonData: sData,
+        now: new Date(),
+        regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
+      });
+      currentMatchupWeek = defState.week;
+      currentMatchupMode = defState.mode;
+
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
       const previewBtn = document.getElementById('matchup-mode-preview');
@@ -2730,14 +2741,16 @@ let y2kLineupsData = null;
     function onMatchupSeasonChange() {
       const seasonSelect = document.getElementById('matchup-season-select');
       if (seasonSelect) currentMatchupSeason = parseInt(seasonSelect.value) || 2026;
-      currentMatchupWeek = 1;
-      if (currentMatchupSeason === 2026) {
-        currentMatchupMode = 'preview';
-        switchMatchupMode('preview');
-      } else {
-        currentMatchupMode = 'recap';
-        switchMatchupMode('recap');
-      }
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason] || {};
+      const defState = getWeeklyMatchupDefaultState({
+        season: currentMatchupSeason,
+        seasonData: sData,
+        now: new Date(),
+        regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
+      });
+      currentMatchupWeek = defState.week;
+      currentMatchupMode = defState.mode;
+      switchMatchupMode(currentMatchupMode);
       populateMatchupManagerDropdown();
       renderWeekPills();
       renderMatchupsTab();
@@ -2745,8 +2758,11 @@ let y2kLineupsData = null;
 
     function switchMatchupWeek(wk) {
       currentMatchupWeek = wk;
-      renderWeekPills();
-      renderMatchupsTab();
+      const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
+      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
+      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+      currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
+      switchMatchupMode(currentMatchupMode);
     }
 
     function switchMatchupMode(mode) {
@@ -2867,8 +2883,9 @@ let y2kLineupsData = null;
         if (mode === 'recap') {
           text += `- **Result**: ${isWinner1 ? `${t1} def. ${t2}` : (isWinner2 ? `${t2} def. ${t1}` : 'Tie')} (${s1.toFixed(2)} - ${s2.toFixed(2)})\n`;
         }
-        if (customM && customM.writeup) {
-          text += `- **Notes**: ${customM.writeup}\n`;
+        const writeupText = (mode === 'recap') ? (customM?.recapWriteup || customM?.writeup) : (customM?.previewWriteup || customM?.writeup);
+        if (customM && writeupText) {
+          text += `- **Notes**: ${writeupText}\n`;
         }
         text += `\n`;
       });
@@ -3111,7 +3128,10 @@ let y2kLineupsData = null;
       currentMatchupSeason = s;
       currentMatchupWeek = w;
       currentMatchupManager = 'all';
-      currentMatchupMode = (s === 2026 && w >= 1) ? 'preview' : 'recap';
+      const sData = window.LEAGUE_DATA.seasonData[s];
+      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === w);
+      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+      currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
 
       // Synchronize UI dropdowns & pills
       const seasonSelect = document.getElementById('matchup-season-select');
