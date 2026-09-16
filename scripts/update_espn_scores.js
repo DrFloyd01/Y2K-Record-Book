@@ -322,6 +322,52 @@ async function updateEspnScores() {
       }
     });
 
+    // Compute seasonal single-game and margin records
+    let highestScore = { owner: '-', team: '-', score: 0.0, week: 0 };
+    let lowestScore = { owner: '-', team: '-', score: 9999.0, week: 0 };
+    let closestMargin = { winner: '-', loser: '-', margin: 9999.0, scoreStr: '-', week: 0 };
+    let biggestBlowout = { winner: '-', loser: '-', margin: 0.0, scoreStr: '-', week: 0 };
+
+    completedWeeks.forEach(wk => {
+      const weekEntries = weeklyScoresMap[wk] || [];
+      weekEntries.forEach(entry => {
+        if (entry.score > highestScore.score) {
+          highestScore = { owner: entry.owner, team: entry.team, score: entry.score, week: wk };
+        }
+        if (entry.score > 0 && entry.score < lowestScore.score) {
+          lowestScore = { owner: entry.owner, team: entry.team, score: entry.score, week: wk };
+        }
+      });
+
+      const wkMatchups = updatedSchedule.filter(m => (m.weekNumber || m.week) === wk && (m.homeScore > 0 || m.awayScore > 0));
+      wkMatchups.forEach(m => {
+        const winOwner = m.homeScore > m.awayScore ? m.homeOwner : m.awayOwner;
+        const loseOwner = m.homeScore > m.awayScore ? m.awayOwner : m.homeOwner;
+        const winScore = Math.max(m.homeScore, m.awayScore);
+        const loseScore = Math.min(m.homeScore, m.awayScore);
+        const mMargin = parseFloat(Math.abs(winScore - loseScore).toFixed(2));
+
+        if (mMargin < closestMargin.margin) {
+          closestMargin = {
+            winner: winOwner,
+            loser: loseOwner,
+            margin: mMargin,
+            scoreStr: `${winScore.toFixed(2)} - ${loseScore.toFixed(2)}`,
+            week: wk
+          };
+        }
+        if (mMargin > biggestBlowout.margin) {
+          biggestBlowout = {
+            winner: winOwner,
+            loser: loseOwner,
+            margin: mMargin,
+            scoreStr: `${winScore.toFixed(2)} - ${loseScore.toFixed(2)}`,
+            week: wk
+          };
+        }
+      });
+    });
+
     // Compute Win Pct, Exp Record, and Standings Ranking
     const standingsList = Object.values(managerStats).map(st => {
       const totalGames = st.wins + st.losses + st.ties;
@@ -376,6 +422,12 @@ async function updateEspnScores() {
     if (seasonYear === 2026) {
       prideData.seasonData['2026'].schedule2026 = updatedSchedule;
     }
+    prideData.seasonData[seasonYear.toString()].statRecords = {
+      highestScore,
+      lowestScore: lowestScore.score === 9999.0 ? { owner: '-', team: '-', score: 0.0, week: 0 } : lowestScore,
+      closestMargin: closestMargin.margin === 9999.0 ? { winner: '-', loser: '-', margin: 0.0, scoreStr: '-', week: 0 } : closestMargin,
+      biggestBlowout
+    };
 
     // Sync updatedSchedule into allMatchups
     if (prideData.allMatchups && Array.isArray(prideData.allMatchups)) {

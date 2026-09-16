@@ -51,6 +51,25 @@ describe('Popovers Component Module', () => {
     expect(popover).toContain('TOP 5: APEX PREDATOR');
   });
 
+  it('should safely escape manager names with apostrophes in jumpToMatchup click handlers', () => {
+    const mockDataWithQuotes = {
+      allMatchups: [
+        { seasonYear: 2026, weekNumber: 1, homeOwner: "Aidan O'Sullivan", awayOwner: 'Andrew Wilson', homeScore: 144.46, awayScore: 120.96, homeTeam: 'JD Vance in Drag', awayTeam: 'L Central', isPlayoff: false }
+      ]
+    };
+
+    const popover = buildStatCardTop5Popover({
+      cardTitle: 'JUGGERNAUT',
+      metricKey: 'juggernaut',
+      season: 2026,
+      leagueData: mockDataWithQuotes,
+      theme: PRIDE_THEME
+    });
+
+    expect(popover).toContain("window.jumpToMatchup(2026, 1, 'Aidan O\\'Sullivan', 'Andrew Wilson')");
+    expect(popover).toContain("Aidan O&#39;Sullivan");
+  });
+
   it('should render ring badges with matching theme styles', () => {
     const crtRing = getPlayerRingBadgeHtml({ playerName: 'Travis Kelce', leagueData: mockLeagueData, theme: CRT_THEME });
     expect(crtRing).toContain('border-amber-500');

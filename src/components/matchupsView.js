@@ -591,9 +591,12 @@ export function buildWeeklyMatchupsGridHtml({
         </div>
         ${stakes.streakGames.length > 0 ? `
           <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
-            ${stakes.streakGames.map(g => `
+            ${stakes.streakGames.map(g => {
+              const safeWin = (g.winner || '').replace(/'/g, "\\'");
+              const safeLose = (g.loser || '').replace(/'/g, "\\'");
+              return `
               <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
-                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${g.winner}', '${g.loser}')"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${safeWin}', '${safeLose}')"
                    title="Jump to ${g.year} Week ${g.week} Box Score">
                 <div class="min-w-0">
                   <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
@@ -608,7 +611,8 @@ export function buildWeeklyMatchupsGridHtml({
                   Box ➔
                 </span>
               </div>
-            `).join('')}
+            `;
+            }).join('')}
           </div>
         ` : `
           <div class="text-[11px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} py-1 text-center">
@@ -627,9 +631,12 @@ export function buildWeeklyMatchupsGridHtml({
         </div>
         ${stakes.playoffGames.length > 0 ? `
           <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
-            ${stakes.playoffGames.map(g => `
+            ${stakes.playoffGames.map(g => {
+              const safeWin = (g.winner || '').replace(/'/g, "\\'");
+              const safeLose = (g.loser || '').replace(/'/g, "\\'");
+              return `
               <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
-                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${g.winner}', '${g.loser}')"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${safeWin}', '${safeLose}')"
                    title="Jump to ${g.year} Week ${g.week} Playoff Box Score">
                 <div class="min-w-0">
                   <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
@@ -644,7 +651,8 @@ export function buildWeeklyMatchupsGridHtml({
                   Box ➔
                 </span>
               </div>
-            `).join('')}
+            `;
+            }).join('')}
           </div>
         ` : `
           <div class="text-[11px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} py-1 text-center">

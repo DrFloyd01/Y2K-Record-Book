@@ -87,6 +87,7 @@ export function buildManagerialProwessHtml({
   let dOhSpotlightHtml = '';
   if (topDOh) {
     const yrLabel = topDOh.year ? `${topDOh.year} ` : '';
+    const safeTopDOhOwner = (topDOh.ownerName || '').replace(/'/g, "\\'");
     dOhSpotlightHtml = `
       <div class="crt-box rounded p-4 mb-6 ${isCrt ? 'border-2 border-red-500 bg-red-950/20 font-mono' : 'border-2 border-pink-400 bg-pink-50 font-sans'}">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b ${isCrt ? 'border-red-800' : 'border-pink-200'} pb-2 mb-3">
@@ -130,7 +131,7 @@ export function buildManagerialProwessHtml({
         </div>
 
         <div class="mt-3 text-center">
-          <button type="button" onclick="window.jumpToMatchup(${topDOh.year || (selectedSeason !== 'allTime' ? selectedSeason : 2025)}, ${topDOh.week}, '${topDOh.ownerName}')" class="w-full sm:w-auto px-4 py-1.5 ${isCrt ? 'bg-red-950 hover:bg-red-900 border border-red-600 text-red-200 font-mono' : 'bg-red-100 hover:bg-red-200 border border-red-300 text-red-800 font-sans'} font-bold text-xs rounded transition-all inline-flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+          <button type="button" onclick="window.jumpToMatchup(${topDOh.year || (selectedSeason !== 'allTime' ? selectedSeason : 2025)}, ${topDOh.week}, '${safeTopDOhOwner}')" class="w-full sm:w-auto px-4 py-1.5 ${isCrt ? 'bg-red-950 hover:bg-red-900 border border-red-600 text-red-200 font-mono' : 'bg-red-100 hover:bg-red-200 border border-red-300 text-red-800 font-sans'} font-bold text-xs rounded transition-all inline-flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
             <span>🏈 JUMP TO WEEK ${topDOh.week} MATCHUP &amp; ROSTERS</span>
             <span>➔</span>
           </button>

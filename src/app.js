@@ -790,7 +790,7 @@ function renderLucideIcons() {
         records = getGlobalAllTimeStatRecords();
       } else {
         const sData = window.LEAGUE_DATA.seasonData[currentSeason];
-        if (sData) records = sData.statRecords;
+        if (sData) records = sData.statRecords || {};
       }
 
       if (records) {
@@ -864,12 +864,12 @@ function renderLucideIcons() {
 
           div.innerHTML = `
             <div class="text-[11px] font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-2 flex items-center justify-between">
-              <span>&gt; ${card.title}</span>
+              <span>&gt; ${escapeHtml(card.title)}</span>
               <span class="text-[9px] text-emerald-600 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
             </div>
-            <p class="text-xl font-black text-emerald-300 crt-glow">${val}</p>
-            <p class="text-xs font-bold text-emerald-200 truncate mt-1">${team} <span class="text-[10px] text-emerald-500 font-normal">[${owner}]</span></p>
-            <p class="text-[10px] text-emerald-400 italic mt-0.5 truncate">${sub}</p>
+            <p class="text-xl font-black text-emerald-300 crt-glow">${escapeHtml(val)}</p>
+            <p class="text-xs font-bold text-emerald-200 truncate mt-1">${escapeHtml(team)} <span class="text-[10px] text-emerald-500 font-normal">[${escapeHtml(owner)}]</span></p>
+            <p class="text-[10px] text-emerald-400 italic mt-0.5 truncate">${escapeHtml(sub)}</p>
             ${popoverHtml}
           `;
           container.appendChild(div);

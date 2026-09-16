@@ -46293,7 +46293,35 @@
           "ownerName": "Aidan O'Sullivan",
           "teamName": "JD Vance in Drag"
         }
-      ]
+      ],
+      "statRecords": {
+        "highestScore": {
+          "owner": "Aidan O'Sullivan",
+          "team": "JD Vance in Drag",
+          "score": 144.46,
+          "week": 1
+        },
+        "lowestScore": {
+          "owner": "Sean Belcher",
+          "team": "Milkshake Baddies",
+          "score": 92.72,
+          "week": 1
+        },
+        "closestMargin": {
+          "winner": "Tyler Hicks",
+          "loser": "Dylan Soth",
+          "margin": 6.52,
+          "scoreStr": "107.22 - 100.70",
+          "week": 1
+        },
+        "biggestBlowout": {
+          "winner": "Austin Geller",
+          "loser": "Sean Belcher",
+          "margin": 25.94,
+          "scoreStr": "118.66 - 92.72",
+          "week": 1
+        }
+      }
     },
     "allTime": {
       "settings": {},

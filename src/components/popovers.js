@@ -6,6 +6,7 @@ import { getStatCardTop5 } from '../analytics/statRecords.js';
 import { getPlayerRingInfo } from '../analytics/rings.js';
 import { getPlayerLifetimeDraftHistory } from '../analytics/draft.js';
 import { CRT_THEME } from '../theme/theme.js';
+import { escapeHtml } from '../core/sanitizer.js';
 
 /**
  * Builds the Top 5 stat record breakdown popover.
@@ -26,8 +27,10 @@ export function buildStatCardTop5Popover({
 
   const rowsHtml = top5.map((item, i) => {
     const hasMatchup = item.year && item.week;
+    const safeOwner = (item.owner || '').replace(/'/g, "\\'");
+    const safeOppOwner = (item.oppOwner || '').replace(/'/g, "\\'");
     const clickAttr = hasMatchup
-      ? `onclick="event.stopPropagation(); window.jumpToMatchup(${item.year}, ${item.week}, '${item.owner}', '${item.oppOwner || ''}')"`
+      ? `onclick="event.stopPropagation(); window.jumpToMatchup(${item.year}, ${item.week}, '${safeOwner}', '${safeOppOwner}')"`
       : '';
     const isPride = theme.name === 'pride';
     const hoverClass = hasMatchup
@@ -40,11 +43,11 @@ export function buildStatCardTop5Popover({
     return `
       <div class="${cfg.rowClass} ${hoverClass}" ${clickAttr} title="${hasMatchup ? `Click to jump to ${item.year} Week ${item.week} Matchup` : ''}">
         <div>
-          <span class="${cfg.ownerClass}">#${i + 1} ${item.owner}</span>
-          <span class="${cfg.subClass}">${item.sub}</span>
+          <span class="${cfg.ownerClass}">#${i + 1} ${escapeHtml(item.owner)}</span>
+          <span class="${cfg.subClass}">${escapeHtml(item.sub)}</span>
         </div>
         <div class="flex items-center gap-1">
-          <span class="${cfg.valClass}">${item.valStr}</span>
+          <span class="${cfg.valClass}">${escapeHtml(item.valStr)}</span>
           ${jumpHint}
         </div>
       </div>
@@ -53,7 +56,7 @@ export function buildStatCardTop5Popover({
 
   return `
     <div class="tooltip-content${rowPopDir} ${cfg.containerClass}">
-      <div class="${cfg.headerClass}">&gt; TOP 5: ${cardTitle} (${seasonLabel})</div>
+      <div class="${cfg.headerClass}">&gt; TOP 5: ${escapeHtml(cardTitle)} (${seasonLabel})</div>
       ${rowsHtml || `<div class="${cfg.emptyClass}">No data records found</div>`}
     </div>
   `;

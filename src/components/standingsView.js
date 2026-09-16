@@ -111,7 +111,8 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
         const startCls = isPride ? 'text-red-600' : 'text-red-400';
         const gainCls = isPride ? 'text-amber-700 font-bold' : 'text-amber-400 font-bold';
         const targetYr = d.year || (typeof currentSeason !== 'undefined' ? currentSeason : '');
-        const clickAttr = `onclick="event.stopPropagation(); window.jumpToMatchup(${targetYr || 'window.currentMatchupSeason'}, ${d.week}, '${owner}')"`;
+        const safeOwner = (owner || '').replace(/'/g, "\\'");
+        const clickAttr = `onclick="event.stopPropagation(); window.jumpToMatchup(${targetYr || 'window.currentMatchupSeason'}, ${d.week}, '${safeOwner}')"`;
         return `
           <div class="py-1 px-1.5 rounded hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer group" ${clickAttr} title="Click to view Week ${d.week} Matchup & Box Score">
             <div class="text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: Benched <span class="${benchCls}">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${startCls}">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${gainCls}">+${d.netGain} PF</span></div>

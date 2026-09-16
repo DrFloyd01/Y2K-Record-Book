@@ -118,8 +118,11 @@ export function buildConsolationLadderHtml({ season, consolationMatchups = [], s
         ? (isAwayWin ? 'font-bold text-emerald-300 bg-emerald-950/80 px-1 py-0.5 rounded border border-emerald-500 crt-glow' : 'text-emerald-600 px-1')
         : (isAwayWin ? 'font-bold text-pink-700 bg-pink-50/80 px-1 py-0.5 rounded border border-pink-300 crt-glow-pink-pink' : 'text-purple-800 px-1');
 
+      const safeHomeOwner = (m.homeOwner || '').replace(/'/g, "\\'");
+      const safeAwayOwner = (m.awayOwner || '').replace(/'/g, "\\'");
+
       wkListHtml += `
-        <div class="${isCrt ? 'bg-black/95 border-emerald-900 hover:border-emerald-500' : 'bg-white/95 border-pink-200 hover:border-pink-400'} p-2.5 rounded-xl border shadow-sm text-xs space-y-1 cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${m.homeOwner}', '${m.awayOwner}')" title="Click to view consolation matchup & rosters">
+        <div class="${isCrt ? 'bg-black/95 border-emerald-900 hover:border-emerald-500' : 'bg-white/95 border-pink-200 hover:border-pink-400'} p-2.5 rounded-xl border shadow-sm text-xs space-y-1 cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${safeHomeOwner}', '${safeAwayOwner}')" title="Click to view consolation matchup & rosters">
           <div class="text-[9px] font-bold ${isCrt ? 'text-emerald-500 border-emerald-950' : 'text-purple-900/70 border-pink-100'} border-b pb-0.5 flex justify-between">
             <span>${rungLabel}</span>
             <span class="text-[8px] opacity-0 group-hover:opacity-100 transition-opacity ${isCrt ? 'text-amber-400 font-mono' : 'text-pink-600 font-bold'}">📋 Box ➔</span>
@@ -253,9 +256,11 @@ export function buildPlayoffBracketHtml({ season, playoffMatchups = [], champion
         : 'bg-pink-100/90 text-pink-700 border border-purple-200';
 
       const wkLabel = formatPlayoffWeek(season, m.weekNumber || m.week, m.stage, isPride);
+      const safeHomeOwner = (m.homeOwner || '').replace(/'/g, "\\'");
+      const safeAwayOwner = (m.awayOwner || '').replace(/'/g, "\\'");
 
       mListHtml += `
-        <div class="${isCrt ? 'bg-black/90 hover:border-emerald-400' : 'bg-white/90 hover:border-pink-400'} p-3 rounded border ${cardBorder} cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${m.homeOwner}', '${m.awayOwner}')" title="Click to view playoff box score & rosters">
+        <div class="${isCrt ? 'bg-black/90 hover:border-emerald-400' : 'bg-white/90 hover:border-pink-400'} p-3 rounded border ${cardBorder} cursor-pointer transition-all hover:scale-[1.01] group" onclick="window.jumpToMatchup(${season}, ${m.weekNumber || m.week}, '${safeHomeOwner}', '${safeAwayOwner}')" title="Click to view playoff box score & rosters">
           <div class="text-[10px] font-bold tracking-wider ${isCrt ? 'text-emerald-500' : 'text-pink-600'} mb-2 flex justify-between uppercase">
             <span>[${m.stage}]</span>
             <span class="flex items-center gap-1">${wkLabel} <span class="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity ${isCrt ? 'text-amber-400 font-mono font-bold' : 'text-pink-600 font-bold'}">📋 Box ➔</span></span>

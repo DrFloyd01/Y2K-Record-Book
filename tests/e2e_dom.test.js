@@ -64,4 +64,27 @@ describe('E2E DOM Integration Test', () => {
     expect(jtStakes.streakCount).toBeGreaterThanOrEqual(1);
     expect(jtStakes.playoffGames.length).toBeGreaterThanOrEqual(1);
   });
+
+  it('should verify Pride Guys 2026 data integrity with statRecords and valid stat cards', async () => {
+    const { getStatCardTop5 } = await import('../src/analytics/statRecords.js');
+    const rawPride = fs.readFileSync(path.resolve(__dirname, '../public/data/prideGuysData.json'), 'utf-8');
+    const prideData = JSON.parse(rawPride);
+
+    expect(prideData.seasonData['2026'].statRecords).toBeDefined();
+    const records = prideData.seasonData['2026'].statRecords;
+    expect(records.highestScore.owner).toBe("Aidan O'Sullivan");
+    expect(records.highestScore.score).toBe(144.46);
+    expect(records.lowestScore.owner).toBe('Sean Belcher');
+    expect(records.lowestScore.score).toBe(92.72);
+    expect(records.closestMargin.margin).toBe(6.52);
+    expect(records.biggestBlowout.margin).toBe(25.94);
+
+    const keys = ['juggernaut', 'featherweight', 'cakewalk', 'nailbiter', 'gutpunch', 'criminal', 'victoryLap', 'dumpsterFire'];
+    keys.forEach(k => {
+      const topCards = getStatCardTop5(prideData, k, 2026);
+      expect(topCards.length).toBeGreaterThan(0);
+      expect(topCards[0].owner).toBeTruthy();
+      expect(topCards[0].valStr).toBeTruthy();
+    });
+  });
 });
