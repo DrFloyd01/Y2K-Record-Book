@@ -27,9 +27,11 @@ export async function loadLeagueData(dataUrl = 'data/leagueData.json') {
   ];
 
   let lastError = null;
+  const cacheBust = `v=${Date.now()}`;
   for (const url of candidates) {
     try {
-      const response = await fetch(url);
+      const fetchUrl = url.includes('?') ? `${url}&${cacheBust}` : `${url}?${cacheBust}`;
+      const response = await fetch(fetchUrl, { cache: 'no-store' });
       if (response.ok) {
         const data = await response.json();
         cachedData[dataUrl] = data;

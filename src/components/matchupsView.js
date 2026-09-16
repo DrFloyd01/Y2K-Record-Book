@@ -278,6 +278,36 @@ export function computeMatchupStakes({
   };
 }
 
+export const Y2K_2026_PRESEASON_STANDINGS = [
+  { rank: 1, ownerName: 'Dylan', teamName: 'Globo Gym' },
+  { rank: 2, ownerName: 'Phillip', teamName: 'Ho Chi Win City' },
+  { rank: 3, ownerName: 'Jasper', teamName: "Blue's Balls" },
+  { rank: 4, ownerName: 'Tess', teamName: 'Tess Finesse' },
+  { rank: 5, ownerName: 'Trace', teamName: 'Gl Hf (you’re gay)' },
+  { rank: 6, ownerName: 'Casey', teamName: 'AARPFL' },
+  { rank: 7, ownerName: 'Mike', teamName: 'IRKed' },
+  { rank: 8, ownerName: 'Boaz', teamName: 'Aaron codger' },
+  { rank: 9, ownerName: 'Dustin', teamName: 'Dusty’s Dingleberries' },
+  { rank: 10, ownerName: 'Ryan', teamName: 'Donkey Squad' },
+  { rank: 11, ownerName: 'Cooper', teamName: 'Trenches cooper' },
+  { rank: 12, ownerName: 'Alex', teamName: 'Darnold Schwarzenegger' }
+];
+
+export const PRIDE_2026_PRESEASON_STANDINGS = [
+  { rank: 1, ownerName: 'Dylan Soth', teamName: 'Human Eros TDs' },
+  { rank: 2, ownerName: 'Sean Belcher', teamName: 'Milkshake Baddies' },
+  { rank: 3, ownerName: 'Michael Anderson', teamName: 'CTESPN' },
+  { rank: 4, ownerName: 'Tyler Hicks', teamName: "tyler's Talented Team" },
+  { rank: 5, ownerName: 'Brodie Pirtle', teamName: 'BloodSword2000' },
+  { rank: 6, ownerName: 'Austin Geller', teamName: 'Football' },
+  { rank: 7, ownerName: 'Trace Bakulich', teamName: 'ProudER' },
+  { rank: 8, ownerName: 'Brendan Sanders', teamName: 'Stroking my penix' },
+  { rank: 9, ownerName: 'Phillip Busick', teamName: 'Joey Chestnuts' },
+  { rank: 10, ownerName: 'Andrew Wilson', teamName: 'L Central' },
+  { rank: 11, ownerName: 'Nathan Wells', teamName: 'Defense Contractor #1' },
+  { rank: 12, ownerName: "Aidan O'Sullivan", teamName: 'JD Vance in Drag' }
+];
+
 /**
  * Computes weekly rank map and win-loss record for each manager based on week and mode:
  * - In Week 1 Preview: resets ranks to pre-season order with 0-0 records.
@@ -312,7 +342,16 @@ export function getWeeklyRankMap({
       });
     }
 
-    // 2. Check commentary matchups for any pre-season homeRank / awayRank
+    // 2. Static 2026 pre-season fallback if sData.preSeasonStandings is missing
+    if (Object.keys(rankMap).length === 0 && currentSeason === 2026) {
+      const isPride = (sData?.standings || []).some(st => (st.ownerName || st.owner || '').includes('Soth') || (st.ownerName || st.owner || '').includes("O'Sullivan"));
+      const fallbackList = isPride ? PRIDE_2026_PRESEASON_STANDINGS : Y2K_2026_PRESEASON_STANDINGS;
+      fallbackList.forEach((st, idx) => {
+        rankMap[st.ownerName] = { rank: st.rank || (idx + 1), rec: '0-0' };
+      });
+    }
+
+    // 3. Check commentary matchups for any pre-season homeRank / awayRank
     const weekCommentary = commentary || (typeof window !== 'undefined' && window.LEAGUE_DATA?.weeklyCommentary?.[String(currentSeason)]?.[String(currentWeek)]);
     if (weekCommentary?.matchups && Array.isArray(weekCommentary.matchups)) {
       weekCommentary.matchups.forEach(cm => {
@@ -325,7 +364,7 @@ export function getWeeklyRankMap({
       });
     }
 
-    // 3. Fallback: if standings still untouched (0-0), use st.rank
+    // 4. Fallback for older historical seasons
     if (Object.keys(rankMap).length === 0 && sData?.standings && Array.isArray(sData.standings)) {
       sData.standings.forEach((st, idx) => {
         const owner = st.ownerName || st.owner;
@@ -339,9 +378,18 @@ export function getWeeklyRankMap({
   }
 
   // Case 2: Week N Recap (<= N) or Week N Preview for N > 1 (< N)
-  const sourceMatchups = (allMatchups && allMatchups.length > 0)
+  let sourceMatchups = (allMatchups && allMatchups.length > 0)
     ? allMatchups
     : (typeof window !== 'undefined' && window.LEAGUE_DATA?.allMatchups ? window.LEAGUE_DATA.allMatchups : (sData?.schedule || sData?.schedule2026 || []));
+
+  // If allMatchups lacks completed scores for currentSeason but sData.schedule2026 has them, use schedule2026
+  if (sData?.schedule2026 && Array.isArray(sData.schedule2026)) {
+    const s26Scores = sData.schedule2026.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+    const srcScores = sourceMatchups.some(m => Number(m.seasonYear ?? m.year) === currentSeason && (Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0));
+    if (s26Scores && !srcScores) {
+      sourceMatchups = sData.schedule2026;
+    }
+  }
 
   const ownerStatsTarget = {};
 
@@ -401,12 +449,22 @@ export function getWeeklyRankMap({
 
   // If no completed games found before this cutoff (e.g. previewing future week with no games yet),
   // fallback to pre-season standings
-  if (totalGamesPlayed === 0 && sData?.preSeasonStandings && Array.isArray(sData.preSeasonStandings)) {
-    sData.preSeasonStandings.forEach((st, idx) => {
-      const owner = st.ownerName || st.owner;
-      if (owner) rankMap[owner] = { rank: st.rank || (idx + 1), rec: '0-0' };
-    });
-    return rankMap;
+  if (totalGamesPlayed === 0) {
+    if (sData?.preSeasonStandings && Array.isArray(sData.preSeasonStandings)) {
+      sData.preSeasonStandings.forEach((st, idx) => {
+        const owner = st.ownerName || st.owner;
+        if (owner) rankMap[owner] = { rank: st.rank || (idx + 1), rec: '0-0' };
+      });
+      return rankMap;
+    }
+    if (currentSeason === 2026) {
+      const isPride = (sData?.standings || []).some(st => (st.ownerName || st.owner || '').includes('Soth') || (st.ownerName || st.owner || '').includes("O'Sullivan"));
+      const fallbackList = isPride ? PRIDE_2026_PRESEASON_STANDINGS : Y2K_2026_PRESEASON_STANDINGS;
+      fallbackList.forEach((st, idx) => {
+        rankMap[st.ownerName] = { rank: st.rank || (idx + 1), rec: '0-0' };
+      });
+      return rankMap;
+    }
   }
 
   ownersList.sort((a, b) => {

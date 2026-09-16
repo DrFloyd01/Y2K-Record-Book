@@ -432,5 +432,29 @@ describe('Matchups View Component', () => {
       expect(recapHtml).toContain('>#11</span>');
       expect(recapHtml).toContain('[Mike] • 0-1');
     });
+
+    it('should fallback to static pre-season rankings when sData.preSeasonStandings is missing', () => {
+      // Y2K fallback
+      const y2kRank = getWeeklyRankMap({
+        season: 2026,
+        week: 1,
+        mode: 'preview',
+        sData: { standings: [] }
+      });
+      expect(y2kRank['Dylan']).toEqual({ rank: 1, rec: '0-0' });
+      expect(y2kRank['Phillip']).toEqual({ rank: 2, rec: '0-0' });
+      expect(y2kRank['Alex']).toEqual({ rank: 12, rec: '0-0' });
+
+      // Pride Guys fallback
+      const prideRank = getWeeklyRankMap({
+        season: 2026,
+        week: 1,
+        mode: 'preview',
+        sData: { standings: [{ ownerName: 'Dylan Soth' }, { ownerName: "Aidan O'Sullivan" }] }
+      });
+      expect(prideRank['Dylan Soth']).toEqual({ rank: 1, rec: '0-0' });
+      expect(prideRank['Sean Belcher']).toEqual({ rank: 2, rec: '0-0' });
+      expect(prideRank["Aidan O'Sullivan"]).toEqual({ rank: 12, rec: '0-0' });
+    });
   });
 });
