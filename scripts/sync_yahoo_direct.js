@@ -186,6 +186,7 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
     leagueData.seasonData['2026'] = {
       settings: { seasonYear: 2026, teamCount: 12, playoffTeamCount: 6, firstWeek: 1, lastWeek: 17, regularSeasonWeeks: 14 },
       standings: [],
+      preSeasonStandings: [],
       weeklyScores: [],
       statRecords: {
         highestScore: { owner: '-', team: '-', score: 0.0, week: 0 },
@@ -196,6 +197,18 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
       playoffMatchups: [],
       draftPicks: []
     };
+  }
+
+  // Preserve preSeasonStandings if already populated in leagueData
+  if (!leagueData.seasonData['2026'].preSeasonStandings && leagueData.seasonData['2026'].standings) {
+    const isPreseason = leagueData.seasonData['2026'].standings.length > 0 && leagueData.seasonData['2026'].standings.every(s => (s.wins || 0) === 0 && (s.losses || 0) === 0);
+    if (isPreseason) {
+      leagueData.seasonData['2026'].preSeasonStandings = leagueData.seasonData['2026'].standings.map(s => ({
+        rank: s.rank,
+        ownerName: s.ownerName,
+        teamName: s.teamName
+      }));
+    }
   }
 
   // Attach full schedule to 2026 (both schedule and schedule2026)

@@ -43,3 +43,8 @@ When writing weekly matchup previews, power rankings, or league editorial conten
 - On **Tuesdays** (day 2, post-sync): default the Matchups tab to the **previous completed week's recap** (e.g., `mode: 'recap'`, `week: maxCompletedWeek`).
 - On **Wednesdays through Mondays**: default the Matchups tab to the **upcoming/current week's preview** (e.g., `mode: 'preview'`, `week: maxCompletedWeek + 1`), capped at regular season weeks.
 - Logic is centralized in `getWeeklyMatchupDefaultState(activeSeasonData, currentSeasonYear, now)` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
+- **Dynamic Standing Badges & Ordering**:
+  - In Week 1 Preview: `#STANDING` badges and card sort order must reset to the pre-season rankings (`0-0` records) preserved in `seasonData[year].preSeasonStandings`.
+  - In Week N Preview (`N > 1`): `#STANDING` badges and card sort order reflect standings entering the week (calculated strictly from games `< N`).
+  - In Week N Recap: `#STANDING` badges and card sort order reflect updated standings including completed games (`<= N`).
+  - Centralized in `getWeeklyRankMap({ season, week, mode, sData, allMatchups, commentary })` in `src/components/matchupsView.js` across both entry points.

@@ -169,6 +169,13 @@ async function updateEspnScores() {
     // Update schedule and team names
     if (prideData.seasonData[seasonYear.toString()]) {
       prideData.seasonData[seasonYear.toString()].schedule = updatedSchedule;
+      if (!prideData.seasonData[seasonYear.toString()].preSeasonStandings && prideData.seasonData[seasonYear.toString()].standings) {
+        prideData.seasonData[seasonYear.toString()].preSeasonStandings = prideData.seasonData[seasonYear.toString()].standings.map(s => ({
+          rank: s.rank,
+          ownerName: s.ownerName,
+          teamName: s.teamName
+        }));
+      }
     }
   } else {
     console.log(`📊 Processing ${completedGameCount} completed games across ${Object.keys(weeklyScoresMap).length} weeks...`);

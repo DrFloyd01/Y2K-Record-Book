@@ -279,11 +279,160 @@ export function computeMatchupStakes({
 }
 
 /**
+ * Computes weekly rank map and win-loss record for each manager based on week and mode:
+ * - In Week 1 Preview: resets ranks to pre-season order with 0-0 records.
+ * - In Week N Preview (N > 1): ranks and records are computed from completed games strictly before Week N (< N),
+ *   preserving the standings as they were entering the week.
+ * - In Week N Recap: ranks and records are computed from completed games through Week N (<= N),
+ *   updating standings to reflect Week N results.
+ */
+export function getWeeklyRankMap({
+  season = 2026,
+  week = 1,
+  mode = 'recap',
+  sData = null,
+  allMatchups = [],
+  commentary = null
+}) {
+  const currentSeason = Number(season);
+  const currentWeek = Number(week);
+  const isRecap = (mode === 'recap');
+
+  const rankMap = {};
+
+  // Case 1: Pre-season / Week 1 Preview -> 0-0 records with pre-season order
+  if (currentWeek === 1 && !isRecap) {
+    // 1. Check sData.preSeasonStandings
+    if (sData?.preSeasonStandings && Array.isArray(sData.preSeasonStandings) && sData.preSeasonStandings.length > 0) {
+      sData.preSeasonStandings.forEach((st, idx) => {
+        const owner = st.ownerName || st.owner;
+        if (owner) {
+          rankMap[owner] = { rank: st.rank || (idx + 1), rec: '0-0' };
+        }
+      });
+    }
+
+    // 2. Check commentary matchups for any pre-season homeRank / awayRank
+    const weekCommentary = commentary || (typeof window !== 'undefined' && window.LEAGUE_DATA?.weeklyCommentary?.[String(currentSeason)]?.[String(currentWeek)]);
+    if (weekCommentary?.matchups && Array.isArray(weekCommentary.matchups)) {
+      weekCommentary.matchups.forEach(cm => {
+        if (cm.homeOwner && cm.homeRank != null && !rankMap[cm.homeOwner]) {
+          rankMap[cm.homeOwner] = { rank: cm.homeRank, rec: '0-0' };
+        }
+        if (cm.awayOwner && cm.awayRank != null && !rankMap[cm.awayOwner]) {
+          rankMap[cm.awayOwner] = { rank: cm.awayRank, rec: '0-0' };
+        }
+      });
+    }
+
+    // 3. Fallback: if standings still untouched (0-0), use st.rank
+    if (Object.keys(rankMap).length === 0 && sData?.standings && Array.isArray(sData.standings)) {
+      sData.standings.forEach((st, idx) => {
+        const owner = st.ownerName || st.owner;
+        if (owner) {
+          rankMap[owner] = { rank: st.rank || (idx + 1), rec: '0-0' };
+        }
+      });
+    }
+
+    return rankMap;
+  }
+
+  // Case 2: Week N Recap (<= N) or Week N Preview for N > 1 (< N)
+  const sourceMatchups = (allMatchups && allMatchups.length > 0)
+    ? allMatchups
+    : (typeof window !== 'undefined' && window.LEAGUE_DATA?.allMatchups ? window.LEAGUE_DATA.allMatchups : (sData?.schedule || sData?.schedule2026 || []));
+
+  const ownerStatsTarget = {};
+
+  // Initialize known owners so every team appears in the standings
+  if (sData?.preSeasonStandings && Array.isArray(sData.preSeasonStandings)) {
+    sData.preSeasonStandings.forEach(st => {
+      const owner = st.ownerName || st.owner;
+      if (owner && !ownerStatsTarget[owner]) {
+        ownerStatsTarget[owner] = { owner, w: 0, l: 0, t: 0, pf: 0, pa: 0 };
+      }
+    });
+  }
+  if (sData?.standings && Array.isArray(sData.standings)) {
+    sData.standings.forEach(st => {
+      const owner = st.ownerName || st.owner;
+      if (owner && !ownerStatsTarget[owner]) {
+        ownerStatsTarget[owner] = { owner, w: 0, l: 0, t: 0, pf: 0, pa: 0 };
+      }
+    });
+  }
+
+  sourceMatchups
+    .filter(m => {
+      const yr = Number(m.seasonYear ?? m.year ?? 0);
+      const wk = Number(m.weekNumber ?? m.week ?? 0);
+      if (yr !== currentSeason) return false;
+      if (isRecap ? wk > currentWeek : wk >= currentWeek) return false;
+      if (m.isPlayoff) return false;
+      const sH = Number(m.homeScore || 0);
+      const sA = Number(m.awayScore || 0);
+      return (sH > 0 || sA > 0);
+    })
+    .forEach(m => {
+      const h = m.homeOwner, a = m.awayOwner;
+      const sH = Number(m.homeScore || 0), sA = Number(m.awayScore || 0);
+      if (!ownerStatsTarget[h]) ownerStatsTarget[h] = { owner: h, w: 0, l: 0, t: 0, pf: 0, pa: 0 };
+      if (!ownerStatsTarget[a]) ownerStatsTarget[a] = { owner: a, w: 0, l: 0, t: 0, pf: 0, pa: 0 };
+      ownerStatsTarget[h].pf += sH;
+      ownerStatsTarget[h].pa += sA;
+      ownerStatsTarget[a].pf += sA;
+      ownerStatsTarget[a].pa += sH;
+
+      if (sH > sA) {
+        ownerStatsTarget[h].w++;
+        ownerStatsTarget[a].l++;
+      } else if (sA > sH) {
+        ownerStatsTarget[a].w++;
+        ownerStatsTarget[h].l++;
+      } else if (sH === sA && (sH > 0 || sA > 0)) {
+        ownerStatsTarget[h].t++;
+        ownerStatsTarget[a].t++;
+      }
+    });
+
+  const ownersList = Object.values(ownerStatsTarget);
+  const totalGamesPlayed = ownersList.reduce((sum, o) => sum + o.w + o.l + o.t, 0);
+
+  // If no completed games found before this cutoff (e.g. previewing future week with no games yet),
+  // fallback to pre-season standings
+  if (totalGamesPlayed === 0 && sData?.preSeasonStandings && Array.isArray(sData.preSeasonStandings)) {
+    sData.preSeasonStandings.forEach((st, idx) => {
+      const owner = st.ownerName || st.owner;
+      if (owner) rankMap[owner] = { rank: st.rank || (idx + 1), rec: '0-0' };
+    });
+    return rankMap;
+  }
+
+  ownersList.sort((a, b) => {
+    const totalA = a.w + a.l + a.t || 1;
+    const totalB = b.w + b.l + b.t || 1;
+    const pctA = (a.w + 0.5 * a.t) / totalA;
+    const pctB = (b.w + 0.5 * b.t) / totalB;
+    if (pctB !== pctA) return pctB - pctA;
+    if (b.w !== a.w) return b.w - a.w;
+    return b.pf - a.pf;
+  });
+
+  ownersList.forEach((st, idx) => {
+    const recStr = st.t > 0 ? `${st.w}-${st.l}-${st.t}` : `${st.w}-${st.l}`;
+    rankMap[st.owner] = { rank: idx + 1, rec: recStr };
+  });
+
+  return rankMap;
+}
+
+/**
  * Builds HTML for the weekly matchups grid (3x2 on desktop, 1 col on mobile)
  */
 export function buildWeeklyMatchupsGridHtml({
   matchups = [],
-  rankMap = {},
+  rankMap = null,
   season = 2025,
   week = 1,
   mode = 'recap',
@@ -291,10 +440,15 @@ export function buildWeeklyMatchupsGridHtml({
   lineups = [],
   allMatchups = [],
   showReportScores = false,
-  theme = CRT_THEME
+  theme = CRT_THEME,
+  sData = null
 }) {
   const isCrt = theme.name === 'crt';
   const isRecap = mode === 'recap';
+
+  const activeRankMap = (rankMap && Object.keys(rankMap).length > 0)
+    ? rankMap
+    : getWeeklyRankMap({ season, week, mode, sData, allMatchups, commentary });
 
   if (!matchups || matchups.length === 0) {
     return `
@@ -310,7 +464,7 @@ export function buildWeeklyMatchupsGridHtml({
   }
 
   // Sort matchups so top-ranked marquee games appear first
-  const sortedMatchups = sortMatchupsByStandingRank(matchups, rankMap);
+  const sortedMatchups = sortMatchupsByStandingRank(matchups, activeRankMap);
 
   const cardsHtml = sortedMatchups.map((m, idx) => {
     const o1 = m.homeOwner;
@@ -320,8 +474,8 @@ export function buildWeeklyMatchupsGridHtml({
     const s1 = Number(m.homeScore || 0);
     const s2 = Number(m.awayScore || 0);
 
-    const info1 = rankMap[o1] || { rank: '-', rec: '0-0' };
-    const info2 = rankMap[o2] || { rank: '-', rec: '0-0' };
+    const info1 = activeRankMap[o1] || { rank: '-', rec: '0-0' };
+    const info2 = activeRankMap[o2] || { rank: '-', rec: '0-0' };
 
     const isWinner1 = s1 > s2;
     const isWinner2 = s2 > s1;

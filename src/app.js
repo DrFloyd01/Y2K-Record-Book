@@ -27,7 +27,8 @@ import {
   buildManagerSeasonGameLogHtml,
   computeMatchupStakes,
   sortMatchupsByStandingRank,
-  getWeeklyMatchupDefaultState
+  getWeeklyMatchupDefaultState,
+  getWeeklyRankMap
 } from './components/matchupsView.js';
 import { computeManagerialLeaderboard } from './analytics/managerial.js';
 
@@ -2847,8 +2848,16 @@ let y2kLineupsData = null;
         mList = (window.LEAGUE_DATA.allMatchups || []).filter(m => (m.seasonYear || m.year) === season && (m.weekNumber || m.week) === week);
       }
 
-      const sortedM = sortMatchupsByStandingRank(mList, window.currentRankMap || {});
       const customComm = window.LEAGUE_DATA.weeklyCommentary?.[String(season)]?.[String(week)];
+      const rankMap = window.currentRankMap || getWeeklyRankMap({
+        season,
+        week,
+        mode,
+        sData,
+        allMatchups: window.LEAGUE_DATA.allMatchups,
+        commentary: customComm
+      });
+      const sortedM = sortMatchupsByStandingRank(mList, rankMap);
 
       let text = `# 🏈 ${season} Y2K: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
 
@@ -2916,42 +2925,20 @@ let y2kLineupsData = null;
       const isPlayoffWeek = currentMatchupWeek > regWeeks;
       const isRecap = (currentMatchupMode === 'recap');
 
-      // Rank Map
-      const ownerStatsTarget = {};
-      window.LEAGUE_DATA.allMatchups
-        .filter(m => m.seasonYear === currentMatchupSeason && (isRecap ? m.weekNumber <= currentMatchupWeek : m.weekNumber < currentMatchupWeek))
-        .forEach(m => {
-          const h = m.homeOwner, a = m.awayOwner;
-          if (!ownerStatsTarget[h]) ownerStatsTarget[h] = { owner: h, w: 0, l: 0, pf: 0 };
-          if (!ownerStatsTarget[a]) ownerStatsTarget[a] = { owner: a, w: 0, l: 0, pf: 0 };
-          ownerStatsTarget[h].pf += m.homeScore; ownerStatsTarget[a].pf += m.awayScore;
-          if (m.homeScore > m.awayScore) { ownerStatsTarget[h].w++; ownerStatsTarget[a].l++; }
-          else if (m.awayScore > m.homeScore) { ownerStatsTarget[a].w++; ownerStatsTarget[h].l++; }
-        });
-
-      const sortedOwnersTarget = Object.values(ownerStatsTarget).sort((a, b) => {
-        const pctA = a.w / (a.w + a.l || 1);
-        const pctB = b.w / (b.w + b.l || 1);
-        if (pctB !== pctA) return pctB - pctA;
-        return b.pf - a.pf;
-      });
-
-      const rankMap = {};
-      sortedOwnersTarget.forEach((st, idx) => {
-        rankMap[st.owner] = { rank: idx + 1, rec: `${st.w}-${st.l}` };
-      });
-      window.currentRankMap = rankMap;
-
-      if (!isRecap && currentMatchupWeek === 1 && sData && sData.standings) {
-        sData.standings.forEach(st => {
-          rankMap[st.ownerName] = { rank: st.rank, rec: '0-0' };
-        });
-        window.currentRankMap = rankMap;
-      }
-
       const seasonKey = String(currentMatchupSeason);
       const weekKey = String(currentMatchupWeek);
       const customComm = (window.LEAGUE_DATA.weeklyCommentary && window.LEAGUE_DATA.weeklyCommentary[seasonKey] && window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey]) ? window.LEAGUE_DATA.weeklyCommentary[seasonKey][weekKey] : null;
+
+      // Dynamic Weekly Rank Map: pre-season order for W1 preview, entered standings for W>1 preview, updated standings for recap
+      const rankMap = getWeeklyRankMap({
+        season: currentMatchupSeason,
+        week: currentMatchupWeek,
+        mode: currentMatchupMode,
+        sData,
+        allMatchups: window.LEAGUE_DATA.allMatchups,
+        commentary: customComm
+      });
+      window.currentRankMap = rankMap;
 
       if (currentMatchupManager !== 'all') {
         // Manager single-view: show all season games for this manager

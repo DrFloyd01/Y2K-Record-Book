@@ -1,3 +1,5 @@
+# 🏈 2026 Y2K: Week 1 Matchup Previews
+
 Globo Gym vs IRKed
 h2h: 8-9
 streak: Dylan 1 (Wk9'25, 141.31-140.42)
@@ -33,3 +35,4 @@ h2h: 1-3
 streak: Dusty 1 (Wk12'23, 178.36-92.33)
 playoffs: 0-0
 Dusty’s Dingleberries enters his 6th season looking for a major redemption campaign. Following back-to-back scoring titles, a 2023 championship, and a 2024 runner-up finish, Dustin cratered to 3-11 in 2025 after suffering a record-tying 5 D'Oh bench blunders (T1-Trace'23,RJ'25) and 5 heartbreak losses (T-Mike with 10 all-time). Trenches cooper returns to Y2K for his 3rd season after a 2-year hiatus. Cooper stunned the league in his 2022 rookie campaign with a run all the way to the championship game before being unceremoniously exiled in 2023 following Roommate-Gate. Cooper holds the 3-1 historical edge over his brother, though Dusty took their last meeting in late 2023. Coop's 97.8% all-time coaching efficiency is far and away the best in league history.
+
