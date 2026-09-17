@@ -1064,15 +1064,15 @@ export function getWeeklyMatchupDefaultState({
     };
   }
 
-  // Tuesday: Default to the freshly completed week's post-game recap
-  if (dayOfWeek === 2) {
+  // Tuesday through Friday (days 2, 3, 4, 5): Default to the freshly completed week's post-game recap
+  if (dayOfWeek >= 2 && dayOfWeek <= 5) {
     return {
       week: maxCompletedWeek,
       mode: 'recap'
     };
   }
 
-  // Wednesday through Monday: Shift focus to upcoming week's pre-game preview
+  // Saturday through Monday (days 6, 0, 1): Shift focus to upcoming week's pre-game preview
   const upcomingWeek = Math.min(maxCompletedWeek + 1, regularSeasonWeeks + 3);
   return {
     week: upcomingWeek,

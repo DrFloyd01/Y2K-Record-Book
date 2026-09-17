@@ -181,37 +181,23 @@ describe('Matchups View Component', () => {
       ]
     };
 
-    it('should default to previous week recap on Tuesdays after scores are finalized', () => {
-      // 2026-09-15 is a Tuesday (getDay() === 2)
-      const tuesday = new Date('2026-09-15T12:00:00Z');
-      const state = getWeeklyMatchupDefaultState({
-        season: 2026,
-        seasonData: mockSeasonData,
-        now: tuesday,
-        regularSeasonWeeks: 14
+    it('should default to previous week recap on Tuesday through Friday after scores are finalized', () => {
+      // 2026-09-15 (Tue, 2), 2026-09-16 (Wed, 3), 2026-09-17 (Thu, 4), 2026-09-18 (Fri, 5)
+      ['2026-09-15T12:00:00Z', '2026-09-16T12:00:00Z', '2026-09-17T12:00:00Z', '2026-09-18T12:00:00Z'].forEach(dateStr => {
+        const state = getWeeklyMatchupDefaultState({
+          season: 2026,
+          seasonData: mockSeasonData,
+          now: new Date(dateStr),
+          regularSeasonWeeks: 14
+        });
+        expect(state.week).toBe(1);
+        expect(state.mode).toBe('recap');
       });
-
-      expect(state.week).toBe(1);
-      expect(state.mode).toBe('recap');
     });
 
-    it('should default to upcoming week preview on Wednesday', () => {
-      // 2026-09-16 is a Wednesday (getDay() === 3)
-      const wednesday = new Date('2026-09-16T12:00:00Z');
-      const state = getWeeklyMatchupDefaultState({
-        season: 2026,
-        seasonData: mockSeasonData,
-        now: wednesday,
-        regularSeasonWeeks: 14
-      });
-
-      expect(state.week).toBe(2);
-      expect(state.mode).toBe('preview');
-    });
-
-    it('should default to upcoming week preview on Thursday through Monday', () => {
-      // 2026-09-17 is Thursday (4), 2026-09-20 is Sunday (0), 2026-09-21 is Monday (1)
-      ['2026-09-17T12:00:00Z', '2026-09-20T12:00:00Z', '2026-09-21T12:00:00Z'].forEach(dateStr => {
+    it('should default to upcoming week preview on Saturday through Monday', () => {
+      // 2026-09-19 (Sat, 6), 2026-09-20 (Sun, 0), 2026-09-21 (Mon, 1)
+      ['2026-09-19T12:00:00Z', '2026-09-20T12:00:00Z', '2026-09-21T12:00:00Z'].forEach(dateStr => {
         const state = getWeeklyMatchupDefaultState({
           season: 2026,
           seasonData: mockSeasonData,
