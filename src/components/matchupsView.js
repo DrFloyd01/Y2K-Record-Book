@@ -525,15 +525,30 @@ export function buildWeeklyMatchupsGridHtml({
   const sortedMatchups = sortMatchupsByStandingRank(matchups, activeRankMap);
 
   const cardsHtml = sortedMatchups.map((m, idx) => {
-    const o1 = m.homeOwner;
-    const o2 = m.awayOwner;
-    const t1 = m.homeTeam;
-    const t2 = m.awayTeam;
-    const s1 = Number(m.homeScore || 0);
-    const s2 = Number(m.awayScore || 0);
+    const rawHomeOwner = m.homeOwner;
+    const rawAwayOwner = m.awayOwner;
+    const rawHomeTeam = m.homeTeam;
+    const rawAwayTeam = m.awayTeam;
+    const rawHomeScore = Number(m.homeScore || 0);
+    const rawAwayScore = Number(m.awayScore || 0);
 
-    const info1 = activeRankMap[o1] || { rank: '-', rec: '0-0' };
-    const info2 = activeRankMap[o2] || { rank: '-', rec: '0-0' };
+    const infoHome = activeRankMap[rawHomeOwner] || { rank: '-', rec: '0-0' };
+    const infoAway = activeRankMap[rawAwayOwner] || { rank: '-', rec: '0-0' };
+
+    const rHome = (typeof infoHome.rank === 'number') ? infoHome.rank : parseInt(infoHome.rank, 10);
+    const rAway = (typeof infoAway.rank === 'number') ? infoAway.rank : parseInt(infoAway.rank, 10);
+
+    // Place the higher-ranked team (lower rank number) atop the lower-ranked team
+    const awayIsHigher = (!isNaN(rAway) && !isNaN(rHome)) ? (rAway < rHome) : false;
+
+    const o1 = awayIsHigher ? rawAwayOwner : rawHomeOwner;
+    const o2 = awayIsHigher ? rawHomeOwner : rawAwayOwner;
+    const t1 = awayIsHigher ? rawAwayTeam : rawHomeTeam;
+    const t2 = awayIsHigher ? rawHomeTeam : rawAwayTeam;
+    const s1 = awayIsHigher ? rawAwayScore : rawHomeScore;
+    const s2 = awayIsHigher ? rawHomeScore : rawAwayScore;
+    const info1 = awayIsHigher ? infoAway : infoHome;
+    const info2 = awayIsHigher ? infoHome : infoAway;
 
     const isWinner1 = s1 > s2;
     const isWinner2 = s2 > s1;

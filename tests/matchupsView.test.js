@@ -442,5 +442,39 @@ describe('Matchups View Component', () => {
       expect(prideRank['Sean Belcher']).toEqual({ rank: 2, rec: '0-0' });
       expect(prideRank["Aidan O'Sullivan"]).toEqual({ rank: 12, rec: '0-0' });
     });
+
+    it('should place higher-ranked team atop lower-ranked team in matchup card rows', () => {
+      // Away team is #2, Home team is #4
+      const customRankMap = {
+        'Austin': { rank: 4, rec: '1-0' },
+        'Brendan': { rank: 2, rec: '1-0' }
+      };
+      const matchup = [{
+        seasonYear: 2026,
+        weekNumber: 2,
+        homeOwner: 'Austin',
+        homeTeam: 'Football',
+        homeScore: 0,
+        awayOwner: 'Brendan',
+        awayTeam: 'Stroking my penix',
+        awayScore: 0
+      }];
+
+      const html = buildWeeklyMatchupsGridHtml({
+        matchups: matchup,
+        rankMap: customRankMap,
+        season: 2026,
+        week: 2,
+        mode: 'preview',
+        theme: CRT_THEME
+      });
+
+      // Brendan (#2) should appear in the DOM before Austin (#4)
+      const brendanIndex = html.indexOf('Stroking my penix');
+      const austinIndex = html.indexOf('Football');
+      expect(brendanIndex).toBeGreaterThan(-1);
+      expect(austinIndex).toBeGreaterThan(-1);
+      expect(brendanIndex).toBeLessThan(austinIndex);
+    });
   });
 });

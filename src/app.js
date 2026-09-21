@@ -2854,12 +2854,25 @@ let y2kLineupsData = null;
       let text = `# 🏈 ${season} Y2K: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
 
       sortedM.forEach((m, idx) => {
-        const o1 = m.homeOwner;
-        const o2 = m.awayOwner;
-        const t1 = m.homeTeam;
-        const t2 = m.awayTeam;
-        const s1 = Number(m.homeScore || 0);
-        const s2 = Number(m.awayScore || 0);
+        const rawHomeOwner = m.homeOwner;
+        const rawAwayOwner = m.awayOwner;
+        const rawHomeTeam = m.homeTeam;
+        const rawAwayTeam = m.awayTeam;
+        const rawHomeScore = Number(m.homeScore || 0);
+        const rawAwayScore = Number(m.awayScore || 0);
+
+        const infoHome = rankMap[rawHomeOwner] || { rank: 99, rec: '0-0' };
+        const infoAway = rankMap[rawAwayOwner] || { rank: 99, rec: '0-0' };
+        const rHome = (typeof infoHome.rank === 'number') ? infoHome.rank : parseInt(infoHome.rank, 10);
+        const rAway = (typeof infoAway.rank === 'number') ? infoAway.rank : parseInt(infoAway.rank, 10);
+        const awayIsHigher = (!isNaN(rAway) && !isNaN(rHome)) ? (rAway < rHome) : false;
+
+        const o1 = awayIsHigher ? rawAwayOwner : rawHomeOwner;
+        const o2 = awayIsHigher ? rawHomeOwner : rawAwayOwner;
+        const t1 = awayIsHigher ? rawAwayTeam : rawHomeTeam;
+        const t2 = awayIsHigher ? rawHomeTeam : rawAwayTeam;
+        const s1 = awayIsHigher ? rawAwayScore : rawHomeScore;
+        const s2 = awayIsHigher ? rawHomeScore : rawAwayScore;
 
         const customM = customComm?.matchups?.find(cm =>
           (cm.homeOwner === o1 && cm.awayOwner === o2) || (cm.homeOwner === o2 && cm.awayOwner === o1)
