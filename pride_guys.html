@@ -51,10 +51,30 @@
         <!-- <button onclick="switchTab('analytics')" id="nav-analytics" class="nav-btn ...">ANALYTICS</button> -->
       </nav>
 
-      <!-- Status Pill -->
-      <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-pink-100/80 rounded-full border-2 border-pink-300 text-xs font-bold text-pink-700">
-        <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse"></span>
-        <span>🦄 2026 Season Ready 💖</span>
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-2 shrink-0">
+        <!-- Universal Modern Era Filter Toggle (2022+ / 10+ Teams) -->
+        <div class="inline-flex items-center bg-pink-50 border-2 border-pink-200 rounded-full p-0.5 shadow-sm" id="era-toggle-container" title="Filter league records to Modern Era (2022+ / 10+ Teams) or All-Time">
+          <button type="button" id="era-btn-modern" onclick="setModernEraFilter(true)"
+            class="px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-sm">
+            ✨ 2022+ (10+)
+          </button>
+          <button type="button" id="era-btn-all" onclick="setModernEraFilter(false)"
+            class="px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full text-purple-800 hover:text-pink-600 bg-transparent">
+            🌈 All-Time
+          </button>
+        </div>
+
+        <a href="index.html" class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-300 hover:bg-emerald-100 transition-all rounded-full">
+          <span>👾 Y2K</span>
+          <span class="text-[10px] opacity-70">↗</span>
+        </a>
+
+        <!-- Status Pill -->
+        <div id="header-era-badge" class="hidden sm:flex items-center gap-2 px-3 py-1 bg-pink-100/80 rounded-full border-2 border-pink-300 text-xs font-bold text-pink-700">
+          <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse"></span>
+          <span id="header-era-text">🦄 2022+ Era 💖</span>
+        </div>
       </div>
     </div>
   </header>

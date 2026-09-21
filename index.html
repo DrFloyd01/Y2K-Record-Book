@@ -53,14 +53,26 @@
       </nav>
 
       <!-- Right Header Actions -->
-      <div class="flex items-center gap-2.5 shrink-0">
-        <a href="pride_guys.html" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-bold text-pink-400 bg-pink-950/40 border border-pink-800/80 hover:border-pink-400 hover:text-pink-300 transition-all rounded">
+      <div class="flex items-center gap-2 shrink-0">
+        <!-- Universal Modern Era Filter Toggle (2022+ / 10+ Teams) -->
+        <div class="inline-flex items-center bg-black/90 p-0.5 border border-emerald-800/80 rounded" id="era-toggle-container" title="Filter league records to Modern Era (2022+ / 10+ Teams) or All-Time">
+          <button type="button" id="era-btn-modern" onclick="setModernEraFilter(true)"
+            class="px-2 py-0.5 text-[10px] font-bold font-mono transition-all rounded-sm bg-emerald-900/90 text-emerald-200 border border-emerald-400 crt-glow shadow-[0_0_8px_rgba(0,255,102,0.3)]">
+            2022+ (10+)
+          </button>
+          <button type="button" id="era-btn-all" onclick="setModernEraFilter(false)"
+            class="px-2 py-0.5 text-[10px] font-bold font-mono transition-all rounded-sm text-emerald-600 hover:text-emerald-300 border border-transparent">
+            ALL-TIME
+          </button>
+        </div>
+
+        <a href="pride_guys.html" class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-bold text-pink-400 bg-pink-950/40 border border-pink-800/80 hover:border-pink-400 hover:text-pink-300 transition-all rounded">
           <span>🦄 Pride Guys</span>
           <span class="text-[10px] opacity-70">↗</span>
         </a>
-        <div class="text-[11px] text-emerald-500/90 font-mono px-2.5 py-1 bg-emerald-950/40 border border-emerald-900/60 rounded flex items-center gap-2">
+        <div id="header-era-badge" class="hidden sm:flex text-[11px] text-emerald-500/90 font-mono px-2.5 py-1 bg-emerald-950/40 border border-emerald-900/60 rounded items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-emerald-400 font-bold">2018–2025</span>
+          <span class="text-emerald-400 font-bold" id="header-era-text">2022–2026</span>
         </div>
       </div>
 

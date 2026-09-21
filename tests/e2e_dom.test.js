@@ -87,4 +87,23 @@ describe('E2E DOM Integration Test', () => {
       expect(topCards[0].valStr).toBeTruthy();
     });
   });
+
+  it('should support switching between Modern Era (2022+) and All-Time', async () => {
+    const { filterLeagueDataByMinYear } = await import('../src/core/eraFilter.js');
+
+    // Initial All-Time state
+    expect(window.LEAGUE_DATA.seasons).toContain(2018);
+    expect(window.LEAGUE_DATA.seasons).toContain(2026);
+    const allTimeDylan = window.LEAGUE_DATA.allTimeStandings.find(s => s.ownerName === 'Dylan');
+    expect(allTimeDylan.wins).toBe(57);
+
+    // Filter to Modern Era (2022+)
+    const modernData = filterLeagueDataByMinYear(window.LEAGUE_DATA, 2022);
+    expect(modernData.seasons).not.toContain(2018);
+    expect(modernData.seasons).toContain(2022);
+    expect(modernData.seasons).toContain(2026);
+    const modernDylan = modernData.allTimeStandings.find(s => s.ownerName === 'Dylan');
+    expect(modernDylan.wins).toBe(31);
+    expect(modernDylan.seasonsCount).toBe(4);
+  });
 });

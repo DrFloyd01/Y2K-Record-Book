@@ -1,6 +1,7 @@
 import { createIcons, icons } from 'lucide';
 import Chart from 'chart.js/auto';
 import { loadLeagueData } from './core/dataLoader.js';
+import { filterLeagueDataByMinYear } from './core/eraFilter.js';
 import { escapeHtml } from './core/sanitizer.js';
 import {
   isOneYearManager,
@@ -48,18 +49,104 @@ function renderLucideIcons() {
     let currentTab = 'seasons';
     let currentSeason = 2026;
     let currentDraftSeason = '2026';
+    let currentMatchupSeason = 2026;
     let currentSeasonsSubTab = 'actual';
     let standingsSortField = 'rank';
     let standingsSortAsc = true;
     let luckChartInstance = null;
     let pfPaChartInstance = null;
     const renderedTabs = new Set(['seasons']);
+    let isModernEraFilter = localStorage.getItem('fantasy_era_filter_2022_plus') !== 'false';
+
+    function updateEraToggleUI() {
+      const btnModern = document.getElementById('era-btn-modern');
+      const btnAll = document.getElementById('era-btn-all');
+      const headerEraText = document.getElementById('header-era-text');
+
+      if (btnModern && btnAll) {
+        if (isModernEraFilter) {
+          btnModern.className = 'px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-sm';
+          btnAll.className = 'px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full text-purple-800 hover:text-pink-600 bg-transparent';
+        } else {
+          btnAll.className = 'px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-sm';
+          btnModern.className = 'px-2.5 py-0.5 text-[10px] font-bold font-fredoka transition-all rounded-full text-purple-800 hover:text-pink-600 bg-transparent';
+        }
+      }
+
+      if (headerEraText) {
+        headerEraText.innerText = isModernEraFilter ? '🦄 2022+ Era 💖' : '🌈 All-Time Era 💖';
+      }
+    }
+
+    function setModernEraFilter(isModern) {
+      if (isModern === isModernEraFilter && window.LEAGUE_DATA) return;
+      isModernEraFilter = isModern;
+      try {
+        localStorage.setItem('fantasy_era_filter_2022_plus', isModern ? 'true' : 'false');
+      } catch (e) {
+        console.warn('Could not persist era filter to localStorage:', e);
+      }
+
+      if (window.RAW_LEAGUE_DATA) {
+        window.LEAGUE_DATA = isModern
+          ? filterLeagueDataByMinYear(window.RAW_LEAGUE_DATA, 2022)
+          : window.RAW_LEAGUE_DATA;
+      }
+
+      const availableSeasons = window.LEAGUE_DATA.seasons || [];
+      if (currentSeason !== 'allTime' && !availableSeasons.includes(Number(currentSeason))) {
+        currentSeason = availableSeasons[0] || 2026;
+      }
+      if (!availableSeasons.includes(Number(currentDraftSeason))) {
+        currentDraftSeason = String(availableSeasons[0] || 2026);
+      }
+      if (!availableSeasons.includes(Number(currentMatchupSeason))) {
+        currentMatchupSeason = availableSeasons[0] || 2026;
+      }
+
+      updateEraToggleUI();
+
+      renderedTabs.clear();
+      renderedTabs.add(currentTab);
+
+      initSeasonSelector();
+      initStatsYearSelects();
+
+      renderStandings();
+      renderStatRecords();
+
+      if (currentTab === 'h2h') {
+        initH2HSelects();
+      } else if (currentTab === 'champs') {
+        renderChamps();
+      } else if (currentTab === 'teams') {
+        initTeamOwnerSelect();
+      } else if (currentTab === 'stats') {
+        renderStatsTable();
+      } else if (currentTab === 'matchups') {
+        initMatchupsTab();
+      } else if (currentTab === 'draft') {
+        initDraftTab();
+      } else if (currentTab === 'analytics') {
+        renderAnalytics();
+      }
+
+      renderLucideIcons();
+    }
+
+    function toggleModernEra() {
+      setModernEraFilter(!isModernEraFilter);
+    }
 
     window.addEventListener('resize', () => updateNavIndicator(currentTab));
 
     async function initApp() {
       try {
-        window.LEAGUE_DATA = await loadLeagueData('data/prideGuysData.json');
+        window.RAW_LEAGUE_DATA = await loadLeagueData('data/prideGuysData.json');
+        window.LEAGUE_DATA = isModernEraFilter
+          ? filterLeagueDataByMinYear(window.RAW_LEAGUE_DATA, 2022)
+          : window.RAW_LEAGUE_DATA;
+        updateEraToggleUI();
         initSeasonSelector();
         initStatsYearSelects();
         renderStandings();
@@ -256,7 +343,7 @@ function renderLucideIcons() {
       allTimeBtn.id = 'btn-season-allTime';
       allTimeBtn.onclick = () => selectSeason('allTime');
       allTimeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-white text-purple-700 border-pink-200 hover:border-purple-200';
-      allTimeBtn.innerText = 'ALL_TIME';
+      allTimeBtn.innerText = isModernEraFilter ? '✨ 2022+_ERA' : 'ALL_TIME';
       container.appendChild(allTimeBtn);
     }
 
@@ -275,7 +362,9 @@ function renderLucideIcons() {
       if (yr === 'allTime') {
         standingsSortField = 'winPct';
         standingsSortAsc = false;
-        banner.innerHTML = `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700 crt-glow-pink-pink">All-Time Cumulative League Standings</span>`;
+        banner.innerHTML = isModernEraFilter
+          ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700 crt-glow-pink-pink">Modern Era Cumulative Standings (2022–Present)</span>`
+          : `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700 crt-glow-pink-pink">All-Time Cumulative League Standings</span>`;
         if (playoffSubBtn) playoffSubBtn.innerHTML = `DYNASTY LEADERBOARD`;
       } else {
         standingsSortField = 'rank';
@@ -2584,7 +2673,7 @@ function renderLucideIcons() {
     }
 
     // WEEKLY MATCHUP HUBS LOGIC
-    let currentMatchupSeason = 2026;
+    currentMatchupSeason = 2026;
     let currentMatchupWeek = 1;
     let currentMatchupMode = 'preview'; // 'preview' or 'recap'
     let currentMatchupManager = 'all';
@@ -2663,7 +2752,16 @@ function renderLucideIcons() {
       currentMatchupMode = defState.mode;
 
       const seasonSelect = document.getElementById('matchup-season-select');
-      if (seasonSelect) seasonSelect.value = String(currentMatchupSeason);
+      if (seasonSelect) {
+        const availableSeasons = [...(window.LEAGUE_DATA.seasons || [])].sort((a, b) => b - a);
+        if (!availableSeasons.includes(Number(currentMatchupSeason))) {
+          currentMatchupSeason = availableSeasons[0] || 2026;
+        }
+        seasonSelect.innerHTML = availableSeasons.map(yr => {
+          const label = yr === 2026 ? '2026 SEASON (SCHEDULE)' : `${yr} SEASON`;
+          return `<option value="${yr}" ${Number(yr) === Number(currentMatchupSeason) ? 'selected' : ''}>${label}</option>`;
+        }).join('');
+      }
       const previewBtn = document.getElementById('matchup-mode-preview');
       const recapBtn = document.getElementById('matchup-mode-recap');
       if (previewBtn && recapBtn) {
@@ -3185,3 +3283,5 @@ if (typeof renderLucideIcons === "function") window.renderLucideIcons = renderLu
 if (typeof jumpToH2H === "function") window.jumpToH2H = jumpToH2H;
 if (typeof toggleMatchupReportDetails === "function") window.toggleMatchupReportDetails = toggleMatchupReportDetails;
 if (typeof copyMatchupsReportText === "function") window.copyMatchupsReportText = copyMatchupsReportText;
+if (typeof setModernEraFilter === "function") window.setModernEraFilter = setModernEraFilter;
+if (typeof toggleModernEra === "function") window.toggleModernEra = toggleModernEra;
