@@ -283,6 +283,16 @@ export function buildModernAllTimeStandings(rawLeagueData, minYear = 2022) {
     // If manager has 0 concluded seasons in modern era, omit from career leaderboard
     if (seasonsCount === 0) return;
 
+    // Check if the manager has an active/in-progress season with their latest team name
+    const activeYears = seasons.filter(yr => yr >= 2026);
+    activeYears.forEach(ay => {
+      const activeData = rawLeagueData.seasonData && rawLeagueData.seasonData[String(ay)];
+      const activeEntry = activeData?.standings?.find(s => s.ownerName === owner);
+      if (activeEntry?.teamName) {
+        latestTeamName = activeEntry.teamName;
+      }
+    });
+
     const wwDetails = (rawSt.wwDetails || []).filter(d => (d.year || 0) >= minYear);
     const lwDetails = (rawSt.lwDetails || []).filter(d => (d.year || 0) >= minYear);
     const hbDetails = (rawSt.hbDetails || []).filter(d => (d.year || 0) >= minYear);

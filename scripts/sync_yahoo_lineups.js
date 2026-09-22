@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 import { JSDOM } from 'jsdom';
 import { parseRosterConstraints, computeOptimalLineup, analyzeDOhMoment } from '../src/analytics/managerial.js';
+import { resolveY2kOwner, Y2K_TEAM_OWNER_MAP } from './sync_yahoo_direct.js';
 
 // Canonical Y2K League IDs by Season
 export const Y2K_LEAGUE_IDS = {
@@ -23,28 +24,6 @@ export const Y2K_LEAGUE_IDS = {
   2020: '183921',
   2019: '201948',
   2018: '102941'
-};
-
-// Canonical Y2K Team Name to Owner Mapping
-export const Y2K_TEAM_OWNER_MAP = {
-  'Globo Gym': 'Dylan',
-  'The Dawn of Man-Ape': 'Dylan',
-  'Ho Chi Win City': 'Phillip',
-  'TDS': 'Phillip',
-  'Jelqaida': 'Mike',
-  'IRked': 'Mike',
-  'AARPFL': 'Casey',
-  'Gl Hf (you’re gay)': 'Trace',
-  'Gl Hf (you\'re gay)': 'Trace',
-  'Darnold Schwarzenegger': 'Alex',
-  'Donkey Squad': 'Ryan',
-  'Aaron codger': 'Boaz',
-  'Dusty’s Dingleberries': 'Dustin',
-  "Dusty's Dingleberries": 'Dustin',
-  'Trenches cooper': 'Cooper',
-  'Tess Finesse': 'Tess',
-  "Blue's Balls": 'Jasper',
-  'Blue’s Balls': 'Jasper'
 };
 
 function normalizePosition(rawPos = '', slot = '') {
@@ -66,7 +45,7 @@ export function parseYahooMatchupHtml(html, seasonYear = 2026, week = 1, constra
   const doc = dom.window.document;
   const leagueId = Y2K_LEAGUE_IDS[seasonYear] || '501321';
 
-  // Extract team names
+  // Extract team names and team IDs
   const teamLinks = [...doc.querySelectorAll('a.F-link')].filter(a => {
     try {
       const u = new URL(a.href, 'https://football.fantasysports.yahoo.com');
@@ -76,10 +55,15 @@ export function parseYahooMatchupHtml(html, seasonYear = 2026, week = 1, constra
     }
   });
 
+  const team1Href = teamLinks[0] ? teamLinks[0].href : '';
+  const team2Href = teamLinks[1] ? teamLinks[1].href : '';
+  const team1Id = team1Href ? parseInt(team1Href.split('/').pop(), 10) : null;
+  const team2Id = team2Href ? parseInt(team2Href.split('/').pop(), 10) : null;
+
   const team1Name = teamLinks[0] ? teamLinks[0].textContent.trim() : 'Team 1';
   const team2Name = teamLinks[1] ? teamLinks[1].textContent.trim() : 'Team 2';
-  const owner1 = Y2K_TEAM_OWNER_MAP[team1Name] || team1Name;
-  const owner2 = Y2K_TEAM_OWNER_MAP[team2Name] || team2Name;
+  const owner1 = resolveY2kOwner(team1Id, team1Name);
+  const owner2 = resolveY2kOwner(team2Id, team2Name);
 
   const table1 = doc.getElementById('statTable1');
   const table2 = doc.getElementById('statTable2');
@@ -228,11 +212,10 @@ export function parseYahooMatchupHtml(html, seasonYear = 2026, week = 1, constra
 /**
  * Main ingestion entrypoint
  */
-export async function syncYahooLineups(seasonYear = 2026, targetWeek = 1) {
+export async function syncYahooLineups(seasonYear = 2026, targetWeek = null) {
   const leagueId = Y2K_LEAGUE_IDS[seasonYear] || '501321';
-  console.log(`📡 Ingesting Yahoo Lineups for Season ${seasonYear} Week ${targetWeek} (League: ${leagueId})...`);
-
   const lineupsDir = resolve(process.cwd(), 'public/data/lineups');
+
   if (!existsSync(lineupsDir)) {
     mkdirSync(lineupsDir, { recursive: true });
   }
@@ -244,38 +227,45 @@ export async function syncYahooLineups(seasonYear = 2026, targetWeek = 1) {
 
   console.log(`📋 Roster Constraints for ${seasonYear}:`, constraints);
 
-  // 1. Fetch matchup overview to extract active matchup links
-  const overviewUrl = `https://football.fantasysports.yahoo.com/f1/${leagueId}?matchup_week=${targetWeek}&module=matchups&lhst=matchups`;
-  const overviewRes = await fetch(overviewUrl, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-    }
-  });
-
-  if (overviewRes.status !== 200) {
-    throw new Error(`HTTP ${overviewRes.status} fetching overview`);
-  }
-
-  const overviewHtml = await overviewRes.text();
-  const listItems = [...overviewHtml.matchAll(/data-target=['"](\/f1\/\d+\/matchup\?week=\d+&mid1=\d+&mid2=\d+)['"]/g)];
-  console.log(`🔍 Discovered ${listItems.length} matchup box score links for Week ${targetWeek}.`);
+  const schedule = sData.schedule || sData.schedule2026 || [];
+  const completedWeeks = [...new Set(schedule.filter(m => m.homeScore > 0 || m.awayScore > 0).map(m => m.week || m.weekNumber))].sort((a, b) => a - b);
+  const weeksToSync = targetWeek ? [targetWeek] : (completedWeeks.length > 0 ? completedWeeks : [1]);
+  console.log(`📡 Ingesting Yahoo Lineups for Season ${seasonYear} Weeks: [${weeksToSync.join(', ')}] (League: ${leagueId})...`);
 
   const newMatchups = [];
-  for (const item of listItems) {
-    const matchupUrl = `https://football.fantasysports.yahoo.com${item[1]}`;
-    console.log(`• Fetching box score: ${matchupUrl}`);
-    const mRes = await fetch(matchupUrl, {
+  for (const w of weeksToSync) {
+    const overviewUrl = `https://football.fantasysports.yahoo.com/f1/${leagueId}?matchup_week=${w}&module=matchups&lhst=matchups`;
+    const overviewRes = await fetch(overviewUrl, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       }
     });
 
-    if (mRes.status === 200) {
-      const mHtml = await mRes.text();
-      const parsed = parseYahooMatchupHtml(mHtml, seasonYear, targetWeek, constraints);
-      if (parsed) {
-        newMatchups.push(parsed);
-        console.log(`  ✅ Ingested: ${parsed.homeTeam.ownerName} (${parsed.homeTeam.actualScore}) vs ${parsed.awayTeam.ownerName} (${parsed.awayTeam.actualScore})`);
+    if (overviewRes.status !== 200) {
+      console.warn(`⚠️ HTTP ${overviewRes.status} fetching overview for week ${w}`);
+      continue;
+    }
+
+    const overviewHtml = await overviewRes.text();
+    const listItems = [...overviewHtml.matchAll(/data-target=['"](\/f1\/\d+\/matchup\?week=\d+&mid1=\d+&mid2=\d+)['"]/g)];
+    console.log(`🔍 Discovered ${listItems.length} matchup box score links for Week ${w}.`);
+
+    for (const item of listItems) {
+      const matchupUrl = `https://football.fantasysports.yahoo.com${item[1]}`;
+      console.log(`• Fetching box score: ${matchupUrl}`);
+      const mRes = await fetch(matchupUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
+
+      if (mRes.status === 200) {
+        const mHtml = await mRes.text();
+        const parsed = parseYahooMatchupHtml(mHtml, seasonYear, w, constraints);
+        if (parsed) {
+          newMatchups.push(parsed);
+          console.log(`  ✅ Ingested: ${parsed.homeTeam.ownerName} (${parsed.homeTeam.actualScore}) vs ${parsed.awayTeam.ownerName} (${parsed.awayTeam.actualScore})`);
+        }
       }
     }
   }
@@ -340,26 +330,43 @@ export async function syncYahooLineups(seasonYear = 2026, targetWeek = 1) {
   // Update coaching efficiencies & D'Oh in leagueData.json standings for season 2026
   if (leagueData.seasonData[String(seasonYear)]?.standings) {
     const standings = leagueData.seasonData[String(seasonYear)].standings;
+    const ownerTotals = {};
     existingData.forEach(m => {
       [m.homeTeam, m.awayTeam].forEach(t => {
-        const st = standings.find(s => s.ownerName === t.ownerName);
-        if (st) {
-          st.coachingEfficiency = t.coachingEfficiency;
-          st.optimalPointsFor = t.optimalScore;
-          st.optimalPF = t.optimalScore;
-          if (t.dOhOccurred && t.dOhDetails) {
-            st.dOhs = (st.dOhs || 0) + 1;
-            st.dOhDetails = st.dOhDetails || [];
-            st.dOhDetails.push({
-              year: seasonYear,
-              week: m.week,
-              team: t.teamName,
-              ...t.dOhDetails
-            });
-          }
+        if (!ownerTotals[t.ownerName]) {
+          ownerTotals[t.ownerName] = {
+            totalActual: 0,
+            totalOptimal: 0,
+            dOhs: 0,
+            dOhDetails: []
+          };
+        }
+        ownerTotals[t.ownerName].totalActual += (t.actualScore || 0);
+        ownerTotals[t.ownerName].totalOptimal += (t.optimalScore || 0);
+        if (t.dOhOccurred && t.dOhDetails) {
+          ownerTotals[t.ownerName].dOhs += 1;
+          ownerTotals[t.ownerName].dOhDetails.push({
+            year: seasonYear,
+            week: m.week,
+            team: t.teamName,
+            ...t.dOhDetails
+          });
         }
       });
     });
+
+    standings.forEach(st => {
+      const stats = ownerTotals[st.ownerName];
+      if (stats && stats.totalOptimal > 0) {
+        st.coachingEfficiency = parseFloat((stats.totalActual / stats.totalOptimal * 100).toFixed(1));
+        st.optimalPointsFor = parseFloat(stats.totalOptimal.toFixed(1));
+        st.optimalPF = parseFloat(stats.totalOptimal.toFixed(1));
+        st.dOhs = stats.dOhs;
+        st.dOhCount = stats.dOhs;
+        st.dOhDetails = stats.dOhDetails;
+      }
+    });
+
     writeFileSync(leagueDataPath, JSON.stringify(leagueData, null, 2), 'utf8');
     console.log(`📊 Updated managerial metrics in public/data/leagueData.json standings!`);
   }
@@ -369,6 +376,6 @@ export async function syncYahooLineups(seasonYear = 2026, targetWeek = 1) {
 
 if (process.argv[1] && process.argv[1].endsWith('sync_yahoo_lineups.js')) {
   const yr = parseInt(process.argv[2] || '2026', 10);
-  const wk = parseInt(process.argv[3] || '1', 10);
+  const wk = process.argv[3] ? parseInt(process.argv[3], 10) : null;
   syncYahooLineups(yr, wk);
 }

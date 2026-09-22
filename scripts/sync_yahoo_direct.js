@@ -34,6 +34,36 @@ export const Y2K_TEAM_OWNER_MAP = {
   'Blue’s Balls': 'Jasper'
 };
 
+// Canonical 2026 Team ID to Owner Mapping (League 501321)
+export const Y2K_2026_TEAM_ID_OWNER_MAP = {
+  1: 'Dylan',
+  2: 'Phillip',
+  3: 'Trace',
+  4: 'Casey',
+  5: 'Mike',
+  6: 'Ryan',
+  7: 'Boaz',
+  8: 'Dustin',
+  9: 'Tess',
+  10: 'Jasper',
+  11: 'Alex',
+  12: 'Cooper'
+};
+
+export function resolveY2kOwner(teamId, teamName) {
+  if (teamId && Y2K_2026_TEAM_ID_OWNER_MAP[teamId]) {
+    const owner = Y2K_2026_TEAM_ID_OWNER_MAP[teamId];
+    if (teamName && !Y2K_TEAM_OWNER_MAP[teamName]) {
+      Y2K_TEAM_OWNER_MAP[teamName] = owner;
+    }
+    return owner;
+  }
+  if (teamName && Y2K_TEAM_OWNER_MAP[teamName]) {
+    return Y2K_TEAM_OWNER_MAP[teamName];
+  }
+  return teamName;
+}
+
 export async function fetchWeekMatchups(leagueId, week) {
   const url = `https://football.fantasysports.yahoo.com/f1/${leagueId}?matchup_week=${week}&module=matchups&lhst=matchups`;
   const res = await fetch(url, {
@@ -69,8 +99,8 @@ export async function fetchWeekMatchups(leagueId, week) {
       if (teams.length >= 2) {
         const s1 = scores[0] !== undefined ? scores[0] : 0.0;
         const s2 = scores[1] !== undefined ? scores[1] : 0.0;
-        const o1 = Y2K_TEAM_OWNER_MAP[teams[0].teamName] || teams[0].teamName;
-        const o2 = Y2K_TEAM_OWNER_MAP[teams[1].teamName] || teams[1].teamName;
+        const o1 = resolveY2kOwner(teams[0].teamId, teams[0].teamName);
+        const o2 = resolveY2kOwner(teams[1].teamId, teams[1].teamName);
 
         matchups.push({
           matchupId: idx + 1,
@@ -108,8 +138,8 @@ export async function fetchWeekMatchups(leagueId, week) {
 
     for (let i = 0; i < Math.min(12, unique.length); i += 2) {
       if (unique[i + 1]) {
-        const o1 = Y2K_TEAM_OWNER_MAP[unique[i].teamName] || unique[i].teamName;
-        const o2 = Y2K_TEAM_OWNER_MAP[unique[i + 1].teamName] || unique[i + 1].teamName;
+        const o1 = resolveY2kOwner(unique[i].teamId, unique[i].teamName);
+        const o2 = resolveY2kOwner(unique[i + 1].teamId, unique[i + 1].teamName);
         matchups.push({
           matchupId: (i / 2) + 1,
           week: week,
@@ -276,44 +306,43 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
   } else {
     console.log(`📊 Processing completed games across ${completedWeeks.length} weeks...`);
 
-    // Extract all current 2026 owners & teams from schedule
+    // Extract latest team name for each owner across all matchups
+    const latestOwnerTeams = {};
+    allWeeksMatchups.forEach(m => {
+      if (m.homeOwner && m.homeTeam) latestOwnerTeams[m.homeOwner] = m.homeTeam;
+      if (m.awayOwner && m.awayTeam) latestOwnerTeams[m.awayOwner] = m.awayTeam;
+    });
+
     const managerStats = {};
-    allWeeksMatchups.filter(m => m.week === 1).forEach(m => {
-      [
-        { owner: m.homeOwner, team: m.homeTeam },
-        { owner: m.awayOwner, team: m.awayTeam }
-      ].forEach(entry => {
-        if (!managerStats[entry.owner]) {
-          managerStats[entry.owner] = {
-            seasonYear: 2026,
-            ownerName: entry.owner,
-            teamName: entry.team,
-            wins: 0,
-            losses: 0,
-            ties: 0,
-            pointsFor: 0.0,
-            pointsAgainst: 0.0,
-            form: [],
-            expWins: 0,
-            expLosses: 0,
-            ovrWins: 0,
-            ovrLosses: 0,
-            weeklyWins: 0,
-            wwDetails: [],
-            luckiestWins: 0,
-            lwDetails: [],
-            heartbreaks: 0,
-            hbDetails: [],
-            toughestLosses: 0,
-            tlDetails: [],
-            dOhs: 0,
-            dOhDetails: [],
-            coachingEfficiency: null,
-            optimalPointsFor: null,
-            optimalPF: null
-          };
-        }
-      });
+    Object.entries(latestOwnerTeams).forEach(([owner, team]) => {
+      managerStats[owner] = {
+        seasonYear: 2026,
+        ownerName: owner,
+        teamName: team,
+        wins: 0,
+        losses: 0,
+        ties: 0,
+        pointsFor: 0.0,
+        pointsAgainst: 0.0,
+        form: [],
+        expWins: 0,
+        expLosses: 0,
+        ovrWins: 0,
+        ovrLosses: 0,
+        weeklyWins: 0,
+        wwDetails: [],
+        luckiestWins: 0,
+        lwDetails: [],
+        heartbreaks: 0,
+        hbDetails: [],
+        toughestLosses: 0,
+        tlDetails: [],
+        dOhs: 0,
+        dOhDetails: [],
+        coachingEfficiency: null,
+        optimalPointsFor: null,
+        optimalPF: null
+      };
     });
 
     // Stat records tracking
@@ -500,6 +529,24 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
     standingsList.sort((a, b) => b.wins !== a.wins ? b.wins - a.wins : b.pointsFor - a.pointsFor);
     standingsList.forEach((st, idx) => st.rank = idx + 1);
 
+    // Preserve existing managerial metrics (coachingEfficiency, optimalPF, dOhs)
+    const existingStandingsMap = {};
+    (leagueData.seasonData['2026']?.standings || []).forEach(st => {
+      existingStandingsMap[st.ownerName] = st;
+    });
+
+    standingsList.forEach(st => {
+      const prev = existingStandingsMap[st.ownerName];
+      if (prev) {
+        if (prev.coachingEfficiency !== undefined && prev.coachingEfficiency !== null) st.coachingEfficiency = prev.coachingEfficiency;
+        if (prev.optimalPF !== undefined && prev.optimalPF !== null) st.optimalPF = prev.optimalPF;
+        if (prev.optimalPointsFor !== undefined && prev.optimalPointsFor !== null) st.optimalPointsFor = prev.optimalPointsFor;
+        if (prev.dOhs !== undefined && prev.dOhs !== null) st.dOhs = prev.dOhs;
+        if (prev.dOhCount !== undefined && prev.dOhCount !== null) st.dOhCount = prev.dOhCount;
+        if (prev.dOhDetails !== undefined && prev.dOhDetails !== null) st.dOhDetails = prev.dOhDetails;
+      }
+    });
+
     leagueData.seasonData['2026'].standings = standingsList;
     leagueData.seasonData['2026'].statRecords = {
       highestScore,
@@ -507,6 +554,47 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
       closestMargin: closestMargin.margin === 9999.0 ? { winner: '-', loser: '-', margin: 0.0, scoreStr: '-' } : closestMargin,
       biggestBlowout
     };
+
+    // Update allTimeStandings with current 2026 team names
+    if (leagueData.allTimeStandings && Array.isArray(leagueData.allTimeStandings)) {
+      leagueData.allTimeStandings.forEach(st => {
+        const cur = standingsList.find(s => s.ownerName === st.ownerName);
+        if (cur && cur.teamName) {
+          st.teamName = cur.teamName;
+        }
+      });
+    }
+
+    // Synchronize leagueData.teams for 2026
+    if (leagueData.teams && Array.isArray(leagueData.teams)) {
+      standingsList.forEach(st => {
+        const existingTeamEntry = leagueData.teams.find(t => t.ownerName === st.ownerName && t.teamName === st.teamName);
+        if (existingTeamEntry) {
+          if (!existingTeamEntry.seasonsActive.includes(2026)) {
+            existingTeamEntry.seasonsActive.push(2026);
+            existingTeamEntry.seasonsActive.sort((a, b) => a - b);
+            existingTeamEntry.totalSeasons = existingTeamEntry.seasonsActive.length;
+          }
+        } else {
+          // If the owner had an obsolete 2026 tag on a previous team name, remove 2026 from that obsolete entry
+          const obsolete2026 = leagueData.teams.find(t => t.ownerName === st.ownerName && t.seasonsActive.includes(2026));
+          if (obsolete2026 && obsolete2026.teamName !== st.teamName) {
+            obsolete2026.seasonsActive = obsolete2026.seasonsActive.filter(y => y !== 2026);
+            obsolete2026.totalSeasons = obsolete2026.seasonsActive.length;
+          }
+          leagueData.teams.push({
+            ownerName: st.ownerName,
+            teamName: st.teamName,
+            platformOwnerId: '',
+            teamGroupId: '',
+            seasonsActive: [2026],
+            totalSeasons: 1
+          });
+        }
+      });
+      // Filter out any entries that ended up with 0 active seasons
+      leagueData.teams = leagueData.teams.filter(t => t.seasonsActive.length > 0);
+    }
   }
 
   writeFileSync(dataPath, JSON.stringify(leagueData, null, 2), 'utf8');

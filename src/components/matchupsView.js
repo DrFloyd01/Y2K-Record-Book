@@ -44,17 +44,19 @@ export function computeMatchupStakes({
   season = 2025,
   week = 1,
   customM = null,
-  allMatchups = []
+  allMatchups = [],
+  mode = 'recap'
 }) {
   const currentSeason = Number(season);
   const currentWeek = Number(week);
+  const isRecap = (mode === 'recap');
 
   // Fallback to window.LEAGUE_DATA.allMatchups if allMatchups array is empty
   const sourceMatchups = (allMatchups && allMatchups.length > 0)
     ? allMatchups
     : (typeof window !== 'undefined' && window.LEAGUE_DATA?.allMatchups ? window.LEAGUE_DATA.allMatchups : []);
 
-  // Filter completed games between o1 and o2 played strictly before the current matchup
+  // Filter completed games between o1 and o2 played strictly before (in preview) or through (in recap) the current matchup
   const pastGames = sourceMatchups
     .filter(m => {
       const isPair = (m.homeOwner === o1 && m.awayOwner === o2) || (m.homeOwner === o2 && m.awayOwner === o1);
@@ -62,7 +64,9 @@ export function computeMatchupStakes({
       const yr = Number(m.seasonYear ?? m.year ?? 0);
       const wk = Number(m.weekNumber ?? m.week ?? 0);
       if (yr > currentSeason) return false;
-      if (yr === currentSeason && wk >= currentWeek) return false;
+      if (yr === currentSeason) {
+        if (isRecap ? (wk > currentWeek) : (wk >= currentWeek)) return false;
+      }
       const sH = Number(m.homeScore || 0);
       const sA = Number(m.awayScore || 0);
       return (sH > 0 || sA > 0);
@@ -74,7 +78,7 @@ export function computeMatchupStakes({
       return (Number(a.weekNumber ?? a.week ?? 0)) - (Number(b.weekNumber ?? b.week ?? 0));
     });
 
-  // Calculate lifetime H2H record
+  // Calculate lifetime H2H record from perspective of o1 (top team) vs o2 (bottom team)
   let o1Wins = 0, o2Wins = 0, ties = 0;
   pastGames.forEach(m => {
     const sH = Number(m.homeScore || 0);
@@ -93,11 +97,21 @@ export function computeMatchupStakes({
   let h2hClean = `${o1Wins}-${o2Wins}${ties > 0 ? `-${ties}` : ''}`;
   let h2hFull = h2hClean;
 
-  if (customM && (customM.h2h || customM.seasonH2H)) {
-    const customH2hStr = String(customM.h2h || customM.seasonH2H);
-    h2hFull = customH2hStr;
-    if (pastGames.length === 0) {
-      h2hClean = customH2hStr.replace(/\s*\(.*?\)/g, '').trim();
+  if (isRecap) {
+    if (customM && (customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H)) {
+      const recH2h = customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H;
+      h2hFull = String(recH2h);
+      h2hClean = String(recH2h).replace(/\s*\(.*?\)/g, '').trim();
+    } else {
+      h2hFull = h2hClean;
+    }
+  } else {
+    if (customM && (customM.h2h || customM.seasonH2H)) {
+      const customH2hStr = String(customM.h2h || customM.seasonH2H);
+      h2hFull = customH2hStr;
+      if (pastGames.length === 0) {
+        h2hClean = customH2hStr.replace(/\s*\(.*?\)/g, '').trim();
+      }
     }
   }
 
@@ -183,11 +197,20 @@ export function computeMatchupStakes({
     streakClean = `${streakLeader} ${streakCount}`;
   }
   let streakFull = streakClean;
-  if (customM && customM.streak !== undefined && customM.streak !== null) {
-    streakFull = String(customM.streak);
-  } else if (streakCount > 0 && streakGames.length > 0) {
-    const topG = streakGames[0];
-    streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+  if (isRecap) {
+    if (customM && (customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak)) {
+      streakFull = String(customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak);
+    } else if (streakCount > 0 && streakGames.length > 0) {
+      const topG = streakGames[0];
+      streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+    }
+  } else {
+    if (customM && customM.streak !== undefined && customM.streak !== null) {
+      streakFull = String(customM.streak);
+    } else if (streakCount > 0 && streakGames.length > 0) {
+      const topG = streakGames[0];
+      streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+    }
   }
 
   // Calculate historical playoff matchups
@@ -590,7 +613,8 @@ export function buildWeeklyMatchupsGridHtml({
       season,
       week,
       customM,
-      allMatchups
+      allMatchups,
+      mode
     });
 
     const h2hBadgeText = showReportScores ? stakes.h2hFull : stakes.h2hClean;

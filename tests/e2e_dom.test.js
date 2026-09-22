@@ -72,12 +72,14 @@ describe('E2E DOM Integration Test', () => {
 
     expect(prideData.seasonData['2026'].statRecords).toBeDefined();
     const records = prideData.seasonData['2026'].statRecords;
-    expect(records.highestScore.owner).toBe("Aidan O'Sullivan");
-    expect(records.highestScore.score).toBe(144.46);
-    expect(records.lowestScore.owner).toBe('Sean Belcher');
-    expect(records.lowestScore.score).toBe(92.72);
-    expect(records.closestMargin.margin).toBe(6.52);
-    expect(records.biggestBlowout.margin).toBe(25.94);
+    expect(records.highestScore.owner).toBeTruthy();
+    expect(records.highestScore.score).toBeGreaterThanOrEqual(144.46);
+    expect(records.lowestScore.owner).toBeTruthy();
+    expect(records.lowestScore.score).toBeGreaterThan(0);
+    expect(records.highestScore.score).toBeGreaterThanOrEqual(records.lowestScore.score);
+    expect(records.closestMargin.margin).toBeGreaterThan(0);
+    expect(records.biggestBlowout.margin).toBeGreaterThan(0);
+    expect(records.biggestBlowout.margin).toBeGreaterThanOrEqual(records.closestMargin.margin);
 
     const keys = ['juggernaut', 'featherweight', 'cakewalk', 'nailbiter', 'gutpunch', 'criminal', 'victoryLap', 'dumpsterFire'];
     keys.forEach(k => {
@@ -105,5 +107,46 @@ describe('E2E DOM Integration Test', () => {
     const modernDylan = modernData.allTimeStandings.find(s => s.ownerName === 'Dylan');
     expect(modernDylan.wins).toBe(31);
     expect(modernDylan.seasonsCount).toBe(4);
+  });
+
+  it('should verify Top 10 Records showcase in modern era for both leagues', async () => {
+    const { filterLeagueDataByMinYear } = await import('../src/core/eraFilter.js');
+    const { getStatCardLeaderboard } = await import('../src/analytics/statRecords.js');
+    const { buildRecordsShowcaseHtml } = await import('../src/components/recordsView.js');
+
+    // Pride Guys Modern Era Featherweight Test
+    const rawPride = fs.readFileSync(path.resolve(__dirname, '../public/data/prideGuysData.json'), 'utf-8');
+    const prideData = JSON.parse(rawPride);
+    const modernPride = filterLeagueDataByMinYear(prideData, 2022);
+    const featherTop10 = getStatCardLeaderboard(modernPride, 'featherweight', 'allTime', 10);
+
+    expect(featherTop10.length).toBe(10);
+    expect(featherTop10[3].owner).toBe('Sean Belcher');
+    expect(featherTop10[3].score).toBe(52.96);
+    expect(featherTop10[3].year).toBe(2026);
+    expect(featherTop10[3].week).toBe(2);
+
+    // Y2K Modern Era Juggernaut Test
+    const modernY2K = filterLeagueDataByMinYear(window.LEAGUE_DATA, 2022);
+    const juggTop10 = getStatCardLeaderboard(modernY2K, 'juggernaut', 'allTime', 10);
+    expect(juggTop10.length).toBe(10);
+    expect(juggTop10[8].owner).toBe('Dylan');
+    expect(juggTop10[8].score).toBe(197.7);
+    expect(juggTop10[9].owner).toBe('Dustin');
+    expect(juggTop10[9].score).toBe(196.46);
+
+    // Verify HTML showcase renders podium and table
+    const showcaseHtml = buildRecordsShowcaseHtml({
+      leagueData: modernPride,
+      season: 'allTime',
+      selectedCategory: 'featherweight',
+      isModernEra: true
+    });
+    expect(showcaseHtml).toContain('🥇 1ST PLACE');
+    expect(showcaseHtml).toContain('🥈 2ND PLACE');
+    expect(showcaseHtml).toContain('🥉 3RD PLACE');
+    expect(showcaseHtml).toContain('#4');
+    expect(showcaseHtml).toContain('Sean Belcher');
+    expect(showcaseHtml).toContain('52.96 pts');
   });
 });

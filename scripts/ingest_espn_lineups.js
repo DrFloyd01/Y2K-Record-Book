@@ -68,6 +68,21 @@ const CANONICAL_OWNER_MAP = {
   'Brodie Pirtle': 'Brodie Pirtle'
 };
 
+export const ESPN_2026_TEAM_ID_OWNER_MAP = {
+  1: 'Sean Belcher',
+  2: 'Austin Geller',
+  3: 'Andrew Wilson',
+  4: 'Dylan Soth',
+  5: 'Michael Anderson',
+  6: 'Trace Bakulich',
+  8: "Aidan O'Sullivan",
+  9: 'Nathan Wells',
+  10: 'Brendan Sanders',
+  11: 'Phillip Busick',
+  12: 'Tyler Hicks',
+  13: 'Brodie Pirtle'
+};
+
 function getSlotName(slotId) {
   switch (slotId) {
     case 0: return 'QB';
@@ -114,7 +129,7 @@ async function ingestSeasonLineups(seasonYear, leagueId, s2, swid) {
   const teamMap = {};
   metaData.teams?.forEach(t => {
     const ownerId = t.owners ? t.owners[0] : (t.primaryOwner || null);
-    const ownerName = memberMap[ownerId] || t.primaryOwner || 'Unknown';
+    const ownerName = memberMap[ownerId] || ESPN_2026_TEAM_ID_OWNER_MAP[t.id] || t.primaryOwner || 'Unknown';
     const teamName = t.name || (t.location ? `${t.location} ${t.nickname}` : `Team ${t.id}`);
     teamMap[t.id] = { teamId: t.id, teamName, ownerName };
   });
@@ -347,6 +362,12 @@ async function main() {
         st.dOhs = 0;
         st.dOhCount = 0;
         st.dOhDetails = [];
+      }
+
+      // Also sync current teamName if available in 2026 standings
+      const cur2026Entry = prideData.seasonData?.['2026']?.standings?.find(s => s.ownerName === st.ownerName);
+      if (cur2026Entry && cur2026Entry.teamName) {
+        st.teamName = cur2026Entry.teamName;
       }
     });
   }

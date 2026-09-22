@@ -3,6 +3,8 @@ import {
   formatPlayoffStageTag,
   formatPlayoffWeek,
   getStatCardTop5,
+  getStatCardLeaderboard,
+  RECORD_CATEGORY_METADATA,
   getGlobalAllTimeStatRecords
 } from '../src/analytics/statRecords.js';
 
@@ -71,5 +73,43 @@ describe('Stat Records Analytics Module', () => {
     expect(top5.length).toBe(2);
     expect(top5[0].owner).toBe('Dylan');
     expect(top5[0].valStr).toBe('+60.00 pts');
+  });
+
+  it('should support limit parameter in getStatCardLeaderboard up to 10', () => {
+    const mockMatchups = [];
+    for (let w = 1; w <= 12; w++) {
+      mockMatchups.push({
+        seasonYear: 2025,
+        weekNumber: w,
+        homeOwner: `OwnerA_${w}`,
+        awayOwner: `OwnerB_${w}`,
+        homeScore: 100 + w * 2,
+        awayScore: 90 + w,
+        homeTeam: `TeamA_${w}`,
+        awayTeam: `TeamB_${w}`,
+        isPlayoff: false
+      });
+    }
+    const mockData = { allMatchups: mockMatchups };
+
+    const top10 = getStatCardLeaderboard(mockData, 'juggernaut', 2025, 10);
+    expect(top10.length).toBe(10);
+    expect(top10[0].score).toBe(124);
+    expect(top10[9].score).toBe(106);
+
+    const top3 = getStatCardLeaderboard(mockData, 'juggernaut', 2025, 3);
+    expect(top3.length).toBe(3);
+  });
+
+  it('should expose valid RECORD_CATEGORY_METADATA with descriptions and icons', () => {
+    const keys = ['juggernaut', 'featherweight', 'cakewalk', 'nailbiter', 'gutpunch', 'criminal', 'victoryLap', 'dumpsterFire'];
+    keys.forEach(k => {
+      const meta = RECORD_CATEGORY_METADATA[k];
+      expect(meta).toBeDefined();
+      expect(meta.title).toBeTruthy();
+      expect(meta.description).toBeTruthy();
+      expect(meta.icon).toBeTruthy();
+      expect(meta.badge).toBeTruthy();
+    });
   });
 });

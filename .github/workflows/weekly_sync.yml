@@ -50,6 +50,14 @@ jobs:
           ESPN_SWID: ${{ secrets.ESPN_SWID }}
         run: node scripts/ingest_espn_lineups.js 2026
 
+      - name: 5. Evaluate Y2K Weekly Bounty
+        run: node scripts/evaluate_y2k_bounties.js
+
+      - name: 6. Generate Weekly Commentary Drafts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GOOGLE_API_KEY }}
+        run: node scripts/generate_commentary_drafts.js
+
       - name: Run Automated Vitest Tests
         run: npm test
 
@@ -58,11 +66,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          if [ -n "$(git status --porcelain public/data/)" ]; then
-            git add public/data/
-            git commit -m "chore(data): Auto-sync ESPN & Yahoo weekly scores [skip ci]"
+          if [ -n "$(git status --porcelain public/data/ docs/ index.html)" ]; then
+            git add public/data/ docs/ index.html
+            git commit -m "chore(sync): Auto-sync weekly scores, evaluate bounties & generate commentary drafts [skip ci]"
             git push
-            echo "✅ New scores and standings committed and pushed to main!"
+            echo "✅ New scores, bounty results, and commentary drafts committed and pushed to main!"
           else
-            echo "ℹ️ No changes detected in league datasets."
+            echo "ℹ️ No changes detected across datasets and drafts."
           fi

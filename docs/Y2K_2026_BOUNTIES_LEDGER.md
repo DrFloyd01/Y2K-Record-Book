@@ -4,7 +4,7 @@
 **Base Bounty Sponsor**: 2025 "Finish Above Phillip" Memorial Fund ($0 buy-in, $5/repeat win)  
 **High Roller Multiplier**: 1-to-1 Boost (Every $1 buy-in adds +$1.00 / repeat win)  
 **Total Boost Pot Collected**: **$35.00**  
-**Last Updated**: September 8, 2026  
+**Last Updated**: September 22, 2026  
 
 ---
 
@@ -12,18 +12,18 @@
 
 | Manager | Buy-In Paid | Tier Status | Win #1 Payout | Win #2+ Repeat Rate | Payment Status |
 | :--- | :---: | :--- | :---: | :---: | :---: |
-| **Dusty** (Dustin) | **$20.00** | **$20 Max Tier** | Qualifies ($0) | **$25.00 / win** | ✅ **PAID ($20)** |
-| **Bo** (Boaz) | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ **PAID ($5)** |
-| **Tess** | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ **PAID ($5)** |
-| **Trace** | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ **PAID ($5)** |
-| **Dylan** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Mike** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Phillip** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Jasper** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Casey** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Ryan** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Cooper** | $0.00 | Base Free Tier | Qualifies ($0) | $5.00 / win | Free Base Entry |
-| **Boaz** | — | — | — | — | (See Bo above) |
+| **Dusty (Dustin)** | **$20.00** | **$20 Max Tier** | Qualifies ($0) | **$25.00 / win** | ✅ PAID ($20) |
+| **Bo (Boaz)** | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ PAID ($5) |
+| **Tess** | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ PAID ($5) |
+| **Trace** | **$5.00** | **$5 Boost Tier** | Qualifies ($0) | **$10.00 / win** | ✅ PAID ($5) |
+| **Dylan** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Mike** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Phillip** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Jasper** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Casey** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Ryan** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Cooper** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
+| **Alex** | **$0.00** | **Base Free Tier** | Qualifies ($0) | **$5.00 / win** | Free Base Entry |
 
 ---
 
@@ -49,7 +49,11 @@
   - 👑 **Winner**: **Dylan** (`Globo Gym`) — **197.70 pts**  
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $5.00/win)  
   - 🥈 **Runner-Up**: Alex (`Darnold Schwarzenegger`) — 180.56 pts
-- **Week 02**: Zero to Hero — Largest positive points jump from Week 1 to Week 2
+- **Week 02**: Zero to Hero — Largest positive points jump from Week 1 to Week 2  
+  - 👑 **Winner**: **Dustin** (`Dusty’s Dingleberries`) — **+80.66 pt jump** (115.80 ➔ 196.46)  
+  - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $25.00/win)  
+  - 🥈 **Runner-Up**: Ryan (`Donkey Squad`) — +34.66 pt jump (131.56 ➔ 166.22)  
+  - 🥉 **3rd Place**: Phillip (`Ho Chi Win City`) — +14.72 pt jump (115.46 ➔ 130.18)
 - **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team
 - **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot
 - **Week 05**: The Cardiac Arrest I — Narrowest margin of victory
@@ -65,20 +69,20 @@
 
 ---
 
-## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 1)
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 2)
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
+| **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
 | **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
-| **Dusty** (Dustin) | 0 | $0.00 | Needs Win #1 to qualify ($25 repeat rate) |
-| **Bo** (Boaz) | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
-| **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
-| **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10 repeat rate) |
-| **Alex** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Cooper** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Casey** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Ryan** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
-| **Mike** | 0 | $0.00 | Needs Win #1 to qualify ($5 repeat rate) |
+| **Bo (Boaz)** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
+| **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
+| **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
+| **Mike** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Casey** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Ryan** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Cooper** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
+| **Alex** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 

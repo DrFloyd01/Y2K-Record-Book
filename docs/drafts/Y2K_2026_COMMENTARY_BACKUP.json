@@ -120,104 +120,146 @@
     ]
   },
   "2": {
-    "mode": "preview",
-    "title": "🏈 2026 Y2K: Week 2 Matchup Previews",
+    "mode": "recap",
+    "title": "🏈 2026 Y2K: Week 2 Matchup Hub",
     "matchups": [
       {
         "homeOwner": "Dylan",
         "awayOwner": "Tess",
         "homeTeam": "Globo Gym",
         "awayTeam": "Tess Finesse",
-        "homeRank": 1,
-        "awayRank": 12,
-        "h2h": "4-0",
-        "seasonH2H": "5-0",
-        "streak": "Dylan 5 (Wk2'24, Wk11'24, Wk5'25, Wk14'25, Wk16'25)",
+        "h2h": "5-0",
+        "streak": "Dylan 6 (Wk2'24, Wk11'24, Wk5'25, Wk14'25, Wk16'25, Wk2'26)",
         "playoffs": "1-0 (Semi-Finals'25)",
-        "playoffH2H": "1-0",
-        "isGameOfTheWeek": false,
-        "writeup": "The *three piece* train rolls on against a familiar opponent. Dylan has never lost to Tess, riding a 5-game winning streak that is tied for the longest active streak in Y2K (T-4 all-time). Globo Gym entered the season firing on all cylinders, hanging 197.70 pts in Week 1 to claim the Weekly Win badge and opening Hot Start bounty. Tess, meanwhile, executed a clinical 99.4% coaching efficiency but was doomed by the league's lowest scoring ceiling (108.66 pts). It's worst versus first in the standings, but Tess enters as a prime candidate to flip the script and chase Week 2's Zero to Hero bounty. To avoid an 0-2 hole, Tess must pull off the biggest upset of the young season.",
-        "previewWriteup": "The *three piece* train rolls on against a familiar opponent. Dylan has never lost to Tess, riding a 5-game winning streak that is tied for the longest active streak in Y2K (T-4 all-time). Globo Gym entered the season firing on all cylinders, hanging 197.70 pts in Week 1 to claim the Weekly Win badge and opening Hot Start bounty. Tess, meanwhile, executed a clinical 99.4% coaching efficiency but was doomed by the league's lowest scoring ceiling (108.66 pts). It's worst versus first in the standings, but Tess enters as a prime candidate to flip the script and chase Week 2's Zero to Hero bounty. To avoid an 0-2 hole, Tess must pull off the biggest upset of the young season."
+        "writeup": "The *three piece* express keeps rolling as Dylan remains Tess's ultimate nightmare, pushing his lifetime edge to 6-0 all-time (5-0 regular season) with a 119.48 to 101.34 victory. Brock Purdy (33.98), George Kittle (17.5), and rookie Tet McMillan (15.6) paced Globo Gym to a 2-0 start. For Tess, the agony was entirely self-inflicted: Tess Finesse suffered Week 2's most tragic D'Oh! blunder, benching Dalton Schultz (25.5 pts) for Michael Wilson (3.3 pts). That +22.2 net swing easily eclipsed the 18.14 deficit, costing Tess a monumental upset win and sending her into an 0-2 hole."
       },
       {
         "homeOwner": "Phillip",
         "awayOwner": "Boaz",
         "homeTeam": "Ho Chi Win City",
         "awayTeam": "Aaron codger",
-        "homeRank": 9,
-        "awayRank": 4,
-        "h2h": "3-3",
-        "seasonH2H": "4-3",
-        "streak": "Phillip 2 (Wk15'24, Wk9'25)",
+        "h2h": "4-3",
+        "streak": "Phillip 3 (Wk15'24, Wk9'25, Wk2'26)",
         "playoffs": "1-0 (Wild Card'24)",
-        "playoffH2H": "1-0",
-        "isGameOfTheWeek": false,
-        "writeup": "A high-stakes clash between the league's model of regular-season consistency and a resurging contender. Phillip enters reeling from an 8.48-pt heartbreak loss to Casey, falling to 0-1. Bo banks a 1-0 start after taking advantage of Ryan's Week 1 D'Oh blunder, and now looks to avenge both his 2024 Wild Card exit (Wk15'24) and last season's 46-pt blowout. A win for Bo ties their all-time regular-season series at 4-4 and hands Phillip his first 0-2 start since 2021.",
-        "previewWriteup": "A high-stakes clash between the league's model of regular-season consistency and a resurging contender. Phillip enters reeling from an 8.48-pt heartbreak loss to Casey, falling to 0-1. Bo banks a 1-0 start after taking advantage of Ryan's Week 1 D'Oh blunder, and now looks to avenge both his 2024 Wild Card exit (Wk15'24) and last season's 46-pt blowout. A win for Bo ties their all-time regular-season series at 4-4 and hands Phillip his first 0-2 start since 2021."
+        "writeup": "A vintage regular-season masterclass from the league's gold standard of consistency. Phillip rebounded from opening week heartbreak to claim a hard-fought 130.18 to 118.82 win over Boaz, extending his active winning streak over Aaron codger to three games. CeeDee Lamb (36.3), Jaylen Waddle (22.3), and Dalton Kincaid (21.0) supplied the firepower to prevent Phillip's first 0-2 start since 2021. Bo executed a near-flawless 94.5% coaching efficiency behind New England's defense (23.5) and Chris Olave (21.1), but couldn't overcome Phillip's ceiling."
       },
       {
         "homeOwner": "Trace",
         "awayOwner": "Ryan",
         "homeTeam": "Gl Hf (you’re gay)",
         "awayTeam": "Donkey Squad",
-        "homeRank": 10,
-        "awayRank": 7,
-        "h2h": "8-8",
-        "seasonH2H": "8-8",
-        "streak": "Trace 2 (Wk13'24, Wk7'25)",
+        "h2h": "8-9",
+        "streak": "Ryan 1 (Wk2'26)",
         "playoffs": "0-0",
-        "playoffH2H": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "Clash of OGs with franchises hanging in the balance. Entering their 17th all-time regular-season meeting, Trace and Ryan sit deadlocked at 8-8. Both squads stumbled in Week 1, meaning one of these founding titans is headed for a brutal 0-2 start. Trace was bludgeoned by Alex's 180.56 debut barrage, while Ryan is recovering from the self-inflicted trauma of benching Josh Allen (39.66 pts) for Joe Burrow (12.66 pts) in a winnable 15.76-pt loss to Bo. Trace has taken their last two meetings by an average margin of 31.2 pts; Ryan needs his QB anchor on the field to stop the skid.",
-        "previewWriteup": "Clash of OGs with franchises hanging in the balance. Entering their 17th all-time regular-season meeting, Trace and Ryan sit deadlocked at 8-8. Both squads stumbled in Week 1, meaning one of these founding titans is headed for a brutal 0-2 start. Trace was bludgeoned by Alex's 180.56 debut barrage, while Ryan is recovering from the self-inflicted trauma of benching Josh Allen (39.66 pts) for Joe Burrow (12.66 pts) in a winnable 15.76-pt loss to Bo. Trace has taken their last two meetings by an average margin of 31.2 pts; Ryan needs his QB anchor on the field to stop the skid."
+        "writeup": "The ultimate redemption barrage for Donkey Squad. Haunted by his Week 1 D'Oh blunder where he benched Josh Allen, Ryan plugged Allen right back into QB1—and the superstar rewarded him with a monstrous 49.32-pt explosion alongside Jaxon Smith-Njigba's 43.50 eruption. Ryan hung 166.22 pts to blow out Trace by 78.92 pts, logging a +34.66 jump from Week 1 to take the Zero to Hero runner-up spot. Trace's offense flatlined at 87.30 pts (leaving him with a league-low 200.5 PF), plunging the reigning Scoring Champion into a 0-2 nightmare."
       },
       {
         "homeOwner": "Casey",
         "awayOwner": "Jasper",
         "homeTeam": "AARPFL",
         "awayTeam": "Blue's Balls",
-        "homeRank": 6,
-        "awayRank": 5,
-        "h2h": "1-4",
-        "seasonH2H": "1-6",
-        "streak": "Jasper 5 (Wk15'23, Wk1'24, Wk10'24, Wk7'25, Wk15'25)",
+        "h2h": "2-4",
+        "streak": "Casey 1 (Wk2'26)",
         "playoffs": "0-2 (Wild Card'23, Wild Card'25)",
-        "playoffH2H": "0-2",
-        "isGameOfTheWeek": true,
-        "writeup": "Game of the Week: The ultimate playoff nemesis returns. Jasper has ended Casey's season in the Wild Card round in two of the last three years (2023 and 2025), building an active 5-game winning streak that is tied for the league's longest active streak (T-4 all-time). Both managers enter 1-0 after surviving low-ceiling Week 1 scraps: Casey captured the Luckiest Win badge (123.94 pts), while Jasper rode his trademark fortune to squeak past Tess with 128.22 pts. Casey hasn't defeated Blue's Balls since Week 9 of 2023; snapping this five-game hex would give AARPFL the first 2-0 start in franchise history.",
-        "previewWriteup": "Game of the Week: The ultimate playoff nemesis returns. Jasper has ended Casey's season in the Wild Card round in two of the last three years (2023 and 2025), building an active 5-game winning streak that is tied for the league's longest active streak (T-4 all-time). Both managers enter 1-0 after surviving low-ceiling Week 1 scraps: Casey captured the Luckiest Win badge (123.94 pts), while Jasper rode his trademark fortune to squeak past Tess with 128.22 pts. Casey hasn't defeated Blue's Balls since Week 9 of 2023; snapping this five-game hex would give AARPFL the first 2-0 start in franchise history."
+        "writeup": "Game of the Week: The curse is officially broken! Casey exorcised his greatest demons, snapping Jasper's 5-game winning streak with a pulse-pounding 110.26 to 106.44 triumph (+3.82 margin—the tightest battle of Week 2). DeVonta Smith (26.7), CMC (22.6), and Derrick Henry (18.7) powered AARPFL to the first 2-0 start in the franchise's 9-year Y2K history (after starting 1-1 six times and 0-2 twice). Jasper, meanwhile, choked on a brutal D'Oh blunder: starting Jalen Hurts (17.66) over Jared Goff (35.78). That +18.12 net gain would have secured a 124.56 victory for Blue's Balls; instead, Jasper drops to 1-1."
       },
       {
         "homeOwner": "Mike",
         "awayOwner": "Cooper",
         "homeTeam": "IRked",
         "awayTeam": "Trenches cooper",
-        "homeRank": 11,
-        "awayRank": 3,
-        "h2h": "1-1",
-        "seasonH2H": "1-1",
-        "streak": "Mike 1 (Wk9'23)",
+        "h2h": "2-1",
+        "streak": "Mike 2 (Wk9'23, Wk2'26)",
         "playoffs": "0-0",
-        "playoffH2H": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "A battle of contrasting opening week trajectories. Cooper announced his return from a 2-year hiatus with a vengeance in Week 1, dropping 168.60 pts behind a clinical 96.4% coaching efficiency. Mike, meanwhile, was on the wrong end of an 88.64-pt blowout against Dylan, burdened by a 75.0% efficiency that left 36.38 pts on the bench (including Caleb Williams' 41.76 pts). They split their two career meetings across 2022–2023, but Coop's high-octane firepower makes this an urgent bounce-back test for the 2019 champion—and a prime opportunity for Mike to target Week 2's Zero to Hero bounty.",
-        "previewWriteup": "A battle of contrasting opening week trajectories. Cooper announced his return from a 2-year hiatus with a vengeance in Week 1, dropping 168.60 pts behind a clinical 96.4% coaching efficiency. Mike, meanwhile, was on the wrong end of an 88.64-pt blowout against Dylan, burdened by a 75.0% efficiency that left 36.38 pts on the bench (including Caleb Williams' 41.76 pts). They split their two career meetings across 2022–2023, but Coop's high-octane firepower makes this an urgent bounce-back test for the 2019 champion—and a prime opportunity for Mike to target Week 2's Zero to Hero bounty."
+        "writeup": "From unstoppable force to total polar freeze. One week after lighting up the league with 168.60 pts, Cooper's offense crashed hard, managing just 72.60 pts—the lowest single-game score in Y2K this season (-96.0 pt drop). Mike cleaned up his opening week mistakes, leaning on Jake Ferguson (18.8), Chase McLaughlin (17.6), and Tee Higgins (14.5) to coast to a comfortable 106.48 to 72.60 blowout. The 2019 champion levels his record at 1-1 and reclaims a 2-1 career series lead over Cooper."
       },
       {
         "homeOwner": "Dustin",
         "awayOwner": "Alex",
         "homeTeam": "Dusty’s Dingleberries",
         "awayTeam": "Darnold Schwarzenegger",
+        "h2h": "1-0",
+        "streak": "Dustin 1 (Wk2'26)",
+        "playoffs": "0-0",
+        "writeup": "A seismic statement from the former champion. Dustin unleashed the highest scoring onslaught of Week 2 (and the largest margin of victory of the 2026 season), exploding for 196.46 pts behind Davante Adams (43.5), Dak Prescott (37.76), and Kenneth Walker III (26.3) to bludgeon newcomer Alex by 99.70 pts. The +80.66 pt surge captured both the Week 2 Weekly Win badge and the Zero to Hero bounty in runaway fashion, qualifying Dustin's franchise under his $20 Max Tier buy-in ($25.00/win unlocked). Alex was brought down to earth at 96.76 pts, dropping to 1-1."
+      }
+    ]
+  },
+  "3": {
+    "mode": "preview",
+    "title": "🏈 2026 Y2K: Week 3 Matchup Previews",
+    "matchups": [
+      {
+        "homeOwner": "Dylan",
+        "awayOwner": "Ryan",
+        "homeTeam": "Globo Gym",
+        "awayTeam": "Donkey Squad",
+        "homeRank": 1,
+        "awayRank": 4,
+        "h2h": "4-8",
+        "streak": "Dylan 2 (Wk6'24, Wk7'25)",
+        "playoffs": "0-3 (SF'19, SF'20, Finals'21)",
+        "writeup": "Heavyweight clash between two founding pillars. Dylan enters undefeated at 2-0 on his quest for the unprecedented three-piece, riding steady production from Brock Purdy and Ashton Jeanty. But Ryan is flying high after dropping 166.22 pts behind Josh Allen and JSN. Ryan holds an 8-4 regular season edge and a flawless 3-0 playoff record against Dylan, but Globo Gym has taken their last two meetings. A win for Ryan would announce Donkey Squad as a legitimate title contender; a win for Dylan cements his grip on the #1 seed."
+      },
+      {
+        "homeOwner": "Phillip",
+        "awayOwner": "Tess",
+        "homeTeam": "Ho Chi Win City",
+        "awayTeam": "Tess Finesse",
+        "homeRank": 3,
+        "awayRank": 11,
+        "h2h": "3-1",
+        "streak": "Phillip 1 (Wk10'25)",
+        "playoffs": "0-0",
+        "writeup": "Desperation hour for Tess Finesse. Sitting at 0-2 after back-to-back heartbreaking losses and a brutal Week 2 D'Oh blunder, Tess urgently needs a victory to avoid an 0-3 hole. But the schedule offers no respite: Phillip is fresh off a clinical 130.18-pt bounce-back fueled by CeeDee Lamb and Jaylen Waddle. Phillip has reached the playoffs in all eight seasons of his career and holds a 3-1 lifetime mark over Tess. If Tess can't capitalize on optimal lineup management, Phillip will cruise to 2-1."
+      },
+      {
+        "homeOwner": "Trace",
+        "awayOwner": "Jasper",
+        "homeTeam": "Gl Hf (you’re gay)",
+        "awayTeam": "Blue's Balls",
+        "homeRank": 12,
+        "awayRank": 6,
+        "h2h": "5-3",
+        "streak": "Jasper 1 (Wk6'25)",
+        "playoffs": "0-1 (Wild Card'22)",
+        "writeup": "Code Red in the cellar. Trace, the reigning 2025 Scoring Champion, finds himself in an unthinkable 0-2 hole with a league-low 200.5 PF through two weeks. He faces Jasper, who is seething after a 3.82-pt D'Oh blunder against Casey cost him a 2-0 start. Trace leads their regular season series 5-3, but Jasper has historically thrived on breaking opponents' hearts in low-scoring brawls. Trace desperately needs Jonathan Taylor and Rashee Rice to rediscover their scoring ceilings to keep his season afloat."
+      },
+      {
+        "homeOwner": "Casey",
+        "awayOwner": "Mike",
+        "homeTeam": "AARPFL",
+        "awayTeam": "IRked",
+        "homeRank": 2,
+        "awayRank": 7,
+        "h2h": "8-7",
+        "streak": "Mike 1 (Wk11'25)",
+        "playoffs": "0-0",
+        "writeup": "Game of the Week: History on the line for AARPFL! For the first time in franchise history, Casey sits at 2-0 after back-to-back nailbiter victories (+8.48 over Phillip, +3.82 over Jasper). Mike's IRked is riding momentum of his own after a comfortable 106.48-pt win over Cooper. Casey and Mike have squared off 15 times with Casey holding the razor-thin 8-7 edge. A victory would propel Casey to an unprecedented 3-0 start, while Mike aims to prove his 2019 championship pedigree remains elite."
+      },
+      {
+        "homeOwner": "Boaz",
+        "awayOwner": "Dustin",
+        "homeTeam": "Aaron codger",
+        "awayTeam": "Dusty’s Dingleberries",
         "homeRank": 8,
-        "awayRank": 2,
+        "awayRank": 5,
+        "h2h": "5-4",
+        "streak": "Dustin 1 (Wk10'25)",
+        "playoffs": "0-0",
+        "writeup": "Can anyone extinguish the hottest fire in fantasy? Dustin arrives riding a tidal wave of momentum after posting a league-high 196.46 pts and bagging the Zero to Hero bounty behind Davante Adams and Dak Prescott. Boaz sits at 1-1 despite executing a league-leading 94.5% coaching efficiency in Week 2. Bo holds a 5-4 lifetime series edge, but he'll need a monumental showing from his Patriots defense and Chris Olave to withstand Dustin's offensive buzzsaw."
+      },
+      {
+        "homeOwner": "Alex",
+        "awayOwner": "Cooper",
+        "homeTeam": "Darnold Schwarzenegger",
+        "awayTeam": "Trenches cooper",
+        "homeRank": 9,
+        "awayRank": 10,
         "h2h": "0-0",
-        "seasonH2H": "0-0",
         "streak": "0",
         "playoffs": "0-0",
-        "playoffH2H": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "Former scoring champion meets the league's hottest newcomer. Dustin's redemption tour stumbled immediately against brother Cooper (115.80 pts), and the road gets no easier as he faces Alex's blue-chip 1.1 powerhouse. Darnold Schwarzenegger lived up to the hype in Week 1, dropping 180.56 pts fueled by massive performances from Jalen Coker (33.30), Bijan Robinson (31.30), and Lamar Jackson (27.46).",
-        "previewWriteup": "Former scoring champion meets the league's hottest newcomer. Dustin's redemption tour stumbled immediately against brother Cooper (115.80 pts), and the road gets no easier as he faces Alex's blue-chip 1.1 powerhouse. Darnold Schwarzenegger lived up to the hype in Week 1, dropping 180.56 pts fueled by massive performances from Jalen Coker (33.30), Bijan Robinson (31.30), and Lamar Jackson (27.46)."
+        "writeup": "The Bounce-Back Bowl. Both franchises experienced extreme whiplash over the first two weeks: Cooper exploded for 168.60 in Week 1 before plunging to 72.60 in Week 2; Alex dropped 180.56 in his dazzling debut before getting bludgeoned by Dustin's 196.46 barrage. Meeting for the first time ever, both 1-1 squads enter eager to prove their opening week fireworks reflect their true identity. Expect a high-octane battle between Bijan Robinson and Jahmyr Gibbs."
       }
     ]
   }

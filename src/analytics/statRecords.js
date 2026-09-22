@@ -55,13 +55,108 @@ export function getPlayoffMatchupResult(leagueData, yr, stage) {
   return sData.playoffMatchups.find(m => m.stage && m.stage.toLowerCase() === stage.toLowerCase()) || null;
 }
 
-export function getStatCardTop5(leagueData, metricKey, season) {
+export const RECORD_CATEGORY_METADATA = {
+  juggernaut: {
+    key: 'juggernaut',
+    title: 'JUGGERNAUT',
+    playoffTitle: 'APEX PREDATOR',
+    icon: '⚡',
+    badge: 'Single-Game High Score',
+    description: 'The highest single-game scoring explosions by a team in league history.',
+    unit: 'pts',
+    valuePrefix: '',
+    higherIsBetter: true
+  },
+  featherweight: {
+    key: 'featherweight',
+    title: 'FEATHERWEIGHT',
+    playoffTitle: 'POTATO PERFORMANCE',
+    icon: '🪶',
+    badge: 'Single-Game Low Score',
+    description: 'The lowest single-game scoring outputs by a team in league history.',
+    unit: 'pts',
+    valuePrefix: '',
+    higherIsBetter: false
+  },
+  cakewalk: {
+    key: 'cakewalk',
+    title: 'CAKEWALK',
+    playoffTitle: 'MASSACRE',
+    icon: '🍰',
+    badge: 'Largest Blowout Margin',
+    description: 'The most lopsided margins of victory in league history.',
+    unit: 'pts',
+    valuePrefix: '+',
+    higherIsBetter: true
+  },
+  nailbiter: {
+    key: 'nailbiter',
+    title: 'NAILBITER',
+    playoffTitle: 'CARDIAC FINISH',
+    icon: '🫀',
+    badge: 'Closest Margin of Victory',
+    description: 'The narrowest nailbiters decided by the slimmest margins in league history.',
+    unit: 'pts',
+    valuePrefix: '+',
+    higherIsBetter: false
+  },
+  gutpunch: {
+    key: 'gutpunch',
+    title: 'GUT PUNCH',
+    playoffTitle: 'HEARTBREAK DEFEAT',
+    icon: '🥊',
+    badge: 'Highest Losing Score',
+    description: 'The most agonizing defeats where a team put up elite points but still took the L.',
+    unit: 'pts',
+    valuePrefix: '',
+    higherIsBetter: true
+  },
+  criminal: {
+    key: 'criminal',
+    title: 'CRIMINAL',
+    playoffTitle: 'GRAND THEFT WIN',
+    icon: '🦹',
+    badge: 'Lowest Winning Score',
+    description: 'The luckiest victories snatched with the lowest scoring outputs in league history.',
+    unit: 'pts',
+    valuePrefix: '',
+    higherIsBetter: false
+  },
+  victoryLap: {
+    key: 'victoryLap',
+    title: 'VICTORY LAP',
+    playoffTitle: 'DYNASTY RUN',
+    icon: '🏎️',
+    badge: 'Longest Winning Streak',
+    description: 'The longest consecutive game regular-season winning streaks.',
+    unit: 'WINS',
+    valuePrefix: '',
+    higherIsBetter: true
+  },
+  dumpsterFire: {
+    key: 'dumpsterFire',
+    title: 'DUMPSTER FIRE',
+    playoffTitle: 'FREE FALL',
+    icon: '🗑️',
+    badge: 'Longest Losing Streak',
+    description: 'The coldest consecutive game regular-season losing skids.',
+    unit: 'LOSSES',
+    valuePrefix: '',
+    higherIsBetter: true
+  }
+};
+
+export function getStatCardTop5(leagueData, metricKey, season, limit = 5) {
+  return getStatCardLeaderboard(leagueData, metricKey, season, limit);
+}
+
+export function getStatCardLeaderboard(leagueData, metricKey, season, limit = 10) {
   if (!leagueData) return [];
 
   if (season === 'allTime' || season === 'playoffs') {
     const atRecords = (leagueData.seasonData && leagueData.seasonData.allTime && leagueData.seasonData.allTime.statRecords) || leagueData.allTimeStatRecords || {};
     if ((metricKey === 'victoryLap' || metricKey === 'victory') && atRecords.victoryLapList) {
-      return atRecords.victoryLapList.map(item => ({
+      return atRecords.victoryLapList.slice(0, limit).map(item => ({
         owner: item.owner,
         team: item.team || item.owner,
         streak: item.streak,
@@ -70,7 +165,7 @@ export function getStatCardTop5(leagueData, metricKey, season) {
       }));
     }
     if ((metricKey === 'dumpsterFire' || metricKey === 'dumpster') && atRecords.dumpsterFireList) {
-      return atRecords.dumpsterFireList.map(item => ({
+      return atRecords.dumpsterFireList.slice(0, limit).map(item => ({
         owner: item.owner,
         team: item.team || item.owner,
         streak: item.streak,
@@ -120,7 +215,9 @@ export function getStatCardTop5(leagueData, metricKey, season) {
               streak: curCount,
               valStr: `${curCount} WINS`,
               sub: yrSpan,
-              endYear: endG.year
+              endYear: endG.year,
+              year: endG.year,
+              week: endG.week
             });
             curCount = 0;
           }
@@ -131,7 +228,7 @@ export function getStatCardTop5(leagueData, metricKey, season) {
     });
 
     allStreaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
-    return allStreaks.slice(0, 5);
+    return allStreaks.slice(0, limit);
   }
 
   if (metricKey === 'dumpsterFire') {
@@ -163,7 +260,9 @@ export function getStatCardTop5(leagueData, metricKey, season) {
               streak: curCount,
               valStr: `${curCount} LOSSES`,
               sub: yrSpan,
-              endYear: endG.year
+              endYear: endG.year,
+              year: endG.year,
+              week: endG.week
             });
             curCount = 0;
           }
@@ -174,7 +273,7 @@ export function getStatCardTop5(leagueData, metricKey, season) {
     });
 
     allStreaks.sort((a, b) => b.streak !== a.streak ? b.streak - a.streak : b.endYear - a.endYear);
-    return allStreaks.slice(0, 5);
+    return allStreaks.slice(0, limit);
   }
 
   const list = [];
@@ -216,7 +315,7 @@ export function getStatCardTop5(leagueData, metricKey, season) {
   else if (metricKey === 'gutpunch') list.sort((a, b) => b.score - a.score);
   else if (metricKey === 'criminal') list.sort((a, b) => a.score - b.score);
 
-  return list.slice(0, 5);
+  return list.slice(0, limit);
 }
 
 export function getGlobalAllTimeStatRecords(leagueData) {

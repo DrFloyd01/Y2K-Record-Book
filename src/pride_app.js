@@ -38,6 +38,7 @@ import {
   getWeeklyMatchupDefaultState,
   getWeeklyRankMap
 } from './components/matchupsView.js';
+import { buildRecordsShowcaseHtml } from './components/recordsView.js';
 
 // Setup Lucide icons wrapper
 function renderLucideIcons() {
@@ -57,6 +58,7 @@ function renderLucideIcons() {
     let pfPaChartInstance = null;
     const renderedTabs = new Set(['seasons']);
     let isModernEraFilter = localStorage.getItem('fantasy_era_filter_2022_plus') !== 'false';
+    let currentRecordCategory = 'all';
 
     function updateEraToggleUI() {
       const btnModern = document.getElementById('era-btn-modern');
@@ -853,104 +855,33 @@ function renderLucideIcons() {
     function renderStatRecords() {
       const container = document.getElementById('stat-cards-grid');
       const label = document.getElementById('records-season-label');
-      if (container) container.innerHTML = '';
 
       if (label) {
-        label.innerText = currentSeason === 'allTime' ? 'ALL_TIME_RECORDS' : `${currentSeason}_SEASON`;
-      }
-      
-      let records = null;
-      if (currentSeason === 'allTime') {
-        records = getGlobalAllTimeStatRecords();
-      } else {
-        const sData = window.LEAGUE_DATA.seasonData[currentSeason];
-        if (sData) records = sData.statRecords || {};
+        if (currentSeason === 'allTime') {
+          label.innerText = isModernEraFilter ? 'MODERN_ERA_RECORDS (2022+)' : 'ALL_TIME_RECORDS';
+        } else if (currentSeason === 'playoffs') {
+          label.innerText = isModernEraFilter ? 'MODERN_PLAYOFF_RECORDS' : 'ALL_TIME_PLAYOFF_RECORDS';
+        } else {
+          label.innerText = `${currentSeason}_SEASON`;
+        }
       }
 
-      if (records) {
-        const topJugg = getStatCardTop5('juggernaut', currentSeason)[0];
-        const topFeather = getStatCardTop5('featherweight', currentSeason)[0];
-        const topCake = getStatCardTop5('cakewalk', currentSeason)[0];
-        const topNail = getStatCardTop5('nailbiter', currentSeason)[0];
-        const topGut = getStatCardTop5('gutpunch', currentSeason)[0];
-        const topCrim = getStatCardTop5('criminal', currentSeason)[0];
-        const topVic = getStatCardTop5('victoryLap', currentSeason)[0];
-        const topDump = getStatCardTop5('dumpsterFire', currentSeason)[0];
+      if (!container) return;
 
-        const cardDefs = [
-          { 
-            title: 'JUGGERNAUT', key: 'juggernaut', subtitle: 'Single-game high score', 
-            data: topJugg ? { val: topJugg.valStr, owner: topJugg.owner, team: topJugg.team, sub: topJugg.sub, year: topJugg.year, week: topJugg.week, homeOwner: topJugg.homeOwner, awayOwner: topJugg.awayOwner } : null 
-          },
-          { 
-            title: 'FEATHERWEIGHT', key: 'featherweight', subtitle: 'Single-game low score', 
-            data: topFeather ? { val: topFeather.valStr, owner: topFeather.owner, team: topFeather.team, sub: topFeather.sub, year: topFeather.year, week: topFeather.week, homeOwner: topFeather.homeOwner, awayOwner: topFeather.awayOwner } : null 
-          },
-          { 
-            title: 'CAKEWALK', key: 'cakewalk', subtitle: 'Largest blowout margin', 
-            data: topCake ? { val: topCake.valStr, owner: topCake.owner, team: topCake.team, sub: topCake.sub, year: topCake.year, week: topCake.week, homeOwner: topCake.homeOwner, awayOwner: topCake.awayOwner } : null 
-          },
-          { 
-            title: 'NAILBITER', key: 'nailbiter', subtitle: 'Closest margin win', 
-            data: topNail ? { val: topNail.valStr, owner: topNail.owner, team: topNail.team, sub: topNail.sub, year: topNail.year, week: topNail.week, homeOwner: topNail.homeOwner, awayOwner: topNail.awayOwner } : null 
-          },
-          { 
-            title: 'GUT PUNCH', key: 'gutpunch', subtitle: 'Highest losing score', 
-            data: topGut ? { val: topGut.valStr, owner: topGut.owner, team: topGut.team, sub: topGut.sub, year: topGut.year, week: topGut.week, homeOwner: topGut.homeOwner, awayOwner: topGut.awayOwner } : null 
-          },
-          { 
-            title: 'CRIMINAL', key: 'criminal', subtitle: 'Low score in win', 
-            data: topCrim ? { val: topCrim.valStr, owner: topCrim.owner, team: topCrim.team, sub: topCrim.sub, year: topCrim.year, week: topCrim.week, homeOwner: topCrim.homeOwner, awayOwner: topCrim.awayOwner } : null 
-          },
-          { 
-            title: 'VICTORY LAP', key: 'victoryLap', subtitle: 'Longest win streak', 
-            data: topVic ? { val: topVic.valStr, owner: topVic.owner, team: topVic.team, sub: topVic.sub } : null 
-          },
-          { 
-            title: 'DUMPSTER FIRE', key: 'dumpsterFire', subtitle: 'Longest loss streak', 
-            data: topDump ? { val: topDump.valStr, owner: topDump.owner, team: topDump.team, sub: topDump.sub } : null 
-          }
-        ];
-
-        cardDefs.forEach((card, idx) => {
-          const div = document.createElement('div');
-          div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-pink-400 transition-all shadow-md';
-          const rowPopDir = idx < 4 ? ' tooltip-content-bottom' : '';
-          
-          const val = card.data ? card.data.val : '-';
-          const team = card.data ? card.data.team : '-';
-          const owner = card.data ? card.data.owner : '-';
-          const sub = card.data ? card.data.sub : '';
-
-          if (card.data && card.data.year && card.data.week) {
-            div.onclick = (e) => {
-              if (e.target.closest('.tooltip-content')) return;
-              window.jumpToMatchup && window.jumpToMatchup(card.data.year, card.data.week, card.data.homeOwner, card.data.awayOwner);
-            };
-            div.title = `Click to jump to ${card.data.year} Week ${card.data.week} Matchup`;
-          }
-
-          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, currentSeason, rowPopDir);
-          if (idx % 4 >= 2) {
-            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
-          } else {
-            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-left');
-          }
-
-          div.innerHTML = `
-            <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">
-              <span>&gt; ${escapeHtml(card.title)}</span>
-              <span class="text-[9px] text-purple-700 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
-            </div>
-            <p class="text-xl font-black text-pink-700 crt-glow-pink-pink">${escapeHtml(val)}</p>
-            <p class="text-xs font-bold text-purple-900 truncate mt-1">${escapeHtml(team)} <span class="text-[10px] text-pink-600 font-normal">[${escapeHtml(owner)}]</span></p>
-            <p class="text-[10px] text-pink-600 italic mt-0.5 truncate">${escapeHtml(sub)}</p>
-            ${popoverHtml}
-          `;
-          container.appendChild(div);
-        });
-      }
+      container.innerHTML = buildRecordsShowcaseHtml({
+        leagueData: window.LEAGUE_DATA,
+        season: currentSeason,
+        selectedCategory: currentRecordCategory,
+        isModernEra: isModernEraFilter,
+        theme: PRIDE_THEME
+      });
     }
+
+    function selectRecordCategory(catKey) {
+      currentRecordCategory = catKey;
+      renderStatRecords();
+    }
+    window.selectRecordCategory = selectRecordCategory;
 
     function getGlobalAllTimeStatRecords() {
       return sharedGetGlobalAllTimeStatRecords(window.LEAGUE_DATA);
@@ -2882,7 +2813,7 @@ function renderLucideIcons() {
 
       let mList = [];
       if (season === 2026 && sData && sData.schedule2026) {
-        mList = sData.schedule2026.filter(m => m.weekNumber === week);
+        mList = sData.schedule2026.filter(m => (m.weekNumber || m.week) === week);
       } else {
         mList = (window.LEAGUE_DATA.allMatchups || []).filter(m => (m.seasonYear || m.year) === season && (m.weekNumber || m.week) === week);
       }
@@ -3022,7 +2953,7 @@ function renderLucideIcons() {
 
         let mList = [];
         if (currentMatchupSeason === 2026 && sData && sData.schedule2026) {
-          mList = sData.schedule2026.filter(m => m.weekNumber === currentMatchupWeek);
+          mList = sData.schedule2026.filter(m => (m.weekNumber || m.week) === currentMatchupWeek);
         } else {
           mList = window.LEAGUE_DATA.allMatchups.filter(m => m.seasonYear === currentMatchupSeason && m.weekNumber === currentMatchupWeek);
         }
@@ -3285,3 +3216,5 @@ if (typeof toggleMatchupReportDetails === "function") window.toggleMatchupReport
 if (typeof copyMatchupsReportText === "function") window.copyMatchupsReportText = copyMatchupsReportText;
 if (typeof setModernEraFilter === "function") window.setModernEraFilter = setModernEraFilter;
 if (typeof toggleModernEra === "function") window.toggleModernEra = toggleModernEra;
+if (typeof selectRecordCategory === "function") window.selectRecordCategory = selectRecordCategory;
+

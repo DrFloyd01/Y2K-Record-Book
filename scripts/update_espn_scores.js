@@ -49,21 +49,36 @@ const CANONICAL_OWNER_MAP = {
   'Brodie Pirtle': 'Brodie Pirtle'
 };
 
+export const ESPN_2026_TEAM_ID_OWNER_MAP = {
+  1: 'Sean Belcher',
+  2: 'Austin Geller',
+  3: 'Andrew Wilson',
+  4: 'Dylan Soth',
+  5: 'Michael Anderson',
+  6: 'Trace Bakulich',
+  8: "Aidan O'Sullivan",
+  9: 'Nathan Wells',
+  10: 'Brendan Sanders',
+  11: 'Phillip Busick',
+  12: 'Tyler Hicks',
+  13: 'Brodie Pirtle'
+};
+
 async function updateEspnScores() {
   const leagueId = process.env.ESPN_LEAGUE_ID || '1629523';
   const s2 = process.env.ESPN_S2;
   const swid = process.env.ESPN_SWID;
   const seasonYear = parseInt(process.env.ESPN_SEASON || '2026', 10);
 
-  if (!s2 || !swid) {
-    console.error('❌ Missing ESPN_S2 or ESPN_SWID credentials.');
-    process.exit(1);
-  }
-
   const headers = {
-    'Cookie': `espn_s2=${s2}; SWID=${swid};`,
     'Accept': 'application/json'
   };
+
+  if (s2 && swid) {
+    headers['Cookie'] = `espn_s2=${s2}; SWID=${swid};`;
+  } else {
+    console.log('ℹ️ ESPN credentials (S2/SWID) not provided; attempting public read access...');
+  }
 
   console.log(`📡 Querying ESPN API for Season ${seasonYear} scores (League: ${leagueId})...`);
   const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/${leagueId}?view=mSettings&view=mTeam&view=mMatchupScore&view=mStandings`;
@@ -92,7 +107,7 @@ async function updateEspnScores() {
   const teamMap = {};
   data.teams?.forEach(t => {
     const ownerId = t.owners ? t.owners[0] : null;
-    const ownerName = memberMap[ownerId] || t.primaryOwner || 'Unknown';
+    const ownerName = memberMap[ownerId] || ESPN_2026_TEAM_ID_OWNER_MAP[t.id] || t.primaryOwner || 'Unknown';
     const teamName = t.name || (t.location ? `${t.location} ${t.nickname}` : `Team ${t.id}`);
     teamMap[t.id] = {
       teamId: t.id,
@@ -126,6 +141,9 @@ async function updateEspnScores() {
 
         updatedSchedule.push({
           week: week,
+          weekNumber: week,
+          seasonYear: seasonYear,
+          year: seasonYear,
           matchupId: m.id,
           homeTeam: homeInfo.teamName,
           homeOwner: homeInfo.ownerName,
@@ -146,6 +164,9 @@ async function updateEspnScores() {
       } else {
         updatedSchedule.push({
           week: week,
+          weekNumber: week,
+          seasonYear: seasonYear,
+          year: seasonYear,
           matchupId: m.id,
           homeTeam: homeInfo.teamName,
           homeOwner: homeInfo.ownerName,
@@ -439,10 +460,22 @@ async function updateEspnScores() {
           am.awayOwner === m.awayOwner
         );
         if (match) {
+          match.homeTeam = m.homeTeam;
+          match.awayTeam = m.awayTeam;
           match.homeScore = m.homeScore;
           match.awayScore = m.awayScore;
           match.winner = m.winner;
           match.margin = m.margin;
+        }
+      });
+    }
+
+    // Update allTimeStandings with current 2026 team names
+    if (prideData.allTimeStandings && Array.isArray(prideData.allTimeStandings)) {
+      prideData.allTimeStandings.forEach(st => {
+        const cur = standingsList.find(s => s.ownerName === st.ownerName);
+        if (cur && cur.teamName) {
+          st.teamName = cur.teamName;
         }
       });
     }
