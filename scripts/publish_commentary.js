@@ -63,19 +63,23 @@ export function publishCommentary({ week, previewWeek, targetLeague = 'both' }) 
 
     if (prideBackup && prideData) {
       if (!prideData.weeklyCommentary) prideData.weeklyCommentary = {};
+      if (!prideData.weeklyCommentary['2026']) prideData.weeklyCommentary['2026'] = {};
 
-      if (week && prideBackup[`week${week}Recap`]) {
-        prideData.weeklyCommentary[`week${week}Recap`] = prideBackup[`week${week}Recap`];
-        console.log(`✅ [Pride Guys] Published Week ${week} Recap`);
+      const weeksToPublish = week ? [String(week)] : Object.keys(prideBackup);
+      if (previewWeek && !weeksToPublish.includes(String(previewWeek))) {
+        weeksToPublish.push(String(previewWeek));
       }
-      if (previewWeek && prideBackup[`week${previewWeek}Preview`]) {
-        prideData.weeklyCommentary[`week${previewWeek}Preview`] = prideBackup[`week${previewWeek}Preview`];
-        console.log(`✅ [Pride Guys] Published Week ${previewWeek} Preview`);
-      }
-      if (!week && !previewWeek) {
-        Object.assign(prideData.weeklyCommentary, prideBackup);
-        console.log(`✅ [Pride Guys] Published all available drafts`);
-      }
+
+      weeksToPublish.forEach(w => {
+        if (prideBackup[w]) {
+          prideData.weeklyCommentary['2026'][w] = prideBackup[w];
+          console.log(`✅ [Pride Guys] Published Week ${w} commentary (${prideBackup[w].mode})`);
+        }
+      });
+
+      // Clean up legacy keys if present
+      delete prideData.weeklyCommentary.week2Recap;
+      delete prideData.weeklyCommentary.week3Preview;
 
       writeFileSync(prideDataPath, JSON.stringify(prideData, null, 2), 'utf8');
       console.log(`💾 Saved updated public/data/prideGuysData.json`);

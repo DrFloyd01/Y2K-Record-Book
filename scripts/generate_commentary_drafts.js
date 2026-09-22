@@ -282,24 +282,168 @@ export function generatePrideDrafts() {
   if (!prideData) return null;
 
   // 1. Week 2 Recaps
-  const w2RecapMatchups = {
-    'Michael Anderson_Trace Bakulich': "Trace Bakulich delivered the performance of the season in Pride Guys, posting a league-high 159.78 pts with a flawless 100% coaching efficiency to rout Michael Anderson (106.50) by 53.28 pts. Jonathan Taylor (27.2), DeVonta Smith (24.7), and Bryce Young (24.08) formed an unstoppable triple-threat. Michael, Pride Guys' most decorated titleless manager, falls to 0-2 despite CeeDee Lamb's 33.30-pt display as Trace cuts Michael's regular season series edge to 10-9.",
-    'Tyler Hicks_Nathan Wells': "Tyler Hicks stayed undefeated at 2-0 with an authoritative 130.48 to 96.72 victory over Nathan Wells. Amon-Ra St. Brown (32.7), Jared Goff (29.78), and a 21-pt clinic from the Patriots defense overpowered Nathan's squad. Nathan got a 40.82-pt masterclass from Josh Allen, but an offensive dry spell from the rest of Defense Contractor #1 dropped Nathan to 1-1 as Tyler pulled within 4-3 in their all-time regular season series.",
-    'Dylan Soth_Phillip Busick': "Reigning champion Dylan Soth entered the win column with a 92.62 to 55.98 triumph over Phillip Busick. James Cook III (20.4) and Dalton Kincaid (19.0) provided just enough cushion in a defensive grind. Phil's Joey Chestnuts suffered complete offensive paralysis, tallying just 55.98 pts (the second-lowest score in the league) as Puka Nacua and A.J. Brown failed to reach the end zone, dropping Phil to 0-2 while Dylan pushed his series streak over Phil to 3 straight.",
-    'Austin Geller_Brendan Sanders': "In an undefeated clash of title favorites, 2022 champion Austin Geller marched to 2-0 with a 119.38 to 95.04 win over Brendan Sanders. Jaxon Smith-Njigba was the player of the week, hanging an astonishing 40.0 pts alongside Kenneth Walker III (20.8) and Chris Olave (18.6). Brendan got 20.6 pts from Christian McCaffrey, but Stroking my penix couldn't keep pace as Austin improved to a perfect 3-0 lifetime against Brendan.",
-    "Aidan O'Sullivan_Sean Belcher": "Aidan O'Sullivan remained spotless at 2-0, securing a 91.42 to 52.96 victory over Sean Belcher. Jahmyr Gibbs (20.3) and Denzel Boston (18.0) led JD Vance in Drag, while Sean endured an absolute catastrophe: Milkshake Baddies posted a league-worst 52.96 pts—the 4th lowest score in the modern era (2022+) of Pride Guys history—with Jalen Hurts managing just 16.16 pts. Aidan snapped Sean's 4-game winning streak against him and handed the 2x champion OG a stunning 0-2 start.",
-    'Andrew Wilson_Brodie Pirtle': "Expansion history made! Rookie owner Brodie Pirtle captured his first career Pride Guys franchise win in emphatic fashion, dropping 134.68 pts to upset 3-time banner king Andrew Wilson (91.90) by 42.78 pts. Davante Adams (37.5) and Derrick Henry (16.2) led BloodSword2000's onslaught. Andrew got 23.0 from Ja'Marr Chase, but the rest of L Central sputtered, sending the storied champion into an alarming 0-2 hole."
-  };
+  const w2RecapMatchups = [
+    {
+      homeOwner: "Michael Anderson",
+      awayOwner: "Trace Bakulich",
+      homeTeam: "CTESPN",
+      awayTeam: "ProudER",
+      homeRank: 9,
+      awayRank: 1,
+      h2h: "10-9",
+      streak: "Trace 2 (Wk12'25, Wk2'26)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Trace Bakulich delivered the performance of the season in Pride Guys, posting a league-high 159.78 pts with a flawless 100% coaching efficiency to rout Michael Anderson (106.50) by 53.28 pts. Jonathan Taylor (27.2), DeVonta Smith (24.7), and Bryce Young (24.08) formed an unstoppable triple-threat. Michael, Pride Guys' most decorated titleless manager, falls to 0-2 despite CeeDee Lamb's 33.30-pt display as Trace cuts Michael's regular season series edge to 10-9."
+    },
+    {
+      homeOwner: "Tyler Hicks",
+      awayOwner: "Nathan Wells",
+      homeTeam: "South Memphis Football Club",
+      awayTeam: "Defense Contractor #1",
+      homeRank: 3,
+      awayRank: 7,
+      h2h: "3-5",
+      streak: "Tyler 1 (Wk2'26)",
+      playoffs: "1-0 (Consolation'24)",
+      isGameOfTheWeek: false,
+      writeup: "Tyler Hicks stayed undefeated at 2-0 with an authoritative 130.48 to 96.72 victory over Nathan Wells. Amon-Ra St. Brown (32.7), Jared Goff (29.78), and a 21-pt clinic from the Patriots defense overpowered Nathan's squad. Nathan got a 40.82-pt masterclass from Josh Allen, but an offensive dry spell from the rest of Defense Contractor #1 dropped Nathan to 1-1 as Tyler pulled within 4-3 in their all-time regular season series."
+    },
+    {
+      homeOwner: "Dylan Soth",
+      awayOwner: "Phillip Busick",
+      homeTeam: "Human Eros TDs",
+      awayTeam: "Joey Chestnuts",
+      homeRank: 8,
+      awayRank: 11,
+      h2h: "3-2",
+      streak: "Dylan 3 (Wk4'25, Wk12'25, Wk2'26)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Reigning champion Dylan Soth entered the win column with a 92.62 to 55.98 triumph over Phillip Busick. James Cook III (20.4) and Dalton Kincaid (19.0) provided just enough cushion in a defensive grind. Phil's Joey Chestnuts suffered complete offensive paralysis, tallying just 55.98 pts (the second-lowest score in the league) as Puka Nacua and A.J. Brown failed to reach the end zone, dropping Phil to 0-2 while Dylan pushed his series streak over Phil to 3 straight."
+    },
+    {
+      homeOwner: "Austin Geller",
+      awayOwner: "Brendan Sanders",
+      homeTeam: "Justin Herbooty",
+      awayTeam: "Stroking my penix",
+      homeRank: 2,
+      awayRank: 6,
+      h2h: "3-0",
+      streak: "Austin 3 (Wk1'25, Wk8'25, Wk2'26)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "In an undefeated clash of title favorites, 2022 champion Austin Geller marched to 2-0 with a 119.38 to 95.04 win over Brendan Sanders. Jaxon Smith-Njigba was the player of the week, hanging an astonishing 40.0 pts alongside Kenneth Walker III (20.8) and Chris Olave (18.6). Brendan got 20.6 pts from Christian McCaffrey, but Stroking my penix couldn't keep pace as Austin improved to a perfect 3-0 lifetime against Brendan."
+    },
+    {
+      homeOwner: "Aidan O'Sullivan",
+      awayOwner: "Sean Belcher",
+      homeTeam: "JD Vance in Drag",
+      awayTeam: "Milkshake Baddies",
+      homeRank: 4,
+      awayRank: 12,
+      h2h: "5-8",
+      streak: "Aidan 1 (Wk2'26)",
+      playoffs: "0-0",
+      isGameOfTheWeek: true,
+      writeup: "Game of the Week: Aidan O'Sullivan remained spotless at 2-0, securing a 91.42 to 52.96 victory over Sean Belcher. Jahmyr Gibbs (20.3) and Denzel Boston (18.0) led JD Vance in Drag, while Sean endured an absolute catastrophe: Milkshake Baddies posted a league-worst 52.96 pts—the 4th lowest score in the modern era (2022+) of Pride Guys history—with Jalen Hurts managing just 16.16 pts. Aidan snapped Sean's 4-game winning streak against him and handed the 2x champion OG a stunning 0-2 start."
+    },
+    {
+      homeOwner: "Andrew Wilson",
+      awayOwner: "Brodie Pirtle",
+      homeTeam: "L Central",
+      awayTeam: "BloodSword2000",
+      homeRank: 10,
+      awayRank: 5,
+      h2h: "0-1",
+      streak: "Brodie 1 (Wk2'26)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Expansion history made! Rookie owner Brodie Pirtle captured his first career Pride Guys franchise win in emphatic fashion, dropping 134.68 pts to upset 3-time banner king Andrew Wilson (91.90) by 42.78 pts. Davante Adams (37.5) and Derrick Henry (16.2) led BloodSword2000's onslaught. Andrew got 23.0 from Ja'Marr Chase, but the rest of L Central sputtered, sending the storied champion into an alarming 0-2 hole."
+    }
+  ];
 
   // 2. Week 3 Previews
-  const w3PreviewMatchups = {
-    'Tyler Hicks_Michael Anderson': "Tyler Hicks enters 2-0 with momentum surging after knocking off the defending champion and Nathan in consecutive weeks behind Amon-Ra St. Brown. Michael Anderson, however, finds himself in an unfamiliar 0-2 hole despite CeeDee Lamb's brilliance. Michael holds a 7-3 regular season edge over Tyler, but desperately needs his running game to awaken to avoid a catastrophic 0-3 start.",
-    'Trace Bakulich_Dylan Soth': "Game of the Week: All-time wins leader meets reigning champion. Trace Bakulich arrives fresh off a 159.78-pt scoring masterclass (league high) behind Jonathan Taylor and DeVonta Smith. Dylan Soth got off the mat with a Week 2 win over Phil behind James Cook. Trace holds a 5-4 regular season edge and has taken their last two meetings; both 1-1 squads look to make a defining statement in this heavyweight rivalry.",
-    'Nathan Wells_Phillip Busick': "A critical crossroad for two franchises looking to regain their footing. Nathan Wells (1-1) boasts elite firepower in Josh Allen and Bijan Robinson, looking to wash away a Week 2 setback against Tyler. Phillip Busick (0-2) is in urgent crisis mode, having scored just 55.98 pts in Week 2. Nathan has taken their last two meetings and holds a 6-3 series lead; Phil needs Puka Nacua to carry Joey Chestnuts out of the cellar.",
-    "Aidan O'Sullivan_Austin Geller": "Undefeated Clash of Titans! The only two 2-0 teams remaining square off for sole possession of 1st place in Pride Guys. Aidan reigns behind 1.01 draft pick Jahmyr Gibbs and Caleb Williams, while Austin counters with JSN (coming off a 40-pt week) and Kenneth Walker III. Aidan leads their historical series 5-4; the winner takes early control of the inside track to the #1 overall playoff seed.",
-    'Brendan Sanders_Andrew Wilson': "Championship pedigree meets sophomore firepower. Andrew Wilson, the league's 3-time banner king, is facing a 5-alarm fire at 0-2 following an upset loss to rookie Brodie. Brendan Sanders sits at 1-1 with Christian McCaffrey and Ashton Jeanty ready to rumble. Andrew urgently needs Lamar Jackson and Ja'Marr Chase to deliver a signature performance to prevent an 0-3 hole.",
-    'Sean Belcher_Brodie Pirtle': "A tale of two opposite trajectories. 2-time champion Sean Belcher sits dead last in the standings at 0-2 after averaging just 72.8 pts over the first two weeks. He faces high-flying expansion rookie Brodie Pirtle, riding high after dropping 134.68 pts behind Davante Adams to earn his first franchise win. Can the veteran OG summon championship pride, or will the newcomer claim another legend's scalp?"
-  };
+  const w3PreviewMatchups = [
+    {
+      homeOwner: "Tyler Hicks",
+      awayOwner: "Michael Anderson",
+      homeTeam: "South Memphis Football Club",
+      awayTeam: "CTESPN",
+      homeRank: 3,
+      awayRank: 9,
+      h2h: "1-2",
+      streak: "Michael Anderson 2 (Wk6'24, Wk14'24)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Tyler Hicks enters 2-0 with momentum surging after knocking off the defending champion and Nathan in consecutive weeks behind Amon-Ra St. Brown. Michael Anderson, however, finds himself in an unfamiliar 0-2 hole despite CeeDee Lamb's brilliance. Michael holds a 7-3 regular season edge over Tyler, but desperately needs his running game to awaken to avoid a catastrophic 0-3 start."
+    },
+    {
+      homeOwner: "Trace Bakulich",
+      awayOwner: "Dylan Soth",
+      homeTeam: "ProudER",
+      awayTeam: "Human Eros TDs",
+      homeRank: 1,
+      awayRank: 8,
+      h2h: "7-5",
+      streak: "Dylan Soth 1 (Wk15'25)",
+      playoffs: "0-0",
+      isGameOfTheWeek: true,
+      writeup: "Game of the Week: All-time wins leader meets reigning champion. Trace Bakulich arrives fresh off a 159.78-pt scoring masterclass (league high) behind Jonathan Taylor and DeVonta Smith. Dylan Soth got off the mat with a Week 2 win over Phil behind James Cook. Trace holds a 5-4 regular season edge and has taken their last two meetings; both 1-1 squads look to make a defining statement in this heavyweight rivalry."
+    },
+    {
+      homeOwner: "Nathan Wells",
+      awayOwner: "Phillip Busick",
+      homeTeam: "Defense Contractor #1",
+      awayTeam: "Joey Chestnuts",
+      homeRank: 7,
+      awayRank: 11,
+      h2h: "4-2",
+      streak: "Nathan Wells 1 (Wk7'25)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "A critical crossroad for two franchises looking to regain their footing. Nathan Wells (1-1) boasts elite firepower in Josh Allen and Bijan Robinson, looking to wash away a Week 2 setback against Tyler. Phillip Busick (0-2) is in urgent crisis mode, having scored just 55.98 pts in Week 2. Nathan has taken their last two meetings and holds a 6-3 series lead; Phil needs Puka Nacua to carry Joey Chestnuts out of the cellar."
+    },
+    {
+      homeOwner: "Aidan O'Sullivan",
+      awayOwner: "Austin Geller",
+      homeTeam: "JD Vance in Drag",
+      awayTeam: "Justin Herbooty",
+      homeRank: 4,
+      awayRank: 2,
+      h2h: "4-8",
+      streak: "Austin Geller 2 (Wk4'25, Wk14'25)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Undefeated Clash of Titans! The only two 2-0 teams remaining square off for sole possession of 1st place in Pride Guys. Aidan reigns behind 1.01 draft pick Jahmyr Gibbs and Caleb Williams, while Austin counters with JSN (coming off a 40-pt week) and Kenneth Walker III. Aidan leads their historical series 5-4; the winner takes early control of the inside track to the #1 overall playoff seed."
+    },
+    {
+      homeOwner: "Brendan Sanders",
+      awayOwner: "Andrew Wilson",
+      homeTeam: "Stroking my penix",
+      awayTeam: "L Central",
+      homeRank: 6,
+      awayRank: 10,
+      h2h: "1-1",
+      streak: "Andrew Wilson 1 (Wk10'25)",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "Championship pedigree meets sophomore firepower. Andrew Wilson, the league's 3-time banner king, is facing a 5-alarm fire at 0-2 following an upset loss to rookie Brodie. Brendan Sanders sits at 1-1 with Christian McCaffrey and Ashton Jeanty ready to rumble. Andrew urgently needs Lamar Jackson and Ja'Marr Chase to deliver a signature performance to prevent an 0-3 hole."
+    },
+    {
+      homeOwner: "Sean Belcher",
+      awayOwner: "Brodie Pirtle",
+      homeTeam: "Milkshake Baddies",
+      awayTeam: "BloodSword2000",
+      homeRank: 12,
+      awayRank: 5,
+      h2h: "0-0",
+      streak: "0",
+      playoffs: "0-0",
+      isGameOfTheWeek: false,
+      writeup: "A tale of two opposite trajectories. 2-time champion Sean Belcher sits dead last in the standings at 0-2 after averaging just 72.8 pts over the first two weeks. He faces high-flying expansion rookie Brodie Pirtle, riding high after dropping 134.68 pts behind Davante Adams to earn his first franchise win. Can the veteran OG summon championship pride, or will the newcomer claim another legend's scalp?"
+    }
+  ];
 
   return { w2RecapMatchups, w3PreviewMatchups };
 }
@@ -322,12 +466,14 @@ export function formatY2kMarkdown(title, matchups) {
 /**
  * Format Markdown file for Pride Guys recaps / previews
  */
-export function formatPrideMarkdown(title, matchupDict) {
+export function formatPrideMarkdown(title, matchups) {
   let text = `# ${title}\n\n`;
-  Object.entries(matchupDict).forEach(([key, writeup]) => {
-    const [h, a] = key.split('_');
-    text += `### ${h} vs ${a}\n\n`;
-    text += `${writeup}\n\n`;
+  matchups.forEach(m => {
+    text += `${m.homeTeam} vs ${m.awayTeam}\n`;
+    text += `h2h: ${m.h2h}\n`;
+    text += `streak: ${m.streak}\n`;
+    text += `playoffs: ${m.playoffs}\n`;
+    text += `${m.writeup}\n\n`;
   });
   return text;
 }
@@ -386,8 +532,16 @@ export function runDraftGeneration() {
     // Update Backup JSON
     const prideBackupPath = resolve(draftsDir, 'PRIDE_2026_COMMENTARY_BACKUP.json');
     const existingPrideBackup = loadJson(prideBackupPath) || {};
-    existingPrideBackup['week2Recap'] = pride.w2RecapMatchups;
-    existingPrideBackup['week3Preview'] = pride.w3PreviewMatchups;
+    existingPrideBackup['2'] = {
+      mode: 'recap',
+      title: '🌈 2026 Pride Guys: Week 2 Matchup Recaps',
+      matchups: pride.w2RecapMatchups
+    };
+    existingPrideBackup['3'] = {
+      mode: 'preview',
+      title: '🌈 2026 Pride Guys: Week 3 Matchup Previews',
+      matchups: pride.w3PreviewMatchups
+    };
     writeFileSync(prideBackupPath, JSON.stringify(existingPrideBackup, null, 2), 'utf8');
     console.log(`💾 Updated draft backup: ${prideBackupPath}`);
   }

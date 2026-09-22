@@ -102,11 +102,16 @@ describe('Commentary Draft Generation Suite', () => {
   it('should generate Pride Guys drafts for Week 2 recap and Week 3 preview', () => {
     const drafts = generatePrideDrafts();
     expect(drafts).toBeDefined();
-    expect(Object.keys(drafts.w2RecapMatchups)).toHaveLength(6);
-    expect(Object.keys(drafts.w3PreviewMatchups)).toHaveLength(6);
+    expect(drafts.w2RecapMatchups).toHaveLength(6);
+    expect(drafts.w3PreviewMatchups).toHaveLength(6);
 
-    expect(drafts.w2RecapMatchups['Michael Anderson_Trace Bakulich']).toContain('159.78');
-    expect(drafts.w2RecapMatchups['Andrew Wilson_Brodie Pirtle']).toContain('Brodie Pirtle');
+    const mikeTrace = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Michael Anderson' && m.awayOwner === 'Trace Bakulich');
+    expect(mikeTrace).toBeDefined();
+    expect(mikeTrace.writeup).toContain('159.78');
+
+    const andrewBrodie = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Andrew Wilson' && m.awayOwner === 'Brodie Pirtle');
+    expect(andrewBrodie).toBeDefined();
+    expect(andrewBrodie.writeup).toContain('Brodie Pirtle');
   });
 
   it('should verify draft files exist on disk in docs/', () => {
@@ -129,8 +134,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(liveY2k.weeklyCommentary['2026']['3']).toBeUndefined();
 
     // Live Pride has week 2 recap published, but week 3 preview remains unpublished
-    expect(livePride.weeklyCommentary['week2Recap']).toBeDefined();
-    expect(Object.keys(livePride.weeklyCommentary['week2Recap']).length).toBe(6);
-    expect(livePride.weeklyCommentary['week3Preview']).toBeUndefined();
+    expect(livePride.weeklyCommentary['2026']['2'].mode).toBe('recap');
+    expect(livePride.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
+    expect(livePride.weeklyCommentary['2026']['3']).toBeUndefined();
   });
 });
