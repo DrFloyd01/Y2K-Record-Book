@@ -149,4 +149,66 @@ describe('E2E DOM Integration Test', () => {
     expect(showcaseHtml).toContain('Sean Belcher');
     expect(showcaseHtml).toContain('52.96 pts');
   });
+
+  it('should verify Champs tab Dynasty Leaderboard and Playoff Record Cards popovers in Modern Era and All-Time', async () => {
+    const { filterLeagueDataByMinYear } = await import('../src/core/eraFilter.js');
+    const { buildDynastyLeaderboardRows } = await import('../src/components/standingsView.js');
+    const { buildStatCardTop5Popover } = await import('../src/components/popovers.js');
+    const { CRT_THEME, PRIDE_THEME } = await import('../src/theme/theme.js');
+
+    // 1. Y2K Dynasty Leaderboard: Modern Era vs All-Time
+    const modernY2k = filterLeagueDataByMinYear(window.LEAGUE_DATA, 2022);
+    const modernLeaderboard = modernY2k.allTimeStandings.slice().sort((a, b) => {
+      const cA = a.championships || {}, cB = b.championships || {};
+      if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
+      return b.winPct - a.winPct;
+    });
+    const modernRows = buildDynastyLeaderboardRows({
+      leaderboard: modernLeaderboard,
+      championships: modernY2k.championships,
+      theme: CRT_THEME
+    });
+    // Dylan is #1 in modern era with 2 titles
+    expect(modernLeaderboard[0].ownerName).toBe('Dylan');
+    expect(modernRows).toContain('Dylan');
+
+    const allTimeLeaderboard = window.LEAGUE_DATA.allTimeStandings.slice().sort((a, b) => {
+      const cA = a.championships || {}, cB = b.championships || {};
+      if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
+      return b.winPct - a.winPct;
+    });
+    // Phillip is #1 in all-time
+    expect(allTimeLeaderboard[0].ownerName).toBe('Phillip');
+
+    // 2. Playoff Stat Cards Popovers in both leagues and eras
+    const categories = ['juggernaut', 'featherweight', 'cakewalk', 'nailbiter', 'gutpunch', 'criminal', 'victoryLap', 'dumpsterFire'];
+    const rawPride = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/data/prideGuysData.json'), 'utf-8'));
+    const modernPride = filterLeagueDataByMinYear(rawPride, 2022);
+
+    categories.forEach(key => {
+      // Y2K Modern
+      const y2kModPop = buildStatCardTop5Popover({
+        cardTitle: key,
+        metricKey: key,
+        season: 'playoffs',
+        rowPopDir: ' tooltip-content-bottom',
+        leagueData: modernY2k,
+        theme: CRT_THEME
+      });
+      expect(y2kModPop).toContain('tooltip-content');
+      expect(y2kModPop).not.toContain('No data records found');
+
+      // Pride Modern
+      const prideModPop = buildStatCardTop5Popover({
+        cardTitle: key,
+        metricKey: key,
+        season: 'playoffs',
+        rowPopDir: ' tooltip-content-bottom',
+        leagueData: modernPride,
+        theme: PRIDE_THEME
+      });
+      expect(prideModPop).toContain('tooltip-content');
+      expect(prideModPop).not.toContain('No data records found');
+    });
+  });
 });

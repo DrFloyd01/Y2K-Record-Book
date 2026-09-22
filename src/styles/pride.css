@@ -132,6 +132,8 @@ h1, h2, h3, h4, th, .font-fredoka, .font-outfit {
 
 #stat-cards-grid > div:hover,
 #stat-cards-grid > div:has(.tooltip-trigger:hover),
+#champs-stat-records-grid > div:hover,
+#champs-stat-records-grid > div:has(.tooltip-trigger:hover),
 .crt-box:has(.tooltip-trigger:hover),
 .record-card:hover,
 .matchup-card-container:hover,

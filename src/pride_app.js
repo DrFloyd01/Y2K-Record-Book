@@ -1791,6 +1791,18 @@ function renderLucideIcons() {
       if (grid) grid.innerHTML = '';
       if (statGrid) statGrid.innerHTML = '';
 
+      const champsSub = document.getElementById('champs-subtitle');
+      if (champsSub) {
+        const cCount = (window.LEAGUE_DATA.championships || []).length;
+        champsSub.textContent = isModernEraFilter
+          ? `${cCount} Concluded Seasons of Pride Cup Champions, Dynasty Finishes, and Modern Era Records (2022+).`
+          : `${cCount} Seasons of Pride Cup Champions, Dynasty Finishes, and All-Time Franchise Records.`;
+      }
+      const pLabel = document.getElementById('champs-playoff-records-label');
+      if (pLabel) {
+        pLabel.textContent = isModernEraFilter ? '>_ MODERN_PLAYOFF_RECORDS (2022+)' : '>_ ALL-TIME_PLAYOFF_RECORDS';
+      }
+
       // Filter out 1-year managers and sort Dynasty Leaderboard
       const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
       const sortF = window.dynastySortField || '1st';
@@ -2021,7 +2033,11 @@ function renderLucideIcons() {
           }
 
           let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs', rowPopDir);
-          if (idx % 4 >= 2) popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
+          if (idx % 4 >= 2) {
+            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
+          } else if (idx % 4 === 0) {
+            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-left');
+          }
 
           div.innerHTML = `
             <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">

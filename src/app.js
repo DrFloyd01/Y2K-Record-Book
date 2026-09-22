@@ -16,6 +16,7 @@ import { CRT_THEME } from './theme/theme.js';
 import {
   buildStatCardTop5Popover as sharedBuildStatCardTop5Popover,
   getPlayerLifetimeDraftPopover as sharedGetPlayerLifetimeDraftPopover,
+  getPlayerRingBadgeHtml as sharedGetPlayerRingBadgeHtml
 } from './components/popovers.js';
 import {
   buildDynastyLeaderboardRows,
@@ -1794,10 +1795,52 @@ function renderLucideIcons() {
       if (grid) grid.innerHTML = '';
       if (statGrid) statGrid.innerHTML = '';
 
+      const champsSub = document.getElementById('champs-subtitle');
+      if (champsSub) {
+        const cCount = (window.LEAGUE_DATA.championships || []).length;
+        champsSub.textContent = isModernEraFilter
+          ? `${cCount} Concluded Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and Modern Era Records (2022+).`
+          : `${cCount} Seasons of Nebuchadnezzar Cup Champions, Dynasty Finishes, and All-Time Franchise Records.`;
+      }
+      const pLabel = document.getElementById('champs-playoff-records-label');
+      if (pLabel) {
+        pLabel.textContent = isModernEraFilter ? '>_ MODERN_PLAYOFF_RECORDS (2022+)' : '>_ ALL-TIME_PLAYOFF_RECORDS';
+      }
+
       // Filter out 1-year managers and sort Dynasty Leaderboard
       const leaderboard = window.LEAGUE_DATA.allTimeStandings.filter(s => !isOneYearManager(s.ownerName)).slice();
+      const sortF = window.dynastySortField || '1st';
+      const sortAsc = window.dynastySortAsc || false;
+
       leaderboard.sort((a, b) => {
         const cA = a.championships || {}, cB = b.championships || {};
+        let valA = 0, valB = 0;
+
+        if (sortF === '1st') { valA = cA['1st'] || 0; valB = cB['1st'] || 0; }
+        else if (sortF === '2nd') { valA = cA['2nd'] || 0; valB = cB['2nd'] || 0; }
+        else if (sortF === '3rd') { valA = cA['3rd'] || 0; valB = cB['3rd'] || 0; }
+        else if (sortF === '4th') { valA = cA['4th'] || 0; valB = cB['4th'] || 0; }
+        else if (sortF === '5th_6th') {
+          valA = (a.finishes && a.finishes['5th_6th'] ? a.finishes['5th_6th'].length : 0);
+          valB = (b.finishes && b.finishes['5th_6th'] ? b.finishes['5th_6th'].length : 0);
+        }
+        else if (sortF === '7th_12th') {
+          valA = (a.finishes && a.finishes['7th_12th'] ? a.finishes['7th_12th'].length : 0);
+          valB = (b.finishes && b.finishes['7th_12th'] ? b.finishes['7th_12th'].length : 0);
+        }
+        else if (sortF === 'playoffWins') { valA = a.playoffWins || 0; valB = b.playoffWins || 0; }
+        else if (sortF === 'playoffPct') { valA = a.playoffPct || 0; valB = b.playoffPct || 0; }
+        else if (sortF === 'scoringTitles') { valA = cA.scoringTitles || 0; valB = cB.scoringTitles || 0; }
+        else if (sortF === 'coachingEfficiency') { valA = a.coachingEfficiency || 0; valB = b.coachingEfficiency || 0; }
+        else if (sortF === 'dOhs') { valA = a.dOhs || 0; valB = b.dOhs || 0; }
+        else if (sortF === 'ownerName') {
+          return sortAsc ? a.ownerName.localeCompare(b.ownerName) : b.ownerName.localeCompare(a.ownerName);
+        }
+
+        if (valA !== valB) {
+          return sortAsc ? valA - valB : valB - valA;
+        }
+        // Default secondary tiebreakers
         if ((cB['1st'] || 0) !== (cA['1st'] || 0)) return (cB['1st'] || 0) - (cA['1st'] || 0);
         if ((cB['2nd'] || 0) !== (cA['2nd'] || 0)) return (cB['2nd'] || 0) - (cA['2nd'] || 0);
         if ((cB['3rd'] || 0) !== (cA['3rd'] || 0)) return (cB['3rd'] || 0) - (cA['3rd'] || 0);
@@ -1988,6 +2031,7 @@ function renderLucideIcons() {
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
           div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-emerald-400 transition-all shadow-md';
+          const rowPopDir = idx < 4 ? ' tooltip-content-bottom' : '';
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
           const owner = card.data ? card.data.owner : '-';
@@ -2001,8 +2045,12 @@ function renderLucideIcons() {
             div.title = `Click to jump to ${card.data.year} Week ${card.data.week} Playoff Matchup`;
           }
 
-          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs');
-          if (idx % 4 >= 2) popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
+          let popoverHtml = buildStatCardTop5Popover(card.title, card.key, 'playoffs', rowPopDir);
+          if (idx % 4 >= 2) {
+            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-right');
+          } else if (idx % 4 === 0) {
+            popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-left');
+          }
 
           div.innerHTML = `
             <div class="text-[11px] font-bold text-emerald-400 border-b border-emerald-900 pb-1 mb-2 flex items-center justify-between font-mono">
