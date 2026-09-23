@@ -79,7 +79,7 @@ export function buildH2HGameLogRows({ games = [], theme = CRT_THEME }) {
     const safeAwayOwner = (g.awayOwner || '').replace(/'/g, "\\'");
 
     return `
-      <tr class="${rowClass} cursor-pointer hover:bg-emerald-950/60 transition-all group" onclick="window.jumpToMatchup(${g.year}, ${g.week}, '${safeHomeOwner}', '${safeAwayOwner}')" title="Click to jump to ${g.year} Week ${g.week} Matchup Box Score">
+      <tr class="${rowClass} cursor-pointer ${isCrt ? 'hover:bg-emerald-950/60' : 'hover:bg-pink-50/50'} transition-all group" onclick="window.jumpToMatchup(${g.year}, ${g.week}, '${safeHomeOwner}', '${safeAwayOwner}')" title="Click to jump to ${g.year} Week ${g.week} Matchup Box Score">
         <td class="p-2 text-center ${yearClass}">${g.year}</td>
         <td class="p-2 text-center ${subText}">W${g.week}</td>
         <td class="p-2 text-center ${stageColor}">${stageText}</td>

@@ -96,6 +96,14 @@ h1, h2, h3, h4, th, .font-fredoka, .font-outfit {
   display: block;
   position: relative;
   box-sizing: border-box;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.table-scroll-container::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .table-scroll-container > table {

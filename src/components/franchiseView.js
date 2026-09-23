@@ -217,7 +217,7 @@ export function buildFranchiseProfileHtml({
     if (tn.dOhs > 0) {
       let tooltipList = (tn.dOhDetails || []).map(d => {
         const swapStr = d.benchPlayer && d.starter
-          ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
+          ? `Benched <span class="${isCrt ? 'text-sky-300' : 'text-pink-700'} font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${isCrt ? 'text-red-400' : 'text-purple-600'} font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${isCrt ? 'text-emerald-400' : 'text-amber-600'} font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
           : `Benched winning player for starter`;
         const safeOwner = (owner || '').replace(/'/g, "\\'");
         return `
@@ -230,9 +230,9 @@ export function buildFranchiseProfileHtml({
 
       dOhCell = `
         <div class="tooltip-trigger inline-block cursor-pointer">
-          <span class="px-2 py-0.5 bg-red-950 text-red-400 font-bold border border-red-700 rounded text-xs shadow-sm">🤦‍♂️ ${tn.dOhs}</span>
-          <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-sky-300 rounded border border-red-600 text-xs shadow-2xl min-w-[280px] text-left z-50">
-            <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">🤦‍♂️ ${tn.yr} D'Oh! Blunders (${tn.dOhs})</div>
+          <span class="px-2 py-0.5 ${isCrt ? 'bg-red-950 text-red-400 border-red-700' : 'bg-red-100 text-red-700 border-red-300'} font-bold border rounded text-xs shadow-sm">🤦‍♂️ ${tn.dOhs}</span>
+          <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 ${isCrt ? 'bg-black text-sky-300 border-red-600' : 'bg-white text-purple-950 border-sky-500'} rounded border text-xs shadow-2xl min-w-[280px] text-left z-50">
+            <div class="font-bold ${isCrt ? 'text-red-400 border-red-900' : 'text-sky-700 border-sky-200'} border-b pb-1 mb-1">🤦‍♂️ ${tn.yr} D'Oh! Blunders (${tn.dOhs})</div>
             ${tooltipList || '<div>1-swap losses</div>'}
           </div>
         </div>
@@ -241,15 +241,15 @@ export function buildFranchiseProfileHtml({
 
     historyRows += `
       <tr class="border-b ${isCrt ? 'border-emerald-950 hover:bg-emerald-950/30' : 'border-pink-100 hover:bg-pink-50/50'}">
-        <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600 font-sans'}">${tn.yr}</td>
-        <td class="p-2.5 font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'}">${tn.name}</td>
-        <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-pink-600'}">${formatFinishRank(tn.rank)}</td>
-        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-200' : 'text-purple-900'}">${tn.rec}</td>
-        <td class="p-2.5 text-center font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600'}">${tn.pRec}</td>
-        <td class="p-2.5 text-center ${isCrt ? 'font-mono text-emerald-300' : 'text-purple-900'} text-xs">${(tn.pf || 0).toFixed(1)}</td>
-        <td class="p-2.5 text-center">${accoladesCell}</td>
-        <td class="p-2.5 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-purple-900'}">${tn.coachingEfficiency ? `${tn.coachingEfficiency}%` : '-'}</td>
-        <td class="p-2.5 text-center">${dOhCell}</td>
+        <td class="p-2 text-center font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600 font-sans'}">${tn.yr}</td>
+        <td class="p-2 font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'}">${tn.name}</td>
+        <td class="p-2 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-pink-600'}">${formatFinishRank(tn.rank)}</td>
+        <td class="p-2 text-center ${isCrt ? 'font-mono text-emerald-200' : 'text-purple-900'}">${tn.rec}</td>
+        <td class="p-2 text-center font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-600'}">${tn.pRec}</td>
+        <td class="p-2 text-center ${isCrt ? 'font-mono text-emerald-300' : 'text-purple-900'} text-xs">${(tn.pf || 0).toFixed(1)}</td>
+        <td class="p-2 text-center">${accoladesCell}</td>
+        <td class="p-2 text-center font-bold ${isCrt ? 'font-mono text-emerald-400' : 'text-purple-900'}">${tn.coachingEfficiency ? `${tn.coachingEfficiency}%` : '-'}</td>
+        <td class="p-2 text-center">${dOhCell}</td>
       </tr>
     `;
   });
@@ -456,19 +456,19 @@ export function buildFranchiseProfileHtml({
       <div class="${isCrt ? 'crt-box-header font-mono' : 'bg-pink-50 text-pink-700 border-b border-pink-200 font-fredoka text-sm'} px-4 py-2 font-bold text-xs">
         &gt;_ FRANCHISE_HISTORY_EVOLUTION
       </div>
-      <div class="table-scroll-container">
-        <table class="w-full min-w-[800px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : 'font-sans'}">
+      <div class="w-full overflow-x-auto no-scrollbar">
+        <table class="w-full min-w-0 text-xs text-left border-collapse ${isCrt ? 'font-mono' : 'font-sans'}">
           <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-600' : 'bg-pink-50 text-pink-600 border-b border-pink-200'} font-bold text-xs">
             <tr>
-              <th class="p-2.5">YEAR</th>
-              <th class="p-2.5">TEAM NAME</th>
-              <th class="p-2.5 text-center">FINISH RANK</th>
-              <th class="p-2.5 text-center">REG RECORD</th>
-              <th class="p-2.5 text-center">PLAYOFF RECORD</th>
-              <th class="p-2.5 text-center">POINTS FOR</th>
-              <th class="p-2.5 text-center">ACCOLADES</th>
-              <th class="p-2.5 text-center">COACHING EFF</th>
-              <th class="p-2.5 text-center">D'OHS 🤦‍♂️</th>
+              <th class="p-2 text-center w-14">YEAR</th>
+              <th class="p-2">TEAM NAME</th>
+              <th class="p-2 text-center">FINISH RANK</th>
+              <th class="p-2 text-center">REG RECORD</th>
+              <th class="p-2 text-center">PLAYOFF RECORD</th>
+              <th class="p-2 text-center">POINTS FOR</th>
+              <th class="p-2 text-center">ACCOLADES</th>
+              <th class="p-2 text-center">COACHING EFF</th>
+              <th class="p-2 text-center">D'OHS 🤦‍♂️</th>
             </tr>
           </thead>
           <tbody>

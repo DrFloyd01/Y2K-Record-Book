@@ -181,6 +181,9 @@ export function createLeagueApp(config) {
         initDraftTab();
         initMatchupsTab();
         renderLucideIcons();
+        if (config.hasNavIndicator) {
+          updateNavIndicator('seasons');
+        }
 
         // Direct Deep Linking Support via URL Hash (e.g. #challenges or #bounties or #matchups?season=...&week=...)
         const rawHash = (window.location.hash || '').replace(/^#/, '').trim();
@@ -279,14 +282,26 @@ export function createLeagueApp(config) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById(`tab-${tabId}`).classList.remove('hidden');
 
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
-        btn.classList.add('text-emerald-500', 'border-transparent');
-      });
-      const activeNav = document.getElementById(`nav-${tabId}`);
-      if (activeNav) {
-        activeNav.classList.add('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
-        activeNav.classList.remove('text-emerald-500', 'border-transparent');
+      if (isCrt) {
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.remove('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
+          btn.classList.add('text-emerald-500', 'border-transparent');
+        });
+        const activeNav = document.getElementById(`nav-${tabId}`);
+        if (activeNav) {
+          activeNav.classList.add('bg-emerald-900/60', 'text-emerald-300', 'border-emerald-500');
+          activeNav.classList.remove('text-emerald-500', 'border-transparent');
+        }
+      } else {
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.className = 'nav-btn relative z-10 px-4 py-1.5 text-xs font-bold font-fredoka rounded-full transition-all duration-200 text-purple-800 hover:text-pink-600';
+        });
+        const activeNav = document.getElementById(`nav-${tabId}`);
+        if (activeNav) {
+          activeNav.className = 'nav-btn relative z-10 px-4 py-1.5 text-xs font-black font-fredoka rounded-full transition-all duration-200 text-white';
+          updateNavIndicator(tabId);
+          setTimeout(() => updateNavIndicator(tabId), 50);
+        }
       }
 
       document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
@@ -335,7 +350,11 @@ export function createLeagueApp(config) {
         const btn = document.createElement('button');
         btn.id = `btn-season-${yr}`;
         btn.onclick = () => selectSeason(yr);
-        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`;
+        if (isCrt) {
+          btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`;
+        } else {
+          btn.className = `px-3 py-1 text-xs font-bold transition-all border rounded-full ${yr === currentSeason ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white border-pink-400 shadow-sm font-fredoka' : 'bg-white text-purple-800 border-pink-200 hover:border-pink-400 hover:text-pink-600 font-fredoka'}`;
+        }
         btn.innerText = yr;
         container.appendChild(btn);
       });
@@ -343,19 +362,28 @@ export function createLeagueApp(config) {
       const allTimeBtn = document.createElement('button');
       allTimeBtn.id = 'btn-season-allTime';
       allTimeBtn.onclick = () => selectSeason('allTime');
-      allTimeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
-      allTimeBtn.innerText = isModernEraFilter ? '2022+_ERA' : 'ALL_TIME';
+      if (isCrt) {
+        allTimeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+        allTimeBtn.innerText = isModernEraFilter ? '2022+_ERA' : 'ALL_TIME';
+      } else {
+        allTimeBtn.className = 'px-3 py-1 text-xs font-bold transition-all border rounded-full bg-white text-purple-800 border-pink-200 hover:border-pink-400 hover:text-pink-600 font-fredoka';
+        allTimeBtn.innerText = isModernEraFilter ? '🦄 2022+_ERA' : '🌈 ALL_TIME';
+      }
       container.appendChild(allTimeBtn);
     }
 
     function selectSeason(yr) {
       currentSeason = yr;
       document.querySelectorAll('#season-selector-container button').forEach(btn => {
-        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+        btn.className = isCrt
+          ? 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'
+          : 'px-3 py-1 text-xs font-bold transition-all border rounded-full bg-white text-purple-800 border-pink-200 hover:border-pink-400 hover:text-pink-600 font-fredoka';
       });
       const activeBtn = document.getElementById(`btn-season-${yr}`);
       if (activeBtn) {
-        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400';
+        activeBtn.className = isCrt
+          ? 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400'
+          : 'px-3 py-1 text-xs font-bold transition-all border rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white border-pink-400 shadow-sm font-fredoka';
       }
 
       const banner = document.getElementById('champion-banner');
@@ -363,18 +391,22 @@ export function createLeagueApp(config) {
       if (yr === 'allTime') {
         standingsSortField = 'winPct';
         standingsSortAsc = false;
-        banner.innerHTML = isModernEraFilter
-          ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">Modern Era Cumulative Standings (2022–Present)</span>`
-          : `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">All-Time Cumulative League Standings</span>`;
+        banner.innerHTML = isCrt
+          ? (isModernEraFilter ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">Modern Era Cumulative Standings (2022–Present)</span>` : `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">All-Time Cumulative League Standings</span>`)
+          : (isModernEraFilter ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700">Modern Era Cumulative Standings (2022–Present)</span>` : `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700">All-Time Cumulative League Standings</span>`);
         if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] DYNASTY LEADERBOARD`;
       } else {
         standingsSortField = 'rank';
         standingsSortAsc = true;
         const champ = window.LEAGUE_DATA.championships.find(c => c.seasonYear === yr);
         if (champ) {
-          banner.innerHTML = `&gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`;
+          banner.innerHTML = isCrt
+            ? `&gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`
+            : `&gt; ACTIVE_CHAMPION: <span class="font-bold text-pink-700">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`;
         } else {
-          banner.innerHTML = `&gt; SEASON_VIEW: <span class="font-bold text-emerald-300">${yr} Season</span>`;
+          banner.innerHTML = isCrt
+            ? `&gt; SEASON_VIEW: <span class="font-bold text-emerald-300">${yr} Season</span>`
+            : `&gt; SEASON_VIEW: <span class="font-bold text-pink-700">${yr} Season</span>`;
         }
         if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] PLAYOFF BRACKET`;
       }
@@ -385,14 +417,24 @@ export function createLeagueApp(config) {
 
     function switchSeasonsSubTab(subTab) {
       currentSeasonsSubTab = subTab;
-      document.querySelectorAll('.subnav-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
-        btn.classList.add('text-emerald-600');
-      });
-      const activeSub = document.getElementById(`subnav-${subTab}`);
-      if (activeSub) {
-        activeSub.classList.add('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
-        activeSub.classList.remove('text-emerald-600');
+      if (isCrt) {
+        document.querySelectorAll('.subnav-btn').forEach(btn => {
+          btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
+          btn.classList.add('text-emerald-600');
+        });
+        const activeSub = document.getElementById(`subnav-${subTab}`);
+        if (activeSub) {
+          activeSub.classList.add('bg-emerald-900', 'text-emerald-300', 'border', 'border-emerald-500');
+          activeSub.classList.remove('text-emerald-600');
+        }
+      } else {
+        document.querySelectorAll('.subnav-btn').forEach(btn => {
+          btn.className = 'subnav-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+        });
+        const activeSub = document.getElementById(`subnav-${subTab}`);
+        if (activeSub) {
+          activeSub.className = 'subnav-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+        }
       }
       renderStandings();
     }
@@ -419,30 +461,30 @@ export function createLeagueApp(config) {
         } else {
           // In All-Time context, Playoff Bracket tab surfaces the full Dynasty Leaderboard
           container.innerHTML = `
-            <div class="crt-box rounded p-4 mb-6">
-              <div class="text-xs text-emerald-400 tracking-widest font-bold uppercase mb-1">&gt;_ ALL-TIME_DYNASTY_STANDINGS</div>
-              <h2 class="text-2xl font-black text-emerald-300 crt-glow">${config.cupName} &amp; DYNASTY LEADERBOARD</h2>
-              <p class="text-xs text-emerald-300/80 mt-1 font-mono">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
+            <div class="crt-box ${isCrt ? 'rounded p-4 mb-6' : 'rounded-2xl p-4 mb-6 border-2 border-pink-300 bg-white shadow-md'}">
+              <div class="text-xs ${isCrt ? 'text-emerald-400 font-mono' : 'text-pink-500 font-fredoka'} tracking-widest font-bold uppercase mb-1">${isCrt ? '&gt;_ ALL-TIME_DYNASTY_STANDINGS' : '✨ ALL-TIME DYNASTY STANDINGS'}</div>
+              <h2 class="text-2xl font-black ${isCrt ? 'text-emerald-300 crt-glow font-mono' : 'text-purple-950 font-fredoka'}">${config.cupName} &amp; DYNASTY LEADERBOARD</h2>
+              <p class="text-xs ${isCrt ? 'text-emerald-300/80 font-mono' : 'text-purple-800/80 font-sans'} mt-1">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
             </div>
-            <div class="crt-box rounded overflow-visible mb-8">
+            <div class="crt-box ${isCrt ? 'rounded overflow-visible mb-8' : 'rounded-2xl overflow-visible mb-8 border-2 border-pink-300 bg-white shadow-md'}">
               <div class="table-scroll-container">
-                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
+                <table class="w-full min-w-[680px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : ''}">
+                  <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-600' : 'bg-pink-50/90 text-pink-600 border-b border-pink-200'} font-bold text-xs">
                     <tr>
-                      <th class="p-3 text-center">RANK</th>
-                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-emerald-900">MANAGER</th>
-                      <th class="p-3 text-center">ACTIVE</th>
-                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF W-L</th>
-                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">PLAYOFF %</th>
-                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥇 1st</th>
-                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥈 2nd</th>
-                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🥉 3rd</th>
-                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">4th</th>
-                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">5th-6th</th>
-                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">7th-12th</th>
-                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🎯 SCORING TITLES</th>
-                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🧠 COACHING EFF</th>
-                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-emerald-900">🤦‍♂️ D'OHS</th>
+                      <th class="p-3 text-center">${isCrt ? 'RANK' : 'Rank'}</th>
+                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">MANAGER</th>
+                      <th class="p-3 text-center">${isCrt ? 'ACTIVE' : 'Active'}</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF W-L</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF %</th>
+                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥇 1st</th>
+                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥈 2nd</th>
+                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥉 3rd</th>
+                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">4th</th>
+                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">5th-6th</th>
+                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">7th-12th</th>
+                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🎯 SCORING TITLES</th>
+                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🧠 COACHING EFF</th>
+                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🤦‍♂️ D'OHS</th>
                     </tr>
                   </thead>
                   <tbody id="champs-leaderboard-body-seasons"></tbody>
@@ -500,8 +542,8 @@ export function createLeagueApp(config) {
       container.innerHTML = `
         <div class="crt-box rounded overflow-visible mb-8">
           <div class="table-scroll-container">
-            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-              <thead class="crt-box-header font-bold border-b border-emerald-600">
+            <table class="w-full min-w-[680px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : ''}">
+              <thead class="crt-box-header font-bold border-b ${isCrt ? 'border-emerald-600' : 'border-pink-300'}">
                 <tr id="standings-table-header"></tr>
               </thead>
               <tbody id="standings-table-body"></tbody>
@@ -576,7 +618,8 @@ export function createLeagueApp(config) {
         currentSeason: currentSeason
       });
 
-      headerTr.innerHTML = `
+      if (isCrt) {
+        headerTr.innerHTML = `
         <th onclick="sortStandings('rank')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">#</th>
         <th onclick="sortStandings('wins')" class="p-2.5 cursor-pointer hover:bg-emerald-900">FRANCHISE_TEAM</th>
         <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">W-L</th>
@@ -647,134 +690,273 @@ export function createLeagueApp(config) {
         </th>
         <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
         <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-emerald-900">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
-      `;
+        `;
+      } else {
+        headerTr.innerHTML = `
+        <th onclick="sortStandings('rank')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">#</th>
+        <th onclick="sortStandings('wins')" class="p-2.5 cursor-pointer hover:bg-pink-100/90">FRANCHISE_TEAM</th>
+        <th onclick="sortStandings('wins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">W-L</th>
+        <th class="p-2.5 text-center">FORM</th>
+        <th onclick="sortStandings('luck')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100/90 transition-all inline-block shadow-sm">🍀 LUCK</span>
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🍀 <span class="font-bold text-pink-600">Luck Index:</span> Actual wins minus expected wins (1 expected win awarded each week your score is in the top 50% of the league).
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('ovrRecord')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100/90 transition-all inline-block shadow-sm">🌐 OVR</span>
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[240px]">
+              🌐 <span class="font-bold text-pink-600">All-Play Record (OVR):</span> Your record if you played every manager every regular season week.
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('weeklyWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-purple-50 transition-all inline-block shadow-sm">⚡ WW</span>
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              ⚡ <span class="font-bold text-pink-600">WW (Weekly Wins):</span> Highest scoring team in a regular season week
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('luckiestWins')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50/90 text-pink-600 font-bold border border-pink-300 rounded text-xs hover:bg-pink-100/90 transition-all inline-block shadow-sm">🍀 LW</span>
+            <div class="tooltip-content tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🍀 <span class="font-bold text-pink-600">LW (Luckiest Wins):</span> Lowest winning score in a regular season week
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('heartbreaks')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 rounded text-xs hover:bg-red-200 transition-all inline-block shadow-sm">💔 HB</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-red-600 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              💔 <span class="font-bold text-red-500">HB (Heartbreaks):</span> Smallest point margin loss in a regular season week (losing by a hair)
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('toughestLosses')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 rounded text-xs hover:bg-amber-200 transition-all inline-block shadow-sm">🤕 TL</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-amber-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🤕 <span class="font-bold text-amber-600">TL (Toughest Losses):</span> Highest losing score in a regular season week (scoring tons of points in a loss)
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('dOhs')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold border border-sky-300 rounded text-xs hover:bg-sky-200 transition-all inline-block shadow-sm">🤦‍♂️ DO</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl text-left font-normal min-w-[220px]">
+              🤦‍♂️ <span class="font-bold text-sky-600">DO (D'Oh! Blunders):</span> Lost a matchup despite having a single bench player who outscored a starter by enough to flip the loss into a win.
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('coachingEfficiency')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">
+          <div class="tooltip-trigger inline-block cursor-pointer">
+            <span class="px-2 py-0.5 bg-pink-50 text-pink-700 font-bold border border-pink-400 rounded text-xs hover:bg-pink-100 transition-all inline-block shadow-sm">🧠 EFF%</span>
+            <div class="tooltip-content tooltip-content-right tooltip-content-bottom p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl text-left font-normal min-w-[260px]">
+              🧠 <span class="font-bold text-pink-600">Coaching Efficiency %:</span> Actual PF / Optimal Best Ball PF. Measures start/sit accuracy.
+            </div>
+          </div>
+        </th>
+        <th onclick="sortStandings('pointsFor')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PF/G' : 'PF'}</th>
+        <th onclick="sortStandings('pointsAgainst')" class="p-2.5 text-center cursor-pointer hover:bg-pink-100/90">${currentSeason === 'allTime' ? 'PA/G' : 'PA'}</th>
+        `;
+      }
 
       list.forEach((item, idx) => {
         const tr = document.createElement('tr');
         const isTop3 = idx < 3;
-        tr.className = `border-b border-emerald-950 transition-colors ${isTop3 ? 'bg-emerald-950/40 font-bold' : 'hover:bg-emerald-950/20'}`;
+        tr.className = isCrt
+          ? `border-b border-emerald-950 transition-colors ${isTop3 ? 'bg-emerald-950/40 font-bold' : 'hover:bg-emerald-950/20'}`
+          : `border-b border-pink-100 transition-colors ${isTop3 ? 'bg-pink-50/60 font-bold' : 'hover:bg-pink-50/30'}`;
 
-        let formHtml = '<div class="flex gap-1 justify-center font-mono font-bold text-[11px]">';
+        let formHtml = isCrt ? '<div class="flex gap-1 justify-center font-mono font-bold text-[11px]">' : '<div class="flex gap-1 justify-center font-bold text-[11px]">';
         if (item.form && item.form.length > 0) {
           item.form.forEach(f => {
-            formHtml += (f === 'W')
-              ? `<span class="text-emerald-400">W</span>`
-              : `<span class="text-red-500">L</span>`;
+            if (isCrt) {
+              formHtml += (f === 'W') ? `<span class="text-emerald-400">W</span>` : `<span class="text-red-500">L</span>`;
+            } else {
+              formHtml += (f === 'W') ? `<span class="text-pink-600">W</span>` : `<span class="text-purple-400">L</span>`;
+            }
           });
         } else {
-          formHtml += `<span class="text-emerald-800">-</span>`;
+          formHtml += isCrt ? `<span class="text-emerald-800">-</span>` : `<span class="text-pink-200">-</span>`;
         }
         formHtml += '</div>';
 
         const luckVal = item.luck || 0;
-        const luckBadge = luckVal > 0
-          ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
-          : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-400">0</span>`);
+        let luckBadge = '';
+        if (isCrt) {
+          luckBadge = luckVal > 0
+            ? `<span class="text-emerald-400 font-bold">+${luckVal} W</span>`
+            : (luckVal < 0 ? `<span class="text-red-500 font-bold">${luckVal} W</span>` : `<span class="text-emerald-400">0</span>`);
+        } else {
+          luckBadge = luckVal > 0
+            ? `<span class="text-pink-600 font-bold">+${luckVal} W</span>`
+            : (luckVal < 0 ? `<span class="text-purple-400 font-bold">${luckVal} W</span>` : `<span class="text-pink-600">0</span>`);
+        }
 
         const rowPopDir = idx < 5 ? ' tooltip-content-bottom' : '';
 
         // 1. WW Badge
-        let wwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let wwBadge = isCrt
+          ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+          : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const wwCount = item.weeklyWins || 0;
         if (wwCount > 0 && item.wwDetails) {
           let tooltipList = item.wwDetails.map(d => {
             const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
             const yrStr = yr ? `${yr} ` : '';
             const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
-            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-emerald-900/60 hover:text-emerald-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
-              <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span></span>
-              <span class="text-[9px] text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
-            </div>`;
+            return isCrt
+              ? `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-emerald-900/60 hover:text-emerald-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span></span>
+                  <span class="text-[9px] text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
+                </div>`
+              : `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-pink-50 hover:text-pink-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span></span>
+                  <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+                </div>`;
           }).join('');
 
-          wwBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs">${wwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
+          wwBadge = isCrt
+            ? `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-emerald-900 text-emerald-300 font-bold border border-emerald-500 text-xs">${wwCount}</span>
+                <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
+                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`
+            : `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-pink-100 text-pink-700 font-bold border border-pink-300 text-xs">${wwCount}</span>
+                <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl p-3 min-w-[200px] text-left">
+                  <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">⚡ ${item.teamName} Weekly Wins (${wwCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`;
         }
 
         // 2. LW Badge
-        let lwBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let lwBadge = isCrt
+          ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+          : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const lwCount = item.luckiestWins || 0;
         if (lwCount > 0 && item.lwDetails) {
           let tooltipList = item.lwDetails.map(d => {
             const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
             const yrStr = yr ? `${yr} ` : '';
             const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
-            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-emerald-900/60 hover:text-emerald-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
-              <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</span>
-              <span class="text-[9px] text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
-            </div>`;
+            return isCrt
+              ? `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-emerald-900/60 hover:text-emerald-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-emerald-300">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</span>
+                  <span class="text-[9px] text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
+                </div>`
+              : `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-pink-50 hover:text-pink-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: <span class="font-bold text-pink-700">${d.score.toFixed(1)} PF</span> vs ${d.oppOwner} (${d.oppScore.toFixed(1)})</span>
+                  <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+                </div>`;
           }).join('');
 
-          lwBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs">${lwCount}</span>
-              <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
+          lwBadge = isCrt
+            ? `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 font-bold border border-emerald-600 text-xs">${lwCount}</span>
+                <div class="tooltip-content${rowPopDir} p-2.5 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3">
+                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`
+            : `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-pink-100 text-pink-600 font-bold border border-pink-300 text-xs">${lwCount}</span>
+                <div class="tooltip-content${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-pink-400 text-xs shadow-2xl p-3 min-w-[220px] text-left">
+                  <div class="font-bold text-pink-600 border-b border-pink-200 pb-1 mb-1">🍀 ${item.teamName} Luckiest Wins (${lwCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`;
         }
 
         // 3. HB Badge
-        let hbBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let hbBadge = isCrt
+          ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+          : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const hbCount = item.heartbreaks || 0;
         if (hbCount > 0 && item.hbDetails) {
           let tooltipList = item.hbDetails.map(d => {
             const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
             const yrStr = yr ? `${yr} ` : '';
             const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
-            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-red-950/60 hover:text-red-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
-              <span>• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-400">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</span>
-              <span class="text-[9px] text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
-            </div>`;
+            return isCrt
+              ? `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-red-950/60 hover:text-red-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-400">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</span>
+                  <span class="text-[9px] text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
+                </div>`
+              : `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-red-50 hover:text-red-800 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: Lost by <span class="font-bold text-red-600">${d.margin.toFixed(2)} pts</span> (${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)} vs ${d.oppOwner})</span>
+                  <span class="text-[9px] text-red-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+                </div>`;
           }).join('');
 
-          hbBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs">${hbCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl">
-                <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
+          hbBadge = isCrt
+            ? `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-red-950/80 text-red-400 font-bold border border-red-700 text-xs">${hbCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-red-600 text-xs shadow-2xl">
+                  <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`
+            : `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-red-100 text-red-600 font-bold border border-red-300 text-xs">${hbCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-red-600 text-xs shadow-2xl p-3 min-w-[220px] text-left">
+                  <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1">💔 ${item.teamName} Heartbreaks (${hbCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`;
         }
 
         // 4. TL Badge
-        let tlBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let tlBadge = isCrt
+          ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+          : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const tlCount = item.toughestLosses || 0;
         if (tlCount > 0 && item.tlDetails) {
           let tooltipList = item.tlDetails.map(d => {
             const yr = d.year || (currentSeason !== 'allTime' ? currentSeason : null);
             const yrStr = yr ? `${yr} ` : '';
             const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}', '${(d.oppOwner || '').replace(/'/g, "\\'")}')"` : '';
-            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-amber-950/60 hover:text-amber-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
-              <span>• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-300">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</span>
-              <span class="text-[9px] text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
-            </div>`;
+            return isCrt
+              ? `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-amber-950/60 hover:text-amber-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-300">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</span>
+                  <span class="text-[9px] text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-mono">📋 Box ➔</span>
+                </div>`
+              : `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-amber-50 hover:text-amber-900 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <span>• ${yrStr}Week ${d.week}: Lost <span class="font-bold text-amber-700">${d.score.toFixed(1)} - ${d.oppScore.toFixed(1)}</span> vs ${d.oppOwner} (${d.margin.toFixed(2)} pt margin)</span>
+                  <span class="text-[9px] text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity ml-1 font-fredoka">📋 Box ➔</span>
+                </div>`;
           }).join('');
 
-          tlBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs">${tlCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
-                <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
+          tlBadge = isCrt
+            ? `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-amber-950/60 text-amber-400 font-bold border border-amber-600 text-xs">${tlCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-emerald-300 rounded border border-amber-500 text-xs shadow-2xl">
+                  <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`
+            : `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-xs">${tlCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-amber-500 text-xs shadow-2xl p-3 min-w-[220px] text-left">
+                  <div class="font-bold text-amber-400 border-b border-amber-800 pb-1 mb-1">🤕 ${item.teamName} Toughest Losses (${tlCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`;
         }
 
         // 5. DO Badge (D'Ohs)
-        let doBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+        let doBadge = isCrt
+          ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+          : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         const doCount = item.dOhs !== undefined ? item.dOhs : (item.dOhDetails ? item.dOhDetails.length : 0);
         if (doCount > 0 && item.dOhDetails && item.dOhDetails.length > 0) {
           let tooltipList = item.dOhDetails.map(d => {
@@ -782,66 +964,111 @@ export function createLeagueApp(config) {
             const yrStr = yr ? `${yr} ` : '';
             const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${d.week}, '${(item.ownerName || '').replace(/'/g, "\\'")}')"` : '';
             const swapStr = d.benchPlayer && d.starter
-              ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
+              ? (isCrt
+                  ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`
+                  : `Benched <span class="text-pink-700 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-purple-600 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-amber-600 font-bold">+${d.netGain} PF</span> (Win by +${d.winMargin} pts)`)
               : `Benched winning player for starter`;
-            return `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-sky-950/60 hover:text-sky-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
-              <div>• ${yrStr}Week ${d.week}: ${swapStr}</div>
-              <span class="text-[9px] text-sky-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0 font-mono">📋 Box ➔</span>
-            </div>`;
+            return isCrt
+              ? `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-sky-950/60 hover:text-sky-200 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <div>• ${yrStr}Week ${d.week}: ${swapStr}</div>
+                  <span class="text-[9px] text-sky-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0 font-mono">📋 Box ➔</span>
+                </div>`
+              : `<div class="py-0.5 text-xs text-left cursor-pointer hover:bg-sky-50 hover:text-sky-900 rounded px-1 transition-colors flex items-center justify-between group" ${clickAttr} title="Click to jump to matchup">
+                  <div>• ${yrStr}Week ${d.week}: ${swapStr}</div>
+                  <span class="text-[9px] text-sky-600 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0 font-fredoka">📋 Box ➔</span>
+                </div>`;
           }).join('');
 
-          doBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 bg-sky-950 text-sky-400 font-bold border border-sky-600 text-xs">${doCount}</span>
-              <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-sky-300 rounded border border-sky-600 text-xs shadow-2xl min-w-[280px] text-left z-50">
-                <div class="font-bold text-sky-400 border-b border-sky-900 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
-                ${tooltipList}
-              </div>
-            </div>
-          `;
+          doBadge = isCrt
+            ? `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-sky-950 text-sky-400 font-bold border border-sky-600 text-xs">${doCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-black text-sky-300 rounded border border-sky-600 text-xs shadow-2xl min-w-[280px] text-left z-50">
+                  <div class="font-bold text-sky-400 border-b border-sky-900 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`
+            : `<div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold border border-sky-300 text-xs">${doCount}</span>
+                <div class="tooltip-content tooltip-content-right${rowPopDir} p-2.5 bg-white text-purple-950 rounded border border-sky-500 text-xs shadow-2xl p-3 min-w-[280px] text-left">
+                  <div class="font-bold text-sky-700 border-b border-sky-200 pb-1 mb-1">🤦‍♂️ ${item.teamName} D'Oh! Blunders (${doCount})</div>
+                  ${tooltipList}
+                </div>
+              </div>`;
         } else if (item.dOhs === 0) {
-          doBadge = `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`;
+          doBadge = isCrt
+            ? `<span class="px-2 py-0.5 bg-black/60 text-emerald-600 font-bold border border-emerald-900/60 text-xs">0</span>`
+            : `<span class="px-2 py-0.5 bg-white/60 text-purple-700 font-bold border border-pink-200/60 text-xs">0</span>`;
         }
 
         const effVal = item.coachingEfficiency !== null && item.coachingEfficiency !== undefined ? `${Number(item.coachingEfficiency).toFixed(1)}%` : '-';
-        const effCell = `<span class="font-bold font-mono text-emerald-300">${effVal}</span>`;
+        const effCell = isCrt
+          ? `<span class="font-bold font-mono text-emerald-300">${effVal}</span>`
+          : `<span class="font-bold font-sans text-pink-700">${effVal}</span>`;
 
         const rawOptVal = item.optimalPointsFor !== undefined && item.optimalPointsFor !== null ? item.optimalPointsFor : item.optimalPF;
         const optPfVal = currentSeason === 'allTime'
           ? (item.optPfg !== undefined && item.optPfg !== null ? Number(item.optPfg).toFixed(1) : (rawOptVal ? (Number(rawOptVal) / (item.wins + item.losses)).toFixed(1) : '-'))
           : (rawOptVal !== undefined && rawOptVal !== null ? Number(rawOptVal).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : '-');
-        const optPfCell = `<span class="font-mono text-emerald-400 font-bold">${optPfVal}</span>`;
+        const optPfCell = isCrt
+          ? `<span class="font-mono text-emerald-400 font-bold">${optPfVal}</span>`
+          : `<span class="text-pink-600 font-bold">${optPfVal}</span>`;
 
         const wlCell = currentSeason === 'allTime'
-          ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>`
+          ? (isCrt
+              ? `<span class="font-black text-emerald-300">${item.wins}-${item.losses}</span> <span class="text-[10px] text-emerald-400 font-normal">(${item.winPct}%)</span>`
+              : `<span class="font-black text-pink-700">${item.wins}-${item.losses}</span> <span class="text-[10px] text-pink-600 font-normal">(${item.winPct}%)</span>`)
           : `${item.wins}-${item.losses}`;
 
         const ovrCell = currentSeason === 'allTime'
-          ? `<span class="text-emerald-400 font-bold">${item.ovrRecord || '0-0'}</span> <span class="text-[10px] text-emerald-500 font-normal">(${item.ovrWinPct || 0}%)</span>`
+          ? (isCrt
+              ? `<span class="text-emerald-400 font-bold">${item.ovrRecord || '0-0'}</span> <span class="text-[10px] text-emerald-500 font-normal">(${item.ovrWinPct || 0}%)</span>`
+              : `<span class="text-pink-600 font-bold">${item.ovrRecord || '0-0'}</span> <span class="text-[10px] text-pink-600 font-normal">(${item.ovrWinPct || 0}%)</span>`)
           : (item.ovrRecord || '0-0');
 
         const isWLSort = isStandingsWLSort(standingsSortField);
         const rowNumber = isWLSort ? (item.rank || (idx + 1)) : (idx + 1);
 
-        tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold ${isWLSort ? 'text-emerald-300' : 'text-emerald-500/80'}">${rowNumber}</td>
-          <td class="p-2.5">
-            <span class="font-bold block text-emerald-300 hover:underline cursor-pointer" data-owner="${encodeURIComponent(item.ownerName)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
-            <span class="text-[11px] text-emerald-600">[${item.ownerName}]</span>
-          </td>
-          <td class="p-2.5 text-center">${wlCell}</td>
-          <td class="p-2.5 text-center">${formHtml}</td>
-          <td class="p-2.5 text-center">${luckBadge}</td>
-          <td class="p-2.5 text-center">${ovrCell}</td>
-          <td class="p-2.5 text-center">${wwBadge}</td>
-          <td class="p-2.5 text-center">${lwBadge}</td>
-          <td class="p-2.5 text-center">${hbBadge}</td>
-          <td class="p-2.5 text-center">${tlBadge}</td>
-          <td class="p-2.5 text-center">${doBadge}</td>
-          <td class="p-2.5 text-center">${effCell}</td>
-          <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
-          <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
-        `;
+        if (isCrt) {
+          tr.innerHTML = `
+            <td class="p-2.5 text-center font-bold ${isWLSort ? 'text-emerald-300' : 'text-emerald-500/80'}">${rowNumber}</td>
+            <td class="p-2.5">
+              <span class="font-bold block text-emerald-300 hover:underline cursor-pointer" data-owner="${encodeURIComponent(item.ownerName)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
+              <span class="text-[11px] text-emerald-600">[${item.ownerName}]</span>
+            </td>
+            <td class="p-2.5 text-center">${wlCell}</td>
+            <td class="p-2.5 text-center">${formHtml}</td>
+            <td class="p-2.5 text-center">${luckBadge}</td>
+            <td class="p-2.5 text-center">${ovrCell}</td>
+            <td class="p-2.5 text-center">${wwBadge}</td>
+            <td class="p-2.5 text-center">${lwBadge}</td>
+            <td class="p-2.5 text-center">${hbBadge}</td>
+            <td class="p-2.5 text-center">${tlBadge}</td>
+            <td class="p-2.5 text-center">${doBadge}</td>
+            <td class="p-2.5 text-center">${effCell}</td>
+            <td class="p-2.5 text-center font-bold text-emerald-300">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+            <td class="p-2.5 text-center text-emerald-500">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          `;
+        } else {
+          tr.innerHTML = `
+            <td class="p-2.5 text-center font-bold ${isWLSort ? 'text-pink-700' : 'text-purple-600/80'}">${rowNumber}</td>
+            <td class="p-2.5">
+              <span class="font-bold block text-pink-700 hover:underline cursor-pointer" data-owner="${encodeURIComponent(item.ownerName)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))"><span class="text-amber-400 font-bold mr-1 text-xs">#${item.rank || (idx + 1)}</span> ${item.teamName}</span>
+              <span class="text-[11px] text-purple-700">[${item.ownerName}]</span>
+            </td>
+            <td class="p-2.5 text-center">${wlCell}</td>
+            <td class="p-2.5 text-center">${formHtml}</td>
+            <td class="p-2.5 text-center">${luckBadge}</td>
+            <td class="p-2.5 text-center">${ovrCell}</td>
+            <td class="p-2.5 text-center">${wwBadge}</td>
+            <td class="p-2.5 text-center">${lwBadge}</td>
+            <td class="p-2.5 text-center">${hbBadge}</td>
+            <td class="p-2.5 text-center">${tlBadge}</td>
+            <td class="p-2.5 text-center">${doBadge}</td>
+            <td class="p-2.5 text-center">${effCell}</td>
+            <td class="p-2.5 text-center font-bold text-pink-700">${currentSeason === 'allTime' ? (item.pfg !== undefined ? item.pfg.toFixed(1) : (item.pointsFor / (item.wins + item.losses)).toFixed(1)) : item.pointsFor.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+            <td class="p-2.5 text-center text-pink-600">${currentSeason === 'allTime' ? (item.pag !== undefined ? item.pag.toFixed(1) : (item.pointsAgainst / (item.wins + item.losses)).toFixed(1)) : item.pointsAgainst.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+          `;
+        }
         tbody.appendChild(tr);
       });
     }
@@ -957,13 +1184,23 @@ export function createLeagueApp(config) {
     function filterStats(type) {
       currentStatFilter = type;
       document.querySelectorAll('.stat-filter-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
-        btn.classList.add('text-emerald-500', 'border-emerald-800');
+        if (isCrt) {
+          btn.classList.remove('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
+          btn.classList.add('text-emerald-500', 'border-emerald-800');
+        } else {
+          btn.classList.remove('bg-pink-100/90', 'text-pink-700', 'border-pink-400');
+          btn.classList.add('text-pink-600', 'border-pink-200');
+        }
       });
       const active = document.getElementById(`stat-filter-${type}`);
       if (active) {
-        active.classList.add('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
-        active.classList.remove('text-emerald-500', 'border-emerald-800');
+        if (isCrt) {
+          active.classList.add('bg-emerald-900', 'text-emerald-300', 'border-emerald-500');
+          active.classList.remove('text-emerald-500', 'border-emerald-800');
+        } else {
+          active.classList.add('bg-pink-100/90', 'text-pink-700', 'border-pink-400');
+          active.classList.remove('text-pink-600', 'border-pink-200');
+        }
       }
       renderStatsTable();
     }
@@ -1023,7 +1260,8 @@ export function createLeagueApp(config) {
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">${g.yr} Playoffs W${g.wk}</span>`
             : `${g.yr} W${g.wk}`;
 
-          return `
+          return isCrt
+            ? `
             <tr class="border-b border-emerald-950 hover:bg-emerald-950/30">
               <td class="p-2 text-center font-bold text-emerald-400">#${idx + 1}</td>
               <td class="p-2 font-bold text-emerald-300">${g.winner.t} <span class="text-[10px] text-emerald-600">[${g.winner.o}]</span></td>
@@ -1031,6 +1269,16 @@ export function createLeagueApp(config) {
               <td class="p-2 text-center font-black text-emerald-300">+${g.margin.toFixed(2)}</td>
               <td class="p-2 text-center font-mono text-emerald-500">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
               <td class="p-2 text-center text-emerald-600">${gameBadge}</td>
+            </tr>
+          `
+            : `
+            <tr class="border-b border-pink-100 hover:bg-pink-50/90">
+              <td class="p-2 text-center font-bold text-pink-600">#${idx + 1}</td>
+              <td class="p-2 font-bold text-pink-700">${g.winner.t} <span class="text-[10px] text-purple-700">[${g.winner.o}]</span></td>
+              <td class="p-2 text-purple-700">${g.loser.t} <span class="text-[10px] text-purple-800/60">[${g.loser.o}]</span></td>
+              <td class="p-2 text-center font-black text-pink-700">+${g.margin.toFixed(2)}</td>
+              <td class="p-2 text-center font-sans text-pink-600">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
+              <td class="p-2 text-center text-purple-700">${gameBadge}</td>
             </tr>
           `;
         }).join('');
@@ -1040,7 +1288,8 @@ export function createLeagueApp(config) {
             ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">${g.yr} Playoffs W${g.wk}</span>`
             : `${g.yr} W${g.wk}`;
 
-          return `
+          return isCrt
+            ? `
             <tr class="border-b border-emerald-950 hover:bg-emerald-950/30">
               <td class="p-2 text-center font-bold text-amber-400">#${idx + 1}</td>
               <td class="p-2 font-bold text-amber-300">${g.winner.t} <span class="text-[10px] text-emerald-600">[${g.winner.o}]</span></td>
@@ -1049,77 +1298,146 @@ export function createLeagueApp(config) {
               <td class="p-2 text-center font-mono text-emerald-500">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
               <td class="p-2 text-center text-emerald-600">${gameBadge}</td>
             </tr>
+          `
+            : `
+            <tr class="border-b border-pink-100 hover:bg-pink-50/90">
+              <td class="p-2 text-center font-bold text-amber-400">#${idx + 1}</td>
+              <td class="p-2 font-bold text-amber-800">${g.winner.t} <span class="text-[10px] text-purple-700">[${g.winner.o}]</span></td>
+              <td class="p-2 text-purple-700">${g.loser.t} <span class="text-[10px] text-purple-800/60">[${g.loser.o}]</span></td>
+              <td class="p-2 text-center font-black text-amber-800">+${g.margin.toFixed(2)}</td>
+              <td class="p-2 text-center font-sans text-pink-600">${g.winner.s.toFixed(2)} - ${g.loser.s.toFixed(2)}</td>
+              <td class="p-2 text-center text-purple-700">${gameBadge}</td>
+            </tr>
           `;
         }).join('');
 
-        container.innerHTML = `
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div class="crt-box rounded overflow-visible">
-              <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
-                <span>💥 TOP 5 BIGGEST BLOWOUTS</span>
-                <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+        if (isCrt) {
+          container.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div class="crt-box rounded overflow-visible">
+                <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
+                  <span>💥 TOP 5 BIGGEST BLOWOUTS</span>
+                  <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                </div>
+                <div class="table-scroll-container">
+                  <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
+                    <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
+                      <tr>
+                        <th class="p-2 text-center">Rank</th>
+                        <th class="p-2">Winner</th>
+                        <th class="p-2">Loser</th>
+                        <th class="p-2 text-center">Margin</th>
+                        <th class="p-2 text-center">Score</th>
+                        <th class="p-2 text-center">Game</th>
+                      </tr>
+                    </thead>
+                    <tbody>${blowoutsRows}</tbody>
+                  </table>
+                </div>
               </div>
-              <div class="table-scroll-container">
-                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
-              <tr>
-                <th class="p-3 text-center">RANK</th>
-                <th class="p-3 text-left">MANAGER</th>
-                <th class="p-3 text-center">ACTIVE</th>
-                <th class="p-3 text-center">PLAYOFF W-L</th>
-                <th class="p-3 text-center">PLAYOFF %</th>
-                <th class="p-3 text-center">🥇 1st</th>
-                <th class="p-3 text-center">🥈 2nd</th>
-                <th class="p-3 text-center">🥉 3rd</th>
-                <th class="p-3 text-center">4th</th>
-                <th class="p-3 text-center">5th-6th</th>
-                <th class="p-3 text-center">7th-12th</th>
-                <th class="p-3 text-center">🎯 SCORING TITLES</th>
-              </tr>
-            </thead>
-                  <tbody>${blowoutsRows}</tbody>
-                </table>
-              </div>
-            </div>
 
-            <div class="crt-box rounded overflow-visible">
-              <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
-                <span>🔍 TOP 5 CLOSEST NAILBITERS</span>
-                <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
-              </div>
-              <div class="table-scroll-container">
-                <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-                  <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
-                    <tr>
-                      <th class="p-2 text-center">Rank</th>
-                      <th class="p-2">Winner</th>
-                      <th class="p-2">Loser</th>
-                      <th class="p-2 text-center">Margin</th>
-                      <th class="p-2 text-center">Score</th>
-                      <th class="p-2 text-center">Game</th>
-                    </tr>
-                  </thead>
-                  <tbody>${nailbitersRows}</tbody>
-                </table>
+              <div class="crt-box rounded overflow-visible">
+                <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
+                  <span>🔍 TOP 5 CLOSEST NAILBITERS</span>
+                  <span class="font-normal text-emerald-400">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                </div>
+                <div class="table-scroll-container">
+                  <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
+                    <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
+                      <tr>
+                        <th class="p-2 text-center">Rank</th>
+                        <th class="p-2">Winner</th>
+                        <th class="p-2">Loser</th>
+                        <th class="p-2 text-center">Margin</th>
+                        <th class="p-2 text-center">Score</th>
+                        <th class="p-2 text-center">Game</th>
+                      </tr>
+                    </thead>
+                    <tbody>${nailbitersRows}</tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
-        `;
+          `;
+        } else {
+          container.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div class="crt-box rounded overflow-visible">
+                <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
+                  <span>💥 TOP 5 BIGGEST BLOWOUTS</span>
+                  <span class="font-normal text-pink-600">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                </div>
+                <div class="table-scroll-container">
+                  <table class="w-full min-w-[680px] text-xs text-left border-collapse font-sans">
+                    <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
+                      <tr>
+                        <th class="p-2 text-center">Rank</th>
+                        <th class="p-2">Winner</th>
+                        <th class="p-2">Loser</th>
+                        <th class="p-2 text-center">Margin</th>
+                        <th class="p-2 text-center">Score</th>
+                        <th class="p-2 text-center">Game</th>
+                      </tr>
+                    </thead>
+                    <tbody>${blowoutsRows}</tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="crt-box rounded overflow-visible">
+                <div class="crt-box-header p-2.5 font-bold text-xs flex justify-between">
+                  <span>🔍 TOP 5 CLOSEST NAILBITERS</span>
+                  <span class="font-normal text-pink-600">${minYear === maxYear ? minYear : minYear + '-' + maxYear}</span>
+                </div>
+                <div class="table-scroll-container">
+                  <table class="w-full min-w-[680px] text-xs text-left border-collapse font-sans">
+                    <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
+                      <tr>
+                        <th class="p-2 text-center">Rank</th>
+                        <th class="p-2">Winner</th>
+                        <th class="p-2">Loser</th>
+                        <th class="p-2 text-center">Margin</th>
+                        <th class="p-2 text-center">Score</th>
+                        <th class="p-2 text-center">Game</th>
+                      </tr>
+                    </thead>
+                    <tbody>${nailbitersRows}</tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          `;
+        }
         return;
       }
 
-      container.innerHTML = `
-        <div class="crt-box rounded overflow-visible">
-          <div class="table-scroll-container">
-            <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
-              <thead class="crt-box-header font-bold border-b border-emerald-600">
-                <tr id="stats-table-header"></tr>
-              </thead>
-              <tbody id="stats-table-body"></tbody>
-            </table>
+      if (isCrt) {
+        container.innerHTML = `
+          <div class="crt-box rounded overflow-visible">
+            <div class="table-scroll-container">
+              <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
+                <thead class="crt-box-header font-bold border-b border-emerald-600">
+                  <tr id="stats-table-header"></tr>
+                </thead>
+                <tbody id="stats-table-body"></tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="crt-box rounded overflow-visible">
+            <div class="table-scroll-container">
+              <table class="w-full min-w-[680px] text-xs text-left border-collapse font-sans">
+                <thead class="crt-box-header font-bold border-b border-pink-300">
+                  <tr id="stats-table-header"></tr>
+                </thead>
+                <tbody id="stats-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }
 
       const header = document.getElementById('stats-table-header');
       const tbody = document.getElementById('stats-table-body');
@@ -1143,22 +1461,39 @@ export function createLeagueApp(config) {
         games.sort((a, b) => currentStatFilter === 'singleGameHigh' ? b.score - a.score : a.score - b.score);
         games.slice(0, 15).forEach((g, idx) => {
           const tr = document.createElement('tr');
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+          if (isCrt) {
+            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+            const stageBadge = g.isPlayoff
+              ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">Playoffs W${g.wk}</span>`
+              : `<span class="text-emerald-500 text-xs">Week ${g.wk}</span>`;
 
-          const stageBadge = g.isPlayoff
-            ? `<span class="px-1.5 py-0.5 bg-amber-950 text-amber-400 font-bold border border-amber-700 text-[10px]">Playoffs W${g.wk}</span>`
-            : `<span class="text-emerald-500 text-xs">Week ${g.wk}</span>`;
+            tr.innerHTML = `
+              <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
+              <td class="p-2.5 font-bold text-emerald-300">
+                ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+              </td>
+              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.score.toFixed(2)}</td>
+              <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
+              <td class="p-2.5 text-center">${stageBadge}</td>
+              <td class="p-2.5 text-emerald-600">vs ${g.opp}</td>
+            `;
+          } else {
+            tr.className = 'border-b border-pink-100 hover:bg-pink-50/90';
+            const stageBadge = g.isPlayoff
+              ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 font-bold border border-amber-300 text-[10px]">Playoffs W${g.wk}</span>`
+              : `<span class="text-pink-600 text-xs">Week ${g.wk}</span>`;
 
-          tr.innerHTML = `
-            <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-            <td class="p-2.5 font-bold text-emerald-300">
-              ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
-            </td>
-            <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.score.toFixed(2)}</td>
-            <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
-            <td class="p-2.5 text-center">${stageBadge}</td>
-            <td class="p-2.5 text-emerald-600">vs ${g.opp}</td>
-          `;
+            tr.innerHTML = `
+              <td class="p-2.5 text-center font-bold text-pink-600">${idx + 1}</td>
+              <td class="p-2.5 font-bold text-pink-700">
+                ${g.team} <span class="text-[10px] text-purple-700 font-normal">[${g.owner}]</span>
+              </td>
+              <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink">${g.score.toFixed(2)}</td>
+              <td class="p-2.5 text-center text-pink-600">${g.yr}</td>
+              <td class="p-2.5 text-center">${stageBadge}</td>
+              <td class="p-2.5 text-purple-700">vs ${g.opp}</td>
+            `;
+          }
           tbody.appendChild(tr);
         });
 
@@ -1190,16 +1525,29 @@ export function createLeagueApp(config) {
           list.sort((a, b) => b.pf - a.pf);
           list.slice(0, 15).forEach((g, idx) => {
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-            tr.innerHTML = `
-              <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
-              </td>
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
-              <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
-              <td class="p-2.5 text-center font-bold text-emerald-400">Regular Season</td>
-            `;
+            if (isCrt) {
+              tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+              tr.innerHTML = `
+                <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
+                <td class="p-2.5 font-bold text-emerald-300">
+                  ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+                </td>
+                <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
+                <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
+                <td class="p-2.5 text-center font-bold text-emerald-400">Regular Season</td>
+              `;
+            } else {
+              tr.className = 'border-b border-pink-100 hover:bg-pink-50/90';
+              tr.innerHTML = `
+                <td class="p-2.5 text-center font-bold text-pink-600">${idx + 1}</td>
+                <td class="p-2.5 font-bold text-pink-700">
+                  ${g.team} <span class="text-[10px] text-purple-700 font-normal">[${g.owner}]</span>
+                </td>
+                <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink">${g.pf.toFixed(1)}</td>
+                <td class="p-2.5 text-center text-pink-600">${g.yr}</td>
+                <td class="p-2.5 text-center font-bold text-pink-600">Regular Season</td>
+              `;
+            }
             tbody.appendChild(tr);
           });
         } else {
@@ -1222,16 +1570,29 @@ export function createLeagueApp(config) {
           const list = Object.values(seasonTotals).sort((a, b) => b.pf - a.pf);
           list.slice(0, 15).forEach((g, idx) => {
             const tr = document.createElement('tr');
-            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-            tr.innerHTML = `
-              <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
-              <td class="p-2.5 font-bold text-emerald-300">
-                ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
-              </td>
-              <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
-              <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
-              <td class="p-2.5 text-center font-bold text-emerald-400">${g.games} ${currentStatsStage === 'playoffs' ? 'Playoff' : 'Reg'} GP</td>
-            `;
+            if (isCrt) {
+              tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+              tr.innerHTML = `
+                <td class="p-2.5 text-center font-bold text-emerald-400">${idx + 1}</td>
+                <td class="p-2.5 font-bold text-emerald-300">
+                  ${g.team} <span class="text-[10px] text-emerald-600 font-normal">[${g.owner}]</span>
+                </td>
+                <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow">${g.pf.toFixed(1)}</td>
+                <td class="p-2.5 text-center text-emerald-500">${g.yr}</td>
+                <td class="p-2.5 text-center font-bold text-emerald-400">${g.games} ${currentStatsStage === 'playoffs' ? 'Playoff' : 'Reg'} GP</td>
+              `;
+            } else {
+              tr.className = 'border-b border-pink-100 hover:bg-pink-50/90';
+              tr.innerHTML = `
+                <td class="p-2.5 text-center font-bold text-pink-600">${idx + 1}</td>
+                <td class="p-2.5 font-bold text-pink-700">
+                  ${g.team} <span class="text-[10px] text-purple-700 font-normal">[${g.owner}]</span>
+                </td>
+                <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink">${g.pf.toFixed(1)}</td>
+                <td class="p-2.5 text-center text-pink-600">${g.yr}</td>
+                <td class="p-2.5 text-center font-bold text-pink-600">${g.games} ${currentStatsStage === 'playoffs' ? 'Playoff' : 'Reg'} GP</td>
+              `;
+            }
             tbody.appendChild(tr);
           });
         }
@@ -1397,19 +1758,35 @@ export function createLeagueApp(config) {
       tbody.innerHTML = '';
 
       document.querySelectorAll('.streak-filter-btn').forEach(btn => {
-        btn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 text-xs';
+        if (isCrt) {
+          btn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-800 text-emerald-500 hover:bg-emerald-950 hover:text-emerald-300 text-xs';
+        } else {
+          btn.className = 'streak-filter-btn px-2.5 py-1 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-xs';
+        }
       });
       const activeBtn = document.getElementById(`streak-filter-${filterType}`);
       if (activeBtn) {
-        activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs';
+        if (isCrt) {
+          activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-xs';
+        } else {
+          activeBtn.className = 'streak-filter-btn px-2.5 py-1 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-xs';
+        }
       }
 
       document.querySelectorAll('.streak-scope-btn').forEach(btn => {
-        btn.className = 'streak-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded';
+        if (isCrt) {
+          btn.className = 'streak-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded';
+        } else {
+          btn.className = 'streak-scope-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full';
+        }
       });
       const activeScopeBtn = document.getElementById(`streak-scope-${scope}`);
       if (activeScopeBtn) {
-        activeScopeBtn.className = 'streak-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded';
+        if (isCrt) {
+          activeScopeBtn.className = 'streak-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded';
+        } else {
+          activeScopeBtn.className = 'streak-scope-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full';
+        }
       }
 
       let streaks = window.LEAGUE_DATA.h2hStreaks || [];
@@ -1435,7 +1812,9 @@ export function createLeagueApp(config) {
       }
 
       if (streaks.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-emerald-500 italic font-mono">No head-to-head streaks recorded for this filter.</td></tr>`;
+        tbody.innerHTML = isCrt
+          ? `<tr><td colspan="6" class="p-4 text-center text-emerald-500 italic font-mono">No head-to-head streaks recorded for this filter.</td></tr>`
+          : `<tr><td colspan="6" class="p-4 text-center text-pink-600 italic font-sans">No head-to-head streaks recorded for this filter.</td></tr>`;
         return;
       }
 
@@ -1501,117 +1880,236 @@ export function createLeagueApp(config) {
 
         if (r.type === 'single') {
           const s = r.item;
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
+          if (isCrt) {
+            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
 
-          const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
-          const rankBadge = (r.rank === 1 || isTied1st)
-            ? `<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
-            : (r.rank === 2
-              ? `<span class="text-slate-300 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
-              : (r.rank === 3
-                ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
-                : `<span class="text-emerald-500 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
+            const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
+            const rankBadge = (r.rank === 1 || isTied1st)
+              ? `<span class="text-amber-400 font-black crt-glow-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
+              : (r.rank === 2
+                ? `<span class="text-slate-300 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
+                : (r.rank === 3
+                  ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
+                  : `<span class="text-emerald-500 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
 
-          let gameScoreListHtml = '';
-          if (s.games && s.games.length > 0) {
-            gameScoreListHtml = s.games.map(g => {
-              const yr = g.year || g.seasonYear;
-              const wk = g.week || g.weekNumber;
-              const stgTag = g.isPlayoff ? (g.stage || 'Playoffs') : `W${wk}`;
-              const hIsW = g.homeScore >= g.awayScore;
-              const wS = hIsW ? (g.homeScore || 0) : (g.awayScore || 0);
-              const lS = hIsW ? (g.awayScore || 0) : (g.homeScore || 0);
-              const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${wk}, '${(s.winner || '').replace(/'/g, "\\'")}', '${(s.loser || '').replace(/'/g, "\\'")}')"` : '';
-              return `<div class="py-1 border-b border-emerald-900/60 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/80 hover:text-emerald-200 px-1 rounded transition-colors group/row" ${clickAttr} title="Click to view matchup box score">
-                <span class="font-bold text-emerald-400">${yr} ${stgTag}</span>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-emerald-300 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
-                  <span class="text-[9px] text-amber-400 opacity-0 group-hover/row:opacity-100 transition-opacity font-mono font-bold">📋 Box ➔</span>
-                </div>
-              </div>`;
-            }).join('');
-          } else {
-            gameScoreListHtml = `<div class="text-xs text-emerald-600 italic font-mono">Game scores recorded in database.</div>`;
-          }
+            let gameScoreListHtml = '';
+            if (s.games && s.games.length > 0) {
+              gameScoreListHtml = s.games.map(g => {
+                const yr = g.year || g.seasonYear;
+                const wk = g.week || g.weekNumber;
+                const stgTag = g.isPlayoff ? (g.stage || 'Playoffs') : `W${wk}`;
+                const hIsW = g.homeScore >= g.awayScore;
+                const wS = hIsW ? (g.homeScore || 0) : (g.awayScore || 0);
+                const lS = hIsW ? (g.awayScore || 0) : (g.homeScore || 0);
+                const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${wk}, '${(s.winner || '').replace(/'/g, "\\'")}', '${(s.loser || '').replace(/'/g, "\\'")}')"` : '';
+                return `<div class="py-1 border-b border-emerald-900/60 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/80 hover:text-emerald-200 px-1 rounded transition-colors group/row" ${clickAttr} title="Click to view matchup box score">
+                  <span class="font-bold text-emerald-400">${yr} ${stgTag}</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-mono text-emerald-300 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+                    <span class="text-[9px] text-amber-400 opacity-0 group-hover/row:opacity-100 transition-opacity font-mono font-bold">📋 Box ➔</span>
+                  </div>
+                </div>`;
+              }).join('');
+            } else {
+              gameScoreListHtml = `<div class="text-xs text-emerald-600 italic font-mono">Game scores recorded in database.</div>`;
+            }
 
-          const streakBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow hover:bg-emerald-900 transition-all">${s.streak} WINS</span>
-              <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[260px] z-50">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
-                  <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
-                  <span class="text-[10px] text-emerald-500">vs ${s.loser}</span>
-                </div>
-                ${gameScoreListHtml}
-                <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
-                  💡 Click any score to jump to matchup &amp; box score
-                </div>
-              </div>
-            </div>
-          `;
-
-          const statusBadge = s.active
-            ? `<span class="px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-600 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
-            : `<span class="text-emerald-700 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
-
-          const spanStr = `${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}`;
-
-          tr.innerHTML = `
-            <td class="p-2.5 text-center">${rankBadge}</td>
-            <td class="p-2.5 font-extrabold text-emerald-300 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.winner}</td>
-            <td class="p-2.5 font-bold text-emerald-500 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.loser}</td>
-            <td class="p-2.5 text-center">${streakBadge}</td>
-            <td class="p-2.5 text-center font-mono text-emerald-400">${spanStr}</td>
-            <td class="p-2.5 text-center">${statusBadge}</td>
-          `;
-        } else {
-          tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
-
-          const popoverListHtml = r.items.map(s => `
-            <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/60 p-1 rounded" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">
-              <div>
-                <span class="font-bold text-emerald-300">${s.winner}</span>
-                <span class="text-[10px] text-emerald-500"> vs ${s.loser}</span>
-                <span class="text-[10px] text-emerald-600 block">${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}</span>
-              </div>
-              ${s.active ? '<span class="text-[9px] bg-amber-950 text-amber-400 border border-amber-700 px-1 font-bold">🔥 ACTIVE</span>' : ''}
-            </div>
-          `).join('');
-
-          const multiStreakBadge = `
-            <div class="tooltip-trigger inline-block cursor-pointer">
-              <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-black text-xs rounded hover:bg-emerald-800 transition-all">${r.streakVal} WINS EACH</span>
-              <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[280px] z-50">
-                <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
-                  <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
-                  <span class="text-[10px] text-emerald-500">Rank #${r.rank}</span>
-                </div>
-                ${popoverListHtml}
-                <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
-                  🔍 Click any rivalry to view game log
-                </div>
-              </div>
-            </div>
-          `;
-
-          tr.innerHTML = `
-            <td class="p-2.5 text-center"><span class="text-emerald-500 font-bold text-xs">#${r.rank}</span></td>
-            <td class="p-2.5 font-bold text-emerald-300" colspan="2">
+            const streakBadge = `
               <div class="tooltip-trigger inline-block cursor-pointer">
-                <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
-                <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 space-y-1.5 text-left min-w-[280px] z-50">
-                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
+                <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-950 text-emerald-300 font-black text-sm crt-glow hover:bg-emerald-900 transition-all">${s.streak} WINS</span>
+                <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[260px] z-50">
+                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
+                    <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
+                    <span class="text-[10px] text-emerald-500">vs ${s.loser}</span>
+                  </div>
+                  ${gameScoreListHtml}
+                  <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
+                    💡 Click any score to jump to matchup &amp; box score
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const statusBadge = s.active
+              ? `<span class="px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-600 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
+              : `<span class="text-emerald-700 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
+
+            const spanStr = `${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}`;
+
+            tr.innerHTML = `
+              <td class="p-2.5 text-center">${rankBadge}</td>
+              <td class="p-2.5 font-extrabold text-emerald-300 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.winner}</td>
+              <td class="p-2.5 font-bold text-emerald-500 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.loser}</td>
+              <td class="p-2.5 text-center">${streakBadge}</td>
+              <td class="p-2.5 text-center font-mono text-emerald-400">${spanStr}</td>
+              <td class="p-2.5 text-center">${statusBadge}</td>
+            `;
+          } else {
+            tr.className = 'border-b border-pink-100 hover:bg-pink-50/90 transition-colors';
+
+            const isTied1st = r.displayRank && r.displayRank.includes('T-') && r.rank === 1;
+            const rankBadge = (r.rank === 1 || isTied1st)
+              ? `<span class="text-amber-400 font-black crt-glow-pink-pink-amber text-sm">🥇 ${r.displayRank || "#1"}</span>`
+              : (r.rank === 2
+                ? `<span class="text-slate-400 font-bold text-xs">🥈 ${r.displayRank || "#2"}</span>`
+                : (r.rank === 3
+                  ? `<span class="text-amber-600 font-bold text-xs">🥉 ${r.displayRank || "#3"}</span>`
+                  : `<span class="text-pink-600 font-bold text-xs">${r.displayRank || "#" + r.rank}</span>`));
+
+            let gameScoreListHtml = '';
+            if (s.games && s.games.length > 0) {
+              gameScoreListHtml = s.games.map(g => {
+                const yr = g.year || g.seasonYear;
+                const wk = g.week || g.weekNumber;
+                const stgTag = g.isPlayoff ? formatPlayoffStageTag(g.stage, yr) : `W${wk}`;
+                const hIsW = g.homeScore >= g.awayScore;
+                const wS = hIsW ? (g.homeScore || 0) : (g.awayScore || 0);
+                const lS = hIsW ? (g.awayScore || 0) : (g.homeScore || 0);
+                const clickAttr = yr ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${wk}, '${(s.winner || '').replace(/'/g, "\\'")}', '${(s.loser || '').replace(/'/g, "\\'")}')"` : '';
+                return `<div class="py-1 border-b border-pink-100 flex items-center justify-between text-xs cursor-pointer hover:bg-pink-50 hover:text-pink-800 px-1 rounded transition-colors group/row" ${clickAttr} title="Click to view matchup box score">
+                  <span class="font-bold text-pink-700">${yr} ${stgTag}</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-mono text-purple-950 font-bold">${wS.toFixed(2)} - ${lS.toFixed(2)}</span>
+                    <span class="text-[9px] text-pink-600 opacity-0 group-hover/row:opacity-100 transition-opacity font-fredoka">📋 Box ➔</span>
+                  </div>
+                </div>`;
+              }).join('');
+            } else {
+              gameScoreListHtml = `<div class="text-xs text-purple-700 italic font-sans">Game-by-game scores recorded in database.</div>`;
+            }
+
+            const streakBadge = `
+              <div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 border border-pink-400 bg-pink-50/90 text-pink-700 font-black text-sm rounded shadow-sm hover:bg-pink-100 transition-all">${s.streak} WINS</span>
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl text-left min-w-[260px] z-50">
+                  <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                    <span>🔥 ${s.winner}'s ${s.streak}-Game Streak</span>
+                    <span class="text-[10px] text-pink-500">vs ${s.loser}</span>
+                  </div>
+                  ${gameScoreListHtml}
+                  <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
+                    💡 Click any score to jump to matchup &amp; box score
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const statusBadge = s.active
+              ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-800 border border-amber-300 font-bold text-[10px]">🔥 ACTIVE STREAK</span>`
+              : `<span class="text-purple-800/60 text-[10px]">Ended in ${s.endYear} W${s.endWeek}</span>`;
+
+            const spanStr = `${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}`;
+
+            tr.innerHTML = `
+              <td class="p-2.5 text-center">${rankBadge}</td>
+              <td class="p-2.5 font-extrabold text-pink-700 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.winner}</td>
+              <td class="p-2.5 font-bold text-pink-600 cursor-pointer hover:underline" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">${s.loser}</td>
+              <td class="p-2.5 text-center">${streakBadge}</td>
+              <td class="p-2.5 text-center font-sans text-pink-600">${spanStr}</td>
+              <td class="p-2.5 text-center">${statusBadge}</td>
+            `;
+          }
+        } else {
+          if (isCrt) {
+            tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/40 transition-colors';
+
+            const popoverListHtml = r.items.map(s => `
+              <div class="py-1 border-b border-emerald-900/40 flex items-center justify-between text-xs cursor-pointer hover:bg-emerald-950/60 p-1 rounded" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">
+                <div>
+                  <span class="font-bold text-emerald-300">${s.winner}</span>
+                  <span class="text-[10px] text-emerald-500"> vs ${s.loser}</span>
+                  <span class="text-[10px] text-emerald-600 block">${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}</span>
+                </div>
+                ${s.active ? '<span class="text-[9px] bg-amber-950 text-amber-400 border border-amber-700 px-1 font-bold">🔥 ACTIVE</span>' : ''}
+              </div>
+            `).join('');
+
+            const multiStreakBadge = `
+              <div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 border border-emerald-500 bg-emerald-900 text-emerald-300 font-black text-xs rounded hover:bg-emerald-800 transition-all">${r.streakVal} WINS EACH</span>
+                <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 text-left min-w-[280px] z-50">
+                  <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1.5 flex items-center justify-between">
                     <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
-                    <span class="text-[9px] text-emerald-500">Rank #${r.rank}</span>
+                    <span class="text-[10px] text-emerald-500">Rank #${r.rank}</span>
                   </div>
                   ${popoverListHtml}
+                  <div class="text-[10px] text-amber-400 font-bold pt-1.5 mt-1 border-t border-emerald-900 text-center">
+                    🔍 Click any rivalry to view game log
+                  </div>
                 </div>
               </div>
-            </td>
-            <td class="p-2.5 text-center">${multiStreakBadge}</td>
-            <td class="p-2.5 text-center font-mono text-emerald-400">-</td>
-            <td class="p-2.5 text-center"><span class="text-emerald-700 text-[10px] font-bold">${r.count} Historical Rivalries</span></td>
-          `;
+            `;
+
+            tr.innerHTML = `
+              <td class="p-2.5 text-center"><span class="text-emerald-500 font-bold text-xs">#${r.rank}</span></td>
+              <td class="p-2.5 font-bold text-emerald-300" colspan="2">
+                <div class="tooltip-trigger inline-block cursor-pointer">
+                  <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
+                  <div class="tooltip-content${rowPopDir} p-3 bg-[#020b05] text-emerald-100 rounded border-2 border-emerald-500 text-xs shadow-2xl p-3 space-y-1.5 text-left min-w-[280px] z-50">
+                    <div class="font-bold text-emerald-400 border-b border-emerald-800 pb-1 mb-1 flex items-center justify-between">
+                      <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
+                      <span class="text-[9px] text-emerald-500">Rank #${r.rank}</span>
+                    </div>
+                    ${popoverListHtml}
+                  </div>
+                </div>
+              </td>
+              <td class="p-2.5 text-center">${multiStreakBadge}</td>
+              <td class="p-2.5 text-center font-mono text-emerald-400">-</td>
+              <td class="p-2.5 text-center"><span class="text-emerald-700 text-[10px] font-bold">${r.count} Historical Rivalries</span></td>
+            `;
+          } else {
+            tr.className = 'border-b border-pink-100 hover:bg-pink-50/90 transition-colors';
+
+            const popoverListHtml = r.items.map(s => `
+              <div class="py-1 border-b border-pink-200/40 flex items-center justify-between text-xs cursor-pointer hover:bg-pink-100 p-1 rounded" data-winner="${encodeURIComponent(s.winner)}" data-loser="${encodeURIComponent(s.loser)}" onclick="selectH2HMatchup(decodeURIComponent(this.getAttribute('data-winner')), decodeURIComponent(this.getAttribute('data-loser')))">
+                <div>
+                  <span class="font-bold text-pink-700">${s.winner}</span>
+                  <span class="text-[10px] text-pink-600"> vs ${s.loser}</span>
+                  <span class="text-[10px] text-purple-700 block">${s.startYear} W${s.startWeek} ➔ ${s.endYear} W${s.endWeek}</span>
+                </div>
+                ${s.active ? '<span class="text-[9px] bg-amber-100 text-amber-800 border border-amber-300 px-1 font-bold">🔥 ACTIVE</span>' : ''}
+              </div>
+            `).join('');
+
+            const multiStreakBadge = `
+              <div class="tooltip-trigger inline-block cursor-pointer">
+                <span class="px-2 py-0.5 border border-pink-400 bg-pink-100 text-pink-700 font-black text-xs rounded shadow-sm hover:bg-pink-200 transition-all">${r.streakVal} WINS EACH</span>
+                <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl text-left min-w-[280px] z-50">
+                  <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                    <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
+                    <span class="text-[10px] text-pink-500">Rank #${r.rank}</span>
+                  </div>
+                  ${popoverListHtml}
+                  <div class="text-[10px] text-amber-600 font-bold pt-1.5 mt-1 border-t border-pink-100 text-center">
+                    🔍 Hover / Click any rivalry to view game log
+                  </div>
+                </div>
+              </div>
+            `;
+
+            tr.innerHTML = `
+              <td class="p-2.5 text-center"><span class="text-pink-600 font-bold text-xs">#${r.rank}</span></td>
+              <td class="p-2.5 font-bold text-pink-700" colspan="2">
+                <div class="tooltip-trigger inline-block cursor-pointer">
+                  <span>🤝 ${r.count} tied with ${r.streakVal} wins</span>
+                  <div class="tooltip-content${rowPopDir} p-3 bg-white text-purple-950 rounded-2xl border-2 border-pink-300 text-xs shadow-2xl space-y-1.5 text-left min-w-[280px] z-50">
+                    <div class="font-bold text-pink-700 border-b border-pink-200 pb-1 mb-1 flex items-center justify-between">
+                      <span>🤝 ${r.count} Tied Streaks (${r.streakVal} Wins Each)</span>
+                      <span class="text-[9px] text-pink-600">Rank #${r.rank}</span>
+                    </div>
+                    ${popoverListHtml}
+                    <div class="text-[10px] text-amber-600 font-bold pt-1 border-t border-pink-200 text-center">
+                      🔍 Hover / Click any streak to inspect game log
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="p-2.5 text-center">${multiStreakBadge}</td>
+              <td class="p-2.5 text-center font-sans text-pink-600 text-[11px]">${r.count} Rivals Tied</td>
+              <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-white border border-pink-200 text-pink-600 font-bold text-[10px]">🤝 MULTI-TIE</span></td>
+            `;
+          }
         }
         tbody.appendChild(tr);
       });
@@ -1693,19 +2191,35 @@ export function createLeagueApp(config) {
       header.innerHTML = ''; tbody.innerHTML = '';
 
       document.querySelectorAll('.matrix-filter-btn').forEach(btn => {
-        btn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]';
+        if (isCrt) {
+          btn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px]';
+        } else {
+          btn.className = 'matrix-filter-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full';
+        }
       });
       const activeBtn = document.getElementById(`matrix-filter-${filterType}`);
       if (activeBtn) {
-        activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]';
+        if (isCrt) {
+          activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px]';
+        } else {
+          activeBtn.className = 'matrix-filter-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full';
+        }
       }
 
       document.querySelectorAll('.matrix-scope-btn').forEach(btn => {
-        btn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded';
+        if (isCrt) {
+          btn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-900 text-emerald-500 hover:border-emerald-700 bg-black font-bold text-[10px] rounded';
+        } else {
+          btn.className = 'matrix-scope-btn px-2 py-0.5 border border-pink-200 text-pink-600 hover:border-purple-200 bg-white font-bold text-[10px] rounded-full';
+        }
       });
       const activeScopeBtn = document.getElementById(`matrix-scope-${scope}`);
       if (activeScopeBtn) {
-        activeScopeBtn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded';
+        if (isCrt) {
+          activeScopeBtn.className = 'matrix-scope-btn px-2 py-0.5 border border-emerald-400 bg-emerald-900 text-emerald-300 font-bold text-[10px] rounded';
+        } else {
+          activeScopeBtn.className = 'matrix-scope-btn px-2 py-0.5 border border-pink-400 bg-pink-100/90 text-pink-700 font-bold text-[10px] rounded-full';
+        }
       }
 
       const seasonsList = window.LEAGUE_DATA.seasons || [];
@@ -1722,16 +2236,22 @@ export function createLeagueApp(config) {
       }
       owners.sort();
 
-      let headerTr = '<tr class="bg-emerald-950 text-emerald-400 font-bold"><th class="p-2 text-left">OWNER</th>';
+      let headerTr = isCrt
+        ? '<tr class="bg-emerald-950 text-emerald-400 font-bold"><th class="p-2 text-left">OWNER</th>'
+        : '<tr class="bg-pink-50/90 text-pink-600 font-bold"><th class="p-2 text-left">OWNER</th>';
       owners.forEach(o => { headerTr += `<th class="p-1.5 text-center">${o.slice(0, 4)}</th>`; });
       headerTr += '</tr>';
       header.innerHTML = headerTr;
 
       owners.forEach(o1 => {
-        let tr = `<tr class="border-b border-emerald-950"><td class="p-1.5 font-bold text-left text-emerald-300 bg-black/60">${o1}</td>`;
+        let tr = isCrt
+          ? `<tr class="border-b border-emerald-950"><td class="p-1.5 font-bold text-left text-emerald-300 bg-black/60">${o1}</td>`
+          : `<tr class="border-b border-pink-100"><td class="p-1.5 font-bold text-left text-pink-700 bg-white/60">${o1}</td>`;
         owners.forEach(o2 => {
           if (o1 === o2) {
-            tr += `<td class="p-1.5 text-emerald-800 bg-black">-</td>`;
+            tr += isCrt
+              ? `<td class="p-1.5 text-emerald-800 bg-black">-</td>`
+              : `<td class="p-1.5 text-pink-600/40 bg-white">-</td>`;
           } else {
             const b = getH2HBreakdown(o1, o2);
             if (b) {
@@ -1919,20 +2439,26 @@ export function createLeagueApp(config) {
           if (rData) {
             const startersHtml = rData.starters.map(s => {
               const rBadge = getPlayerRingBadgeHtml(s.player);
-              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-400 font-bold"><span class="text-amber-400 font-normal w-9 inline-block">${s.pos}</span>${s.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${s.acq || 'Draft'}</span></div>`;
+              return isCrt
+                ? `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-400 font-bold"><span class="text-amber-400 font-normal w-9 inline-block">${s.pos}</span>${s.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${s.acq || 'Draft'}</span></div>`
+                : `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-950 font-bold"><span class="text-pink-600 font-normal w-9 inline-block">${s.pos}</span>${s.player}${rBadge}</span><span class="text-[10px] text-pink-600">${s.acq || 'Draft'}</span></div>`;
             }).join('');
 
             const benchHtml = rData.bench.map(b => {
               const rBadge = getPlayerRingBadgeHtml(b.player);
-              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-300 font-medium"><span class="text-emerald-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${b.acq || 'FA/Trade'}</span></div>`;
+              return isCrt
+                ? `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-300 font-medium"><span class="text-emerald-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-emerald-600">${b.acq || 'FA/Trade'}</span></div>`
+                : `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900 font-medium"><span class="text-purple-600 font-normal w-9 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span><span class="text-[10px] text-purple-700">${b.acq || 'FA/Trade'}</span></div>`;
             }).join('');
 
             const draftedHtml = rData.draftedContributors.map(d => {
               const rBadge = getPlayerRingBadgeHtml(d.player);
-              return `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-400/80"><span class="text-emerald-700 font-normal w-9 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span><span class="text-[10px] text-amber-500/80">${d.draftInfo}</span></div>`;
+              return isCrt
+                ? `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-emerald-950"><span class="text-emerald-400/80"><span class="text-emerald-700 font-normal w-9 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span><span class="text-[10px] text-amber-500/80">${d.draftInfo}</span></div>`
+                : `<div class="flex items-center justify-between py-0.5 text-[11px] border-b border-pink-100"><span class="text-purple-900/80"><span class="text-purple-600 font-normal w-9 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span><span class="text-[10px] text-amber-700">${d.draftInfo}</span></div>`;
             }).join('');
 
-            rosterHtml = `
+            rosterHtml = isCrt ? `
               <div class="mt-3 pt-2 border-t border-emerald-900">
                 <button onclick="toggleTitleRoster(${yr})" id="title-roster-btn-${yr}" class="w-full text-center py-1.5 px-2 bg-emerald-950/80 hover:bg-emerald-900 text-amber-300 border border-emerald-700 rounded text-[10px] font-bold tracking-wider uppercase transition-all">
                   💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Rings) ▾
@@ -1954,6 +2480,28 @@ export function createLeagueApp(config) {
                   </div>` : ''}
                 </div>
               </div>
+            ` : `
+              <div class="mt-3 pt-2 border-t border-pink-200">
+                <button onclick="toggleTitleRoster(${yr})" id="title-roster-btn-${yr}" class="w-full text-center py-1.5 px-2 bg-pink-50 hover:bg-pink-100 text-purple-950 border border-pink-300 rounded-xl text-[10px] font-bold tracking-wider uppercase transition-all shadow-sm">
+                  💍 VIEW TITLE ROSTER &amp; RING CEREMONY (${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Rings) ▾
+                </button>
+                <div id="title-roster-collapse-${yr}" class="hidden mt-2 p-2.5 bg-white border border-pink-200 rounded-xl space-y-2 text-left font-sans shadow-sm">
+                  <div>
+                    <div class="text-[10px] font-bold text-amber-800 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1">🌟 TITLE GAME STARTERS</div>
+                    ${startersHtml}
+                  </div>
+                  ${rData.bench && rData.bench.length > 0 ? `
+                  <div>
+                    <div class="text-[10px] font-bold text-purple-900 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1 mt-2">🛡️ BENCH ROSTER</div>
+                    ${benchHtml}
+                  </div>` : ''}
+                  ${rData.draftedContributors && rData.draftedContributors.length > 0 ? `
+                  <div>
+                    <div class="text-[10px] font-bold text-amber-800 uppercase tracking-widest border-b border-pink-100 pb-0.5 mb-1 mt-2">🎯 DRAFTED RING RECIPIENTS</div>
+                    ${draftedHtml}
+                  </div>` : ''}
+                </div>
+              </div>
             `;
           }
 
@@ -1963,18 +2511,24 @@ export function createLeagueApp(config) {
           if (sData && sData.standings) {
             const cStanding = sData.standings.find(st => st.rank === 1 || st.ownerName === c.firstOwner);
             if (cStanding && cStanding.coachingEfficiency) {
-              champEffBadge = `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(cStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+              champEffBadge = isCrt
+                ? `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(cStanding.coachingEfficiency).toFixed(1)}% EFF</span>`
+                : `<span class="ml-1.5 px-2 py-0.5 bg-pink-100 text-purple-900 border border-pink-300 rounded-full text-[10px] font-bold">🧠 ${Number(cStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
             }
             const scStanding = sData.standings.find(st => st.isScoringChamp || st.ownerName === c.scoringChampOwner);
             if (scStanding && scStanding.coachingEfficiency) {
-              scEffBadge = `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(scStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
+              scEffBadge = isCrt
+                ? `<span class="ml-1.5 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-600 rounded text-[10px] font-bold font-mono">🧠 ${Number(scStanding.coachingEfficiency).toFixed(1)}% EFF</span>`
+                : `<span class="ml-1.5 px-2 py-0.5 bg-pink-100 text-purple-900 border border-pink-300 rounded-full text-[10px] font-bold">🧠 ${Number(scStanding.coachingEfficiency).toFixed(1)}% EFF</span>`;
             }
           }
 
           const div = document.createElement('div');
-          div.className = 'crt-box p-4 rounded flex flex-col justify-between shadow-md bg-black/60 border border-emerald-900';
+          div.className = isCrt
+            ? 'crt-box p-4 rounded flex flex-col justify-between shadow-md bg-black/60 border border-emerald-900'
+            : 'crt-box p-4 rounded-2xl flex flex-col justify-between shadow-md bg-white border-2 border-pink-200';
 
-          div.innerHTML = `
+          div.innerHTML = isCrt ? `
             <div>
               <div class="flex items-center justify-between mb-3 border-b border-emerald-900 pb-2">
                 <span class="text-2xl font-black text-emerald-300 crt-glow">${yr}</span>
@@ -2021,6 +2575,53 @@ export function createLeagueApp(config) {
               <!-- Championship Title Roster -->
               ${rosterHtml}
             </div>
+          ` : `
+            <div>
+              <div class="flex items-center justify-between mb-3 border-b-2 border-pink-100 pb-2">
+                <span class="text-2xl font-black font-fredoka rainbow-text">${yr}</span>
+                <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-[10px]">🏆 Season ${yr}</span>
+              </div>
+
+              <!-- 1st Place / ${config.cupName} Champion -->
+              <div class="mb-3 p-3 bg-amber-50/90 border-2 border-amber-300 rounded-xl">
+                <span class="text-[10px] uppercase font-bold text-amber-800 block">🥇 ${config.cupName} CHAMPION</span>
+                <span class="text-base font-black text-purple-950 block mt-0.5">${c.firstTeam}</span>
+                <div class="flex items-center mt-1">
+                  <span class="text-xs text-pink-600 font-bold">[${c.firstOwner}]</span>
+                  ${champEffBadge}
+                </div>
+                <button type="button" onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.firstOwner || '').replace(/'/g, "\\'")}', '${(c.secondOwner || '').replace(/'/g, "\\'")}')" class="mt-2 w-full flex items-center justify-center gap-1.5 py-1 px-2.5 bg-amber-200/80 hover:bg-amber-300 text-amber-950 border border-amber-400 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all shadow-sm cursor-pointer">
+                  🏆 JUMP TO TITLE GAME ➔
+                </button>
+              </div>
+
+              <!-- 2nd and 3rd Podium Finishers -->
+              <div class="space-y-1.5 text-xs border-t border-b border-pink-100 py-2.5 my-2 text-purple-950">
+                <div class="flex justify-between items-center group cursor-pointer hover:text-purple-700" onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.firstOwner || '').replace(/'/g, "\\'")}', '${(c.secondOwner || '').replace(/'/g, "\\'")}')" title="Jump to Title Game Matchup">
+                  <span class="text-slate-600 font-bold">🥈 2nd Place:</span>
+                  <span class="font-bold text-purple-950">${c.secondTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.secondOwner}]</span> <span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">📋 Box ➔</span></span>
+                </div>
+                <div class="flex justify-between items-center ${c.thirdOwner ? 'group cursor-pointer hover:text-purple-700' : ''}" ${c.thirdOwner ? `onclick="event.stopPropagation(); window.jumpToMatchup(${yr}, ${titleWk}, '${(c.thirdOwner || '').replace(/'/g, "\\'")}', '${(c.fourthOwner || '').replace(/'/g, "\\'")}')" title="Jump to 3rd Place Matchup"` : ''}>
+                  <span class="text-amber-800 font-bold">🥉 3rd Place:</span>
+                  <span class="font-bold text-purple-950">${c.thirdTeam} <span class="text-[10px] text-pink-600 font-normal">[${c.thirdOwner}]</span> ${c.thirdOwner ? '<span class="text-[9px] text-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">📋 Box ➔</span>' : ''}</span>
+                </div>
+              </div>
+
+              <!-- Regular Season Scoring Champion (Below the Podium) -->
+              <div class="mt-2.5 p-2.5 bg-pink-50/80 border border-pink-300 rounded-xl text-xs flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-extrabold text-pink-700 block">🎯 SCORING CHAMPION</span>
+                  <div class="flex items-center mt-0.5">
+                    <span class="font-bold text-purple-950 text-xs">${scTeam} <span class="text-[10px] text-pink-600 font-normal">[${scOwner}]</span></span>
+                    ${scEffBadge}
+                  </div>
+                </div>
+                <span class="font-mono font-black text-pink-700 text-sm">${scPF} pts</span>
+              </div>
+
+              <!-- Championship Title Roster -->
+              ${rosterHtml}
+            </div>
           `;
           grid.appendChild(div);
         });
@@ -2033,18 +2634,28 @@ export function createLeagueApp(config) {
         const topRingWinners = (window.LEAGUE_DATA.allTimePlayerRings || []).slice(0, 12);
         topRingWinners.forEach((item, idx) => {
           const div = document.createElement('div');
-          div.className = 'crt-box p-3 rounded text-left tooltip-trigger cursor-pointer hover:border-amber-400 transition-all shadow-md bg-black/80';
+          div.className = isCrt
+            ? 'crt-box p-3 rounded text-left tooltip-trigger cursor-pointer hover:border-amber-400 transition-all shadow-md bg-black/80'
+            : 'crt-box p-3 rounded-2xl text-left tooltip-trigger cursor-pointer hover:border-amber-400 transition-all shadow-md bg-white border-2 border-pink-200';
 
           const ringBadgeHtml = getPlayerRingBadgeHtml(item.player);
           const yearsListStr = item.rings.map(r => `${r.year}`).join(', ');
 
-          div.innerHTML = `
+          div.innerHTML = isCrt ? `
             <div class="flex items-center justify-between border-b border-emerald-900 pb-1 mb-1.5">
               <span class="text-[11px] font-bold text-amber-400 font-mono">#${idx + 1} ${item.player}</span>
               <span class="px-1.5 py-0.5 bg-amber-950 text-amber-300 font-black border border-amber-600 rounded text-xs">💍 ${item.ringsCount}</span>
             </div>
             <p class="text-[11px] text-emerald-300 font-bold truncate">${item.rings[0].role} (${item.rings[0].year})</p>
             <p class="text-[10px] text-emerald-500 italic mt-0.5 truncate">Championships: ${yearsListStr}</p>
+            ${ringBadgeHtml}
+          ` : `
+            <div class="flex items-center justify-between border-b border-pink-100 pb-1 mb-1.5">
+              <span class="text-[11px] font-bold text-purple-950 font-sans">#${idx + 1} ${item.player}</span>
+              <span class="px-1.5 py-0.5 bg-amber-100 text-amber-900 font-black border border-amber-300 rounded-lg text-xs">💍 ${item.ringsCount}</span>
+            </div>
+            <p class="text-[11px] text-pink-700 font-bold truncate">${item.rings[0].role} (${item.rings[0].year})</p>
+            <p class="text-[10px] text-purple-700 italic mt-0.5 truncate">Championships: ${yearsListStr}</p>
             ${ringBadgeHtml}
           `;
           ringsGrid.appendChild(div);
@@ -2075,7 +2686,9 @@ export function createLeagueApp(config) {
 
         cardDefs.forEach((card, idx) => {
           const div = document.createElement('div');
-          div.className = 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-emerald-400 transition-all shadow-md';
+          div.className = isCrt
+            ? 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-emerald-400 transition-all shadow-md'
+            : 'crt-box p-3 rounded text-center tooltip-trigger cursor-pointer hover:border-pink-400 transition-all shadow-md';
           const rowPopDir = idx < 4 ? ' tooltip-content-bottom' : '';
           const val = card.data ? card.data.val : '-';
           const team = card.data ? card.data.team : '-';
@@ -2097,7 +2710,7 @@ export function createLeagueApp(config) {
             popoverHtml = popoverHtml.replace('tooltip-content', 'tooltip-content tooltip-content-left');
           }
 
-          div.innerHTML = `
+          div.innerHTML = isCrt ? `
             <div class="text-[11px] font-bold text-emerald-400 border-b border-emerald-900 pb-1 mb-2 flex items-center justify-between font-mono">
               <span>&gt; ${card.title}</span>
               <span class="text-[9px] text-emerald-600 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Top 5 🔍'}</span>
@@ -2105,6 +2718,15 @@ export function createLeagueApp(config) {
             <p class="text-xl font-black text-emerald-300 crt-glow">${val}</p>
             <p class="text-xs font-bold text-emerald-400 truncate mt-1">${team} <span class="text-[10px] text-emerald-600 font-normal">[${owner}]</span></p>
             <p class="text-[10px] text-emerald-500 italic mt-0.5 truncate">${sub}</p>
+            ${popoverHtml}
+          ` : `
+            <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">
+              <span>&gt; ${card.title}</span>
+              <span class="text-[9px] text-purple-700 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
+            </div>
+            <p class="text-xl font-black text-pink-700 crt-glow-pink-pink">${val}</p>
+            <p class="text-xs font-bold text-purple-900 truncate mt-1">${team} <span class="text-[10px] text-pink-600 font-normal">[${owner}]</span></p>
+            <p class="text-[10px] text-pink-600 italic mt-0.5 truncate">${sub}</p>
             ${popoverHtml}
           `;
           statGrid.appendChild(div);
@@ -2125,15 +2747,20 @@ export function createLeagueApp(config) {
       owners.sort();
 
       if (!currentFranchiseOwner || !owners.includes(currentFranchiseOwner)) {
-        currentFranchiseOwner = owners[0] || 'Dylan';
+        currentFranchiseOwner = owners[0] || (isPride ? 'Trace Bakulich' : 'Dylan');
       }
 
       if (btnContainer) {
         btnContainer.innerHTML = owners.map(o => {
           const isActive = o === currentFranchiseOwner;
-          const activeClass = 'bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_8px_rgba(0,255,102,0.3)]';
-          const inactiveClass = 'bg-black/80 border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
-          return `<button type="button" data-owner="${encodeURIComponent(o)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))" class="px-3 py-1.5 text-xs rounded border transition-all ${isActive ? activeClass : inactiveClass}">${o}</button>`;
+          const activeClass = isCrt
+            ? 'bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_8px_rgba(0,255,102,0.3)]'
+            : 'bg-pink-100/90 border-pink-400 text-pink-700 font-black shadow-sm font-fredoka';
+          const inactiveClass = isCrt
+            ? 'bg-black/80 border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold'
+            : 'bg-white border-pink-200 text-purple-700 hover:border-purple-300 hover:text-pink-600 font-bold font-fredoka';
+          const radiusClass = isCrt ? 'rounded' : 'rounded-xl';
+          return `<button type="button" data-owner="${encodeURIComponent(o)}" onclick="selectFranchiseByName(decodeURIComponent(this.getAttribute('data-owner')))" class="px-3 py-1.5 text-xs ${radiusClass} border transition-all ${isActive ? activeClass : inactiveClass}">${o}</button>`;
         }).join('');
       }
 
@@ -2187,16 +2814,22 @@ export function createLeagueApp(config) {
 
       // Update button active classes
       document.querySelectorAll('.franchise-draft-year-btn').forEach(btn => {
-        btn.className = 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-black border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold';
+        btn.className = isCrt
+          ? 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-black border-emerald-900 text-emerald-600 hover:border-emerald-700 hover:text-emerald-400 font-bold'
+          : 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded-xl border transition-all bg-white border-pink-200 text-purple-700 hover:border-purple-300 hover:text-pink-600 font-bold font-fredoka';
       });
       const activeBtn = document.getElementById(`btn-franchise-draft-${forcedYear}`);
       if (activeBtn) {
-        activeBtn.className = 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_6px_rgba(0,255,102,0.3)]';
+        activeBtn.className = isCrt
+          ? 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded border transition-all bg-emerald-950 border-emerald-400 text-emerald-300 font-extrabold shadow-[0_0_6px_rgba(0,255,102,0.3)]'
+          : 'franchise-draft-year-btn px-2.5 py-1 text-xs rounded-xl border transition-all bg-pink-100/90 border-pink-400 text-pink-700 font-black shadow-sm font-fredoka';
       }
 
       const sData = window.LEAGUE_DATA.seasonData[forcedYear];
       if (!sData || !sData.draftPicks) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft records found for ${forcedYear}.</div>`;
+        container.innerHTML = isCrt
+          ? `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft records found for ${forcedYear}.</div>`
+          : `<div class="p-4 text-center text-xs text-purple-600 font-sans">No draft records found for ${forcedYear}.</div>`;
         return;
       }
 
@@ -2205,7 +2838,9 @@ export function createLeagueApp(config) {
         .sort((a, b) => (a.overallPick || 0) - (b.overallPick || 0));
 
       if (ownerPicks.length === 0) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft picks recorded for ${owner} in ${forcedYear}.</div>`;
+        container.innerHTML = isCrt
+          ? `<div class="p-4 text-center text-xs text-emerald-500 font-mono">No draft picks recorded for ${owner} in ${forcedYear}.</div>`
+          : `<div class="p-4 text-center text-xs text-purple-600 font-sans">No draft picks recorded for ${owner} in ${forcedYear}.</div>`;
         return;
       }
 
@@ -2217,7 +2852,7 @@ export function createLeagueApp(config) {
         const ovr = p.overallPick ? `#${p.overallPick}` : '-';
         const team = p.teamName || '-';
 
-        return `
+        return isCrt ? `
           <tr class="border-b border-emerald-950/80 hover:bg-emerald-950/30 transition-colors">
             <td class="p-2.5 font-mono font-bold text-emerald-400 text-center">${rnd}</td>
             <td class="p-2.5 font-mono font-bold text-emerald-300 text-center">${pickNum} <span class="text-[10px] text-emerald-600">(${ovr})</span></td>
@@ -2225,12 +2860,35 @@ export function createLeagueApp(config) {
             <td class="p-2.5 text-center font-mono font-bold text-amber-400"><span class="px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-600/60 text-[11px]">${pos}</span></td>
             <td class="p-2.5 font-mono text-emerald-500 text-xs">${team}</td>
           </tr>
+        ` : `
+          <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-colors">
+            <td class="p-2.5 font-mono font-bold text-pink-700 text-center">${rnd}</td>
+            <td class="p-2.5 font-mono font-bold text-purple-900 text-center">${pickNum} <span class="text-[10px] text-purple-500">(${ovr})</span></td>
+            <td class="p-2.5 font-bold text-pink-700">${pName}</td>
+            <td class="p-2.5 text-center font-bold"><span class="px-2 py-0.5 rounded-full bg-pink-100 border border-pink-300 text-pink-800 text-[11px]">${pos}</span></td>
+            <td class="p-2.5 font-sans text-purple-700 text-xs">${team}</td>
+          </tr>
         `;
       }).join('');
 
-      container.innerHTML = `
+      container.innerHTML = isCrt ? `
         <table class="w-full min-w-[680px] text-xs text-left border-collapse font-mono">
           <thead class="bg-[#052611] text-emerald-300 font-bold border-b border-emerald-600 text-xs">
+            <tr>
+              <th class="p-2.5 text-center w-16">ROUND</th>
+              <th class="p-2.5 text-center w-28">PICK</th>
+              <th class="p-2.5">PLAYER SELECTED</th>
+              <th class="p-2.5 text-center w-20">POS</th>
+              <th class="p-2.5">FRANCHISE NAME</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${pickRows}
+          </tbody>
+        </table>
+      ` : `
+        <table class="w-full min-w-[680px] text-xs text-left border-collapse">
+          <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200 text-xs">
             <tr>
               <th class="p-2.5 text-center w-16">ROUND</th>
               <th class="p-2.5 text-center w-28">PICK</th>
@@ -2260,7 +2918,9 @@ export function createLeagueApp(config) {
         const btn = document.createElement('button');
         btn.id = `btn-draft-${yr}`;
         btn.onclick = () => selectDraftSeason(yr);
-        btn.className = `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentDraftSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`;
+        btn.className = isCrt
+          ? `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentDraftSeason ? 'bg-emerald-900 text-emerald-300 border-emerald-400' : 'bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'}`
+          : `px-2.5 py-1 text-xs font-bold transition-all border ${yr === currentDraftSeason ? 'bg-pink-100/90 text-pink-700 border-pink-400' : 'bg-white text-purple-700 border-pink-200 hover:border-purple-200'}`;
         btn.innerText = yr;
         container.appendChild(btn);
       });
@@ -2271,16 +2931,20 @@ export function createLeagueApp(config) {
     function selectDraftSeason(yr) {
       currentDraftSeason = yr;
       document.querySelectorAll('#draft-season-selector button').forEach(btn => {
-        btn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700';
+        btn.className = isCrt
+          ? 'px-2.5 py-1 text-xs font-bold transition-all border bg-black text-emerald-600 border-emerald-900 hover:border-emerald-700'
+          : 'px-2.5 py-1 text-xs font-bold transition-all border bg-white text-purple-700 border-pink-200 hover:border-purple-200';
       });
       const activeBtn = document.getElementById(`btn-draft-${yr}`);
       if (activeBtn) {
-        activeBtn.className = 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400';
+        activeBtn.className = isCrt
+          ? 'px-2.5 py-1 text-xs font-bold transition-all border bg-emerald-900 text-emerald-300 border-emerald-400'
+          : 'px-2.5 py-1 text-xs font-bold transition-all border bg-pink-100/90 text-pink-700 border-pink-400';
       }
       renderDraftPage();
     }
 
-        function renderDraftPage() {
+    function renderDraftPage() {
       const tbody = document.getElementById('draft-table-body');
       const title = document.getElementById('draft-table-title') || document.getElementById('draft-order-title');
       const grid = document.getElementById('draft-insights-grid');
@@ -2313,10 +2977,15 @@ export function createLeagueApp(config) {
       }
 
       if (!draftList || draftList.length === 0) {
-        grid.innerHTML = `
+        grid.innerHTML = isCrt ? `
           <div class="crt-box p-3 rounded col-span-1 sm:col-span-3 text-center">
             <span class="text-[10px] uppercase font-bold text-amber-400 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
             <span class="text-xs text-emerald-500 block mt-1">Official standings & matchup history intact.</span>
+          </div>
+        ` : `
+          <div class="crt-box p-3 rounded-2xl col-span-1 sm:col-span-3 text-center bg-white border-2 border-pink-200">
+            <span class="text-[10px] uppercase font-bold text-amber-800 block">⚠️ ${currentDraftSeason} DRAFT LOG PENDING</span>
+            <span class="text-xs text-purple-700 block mt-1">Official standings & matchup history intact.</span>
           </div>
         `;
         renderPlayerDraftPicks();
@@ -2341,7 +3010,7 @@ export function createLeagueApp(config) {
       if (rData && champ) {
         const startersItems = rData.starters.map(s => {
           const rBadge = getPlayerRingBadgeHtml(s.player);
-          return `
+          return isCrt ? `
             <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
               <div>
                 <span class="font-bold text-emerald-300"><span class="text-amber-400 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
@@ -2349,12 +3018,20 @@ export function createLeagueApp(config) {
               </div>
               <span class="text-[9px] px-1.5 py-0.5 rounded ${s.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${s.acq || 'FA/Trade'}</span>
             </div>
+          ` : `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-bold text-purple-950"><span class="text-pink-600 font-semibold w-10 inline-block">${s.pos}</span>${s.player}${rBadge}</span>
+                <span class="text-[10px] text-purple-700 block pl-10">${s.draftInfo || s.acq || 'Championship Roster'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${s.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${s.acq || 'FA/Trade'}</span>
+            </div>
           `;
         }).join('');
 
         const benchItems = rData.bench.map(b => {
           const rBadge = getPlayerRingBadgeHtml(b.player);
-          return `
+          return isCrt ? `
             <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
               <div>
                 <span class="font-bold text-emerald-400"><span class="text-emerald-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
@@ -2362,12 +3039,20 @@ export function createLeagueApp(config) {
               </div>
               <span class="text-[9px] px-1.5 py-0.5 rounded ${b.acq === 'Draft' ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-amber-950/70 text-amber-300 border border-amber-600'} font-bold">${b.acq || 'FA/Trade'}</span>
             </div>
+          ` : `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-bold text-purple-900"><span class="text-purple-600 font-semibold w-10 inline-block">${b.pos || 'BN'}</span>${b.player}${rBadge}</span>
+                <span class="text-[10px] text-purple-700 block pl-10">${b.draftInfo || b.acq || 'Free Agent'}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full ${b.acq === 'Draft' ? 'bg-pink-100 text-pink-700 border border-pink-300' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-bold">${b.acq || 'FA/Trade'}</span>
+            </div>
           `;
         }).join('');
 
         const draftedItems = rData.draftedContributors.map(d => {
           const rBadge = getPlayerRingBadgeHtml(d.player);
-          return `
+          return isCrt ? `
             <div class="flex items-start justify-between py-1 border-b border-emerald-950/80 text-[11px] font-mono">
               <div>
                 <span class="font-medium text-emerald-400/90"><span class="text-amber-500 font-semibold w-10 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span>
@@ -2375,10 +3060,18 @@ export function createLeagueApp(config) {
               </div>
               <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">Ring Recipient</span>
             </div>
+          ` : `
+            <div class="flex items-start justify-between py-1 border-b border-pink-100 text-[11px] font-sans">
+              <div>
+                <span class="font-medium text-purple-900/90"><span class="text-amber-700 font-semibold w-10 inline-block">${d.pos || 'D'}</span>${d.player}${rBadge}</span>
+                <span class="text-[10px] text-amber-800 block pl-10">${d.draftInfo}</span>
+              </div>
+              <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-pink-100 text-pink-700 border border-pink-300 font-bold">Ring Recipient</span>
+            </div>
           `;
         }).join('');
 
-        titleProvenanceHtml = `
+        titleProvenanceHtml = isCrt ? `
           <div class="mt-3 p-3 bg-black/90 border-2 border-emerald-600 rounded text-left font-mono">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-emerald-800 pb-2 mb-3 gap-1">
               <div>
@@ -2417,33 +3110,92 @@ export function createLeagueApp(config) {
               </div>
             </div>
           </div>
+        ` : `
+          <div class="mt-3 p-3 bg-white border-2 border-pink-300 rounded-2xl text-left font-sans shadow-sm">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-pink-100 pb-2 mb-3 gap-1">
+              <div>
+                <div class="text-[10px] font-bold text-amber-800 tracking-widest uppercase font-fredoka">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
+                <div class="text-sm font-black text-purple-950">🏆 ${champ.firstTeam} <span class="text-xs text-pink-600 font-bold">[${champ.firstOwner}]</span></div>
+              </div>
+              <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-xs">${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Championship Rings Awarded</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <!-- Starters -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-amber-800 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🌟 TITLE GAME STARTERS</span>
+                  <span class="text-[9px] text-pink-700 font-bold">${rData.starters.length} Players</span>
+                </div>
+                ${startersItems}
+              </div>
+
+              <!-- Bench -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-purple-900 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🛡️ BENCH ROSTER</span>
+                  <span class="text-[9px] text-pink-700 font-bold">${rData.bench.length} Players</span>
+                </div>
+                ${benchItems}
+              </div>
+
+              <!-- Drafted Contributors -->
+              <div class="bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                <div class="text-[10px] font-black text-amber-800 uppercase tracking-wider border-b border-pink-200 pb-1 mb-1.5 flex items-center justify-between">
+                  <span>🎯 DRAFTED NO LONGER ON TEAM</span>
+                  <span class="text-[9px] text-amber-800 font-bold">${rData.draftedContributors.length} Players</span>
+                </div>
+                ${draftedItems}
+              </div>
+            </div>
+          </div>
         `;
       }
 
-      grid.innerHTML = `
+      grid.innerHTML = isCrt ? `
         <div class="crt-box p-4 rounded text-center col-span-1 sm:col-span-3">
           <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider block font-mono">🏆 CHAMPION DRAFT SLOT</span>
           <span class="text-lg font-black text-emerald-300 crt-glow block mt-1">${champDraftPick}</span>
           <span class="text-xs text-emerald-400 italic">${currentDraftSeason} ${config.cupName} Winner (${champ ? champ.firstTeam : ''})</span>
           ${titleProvenanceHtml}
         </div>
+      ` : `
+        <div class="crt-box p-4 rounded-2xl text-center col-span-1 sm:col-span-3 bg-white border-2 border-pink-200 shadow-sm">
+          <span class="text-xs uppercase font-black text-amber-800 tracking-wider block font-fredoka">🏆 CHAMPION DRAFT SLOT</span>
+          <span class="text-lg font-black text-purple-950 block mt-1">${champDraftPick}</span>
+          <span class="text-xs text-pink-600 font-bold italic">${currentDraftSeason} ${config.cupName} Winner (${champ ? champ.firstTeam : ''})</span>
+          ${titleProvenanceHtml}
+        </div>
       `;
 
       draftList.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
+        tr.className = isCrt
+          ? 'border-b border-emerald-950 hover:bg-emerald-950/20'
+          : 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
 
         const prevFinishStr = (item.prevRank === 'New' || item.prevRank === 'Inaugural Draft')
-          ? `<span class="text-emerald-400 font-bold">${item.prevRank === 'Inaugural Draft' ? 'Inaugural Draft' : 'New Expansion Team'}</span>`
+          ? `<span class="${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">${item.prevRank === 'Inaugural Draft' ? 'Inaugural Draft' : 'New Expansion Team'}</span>`
           : `<span class="font-bold">#${item.prevRank} in ${prevYear} (${item.prevRecord})</span>`;
 
         const dp = (window.LEAGUE_DATA.draftProfiles || {})[item.ownerName];
-        const archetypeBadge = dp ? `<div class="mt-1"><span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono border ${dp.reachColor || 'border-emerald-700 bg-emerald-950 text-emerald-300'} font-bold">🎯 ${dp.archetype}</span></div>` : '';
+        const archetypeBadge = dp ? (isCrt
+          ? `<div class="mt-1"><span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono border ${dp.reachColor || 'border-emerald-700 bg-emerald-950 text-emerald-300'} font-bold">🎯 ${dp.archetype}</span></div>`
+          : `<div class="mt-1"><span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-fredoka border ${dp.reachColor || 'border-pink-300 bg-pink-50 text-pink-700'} font-bold shadow-xs">🎯 ${dp.archetype}</span></div>`
+        ) : '';
 
-        tr.innerHTML = `
+        tr.innerHTML = isCrt ? `
           <td class="p-2.5 text-center font-black text-sm text-emerald-300 crt-glow font-mono">Pick #${item.pick}</td>
           <td class="p-2.5">
             <span class="font-bold text-emerald-300 block">${item.teamName} <span class="text-[10px] text-emerald-600 font-normal">[${item.ownerName}]</span></span>
+            ${archetypeBadge}
+          </td>
+          <td class="p-2.5 text-center">${prevFinishStr}</td>
+          <td class="p-2.5 text-center font-bold">#${item.curRank} (${item.curRecord})</td>
+        ` : `
+          <td class="p-2.5 text-center font-black text-sm text-pink-700 crt-glow-pink-pink font-mono">Pick #${item.pick}</td>
+          <td class="p-2.5">
+            <span class="font-bold text-pink-700 block">${item.teamName} <span class="text-[10px] text-purple-700 font-normal">[${item.ownerName}]</span></span>
             ${archetypeBadge}
           </td>
           <td class="p-2.5 text-center">${prevFinishStr}</td>
@@ -2522,29 +3274,40 @@ export function createLeagueApp(config) {
       const picks = (sData && sData.draftPicks) ? sData.draftPicks : [];
 
       if (picks.length === 0) {
-        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No player draft records ingested for ${currentDraftSeason}.</td></tr>`;
+        pTbody.innerHTML = isCrt
+          ? `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No player draft records ingested for ${currentDraftSeason}.</td></tr>`
+          : `<tr><td colspan="4" class="p-4 text-center text-purple-700 italic">No player draft records ingested for ${currentDraftSeason}.</td></tr>`;
         return;
       }
 
       const filtered = filterDraftPicks(picks, { searchVal, roundVal });
 
       if (filtered.length === 0) {
-        pTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No picks matching filter query.</td></tr>`;
+        pTbody.innerHTML = isCrt
+          ? `<tr><td colspan="4" class="p-4 text-center text-emerald-600 italic">No picks matching filter query.</td></tr>`
+          : `<tr><td colspan="4" class="p-4 text-center text-purple-700 italic">No picks matching filter query.</td></tr>`;
         return;
       }
 
-      filtered.forEach(p => {
+      filtered.forEach((p, idx) => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-900/40 hover:bg-emerald-950/40 transition-colors';
+        tr.className = isCrt
+          ? 'border-b border-emerald-900/40 hover:bg-emerald-950/40 transition-colors'
+          : 'border-b border-pink-100 hover:bg-pink-50/80 transition-colors';
+        const rowPopDir = idx < 6 ? ' tooltip-content-bottom' : '';
 
         const isRound1 = p.round === 1;
-        const roundBadge = isRound1
-          ? `<span class="px-2 py-0.5 bg-amber-950/80 text-amber-300 font-bold border border-amber-600 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
-          : `<span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-700 rounded text-xs">R${p.round}P${p.pickInRound}</span>`;
+        const roundBadge = isCrt
+          ? (isRound1
+            ? `<span class="px-2 py-0.5 bg-amber-950/80 text-amber-300 font-bold border border-amber-600 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
+            : `<span class="px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold border border-emerald-700 rounded text-xs">R${p.round}P${p.pickInRound}</span>`)
+          : (isRound1
+            ? `<span class="px-2 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`
+            : `<span class="px-2 py-0.5 bg-pink-100 text-pink-700 font-bold border border-pink-300 rounded text-xs shadow-sm">R${p.round}P${p.pickInRound}</span>`);
 
-        const popoverHtml = getPlayerLifetimeDraftPopover(p.player);
+        const popoverHtml = getPlayerLifetimeDraftPopover(p.player, rowPopDir);
 
-        tr.innerHTML = `
+        tr.innerHTML = isCrt ? `
           <td class="p-2.5 text-center font-black text-emerald-300">Pick #${p.overallPick}</td>
           <td class="p-2.5 text-center">${roundBadge}</td>
           <td class="p-2.5 font-bold text-emerald-200">
@@ -2557,6 +3320,20 @@ export function createLeagueApp(config) {
           <td class="p-2.5">
             <span class="font-bold text-emerald-300">${p.teamName}</span>
             <span class="text-[10px] text-emerald-400 block font-mono">[${p.ownerName}]</span>
+          </td>
+        ` : `
+          <td class="p-2.5 text-center font-black text-pink-700">Pick #${p.overallPick}</td>
+          <td class="p-2.5 text-center">${roundBadge}</td>
+          <td class="p-2.5 font-bold text-purple-950">
+            <div class="tooltip-trigger inline-block cursor-pointer">
+              <span class="hover:underline hover:text-pink-600 transition-colors">${p.player} 🔍</span>
+              ${popoverHtml}
+            </div>
+            ${getPlayerRingBadgeHtml(p.player)}
+          </td>
+          <td class="p-2.5">
+            <span class="font-bold text-purple-950">${p.teamName}</span>
+            <span class="text-[10px] text-pink-600 block font-bold">[${p.ownerName}]</span>
           </td>
         `;
         pTbody.appendChild(tr);
@@ -2665,8 +3442,11 @@ let y2kLineupsData = null;
 
     // TAB 7: ANALYTICS
     function renderAnalytics() {
-      renderManagerialProwess();
+      if (document.getElementById('managerial-prowess-container')) {
+        renderManagerialProwess();
+      }
       const tbody = document.getElementById('luck-index-table-body');
+      if (!tbody) return;
       tbody.innerHTML = '';
 
       // Filter out Nick and Torin from All-Time Analytics
@@ -2682,12 +3462,19 @@ let y2kLineupsData = null;
       list.sort((a, b) => b.luck - a.luck);
       list.forEach(item => {
         const tr = document.createElement('tr');
-        tr.className = 'border-b border-emerald-950 hover:bg-emerald-950/20';
-        const luckColor = item.luck > 0 ? 'text-emerald-400 font-bold' : (item.luck < 0 ? 'text-red-500 font-bold' : 'text-emerald-700');
-        tr.innerHTML = `
+        tr.className = isCrt ? 'border-b border-emerald-950 hover:bg-emerald-950/20' : 'border-b border-pink-100 hover:bg-pink-50/90/20';
+        const luckColor = isCrt
+          ? (item.luck > 0 ? 'text-emerald-400 font-bold' : (item.luck < 0 ? 'text-red-500 font-bold' : 'text-emerald-700'))
+          : (item.luck > 0 ? 'text-pink-600 font-bold' : (item.luck < 0 ? 'text-red-500 font-bold' : 'text-purple-800/60'));
+        tr.innerHTML = isCrt ? `
           <td class="p-2 font-bold text-emerald-300">${item.owner}</td>
           <td class="p-2 text-center font-bold text-emerald-300">${item.actualW}</td>
           <td class="p-2 text-center text-emerald-600">${item.expW}</td>
+          <td class="p-2 text-center ${luckColor}">${item.luck > 0 ? '+' + item.luck : item.luck}</td>
+        ` : `
+          <td class="p-2 font-bold text-pink-700">${item.owner}</td>
+          <td class="p-2 text-center font-bold text-pink-700">${item.actualW}</td>
+          <td class="p-2 text-center text-purple-700">${item.expW}</td>
           <td class="p-2 text-center ${luckColor}">${item.luck > 0 ? '+' + item.luck : item.luck}</td>
         `;
         tbody.appendChild(tr);
@@ -2697,6 +3484,7 @@ let y2kLineupsData = null;
     function renderAnalyticsCharts() {
       const textColor = '#00ff66';
       const gridColor = 'rgba(0, 255, 102, 0.15)';
+      const chartFont = isCrt ? 'Courier Prime' : 'Plus Jakarta Sans';
 
       const luckCtx = document.getElementById('luckChart').getContext('2d');
       const luckData = window.LEAGUE_DATA.allTimeStandings
@@ -2723,8 +3511,8 @@ let y2kLineupsData = null;
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            x: { ticks: { color: textColor, font: { family: 'Courier Prime' } }, grid: { display: false } },
-            y: { ticks: { color: textColor, font: { family: 'Courier Prime' } }, grid: { color: gridColor } }
+            x: { ticks: { color: textColor, font: { family: chartFont } }, grid: { display: false } },
+            y: { ticks: { color: textColor, font: { family: chartFont } }, grid: { color: gridColor } }
           }
         }
       });
@@ -2770,8 +3558,8 @@ let y2kLineupsData = null;
             }
           },
           scales: {
-            x: { title: { display: true, text: 'Average Points Scored Per Game (PF / G)', color: textColor, font: { family: 'Courier Prime', weight: 'bold' } }, ticks: { color: textColor, font: { family: 'Courier Prime' } }, grid: { color: gridColor } },
-            y: { title: { display: true, text: 'Average Points Allowed Per Game (PA / G)', color: textColor, font: { family: 'Courier Prime', weight: 'bold' } }, ticks: { color: textColor, font: { family: 'Courier Prime' } }, grid: { color: gridColor } }
+            x: { title: { display: true, text: 'Average Points Scored Per Game (PF / G)', color: textColor, font: { family: chartFont, weight: 'bold' } }, ticks: { color: textColor, font: { family: chartFont } }, grid: { color: gridColor } },
+            y: { title: { display: true, text: 'Average Points Allowed Per Game (PA / G)', color: textColor, font: { family: chartFont, weight: 'bold' } }, ticks: { color: textColor, font: { family: chartFont } }, grid: { color: gridColor } }
           }
         }
       });
@@ -2841,12 +3629,22 @@ let y2kLineupsData = null;
       const previewBtn = document.getElementById('matchup-mode-preview');
       const recapBtn = document.getElementById('matchup-mode-recap');
       if (previewBtn && recapBtn) {
-        if (currentMatchupMode === 'preview') {
-          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
-          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+        if (isCrt) {
+          if (currentMatchupMode === 'preview') {
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          } else {
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          }
         } else {
-          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
-          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          if (currentMatchupMode === 'preview') {
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+          } else {
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+          }
         }
       }
       populateMatchupManagerDropdown();
@@ -2884,11 +3682,15 @@ let y2kLineupsData = null;
     function switchMatchupMode(mode) {
       currentMatchupMode = mode;
       document.querySelectorAll('.matchup-mode-btn').forEach(btn => {
-        btn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300';
+        btn.className = isCrt
+          ? 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent'
+          : 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
       });
       const activeBtn = document.getElementById(`matchup-mode-${mode}`);
       if (activeBtn) {
-        activeBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+        activeBtn.className = isCrt
+          ? 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500'
+          : 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
       }
       renderMatchupsTab();
     }
@@ -2905,12 +3707,17 @@ let y2kLineupsData = null;
         const isActive = (w === currentMatchupWeek);
         const isPlayoff = sData && w > sData.settings.regularSeasonWeeks;
 
-        const activeClass = isActive
-          ? 'bg-emerald-900 text-emerald-300 border-emerald-400 font-black shadow-[0_0_8px_rgba(52,211,153,0.5)]'
-          : 'bg-black/80 text-emerald-600 hover:text-emerald-300 border-emerald-900 font-bold';
+        const activeClass = isCrt
+          ? (isActive
+            ? 'bg-emerald-900 text-emerald-300 border-emerald-400 font-black shadow-[0_0_8px_rgba(52,211,153,0.5)]'
+            : 'bg-black/80 text-emerald-600 hover:text-emerald-300 border-emerald-900 font-bold')
+          : (isActive
+            ? 'bg-pink-100/90 text-pink-700 border-pink-400 font-black shadow-[0_0_12px_rgba(236,72,153,0.6)]'
+            : 'bg-white/80 text-purple-700 hover:text-pink-700 border-pink-200 font-bold');
 
+        const fontClass = isCrt ? 'font-mono' : 'font-sans';
         const label = isPlayoff ? `P-W${w}` : `W${w}`;
-        html += `<button onclick="switchMatchupWeek(${w})" class="px-2 py-1 text-xs border rounded transition-all font-mono ${activeClass}">${label}</button>`;
+        html += `<button onclick="switchMatchupWeek(${w})" class="px-2 py-1 text-xs border rounded transition-all ${fontClass} ${activeClass}">${label}</button>`;
       }
       container.innerHTML = html;
     }
@@ -2940,9 +3747,17 @@ let y2kLineupsData = null;
       }
       if (btn) {
         if (matchupShowReportScores) {
-          btn.classList.add('bg-emerald-900', 'border-emerald-400', 'text-amber-300');
+          if (isCrt) {
+            btn.classList.add('bg-emerald-900', 'border-emerald-400', 'text-amber-300');
+          } else {
+            btn.classList.add('bg-pink-100', 'border-pink-500', 'text-pink-800');
+          }
         } else {
-          btn.classList.remove('bg-emerald-900', 'border-emerald-400', 'text-amber-300');
+          if (isCrt) {
+            btn.classList.remove('bg-emerald-900', 'border-emerald-400', 'text-amber-300');
+          } else {
+            btn.classList.remove('bg-pink-100', 'border-pink-500', 'text-pink-800');
+          }
         }
       }
       renderMatchupsTab();
@@ -2974,7 +3789,7 @@ let y2kLineupsData = null;
       });
       const sortedM = sortMatchupsByStandingRank(mList, rankMap);
 
-      let text = `# 🏈 ${season} Y2K: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
+      let text = `# 🏈 ${season} ${config.leagueName}: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
 
       sortedM.forEach((m, idx) => {
         const rawHomeOwner = m.homeOwner;
@@ -3072,7 +3887,11 @@ let y2kLineupsData = null;
         // Manager single-view: show all season games for this manager
         if (pillsContainer) pillsContainer.classList.add('hidden');
         if (heading) heading.innerHTML = `👤 ${currentMatchupManager.toUpperCase()} — ${currentMatchupSeason} COMPLETE SCHEDULE &amp; LOG`;
-        if (badge) badge.innerHTML = `<span class="text-emerald-400">📅 ALL GAMES</span>`;
+        if (badge) {
+          badge.innerHTML = isCrt
+            ? `<span class="text-emerald-400 font-mono">📅 ALL GAMES</span>`
+            : `<span class="text-pink-600 font-bold font-fredoka">📅 ALL GAMES</span>`;
+        }
         const sMatchups = (currentMatchupSeason === 2026 && sData && sData.schedule2026)
           ? sData.schedule2026
           : window.LEAGUE_DATA.allMatchups;
@@ -3089,11 +3908,21 @@ let y2kLineupsData = null;
         // Weekly Grid view
         if (pillsContainer) pillsContainer.classList.remove('hidden');
         renderWeekPills();
-        if (heading) heading.innerHTML = `🏈 ${currentMatchupSeason} Y2K: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
+        if (heading) {
+          heading.innerHTML = isCrt
+            ? `🏈 ${currentMatchupSeason} ${config.leagueName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`
+            : `🏈 ${currentMatchupSeason} ${config.leagueName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
+        }
         if (badge) {
-          badge.innerHTML = currentMatchupMode === 'preview'
-            ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>`
-            : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
+          if (isCrt) {
+            badge.innerHTML = currentMatchupMode === 'preview'
+              ? `<span class="text-emerald-400">⚡ PRE-GAME PREVIEW</span>`
+              : `<span class="text-amber-400">📊 POST-GAME RECAP</span>`;
+          } else {
+            badge.innerHTML = currentMatchupMode === 'preview'
+              ? `<span class="text-pink-600 font-bold font-fredoka">⚡ PRE-GAME PREVIEW</span>`
+              : `<span class="text-amber-500 font-bold font-fredoka">📊 POST-GAME RECAP</span>`;
+          }
         }
 
         let mList = [];
@@ -3113,6 +3942,7 @@ let y2kLineupsData = null;
           lineups,
           allMatchups: window.LEAGUE_DATA.allMatchups,
           showReportScores: matchupShowReportScores,
+          theme: theme
         });
       }
     }
@@ -3144,7 +3974,7 @@ let y2kLineupsData = null;
         return;
       }
 
-      const bannerHtml = `
+      const bannerHtml = isCrt ? `
         <div class="flex items-center justify-between px-4 py-2.5 bg-amber-950/80 border-2 border-amber-500/80 text-amber-300 rounded font-mono text-xs mb-5 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
           <div class="flex items-center gap-2">
             <span class="text-amber-400 font-bold">↩ DEEPLINK ACTIVE:</span>
@@ -3153,6 +3983,17 @@ let y2kLineupsData = null;
           <button type="button" onclick="window.returnFromMatchupJump()" class="px-3 py-1.5 bg-amber-900 hover:bg-amber-800 text-amber-200 border border-amber-400 rounded text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
             <span>↩ Return to ${hist.sourceLabel}</span>
             <kbd class="px-1.5 py-0.5 bg-black text-amber-300 border border-amber-600 rounded text-[10px]">Esc</kbd>
+          </button>
+        </div>
+      ` : `
+        <div class="flex items-center justify-between px-4 py-3 bg-amber-50/95 border-2 border-amber-300 text-amber-950 rounded-2xl text-xs mb-5 shadow-sm font-sans">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-700 font-extrabold">↩ DEEPLINK ACTIVE:</span>
+            <span>Jumped from <span class="font-bold text-purple-900 underline">${hist.sourceLabel}</span></span>
+          </div>
+          <button type="button" onclick="window.returnFromMatchupJump()" class="px-3.5 py-1.5 bg-amber-200 hover:bg-amber-300 text-amber-950 border border-amber-400 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+            <span>↩ Return to ${hist.sourceLabel}</span>
+            <kbd class="px-1.5 py-0.5 bg-white text-amber-900 border border-amber-300 rounded text-[10px]">Esc</kbd>
           </button>
         </div>
       `;
@@ -3166,10 +4007,15 @@ let y2kLineupsData = null;
       banner.innerHTML = bannerHtml;
       banner.classList.remove('hidden');
 
-      const floatingBtnHtml = `
+      const floatingBtnHtml = isCrt ? `
         <button type="button" onclick="window.returnFromMatchupJump()" class="flex items-center gap-2 px-4 py-2.5 bg-black/95 text-amber-300 border-2 border-amber-400 rounded-lg shadow-[0_0_25px_rgba(245,158,11,0.6)] font-mono text-xs font-bold hover:bg-amber-950 hover:border-amber-300 hover:scale-105 transition-all cursor-pointer">
           <span>↩ Return to ${hist.sourceLabel}</span>
           <kbd class="px-1.5 py-0.5 bg-amber-950 text-amber-400 border border-amber-600 rounded text-[10px]">Esc</kbd>
+        </button>
+      ` : `
+        <button type="button" onclick="window.returnFromMatchupJump()" class="flex items-center gap-2 px-4 py-2.5 bg-white/95 text-pink-700 border-2 border-pink-400 rounded-full shadow-[0_4px_20px_rgba(236,72,153,0.35)] font-sans text-xs font-extrabold hover:bg-pink-50 hover:border-pink-500 hover:scale-105 transition-all cursor-pointer">
+          <span>↩ Return to ${hist.sourceLabel}</span>
+          <kbd class="px-1.5 py-0.5 bg-pink-100 text-pink-700 border border-pink-300 rounded text-[10px]">Esc</kbd>
         </button>
       `;
 
@@ -3258,12 +4104,22 @@ let y2kLineupsData = null;
       const previewBtn = document.getElementById('matchup-mode-preview');
       const recapBtn = document.getElementById('matchup-mode-recap');
       if (previewBtn && recapBtn) {
-        if (currentMatchupMode === 'preview') {
-          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
-          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+        if (isCrt) {
+          if (currentMatchupMode === 'preview') {
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          } else {
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          }
         } else {
-          recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-emerald-900 text-emerald-300 border border-emerald-500';
-          previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-emerald-600 hover:text-emerald-300 border border-transparent';
+          if (currentMatchupMode === 'preview') {
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+          } else {
+            recapBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all bg-pink-500 text-white rounded-lg shadow-sm font-fredoka';
+            previewBtn.className = 'matchup-mode-btn px-4 py-1 text-xs font-bold transition-all text-purple-700 hover:text-pink-700 rounded-lg font-fredoka';
+          }
         }
       }
 
@@ -3303,10 +4159,17 @@ let y2kLineupsData = null;
 
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          card.classList.add('ring-4', 'ring-amber-400', 'shadow-[0_0_30px_rgba(245,158,11,0.8)]', 'transition-all', 'duration-500');
-          setTimeout(() => {
-            card.classList.remove('ring-4', 'ring-amber-400', 'shadow-[0_0_30px_rgba(245,158,11,0.8)]');
-          }, 3500);
+          if (isCrt) {
+            card.classList.add('ring-4', 'ring-amber-400', 'shadow-[0_0_30px_rgba(245,158,11,0.8)]', 'transition-all', 'duration-500');
+            setTimeout(() => {
+              card.classList.remove('ring-4', 'ring-amber-400', 'shadow-[0_0_30px_rgba(245,158,11,0.8)]');
+            }, 3500);
+          } else {
+            card.classList.add('ring-4', 'ring-pink-500', 'shadow-[0_0_30px_rgba(236,72,153,0.8)]', 'transition-all', 'duration-500');
+            setTimeout(() => {
+              card.classList.remove('ring-4', 'ring-pink-500', 'shadow-[0_0_30px_rgba(236,72,153,0.8)]');
+            }, 3500);
+          }
 
           if (card.id && card.id.startsWith('matchup-card-')) {
             const mId = card.id.replace('matchup-card-', '');
