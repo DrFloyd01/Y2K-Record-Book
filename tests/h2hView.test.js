@@ -138,6 +138,7 @@ describe('H2H View Component', () => {
 
   it('should ensure H2H matrix cells do not use hover popovers and use h2h-matrix-container', async () => {
     const fs = await import('fs');
+    const leagueAppJs = fs.readFileSync('src/core/leagueApp.js', 'utf8');
     const appJs = fs.readFileSync('src/app.js', 'utf8');
     const prideAppJs = fs.readFileSync('src/pride_app.js', 'utf8');
     const indexHtml = fs.readFileSync('index.html', 'utf8');
@@ -145,16 +146,16 @@ describe('H2H View Component', () => {
     const crtCss = fs.readFileSync('src/styles/crt.css', 'utf8');
     const prideCss = fs.readFileSync('src/styles/pride.css', 'utf8');
 
-    // Matrix rendering function in app.js and pride_app.js should not attach tooltip-content or tooltip-trigger
-    const renderMatrixApp = appJs.slice(appJs.indexOf('function renderH2HMatrix'), appJs.indexOf('TAB 4: CHAMPS'));
-    const renderMatrixPride = prideAppJs.slice(prideAppJs.indexOf('function renderH2HMatrix'), prideAppJs.indexOf('TAB 4: CHAMPS'));
+    // App entrypoints should initialize the shared multi-league controller
+    expect(appJs).toContain('createLeagueApp(Y2K_CONFIG)');
+    expect(prideAppJs).toContain('createLeagueApp(PRIDE_CONFIG)');
+
+    // Matrix rendering function in shared controller should not attach tooltip-content or tooltip-trigger
+    const renderMatrixApp = leagueAppJs.slice(leagueAppJs.indexOf('function renderH2HMatrix'), leagueAppJs.indexOf('TAB 4: CHAMPS'));
 
     expect(renderMatrixApp.length).toBeGreaterThan(100);
-    expect(renderMatrixPride.length).toBeGreaterThan(100);
     expect(renderMatrixApp).not.toContain('tooltip-trigger');
     expect(renderMatrixApp).not.toContain('tooltip-content');
-    expect(renderMatrixPride).not.toContain('tooltip-trigger');
-    expect(renderMatrixPride).not.toContain('tooltip-content');
 
     // Matrix containers in HTML should use h2h-matrix-container
     expect(indexHtml).toContain('h2h-matrix-container');
@@ -266,8 +267,7 @@ describe('H2H View Component', () => {
 
   it('should verify streak and matrix scope buttons exist in HTML and are bound in JS', async () => {
     const fs = await import('fs');
-    const appJs = fs.readFileSync('src/app.js', 'utf8');
-    const prideAppJs = fs.readFileSync('src/pride_app.js', 'utf8');
+    const leagueAppJs = fs.readFileSync('src/core/leagueApp.js', 'utf8');
     const indexHtml = fs.readFileSync('index.html', 'utf8');
     const prideHtml = fs.readFileSync('pride_guys.html', 'utf8');
 
@@ -283,21 +283,18 @@ describe('H2H View Component', () => {
     expect(prideHtml).toContain('id="matrix-scope-active"');
     expect(prideHtml).toContain('id="matrix-scope-all"');
 
-    // Both JS files define and export toggleStreakScope
-    expect(appJs).toContain('function toggleStreakScope');
-    expect(appJs).toContain('window.toggleStreakScope = toggleStreakScope');
-    expect(prideAppJs).toContain('function toggleStreakScope');
-    expect(prideAppJs).toContain('window.toggleStreakScope = toggleStreakScope');
+    // Shared leagueApp defines and exports toggleStreakScope
+    expect(leagueAppJs).toContain('function toggleStreakScope');
+    expect(leagueAppJs).toContain('window.toggleStreakScope = toggleStreakScope');
 
-    // Both JS files default to active scope
-    expect(appJs).toContain("let currentStreakScope = 'active'");
-    expect(prideAppJs).toContain("let currentStreakScope = 'active'");
+    // Defaults to active scope
+    expect(leagueAppJs).toContain("let currentStreakScope = 'active'");
   });
 
   it('should verify MATCHUPS tab comes before H2H in Y2K nav and Pride matrix cells have no borders', async () => {
     const fs = await import('fs');
     const indexHtml = fs.readFileSync('index.html', 'utf8');
-    const prideAppJs = fs.readFileSync('src/pride_app.js', 'utf8');
+    const leagueAppJs = fs.readFileSync('src/core/leagueApp.js', 'utf8');
 
     // Desktop nav in index.html: nav-matchups before nav-h2h
     const matchupsDesktopIdx = indexHtml.indexOf('id="nav-matchups"');
@@ -314,7 +311,7 @@ describe('H2H View Component', () => {
     expect(matchupsMobileIdx).toBeLessThan(h2hMobileIdx);
 
     // Pride matrix cells should not contain conditional borders
-    const prideMatrixCode = prideAppJs.slice(prideAppJs.indexOf('function renderH2HMatrix'), prideAppJs.indexOf('TAB 4: CHAMPS'));
+    const prideMatrixCode = leagueAppJs.slice(leagueAppJs.indexOf('function renderH2HMatrix'), leagueAppJs.indexOf('TAB 4: CHAMPS'));
     expect(prideMatrixCode.length).toBeGreaterThan(100);
     expect(prideMatrixCode).not.toContain('border-2 border-pink-500');
     expect(prideMatrixCode).not.toContain('border border-pink-300');
