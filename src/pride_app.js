@@ -2692,6 +2692,7 @@ function renderLucideIcons() {
       const defState = getWeeklyMatchupDefaultState({
         season: currentMatchupSeason,
         seasonData: sData,
+        weeklyCommentary: window.LEAGUE_DATA.weeklyCommentary,
         now: new Date(),
         regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
       });
@@ -2732,6 +2733,7 @@ function renderLucideIcons() {
       const defState = getWeeklyMatchupDefaultState({
         season: currentMatchupSeason,
         seasonData: sData,
+        weeklyCommentary: window.LEAGUE_DATA.weeklyCommentary,
         now: new Date(),
         regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
       });
