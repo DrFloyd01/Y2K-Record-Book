@@ -38,10 +38,13 @@ When writing weekly matchup previews, power rankings, or league editorial conten
   - Connect historic milestones to all-time league records with parenthetical citations (e.g., `(Casey'19-22)`, `(T1-Trace'23)`, `(T-Mike all-time)`).
   - For rookies or expansion teams without H2H history, highlight drafted core talent with round.pick capital (e.g., `Bijan (1.1), McBride (2.24), Lamar (4.48)`).
 
-## 5. Matchups Tab Default Schedule Rules
-- On **Tuesdays through Fridays** (days 2–5, post-sync): default the Matchups tab to the **previous completed week's recap** (e.g., `mode: 'recap'`, `week: maxCompletedWeek`).
-- On **Saturdays through Mondays** (days 6, 0, 1): default the Matchups tab to the **upcoming/current week's preview** (e.g., `mode: 'preview'`, `week: maxCompletedWeek + 1`), capped at regular season weeks.
-- Logic is centralized in `getWeeklyMatchupDefaultState(activeSeasonData, currentSeasonYear, now)` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
+## 5. Matchups Tab Default Commentary View Rules
+- Driven directly by uploaded weekly commentary:
+  - Whenever a **recap** is uploaded (`mode: 'recap'`), default the Matchups tab to that recap.
+  - Whenever a **preview** is uploaded (`mode: 'preview'`), default the Matchups tab to that preview.
+  - No need to track day of the week (Tuesday–Saturday); commentary ingestion directly sets the active focus.
+  - Fallbacks when commentary is absent: defaults to latest completed week recap, or Week 1 preview in pre-season.
+- Logic is centralized in `getWeeklyMatchupDefaultState({ season, seasonData, weeklyCommentary, commentary })` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
 - **Dynamic Standing Badges & Ordering**:
   - In Week 1 Preview: `#STANDING` badges and card sort order must reset to the pre-season rankings (`0-0` records) preserved in `seasonData[year].preSeasonStandings`.
   - In Week N Preview (`N > 1`): `#STANDING` badges and card sort order reflect standings entering the week (calculated strictly from games `< N`).
