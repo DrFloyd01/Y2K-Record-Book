@@ -2776,6 +2776,7 @@ let y2kLineupsData = null;
       const defState = getWeeklyMatchupDefaultState({
         season: currentMatchupSeason,
         seasonData: sData,
+        weeklyCommentary: window.LEAGUE_DATA.weeklyCommentary,
         now: new Date(),
         regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
       });
@@ -2816,6 +2817,7 @@ let y2kLineupsData = null;
       const defState = getWeeklyMatchupDefaultState({
         season: currentMatchupSeason,
         seasonData: sData,
+        weeklyCommentary: window.LEAGUE_DATA.weeklyCommentary,
         now: new Date(),
         regularSeasonWeeks: sData.settings?.regularSeasonWeeks || 14
       });
