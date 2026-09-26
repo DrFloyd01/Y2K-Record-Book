@@ -3,6 +3,7 @@ import { CRT_THEME } from '../theme/theme.js';
 export const Y2K_CONFIG = {
   leagueId: 'y2k',
   name: 'Y2K RECORD BOOK',
+  leagueName: 'Y2K League',
   cupName: 'NEBUCHADNEZZAR CUP',
   platform: 'yahoo',
   dataPath: 'data/leagueData.json',

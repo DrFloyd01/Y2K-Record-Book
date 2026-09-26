@@ -3,6 +3,7 @@ import { PRIDE_THEME } from '../theme/theme.js';
 export const PRIDE_CONFIG = {
   leagueId: 'pride',
   name: 'PRIDE GUYS',
+  leagueName: 'Pride Guys',
   cupName: 'THE PRIDE CUP',
   platform: 'espn',
   dataPath: 'data/prideGuysData.json',

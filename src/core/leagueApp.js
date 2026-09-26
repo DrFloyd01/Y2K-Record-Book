@@ -49,6 +49,7 @@ export function createLeagueApp(config) {
     const theme = config.theme;
     const isCrt = theme.name === 'crt' || theme.name === 'CRT';
     const isPride = theme.name === 'pride' || theme.name === 'PRIDE';
+    const leagueDisplayName = config.leagueName || config.name || 'League';
 
     const renderedTabs = new Set(['seasons']);
     let currentTab = 'seasons';
@@ -174,13 +175,7 @@ export function createLeagueApp(config) {
         renderStandings();
         renderStatRecords();
         initH2HSelects();
-        renderChamps();
-        initTeamOwnerSelect();
-        renderAnalytics();
-        renderStatsTable();
-        initDraftTab();
-        initMatchupsTab();
-        renderLucideIcons();
+        renderedTabs.add('seasons');
         if (config.hasNavIndicator) {
           updateNavIndicator('seasons');
         }
@@ -208,6 +203,8 @@ export function createLeagueApp(config) {
             const targetTab = (initialHash === 'bounties') ? 'challenges' : initialHash;
             switchTab(targetTab);
           }
+        } else {
+          renderLucideIcons();
         }
       } catch (err) {
         console.error(`Error initializing ${config.name} app:`, err);
@@ -258,12 +255,6 @@ export function createLeagueApp(config) {
         returnFromMatchupJump();
       }
     });
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initApp);
-    } else {
-      initApp();
-    }
 
     function switchTab(tabId) {
       setTimeout(renderLucideIcons, 0);
@@ -337,8 +328,10 @@ export function createLeagueApp(config) {
       } else if (tabId === 'draft') {
         initDraftTab();
       } else if (tabId === 'analytics') {
+        renderAnalytics();
         renderAnalyticsCharts();
       }
+      renderedTabs.add(tabId);
     }
 
     function initSeasonSelector() {
@@ -3350,25 +3343,34 @@ export function createLeagueApp(config) {
     }
 
 
-let y2kLineupsData = null;
+    let leagueLineupsData = null;
+    let lineupsLoadingPromise = null;
 
     async function loadY2KLineups() {
-      if (y2kLineupsData) return y2kLineupsData;
-      try {
-        const cacheBust = `v=${Date.now()}`;
-        let res = await fetch(`${config.lineupsPath}?${cacheBust}`, { cache: 'no-store' });
-        if (!res.ok) {
-          res = await fetch(`public/${config.lineupsPath}?${cacheBust}`, { cache: 'no-store' });
-        }
-        if (res.ok) {
-          y2kLineupsData = await res.json();
-        } else {
-          y2kLineupsData = [];
-        }
-      } catch {
-        y2kLineupsData = [];
+      if (leagueLineupsData) return leagueLineupsData;
+      if (lineupsLoadingPromise) return lineupsLoadingPromise;
+      if (!config.lineupsPath) {
+        leagueLineupsData = [];
+        return leagueLineupsData;
       }
-      return y2kLineupsData;
+      lineupsLoadingPromise = (async () => {
+        try {
+          let res = await fetch(config.lineupsPath);
+          if (!res.ok) {
+            res = await fetch(`public/${config.lineupsPath}`);
+          }
+          if (res.ok) {
+            const parsed = await res.json();
+            leagueLineupsData = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.lineups) ? parsed.lineups : []);
+          } else {
+            leagueLineupsData = [];
+          }
+        } catch {
+          leagueLineupsData = [];
+        }
+        return leagueLineupsData;
+      })();
+      return lineupsLoadingPromise;
     }
 
     window.managerialSelectedSeason = 'allTime';
@@ -3684,9 +3686,16 @@ let y2kLineupsData = null;
     function switchMatchupWeek(wk) {
       currentMatchupWeek = wk;
       const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
-      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
-      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
-      currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
+      const seasonKey = String(currentMatchupSeason);
+      const weekKey = String(wk);
+      const commEntry = window.LEAGUE_DATA.weeklyCommentary?.[seasonKey]?.[weekKey];
+      if (commEntry && commEntry.mode) {
+        currentMatchupMode = commEntry.mode;
+      } else {
+        const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
+        const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+        currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
+      }
       switchMatchupMode(currentMatchupMode);
     }
 
@@ -3800,7 +3809,7 @@ let y2kLineupsData = null;
       });
       const sortedM = sortMatchupsByStandingRank(mList, rankMap);
 
-      let text = `# 🏈 ${season} ${config.leagueName}: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
+      let text = `# 🏈 ${season} ${leagueDisplayName}: Week ${week} ${isPlayoffWeek ? 'Playoff ' : ''}${mode.toUpperCase()}\n\n`;
 
       sortedM.forEach((m, idx) => {
         const rawHomeOwner = m.homeOwner;
@@ -3873,7 +3882,15 @@ let y2kLineupsData = null;
       const badge = document.getElementById('matchup-mode-badge');
       if (!container) return;
 
-      const lineups = await loadY2KLineups();
+      // Use cached lineups if already loaded; load in background without blocking initial rendering
+      const lineups = leagueLineupsData || [];
+      if (!leagueLineupsData && config.lineupsPath) {
+        loadY2KLineups().then(loaded => {
+          if (loaded && loaded.length > 0 && currentTab === 'matchups') {
+            renderMatchupsTab();
+          }
+        });
+      }
       const sData = window.LEAGUE_DATA.seasonData[currentMatchupSeason];
       const regWeeks = sData ? sData.settings.regularSeasonWeeks : 14;
       const isPlayoffWeek = currentMatchupWeek > regWeeks;
@@ -3921,8 +3938,8 @@ let y2kLineupsData = null;
         renderWeekPills();
         if (heading) {
           heading.innerHTML = isCrt
-            ? `🏈 ${currentMatchupSeason} ${config.leagueName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`
-            : `🏈 ${currentMatchupSeason} ${config.leagueName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
+            ? `🏈 ${currentMatchupSeason} ${leagueDisplayName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`
+            : `🏈 ${currentMatchupSeason} ${leagueDisplayName.toUpperCase()}: WEEK ${currentMatchupWeek} ${isPlayoffWeek ? 'PLAYOFF ' : ''}${currentMatchupMode.toUpperCase()}`;
         }
         if (badge) {
           if (isCrt) {
@@ -4228,6 +4245,7 @@ if (typeof initTeamOwnerSelect === "function") window.initTeamOwnerSelect = init
 if (typeof renderAnalytics === "function") window.renderAnalytics = renderAnalytics;
 if (typeof initDraftTab === "function") window.initDraftTab = initDraftTab;
 if (typeof initMatchupsTab === "function") window.initMatchupsTab = initMatchupsTab;
+if (typeof renderMatchupsTab === "function") window.renderMatchupsTab = renderMatchupsTab;
 if (typeof renderLucideIcons === "function") window.renderLucideIcons = renderLucideIcons;
 if (typeof jumpToH2H === "function") window.jumpToH2H = jumpToH2H;
 if (typeof toggleMatchupReportDetails === "function") window.toggleMatchupReportDetails = toggleMatchupReportDetails;

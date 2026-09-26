@@ -578,7 +578,8 @@ export function buildWeeklyMatchupsGridHtml({
     const margin = Math.abs(s1 - s2);
 
     // Look for ingested player lineup box score
-    const lineupMatch = (lineups || []).find(lm =>
+    const safeLineups = Array.isArray(lineups) ? lineups : [];
+    const lineupMatch = safeLineups.find(lm =>
       String(lm.seasonYear) === String(season) &&
       Number(lm.week) === Number(week) &&
       ((lm.homeTeam?.ownerName === o1 && lm.awayTeam?.ownerName === o2) ||
@@ -914,7 +915,8 @@ export function buildManagerSeasonGameLogHtml({
     totalPA += oppScore;
 
     // Lineup matching
-    const lineupMatch = (lineups || []).find(lm =>
+    const safeLineups = Array.isArray(lineups) ? lineups : [];
+    const lineupMatch = safeLineups.find(lm =>
       String(lm.seasonYear) === String(season) &&
       Number(lm.week) === wk &&
       ((lm.homeTeam?.ownerName === owner && lm.awayTeam?.ownerName === oppOwner) ||

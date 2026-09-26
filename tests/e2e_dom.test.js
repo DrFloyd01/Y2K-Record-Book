@@ -211,4 +211,43 @@ describe('E2E DOM Integration Test', () => {
       expect(prideModPop).not.toContain('No data records found');
     });
   });
+
+  it('should initialize createLeagueApp and navigate matchups tab with dynamic commentary-driven mode', async () => {
+    const { createLeagueApp } = await import('../src/core/leagueApp.js');
+    const { Y2K_CONFIG } = await import('../src/config/y2k.js');
+
+    // Populate mock DOM container
+    document.body.innerHTML = `
+      <div id="tab-seasons" class="tab-content"></div>
+      <div id="tab-matchups" class="tab-content hidden">
+        <select id="matchup-season-select"></select>
+        <select id="matchup-manager-select"></select>
+        <div id="matchup-week-pills-container"></div>
+        <div id="matchup-title-heading"></div>
+        <div id="matchup-mode-badge"></div>
+        <div id="matchups-cards-container"></div>
+        <button id="matchup-mode-preview"></button>
+        <button id="matchup-mode-recap"></button>
+      </div>
+    `;
+
+    window.scrollTo = () => {};
+    window.fetch = async () => ({ ok: true, json: async () => [] });
+
+    createLeagueApp(Y2K_CONFIG);
+    window.switchTab('matchups');
+
+    const heading = document.getElementById('matchup-title-heading');
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 3 PREVIEW');
+
+    window.switchMatchupWeek(2);
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 2 RECAP');
+
+    window.switchMatchupWeek(1);
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 1 RECAP');
+
+    window.switchMatchupWeek(3);
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 3 PREVIEW');
+  });
 });
+
