@@ -43,7 +43,6 @@ When writing weekly matchup previews, power rankings, or league editorial conten
   - Always explain the high-stakes playoff/seeding implications behind historical matchups (e.g., "the difference b/w 5th and 7th place", "clinched his #2 seed bye week").
   - Connect historic milestones to all-time league records with parenthetical citations (e.g., `(Casey'19-22)`, `(T1-Trace'23)`, `(T-Mike all-time)`).
   - For rookies or expansion teams without H2H history, highlight drafted core talent with round.pick capital (e.g., `Bijan (1.1), McBride (2.24), Lamar (4.48)`).
-  - Use italics for emphasis on dramatic milestones (e.g., `*ever*`).
 
 ## 5. Commentary Draft Isolation & Publishing Gate
 - **Draft Isolation**: The automated Tuesday sync or commentary generation scripts write drafts **ONLY** to `docs/` and `docs/drafts/`.
@@ -51,11 +50,19 @@ When writing weekly matchup previews, power rankings, or league editorial conten
 - **Schema Parity**: All commentary must adhere to the standardized schema across all leagues:
   `weeklyCommentary[year][week] = { mode: 'preview'|'recap', title: string, matchups: [{ homeOwner, awayOwner, writeup, h2h, streak, playoffs }] }`.
 
-## 6. Matchups Tab Default Schedule Rules
-- On **Tuesdays through Fridays** (days 2–5, post-sync): default the Matchups tab to the **previous completed week's recap** (e.g., `mode: 'recap'`, `week: maxCompletedWeek`).
-- On **Saturdays through Mondays** (days 6, 0, 1): default the Matchups tab to the **upcoming/current week's preview** (e.g., `mode: 'preview'`, `week: maxCompletedWeek + 1`), capped at regular season weeks.
-- Logic is centralized in `getWeeklyMatchupDefaultState(activeSeasonData, currentSeasonYear, now)` within `src/components/matchupsView.js`.
+## 6. Matchups Tab Default Commentary View Rules
+- Driven directly by uploaded weekly commentary:
+  - Whenever a **recap** is uploaded (`mode: 'recap'`), default the Matchups tab to that recap.
+  - Whenever a **preview** is uploaded (`mode: 'preview'`), default the Matchups tab to that preview.
+  - No need to track day of the week (Tuesday–Saturday); commentary ingestion directly sets the active focus.
+  - Fallbacks when commentary is absent: defaults to latest completed week recap, or Week 1 preview in pre-season.
+- Logic is centralized in `getWeeklyMatchupDefaultState({ season, seasonData, weeklyCommentary, commentary })` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
 - **Dynamic Standing Badges & Ordering**:
   - In Week 1 Preview: `#STANDING` badges and card sort order must reset to pre-season rankings (`0-0` records) preserved in `seasonData[year].preSeasonStandings`.
   - In Week N Preview (`N > 1`): `#STANDING` badges and card sort order reflect standings entering the week (calculated strictly from games `< N`).
   - In Week N Recap: `#STANDING` badges and card sort order reflect updated standings including completed games (`<= N`).
+  - Centralized in `getWeeklyRankMap({ season, week, mode, sData, allMatchups, commentary })` in `src/components/matchupsView.js` across both entry points.
+
+## 7. Git & Review Workflow
+- **Commit for Every Prompt**: Always make descriptive, atomic git commits for each prompt's changes so the user can easily review diffs in their IDE.
+- **Pull Requests for Remote**: Develop on dedicated feature branches, never push directly to `main` without a Pull Request. Use `gh pr create` to submit changes for review.

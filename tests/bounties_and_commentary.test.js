@@ -123,19 +123,21 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });
 
-  it('should verify live published commentary has Week 2 recap live while Week 3 preview remains isolated', () => {
+  it('should verify live published commentary has Week 2 recap and Week 3 preview live', () => {
     const liveY2k = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/leagueData.json'), 'utf8'));
     const livePride = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/prideGuysData.json'), 'utf8'));
 
     // Live Y2K week 2 is published in mode: recap
     expect(liveY2k.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
-    // Live Y2K should not have week 3 published yet
-    expect(liveY2k.weeklyCommentary['2026']['3']).toBeUndefined();
+    // Live Y2K week 3 preview is published live
+    expect(liveY2k.weeklyCommentary['2026']['3'].mode).toBe('preview');
+    expect(liveY2k.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
 
-    // Live Pride has week 2 recap published, but week 3 preview remains unpublished
+    // Live Pride has week 2 recap and week 3 preview published live
     expect(livePride.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
-    expect(livePride.weeklyCommentary['2026']['3']).toBeUndefined();
+    expect(livePride.weeklyCommentary['2026']['3'].mode).toBe('preview');
+    expect(livePride.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
   });
 });

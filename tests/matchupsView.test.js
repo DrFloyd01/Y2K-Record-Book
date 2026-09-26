@@ -171,7 +171,7 @@ describe('Matchups View Component', () => {
     expect(formatPlayoffStageTag('3rd_place', 2025)).toContain('3rd Place');
   });
 
-  describe('getWeeklyMatchupDefaultState weekly schedule rule', () => {
+  describe('getWeeklyMatchupDefaultState commentary-driven default view rule', () => {
     const mockSeasonData = {
       schedule: [
         { weekNumber: 1, homeOwner: 'Dylan', homeScore: 197.70, awayOwner: 'Mike', awayScore: 109.06 },
@@ -181,45 +181,46 @@ describe('Matchups View Component', () => {
       ]
     };
 
-    it('should default to previous week recap on Tuesday through Friday after scores are finalized', () => {
-      // 2026-09-15 (Tue, 2), 2026-09-16 (Wed, 3), 2026-09-17 (Thu, 4), 2026-09-18 (Fri, 5)
-      ['2026-09-15T12:00:00Z', '2026-09-16T12:00:00Z', '2026-09-17T12:00:00Z', '2026-09-18T12:00:00Z'].forEach(dateStr => {
-        const state = getWeeklyMatchupDefaultState({
-          season: 2026,
-          seasonData: mockSeasonData,
-          now: new Date(dateStr),
-          regularSeasonWeeks: 14
-        });
-        expect(state.week).toBe(1);
-        expect(state.mode).toBe('recap');
+    it('should default to recap when highest commentary uploaded is a recap', () => {
+      const commentary = {
+        '1': { mode: 'recap', matchups: [] },
+        '2': { mode: 'recap', matchups: [] }
+      };
+      const state = getWeeklyMatchupDefaultState({
+        season: 2026,
+        seasonData: mockSeasonData,
+        commentary,
+        regularSeasonWeeks: 14
       });
+      expect(state.week).toBe(2);
+      expect(state.mode).toBe('recap');
     });
 
-    it('should default to upcoming week preview on Saturday through Monday', () => {
-      // 2026-09-19 (Sat, 6), 2026-09-20 (Sun, 0), 2026-09-21 (Mon, 1)
-      ['2026-09-19T12:00:00Z', '2026-09-20T12:00:00Z', '2026-09-21T12:00:00Z'].forEach(dateStr => {
-        const state = getWeeklyMatchupDefaultState({
-          season: 2026,
-          seasonData: mockSeasonData,
-          now: new Date(dateStr),
-          regularSeasonWeeks: 14
-        });
-        expect(state.week).toBe(2);
-        expect(state.mode).toBe('preview');
+    it('should default to preview when an upcoming preview is uploaded', () => {
+      const commentary = {
+        '1': { mode: 'recap', matchups: [] },
+        '2': { mode: 'recap', matchups: [] },
+        '3': { mode: 'preview', matchups: [] }
+      };
+      const state = getWeeklyMatchupDefaultState({
+        season: 2026,
+        seasonData: mockSeasonData,
+        commentary,
+        regularSeasonWeeks: 14
       });
+      expect(state.week).toBe(3);
+      expect(state.mode).toBe('preview');
     });
 
-    it('should default to Week 1 preview in pre-season when no games have been played', () => {
+    it('should default to Week 1 preview in pre-season when no commentary and no games have been played', () => {
       const preSeasonData = {
         schedule: [
           { weekNumber: 1, homeOwner: 'Dylan', homeScore: 0.0, awayOwner: 'Mike', awayScore: 0.0 }
         ]
       };
-      const tuesday = new Date('2026-09-01T12:00:00Z');
       const state = getWeeklyMatchupDefaultState({
         season: 2026,
         seasonData: preSeasonData,
-        now: tuesday,
         regularSeasonWeeks: 14
       });
 
@@ -227,17 +228,25 @@ describe('Matchups View Component', () => {
       expect(state.mode).toBe('preview');
     });
 
-    it('should default to final week recap for concluded historical seasons', () => {
+    it('should default to latest completed week recap when commentary is absent', () => {
+      const state = getWeeklyMatchupDefaultState({
+        season: 2026,
+        seasonData: mockSeasonData,
+        regularSeasonWeeks: 14
+      });
+      expect(state.week).toBe(1);
+      expect(state.mode).toBe('recap');
+    });
+
+    it('should default to final week recap for concluded historical seasons without commentary', () => {
       const allCompletedGames = [];
       for (let w = 1; w <= 14; w++) {
         allCompletedGames.push({ weekNumber: w, homeScore: 120.0, awayScore: 110.0 });
       }
       const concludedData = { schedule: allCompletedGames };
-      const wednesday = new Date('2026-09-16T12:00:00Z');
       const state = getWeeklyMatchupDefaultState({
         season: 2025,
         seasonData: concludedData,
-        now: wednesday,
         regularSeasonWeeks: 14
       });
 
