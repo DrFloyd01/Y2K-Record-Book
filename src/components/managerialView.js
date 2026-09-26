@@ -104,29 +104,29 @@ export function buildManagerialProwessHtml({
         </div>
 
         <p class="text-xs ${isCrt ? 'text-emerald-200' : 'text-purple-900'} leading-relaxed mb-3">
-          Starting <span class="font-bold text-red-400">${topDOh.starter} (${topDOh.starterPoints} pts)</span> instead of benched <span class="font-bold text-emerald-400">${topDOh.benchPlayer} (${topDOh.benchPoints} pts)</span> cost ${topDOh.ownerName} the matchup. A simple 1-player swap would have flipped the loss into a <span class="font-bold text-emerald-300">+${topDOh.winMargin} pt victory</span>!
+          Starting <span class="font-bold text-red-500">${topDOh.starter} (${topDOh.starterPoints} pts)</span> instead of benched <span class="font-bold ${isCrt ? 'text-emerald-400' : 'text-pink-600'}">${topDOh.benchPlayer} (${topDOh.benchPoints} pts)</span> cost ${topDOh.ownerName} the matchup. A simple 1-player swap would have flipped the loss into a <span class="font-bold ${isCrt ? 'text-emerald-300' : 'text-purple-950'}">+${topDOh.winMargin} pt victory</span>!
         </p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs ${isCrt ? 'font-mono' : 'font-sans'}">
-          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200 rounded-xl'} p-2 rounded">
             <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block">BENCHED MVP</span>
-            <span class="font-black text-emerald-300">${topDOh.benchPlayer}</span>
-            <span class="text-[10px] text-emerald-400 block">${topDOh.benchPoints} pts</span>
+            <span class="font-black ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${topDOh.benchPlayer}</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} block">${topDOh.benchPoints} pts</span>
           </div>
-          <div class="${isCrt ? 'bg-black/80 border border-red-900' : 'bg-white border border-red-200'} p-2 rounded">
-            <span class="text-[10px] uppercase font-bold text-red-400 block">STARTED INSTEAD</span>
-            <span class="font-black text-red-300">${topDOh.starter}</span>
-            <span class="text-[10px] text-red-400 block">${topDOh.starterPoints} pts</span>
+          <div class="${isCrt ? 'bg-black/80 border border-red-900' : 'bg-white border border-red-200 rounded-xl'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold text-red-500 block">STARTED INSTEAD</span>
+            <span class="font-black text-red-400">${topDOh.starter}</span>
+            <span class="text-[10px] text-red-500 block">${topDOh.starterPoints} pts</span>
           </div>
-          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200 rounded-xl'} p-2 rounded">
             <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block">DEFICIT NEEDED</span>
-            <span class="font-black text-amber-400">${topDOh.deficitNeeded} pts</span>
-            <span class="text-[10px] text-emerald-500 block">To Tie/Win</span>
+            <span class="font-black text-amber-500">${topDOh.deficitNeeded} pts</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-500' : 'text-purple-600'} block">To Tie/Win</span>
           </div>
-          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200'} p-2 rounded">
-            <span class="text-[10px] uppercase font-bold text-emerald-400 block">WIN MARGIN MISSED</span>
-            <span class="font-black text-emerald-300">+${topDOh.winMargin} pts</span>
-            <span class="text-[10px] text-emerald-400 block">Net Win Margin</span>
+          <div class="${isCrt ? 'bg-black/80 border border-emerald-900' : 'bg-white border border-pink-200 rounded-xl'} p-2 rounded">
+            <span class="text-[10px] uppercase font-bold ${isCrt ? 'text-emerald-400' : 'text-pink-600'} block">WIN MARGIN MISSED</span>
+            <span class="font-black ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">+${topDOh.winMargin} pts</span>
+            <span class="text-[10px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} block">Net Win Margin</span>
           </div>
         </div>
 

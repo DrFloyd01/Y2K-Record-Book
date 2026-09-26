@@ -12,14 +12,14 @@ export function buildH2HComparisonBannerHtml({ breakdown, theme = CRT_THEME }) {
   const isCrt = theme.name === 'crt';
 
   const cardBg = isCrt ? 'bg-black/60 border border-emerald-900/80' : 'bg-white/60 border border-pink-200';
-  const cardHighlight = isCrt ? 'bg-emerald-950/60 border border-emerald-700/80' : 'bg-pink-50/90/80 border border-pink-300';
+  const cardHighlight = isCrt ? 'bg-emerald-950/60 border border-emerald-700/80' : 'bg-pink-50 border border-pink-300';
   const textTitle = isCrt ? 'text-emerald-500' : 'text-purple-700';
   const textScore = isCrt ? 'text-emerald-300 crt-glow' : 'text-pink-700 crt-glow-pink-pink';
   const textSub = isCrt ? 'text-emerald-400' : 'text-pink-600';
   const amberText = isCrt ? 'text-amber-400' : 'text-amber-500';
 
   const maxStreakStr = breakdown.maxStreak && breakdown.maxStreak.streak > 0
-    ? `<span class="font-bold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${breakdown.maxStreak.winner} (${breakdown.maxStreak.streak} Wins)</span> <span class="text-[9px] ${isCrt ? 'text-emerald-500' : 'text-purple-700'} block font-mono">${breakdown.maxStreak.span}</span>`
+    ? `<span class="font-bold ${isCrt ? 'text-emerald-300' : 'text-pink-700'}">${breakdown.maxStreak.winner} (${breakdown.maxStreak.streak} Wins)</span> <span class="text-[9px] ${isCrt ? 'text-emerald-500 font-mono' : 'text-purple-700 font-sans'} block">${breakdown.maxStreak.span}</span>`
     : '-';
 
   return `

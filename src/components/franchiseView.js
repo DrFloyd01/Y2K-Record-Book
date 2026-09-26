@@ -432,11 +432,11 @@ export function buildFranchiseProfileHtml({
               ${st.dOhs > 0 ? `
                 <div class="tooltip-trigger inline-block cursor-pointer">
                   <span class="text-base font-extrabold text-red-400 hover:underline">🤦‍♂️ ${st.dOhs}</span>
-                  <div class="tooltip-content tooltip-content-right p-3 ${isCrt ? 'bg-black text-sky-300 border-2 border-red-600' : 'bg-white text-purple-950 border-2 border-red-400'} text-xs shadow-2xl min-w-[280px] text-left z-50">
-                    <div class="font-bold text-red-400 border-b border-red-900 pb-1 mb-1 font-mono">🤦‍♂️ ${owner}'s Career D'Oh! Blunders (${st.dOhs})</div>
+                  <div class="tooltip-content tooltip-content-right p-3 ${isCrt ? 'bg-black text-sky-300 border-2 border-red-600 font-mono' : 'bg-white text-purple-950 border-2 border-sky-400 font-sans'} text-xs shadow-2xl min-w-[280px] text-left z-50">
+                    <div class="font-bold ${isCrt ? 'text-red-400 border-red-900 font-mono' : 'text-sky-700 border-sky-200 font-fredoka'} border-b pb-1 mb-1">🤦‍♂️ ${owner}'s Career D'Oh! Blunders (${st.dOhs})</div>
                     ${(st.dOhDetails || []).map(d => {
                       const swapStr = d.benchPlayer && d.starter
-                        ? `Benched <span class="text-sky-300 font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="text-red-400 font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="text-emerald-400 font-bold">+${d.netGain} PF</span>`
+                        ? `Benched <span class="${isCrt ? 'text-sky-300' : 'text-pink-700'} font-bold">${d.benchPlayer}</span> (${d.benchPoints} pts) for <span class="${isCrt ? 'text-red-400' : 'text-purple-600'} font-bold">${d.starter}</span> (${d.starterPoints} pts) ➔ <span class="${isCrt ? 'text-emerald-400' : 'text-amber-600'} font-bold">+${d.netGain} PF</span>`
                         : `Benched winning player for starter`;
                       return `<div class="py-0.5 text-xs text-left">• ${d.year ? `${d.year} ` : ''}W${d.week}: ${swapStr}</div>`;
                     }).join('') || '<div>1-swap losses</div>'}
@@ -456,7 +456,7 @@ export function buildFranchiseProfileHtml({
       <div class="${isCrt ? 'crt-box-header font-mono' : 'bg-pink-50 text-pink-700 border-b border-pink-200 font-fredoka text-sm'} px-4 py-2 font-bold text-xs">
         &gt;_ FRANCHISE_HISTORY_EVOLUTION
       </div>
-      <div class="w-full overflow-x-auto no-scrollbar">
+      <div class="w-full overflow-visible">
         <table class="w-full min-w-0 text-xs text-left border-collapse ${isCrt ? 'font-mono' : 'font-sans'}">
           <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-600' : 'bg-pink-50 text-pink-600 border-b border-pink-200'} font-bold text-xs">
             <tr>

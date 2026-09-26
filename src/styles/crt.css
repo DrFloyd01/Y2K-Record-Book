@@ -75,6 +75,7 @@ body {
   min-width: 0;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   display: block;
   position: relative;
   box-sizing: border-box;

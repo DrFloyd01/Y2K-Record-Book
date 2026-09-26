@@ -142,20 +142,20 @@ export function buildDynastyLeaderboardRows({ leaderboard = [], championships = 
 
     return `
       <tr class="${dTheme.rowClass}">
-        <td class="p-3 text-center font-bold ${dTheme.rankClass}">${idx + 1}</td>
-        <td class="p-3 font-bold ${dTheme.ownerClass} cursor-pointer hover:underline" data-owner="${encodeURIComponent(owner)}" onclick="selectManagerProfile(decodeURIComponent(this.getAttribute('data-owner')))">${entry.ownerName}</td>
-        <td class="p-3 text-center text-xs ${dTheme.rankClass}">${entry.seasonsCount} Yrs</td>
-        <td class="p-3 text-center font-bold ${dTheme.ownerClass}">${pWlStr} <span class="text-[10px] opacity-75 font-normal block">${pWinPct}%</span></td>
-        <td class="p-3 text-center">${playoffHtml}</td>
-        <td class="p-3 text-center">${firstsHtml}</td>
-        <td class="p-3 text-center">${secondsHtml}</td>
-        <td class="p-3 text-center">${thirdsHtml}</td>
-        <td class="p-3 text-center">${fourthsHtml}</td>
-        <td class="p-3 text-center">${fifthSixthHtml}</td>
-        <td class="p-3 text-center">${seventhTwelfthHtml}</td>
-        <td class="p-3 text-center">${scHtml}</td>
-        <td class="p-3 text-center font-bold font-mono ${dTheme.accentText}">${coachingEff}</td>
-        <td class="p-3 text-center">${dOhHtml}</td>
+        <td class="p-2 text-center font-bold ${dTheme.rankClass}">${idx + 1}</td>
+        <td class="p-2 font-bold ${dTheme.ownerClass} cursor-pointer hover:underline" data-owner="${encodeURIComponent(owner)}" onclick="selectManagerProfile(decodeURIComponent(this.getAttribute('data-owner')))">${entry.ownerName}</td>
+        <td class="p-2 text-center text-xs ${dTheme.rankClass}">${entry.seasonsCount} Yrs</td>
+        <td class="p-2 text-center font-bold ${dTheme.ownerClass}">${pWlStr} <span class="text-[10px] opacity-75 font-normal block">${pWinPct}%</span></td>
+        <td class="p-2 text-center">${playoffHtml}</td>
+        <td class="p-2 text-center">${firstsHtml}</td>
+        <td class="p-2 text-center">${secondsHtml}</td>
+        <td class="p-2 text-center">${thirdsHtml}</td>
+        <td class="p-2 text-center">${fourthsHtml}</td>
+        <td class="p-2 text-center">${fifthSixthHtml}</td>
+        <td class="p-2 text-center">${seventhTwelfthHtml}</td>
+        <td class="p-2 text-center">${scHtml}</td>
+        <td class="p-2 text-center font-bold ${theme.fontFamily || 'font-mono'} ${dTheme.accentText}">${coachingEff}</td>
+        <td class="p-2 text-center">${dOhHtml}</td>
       </tr>
     `;
   }).join('');

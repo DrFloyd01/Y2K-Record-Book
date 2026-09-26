@@ -393,8 +393,8 @@ export function createLeagueApp(config) {
         standingsSortAsc = false;
         banner.innerHTML = isCrt
           ? (isModernEraFilter ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">Modern Era Cumulative Standings (2022–Present)</span>` : `&gt; ARCHIVE_VIEW: <span class="font-bold text-emerald-300 crt-glow">All-Time Cumulative League Standings</span>`)
-          : (isModernEraFilter ? `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700">Modern Era Cumulative Standings (2022–Present)</span>` : `&gt; ARCHIVE_VIEW: <span class="font-bold text-pink-700">All-Time Cumulative League Standings</span>`);
-        if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] DYNASTY LEADERBOARD`;
+          : (isModernEraFilter ? `✨ ARCHIVE VIEW: <span class="font-bold text-pink-700">Modern Era Cumulative Standings (2022–Present)</span>` : `✨ ARCHIVE VIEW: <span class="font-bold text-pink-700">All-Time Cumulative League Standings</span>`);
+        if (playoffSubBtn) playoffSubBtn.innerHTML = isCrt ? `[+] DYNASTY LEADERBOARD` : `👑 DYNASTY LEADERBOARD`;
       } else {
         standingsSortField = 'rank';
         standingsSortAsc = true;
@@ -402,13 +402,13 @@ export function createLeagueApp(config) {
         if (champ) {
           banner.innerHTML = isCrt
             ? `&gt; ACTIVE_CHAMPION: <span class="font-bold text-emerald-300 crt-glow">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`
-            : `&gt; ACTIVE_CHAMPION: <span class="font-bold text-pink-700">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`;
+            : `🏆 Defending Champion: <span class="font-bold text-pink-700">${champ.firstTeam}</span> (${yr} ${config.cupName} Winner - ${champ.firstOwner})`;
         } else {
           banner.innerHTML = isCrt
             ? `&gt; SEASON_VIEW: <span class="font-bold text-emerald-300">${yr} Season</span>`
-            : `&gt; SEASON_VIEW: <span class="font-bold text-pink-700">${yr} Season</span>`;
+            : `📅 Season View: <span class="font-bold text-pink-700">${yr} Season</span>`;
         }
-        if (playoffSubBtn) playoffSubBtn.innerHTML = `[+] PLAYOFF BRACKET`;
+        if (playoffSubBtn) playoffSubBtn.innerHTML = isCrt ? `[+] PLAYOFF BRACKET` : `🏆 PLAYOFF BRACKET`;
       }
 
       renderStandings();
@@ -467,24 +467,24 @@ export function createLeagueApp(config) {
               <p class="text-xs ${isCrt ? 'text-emerald-300/80 font-mono' : 'text-purple-800/80 font-sans'} mt-1">Lifetime Championship Finishes, Placement Bins, and Playoff Win-Loss Records.</p>
             </div>
             <div class="crt-box ${isCrt ? 'rounded overflow-visible mb-8' : 'rounded-2xl overflow-visible mb-8 border-2 border-pink-300 bg-white shadow-md'}">
-              <div class="table-scroll-container">
-                <table class="w-full min-w-[680px] text-xs text-left border-collapse ${isCrt ? 'font-mono' : ''}">
+              <div class="w-full overflow-x-auto md:overflow-visible no-scrollbar">
+                <table class="w-full text-xs text-left border-collapse ${isCrt ? 'font-mono' : ''}">
                   <thead class="${isCrt ? 'bg-[#052611] text-emerald-300 border-b border-emerald-600' : 'bg-pink-50/90 text-pink-600 border-b border-pink-200'} font-bold text-xs">
                     <tr>
-                      <th class="p-3 text-center">${isCrt ? 'RANK' : 'Rank'}</th>
-                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">MANAGER</th>
-                      <th class="p-3 text-center">${isCrt ? 'ACTIVE' : 'Active'}</th>
-                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF W-L</th>
-                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF %</th>
-                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥇 1st</th>
-                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥈 2nd</th>
-                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥉 3rd</th>
-                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">4th</th>
-                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">5th-6th</th>
-                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">7th-12th</th>
-                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🎯 SCORING TITLES</th>
-                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🧠 COACHING EFF</th>
-                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🤦‍♂️ D'OHS</th>
+                      <th class="p-2 text-center">${isCrt ? 'RANK' : 'Rank'}</th>
+                      <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-2 text-left cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">MANAGER</th>
+                      <th class="p-2 text-center">${isCrt ? 'ACTIVE' : 'Active'}</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF W-L</th>
+                      <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">PLAYOFF %</th>
+                      <th onclick="window.sortDynastyLeaderboard('1st')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥇 1st</th>
+                      <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥈 2nd</th>
+                      <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🥉 3rd</th>
+                      <th onclick="window.sortDynastyLeaderboard('4th')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">4th</th>
+                      <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">5th-6th</th>
+                      <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">7th-12th</th>
+                      <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🎯 SCORING TITLES</th>
+                      <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🧠 COACHING EFF</th>
+                      <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-2 text-center cursor-pointer ${isCrt ? 'hover:bg-emerald-900' : 'hover:bg-pink-100/90'}">🤦‍♂️ D'OHS</th>
                     </tr>
                   </thead>
                   <tbody id="champs-leaderboard-body-seasons"></tbody>
@@ -1206,12 +1206,17 @@ export function createLeagueApp(config) {
     }
 
     function getSelectedStatsYearRange() {
+      const allSeasons = window.LEAGUE_DATA && window.LEAGUE_DATA.seasons && window.LEAGUE_DATA.seasons.length > 0
+        ? window.LEAGUE_DATA.seasons
+        : [2018, 2025];
+      const defaultMin = Math.min(...allSeasons);
+      const defaultMax = Math.max(...allSeasons);
       const val = document.getElementById('stats-season-select').value;
       if (val === 'allTime') {
-        return { minYear: 2018, maxYear: 2025 };
+        return { minYear: defaultMin, maxYear: defaultMax };
       } else if (val === 'custom') {
-        const fromY = parseInt(document.getElementById('stats-from-year').value) || 2018;
-        const toY = parseInt(document.getElementById('stats-to-year').value) || 2025;
+        const fromY = parseInt(document.getElementById('stats-from-year').value) || defaultMin;
+        const toY = parseInt(document.getElementById('stats-to-year').value) || defaultMax;
         return { minYear: Math.min(fromY, toY), maxYear: Math.max(fromY, toY) };
       } else {
         const yr = intVal(val);
@@ -2123,14 +2128,18 @@ export function createLeagueApp(config) {
       const label = document.getElementById('h2h-matchup-count-label');
 
       if (o1 === o2) {
-        banner.innerHTML = `<p class="text-amber-400 font-bold text-center">&gt; SELECT TWO DIFFERENT OWNERS FOR H2H QUERY.</p>`;
+        banner.innerHTML = isCrt
+          ? `<p class="text-amber-400 font-bold text-center">&gt; SELECT TWO DIFFERENT OWNERS FOR H2H QUERY.</p>`
+          : `<p class="text-pink-600 font-bold text-center font-fredoka">Select two different owners for H2H query.</p>`;
         tbody.innerHTML = ''; label.innerText = '0 Games';
         return;
       }
 
       const b = getH2HBreakdown(o1, o2);
       if (!b) {
-        banner.innerHTML = `<p class="text-emerald-600 italic text-center">&gt; NO MATCHUP HISTORY FOUND BETWEEN ${o1} AND ${o2}.</p>`;
+        banner.innerHTML = isCrt
+          ? `<p class="text-emerald-600 italic text-center">&gt; NO MATCHUP HISTORY FOUND BETWEEN ${o1} AND ${o2}.</p>`
+          : `<p class="text-purple-600 italic text-center font-fredoka">No matchup history found between ${o1} and ${o2}.</p>`;
         tbody.innerHTML = ''; label.innerText = '0 Games';
         return;
       }
@@ -2721,7 +2730,7 @@ export function createLeagueApp(config) {
             ${popoverHtml}
           ` : `
             <div class="text-[11px] font-bold text-pink-600 border-b border-pink-200 pb-1 mb-2 flex items-center justify-between">
-              <span>&gt; ${card.title}</span>
+              <span>${card.title}</span>
               <span class="text-[9px] text-purple-700 font-normal">${card.data && card.data.year ? 'Click to Jump 📋' : 'Hover Top 5 🔍'}</span>
             </div>
             <p class="text-xl font-black text-pink-700 crt-glow-pink-pink">${val}</p>
@@ -3114,7 +3123,7 @@ export function createLeagueApp(config) {
           <div class="mt-3 p-3 bg-white border-2 border-pink-300 rounded-2xl text-left font-sans shadow-sm">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-pink-100 pb-2 mb-3 gap-1">
               <div>
-                <div class="text-[10px] font-bold text-amber-800 tracking-widest uppercase font-fredoka">&gt;_ CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
+                <div class="text-[10px] font-bold text-amber-800 tracking-widest uppercase font-fredoka">🏆 CHAMPION TITLE ROSTER &amp; DRAFT PROVENANCE</div>
                 <div class="text-sm font-black text-purple-950">🏆 ${champ.firstTeam} <span class="text-xs text-pink-600 font-bold">[${champ.firstOwner}]</span></div>
               </div>
               <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold border border-amber-300 rounded-full text-xs">${rData.totalRingsAwarded || (rData.starters.length + rData.bench.length + rData.draftedContributors.length)} Championship Rings Awarded</span>
@@ -3482,8 +3491,8 @@ let y2kLineupsData = null;
     }
 
     function renderAnalyticsCharts() {
-      const textColor = '#00ff66';
-      const gridColor = 'rgba(0, 255, 102, 0.15)';
+      const textColor = isCrt ? '#00ff66' : '#831843';
+      const gridColor = isCrt ? 'rgba(0, 255, 102, 0.15)' : 'rgba(244, 114, 182, 0.25)';
       const chartFont = isCrt ? 'Courier Prime' : 'Plus Jakarta Sans';
 
       const luckCtx = document.getElementById('luckChart').getContext('2d');
@@ -3502,8 +3511,8 @@ let y2kLineupsData = null;
           datasets: [{
             label: 'Luck Score (Actual W - Exp W)',
             data: luckData.map(d => d.luck),
-            backgroundColor: luckData.map(d => d.luck >= 0 ? '#00ff66' : '#ff3333'),
-            borderRadius: 2
+            backgroundColor: luckData.map(d => d.luck >= 0 ? (isCrt ? '#00ff66' : '#ec4899') : (isCrt ? '#ff3333' : '#f43f5e')),
+            borderRadius: isCrt ? 2 : 6
           }]
         },
         options: {
@@ -3540,8 +3549,8 @@ let y2kLineupsData = null;
           datasets: [{
             label: 'Per-Game Scoring (PF/G vs PA/G)',
             data: pfPaData,
-            backgroundColor: '#00ff66',
-            borderColor: '#66ff99',
+            backgroundColor: isCrt ? '#00ff66' : '#ec4899',
+            borderColor: isCrt ? '#66ff99' : '#db2777',
             borderWidth: 1.5,
             pointRadius: 7,
             pointHoverRadius: 10
