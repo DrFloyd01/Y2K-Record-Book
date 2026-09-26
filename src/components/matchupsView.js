@@ -578,7 +578,8 @@ export function buildWeeklyMatchupsGridHtml({
     const margin = Math.abs(s1 - s2);
 
     // Look for ingested player lineup box score
-    const lineupMatch = (lineups || []).find(lm =>
+    const safeLineups = Array.isArray(lineups) ? lineups : [];
+    const lineupMatch = safeLineups.find(lm =>
       String(lm.seasonYear) === String(season) &&
       Number(lm.week) === Number(week) &&
       ((lm.homeTeam?.ownerName === o1 && lm.awayTeam?.ownerName === o2) ||
@@ -644,9 +645,9 @@ export function buildWeeklyMatchupsGridHtml({
                   <div class="text-[11px] font-bold truncate">
                     <span class="${isCrt ? 'text-amber-300' : 'text-pink-700'} font-extrabold">${g.winner}</span> ${g.winnerScore.toFixed(2)} - ${g.loserScore.toFixed(2)} ${g.loser}
                   </div>
-                  <div class="text-[9px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} font-mono">Margin: +${g.margin.toFixed(2)} pts</div>
+                  <div class="text-[9px] ${isCrt ? 'text-emerald-400 font-mono' : 'text-purple-600 font-sans'}">Margin: +${g.margin.toFixed(2)} pts</div>
                 </div>
-                <span class="text-[10px] font-mono shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
+                <span class="text-[10px] ${isCrt ? 'font-mono' : 'font-sans'} shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
                   Box ➔
                 </span>
               </div>
@@ -684,9 +685,9 @@ export function buildWeeklyMatchupsGridHtml({
                   <div class="text-[11px] font-bold truncate">
                     <span class="${isCrt ? 'text-amber-300' : 'text-pink-700'} font-extrabold">${g.winner}</span> ${g.winnerScore.toFixed(2)} - ${g.loserScore.toFixed(2)} ${g.loser}
                   </div>
-                  <div class="text-[9px] ${isCrt ? 'text-emerald-400' : 'text-purple-600'} font-mono">Margin: +${g.margin.toFixed(2)} pts</div>
+                  <div class="text-[9px] ${isCrt ? 'text-emerald-400 font-mono' : 'text-purple-600 font-sans'}">Margin: +${g.margin.toFixed(2)} pts</div>
                 </div>
-                <span class="text-[10px] font-mono shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
+                <span class="text-[10px] ${isCrt ? 'font-mono' : 'font-sans'} shrink-0 px-1.5 py-0.5 rounded ${isCrt ? 'bg-emerald-800 text-emerald-200 group-hover:bg-amber-400 group-hover:text-black' : 'bg-pink-200 text-pink-800 group-hover:bg-pink-600 group-hover:text-white'} transition-colors font-bold">
                   Box ➔
                 </span>
               </div>
@@ -914,7 +915,8 @@ export function buildManagerSeasonGameLogHtml({
     totalPA += oppScore;
 
     // Lineup matching
-    const lineupMatch = (lineups || []).find(lm =>
+    const safeLineups = Array.isArray(lineups) ? lineups : [];
+    const lineupMatch = safeLineups.find(lm =>
       String(lm.seasonYear) === String(season) &&
       Number(lm.week) === wk &&
       ((lm.homeTeam?.ownerName === owner && lm.awayTeam?.ownerName === oppOwner) ||

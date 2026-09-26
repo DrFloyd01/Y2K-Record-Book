@@ -187,10 +187,10 @@ export function buildLeaderboardTableHtml({ items = [], theme = CRT_THEME, start
       ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
       : 'bg-pink-50 text-pink-700 border border-pink-200';
 
-    const valColor = isCrt ? 'text-emerald-300 font-extrabold font-mono' : 'text-pink-600 font-extrabold font-mono';
+    const valColor = isCrt ? 'text-emerald-300 font-extrabold font-mono' : 'text-pink-600 font-black font-fredoka';
     const ownerColor = isCrt ? 'text-emerald-200 font-bold' : 'text-purple-950 font-bold';
     const teamColor = isCrt ? 'text-emerald-500 text-[11px]' : 'text-purple-600 text-[11px]';
-    const subColor = isCrt ? 'text-emerald-400/90 italic text-[11px] font-mono' : 'text-purple-700/90 italic text-[11px]';
+    const subColor = isCrt ? 'text-emerald-400/90 italic text-[11px] font-mono' : 'text-purple-700/90 italic text-[11px] font-sans';
 
     const actionCell = hasMatchup
       ? `
@@ -316,13 +316,13 @@ export function buildSingleCategoryShowcaseHtml({
         <div>
           <div class="flex items-center gap-2 flex-wrap">
             <span class="text-xl sm:text-2xl">${meta.icon}</span>
-            <h3 class="text-base sm:text-lg font-black ${isCrt ? 'text-emerald-300' : 'text-purple-950'} font-mono uppercase tracking-wide">&gt; ${escapeHtml(title)}</h3>
+            <h3 class="text-base sm:text-lg font-black ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-950 font-fredoka'} uppercase tracking-wide">${isCrt ? '&gt; ' : ''}${escapeHtml(title)}</h3>
             <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isCrt ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-pink-100 text-pink-800 border border-pink-200'}">${escapeHtml(meta.badge)}</span>
           </div>
-          <p class="text-xs ${isCrt ? 'text-emerald-400/80' : 'text-purple-700/80'} mt-1 italic">${escapeHtml(meta.description)}</p>
+          <p class="text-xs ${isCrt ? 'text-emerald-400/80 font-mono' : 'text-purple-700/80 font-sans'} mt-1 italic">${escapeHtml(meta.description)}</p>
         </div>
         <div class="flex items-center gap-1.5 self-start sm:self-auto">
-          <span class="text-[10px] px-2 py-0.5 rounded font-mono font-bold ${isCrt ? 'bg-emerald-950/90 text-emerald-400 border border-emerald-700/80' : 'bg-purple-100 text-purple-800 border border-purple-200'}">${escapeHtml(scopeBadge)}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded ${isCrt ? 'font-mono' : 'font-fredoka'} font-bold ${isCrt ? 'bg-emerald-950/90 text-emerald-400 border border-emerald-700/80' : 'bg-purple-100 text-purple-800 border border-purple-200'}">${escapeHtml(scopeBadge)}</span>
         </div>
       </div>
 

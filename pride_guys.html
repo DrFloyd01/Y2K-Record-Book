@@ -182,7 +182,7 @@
       <!-- Stat Records Section -->
       <div id="stat-records-section" class="crt-box rounded overflow-visible mb-8">
         <div class="crt-box-header px-4 py-2.5 font-bold text-sm flex items-center justify-between">
-          <span>&gt;_ SEASONAL_RECORDS_LOG</span>
+          <span>✨ Seasonal Records Log</span>
           <span class="text-xs text-pink-600 font-normal" id="records-season-label">2025 Season</span>
         </div>
         <div class="p-4 space-y-4">
@@ -192,7 +192,7 @@
 
       <!-- Rule Note (Placed at bottom of page) -->
       <div class="text-center mt-6 mb-4" id="standings-rule-note">
-        <span class="text-xs text-pink-600 bg-pink-50/90/60 px-3.5 py-1.5 border border-pink-200 inline-block shadow-sm">
+        <span class="text-xs text-pink-600 bg-pink-50 px-3.5 py-1.5 border border-pink-200 inline-block rounded-xl shadow-sm">
           Rule Note: Top 6 teams qualify for playoffs (Seeds #1 &amp; #2 Bye). Consolation Bracket playoff games count toward determining next year's draft order!
         </span>
       </div>
@@ -204,15 +204,15 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ ALL_TIME_RECORD_QUERY</div>
+            <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">📊 All-Time Record Query</div>
             <h2 class="text-2xl font-black text-pink-700 crt-glow-pink-pink">LEAGUE STAT LEADERBOARDS</h2>
             <p class="text-xs text-pink-600 mt-1">Single-game explosions, defensive nightmares, and margin records.</p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-3 bg-pink-50/90/80 p-2.5 border border-purple-200 rounded">
+          <div class="flex flex-col sm:flex-row items-center gap-3 bg-pink-50/90 p-2.5 border border-pink-200 rounded-xl">
             <!-- Stage Segment Filter -->
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-pink-600 whitespace-nowrap">&gt; STAGE:</label>
+              <label class="text-xs font-bold uppercase text-pink-600 whitespace-nowrap">STAGE:</label>
               <select id="stats-stage-select" onchange="renderStatsTable()" class="bg-white border border-pink-300 text-pink-700 text-xs p-1 font-sans font-bold">
                 <option value="combined" selected>COMBINED (ALL GAMES)</option>
                 <option value="regular">REGULAR SEASON ONLY</option>
@@ -222,9 +222,9 @@
 
             <!-- Year Filter -->
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-bold uppercase text-pink-600 whitespace-nowrap">&gt; YEAR:</label>
+              <label class="text-xs font-bold uppercase text-pink-600 whitespace-nowrap">YEAR:</label>
               <select id="stats-season-select" onchange="onStatsSeasonChange()" class="bg-white border border-pink-300 text-pink-700 text-xs p-1 font-sans font-bold">
-                <option value="allTime" selected>ALL TIME (2018-2025)</option>
+                <option value="allTime" selected>ALL TIME (2017-2025)</option>
                 <option value="2025">2025 SEASON</option>
                 <option value="2024">2024 SEASON</option>
                 <option value="2023">2023 SEASON</option>
@@ -233,6 +233,7 @@
                 <option value="2020">2020 SEASON</option>
                 <option value="2019">2019 SEASON</option>
                 <option value="2018">2018 SEASON</option>
+                <option value="2017">2017 SEASON</option>
                 <option value="custom">CUSTOM RANGE...</option>
               </select>
 
@@ -300,6 +301,7 @@
                 <option value="2020">2020 SEASON</option>
                 <option value="2019">2019 SEASON</option>
                 <option value="2018">2018 SEASON</option>
+                <option value="2017">2017 SEASON</option>
               </select>
             </div>
           </div>
@@ -337,7 +339,7 @@
     <!-- TAB 3: HEAD TO HEAD -->
     <div id="tab-h2h" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ RIVALRY_MATRIX</div>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">⚔️ RIVALRY MATRIX</div>
         <h2 class="text-2xl font-black text-pink-700 crt-glow-pink-pink">HEAD-TO-HEAD RECORDS</h2>
         <p class="text-xs text-pink-600 mt-1">Lifetime matchup history and head-to-head grid. Click any matrix cell or streak row to inspect detailed H2H game logs!</p>
       </div>
@@ -361,7 +363,7 @@
         </div>
         <div class="table-scroll-container">
           <table class="w-full min-w-[680px] text-xs text-left border-collapse">
-            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200 sticky top-0 bg-white">
+            <thead class="bg-pink-50/95 text-pink-600 font-bold border-b border-pink-200 sticky top-0">
               <tr>
                 <th class="p-2.5 text-center">Rank</th>
                 <th class="p-2.5">Dominant Manager</th>
@@ -405,12 +407,12 @@
       <div id="h2h-compare-section" class="crt-box rounded p-4 mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <div>
-            <label class="block text-xs font-bold text-pink-600 mb-1">&gt; SELECT OWNER 1:</label>
-            <select id="h2h-owner-1" onchange="renderH2HComparison()" class="w-full bg-white border border-pink-300 p-2 text-xs font-bold text-pink-700"></select>
+            <label class="block text-xs font-bold text-pink-600 mb-1">SELECT OWNER 1:</label>
+            <select id="h2h-owner-1" onchange="renderH2HComparison()" class="w-full bg-white border border-pink-300 p-2 text-xs font-bold text-pink-700 rounded-lg"></select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-pink-600 mb-1">&gt; SELECT OWNER 2:</label>
-            <select id="h2h-owner-2" onchange="renderH2HComparison()" class="w-full bg-white border border-pink-300 p-2 text-xs font-bold text-pink-700"></select>
+            <label class="block text-xs font-bold text-pink-600 mb-1">SELECT OWNER 2:</label>
+            <select id="h2h-owner-2" onchange="renderH2HComparison()" class="w-full bg-white border border-pink-300 p-2 text-xs font-bold text-pink-700 rounded-lg"></select>
           </div>
         </div>
 
@@ -425,7 +427,7 @@
         </div>
         <div class="table-scroll-container">
           <table class="w-full min-w-[680px] text-xs text-left border-collapse">
-            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200">
+            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
               <tr>
                 <th class="p-2 text-center">Season</th>
                 <th class="p-2 text-center">Week</th>
@@ -446,7 +448,7 @@
     <!-- TAB 4: CHAMPS -->
     <div id="tab-champs" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ HALL_OF_CHAMPIONS</div>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">👑 HALL OF CHAMPIONS</div>
         <h2 class="text-2xl font-black text-pink-700 font-fredoka">THE PRIDE CUP &amp; DYNASTY ARCHIVES</h2>
         <p class="text-xs text-pink-600 mt-1 font-sans" id="champs-subtitle">10 Seasons of Pride Cup Champions, Dynasty Finishes, and All-Time Franchise Records.</p>
       </div>
@@ -454,27 +456,27 @@
       <!-- 1. Dynasty Leaderboard -->
       <div class="crt-box rounded overflow-visible mb-6">
         <div class="crt-box-header px-4 py-2 font-bold text-xs flex items-center justify-between">
-          <span>&gt;_ DYNASTY_LEADERBOARD</span>
+          <span>👑 DYNASTY LEADERBOARD</span>
           <span class="text-[10px] font-normal text-pink-600">Sorted by 1st ➔ 2nd ➔ 3rd ➔ 4th ➔ Playoff Wins</span>
         </div>
-        <div class="table-scroll-container">
-          <table class="w-full min-w-[680px] text-xs text-left border-collapse">
+        <div class="w-full overflow-x-auto md:overflow-visible no-scrollbar">
+          <table class="w-full text-xs text-left border-collapse">
             <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
               <tr>
-                <th class="p-3 text-center">Rank</th>
-                <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-3 text-left cursor-pointer hover:bg-pink-100/90">MANAGER</th>
-                <th class="p-3 text-center">Active</th>
-                <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF W-L</th>
-                <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF %</th>
-                <th onclick="window.sortDynastyLeaderboard('1st')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥇 1st</th>
-                <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥈 2nd</th>
-                <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🥉 3rd</th>
-                <th onclick="window.sortDynastyLeaderboard('4th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">4th</th>
-                <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">5th-6th</th>
-                <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">7th-12th</th>
-                <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🎯 SCORING TITLES</th>
-                <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🧠 COACHING EFF</th>
-                <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-3 text-center cursor-pointer hover:bg-pink-100/90">🤦‍♂️ D'OHS</th>
+                <th class="p-2 text-center">Rank</th>
+                <th onclick="window.sortDynastyLeaderboard('ownerName')" class="p-2 text-left cursor-pointer hover:bg-pink-100/90">MANAGER</th>
+                <th class="p-2 text-center">Active</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffWins')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF W-L</th>
+                <th onclick="window.sortDynastyLeaderboard('playoffPct')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">PLAYOFF %</th>
+                <th onclick="window.sortDynastyLeaderboard('1st')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🥇 1st</th>
+                <th onclick="window.sortDynastyLeaderboard('2nd')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🥈 2nd</th>
+                <th onclick="window.sortDynastyLeaderboard('3rd')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🥉 3rd</th>
+                <th onclick="window.sortDynastyLeaderboard('4th')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">4th</th>
+                <th onclick="window.sortDynastyLeaderboard('5th_6th')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">5th-6th</th>
+                <th onclick="window.sortDynastyLeaderboard('7th_12th')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">7th-12th</th>
+                <th onclick="window.sortDynastyLeaderboard('scoringTitles')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🎯 SCORING TITLES</th>
+                <th onclick="window.sortDynastyLeaderboard('coachingEfficiency')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🧠 COACHING EFF</th>
+                <th onclick="window.sortDynastyLeaderboard('dOhs')" class="p-2 text-center cursor-pointer hover:bg-pink-100/90">🤦‍♂️ D'OHS</th>
               </tr>
             </thead>
             <tbody id="champs-leaderboard-body"></tbody>
@@ -484,13 +486,13 @@
 
       <!-- 2. Yearly Champions Timeline Grid -->
       <div class="mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">&gt;_ YEARLY_CHAMPIONS_TIMELINE</div>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2">🏆 YEARLY CHAMPIONS TIMELINE</div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="champs-timeline-grid"></div>
       </div>
 
       <!-- 3. All-Time Single-Game & Streak Records (Bottom Container) -->
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2" id="champs-playoff-records-label">&gt;_ ALL-TIME_PLAYOFF_RECORDS</div>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-2" id="champs-playoff-records-label">🎖️ ALL-TIME PLAYOFF RECORDS</div>
         <h3 class="text-lg font-black text-pink-700 font-fredoka mb-3" id="champs-playoff-records-title">PLAYOFF SINGLE-GAME &amp; STREAK RECORD HOLDERS</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="champs-stat-records-grid"></div>
       </div>
@@ -500,13 +502,13 @@
     <!-- TAB 5: TEAMS -->
     <div id="tab-teams" class="tab-content hidden">
       <div class="crt-box rounded p-4 mb-6">
-        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ FRANCHISE_FILES</div>
+        <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">💅 FRANCHISE FILES</div>
         <h2 class="text-2xl font-black text-pink-700 crt-glow-pink-pink">FRANCHISE PROFILES &amp; HISTORY</h2>
         <p class="text-xs text-pink-600 mt-1">Explore all-time team statistics, name evolution, scoring titles, and yearly records.</p>
       </div>
 
       <div class="crt-box rounded p-4 mb-6">
-        <label class="block text-xs font-bold text-pink-600 mb-2 font-fredoka">&gt; SELECT FRANCHISE OWNER:</label>
+        <label class="block text-xs font-bold text-pink-600 mb-2 font-fredoka">SELECT FRANCHISE OWNER:</label>
         <div id="team-owner-buttons" class="flex flex-wrap gap-2"></div>
       </div>
 
@@ -519,7 +521,7 @@
       <div class="crt-box rounded p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">&gt;_ DRAFT_MATRIX</div>
+            <div class="text-xs text-pink-600 tracking-widest font-bold uppercase mb-1">📜 DRAFT MATRIX</div>
             <h2 class="text-2xl font-black text-pink-700 crt-glow-pink-pink">OFFICIAL DRAFT ORDER HISTORY</h2>
             <p class="text-xs text-pink-600 mt-1">Reverse of previous season finish. Places 5+ ranked strictly by regular season standing.</p>
           </div>
@@ -537,7 +539,7 @@
         </div>
         <div class="table-scroll-container">
           <table class="w-full min-w-[680px] text-xs text-left border-collapse">
-            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200">
+            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
               <tr>
                 <th class="p-2.5 text-center">Pick #</th>
                 <th class="p-2.5">Drafting Franchise</th>
@@ -554,15 +556,15 @@
         <div class="crt-box-header px-4 py-2 font-bold text-xs flex flex-col md:flex-row items-center justify-between gap-2">
           <span id="player-draft-title">🎯 Player Draft Results</span>
           <div class="flex items-center gap-2 w-full md:w-auto">
-            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()" placeholder="Search player or owner..." class="bg-white border border-purple-200 px-2 py-1 text-xs text-pink-700 rounded w-full md:w-48">
-            <select id="draft-round-select" onchange="filterPlayerDraftPicks()" class="bg-white border border-purple-200 px-2 py-1 text-xs text-pink-700 rounded">
+            <input type="text" id="draft-search-input" onkeyup="filterPlayerDraftPicks()" placeholder="Search player or owner..." class="bg-white border border-pink-200 px-2 py-1 text-xs text-pink-700 rounded w-full md:w-48">
+            <select id="draft-round-select" onchange="filterPlayerDraftPicks()" class="bg-white border border-pink-200 px-2 py-1 text-xs text-pink-700 rounded">
               <option value="all">All Rounds</option>
             </select>
           </div>
         </div>
         <div class="table-scroll-container">
           <table class="w-full min-w-[680px] text-xs text-left border-collapse">
-            <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200 sticky top-0 bg-white">
+            <thead class="bg-pink-50/95 text-pink-600 font-bold border-b border-pink-200 sticky top-0">
               <tr>
                 <th class="p-2.5 text-center">Overall Pick #</th>
                 <th class="p-2.5 text-center">Round Pick</th>
@@ -589,9 +591,9 @@
         <div class="crt-box rounded p-4">
           <h3 class="text-base font-bold text-pink-700 mb-2 crt-glow-pink-pink">🍀 All-Time Luck Index</h3>
           <p class="text-xs text-pink-600 mb-3">Positive luck rating = actual wins exceeding expected wins based on weekly score rank.</p>
-          <div class="table-scroll-container">
-            <table class="w-full min-w-[680px] text-xs text-left border-collapse">
-              <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-purple-200">
+          <div class="w-full overflow-x-auto no-scrollbar">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead class="bg-pink-50/90 text-pink-600 font-bold border-b border-pink-200">
                 <tr>
                   <th class="p-2">Owner</th>
                   <th class="p-2 text-center">Actual W</th>
