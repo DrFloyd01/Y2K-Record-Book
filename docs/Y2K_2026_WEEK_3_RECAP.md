@@ -24,8 +24,8 @@ streak: Mike 2 (Wk13'25, Wk3'26)
 playoffs: 1-0 (Wild Card'22)
 The 2019 champion hits his stride in style. Mike dismantled Casey's undefeated start with a 153.44 to 118.74 victory, evening their historic 20-game rivalry at 10-10 all-time. Mike's fireworks were headlined by Drake London, who erupted for 32.40 pts (9 rec, 194 yds) to capture the Week 3 Julio Jonesing challenge (most points by an offensive starter without a TD). Jeremiyah Love (21.40) and Tee Higgins (19.50) provided plenty of support. Casey got 22.60 from Christian McCaffrey and 22.40 from Derrick Henry, but Patrick Mahomes (19.44) was once again outproduced by bench QB Bo Nix (27.14) as AARPFL suffered its first blemish of 2026 to join Mike at 2-1.
 
-Aaron codger vs Dusty’s Dingleberries
-h2h: 2-7
+Dusty’s Dingleberries vs Aaron codger
+h2h: 7-2
 streak: Dustin 1 (Wk3'26)
 playoffs: 0-0
 An absolute demolition. Dusty’s Dingleberries followed up his Week 2 high-score explosion by hanging 150.24 pts on Boaz, recording Week 3's biggest landslide with a 76.88-point beatdown. Dustin's running back tandem went wild, with Jaylen Warren (23.60) and Kyren Williams (22.80) flanking Ja'Marr Chase (22.80) to post three 22+ point starters. Aaron codger suffered complete system failure, bottoming out with a league-low 73.36 pts as Chris Olave (19.70) was Bo's only player in double digits. Dustin climbs to 2-1 (2nd in PF at 462.50) while extending his lifetime regular season dominance over Bo to 7-2.

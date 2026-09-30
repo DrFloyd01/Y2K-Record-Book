@@ -94,22 +94,28 @@ export function computeMatchupStakes({
     }
   });
 
+  const isFlipped = Boolean(customM && customM.homeOwner === o2 && customM.awayOwner === o1);
+  function formatFallbackRecord(rawStr) {
+    if (!rawStr) return rawStr;
+    const str = String(rawStr).trim();
+    if (!isFlipped) return str;
+    return str.replace(/^(\d+)-(\d+)(.*)$/, (match, p1, p2, rest) => `${p2}-${p1}${rest}`);
+  }
+
   let h2hClean = `${o1Wins}-${o2Wins}${ties > 0 ? `-${ties}` : ''}`;
   let h2hFull = h2hClean;
 
-  if (isRecap) {
-    if (customM && (customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H)) {
-      const recH2h = customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H;
-      h2hFull = String(recH2h);
-      h2hClean = String(recH2h).replace(/\s*\(.*?\)/g, '').trim();
+  if (pastGames.length === 0) {
+    if (isRecap) {
+      if (customM && (customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H)) {
+        const recH2h = formatFallbackRecord(customM.h2hPostWeek || customM.h2hPostWeek1 || customM.recapH2H);
+        h2hFull = recH2h;
+        h2hClean = recH2h.replace(/\s*\(.*?\)/g, '').trim();
+      }
     } else {
-      h2hFull = h2hClean;
-    }
-  } else {
-    if (customM && (customM.h2h || customM.seasonH2H)) {
-      const customH2hStr = String(customM.h2h || customM.seasonH2H);
-      h2hFull = customH2hStr;
-      if (pastGames.length === 0) {
+      if (customM && (customM.h2h || customM.seasonH2H)) {
+        const customH2hStr = formatFallbackRecord(customM.h2h || customM.seasonH2H);
+        h2hFull = customH2hStr;
         h2hClean = customH2hStr.replace(/\s*\(.*?\)/g, '').trim();
       }
     }
@@ -198,18 +204,18 @@ export function computeMatchupStakes({
   }
   let streakFull = streakClean;
   if (isRecap) {
-    if (customM && (customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak)) {
-      streakFull = String(customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak);
-    } else if (streakCount > 0 && streakGames.length > 0) {
+    if (streakCount > 0 && streakGames.length > 0) {
       const topG = streakGames[0];
       streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+    } else if (customM && (customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak)) {
+      streakFull = String(customM.streakPostWeek || customM.streakPostWeek1 || customM.recapStreak);
     }
   } else {
-    if (customM && customM.streak !== undefined && customM.streak !== null) {
-      streakFull = String(customM.streak);
-    } else if (streakCount > 0 && streakGames.length > 0) {
+    if (streakCount > 0 && streakGames.length > 0) {
       const topG = streakGames[0];
       streakFull = `${streakLeader} ${streakCount} (Wk${topG.week}'${String(topG.year).slice(-2)}, ${topG.winnerScore.toFixed(2)}-${topG.loserScore.toFixed(2)})`;
+    } else if (customM && customM.streak !== undefined && customM.streak !== null) {
+      streakFull = String(customM.streak);
     }
   }
 

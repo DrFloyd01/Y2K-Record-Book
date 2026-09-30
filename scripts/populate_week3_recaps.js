@@ -32,8 +32,8 @@ streak: Mike 2 (Wk13'25, Wk3'26)
 playoffs: 1-0 (Wild Card'22)
 The 2019 champion hits his stride in style. Mike dismantled Casey's undefeated start with a 153.44 to 118.74 victory, evening their historic 20-game rivalry at 10-10 all-time. Mike's fireworks were headlined by Drake London, who erupted for 32.40 pts (9 rec, 194 yds) to capture the Week 3 Julio Jonesing challenge (most points by an offensive starter without a TD). Jeremiyah Love (21.40) and Tee Higgins (19.50) provided plenty of support. Casey got 22.60 from Christian McCaffrey and 22.40 from Derrick Henry, but Patrick Mahomes (19.44) was once again outproduced by bench QB Bo Nix (27.14) as AARPFL suffered its first blemish of 2026 to join Mike at 2-1.
 
-Aaron codger vs Dusty’s Dingleberries
-h2h: 2-7
+Dusty’s Dingleberries vs Aaron codger
+h2h: 7-2
 streak: Dustin 1 (Wk3'26)
 playoffs: 0-0
 An absolute demolition. Dusty’s Dingleberries followed up his Week 2 high-score explosion by hanging 150.24 pts on Boaz, recording Week 3's biggest landslide with a 76.88-point beatdown. Dustin's running back tandem went wild, with Jaylen Warren (23.60) and Kyren Williams (22.80) flanking Ja'Marr Chase (22.80) to post three 22+ point starters. Aaron codger suffered complete system failure, bottoming out with a league-low 73.36 pts as Chris Olave (19.70) was Bo's only player in double digits. Dustin climbs to 2-1 (2nd in PF at 462.50) while extending his lifetime regular season dominance over Bo to 7-2.
@@ -138,10 +138,10 @@ function applyY2KCommentary(targetObj) {
     }
     m.recapWriteup = y2kRecapWriteups[idx];
     m.writeup = y2kRecapWriteups[idx];
-    m.h2hPostWeek = y2kPostH2H[idx];
-    m.h2hPostWeek1 = y2kPostH2H[idx];
-    m.streakPostWeek = y2kPostStreaks[idx];
-    m.streakPostWeek1 = y2kPostStreaks[idx];
+    delete m.h2hPostWeek;
+    delete m.h2hPostWeek1;
+    delete m.streakPostWeek;
+    delete m.streakPostWeek1;
   });
   targetObj['2026']['3'] = wk3;
 }
@@ -184,10 +184,10 @@ function applyPrideCommentary(targetObj) {
     }
     m.recapWriteup = prideRecapWriteups[idx];
     m.writeup = prideRecapWriteups[idx];
-    m.h2hPostWeek = pridePostH2H[idx];
-    m.h2hPostWeek1 = pridePostH2H[idx];
-    m.streakPostWeek = pridePostStreaks[idx];
-    m.streakPostWeek1 = pridePostStreaks[idx];
+    delete m.h2hPostWeek;
+    delete m.h2hPostWeek1;
+    delete m.streakPostWeek;
+    delete m.streakPostWeek1;
   });
   targetObj['2026']['3'] = wk3;
 }
@@ -203,7 +203,7 @@ fs.writeFileSync(prideDataPath, JSON.stringify(prideData, null, 2) + '\n');
 console.log('Updated public/data/prideGuysData.json');
 
 // Apply to backup files (note: backups are keyed directly by week string: { "1": ..., "2": ..., "3": ... })
-function applyBackup(targetObj, recaps, streaks, h2hList, title) {
+function applyBackup(targetObj, recaps, title) {
   const wk3 = targetObj['3'] || {};
   wk3.mode = 'recap';
   wk3.title = title;
@@ -213,18 +213,18 @@ function applyBackup(targetObj, recaps, streaks, h2hList, title) {
     }
     m.recapWriteup = recaps[idx];
     m.writeup = recaps[idx];
-    m.h2hPostWeek = h2hList[idx];
-    m.h2hPostWeek1 = h2hList[idx];
-    m.streakPostWeek = streaks[idx];
-    m.streakPostWeek1 = streaks[idx];
+    delete m.h2hPostWeek;
+    delete m.h2hPostWeek1;
+    delete m.streakPostWeek;
+    delete m.streakPostWeek1;
   });
   targetObj['3'] = wk3;
 }
 
-applyBackup(y2kBackup, y2kRecapWriteups, y2kPostStreaks, y2kPostH2H, '🏈 2026 Y2K: Week 3 Matchup Recaps');
+applyBackup(y2kBackup, y2kRecapWriteups, '🏈 2026 Y2K: Week 3 Matchup Recaps');
 fs.writeFileSync(y2kBackupPath, JSON.stringify(y2kBackup, null, 2) + '\n');
 console.log('Updated docs/drafts/Y2K_2026_COMMENTARY_BACKUP.json');
 
-applyBackup(prideBackup, prideRecapWriteups, pridePostStreaks, pridePostH2H, '🌈 2026 Pride Guys: Week 3 Matchup Recaps');
+applyBackup(prideBackup, prideRecapWriteups, '🌈 2026 Pride Guys: Week 3 Matchup Recaps');
 fs.writeFileSync(prideBackupPath, JSON.stringify(prideBackup, null, 2) + '\n');
 console.log('Updated docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json');

@@ -485,5 +485,66 @@ describe('Matchups View Component', () => {
       expect(austinIndex).toBeGreaterThan(-1);
       expect(brendanIndex).toBeLessThan(austinIndex);
     });
+
+    it('should dynamically update H2H badges on Week 3 recap when toggling 2022+ and All-Time, and orient correctly', () => {
+      const fs = require('fs');
+      const { resolve } = require('path');
+      const { filterLeagueDataByMinYear } = require('../src/core/eraFilter.js');
+      const leagueData = JSON.parse(fs.readFileSync(resolve(process.cwd(), 'public/data/leagueData.json'), 'utf8'));
+      const modernData = filterLeagueDataByMinYear(leagueData, 2022);
+
+      const w3Comm = leagueData.weeklyCommentary['2026']['3'];
+      const rankMap = {
+        'Dustin': { rank: 2, rec: '2-1' },
+        'Boaz': { rank: 11, rec: '1-2' },
+        'Dylan': { rank: 1, rec: '3-0' },
+        'Ryan': { rank: 7, rec: '1-2' }
+      };
+
+      const mList = (leagueData.seasonData['2026']?.schedule || []).filter(s => (s.weekNumber || s.week) === 3);
+
+      // Render All-Time
+      const htmlAll = buildWeeklyMatchupsGridHtml({
+        matchups: mList,
+        rankMap,
+        season: 2026,
+        week: 3,
+        mode: 'recap',
+        commentary: w3Comm,
+        allMatchups: leagueData.allMatchups,
+        theme: CRT_THEME
+      });
+
+      // Render Modern Era (2022+)
+      const htmlModern = buildWeeklyMatchupsGridHtml({
+        matchups: mList,
+        rankMap,
+        season: 2026,
+        week: 3,
+        mode: 'recap',
+        commentary: w3Comm,
+        allMatchups: modernData.allMatchups,
+        theme: CRT_THEME
+      });
+
+      // Helper to find H2H badge for a card by owner
+      function getH2HForMatchup(html, owner1) {
+        const cardRegex = new RegExp(`data-owner1="${owner1}"[\\s\\S]*?⚔️ H2H:[^<]*<strong[^>]*>([^<]+)<\\/strong>`);
+        const match = html.match(cardRegex);
+        return match ? match[1].trim() : null;
+      }
+
+      // Dustin is #2 (top) vs Boaz #11 (bottom)
+      // All-Time: Dustin has 7 wins, Boaz has 2 wins -> 7-2 (never 2-7 backward)
+      expect(getH2HForMatchup(htmlAll, 'Dustin')).toBe('7-2');
+      // Modern Era (2022+): Dustin has 5 wins, Boaz has 2 wins -> 5-2
+      expect(getH2HForMatchup(htmlModern, 'Dustin')).toBe('5-2');
+
+      // Dylan is #1 (top) vs Ryan #7 (bottom)
+      // All-Time: Dylan 6, Ryan 13 -> 6-13
+      expect(getH2HForMatchup(htmlAll, 'Dylan')).toBe('6-13');
+      // Modern Era (2022+): Dylan 4, Ryan 4 -> 4-4
+      expect(getH2HForMatchup(htmlModern, 'Dylan')).toBe('4-4');
+    });
   });
 });
