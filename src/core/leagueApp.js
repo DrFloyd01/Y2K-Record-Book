@@ -3689,12 +3689,15 @@ export function createLeagueApp(config) {
       const seasonKey = String(currentMatchupSeason);
       const weekKey = String(wk);
       const commEntry = window.LEAGUE_DATA.weeklyCommentary?.[seasonKey]?.[weekKey];
-      if (commEntry && commEntry.mode) {
+      const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
+      const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
+
+      if (isCompletedWeek) {
+        currentMatchupMode = 'recap';
+      } else if (commEntry && commEntry.mode) {
         currentMatchupMode = commEntry.mode;
       } else {
-        const weekGames = (sData?.schedule || sData?.schedule2026 || []).filter(m => (m.weekNumber || m.week) === wk);
-        const isCompletedWeek = weekGames.length > 0 && weekGames.some(m => Number(m.homeScore || 0) > 0 || Number(m.awayScore || 0) > 0);
-        currentMatchupMode = isCompletedWeek ? 'recap' : 'preview';
+        currentMatchupMode = 'preview';
       }
       switchMatchupMode(currentMatchupMode);
     }
@@ -3855,8 +3858,16 @@ export function createLeagueApp(config) {
         if (mode === 'recap') {
           text += `- **Result**: ${isWinner1 ? `${t1} def. ${t2}` : (isWinner2 ? `${t2} def. ${t1}` : 'Tie')} (${s1.toFixed(2)} - ${s2.toFixed(2)})\n`;
         }
-        const writeupText = (mode === 'recap') ? (customM?.recapWriteup || customM?.writeup) : (customM?.previewWriteup || customM?.writeup);
-        if (customM && writeupText) {
+        let writeupText = null;
+        if (mode === 'recap') {
+          writeupText = customM?.recapWriteup || (customComm?.mode === 'recap' ? customM?.writeup : null);
+          if (!writeupText) {
+            writeupText = 'Draft recap in progress. Full editorial writeup pending weekly review.';
+          }
+        } else {
+          writeupText = customM?.previewWriteup || (customComm?.mode === 'preview' ? customM?.writeup : null);
+        }
+        if (writeupText) {
           text += `- **Notes**: ${writeupText}\n`;
         }
         text += `\n`;

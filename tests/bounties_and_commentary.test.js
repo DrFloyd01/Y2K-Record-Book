@@ -41,15 +41,15 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(res.third.jump).toBeCloseTo(14.72, 2);
   });
 
-  it('should correctly evaluate Week 3 The Floor is Lava (Lowest Starter on Winning Team)', () => {
+  it('should correctly evaluate Week 3 Julio Jonesing (High Non-TD Scorer)', () => {
     const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
     const res = evaluateWeek3(lineups);
     expect(res).toBeDefined();
-    expect(res.winner.manager).toBe('Dustin');
-    expect(res.winner.player).toBe('Wil Lutz');
-    expect(res.winner.points).toBe(0.0);
+    expect(res.winner.manager).toBe('Mike');
+    expect(res.winner.player).toBe('Drake London');
+    expect(res.winner.points).toBeCloseTo(32.40, 2);
     expect(res.runnerUp.manager).toBe('Dustin');
-    expect(res.runnerUp.player).toBe('49ers');
+    expect(res.runnerUp.player).toBe('Jaylen Warren');
   });
 
   it('should compute correct ledger payouts and qualification status through Week 3', () => {
@@ -65,13 +65,19 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(summary['Dylan'].totalPayout).toBe(0.0);
     expect(summary['Dylan'].repeatRate).toBe(5.0);
 
-    // Dustin has 2 wins: qualifies on win 1, win 2 pays $25.00
-    expect(summary['Dustin'].wins).toBe(2);
+    // Dustin has 1 win: qualifies, $0 payout, $25 repeat rate
+    expect(summary['Dustin'].wins).toBe(1);
     expect(summary['Dustin'].isQualified).toBe(true);
-    expect(summary['Dustin'].totalPayout).toBe(25.0);
+    expect(summary['Dustin'].totalPayout).toBe(0.0);
     expect(summary['Dustin'].repeatRate).toBe(25.0);
-    expect(w3.payout).toBe(25.0);
-    expect(w3.payoutNote).toContain('$25.00');
+
+    // Mike has 1 win: qualifies, $0 payout, $5 repeat rate
+    expect(summary['Mike'].wins).toBe(1);
+    expect(summary['Mike'].isQualified).toBe(true);
+    expect(summary['Mike'].totalPayout).toBe(0.0);
+    expect(summary['Mike'].repeatRate).toBe(5.0);
+    expect(w3.payout).toBe(0.0);
+    expect(w3.payoutNote).toContain('Qualifies');
 
     // Unqualified managers
     expect(summary['Boaz'].wins).toBe(0);
@@ -133,27 +139,28 @@ describe('Commentary Draft Generation Suite', () => {
   it('should verify draft files exist on disk in docs/', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_2_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_2_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/Y2K_2026_COMMENTARY_BACKUP.json'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });
 
-  it('should verify live published commentary has Week 2 recap and Week 3 preview live', () => {
+  it('should verify live published commentary has Week 2 and Week 3 recaps live', () => {
     const liveY2k = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/leagueData.json'), 'utf8'));
     const livePride = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/prideGuysData.json'), 'utf8'));
 
-    // Live Y2K week 2 is published in mode: recap
+    // Live Y2K week 2 & 3 are published in mode: recap
     expect(liveY2k.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
-    // Live Y2K week 3 preview is published live
-    expect(liveY2k.weeklyCommentary['2026']['3'].mode).toBe('preview');
+    expect(liveY2k.weeklyCommentary['2026']['3'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
 
-    // Live Pride has week 2 recap and week 3 preview published live
+    // Live Pride has week 2 & 3 recaps published live
     expect(livePride.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
-    expect(livePride.weeklyCommentary['2026']['3'].mode).toBe('preview');
+    expect(livePride.weeklyCommentary['2026']['3'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
   });
 });

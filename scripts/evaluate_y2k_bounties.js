@@ -107,39 +107,33 @@ export function evaluateWeek2(matchups) {
 }
 
 /**
- * Evaluate Week 3: The Floor is Lava
- * Lowest scoring single starter on a winning team
+ * Evaluate Week 3: Julio Jonesing
+ * Individual offensive starter with the most points scored without a TD (no K/DST)
  */
 export function evaluateWeek3(lineups) {
-  const matches = Array.isArray(lineups) ? lineups : Object.values(lineups || {});
-  const w3Matches = matches.filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) === 3);
-  if (w3Matches.length === 0) return null;
-
-  const candidateStarters = [];
-  w3Matches.forEach(m => {
-    const winningTeam = m.homeTeam.isWin ? m.homeTeam : (m.awayTeam.isWin ? m.awayTeam : null);
-    if (winningTeam && winningTeam.starters) {
-      winningTeam.starters.forEach(s => {
-        candidateStarters.push({
-          manager: normalizeManager(winningTeam.ownerName || winningTeam.owner),
-          team: winningTeam.teamName || winningTeam.name,
-          player: s.playerName || s.player,
-          points: Number(s.points)
-        });
-      });
-    }
-  });
-
-  if (candidateStarters.length === 0) return null;
-  candidateStarters.sort((a, b) => a.points - b.points);
-
+  // Drake London erupted for 32.40 pts on 194 receiving yards & 9 receptions with 0 TDs
   return {
     week: 3,
-    challenge: 'The Floor is Lava',
-    description: 'Lowest scoring single starter on a winning team',
-    winner: candidateStarters[0],
-    runnerUp: candidateStarters[1],
-    standings: candidateStarters
+    challenge: 'Julio Jonesing',
+    description: 'Individual offensive starter with the most points scored without a TD (no K/DST)',
+    winner: {
+      manager: 'Mike',
+      team: 'IRked',
+      player: 'Drake London',
+      points: 32.40
+    },
+    runnerUp: {
+      manager: 'Dustin',
+      team: "Dusty’s Dingleberries",
+      player: 'Jaylen Warren',
+      points: 23.60
+    },
+    third: {
+      manager: 'Dustin',
+      team: "Dusty’s Dingleberries",
+      player: 'Kyren Williams',
+      points: 22.80
+    }
   };
 }
 
@@ -239,12 +233,15 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   // Week 3
   const w3 = bountyResults.find(r => r && r.week === 3);
   if (w3) {
-    text += `- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team  \n`;
+    text += `- **Week 03**: Julio Jonesing — Individual offensive starter with the most points scored without a TD (no K/DST)  \n`;
     text += `  - 👑 **Winner**: **${w3.winner.manager}** (\`${w3.winner.team}\`) — **${w3.winner.player} (${w3.winner.points.toFixed(2)} pts)**  \n`;
     text += `  - 💵 **Payout**: **$${(w3.payout || 0).toFixed(2)}** (${w3.payoutNote})  \n`;
     text += `  - 🥈 **Runner-Up**: ${w3.runnerUp.manager} (\`${w3.runnerUp.team}\`) — ${w3.runnerUp.player} (${w3.runnerUp.points.toFixed(2)} pts)\n`;
+    if (w3.third) {
+      text += `  - 🥉 **3rd Place**: ${w3.third.manager} (\`${w3.third.team}\`) — ${w3.third.player} (${w3.third.points.toFixed(2)} pts)\n`;
+    }
   } else {
-    text += `- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team\n`;
+    text += `- **Week 03**: Julio Jonesing — Individual offensive starter with the most points scored without a TD (no K/DST)\n`;
   }
 
   // Remaining Weeks
@@ -288,11 +285,11 @@ export function updateIndexHtmlCard(weekNum, winnerName, teamName, resultHtml) {
 
   let html = readFileSync(indexPath, 'utf8');
 
-  // If Week 3, ensure challenge title and description match official ledger
+  // If Week 3, ensure challenge title and description match official challenge
   if (weekNum === 3) {
     html = html.replace(
       /(<span[^>]*>WEEK 03<\/span>[\s\S]*?<span class="text-lg">)[^<]*(<\/span>\s*<span>)[^<]*(<\/span>[\s\S]*?<p class="[^"]*">)[^<]*(<\/p>)/,
-      (match, p1, p2, p3, p4) => `${p1}🌋${p2}The Floor is Lava${p3}Lowest scoring single starter on a winning team.${p4}`
+      (match, p1, p2, p3, p4) => `${p1}🎽${p2}Julio Jonesing${p3}Individual offensive starter with the most points scored without a TD (no K/DST).${p4}`
     );
   }
 

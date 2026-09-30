@@ -54,10 +54,11 @@
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $25.00/win)  
   - 🥈 **Runner-Up**: Ryan (`Donkey Squad`) — +34.66 pt jump (131.56 ➔ 166.22)  
   - 🥉 **3rd Place**: Phillip (`Ho Chi Win City`) — +14.72 pt jump (115.46 ➔ 130.18)
-- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team  
-  - 👑 **Winner**: **Dustin** (`Dusty’s Dingleberries`) — **Wil Lutz (0.00 pts)**  
-  - 💵 **Payout**: **$25.00** (Win #2 pays $25.00)  
-  - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — 49ers (1.00 pts)
+- **Week 03**: Julio Jonesing — Individual offensive starter with the most points scored without a TD (no K/DST)  
+  - 👑 **Winner**: **Mike** (`IRked`) — **Drake London (32.40 pts)**  
+  - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $5.00/win)  
+  - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — Jaylen Warren (23.60 pts)
+  - 🥉 **3rd Place**: Dustin (`Dusty’s Dingleberries`) — Kyren Williams (22.80 pts)
 - **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot
 - **Week 05**: The Cardiac Arrest I — Narrowest margin of victory
 - **Week 06**: Century Club — Highest combined score by a starting QB + WR stack
@@ -76,12 +77,12 @@
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
-| **Dusty (Dustin)** | 2 | $25.00 | **Qualified** (Next win pays $25.00) |
+| **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
 | **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
+| **Mike** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Bo (Boaz)** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
-| **Mike** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 | **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 | **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 | **Casey** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |

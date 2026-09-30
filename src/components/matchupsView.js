@@ -765,15 +765,27 @@ export function buildWeeklyMatchupsGridHtml({
 
     // Editorial Commentary without redundant duplicate meta line
     let commentaryHtml = '';
-    const writeupText = isRecap
-      ? (customM?.recapWriteup || customM?.writeup)
-      : (customM?.previewWriteup || customM?.writeup);
+    let writeupText = null;
+    let isPlaceholder = false;
 
-    if (customM && writeupText) {
+    if (isRecap) {
+      if (customM?.recapWriteup) {
+        writeupText = customM.recapWriteup;
+      } else if (commentary?.mode === 'recap' && customM?.writeup) {
+        writeupText = customM.writeup;
+      } else {
+        writeupText = 'Draft recap in progress. Full editorial writeup pending weekly review.';
+        isPlaceholder = true;
+      }
+    } else {
+      writeupText = customM?.previewWriteup || (commentary?.mode === 'preview' ? customM?.writeup : null);
+    }
+
+    if (writeupText) {
       commentaryHtml = `
         <div class="mt-2 p-2.5 ${isCrt ? 'bg-black/90 border border-emerald-800/80 text-emerald-300' : 'bg-purple-50 border border-pink-200 text-purple-900'} rounded text-[11px] leading-relaxed">
-          <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? 'RECAP_NOTES' : 'MATCHUP_PREVIEW'}:</span>
-          <div class="text-[11px] leading-relaxed">${writeupText}</div>
+          <span class="text-[9px] uppercase font-bold ${isCrt ? 'text-emerald-500 font-mono' : 'text-pink-600 font-fredoka'} block mb-1">&gt; ${isRecap ? (isPlaceholder ? 'RECAP_PENDING' : 'RECAP_NOTES') : 'MATCHUP_PREVIEW'}:</span>
+          <div class="text-[11px] leading-relaxed ${isPlaceholder ? 'italic opacity-70' : ''}">${writeupText}</div>
         </div>
       `;
     }
@@ -1077,26 +1089,8 @@ export function getWeeklyMatchupDefaultState({
   now = new Date(),
   regularSeasonWeeks = 14
 } = {}) {
-  // 1. Check for commentary on the active season
-  const comm = commentary || weeklyCommentary?.[season] || (typeof window !== 'undefined' && window.LEAGUE_DATA?.weeklyCommentary?.[season]) || null;
-  if (comm && typeof comm === 'object') {
-    const commWeeks = Object.keys(comm)
-      .map(k => Number(k))
-      .filter(k => !isNaN(k) && comm[k] && typeof comm[k] === 'object' && comm[k].mode);
-    if (commWeeks.length > 0) {
-      const maxCommWeek = Math.max(...commWeeks);
-      const entry = comm[maxCommWeek];
-      return {
-        week: maxCommWeek,
-        mode: entry.mode === 'preview' ? 'preview' : 'recap'
-      };
-    }
-  }
-
-  // 2. Fallback based on schedule if commentary is absent
+  // 1. Identify weeks with completed games in schedule
   const schedule = seasonData.schedule || seasonData.schedule2026 || [];
-
-  // Identify weeks with completed games
   const completedWeeks = new Set();
   schedule.forEach(m => {
     const sH = Number(m.homeScore || 0);
@@ -1108,6 +1102,23 @@ export function getWeeklyMatchupDefaultState({
   });
 
   const maxCompletedWeek = completedWeeks.size > 0 ? Math.max(...completedWeeks) : 0;
+
+  // 2. Check for commentary on the active season
+  const comm = commentary || weeklyCommentary?.[season] || (typeof window !== 'undefined' && window.LEAGUE_DATA?.weeklyCommentary?.[season]) || null;
+  if (comm && typeof comm === 'object') {
+    const commWeeks = Object.keys(comm)
+      .map(k => Number(k))
+      .filter(k => !isNaN(k) && comm[k] && typeof comm[k] === 'object' && comm[k].mode);
+    if (commWeeks.length > 0) {
+      const maxCommWeek = Math.max(...commWeeks);
+      const entry = comm[maxCommWeek];
+      const isCompleted = completedWeeks.has(maxCommWeek);
+      return {
+        week: maxCommWeek,
+        mode: isCompleted ? 'recap' : (entry.mode === 'preview' ? 'preview' : 'recap')
+      };
+    }
+  }
 
   // Pre-season (0 weeks completed)
   if (maxCompletedWeek === 0) {
