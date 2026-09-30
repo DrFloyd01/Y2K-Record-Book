@@ -4,6 +4,7 @@ import { resolve } from 'path';
 import {
   evaluateWeek1,
   evaluateWeek2,
+  evaluateWeek3,
   computeLedgerSummary,
   BUY_IN_TIERS,
   normalizeManager
@@ -40,10 +41,23 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(res.third.jump).toBeCloseTo(14.72, 2);
   });
 
-  it('should compute correct ledger payouts and qualification status', () => {
+  it('should correctly evaluate Week 3 The Floor is Lava (Lowest Starter on Winning Team)', () => {
+    const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
+    const res = evaluateWeek3(lineups);
+    expect(res).toBeDefined();
+    expect(res.winner.manager).toBe('Dustin');
+    expect(res.winner.player).toBe('Wil Lutz');
+    expect(res.winner.points).toBe(0.0);
+    expect(res.runnerUp.manager).toBe('Dustin');
+    expect(res.runnerUp.player).toBe('49ers');
+  });
+
+  it('should compute correct ledger payouts and qualification status through Week 3', () => {
+    const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
     const w1 = evaluateWeek1(matchups);
     const w2 = evaluateWeek2(matchups);
-    const summary = computeLedgerSummary([w1, w2]);
+    const w3 = evaluateWeek3(lineups);
+    const summary = computeLedgerSummary([w1, w2, w3]);
 
     // Dylan has 1 win: qualifies, $0 payout, $5 repeat rate
     expect(summary['Dylan'].wins).toBe(1);
@@ -51,11 +65,13 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(summary['Dylan'].totalPayout).toBe(0.0);
     expect(summary['Dylan'].repeatRate).toBe(5.0);
 
-    // Dustin has 1 win: qualifies, $0 payout, $25 repeat rate ($20 Max Tier)
-    expect(summary['Dustin'].wins).toBe(1);
+    // Dustin has 2 wins: qualifies on win 1, win 2 pays $25.00
+    expect(summary['Dustin'].wins).toBe(2);
     expect(summary['Dustin'].isQualified).toBe(true);
-    expect(summary['Dustin'].totalPayout).toBe(0.0);
+    expect(summary['Dustin'].totalPayout).toBe(25.0);
     expect(summary['Dustin'].repeatRate).toBe(25.0);
+    expect(w3.payout).toBe(25.0);
+    expect(w3.payoutNote).toContain('$25.00');
 
     // Unqualified managers
     expect(summary['Boaz'].wins).toBe(0);

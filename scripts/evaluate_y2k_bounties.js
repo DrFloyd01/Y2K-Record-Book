@@ -236,8 +236,18 @@ export function generateLedgerMarkdown(bountyResults, summary) {
     text += `- **Week 02**: Zero to Hero — Largest positive points jump from Week 1 to Week 2\n`;
   }
 
+  // Week 3
+  const w3 = bountyResults.find(r => r && r.week === 3);
+  if (w3) {
+    text += `- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team  \n`;
+    text += `  - 👑 **Winner**: **${w3.winner.manager}** (\`${w3.winner.team}\`) — **${w3.winner.player} (${w3.winner.points.toFixed(2)} pts)**  \n`;
+    text += `  - 💵 **Payout**: **$${(w3.payout || 0).toFixed(2)}** (${w3.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w3.runnerUp.manager} (\`${w3.runnerUp.team}\`) — ${w3.runnerUp.player} (${w3.runnerUp.points.toFixed(2)} pts)\n`;
+  } else {
+    text += `- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team\n`;
+  }
+
   // Remaining Weeks
-  text += `- **Week 03**: The Floor is Lava — Lowest scoring single starter on a winning team\n`;
   text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot\n`;
   text += `- **Week 05**: The Cardiac Arrest I — Narrowest margin of victory\n`;
   text += `- **Week 06**: Century Club — Highest combined score by a starting QB + WR stack\n`;
@@ -270,24 +280,42 @@ export function generateLedgerMarkdown(bountyResults, summary) {
 }
 
 /**
- * Update Week 2 bounty card in index.html
+ * Update a specific week bounty card in index.html safely
  */
-export function updateIndexHtmlWeek2Bounty(winnerName, teamName, jumpPts) {
+export function updateIndexHtmlCard(weekNum, winnerName, teamName, resultHtml) {
   const indexPath = resolve(process.cwd(), 'index.html');
   if (!existsSync(indexPath)) return false;
 
   let html = readFileSync(indexPath, 'utf8');
 
-  // Search for Week 02 winner container
-  const week2BlockRegex = /(<span[^>]*>WEEK 02<\/span>[\s\S]*?<!-- Winner & Winning Stat Result Container -->[\s\S]*?<span class="text-emerald-300 font-bold">)(TBD)(<\/span>[\s\S]*?<span class="text-emerald-200 font-semibold">)(—)(<\/span>)/;
+  // If Week 3, ensure challenge title and description match official ledger
+  if (weekNum === 3) {
+    html = html.replace(
+      /(<span[^>]*>WEEK 03<\/span>[\s\S]*?<span class="text-lg">)[^<]*(<\/span>\s*<span>)[^<]*(<\/span>[\s\S]*?<p class="[^"]*">)[^<]*(<\/p>)/,
+      (match, p1, p2, p3, p4) => `${p1}🌋${p2}The Floor is Lava${p3}Lowest scoring single starter on a winning team.${p4}`
+    );
+  }
 
-  if (week2BlockRegex.test(html)) {
-    const replacement = `$1${winnerName} (${teamName})$3+${jumpPts} pts <span class="text-emerald-400 text-[10px]">(Qualifies)</span>$5`;
-    html = html.replace(week2BlockRegex, replacement);
+  const weekTag = `WEEK ${String(weekNum).padStart(2, '0')}`;
+  const regex = new RegExp(`(<div class="crt-box[^>]*>(?:(?!<div class="crt-box)[\\s\\S])*?<span[^>]*>${weekTag}<\\/span>[\\s\\S]*?<!-- Winner & Winning Stat Result Container -->[\\s\\S]*?<span class="text-emerald-300 font-bold">)[^<]*(<\\/span>[\\s\\S]*?<span class="text-emerald-200 font-semibold">)[\\s\\S]*?(<\\/span>\\s*<\\/div>)`);
+
+  if (regex.test(html)) {
+    const winner = `${winnerName} (${teamName})`;
+    html = html.replace(regex, (match, p1, p2, p3) => `${p1}${winner}${p2}${resultHtml}${p3}`);
     writeFileSync(indexPath, html, 'utf8');
     return true;
   }
   return false;
+}
+
+export function updateIndexHtmlWeek2Bounty(winnerName, teamName, jumpPts) {
+  const resultHtml = `+${jumpPts} pts <span class="text-emerald-400 text-[10px]">(Qualifies)</span>`;
+  return updateIndexHtmlCard(2, winnerName, teamName, resultHtml);
+}
+
+export function updateIndexHtmlWeek3Bounty(winnerName, teamName, player, points, payoutNote) {
+  const resultHtml = `${player} (${points} pts) <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(3, winnerName, teamName, resultHtml);
 }
 
 /**
@@ -307,13 +335,25 @@ export function runBountyEvaluation() {
   const w1Result = evaluateWeek1(allMatchups);
   const w2Result = evaluateWeek2(allMatchups);
 
-  const bountyResults = [w1Result, w2Result];
+  let w3Result = null;
+  const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
+  if (existsSync(lineupsPath)) {
+    const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
+    w3Result = evaluateWeek3(lineups);
+  }
+
+  const bountyResults = [w1Result, w2Result, w3Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
 
   console.log(`✅ Week 1 Winner: ${w1Result.winner.manager} (${w1Result.winner.score} pts) -> ${w1Result.payoutNote}`);
   console.log(`✅ Week 2 Winner: ${w2Result.winner.manager} (+${w2Result.winner.jump} pts) -> ${w2Result.payoutNote}`);
   console.log(`   Runner-Up: ${w2Result.runnerUp.manager} (+${w2Result.runnerUp.jump} pts)`);
   console.log(`   3rd Place: ${w2Result.third.manager} (+${w2Result.third.jump} pts)`);
+
+  if (w3Result) {
+    console.log(`✅ Week 3 Winner: ${w3Result.winner.manager} (${w3Result.winner.player}: ${w3Result.winner.points} pts) -> ${w3Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w3Result.runnerUp.manager} (${w3Result.runnerUp.player}: ${w3Result.runnerUp.points} pts)`);
+  }
 
   // Update Markdown Ledger
   const ledgerPath = resolve(process.cwd(), 'docs/Y2K_2026_BOUNTIES_LEDGER.md');
@@ -322,9 +362,23 @@ export function runBountyEvaluation() {
   console.log(`📝 Updated ${ledgerPath}`);
 
   // Update index.html
-  const updatedHtml = updateIndexHtmlWeek2Bounty(w2Result.winner.manager, w2Result.winner.team, w2Result.winner.jump.toFixed(2));
-  if (updatedHtml) {
+  const updatedW2 = updateIndexHtmlWeek2Bounty(w2Result.winner.manager, w2Result.winner.team, w2Result.winner.jump.toFixed(2));
+  if (updatedW2) {
     console.log('🌐 Updated Week 02 Bounty Card in index.html');
+  }
+
+  if (w3Result) {
+    const badgeText = w3Result.payout > 0 ? `$${w3Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW3 = updateIndexHtmlWeek3Bounty(
+      w3Result.winner.manager,
+      w3Result.winner.team,
+      w3Result.winner.player,
+      w3Result.winner.points.toFixed(2),
+      badgeText
+    );
+    if (updatedW3) {
+      console.log('🌐 Updated Week 03 Bounty Card in index.html');
+    }
   }
 
   return { bountyResults, summary };

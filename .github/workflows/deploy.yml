@@ -8,6 +8,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Weekly Fantasy Record Books Sync"]
+    types:
+      - completed
+    branches:
+      - main
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -23,6 +29,7 @@ concurrency:
 jobs:
   test_and_build:
     name: 🧪 Test & Build
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -44,14 +51,14 @@ jobs:
         run: npm run build
 
       - name: Upload GitHub Pages artifact
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_run'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
   deploy:
     name: 🚀 Deploy to GitHub Pages
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_run'
     needs: test_and_build
     environment:
       name: github-pages

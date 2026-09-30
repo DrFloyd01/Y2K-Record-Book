@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync_fantasy_data:
@@ -68,7 +69,7 @@ jobs:
           
           if [ -n "$(git status --porcelain public/data/ docs/ index.html)" ]; then
             git add public/data/ docs/ index.html
-            git commit -m "chore(sync): Auto-sync weekly scores, evaluate bounties & generate commentary drafts [skip ci]"
+            git commit -m "chore(sync): Auto-sync weekly scores, evaluate bounties & generate commentary drafts"
             git push
             echo "✅ New scores, bounty results, and commentary drafts committed and pushed to main!"
           else
