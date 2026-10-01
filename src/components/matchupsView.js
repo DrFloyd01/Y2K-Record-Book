@@ -638,11 +638,13 @@ export function buildWeeklyMatchupsGridHtml({
         ${stakes.streakGames.length > 0 ? `
           <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
             ${stakes.streakGames.map(g => {
-              const safeWin = (g.winner || '').replace(/'/g, "\\'");
-              const safeLose = (g.loser || '').replace(/'/g, "\\'");
               return `
               <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
-                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${safeWin}', '${safeLose}')"
+                   data-year="${g.year}"
+                   data-week="${g.week}"
+                   data-win="${(g.winner || '').replace(/"/g, '&quot;')}"
+                   data-lose="${(g.loser || '').replace(/"/g, '&quot;')}"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(Number(this.getAttribute('data-year')), Number(this.getAttribute('data-week')), this.getAttribute('data-win'), this.getAttribute('data-lose'))"
                    title="Jump to ${g.year} Week ${g.week} Box Score">
                 <div class="min-w-0">
                   <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
@@ -678,11 +680,13 @@ export function buildWeeklyMatchupsGridHtml({
         ${stakes.playoffGames.length > 0 ? `
           <div class="space-y-1.5 max-h-48 overflow-y-auto no-scrollbar pr-0.5" style="scrollbar-width: none; -ms-overflow-style: none;">
             ${stakes.playoffGames.map(g => {
-              const safeWin = (g.winner || '').replace(/'/g, "\\'");
-              const safeLose = (g.loser || '').replace(/'/g, "\\'");
               return `
               <div class="p-1.5 rounded ${isCrt ? 'bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-200' : 'bg-pink-50 hover:bg-pink-100 border border-pink-200 text-purple-950'} transition-all flex items-center justify-between gap-2 cursor-pointer group"
-                   onclick="event.stopPropagation(); window.jumpToMatchup(${g.year}, ${g.week}, '${safeWin}', '${safeLose}')"
+                   data-year="${g.year}"
+                   data-week="${g.week}"
+                   data-win="${(g.winner || '').replace(/"/g, '&quot;')}"
+                   data-lose="${(g.loser || '').replace(/"/g, '&quot;')}"
+                   onclick="event.stopPropagation(); window.jumpToMatchup(Number(this.getAttribute('data-year')), Number(this.getAttribute('data-week')), this.getAttribute('data-win'), this.getAttribute('data-lose'))"
                    title="Jump to ${g.year} Week ${g.week} Playoff Box Score">
                 <div class="min-w-0">
                   <div class="font-mono text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold">
@@ -713,9 +717,12 @@ export function buildWeeklyMatchupsGridHtml({
       <div class="flex items-center justify-between gap-1 mb-2.5 pb-2 border-b ${isCrt ? 'border-emerald-900/80 font-mono' : 'border-pink-200 font-sans'} text-[10px] flex-wrap sm:flex-nowrap">
         ${isGameOfWeek ? `<span class="px-1.5 py-0.5 rounded ${isCrt ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'bg-amber-100 text-amber-800 border border-amber-300'} font-black text-[9px] tracking-wide animate-pulse shrink-0">🔥 GOTW</span>` : ''}
         <!-- H2H Deeplink Chip -->
-        <button type="button" onclick="event.stopPropagation(); window.jumpToH2H('${o1}', '${o2}')"
+        <button type="button"
+                data-o1="${(o1 || '').replace(/"/g, '&quot;')}"
+                data-o2="${(o2 || '').replace(/"/g, '&quot;')}"
+                onclick="event.stopPropagation(); window.jumpToH2H(this.getAttribute('data-o1'), this.getAttribute('data-o2'))"
                 class="px-2 py-1 rounded ${isCrt ? 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-700/80 hover:border-emerald-500' : 'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-300'} font-bold transition-all cursor-pointer flex items-center gap-1 shadow-sm shrink-0"
-                title="Jump to Head-to-Head Hub for ${o1} vs ${o2}">
+                title="Jump to Head-to-Head Hub for ${(o1 || '').replace(/"/g, '&quot;')} vs ${(o2 || '').replace(/"/g, '&quot;')}">
           <span>⚔️ H2H: <strong class="${isCrt ? 'text-amber-300' : 'text-purple-900'}">${h2hBadgeText}</strong></span>
           <span class="text-[9px] opacity-70">➔</span>
         </button>

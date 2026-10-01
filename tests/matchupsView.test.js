@@ -87,8 +87,11 @@ describe('Matchups View Component', () => {
     expect(html).toContain('🏆 PLAYOFFS:');
     expect(html).toContain('tooltip-trigger');
     expect(html).toContain('matchup-stakes-popover');
-    expect(html).toContain('no-scrollbar');
-    expect(html).toContain('window.jumpToMatchup(2024, 16, \'Dylan\', \'Tess\')');
+    expect(html).toContain('data-year="2024"');
+    expect(html).toContain('data-week="16"');
+    expect(html).toContain('data-win="Dylan"');
+    expect(html).toContain('data-lose="Tess"');
+    expect(html).toContain('window.jumpToMatchup(Number(this.getAttribute(\'data-year\'))');
   });
 
   it('should render clean badge labels when showReportScores is false and details when true', () => {
@@ -546,5 +549,86 @@ describe('Matchups View Component', () => {
       // Modern Era (2022+): Dylan 4, Ryan 4 -> 4-4
       expect(getH2HForMatchup(htmlModern, 'Dylan')).toBe('4-4');
     });
+
+    it('should safely handle owners with apostrophes in H2H chip and streak/playoff popovers without syntax errors', () => {
+      const apostropheMatchup = [
+        {
+          seasonYear: 2026,
+          weekNumber: 3,
+          homeOwner: "Aidan O'Sullivan",
+          homeTeam: "O'Sullivan Squad",
+          homeScore: 112.5,
+          awayOwner: "Austin Geller",
+          awayTeam: "Austin City Limits",
+          awayScore: 125.0
+        }
+      ];
+      const apostropheHistory = [
+        {
+          seasonYear: 2024,
+          weekNumber: 5,
+          homeOwner: "Aidan O'Sullivan",
+          homeScore: 120.0,
+          awayOwner: "Austin Geller",
+          awayScore: 110.0,
+          isPlayoff: false
+        },
+        {
+          seasonYear: 2024,
+          weekNumber: 15,
+          homeOwner: "Aidan O'Sullivan",
+          homeScore: 130.0,
+          awayOwner: "Austin Geller",
+          awayScore: 125.0,
+          isPlayoff: true,
+          stage: 'Semifinals'
+        }
+      ];
+      const rankMap = {
+        "Aidan O'Sullivan": { rank: 3, rec: '2-1' },
+        "Austin Geller": { rank: 4, rec: '2-1' }
+      };
+
+      const html = buildWeeklyMatchupsGridHtml({
+        matchups: apostropheMatchup,
+        rankMap,
+        season: 2026,
+        week: 3,
+        mode: 'recap',
+        allMatchups: apostropheHistory,
+        theme: PRIDE_THEME
+      });
+
+      // Verify H2H button data attributes safely encode names with apostrophes
+      expect(html).toContain('data-o1="Aidan O\'Sullivan"');
+      expect(html).toContain('data-o2="Austin Geller"');
+      expect(html).toContain("window.jumpToH2H(this.getAttribute('data-o1'), this.getAttribute('data-o2'))");
+
+      // Verify popover jumpToMatchup links use data attributes
+      expect(html).toContain('data-win="Aidan O\'Sullivan"');
+      expect(html).toContain('data-lose="Austin Geller"');
+      expect(html).toContain("window.jumpToMatchup(Number(this.getAttribute('data-year')), Number(this.getAttribute('data-week')), this.getAttribute('data-win'), this.getAttribute('data-lose'))");
+
+      // Verify that DOM-parsed onclick attributes are syntactically valid functions
+      const container = document.createElement('div');
+      container.innerHTML = html;
+      const h2hButton = container.querySelector('button[data-o1]');
+      expect(h2hButton).not.toBeNull();
+      expect(h2hButton.getAttribute('data-o1')).toBe("Aidan O'Sullivan");
+      expect(h2hButton.getAttribute('data-o2')).toBe("Austin Geller");
+
+      const onclickHandler = h2hButton.getAttribute('onclick');
+      expect(() => new Function('event', onclickHandler)).not.toThrow();
+
+      // Check popover links
+      const popoverLinks = container.querySelectorAll('[data-win]');
+      expect(popoverLinks.length).toBeGreaterThan(0);
+      popoverLinks.forEach(link => {
+        expect(link.getAttribute('data-win')).toBe("Aidan O'Sullivan");
+        const popoverOnclick = link.getAttribute('onclick');
+        expect(() => new Function('event', popoverOnclick)).not.toThrow();
+      });
+    });
   });
 });
+
