@@ -238,7 +238,7 @@ describe('E2E DOM Integration Test', () => {
     window.switchTab('matchups');
 
     const heading = document.getElementById('matchup-title-heading');
-    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 3 RECAP');
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 4 PREVIEW');
 
     window.switchMatchupWeek(2);
     expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 2 RECAP');
@@ -251,6 +251,9 @@ describe('E2E DOM Integration Test', () => {
 
     window.switchMatchupMode('preview');
     expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 3 PREVIEW');
+
+    window.switchMatchupWeek(4);
+    expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 4 PREVIEW');
   });
 });
 
