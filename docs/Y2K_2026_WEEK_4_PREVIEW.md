@@ -35,3 +35,4 @@ h2h: 4-2
 streak: Jasper 2 (Wk14'25, 131.20-111.94, Wk5'25, 142.78-125.22)
 playoffs: 1-0 (Dustin won Semi-Finals'23, 152.56-143.16)
 Game of the Week: The league's hottest buzzsaw meets fantasy's ultimate cardiac escape artist. Dustin has erupted for a staggering 346.70 points over the last two weeks (196.46 in Wk2, 150.24 in Wk3) to claim 2nd place, bludgeoning opponents behind Ja'Marr Chase (22.80) and a three-headed running back juggernaut in Jaylen Warren (23.60), Kenneth Walker III (21.80), and Kyren Williams (22.80). Dustin is also qualified in the $20 Max Tier ($25.00/win), eyeing another payday in the Week 4 "Flex on 'Em" challenge. Jasper (2-1) has carved out wins through sheer grit and opponent heartbreak, surviving 97.12 to 95.12 over Trace despite leaving 38+ bench points. Dustin leads 4-2 all-time (plus a '23 semifinal win), but Jasper swept both 2025 meetings. Can Jasper work his magic again, or will Dustin's avalanche roll on?
+

@@ -35,3 +35,4 @@ h2h: 0-2
 streak: Sean Belcher 1 (Wk15'25, 143.56-96.52)
 playoffs: 1-0 (Wild Card'25, 143.56-96.52)
 Desperation hour for a founding pillar. 2-time champion Sean Belcher is in an unfathomable 0-3 cellar, averaging just 75.5 PF/g (226.40 total PF) following an 80.72-pt blowout loss to rookie Brodie. Drake London (25.90) delivered, but De'Von Achane (1.70) and Malik Nabers (5.10) were held in check. Brendan Sanders is rolling in his sophomore campaign at 2-1, executing a crisp 93.7% coaching efficiency to topple Andrew Wilson 130.24 to 93.34 behind Bo Nix (24.14), Garrett Wilson (23.70), and Christian McCaffrey (19.60). Brendan swept Sean in the 2025 regular season (2-0), but Sean got the ultimate revenge with a 47-pt rout in the 2025 Wild Card round. Sean needs an offensive resurrection to dodge an 0-4 hole.
+

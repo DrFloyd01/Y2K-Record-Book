@@ -186,104 +186,92 @@
     ]
   },
   "3": {
-    "mode": "preview",
-    "title": "🌈 2026 Pride Guys: Week 3 Matchup Previews",
+    "mode": "recap",
+    "title": "🌈 2026 Pride Guys: Week 3 Matchup Recaps",
     "matchups": [
       {
         "homeOwner": "Tyler Hicks",
         "awayOwner": "Michael Anderson",
         "homeTeam": "South Memphis Football Club",
         "awayTeam": "CTESPN",
-        "homeRank": 3,
-        "awayRank": 9,
-        "h2h": "1-2",
-        "streak": "Michael Anderson 2 (Wk6'24, Wk14'24)",
+        "h2h": "2-2",
+        "streak": "Tyler Hicks 1 (Wk3'26)",
         "playoffs": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "Tyler Hicks enters 2-0 with momentum surging after knocking off the defending champion and Nathan in consecutive weeks behind Amon-Ra St. Brown. Michael Anderson, however, finds himself in an unfamiliar 0-2 hole despite CeeDee Lamb's brilliance. Michael holds a 7-3 regular season edge over Tyler, but desperately needs his running game to awaken to avoid a catastrophic 0-3 start."
+        "writeup": "Game of the Week: A dramatic 4.86-point thriller that propelled Tyler Hicks to an unblemished 3-0 start. Tyler squeezed out the 96.56 to 91.70 win behind steady contributions from Matthew Golden (20.50), Jeremiyah Love (19.40), and Jared Goff (19.36). For Michael Anderson, the heartbreak was excruciating: Michael suffered Week 3's most catastrophic D'Oh! blunder, starting Dalton Schultz (4.50 pts) over breakout TE Harold Fannin Jr. (20.60 pts). That +16.10 net gain would have comfortably secured a 107.80 to 96.56 victory for CTESPN. Instead, the 5-time podium finisher plunges into an unfathomable 0-3 hole while Tyler evens their series at 2-2.",
+        "recapWriteup": "Game of the Week: A dramatic 4.86-point thriller that propelled Tyler Hicks to an unblemished 3-0 start. Tyler squeezed out the 96.56 to 91.70 win behind steady contributions from Matthew Golden (20.50), Jeremiyah Love (19.40), and Jared Goff (19.36). For Michael Anderson, the heartbreak was excruciating: Michael suffered Week 3's most catastrophic D'Oh! blunder, starting Dalton Schultz (4.50 pts) over breakout TE Harold Fannin Jr. (20.60 pts). That +16.10 net gain would have comfortably secured a 107.80 to 96.56 victory for CTESPN. Instead, the 5-time podium finisher plunges into an unfathomable 0-3 hole while Tyler evens their series at 2-2."
       },
       {
         "homeOwner": "Trace Bakulich",
         "awayOwner": "Dylan Soth",
         "homeTeam": "ProudER",
         "awayTeam": "Human Eros TDs",
-        "homeRank": 1,
-        "awayRank": 8,
-        "h2h": "7-5",
-        "streak": "Dylan Soth 1 (Wk15'25)",
-        "playoffs": "0-0",
-        "isGameOfTheWeek": true,
-        "writeup": "Game of the Week: All-time wins leader meets reigning champion. Trace Bakulich arrives fresh off a 159.78-pt scoring masterclass (league high) behind Jonathan Taylor and DeVonta Smith. Dylan Soth got off the mat with a Week 2 win over Phil behind James Cook. Trace holds a 5-4 regular season edge and has taken their last two meetings; both 1-1 squads look to make a defining statement in this heavyweight rivalry."
+        "h2h": "7-6",
+        "streak": "Dylan Soth 2 (Wk14'25, Wk3'26)",
+        "playoffs": "1-0 (Trace won Final'23)",
+        "writeup": "Defense ruled the day in this rivalry bout. Defending champion Dylan Soth ground out a 92.48 to 80.34 victory over Trace Bakulich to improve to 2-1 and narrow Trace's series edge to 7-6. Trevor Lawrence (19.78), James Cook III (19.40), and Kyren Williams (18.80) did just enough for Dylan, who survived leaving Geno Smith (26.04) and Michael Wilson (20.40) on his bench. Trace couldn't replicate his Week 2 scoring explosion, as Christian Watson (19.10) and Patrick Mahomes (15.94) were ProudER's only starters to crack double digits, dropping Trace to 2-1.",
+        "recapWriteup": "Defense ruled the day in this rivalry bout. Defending champion Dylan Soth ground out a 92.48 to 80.34 victory over Trace Bakulich to improve to 2-1 and narrow Trace's series edge to 7-6. Trevor Lawrence (19.78), James Cook III (19.40), and Kyren Williams (18.80) did just enough for Dylan, who survived leaving Geno Smith (26.04) and Michael Wilson (20.40) on his bench. Trace couldn't replicate his Week 2 scoring explosion, as Christian Watson (19.10) and Patrick Mahomes (15.94) were ProudER's only starters to crack double digits, dropping Trace to 2-1."
       },
       {
         "homeOwner": "Nathan Wells",
         "awayOwner": "Phillip Busick",
         "homeTeam": "Defense Contractor #1",
         "awayTeam": "Joey Chestnuts",
-        "homeRank": 7,
-        "awayRank": 11,
-        "h2h": "4-2",
-        "streak": "Nathan Wells 1 (Wk7'25)",
+        "h2h": "5-2",
+        "streak": "Nathan Wells 2 (Wk11'25, Wk3'26)",
         "playoffs": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "A critical crossroad for two franchises looking to regain their footing. Nathan Wells (1-1) boasts elite firepower in Josh Allen and Bijan Robinson, looking to wash away a Week 2 setback against Tyler. Phillip Busick (0-2) is in urgent crisis mode, having scored just 55.98 pts in Week 2. Nathan has taken their last two meetings and holds a 6-3 series lead; Phil needs Puka Nacua to carry Joey Chestnuts out of the cellar."
+        "writeup": "The most lopsided blowout in Pride Guys this season. Nathan Wells uncorked the week's highest score with a 149.56-point barrage, destroying Phillip Busick (63.78) by 85.78 pts. Bijan Robinson led the charge with 34.30 pts, backed by TE Brock Bowers (24.60) and Jaylen Warren (19.10). For Phil, the nightmare start deepens: with Puka Nacua sidelined, Joey Chestnuts managed just 63.78 pts—Phil's third consecutive game under 95 points—to remain buried at 0-3 with a league-low 214.46 total PF. Nathan improves to 2-1 and widens his head-to-head edge to 5-2.",
+        "recapWriteup": "The most lopsided blowout in Pride Guys this season. Nathan Wells uncorked the week's highest score with a 149.56-point barrage, destroying Phillip Busick (63.78) by 85.78 pts. Bijan Robinson led the charge with 34.30 pts, backed by TE Brock Bowers (24.60) and Jaylen Warren (19.10). For Phil, the nightmare start deepens: with Puka Nacua sidelined, Joey Chestnuts managed just 63.78 pts—Phil's third consecutive game under 95 points—to remain buried at 0-3 with a league-low 214.46 total PF. Nathan improves to 2-1 and widens his head-to-head edge to 5-2."
       },
       {
         "homeOwner": "Aidan O'Sullivan",
         "awayOwner": "Austin Geller",
         "homeTeam": "JD Vance in Drag",
         "awayTeam": "Justin Herbooty",
-        "homeRank": 4,
-        "awayRank": 2,
-        "h2h": "4-8",
-        "streak": "Austin Geller 2 (Wk4'25, Wk14'25)",
-        "playoffs": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "Undefeated Clash of Titans! The only two 2-0 teams remaining square off for sole possession of 1st place in Pride Guys. Aidan reigns behind 1.01 draft pick Jahmyr Gibbs and Caleb Williams, while Austin counters with JSN (coming off a 40-pt week) and Kenneth Walker III. Aidan leads their historical series 5-4; the winner takes early control of the inside track to the #1 overall playoff seed."
+        "h2h": "4-9",
+        "streak": "Austin Geller 3 (Wk10'24, Wk7'25, Wk3'26)",
+        "playoffs": "0-1 (Austin won Semi'22)",
+        "writeup": "Austin Geller seizes sole possession of 1st place in Pride Guys! In a clash between the league's final unbeatens, Austin dismantled Aidan O'Sullivan 141.68 to 111.44 to move to 3-0 with a league-high 379.72 PF. Jaxon Smith-Njigba stayed scorching hot with 32.36 pts, paired with Kenneth Walker III (20.30) and a 21-pt masterclass from the Vikings D/ST. Aidan received a heroic 37.90 pts from Jahmyr Gibbs, but couldn't overcome Austin's superior depth. Austin pushes his series winning streak over Aidan to 3 straight games (9-4 all-time).",
+        "recapWriteup": "Austin Geller seizes sole possession of 1st place in Pride Guys! In a clash between the league's final unbeatens, Austin dismantled Aidan O'Sullivan 141.68 to 111.44 to move to 3-0 with a league-high 379.72 PF. Jaxon Smith-Njigba stayed scorching hot with 32.36 pts, paired with Kenneth Walker III (20.30) and a 21-pt masterclass from the Vikings D/ST. Aidan received a heroic 37.90 pts from Jahmyr Gibbs, but couldn't overcome Austin's superior depth. Austin pushes his series winning streak over Aidan to 3 straight games (9-4 all-time)."
       },
       {
         "homeOwner": "Brendan Sanders",
         "awayOwner": "Andrew Wilson",
         "homeTeam": "Stroking my penix",
         "awayTeam": "L Central",
-        "homeRank": 6,
-        "awayRank": 10,
-        "h2h": "1-1",
-        "streak": "Andrew Wilson 1 (Wk10'25)",
+        "h2h": "2-1",
+        "streak": "Brendan Sanders 1 (Wk3'26)",
         "playoffs": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "Championship pedigree meets sophomore firepower. Andrew Wilson, the league's 3-time banner king, is facing a 5-alarm fire at 0-2 following an upset loss to rookie Brodie. Brendan Sanders sits at 1-1 with Christian McCaffrey and Ashton Jeanty ready to rumble. Andrew urgently needs Lamar Jackson and Ja'Marr Chase to deliver a signature performance to prevent an 0-3 hole."
+        "writeup": "Sophomore surge overthrows championship royalty. Brendan Sanders climbed to 2-1 with a convincing 130.24 to 93.34 victory over 3-time banner king Andrew Wilson. Brendan executed a crisp 93.7% coaching efficiency, powered by Bo Nix (24.14), Garrett Wilson (23.70), and Christian McCaffrey (19.60). Andrew got solid efforts from Lamar Jackson (20.44), Ja'Marr Chase (20.30), and Javonte Williams (17.30), but a lack of ceiling elsewhere plunged L Central into an unfathomable 0-3 hole. Brendan takes a 2-1 lead in their head-to-head series.",
+        "recapWriteup": "Sophomore surge overthrows championship royalty. Brendan Sanders climbed to 2-1 with a convincing 130.24 to 93.34 victory over 3-time banner king Andrew Wilson. Brendan executed a crisp 93.7% coaching efficiency, powered by Bo Nix (24.14), Garrett Wilson (23.70), and Christian McCaffrey (19.60). Andrew got solid efforts from Lamar Jackson (20.44), Ja'Marr Chase (20.30), and Javonte Williams (17.30), but a lack of ceiling elsewhere plunged L Central into an unfathomable 0-3 hole. Brendan takes a 2-1 lead in their head-to-head series."
       },
       {
         "homeOwner": "Sean Belcher",
         "awayOwner": "Brodie Pirtle",
         "homeTeam": "Milkshake Baddies",
         "awayTeam": "BloodSword2000",
-        "homeRank": 12,
-        "awayRank": 5,
-        "h2h": "0-0",
-        "streak": "0",
+        "h2h": "0-1",
+        "streak": "Brodie Pirtle 1 (Wk3'26)",
         "playoffs": "0-0",
-        "isGameOfTheWeek": false,
-        "writeup": "A tale of two opposite trajectories. 2-time champion Sean Belcher sits dead last in the standings at 0-2 after averaging just 72.8 pts over the first two weeks. He faces high-flying expansion rookie Brodie Pirtle, riding high after dropping 134.68 pts behind Davante Adams to earn his first franchise win. Can the veteran OG summon championship pride, or will the newcomer claim another legend's scalp?"
+        "writeup": "The expansion rookie claims another legend's scalp. Fresh off toppling Andrew Wilson in Week 2, Brodie Pirtle stormed past 2-time champion Sean Belcher 135.28 to 80.72 to move to 2-1. George Kittle (23.20), Joe Burrow (22.58), and Derrick Henry (21.40) set the tone for BloodSword2000's balanced attack. Sean's early-season misery continues: despite Drake London's 25.90-pt effort, Milkshake Baddies could muster only 80.72 pts, dropping the founding OG into an 0-3 cellar with just 226.4 PF through three weeks. Brodie takes their inaugural matchup.",
+        "recapWriteup": "The expansion rookie claims another legend's scalp. Fresh off toppling Andrew Wilson in Week 2, Brodie Pirtle stormed past 2-time champion Sean Belcher 135.28 to 80.72 to move to 2-1. George Kittle (23.20), Joe Burrow (22.58), and Derrick Henry (21.40) set the tone for BloodSword2000's balanced attack. Sean's early-season misery continues: despite Drake London's 25.90-pt effort, Milkshake Baddies could muster only 80.72 pts, dropping the founding OG into an 0-3 cellar with just 226.4 PF through three weeks. Brodie takes their inaugural matchup."
       }
     ]
   },
   "4": {
     "mode": "preview",
-    "title": "Week 4 Matchup Previews",
+    "title": "🌈 2026 Pride Guys: Week 4 Matchup Previews",
     "matchups": [
       {
         "homeOwner": "Tyler Hicks",
         "awayOwner": "Phillip Busick",
         "homeTeam": "South Memphis Football Club",
         "awayTeam": "Joey Chestnuts",
-        "homeRank": 2,
-        "awayRank": 12,
         "h2h": "1-0",
         "streak": "Tyler Hicks 1 (Wk17'23, 125.00-64.50)",
         "playoffs": "1-1 (Consolation'23)",
         "writeup": "Top of the table meets bottom of the barrel. Tyler Hicks enters undefeated at 3-0 after prevailing in a 4.86-pt nailbiter over Michael (96.56 to 91.70), getting clutch contributions from rookie Matthew Golden (20.50), Jeremiyah Love (19.40), and Jared Goff (19.36). Phillip Busick, meanwhile, is mired in a 5-alarm catastrophe at 0-3 with a league-low 214.46 total PF (71.5 PF/g). Joey Chestnuts bottomed out in Week 3 with an anemic 63.78 pts in an 85.78-pt blowout against Nathan with Puka Nacua sidelined. Tyler won their only regular season meeting in 2023. A win keeps Tyler locked in 1st place at 4-0, while Phil desperately needs Jordan Addison and Jordan Love to produce a season-saving shocker.",
+        "homeRank": 2,
+        "awayRank": 12,
         "previewWriteup": "Top of the table meets bottom of the barrel. Tyler Hicks enters undefeated at 3-0 after prevailing in a 4.86-pt nailbiter over Michael (96.56 to 91.70), getting clutch contributions from rookie Matthew Golden (20.50), Jeremiyah Love (19.40), and Jared Goff (19.36). Phillip Busick, meanwhile, is mired in a 5-alarm catastrophe at 0-3 with a league-low 214.46 total PF (71.5 PF/g). Joey Chestnuts bottomed out in Week 3 with an anemic 63.78 pts in an 85.78-pt blowout against Nathan with Puka Nacua sidelined. Tyler won their only regular season meeting in 2023. A win keeps Tyler locked in 1st place at 4-0, while Phil desperately needs Jordan Addison and Jordan Love to produce a season-saving shocker."
       },
       {
@@ -291,12 +279,12 @@
         "awayOwner": "Dylan Soth",
         "homeTeam": "CTESPN",
         "awayTeam": "Human Eros TDs",
-        "homeRank": 10,
-        "awayRank": 8,
         "h2h": "8-0",
         "streak": "Michael Anderson 9 (Wk9'25, 128.02-103.98)",
         "playoffs": "1-0 (Consolation'22, 114.00-76.50)",
         "writeup": "Game of the Week: The Ultimate Kryptonite Rivalry. In nine career meetings across all competitions, Dylan Soth has NEVER beaten Michael Anderson (0-8 regular season, 0-1 postseason). Yet entering Week 4, the standings are completely inverted: defending champion Dylan sits at 2-1 after grinding out a 92.48 to 80.34 slugfest against Trace behind James Cook III (19.40) and Kyren Williams (18.80). Michael Anderson, a 5-time podium finisher, is reeling in an unthinkable 0-3 hole after a disastrous Week 3 D'Oh blunder: benching breakout TE Harold Fannin Jr. (20.60 pts) for Dalton Schultz (4.50 pts) erased a 16-point swing that would have won the game against Tyler. Can Michael summon his franchise jinx over Dylan to notch win #1, or will the defending champ finally shatter the 9-game curse and push CTESPN to 0-4?",
+        "homeRank": 10,
+        "awayRank": 8,
         "previewWriteup": "Game of the Week: The Ultimate Kryptonite Rivalry. In nine career meetings across all competitions, Dylan Soth has NEVER beaten Michael Anderson (0-8 regular season, 0-1 postseason). Yet entering Week 4, the standings are completely inverted: defending champion Dylan sits at 2-1 after grinding out a 92.48 to 80.34 slugfest against Trace behind James Cook III (19.40) and Kyren Williams (18.80). Michael Anderson, a 5-time podium finisher, is reeling in an unthinkable 0-3 hole after a disastrous Week 3 D'Oh blunder: benching breakout TE Harold Fannin Jr. (20.60 pts) for Dalton Schultz (4.50 pts) erased a 16-point swing that would have won the game against Tyler. Can Michael summon his franchise jinx over Dylan to notch win #1, or will the defending champ finally shatter the 9-game curse and push CTESPN to 0-4?"
       },
       {
@@ -304,12 +292,12 @@
         "awayOwner": "Trace Bakulich",
         "homeTeam": "Defense Contractor #1",
         "awayTeam": "ProudER",
-        "homeRank": 4,
-        "awayRank": 5,
         "h2h": "3-5",
         "streak": "Trace Bakulich 3 (Wk13'25, 116.16-98.10)",
         "playoffs": "0-1 (Semi-Finals'22, 112.00-115.00)",
         "writeup": "Heavyweight bout between two 2-1 contenders jockeying for top-4 playoff positioning. Nathan Wells arrives riding the highest single-game score of Week 3 (149.56 pts) after an 85.78-pt destruction of Phil, powered by 1.02 draft pick Bijan Robinson (34.30), Brock Bowers (24.60), and Jaylen Warren (19.10). Trace Bakulich, the league's all-time wins leader, cooled off in Week 3 (80.34 pts) in a defensive slog against Dylan, with Christian Watson (19.10) his lone bright spot. Trace has dominated this matchup recently, carrying a 3-game winning streak over Nathan (sweeping 2025 and late 2024, plus the '22 playoff semifinal). Nathan aims to unleash Josh Allen and Bijan to end Trace's reign; Trace looks to reassert historical supremacy.",
+        "homeRank": 4,
+        "awayRank": 5,
         "previewWriteup": "Heavyweight bout between two 2-1 contenders jockeying for top-4 playoff positioning. Nathan Wells arrives riding the highest single-game score of Week 3 (149.56 pts) after an 85.78-pt destruction of Phil, powered by 1.02 draft pick Bijan Robinson (34.30), Brock Bowers (24.60), and Jaylen Warren (19.10). Trace Bakulich, the league's all-time wins leader, cooled off in Week 3 (80.34 pts) in a defensive slog against Dylan, with Christian Watson (19.10) his lone bright spot. Trace has dominated this matchup recently, carrying a 3-game winning streak over Nathan (sweeping 2025 and late 2024, plus the '22 playoff semifinal). Nathan aims to unleash Josh Allen and Bijan to end Trace's reign; Trace looks to reassert historical supremacy."
       },
       {
@@ -317,12 +305,12 @@
         "awayOwner": "Andrew Wilson",
         "homeTeam": "Justin Herbooty",
         "awayTeam": "L Central",
-        "homeRank": 1,
-        "awayRank": 9,
         "h2h": "3-7",
         "streak": "Austin Geller 1 (Wk11'25, 120.12-103.86)",
         "playoffs": "1-0 (3rd Place'23, 114.00-110.00)",
         "writeup": "Unbeaten table-topper meets 3-time banner king facing franchise adversity. Austin Geller has been the class of Pride Guys at 3-0 with a league-best 379.72 PF, dismantling Aidan 141.68 to 111.44 behind JSN (32.36), Kenneth Walker III (20.30), and a 21-pt outing from the Vikings D/ST. Andrew Wilson, decorated 3-time champion, finds himself in unprecedented 0-3 territory after falling 130.24 to 93.34 to Brendan Sanders despite solid showings from Lamar Jackson (20.44) and Ja'Marr Chase (20.30). Andrew leads their historical series 7-3, but Austin took their late-season 2025 encounter. Andrew urgently needs Breece Hall and Javonte Williams to help stage an upset and avoid an 0-4 nightmare, while Austin seeks to tighten his grip on the #1 overall seed.",
+        "homeRank": 1,
+        "awayRank": 9,
         "previewWriteup": "Unbeaten table-topper meets 3-time banner king facing franchise adversity. Austin Geller has been the class of Pride Guys at 3-0 with a league-best 379.72 PF, dismantling Aidan 141.68 to 111.44 behind JSN (32.36), Kenneth Walker III (20.30), and a 21-pt outing from the Vikings D/ST. Andrew Wilson, decorated 3-time champion, finds himself in unprecedented 0-3 territory after falling 130.24 to 93.34 to Brendan Sanders despite solid showings from Lamar Jackson (20.44) and Ja'Marr Chase (20.30). Andrew leads their historical series 7-3, but Austin took their late-season 2025 encounter. Andrew urgently needs Breece Hall and Javonte Williams to help stage an upset and avoid an 0-4 nightmare, while Austin seeks to tighten his grip on the #1 overall seed."
       },
       {
@@ -330,12 +318,12 @@
         "awayOwner": "Aidan O'Sullivan",
         "homeTeam": "BloodSword2000",
         "awayTeam": "JD Vance in Drag",
-        "homeRank": 3,
-        "awayRank": 7,
         "h2h": "0-0",
         "streak": "0",
         "playoffs": "0-0",
         "writeup": "Inaugural showdown between rookie sensation Brodie Pirtle and 2025 finalist Aidan O'Sullivan. Brodie has been the league's breakout storyline, sitting at 2-1 in 3rd place (373.82 PF) after toppling two legends back-to-back: upsetting Andrew Wilson in Week 2, then trouncing Sean Belcher 135.28 to 80.72 behind Derrick Henry (21.40), Joe Burrow (22.58), and George Kittle (23.20). Core capital: Justin Jefferson (1.8), Henry (2.5), Tet McMillan (3.8), Davante Adams (4.5). Aidan sits at 2-1 after suffering his first loss to Austin (111.44-141.68) despite 1.01 draft pick Jahmyr Gibbs exploding for 37.90 pts. Core: Gibbs (1.1), Nico Collins (2.12), Pickens (3.1), Loveland (4.12). A battle of 2-1 squads with elite RB1s fighting for top-3 standing.",
+        "homeRank": 3,
+        "awayRank": 7,
         "previewWriteup": "Inaugural showdown between rookie sensation Brodie Pirtle and 2025 finalist Aidan O'Sullivan. Brodie has been the league's breakout storyline, sitting at 2-1 in 3rd place (373.82 PF) after toppling two legends back-to-back: upsetting Andrew Wilson in Week 2, then trouncing Sean Belcher 135.28 to 80.72 behind Derrick Henry (21.40), Joe Burrow (22.58), and George Kittle (23.20). Core capital: Justin Jefferson (1.8), Henry (2.5), Tet McMillan (3.8), Davante Adams (4.5). Aidan sits at 2-1 after suffering his first loss to Austin (111.44-141.68) despite 1.01 draft pick Jahmyr Gibbs exploding for 37.90 pts. Core: Gibbs (1.1), Nico Collins (2.12), Pickens (3.1), Loveland (4.12). A battle of 2-1 squads with elite RB1s fighting for top-3 standing."
       },
       {
@@ -343,12 +331,12 @@
         "awayOwner": "Brendan Sanders",
         "homeTeam": "Milkshake Baddies",
         "awayTeam": "Stroking my penix",
-        "homeRank": 11,
-        "awayRank": 6,
         "h2h": "0-2",
         "streak": "Sean Belcher 1 (Wk15'25, 143.56-96.52)",
         "playoffs": "1-0 (Wild Card'25, 143.56-96.52)",
         "writeup": "Desperation hour for a founding pillar. 2-time champion Sean Belcher is in an unfathomable 0-3 cellar, averaging just 75.5 PF/g (226.40 total PF) following an 80.72-pt blowout loss to rookie Brodie. Drake London (25.90) delivered, but De'Von Achane (1.70) and Malik Nabers (5.10) were held in check. Brendan Sanders is rolling in his sophomore campaign at 2-1, executing a crisp 93.7% coaching efficiency to topple Andrew Wilson 130.24 to 93.34 behind Bo Nix (24.14), Garrett Wilson (23.70), and Christian McCaffrey (19.60). Brendan swept Sean in the 2025 regular season (2-0), but Sean got the ultimate revenge with a 47-pt rout in the 2025 Wild Card round. Sean needs an offensive resurrection to dodge an 0-4 hole.",
+        "homeRank": 11,
+        "awayRank": 6,
         "previewWriteup": "Desperation hour for a founding pillar. 2-time champion Sean Belcher is in an unfathomable 0-3 cellar, averaging just 75.5 PF/g (226.40 total PF) following an 80.72-pt blowout loss to rookie Brodie. Drake London (25.90) delivered, but De'Von Achane (1.70) and Malik Nabers (5.10) were held in check. Brendan Sanders is rolling in his sophomore campaign at 2-1, executing a crisp 93.7% coaching efficiency to topple Andrew Wilson 130.24 to 93.34 behind Bo Nix (24.14), Garrett Wilson (23.70), and Christian McCaffrey (19.60). Brendan swept Sean in the 2025 regular season (2-0), but Sean got the ultimate revenge with a 47-pt rout in the 2025 Wild Card round. Sean needs an offensive resurrection to dodge an 0-4 hole."
       }
     ]

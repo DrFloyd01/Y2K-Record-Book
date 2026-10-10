@@ -35,3 +35,4 @@ h2h: 1-0
 streak: Alex 1 (Wk3'26)
 playoffs: 0-0
 A titanic shootout between two powerhouse lineups. In their first-ever meeting, Alex secured the Week 3 scoring title with a scorching 159.74 to 130.08 triumph over Cooper. Bijan Robinson put together the performance of the 2026 fantasy season, exploding for 45.30 pts alongside Lamar Jackson (25.94) and Garrett Wilson (25.20). Cooper counterpunched with a heroic 41.90-pt performance from Jahmyr Gibbs, but leaving Brock Bowers (26.60) and Trevor Lawrence (25.28) on the pine (81.7% efficiency) proved too costly against Alex's juggernaut. Alex moves to 2-1 in 3rd place, while Cooper drops to 1-2.
+

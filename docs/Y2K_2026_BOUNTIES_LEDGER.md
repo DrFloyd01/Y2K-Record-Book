@@ -4,7 +4,7 @@
 **Base Bounty Sponsor**: 2025 "Finish Above Phillip" Memorial Fund ($0 buy-in, $5/repeat win)  
 **High Roller Multiplier**: 1-to-1 Boost (Every $1 buy-in adds +$1.00 / repeat win)  
 **Total Boost Pot Collected**: **$35.00**  
-**Last Updated**: September 22, 2026  
+**Last Updated**: October 6, 2026  
 
 ---
 
@@ -59,7 +59,11 @@
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $5.00/win)  
   - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — Jaylen Warren (23.60 pts)
   - 🥉 **3rd Place**: Dustin (`Dusty’s Dingleberries`) — Kyren Williams (22.80 pts)
-- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot
+- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot  
+  - 👑 **Winner**: **Dustin** (`Dusty’s Dingleberries`) — **Kenneth Walker III (38.40 pts)**  
+  - 💵 **Payout**: **$25.00** (Win #2 pays $25.00)  
+  - 🥈 **Runner-Up**: Boaz (`Aaron codger`) — Chuba Hubbard (29.90 pts)
+  - 🥉 **3rd Place**: Jasper (`Blue's Balls`) — Zay Flowers (24.80 pts)
 - **Week 05**: The Cardiac Arrest I — Narrowest margin of victory
 - **Week 06**: Century Club — Highest combined score by a starting QB + WR stack
 - **Week 07**: Air Strike — Highest scoring individual Wide Receiver
@@ -73,11 +77,11 @@
 
 ---
 
-## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 3)
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 4)
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
-| **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
+| **Dusty (Dustin)** | 2 | $25.00 | **Qualified** (Next win pays $25.00) |
 | **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Mike** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Bo (Boaz)** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
