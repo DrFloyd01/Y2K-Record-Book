@@ -121,8 +121,70 @@ export function computeH2H(allMatchups, owner1, owner2, beforeWeek = null, seaso
   };
 }
 
+export const Y2K_TEAM_OWNERS = {
+  "Globo Gym": "Dylan",
+  "Donkey Squad": "Ryan",
+  "Ho Chi Win City": "Phillip",
+  "Tess Finesse": "Tess",
+  "Gl Hf (you’re gay)": "Trace",
+  "Blue's Balls": "Jasper",
+  "AARPFL": "Casey",
+  "IRked": "Mike",
+  "Dusty’s Dingleberries": "Dustin",
+  "Aaron codger": "Boaz",
+  "Darnold Schwarzenegger": "Alex",
+  "Trenches cooper": "Cooper"
+};
+
+export const PRIDE_TEAM_OWNERS = {
+  "South Memphis Football Club": "Tyler Hicks",
+  "CTESPN": "Michael Anderson",
+  "ProudER": "Trace Bakulich",
+  "Human Eros TDs": "Dylan Soth",
+  "Defense Contractor #1": "Nathan Wells",
+  "Joey Chestnuts": "Phillip Busick",
+  "JD Vance in Drag": "Aidan O'Sullivan",
+  "Justin Herbooty": "Austin Geller",
+  "Stroking my penix": "Brendan Sanders",
+  "L Central": "Andrew Wilson",
+  "Milkshake Baddies": "Sean Belcher",
+  "BloodSword2000": "Brodie Pirtle"
+};
+
+export function parseMatchupMarkdown(filePath, ownersMap) {
+  if (!existsSync(filePath)) return [];
+  const text = readFileSync(filePath, 'utf8');
+  const sections = text.split('\n\n').map(s => s.trim()).filter(Boolean);
+  const matchups = [];
+  for (let i = 1; i < sections.length; i++) {
+    const sec = sections[i];
+    const lines = sec.split('\n').map(l => l.trim()).filter(Boolean);
+    if (!lines[0] || !lines[0].includes(' vs ')) continue;
+    const [homeTeam, awayTeam] = lines[0].split(' vs ').map(s => s.trim());
+    const h2hLine = lines.find(l => l.startsWith('h2h:')) || '';
+    const streakLine = lines.find(l => l.startsWith('streak:')) || '';
+    const playoffsLine = lines.find(l => l.startsWith('playoffs:')) || '';
+    const h2h = h2hLine.replace('h2h:', '').trim();
+    const streak = streakLine.replace('streak:', '').trim();
+    const playoffs = playoffsLine.replace('playoffs:', '').trim();
+    const writeupLines = lines.slice(1).filter(l => !l.startsWith('h2h:') && !l.startsWith('streak:') && !l.startsWith('playoffs:'));
+    const writeup = writeupLines.join(' ');
+    matchups.push({
+      homeOwner: ownersMap[homeTeam] || '',
+      awayOwner: ownersMap[awayTeam] || '',
+      homeTeam,
+      awayTeam,
+      h2h,
+      streak,
+      playoffs,
+      writeup
+    });
+  }
+  return matchups;
+}
+
 /**
- * Generate Y2K Week 2 Recaps and Week 3 Previews
+ * Generate Y2K Week 2 Recaps, Week 3 Previews/Recaps, and Week 4 Previews
  */
 export function generateY2kDrafts() {
   const leagueData = loadJson(resolve(process.cwd(), 'public/data/leagueData.json'));
@@ -271,11 +333,32 @@ export function generateY2kDrafts() {
     }
   ];
 
-  return { w2RecapMatchups, w3PreviewMatchups };
+  // 3. Week 3 Recaps & Week 4 Previews
+  const w3RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md');
+  const w4PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md');
+
+  const w3RecapMatchups = parseMatchupMarkdown(w3RecapPath, Y2K_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w4PreviewMatchups = parseMatchupMarkdown(w4PreviewPath, Y2K_TEAM_OWNERS).map(m => {
+    const liveMatch = (leagueData?.weeklyCommentary?.['2026']?.['4']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    return {
+      ...m,
+      homeRank: liveMatch?.homeRank,
+      awayRank: liveMatch?.awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups };
 }
 
 /**
- * Generate Pride Guys Week 2 Recaps and Week 3 Previews
+ * Generate Pride Guys Week 2 Recaps, Week 3 Previews/Recaps, and Week 4 Previews
  */
 export function generatePrideDrafts() {
   const prideData = loadJson(resolve(process.cwd(), 'public/data/prideGuysData.json'));
@@ -445,7 +528,28 @@ export function generatePrideDrafts() {
     }
   ];
 
-  return { w2RecapMatchups, w3PreviewMatchups };
+  // 3. Week 3 Recaps & Week 4 Previews
+  const w3RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md');
+  const w4PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md');
+
+  const w3RecapMatchups = parseMatchupMarkdown(w3RecapPath, PRIDE_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w4PreviewMatchups = parseMatchupMarkdown(w4PreviewPath, PRIDE_TEAM_OWNERS).map(m => {
+    const liveMatch = (prideData?.weeklyCommentary?.['2026']?.['4']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    return {
+      ...m,
+      homeRank: liveMatch?.homeRank,
+      awayRank: liveMatch?.awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups };
 }
 
 /**
@@ -493,26 +597,26 @@ export function runDraftGeneration() {
   // 1. Generate Y2K Drafts
   const y2k = generateY2kDrafts();
   if (y2k) {
-    const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 2 Matchup Recaps', y2k.w2RecapMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_2_RECAP.md'), y2kRecapMd, 'utf8');
-    console.log('📄 Generated docs/Y2K_2026_WEEK_2_RECAP.md');
+    const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 3 Matchup Recaps', y2k.w3RecapMatchups);
+    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md'), y2kRecapMd, 'utf8');
+    console.log('📄 Generated docs/Y2K_2026_WEEK_3_RECAP.md');
 
-    const y2kPreviewMd = formatY2kMarkdown('🏈 2026 Y2K: Week 3 Matchup Previews', y2k.w3PreviewMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_PREVIEW.md'), y2kPreviewMd, 'utf8');
-    console.log('📄 Generated docs/Y2K_2026_WEEK_3_PREVIEW.md');
+    const y2kPreviewMd = formatY2kMarkdown('🏈 2026 Y2K: Week 4 Matchup Previews', y2k.w4PreviewMatchups);
+    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md'), y2kPreviewMd, 'utf8');
+    console.log('📄 Generated docs/Y2K_2026_WEEK_4_PREVIEW.md');
 
     // Update Backup JSON
     const y2kBackupPath = resolve(draftsDir, 'Y2K_2026_COMMENTARY_BACKUP.json');
     const existingBackup = loadJson(y2kBackupPath) || {};
-    existingBackup['2'] = {
-      mode: 'recap',
-      title: '🏈 2026 Y2K: Week 2 Matchup Hub',
-      matchups: y2k.w2RecapMatchups
-    };
     existingBackup['3'] = {
+      mode: 'recap',
+      title: '🏈 2026 Y2K: Week 3 Matchup Recaps',
+      matchups: y2k.w3RecapMatchups
+    };
+    existingBackup['4'] = {
       mode: 'preview',
-      title: '🏈 2026 Y2K: Week 3 Matchup Previews',
-      matchups: y2k.w3PreviewMatchups
+      title: '🏈 2026 Y2K: Week 4 Matchup Previews',
+      matchups: y2k.w4PreviewMatchups
     };
     writeFileSync(y2kBackupPath, JSON.stringify(existingBackup, null, 2), 'utf8');
     console.log(`💾 Updated draft backup: ${y2kBackupPath}`);
@@ -521,26 +625,26 @@ export function runDraftGeneration() {
   // 2. Generate Pride Guys Drafts
   const pride = generatePrideDrafts();
   if (pride) {
-    const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 2 Matchup Recaps', pride.w2RecapMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_2_RECAP.md'), prideRecapMd, 'utf8');
-    console.log('📄 Generated docs/PRIDE_2026_WEEK_2_RECAP.md');
+    const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 3 Matchup Recaps', pride.w3RecapMatchups);
+    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'), prideRecapMd, 'utf8');
+    console.log('📄 Generated docs/PRIDE_2026_WEEK_3_RECAP.md');
 
-    const pridePreviewMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 3 Matchup Previews', pride.w3PreviewMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_PREVIEW.md'), pridePreviewMd, 'utf8');
-    console.log('📄 Generated docs/PRIDE_2026_WEEK_3_PREVIEW.md');
+    const pridePreviewMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 4 Matchup Previews', pride.w4PreviewMatchups);
+    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md'), pridePreviewMd, 'utf8');
+    console.log('📄 Generated docs/PRIDE_2026_WEEK_4_PREVIEW.md');
 
     // Update Backup JSON
     const prideBackupPath = resolve(draftsDir, 'PRIDE_2026_COMMENTARY_BACKUP.json');
     const existingPrideBackup = loadJson(prideBackupPath) || {};
-    existingPrideBackup['2'] = {
-      mode: 'recap',
-      title: '🌈 2026 Pride Guys: Week 2 Matchup Recaps',
-      matchups: pride.w2RecapMatchups
-    };
     existingPrideBackup['3'] = {
+      mode: 'recap',
+      title: '🌈 2026 Pride Guys: Week 3 Matchup Recaps',
+      matchups: pride.w3RecapMatchups
+    };
+    existingPrideBackup['4'] = {
       mode: 'preview',
-      title: '🌈 2026 Pride Guys: Week 3 Matchup Previews',
-      matchups: pride.w3PreviewMatchups
+      title: '🌈 2026 Pride Guys: Week 4 Matchup Previews',
+      matchups: pride.w4PreviewMatchups
     };
     writeFileSync(prideBackupPath, JSON.stringify(existingPrideBackup, null, 2), 'utf8');
     console.log(`💾 Updated draft backup: ${prideBackupPath}`);

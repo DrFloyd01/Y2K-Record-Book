@@ -35,3 +35,4 @@ h2h: 0-1
 streak: Brodie Pirtle 1 (Wk3'26)
 playoffs: 0-0
 The expansion rookie claims another legend's scalp. Fresh off toppling Andrew Wilson in Week 2, Brodie Pirtle stormed past 2-time champion Sean Belcher 135.28 to 80.72 to move to 2-1. George Kittle (23.20), Joe Burrow (22.58), and Derrick Henry (21.40) set the tone for BloodSword2000's balanced attack. Sean's early-season misery continues: despite Drake London's 25.90-pt effort, Milkshake Baddies could muster only 80.72 pts, dropping the founding OG into an 0-3 cellar with just 226.4 PF through three weeks. Brodie takes their inaugural matchup.
+

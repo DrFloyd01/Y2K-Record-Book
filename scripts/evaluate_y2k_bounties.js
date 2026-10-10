@@ -138,6 +138,45 @@ export function evaluateWeek3(lineups) {
 }
 
 /**
+ * Evaluate Week 4: Flex on 'Em
+ * Highest scoring player in a designated FLEX spot (W/R/T or FLEX)
+ */
+export function evaluateWeek4(lineups) {
+  const w4 = (lineups || []).filter(m => (m.seasonYear === 2026 || m.year === 2026) && Number(m.week || m.weekNumber) === 4);
+  const flexStarters = [];
+
+  w4.forEach(m => {
+    [m.homeTeam, m.awayTeam].forEach(t => {
+      if (!t || !t.starters) return;
+      t.starters.forEach(p => {
+        const slot = p.slot ? p.slot.toUpperCase() : '';
+        if (slot === 'W/R/T' || slot === 'FLEX' || slot === 'W/R' || slot === 'W/T') {
+          flexStarters.push({
+            manager: normalizeManager(t.ownerName || t.manager),
+            team: t.teamName || t.team,
+            player: p.player || p.playerName,
+            points: Number(p.points || 0),
+            slot: p.slot
+          });
+        }
+      });
+    });
+  });
+
+  flexStarters.sort((a, b) => b.points - a.points);
+
+  return {
+    week: 4,
+    challenge: "Flex on 'Em",
+    description: "Highest scoring player in a designated FLEX spot",
+    winner: flexStarters[0],
+    runnerUp: flexStarters[1],
+    third: flexStarters[2],
+    standings: flexStarters
+  };
+}
+
+/**
  * Calculate ledger win summary across all evaluated weeks
  */
 export function computeLedgerSummary(bountyResults) {
@@ -183,7 +222,7 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   text += `**Base Bounty Sponsor**: 2025 "Finish Above Phillip" Memorial Fund ($0 buy-in, $5/repeat win)  \n`;
   text += `**High Roller Multiplier**: 1-to-1 Boost (Every $1 buy-in adds +$1.00 / repeat win)  \n`;
   text += `**Total Boost Pot Collected**: **$35.00**  \n`;
-  text += `**Last Updated**: September 22, 2026  \n\n`;
+  text += `**Last Updated**: October 6, 2026  \n\n`;
   text += `---\n\n`;
   text += `## 💰 2026 BUY-IN ROSTER & TIER STATUS\n\n`;
   text += `| Manager | Buy-In Paid | Tier Status | Win #1 Payout | Win #2+ Repeat Rate | Payment Status |\n`;
@@ -244,8 +283,19 @@ export function generateLedgerMarkdown(bountyResults, summary) {
     text += `- **Week 03**: Julio Jonesing — Individual offensive starter with the most points scored without a TD (no K/DST)\n`;
   }
 
-  // Remaining Weeks
-  text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot\n`;
+  // Week 4
+  const w4 = bountyResults.find(r => r && r.week === 4);
+  if (w4) {
+    text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot  \n`;
+    text += `  - 👑 **Winner**: **${w4.winner.manager}** (\`${w4.winner.team}\`) — **${w4.winner.player} (${w4.winner.points.toFixed(2)} pts)**  \n`;
+    text += `  - 💵 **Payout**: **$${(w4.payout || 0).toFixed(2)}** (${w4.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w4.runnerUp.manager} (\`${w4.runnerUp.team}\`) — ${w4.runnerUp.player} (${w4.runnerUp.points.toFixed(2)} pts)\n`;
+    if (w4.third) {
+      text += `  - 🥉 **3rd Place**: ${w4.third.manager} (\`${w4.third.team}\`) — ${w4.third.player} (${w4.third.points.toFixed(2)} pts)\n`;
+    }
+  } else {
+    text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot\n`;
+  }
   text += `- **Week 05**: The Cardiac Arrest I — Narrowest margin of victory\n`;
   text += `- **Week 06**: Century Club — Highest combined score by a starting QB + WR stack\n`;
   text += `- **Week 07**: Air Strike — Highest scoring individual Wide Receiver\n`;
@@ -293,6 +343,14 @@ export function updateIndexHtmlCard(weekNum, winnerName, teamName, resultHtml) {
     );
   }
 
+  // If Week 4, ensure challenge title, emoji, and description match official challenge
+  if (weekNum === 4) {
+    html = html.replace(
+      /(<span[^>]*>WEEK 04<\/span>[\s\S]*?<span class="text-\[11px\][^"]*">)[^<]*(<\/span>[\s\S]*?<span class="text-lg">)[^<]*(<\/span>\s*<span>)[^<]*(<\/span>[\s\S]*?<p class="[^"]*">)[^<]*(<\/p>)/,
+      (match, p1, p2, p3, p4, p5) => `${p1}🏷️ FLEX Spotlight${p2}💪${p3}Flex on 'Em${p4}Highest scoring player in a designated FLEX spot.${p5}`
+    );
+  }
+
   const weekTag = `WEEK ${String(weekNum).padStart(2, '0')}`;
   const regex = new RegExp(`(<div class="crt-box[^>]*>(?:(?!<div class="crt-box)[\\s\\S])*?<span[^>]*>${weekTag}<\\/span>[\\s\\S]*?<!-- Winner & Winning Stat Result Container -->[\\s\\S]*?<span class="text-emerald-300 font-bold">)[^<]*(<\\/span>[\\s\\S]*?<span class="text-emerald-200 font-semibold">)[\\s\\S]*?(<\\/span>\\s*<\\/div>)`);
 
@@ -315,6 +373,11 @@ export function updateIndexHtmlWeek3Bounty(winnerName, teamName, player, points,
   return updateIndexHtmlCard(3, winnerName, teamName, resultHtml);
 }
 
+export function updateIndexHtmlWeek4Bounty(winnerName, teamName, player, points, payoutNote) {
+  const resultHtml = `${player} (${points} pts) <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(4, winnerName, teamName, resultHtml);
+}
+
 /**
  * Main Runner
  */
@@ -333,13 +396,15 @@ export function runBountyEvaluation() {
   const w2Result = evaluateWeek2(allMatchups);
 
   let w3Result = null;
+  let w4Result = null;
   const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
   if (existsSync(lineupsPath)) {
     const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
     w3Result = evaluateWeek3(lineups);
+    w4Result = evaluateWeek4(lineups);
   }
 
-  const bountyResults = [w1Result, w2Result, w3Result].filter(Boolean);
+  const bountyResults = [w1Result, w2Result, w3Result, w4Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
 
   console.log(`✅ Week 1 Winner: ${w1Result.winner.manager} (${w1Result.winner.score} pts) -> ${w1Result.payoutNote}`);
@@ -350,6 +415,11 @@ export function runBountyEvaluation() {
   if (w3Result) {
     console.log(`✅ Week 3 Winner: ${w3Result.winner.manager} (${w3Result.winner.player}: ${w3Result.winner.points} pts) -> ${w3Result.payoutNote}`);
     console.log(`   Runner-Up: ${w3Result.runnerUp.manager} (${w3Result.runnerUp.player}: ${w3Result.runnerUp.points} pts)`);
+  }
+
+  if (w4Result) {
+    console.log(`✅ Week 4 Winner: ${w4Result.winner.manager} (${w4Result.winner.player}: ${w4Result.winner.points} pts) -> ${w4Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w4Result.runnerUp.manager} (${w4Result.runnerUp.player}: ${w4Result.runnerUp.points} pts)`);
   }
 
   // Update Markdown Ledger
@@ -375,6 +445,20 @@ export function runBountyEvaluation() {
     );
     if (updatedW3) {
       console.log('🌐 Updated Week 03 Bounty Card in index.html');
+    }
+  }
+
+  if (w4Result) {
+    const badgeText = w4Result.payout > 0 ? `$${w4Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW4 = updateIndexHtmlWeek4Bounty(
+      w4Result.winner.manager,
+      w4Result.winner.team,
+      w4Result.winner.player,
+      w4Result.winner.points.toFixed(2),
+      badgeText
+    );
+    if (updatedW4) {
+      console.log('🌐 Updated Week 04 Bounty Card in index.html');
     }
   }
 
