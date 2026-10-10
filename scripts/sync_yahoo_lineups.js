@@ -228,7 +228,7 @@ export async function syncYahooLineups(seasonYear = 2026, targetWeek = null) {
   console.log(`📋 Roster Constraints for ${seasonYear}:`, constraints);
 
   const schedule = sData.schedule || sData.schedule2026 || [];
-  const completedWeeks = [...new Set(schedule.filter(m => m.homeScore > 0 || m.awayScore > 0).map(m => m.week || m.weekNumber))].sort((a, b) => a - b);
+  const completedWeeks = [...new Set(schedule.filter(m => (m.winner && m.winner !== 'TBD') && (m.homeScore > 0 || m.awayScore > 0)).map(m => m.week || m.weekNumber))].sort((a, b) => a - b);
   const weeksToSync = targetWeek ? [targetWeek] : (completedWeeks.length > 0 ? completedWeeks : [1]);
   console.log(`📡 Ingesting Yahoo Lineups for Season ${seasonYear} Weeks: [${weeksToSync.join(', ')}] (League: ${leagueId})...`);
 
