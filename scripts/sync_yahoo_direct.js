@@ -64,7 +64,25 @@ export function resolveY2kOwner(teamId, teamName) {
   return teamName;
 }
 
-export async function fetchWeekMatchups(leagueId, week) {
+export async function fetchCurrentWeek(leagueId = '501321') {
+  try {
+    const res = await fetch(`https://football.fantasysports.yahoo.com/f1/${leagueId}`, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    });
+    if (res.ok) {
+      const html = await res.text();
+      const m = html.match(/class=['"]flyout-title['"]>\s*Week\s*(\d+)/i);
+      if (m) return parseInt(m[1], 10);
+    }
+  } catch (e) {
+    console.warn(`⚠️ Could not auto-detect current week from Yahoo: ${e.message}`);
+  }
+  return 1;
+}
+
+export async function fetchWeekMatchups(leagueId, week, currentWeek = null) {
   const url = `https://football.fantasysports.yahoo.com/f1/${leagueId}?matchup_week=${week}&module=matchups&lhst=matchups`;
   const res = await fetch(url, {
     headers: {
@@ -102,6 +120,11 @@ export async function fetchWeekMatchups(leagueId, week) {
         const o1 = resolveY2kOwner(teams[0].teamId, teams[0].teamName);
         const o2 = resolveY2kOwner(teams[1].teamId, teams[1].teamName);
 
+        const isFinal = (currentWeek !== null && week < currentWeek) || itemHtml.includes('Fw-b');
+        const winner = isFinal
+          ? (s1 > s2 ? o1 : (s2 > s1 ? o2 : (s1 > 0 && s2 > 0 ? 'Tie' : 'TBD')))
+          : 'TBD';
+
         matchups.push({
           matchupId: idx + 1,
           week: week,
@@ -120,8 +143,8 @@ export async function fetchWeekMatchups(leagueId, week) {
           awayOwner: o2,
           score2: s2,
           awayScore: s2,
-          winner: s1 > s2 ? o1 : (s2 > s1 ? o2 : (s1 > 0 && s2 > 0 ? 'Tie' : 'TBD')),
-          margin: parseFloat(Math.abs(s1 - s2).toFixed(2)),
+          winner: winner,
+          margin: isFinal ? parseFloat(Math.abs(s1 - s2).toFixed(2)) : 0.0,
           isPlayoff: false,
           stage: 'Regular Season'
         });
@@ -175,20 +198,23 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
   console.log(`🟣 Yahoo Direct Sync: Fetching Season 2026 Schedule (League ${leagueId})`);
   console.log(`===============================================================`);
 
+  const currentWeek = await fetchCurrentWeek(leagueId);
+  console.log(`📡 Detected Current Yahoo Matchup Period: Week ${currentWeek}`);
+
   const allWeeksMatchups = [];
   const weeklyScoresMap = {}; // { week: [ { owner, team, score, oppOwner, oppScore, won } ] }
 
   for (let wk = 1; wk <= totalWeeks; wk++) {
     try {
-      const wkMatchups = await fetchWeekMatchups(leagueId, wk);
+      const wkMatchups = await fetchWeekMatchups(leagueId, wk, currentWeek);
       console.log(`• Week ${wk.toString().padStart(2, '0')}: Fetched ${wkMatchups.length} matchups.`);
       allWeeksMatchups.push(...wkMatchups);
 
-      // Detect completed games in this week
-      const completedThisWeek = wkMatchups.filter(m => m.homeScore > 0 || m.awayScore > 0);
-      if (completedThisWeek.length > 0) {
+      // Detect completed games in this week (only if week < currentWeek or all matchups are final)
+      const isWeekCompleted = (currentWeek !== null && wk < currentWeek) || (wkMatchups.length > 0 && wkMatchups.every(m => m.winner !== 'TBD' && (m.homeScore > 0 || m.awayScore > 0)));
+      if (isWeekCompleted) {
         weeklyScoresMap[wk] = [];
-        completedThisWeek.forEach(m => {
+        wkMatchups.forEach(m => {
           weeklyScoresMap[wk].push(
             { owner: m.homeOwner, team: m.homeTeam, score: m.homeScore, oppOwner: m.awayOwner, oppScore: m.awayScore, won: m.homeScore > m.awayScore },
             { owner: m.awayOwner, team: m.awayTeam, score: m.awayScore, oppOwner: m.homeOwner, oppScore: m.homeScore, won: m.awayScore > m.homeScore }
@@ -266,7 +292,7 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
   // Update completed games in allMatchups
   let completedCount = 0;
   allWeeksMatchups.forEach(m => {
-    if (m.homeScore > 0 || m.awayScore > 0) {
+    if (m.winner !== 'TBD' && (m.homeScore > 0 || m.awayScore > 0)) {
       completedCount++;
       const gameEntry = {
         seasonYear: 2026,
