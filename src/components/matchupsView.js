@@ -1125,10 +1125,9 @@ export function getWeeklyMatchupDefaultState({
     if (commWeeks.length > 0) {
       const maxCommWeek = Math.max(...commWeeks);
       const entry = comm[maxCommWeek];
-      const isCompleted = completedWeeks.has(maxCommWeek);
       return {
         week: maxCommWeek,
-        mode: isCompleted ? 'recap' : (entry.mode === 'preview' ? 'preview' : 'recap')
+        mode: entry.mode === 'preview' ? 'preview' : 'recap'
       };
     }
   }

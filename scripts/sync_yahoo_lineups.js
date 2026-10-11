@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 import { JSDOM } from 'jsdom';
 import { parseRosterConstraints, computeOptimalLineup, analyzeDOhMoment } from '../src/analytics/managerial.js';
+import { resolvePlayerPosition } from '../src/analytics/playerPositions.js';
 import { resolveY2kOwner, Y2K_TEAM_OWNER_MAP } from './sync_yahoo_direct.js';
 
 // Canonical Y2K League IDs by Season
@@ -26,15 +27,8 @@ export const Y2K_LEAGUE_IDS = {
   2018: '102941'
 };
 
-function normalizePosition(rawPos = '', slot = '') {
-  const p = (rawPos || slot || '').toUpperCase().trim();
-  if (p.includes('QB')) return 'QB';
-  if (p.includes('RB')) return 'RB';
-  if (p.includes('WR')) return 'WR';
-  if (p.includes('TE')) return 'TE';
-  if (p.includes('K')) return 'K';
-  if (p.includes('DEF') || p.includes('D/ST') || p.includes('DST')) return 'DEF';
-  return 'FLEX';
+function normalizePosition(rawPos = '', slot = '', name = '') {
+  return resolvePlayerPosition(name, rawPos, slot);
 }
 
 /**
@@ -87,7 +81,7 @@ export function parseYahooMatchupHtml(html, seasonYear = 2026, week = 1, constra
       const [nflTeam1, rawPos1] = subInfo1.includes('-')
         ? subInfo1.split('-').map(s => s.trim())
         : ['', rawSlot];
-      const pos1 = normalizePosition(rawPos1, rawSlot);
+      const pos1 = normalizePosition(rawPos1, rawSlot, pName1);
       const pts1 = parseFloat(cells[3]?.textContent?.trim() || '0') || 0.0;
       const proj1 = parseFloat(cells[2]?.textContent?.trim() || '0') || 0.0;
 
@@ -98,7 +92,7 @@ export function parseYahooMatchupHtml(html, seasonYear = 2026, week = 1, constra
       const [nflTeam2, rawPos2] = subInfo2.includes('-')
         ? subInfo2.split('-').map(s => s.trim())
         : ['', rawSlot];
-      const pos2 = normalizePosition(rawPos2, rawSlot);
+      const pos2 = normalizePosition(rawPos2, rawSlot, pName2);
       const pts2 = parseFloat(cells[7]?.textContent?.trim() || '0') || 0.0;
       const proj2 = parseFloat(cells[8]?.textContent?.trim() || '0') || 0.0;
 
