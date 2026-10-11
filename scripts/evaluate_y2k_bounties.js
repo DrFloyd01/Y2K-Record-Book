@@ -138,41 +138,48 @@ export function evaluateWeek3(lineups) {
 }
 
 /**
- * Evaluate Week 4: Flex on 'Em
- * Highest scoring player in a designated FLEX spot (W/R/T or FLEX)
+ * Evaluate Week 4: The Massacre
+ * Largest blowout margin of victory in a weekly matchup
  */
-export function evaluateWeek4(lineups) {
-  const w4 = (lineups || []).filter(m => (m.seasonYear === 2026 || m.year === 2026) && Number(m.week || m.weekNumber) === 4);
-  const flexStarters = [];
+export function evaluateWeek4(matchups) {
+  const w4Matches = (matchups || []).filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) === 4);
+  const margins = [];
 
-  w4.forEach(m => {
-    [m.homeTeam, m.awayTeam].forEach(t => {
-      if (!t || !t.starters) return;
-      t.starters.forEach(p => {
-        const slot = p.slot ? p.slot.toUpperCase() : '';
-        if (slot === 'W/R/T' || slot === 'FLEX' || slot === 'W/R' || slot === 'W/T') {
-          flexStarters.push({
-            manager: normalizeManager(t.ownerName || t.manager),
-            team: t.teamName || t.team,
-            player: p.player || p.playerName,
-            points: Number(p.points || 0),
-            slot: p.slot
-          });
-        }
-      });
+  w4Matches.forEach(m => {
+    const hs = Number(m.homeScore);
+    const as = Number(m.awayScore);
+    const diff = Math.abs(hs - as);
+    const winner = hs > as
+      ? { manager: normalizeManager(m.homeOwner), team: m.homeTeam, score: hs }
+      : { manager: normalizeManager(m.awayOwner), team: m.awayTeam, score: as };
+    const loser = hs > as
+      ? { manager: normalizeManager(m.awayOwner), team: m.awayTeam, score: as }
+      : { manager: normalizeManager(m.homeOwner), team: m.homeTeam, score: hs };
+
+    margins.push({
+      winner,
+      loser,
+      margin: Number(diff.toFixed(2)),
+      matchupStr: `${m.homeTeam} (${hs.toFixed(2)}) vs ${m.awayTeam} (${as.toFixed(2)})`
     });
   });
 
-  flexStarters.sort((a, b) => b.points - a.points);
+  margins.sort((a, b) => b.margin - a.margin);
 
   return {
     week: 4,
-    challenge: "Flex on 'Em",
-    description: "Highest scoring player in a designated FLEX spot",
-    winner: flexStarters[0],
-    runnerUp: flexStarters[1],
-    third: flexStarters[2],
-    standings: flexStarters
+    challenge: 'The Massacre',
+    description: 'Largest blowout margin of victory in a weekly matchup',
+    winner: margins[0].winner,
+    runnerUp: margins[1].winner,
+    third: margins[2].winner,
+    margin: margins[0].margin,
+    runnerUpMargin: margins[1].margin,
+    thirdMargin: margins[2].margin,
+    loser: margins[0].loser,
+    runnerUpLoser: margins[1].loser,
+    thirdLoser: margins[2].loser,
+    standings: margins
   };
 }
 
@@ -286,26 +293,26 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   // Week 4
   const w4 = bountyResults.find(r => r && r.week === 4);
   if (w4) {
-    text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot  \n`;
-    text += `  - 👑 **Winner**: **${w4.winner.manager}** (\`${w4.winner.team}\`) — **${w4.winner.player} (${w4.winner.points.toFixed(2)} pts)**  \n`;
+    text += `- **Week 04**: The Massacre — Largest blowout margin of victory in a weekly matchup  \n`;
+    text += `  - 👑 **Winner**: **${w4.winner.manager}** (\`${w4.winner.team}\`) — **+${w4.margin.toFixed(2)} pt blowout** (${w4.winner.score.toFixed(2)} ➔ ${w4.loser.score.toFixed(2)} over ${w4.loser.team})  \n`;
     text += `  - 💵 **Payout**: **$${(w4.payout || 0).toFixed(2)}** (${w4.payoutNote})  \n`;
-    text += `  - 🥈 **Runner-Up**: ${w4.runnerUp.manager} (\`${w4.runnerUp.team}\`) — ${w4.runnerUp.player} (${w4.runnerUp.points.toFixed(2)} pts)\n`;
+    text += `  - 🥈 **Runner-Up**: ${w4.runnerUp.manager} (\`${w4.runnerUp.team}\`) — +${w4.runnerUpMargin.toFixed(2)} pt blowout (${w4.runnerUp.score.toFixed(2)} ➔ ${w4.runnerUpLoser.score.toFixed(2)} over ${w4.runnerUpLoser.team})  \n`;
     if (w4.third) {
-      text += `  - 🥉 **3rd Place**: ${w4.third.manager} (\`${w4.third.team}\`) — ${w4.third.player} (${w4.third.points.toFixed(2)} pts)\n`;
+      text += `  - 🥉 **3rd Place**: ${w4.third.manager} (\`${w4.third.team}\`) — +${w4.thirdMargin.toFixed(2)} pt blowout (${w4.third.score.toFixed(2)} ➔ ${w4.thirdLoser.score.toFixed(2)} over ${w4.thirdLoser.team})\n`;
     }
   } else {
-    text += `- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot\n`;
+    text += `- **Week 04**: The Massacre — Largest blowout margin of victory in a weekly matchup\n`;
   }
-  text += `- **Week 05**: The Cardiac Arrest I — Narrowest margin of victory\n`;
-  text += `- **Week 06**: Century Club — Highest combined score by a starting QB + WR stack\n`;
-  text += `- **Week 07**: Air Strike — Highest scoring individual Wide Receiver\n`;
-  text += `- **Week 08**: The Vulture Award — Starting player with lowest total yards who still scored 2+ TDs\n`;
-  text += `- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a bench\n`;
-  text += `- **Week 10**: The Dimebag — Team with most individual starters scoring double digits (10.0+ pts)\n`;
+  text += `- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total\n`;
+  text += `- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)\n`;
+  text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7\n`;
+  text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns\n`;
+  text += `- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench\n`;
+  text += `- **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)\n`;
   text += `- **Week 11**: Ground & Pound — Highest combined points from starting Running Backs (RB1 + RB2)\n`;
-  text += `- **Week 12**: Thanksgiving Feast — Most combined points from players in Thanksgiving/Black Friday games\n`;
-  text += `- **Week 13**: The Cardiac Arrest II — Closest margin of victory across the league\n`;
-  text += `- **Week 14**: Regular Season Scoring Title — Overall Total Points For (PF) champion heading into playoffs\n\n`;
+  text += `- **Week 12**: Thanksgiving Feast — Most combined points from players in the Thanksgiving & Black Friday holiday games\n`;
+  text += `- **Week 13**: The Cardiac Arrest — Closest margin of victory across the league (narrowest win)\n`;
+  text += `- **Week 14**: Regular Season Scoring Title — Overall Total Points For (PF) champion heading into the playoffs\n\n`;
   text += `---\n\n`;
 
   // Summary Table
@@ -347,7 +354,7 @@ export function updateIndexHtmlCard(weekNum, winnerName, teamName, resultHtml) {
   if (weekNum === 4) {
     html = html.replace(
       /(<span[^>]*>WEEK 04<\/span>[\s\S]*?<span class="text-\[11px\][^"]*">)[^<]*(<\/span>[\s\S]*?<span class="text-lg">)[^<]*(<\/span>\s*<span>)[^<]*(<\/span>[\s\S]*?<p class="[^"]*">)[^<]*(<\/p>)/,
-      (match, p1, p2, p3, p4, p5) => `${p1}🏷️ FLEX Spotlight${p2}💪${p3}Flex on 'Em${p4}Highest scoring player in a designated FLEX spot.${p5}`
+      (match, p1, p2, p3, p4, p5) => `${p1}🏷️ Margin of Victory${p2}🪓${p3}The Massacre${p4}Largest blowout margin of victory in a weekly matchup.${p5}`
     );
   }
 
@@ -373,8 +380,8 @@ export function updateIndexHtmlWeek3Bounty(winnerName, teamName, player, points,
   return updateIndexHtmlCard(3, winnerName, teamName, resultHtml);
 }
 
-export function updateIndexHtmlWeek4Bounty(winnerName, teamName, player, points, payoutNote) {
-  const resultHtml = `${player} (${points} pts) <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+export function updateIndexHtmlWeek4Bounty(winnerName, teamName, marginPts, payoutNote) {
+  const resultHtml = `+${marginPts} pts <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
   return updateIndexHtmlCard(4, winnerName, teamName, resultHtml);
 }
 
@@ -396,13 +403,13 @@ export function runBountyEvaluation() {
   const w2Result = evaluateWeek2(allMatchups);
 
   let w3Result = null;
-  let w4Result = null;
   const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
   if (existsSync(lineupsPath)) {
     const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
     w3Result = evaluateWeek3(lineups);
-    w4Result = evaluateWeek4(lineups);
   }
+
+  const w4Result = evaluateWeek4(allMatchups);
 
   const bountyResults = [w1Result, w2Result, w3Result, w4Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
@@ -418,8 +425,9 @@ export function runBountyEvaluation() {
   }
 
   if (w4Result) {
-    console.log(`✅ Week 4 Winner: ${w4Result.winner.manager} (${w4Result.winner.player}: ${w4Result.winner.points} pts) -> ${w4Result.payoutNote}`);
-    console.log(`   Runner-Up: ${w4Result.runnerUp.manager} (${w4Result.runnerUp.player}: ${w4Result.runnerUp.points} pts)`);
+    console.log(`✅ Week 4 Winner: ${w4Result.winner.manager} (+${w4Result.margin} pts) -> ${w4Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w4Result.runnerUp.manager} (+${w4Result.runnerUpMargin} pts)`);
+    console.log(`   3rd Place: ${w4Result.third.manager} (+${w4Result.thirdMargin} pts)`);
   }
 
   // Update Markdown Ledger
@@ -453,8 +461,7 @@ export function runBountyEvaluation() {
     const updatedW4 = updateIndexHtmlWeek4Bounty(
       w4Result.winner.manager,
       w4Result.winner.team,
-      w4Result.winner.player,
-      w4Result.winner.points.toFixed(2),
+      w4Result.margin.toFixed(2),
       badgeText
     );
     if (updatedW4) {

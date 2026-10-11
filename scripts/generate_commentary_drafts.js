@@ -336,6 +336,14 @@ export function generateY2kDrafts() {
   // 3. Week 3 Recaps & Week 4 Previews
   const w3RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md');
   const w4PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md');
+  const w4RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_RECAP.md');
+  const w5PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_PREVIEW.md');
+
+  const y2kStandings = leagueData?.seasonData?.['2026']?.standings || [];
+  const y2kRankMap = {};
+  y2kStandings.forEach(s => {
+    if (s.ownerName) y2kRankMap[s.ownerName.toLowerCase()] = s.rank;
+  });
 
   const w3RecapMatchups = parseMatchupMarkdown(w3RecapPath, Y2K_TEAM_OWNERS).map(m => ({
     ...m,
@@ -354,7 +362,26 @@ export function generateY2kDrafts() {
     };
   });
 
-  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups };
+  const w4RecapMatchups = parseMatchupMarkdown(w4RecapPath, Y2K_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w5PreviewMatchups = parseMatchupMarkdown(w5PreviewPath, Y2K_TEAM_OWNERS).map(m => {
+    const liveMatch = (leagueData?.weeklyCommentary?.['2026']?.['5']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    const homeRank = liveMatch?.homeRank || y2kRankMap[m.homeOwner?.toLowerCase()] || null;
+    const awayRank = liveMatch?.awayRank || y2kRankMap[m.awayOwner?.toLowerCase()] || null;
+    return {
+      ...m,
+      homeRank,
+      awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups };
 }
 
 /**
@@ -531,6 +558,14 @@ export function generatePrideDrafts() {
   // 3. Week 3 Recaps & Week 4 Previews
   const w3RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md');
   const w4PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md');
+  const w4RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_RECAP.md');
+  const w5PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_PREVIEW.md');
+
+  const prideStandings = prideData?.seasonData?.['2026']?.standings || [];
+  const prideRankMap = {};
+  prideStandings.forEach(s => {
+    if (s.ownerName) prideRankMap[s.ownerName.toLowerCase()] = s.rank;
+  });
 
   const w3RecapMatchups = parseMatchupMarkdown(w3RecapPath, PRIDE_TEAM_OWNERS).map(m => ({
     ...m,
@@ -549,7 +584,26 @@ export function generatePrideDrafts() {
     };
   });
 
-  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups };
+  const w4RecapMatchups = parseMatchupMarkdown(w4RecapPath, PRIDE_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w5PreviewMatchups = parseMatchupMarkdown(w5PreviewPath, PRIDE_TEAM_OWNERS).map(m => {
+    const liveMatch = (prideData?.weeklyCommentary?.['2026']?.['5']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    const homeRank = liveMatch?.homeRank || prideRankMap[m.homeOwner?.toLowerCase()] || null;
+    const awayRank = liveMatch?.awayRank || prideRankMap[m.awayOwner?.toLowerCase()] || null;
+    return {
+      ...m,
+      homeRank,
+      awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups };
 }
 
 /**
@@ -597,27 +651,41 @@ export function runDraftGeneration() {
   // 1. Generate Y2K Drafts
   const y2k = generateY2kDrafts();
   if (y2k) {
-    const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 3 Matchup Recaps', y2k.w3RecapMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md'), y2kRecapMd, 'utf8');
-    console.log('📄 Generated docs/Y2K_2026_WEEK_3_RECAP.md');
+    if (y2k.w3RecapMatchups?.length) {
+      const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 3 Matchup Recaps', y2k.w3RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md'), y2kRecapMd, 'utf8');
+      console.log('📄 Generated docs/Y2K_2026_WEEK_3_RECAP.md');
+    }
 
-    const y2kPreviewMd = formatY2kMarkdown('🏈 2026 Y2K: Week 4 Matchup Previews', y2k.w4PreviewMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md'), y2kPreviewMd, 'utf8');
-    console.log('📄 Generated docs/Y2K_2026_WEEK_4_PREVIEW.md');
+    if (y2k.w4RecapMatchups?.length) {
+      const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 4 Matchup Recaps', y2k.w4RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_RECAP.md'), y2kRecapMd, 'utf8');
+      console.log('📄 Generated docs/Y2K_2026_WEEK_4_RECAP.md');
+    }
+
+    if (y2k.w5PreviewMatchups?.length) {
+      const y2kPreviewMd = formatY2kMarkdown('🏈 2026 Y2K: Week 5 Matchup Previews', y2k.w5PreviewMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_PREVIEW.md'), y2kPreviewMd, 'utf8');
+      console.log('📄 Generated docs/Y2K_2026_WEEK_5_PREVIEW.md');
+    }
 
     // Update Backup JSON
     const y2kBackupPath = resolve(draftsDir, 'Y2K_2026_COMMENTARY_BACKUP.json');
     const existingBackup = loadJson(y2kBackupPath) || {};
-    existingBackup['3'] = {
-      mode: 'recap',
-      title: '🏈 2026 Y2K: Week 3 Matchup Recaps',
-      matchups: y2k.w3RecapMatchups
-    };
-    existingBackup['4'] = {
-      mode: 'preview',
-      title: '🏈 2026 Y2K: Week 4 Matchup Previews',
-      matchups: y2k.w4PreviewMatchups
-    };
+    if (y2k.w4RecapMatchups?.length) {
+      existingBackup['4'] = {
+        mode: 'recap',
+        title: '🏈 2026 Y2K: Week 4 Matchup Recaps',
+        matchups: y2k.w4RecapMatchups
+      };
+    }
+    if (y2k.w5PreviewMatchups?.length) {
+      existingBackup['5'] = {
+        mode: 'preview',
+        title: '🏈 2026 Y2K: Week 5 Matchup Previews',
+        matchups: y2k.w5PreviewMatchups
+      };
+    }
     writeFileSync(y2kBackupPath, JSON.stringify(existingBackup, null, 2), 'utf8');
     console.log(`💾 Updated draft backup: ${y2kBackupPath}`);
   }
@@ -625,27 +693,41 @@ export function runDraftGeneration() {
   // 2. Generate Pride Guys Drafts
   const pride = generatePrideDrafts();
   if (pride) {
-    const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 3 Matchup Recaps', pride.w3RecapMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'), prideRecapMd, 'utf8');
-    console.log('📄 Generated docs/PRIDE_2026_WEEK_3_RECAP.md');
+    if (pride.w3RecapMatchups?.length) {
+      const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 3 Matchup Recaps', pride.w3RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'), prideRecapMd, 'utf8');
+      console.log('📄 Generated docs/PRIDE_2026_WEEK_3_RECAP.md');
+    }
 
-    const pridePreviewMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 4 Matchup Previews', pride.w4PreviewMatchups);
-    writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md'), pridePreviewMd, 'utf8');
-    console.log('📄 Generated docs/PRIDE_2026_WEEK_4_PREVIEW.md');
+    if (pride.w4RecapMatchups?.length) {
+      const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 4 Matchup Recaps', pride.w4RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_RECAP.md'), prideRecapMd, 'utf8');
+      console.log('📄 Generated docs/PRIDE_2026_WEEK_4_RECAP.md');
+    }
+
+    if (pride.w5PreviewMatchups?.length) {
+      const pridePreviewMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 5 Matchup Previews', pride.w5PreviewMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_PREVIEW.md'), pridePreviewMd, 'utf8');
+      console.log('📄 Generated docs/PRIDE_2026_WEEK_5_PREVIEW.md');
+    }
 
     // Update Backup JSON
     const prideBackupPath = resolve(draftsDir, 'PRIDE_2026_COMMENTARY_BACKUP.json');
     const existingPrideBackup = loadJson(prideBackupPath) || {};
-    existingPrideBackup['3'] = {
-      mode: 'recap',
-      title: '🌈 2026 Pride Guys: Week 3 Matchup Recaps',
-      matchups: pride.w3RecapMatchups
-    };
-    existingPrideBackup['4'] = {
-      mode: 'preview',
-      title: '🌈 2026 Pride Guys: Week 4 Matchup Previews',
-      matchups: pride.w4PreviewMatchups
-    };
+    if (pride.w4RecapMatchups?.length) {
+      existingPrideBackup['4'] = {
+        mode: 'recap',
+        title: '🌈 2026 Pride Guys: Week 4 Matchup Recaps',
+        matchups: pride.w4RecapMatchups
+      };
+    }
+    if (pride.w5PreviewMatchups?.length) {
+      existingPrideBackup['5'] = {
+        mode: 'preview',
+        title: '🌈 2026 Pride Guys: Week 5 Matchup Previews',
+        matchups: pride.w5PreviewMatchups
+      };
+    }
     writeFileSync(prideBackupPath, JSON.stringify(existingPrideBackup, null, 2), 'utf8');
     console.log(`💾 Updated draft backup: ${prideBackupPath}`);
   }

@@ -59,21 +59,21 @@
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $5.00/win)  
   - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — Jaylen Warren (23.60 pts)
   - 🥉 **3rd Place**: Dustin (`Dusty’s Dingleberries`) — Kyren Williams (22.80 pts)
-- **Week 04**: Flex on 'Em — Highest scoring player in a designated FLEX spot  
-  - 👑 **Winner**: **Dustin** (`Dusty’s Dingleberries`) — **Kenneth Walker III (38.40 pts)**  
-  - 💵 **Payout**: **$25.00** (Win #2 pays $25.00)  
-  - 🥈 **Runner-Up**: Boaz (`Aaron codger`) — Chuba Hubbard (29.90 pts)
-  - 🥉 **3rd Place**: Jasper (`Blue's Balls`) — Zay Flowers (24.80 pts)
-- **Week 05**: The Cardiac Arrest I — Narrowest margin of victory
-- **Week 06**: Century Club — Highest combined score by a starting QB + WR stack
-- **Week 07**: Air Strike — Highest scoring individual Wide Receiver
-- **Week 08**: The Vulture Award — Starting player with lowest total yards who still scored 2+ TDs
-- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a bench
-- **Week 10**: The Dimebag — Team with most individual starters scoring double digits (10.0+ pts)
+- **Week 04**: The Massacre — Largest blowout margin of victory in a weekly matchup  
+  - 👑 **Winner**: **Boaz** (`Aaron codger`) — **+63.36 pt blowout** (151.34 ➔ 87.98 over Tess Finesse)  
+  - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $10.00/win)  
+  - 🥈 **Runner-Up**: Dylan (`Globo Gym`) — +49.04 pt blowout (181.24 ➔ 132.20 over AARPFL)  
+  - 🥉 **3rd Place**: Dustin (`Dusty’s Dingleberries`) — +31.34 pt blowout (154.50 ➔ 123.16 over Blue's Balls)
+- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total
+- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)
+- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7
+- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns
+- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench
+- **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)
 - **Week 11**: Ground & Pound — Highest combined points from starting Running Backs (RB1 + RB2)
-- **Week 12**: Thanksgiving Feast — Most combined points from players in Thanksgiving/Black Friday games
-- **Week 13**: The Cardiac Arrest II — Closest margin of victory across the league
-- **Week 14**: Regular Season Scoring Title — Overall Total Points For (PF) champion heading into playoffs
+- **Week 12**: Thanksgiving Feast — Most combined points from players in the Thanksgiving & Black Friday holiday games
+- **Week 13**: The Cardiac Arrest — Closest margin of victory across the league (narrowest win)
+- **Week 14**: Regular Season Scoring Title — Overall Total Points For (PF) champion heading into the playoffs
 
 ---
 
@@ -81,10 +81,10 @@
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
-| **Dusty (Dustin)** | 2 | $25.00 | **Qualified** (Next win pays $25.00) |
+| **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
+| **Bo (Boaz)** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
 | **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Mike** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
-| **Bo (Boaz)** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
