@@ -749,10 +749,10 @@ export function buildWeeklyMatchupsGridHtml({
       </div>
     `;
 
-    // D'Oh Blunder banner
+    // D'Oh Blunder banner (recaps only - hidden on previews)
     let dOhBadge = '';
     const hasDOh = (lineupMatch?.homeTeam?.dOhOccurred || lineupMatch?.awayTeam?.dOhOccurred);
-    if (hasDOh) {
+    if (isRecap && hasDOh) {
       const dOhTeam = lineupMatch.homeTeam?.dOhOccurred ? lineupMatch.homeTeam : lineupMatch.awayTeam;
       if (dOhTeam?.dOhDetails) {
         dOhBadge = `
@@ -763,9 +763,9 @@ export function buildWeeklyMatchupsGridHtml({
       }
     }
 
-    // Lineup Boxscore Drawer Button
+    // Lineup Boxscore Drawer Button (recaps only - hidden on previews to avoid incomplete data confusion)
     let lineupExpanderBtn = '';
-    if (lineupMatch) {
+    if (isRecap && lineupMatch) {
       lineupExpanderBtn = `
         <div class="mt-2.5 pt-2 border-t ${isCrt ? 'border-emerald-900/60' : 'border-pink-200'}">
           <button type="button" onclick="window.toggleMatchupLineupBox('${mId}')" class="w-full py-1 px-2 ${isCrt ? 'bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700' : 'bg-pink-100 hover:bg-pink-200 text-pink-700 border border-pink-300'} font-bold text-[11px] rounded transition-all flex items-center justify-between cursor-pointer">
@@ -867,7 +867,7 @@ export function buildWeeklyMatchupsGridHtml({
       </div>
     `;
 
-    const fullWidthDrawer = lineupMatch ? `
+    const fullWidthDrawer = (isRecap && lineupMatch) ? `
       <div id="matchup-lineup-content-${mId}" class="col-span-full hidden my-3 p-4 crt-box rounded-2xl border ${isCrt ? 'bg-black/95 border-emerald-500 text-emerald-300' : 'bg-white border-2 border-pink-300 shadow-2xl text-purple-950'} transition-all">
         <div class="flex justify-between items-center pb-2 mb-3 border-b ${isCrt ? 'border-emerald-800 font-mono' : 'border-pink-200 font-fredoka'}">
           <div class="flex items-center gap-2">
