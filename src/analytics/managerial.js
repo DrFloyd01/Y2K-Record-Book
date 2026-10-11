@@ -60,18 +60,13 @@ export function parseRosterConstraints(rosterStr = '') {
   return result;
 }
 
+import { PLAYER_POSITION_MAP, resolvePlayerPosition } from './playerPositions.js';
+
 /**
- * Normalizes player position string
+ * Normalizes player position string using direct position extraction or canonical registry
  */
-export function normalizePosition(pos = '') {
-  const p = (pos || '').toUpperCase().trim();
-  if (p.includes('QB')) return 'QB';
-  if (p.includes('RB')) return 'RB';
-  if (p.includes('WR')) return 'WR';
-  if (p.includes('TE')) return 'TE';
-  if (p.includes('K')) return 'K';
-  if (p.includes('DEF') || p.includes('D/ST') || p.includes('DST')) return 'DEF';
-  return p;
+export function normalizePosition(pos = '', name = '', slot = '') {
+  return resolvePlayerPosition(name, pos, slot);
 }
 
 /**
@@ -90,11 +85,16 @@ export function computeOptimalLineup(players = [], constraints = { QB: 1, RB: 2,
   }
 
   // Sort players by fantasy points descending
-  const pool = players.map(p => ({
-    ...p,
-    points: Number(p.points || 0),
-    normPos: normalizePosition(p.position)
-  })).sort((a, b) => b.points - a.points);
+  const pool = players.map(p => {
+    const pName = p.playerName || p.player || p.name || '';
+    const norm = normalizePosition(p.position, pName, p.slot);
+    return {
+      ...p,
+      position: norm !== 'FLEX' ? norm : p.position,
+      points: Number(p.points || 0),
+      normPos: norm
+    };
+  }).sort((a, b) => b.points - a.points);
 
   const selectedStarters = [];
   const selectedIds = new Set();
@@ -177,7 +177,8 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
   // Count starter positions
   const starterPosCounts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0 };
   starters.forEach(s => {
-    const p = normalizePosition(s.position);
+    const sName = s.playerName || s.player || s.name || '';
+    const p = normalizePosition(s.position, sName, s.slot);
     if (starterPosCounts[p] !== undefined) starterPosCounts[p]++;
   });
 
@@ -191,20 +192,28 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
   };
 
   validBench.forEach(b => {
-    const bPos = normalizePosition(b.position);
+    const bName = b.playerName || b.player || b.name || '';
+    const bPos = normalizePosition(b.position, bName, b.slot);
     const bPts = Number(b.points || 0);
 
     starters.forEach(s => {
-      const sPos = normalizePosition(s.position);
+      const sName = s.playerName || s.player || s.name || '';
+      const sPos = normalizePosition(s.position, sName, s.slot);
       const sPts = Number(s.points || 0);
 
       const validDirectPositions = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
       let isEligible = false;
 
+      const isStarterFlexSlot = (s.slot === 'FLEX' || s.slot === 'W/R/T' || s.slot === 'W/R' || s.slot === 'W/T');
+      const isBenchFlexEligible = ['RB', 'WR', 'TE'].includes(bPos);
+
       if (validDirectPositions.includes(sPos) && sPos === bPos) {
         // Direct same-position swap
         isEligible = true;
-      } else if (['RB', 'WR', 'TE'].includes(sPos) && ['RB', 'WR', 'TE'].includes(bPos)) {
+      } else if (isStarterFlexSlot && isBenchFlexEligible) {
+        // Starter is in the flex slot and bench player is flex-eligible
+        isEligible = true;
+      } else if (['RB', 'WR', 'TE'].includes(sPos) && isBenchFlexEligible) {
         // Flex-rearranged swap: dropping starter s leaves starterPosCounts[sPos] - 1
         const remainingAfterDrop = (starterPosCounts[sPos] || 0) - 1;
         const minNeed = minRequired[sPos] || 0;
@@ -222,11 +231,11 @@ export function analyzeDOhMoment(starters = [], bench = [], oppScore = 0, teamAc
           if (winMargin > maxWinMargin) {
             maxWinMargin = winMargin;
             bestSwap = {
-              starter: s.playerName || s.player || s.name,
+              starter: sName,
               starterPosition: sPos,
               starterSlot: s.slot,
               starterPoints: sPts,
-              benchPlayer: b.playerName || b.player || b.name,
+              benchPlayer: bName,
               benchPosition: bPos,
               benchPoints: bPts,
               netGain: Number(netGain.toFixed(2)),

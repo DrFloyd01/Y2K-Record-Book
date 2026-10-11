@@ -10,7 +10,7 @@ Ho Chi Win City vs Trenches cooper
 h2h: 1-2
 streak: Cooper 1 (Wk4'26)
 playoffs: 0-0
-Sophomore firepower overpowers veteran royalty in a critical crossroads bout. Cooper executed a composed 141.74 to 123.32 victory over Phillip to climb into 4th place at 2-2. Nico Collins paced Trenches cooper with 30.30 pts, backed by Quinshon Judkins (21.60) and TE Brock Bowers (19.60). Phillip received a superhero 42.80-pt masterclass from CeeDee Lamb, but Week 4's most devastating D'Oh! blunder proved fatal: benching breakout RB Kyle Monangai (33.00 pts) and Ollie Gordon II (20.00 pts) for an 83.8% efficiency left 23.90 optimal points on the table. That self-inflicted wound drops Phillip, the league's all-time model of consistency, into an uncharacteristic 1-3 hole.
+Sophomore firepower overpowers veteran royalty in a critical crossroads bout. Cooper executed a composed 141.74 to 123.32 victory over Phillip to climb into 4th place at 2-2. Nico Collins paced Trenches cooper with 30.30 pts, backed by Quinshon Judkins (21.60) and TE Brock Bowers (19.60). Phillip received a superhero 42.80-pt masterclass from CeeDee Lamb, but Week 4's most devastating D'Oh! blunder proved fatal: benching breakout RB Kyle Monangai (33.00 pts) for Saquon Barkley (1.50 pts) left a game-winning +31.50 net gain on the pine (which would have propelled Ho Chi Win City to 154.82 pts and a +13.08 margin of victory). Across the roster, sitting Monangai, Ollie Gordon II (20.00 pts), and Darren Waller (6.60 pts) resulted in a 71.4% coaching efficiency that left 49.50 optimal points on the bench (172.82 optimal score). That self-inflicted wound drops Phillip, the league's all-time model of consistency, into an uncharacteristic 1-3 hole.
 
 Gl Hf (you’re gay) vs IRked
 h2h: 11-8
