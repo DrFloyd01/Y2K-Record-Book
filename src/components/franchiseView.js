@@ -40,6 +40,221 @@ export function isConcludedSeason(yr, seasonData = {}, championships = []) {
 }
 
 /**
+ * Checks if a matchup owner matches a target manager (handling aliases like Javier)
+ */
+export function matchesOwner(matchupOwner, targetOwner) {
+  if (!matchupOwner || !targetOwner) return false;
+  if (matchupOwner === targetOwner) return true;
+  if (targetOwner === 'Javier' && (matchupOwner === 'The Big Dongler' || matchupOwner === 'Javier Benjamin')) return true;
+  return false;
+}
+
+/**
+ * Checks if an owner made the playoffs in a given season
+ */
+export function hasMadePlayoffs(entry) {
+  if (!entry) return false;
+  if (entry.playoffRecord && entry.playoffRecord !== '0-0' && entry.playoffRecord !== '-') return true;
+  if ((entry.playoffWins || 0) + (entry.playoffLosses || 0) > 0) return true;
+  return false;
+}
+
+/**
+ * /**
+ * Computes manager regular season form (WLWL...) across all active and concluded seasons
+ * Sorted in reverse chronological order (newest to oldest)
+ */
+export function computeManagerSeasonForm({
+  owner,
+  seasons = [],
+  seasonData = {},
+  allMatchups = [],
+  championships = [],
+  allTimeStandings = []
+}) {
+  if (!owner) return [];
+  const st = (allTimeStandings || []).find(s => s.ownerName === owner);
+  const sortedYears = [...seasons].map(Number).sort((a, b) => b - a);
+  const results = [];
+
+  sortedYears.forEach(yrNum => {
+    const yrMatchups = (allMatchups || []).filter(m => {
+      const mYr = Number(m.seasonYear || m.year);
+      const isReg = !m.isPlayoff;
+      const isOwner = matchesOwner(m.homeOwner, owner) || matchesOwner(m.awayOwner, owner);
+      return mYr === yrNum && isReg && isOwner;
+    }).sort((a, b) => Number(a.weekNumber || a.week) - Number(b.weekNumber || b.week));
+
+    if (yrMatchups.length === 0) return;
+
+    let w = 0, l = 0, t = 0;
+    const games = [];
+
+    yrMatchups.forEach(m => {
+      const isHome = matchesOwner(m.homeOwner, owner);
+      const myScore = parseFloat(isHome ? m.homeScore : m.awayScore) || 0;
+      const oppScore = parseFloat(isHome ? m.awayScore : m.homeScore) || 0;
+      const oppOwner = isHome ? m.awayOwner : m.homeOwner;
+      const oppTeam = isHome ? m.awayTeam : m.homeTeam;
+      const wk = Number(m.weekNumber || m.week);
+
+      // Only count completed matchups where both scores > 0 and winner is not TBD
+      if (myScore <= 0 || oppScore <= 0 || m.winner === 'TBD') return;
+
+      let res = 'T';
+      if (myScore > oppScore) { res = 'W'; w++; }
+      else if (myScore < oppScore) { res = 'L'; l++; }
+      else { t++; }
+
+      games.push({
+        week: wk,
+        oppOwner,
+        oppTeam,
+        score: myScore,
+        oppScore,
+        result: res,
+        margin: parseFloat((myScore - oppScore).toFixed(2))
+      });
+    });
+
+    if (games.length === 0) return;
+
+    const isCurrent = !isConcludedSeason(yrNum, seasonData, championships);
+    const sData = seasonData ? (seasonData[yrNum] || seasonData[String(yrNum)]) : null;
+    let finalRank = null;
+    let isChampion = false;
+
+    if (sData && sData.standings) {
+      const entry = sData.standings.find(s => s.ownerName === owner || (owner === 'Javier' && (s.ownerName === 'The Big Dongler' || s.ownerName === 'Javier Benjamin')));
+      if (entry) {
+        finalRank = entry.rank;
+        if (st && st.finishes) {
+          for (const bin of Object.values(st.finishes)) {
+            if (Array.isArray(bin)) {
+              const found = bin.find(f => Number(f.year) === yrNum);
+              if (found && found.rank !== undefined) {
+                finalRank = found.rank;
+                break;
+              }
+            }
+          }
+        }
+        const champObj = (championships || []).find(c => Number(c.seasonYear) === yrNum);
+        isChampion = Boolean(finalRank === 1 || (champObj && (champObj.firstOwner === owner || (owner === 'Javier' && champObj.firstOwner === 'The Big Dongler'))));
+      }
+    }
+
+    results.push({
+      year: yrNum,
+      isCurrent,
+      wins: w,
+      losses: l,
+      ties: t,
+      record: `${w}-${l}${t > 0 ? `-${t}` : ''}`,
+      finalRank,
+      isChampion,
+      formStr: games.map(g => g.result).join(''),
+      games
+    });
+  });
+
+  return results;
+}
+
+/**
+ * Builds HTML for the stacked single-column regular season form history
+ */
+export function buildSeasonFormHistoryHtml(seasonForms = [], theme = CRT_THEME, owner = '') {
+  if (!seasonForms || seasonForms.length === 0) return '';
+  const isCrt = theme.name === 'crt';
+  const safeOwner = (owner || '').replace(/'/g, "\\'");
+
+  const rowsHtml = seasonForms.map((s, seasonIdx) => {
+    const isCurrent = s.isCurrent;
+    const yearBadge = isCurrent
+      ? `<span class="px-2 py-0.5 rounded text-[10px] font-black border ${isCrt ? 'bg-cyan-950 text-cyan-300 border-cyan-500' : 'bg-sky-100 text-sky-800 border-sky-300'} tracking-wider uppercase">2026 ACTIVE</span>`
+      : `<span class="px-2 py-0.5 rounded text-[10px] font-black border ${isCrt ? 'bg-black text-emerald-300 border-emerald-800 font-mono' : 'bg-pink-50 text-pink-700 border-pink-200 font-fredoka'}">${s.year}</span>`;
+
+    let rankBadge = '';
+    if (s.isChampion) {
+      rankBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold border ${isCrt ? 'bg-amber-950 border-amber-500 text-amber-300' : 'bg-amber-100 border-amber-300 text-amber-800'}">🏆 1st</span>`;
+    } else if (s.finalRank) {
+      const formatted = formatFinishRank(s.finalRank);
+      rankBadge = `<span class="text-xs font-bold ${isCrt ? 'text-emerald-400 font-mono' : 'text-purple-700 font-sans'}">${formatted}</span>`;
+    } else if (isCurrent) {
+      rankBadge = `<span class="text-[10px] font-bold ${isCrt ? 'text-cyan-400' : 'text-sky-600'}">⚡ Active</span>`;
+    }
+
+    const totalGames = s.games.length;
+    const badgesHtml = s.games.map((g, gIdx) => {
+      const isWin = g.result === 'W';
+      const isLoss = g.result === 'L';
+      const diffStr = g.margin > 0 ? `+${g.margin.toFixed(1)}` : `${g.margin.toFixed(1)}`;
+      const safeOpp = (g.oppOwner || '').replace(/'/g, "\\'");
+
+      const badgeColor = isCrt
+        ? (isWin ? 'bg-emerald-950 text-emerald-300 border-emerald-500 hover:bg-emerald-900' : (isLoss ? 'bg-rose-950 text-rose-300 border-rose-700 hover:bg-rose-900' : 'bg-amber-950 text-amber-300 border-amber-600 hover:bg-amber-900'))
+        : (isWin ? 'bg-emerald-100 text-emerald-800 border-emerald-300 hover:bg-emerald-200' : (isLoss ? 'bg-rose-100 text-rose-700 border-rose-300 hover:bg-rose-200' : 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200'));
+
+      const posClass = gIdx < 3 ? ' tooltip-content-left' : (gIdx >= totalGames - 3 ? ' tooltip-content-right' : '');
+      const vertClass = seasonIdx < 2 ? ' tooltip-content-bottom' : '';
+
+      return `
+        <div class="tooltip-trigger inline-block relative">
+          <button type="button" onclick="event.stopPropagation(); window.jumpToMatchup && window.jumpToMatchup(${s.year}, ${g.week}, '${safeOwner}', '${safeOpp}')" class="w-6 h-6 rounded text-[10px] font-bold flex items-center justify-center border transition-all hover:scale-110 cursor-pointer shadow-sm ${badgeColor}" title="${s.year} Week ${g.week}: ${g.result} vs ${g.oppOwner} (${g.score.toFixed(1)} - ${g.oppScore.toFixed(1)}, ${diffStr}) - Click for box score">
+            ${g.result}
+          </button>
+          <div class="tooltip-content${posClass}${vertClass} p-2 ${isCrt ? 'bg-black text-sky-300 border-emerald-500 font-mono' : 'bg-white text-purple-950 border-sky-400 font-sans'} rounded border text-xs shadow-2xl min-w-[200px] text-left z-50 pointer-events-none">
+            <div class="font-bold flex items-center justify-between border-b ${isCrt ? 'border-emerald-900 text-emerald-400' : 'border-pink-200 text-pink-700'} pb-1 mb-1">
+              <span>Week ${g.week} • ${g.result === 'W' ? 'Win' : (g.result === 'L' ? 'Loss' : 'Tie')}</span>
+              <span class="font-mono text-[10px]">${diffStr}</span>
+            </div>
+            <div class="text-[11px]">vs <span class="font-semibold">${g.oppOwner}</span> <span class="text-[9px] opacity-75">(${g.oppTeam || ''})</span></div>
+            <div class="text-[10px] opacity-80 font-mono mt-0.5">${g.score.toFixed(1)} – ${g.oppScore.toFixed(1)}</div>
+            <div class="mt-1 text-[9px] ${isCrt ? 'text-amber-400' : 'text-pink-600'} font-bold">➔ Click for box score</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const rowBg = isCrt
+      ? 'bg-black/75 border-emerald-900/80 hover:border-emerald-700'
+      : 'bg-pink-50/40 border-pink-200 hover:border-pink-300';
+
+    return `
+      <div class="p-2.5 rounded border transition-all ${rowBg} flex flex-col md:flex-row md:items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5 shrink-0 min-w-[210px]">
+          ${yearBadge}
+          <span class="font-extrabold text-sm ${isCrt ? 'text-emerald-300 font-mono' : 'text-purple-950 font-sans'}">${s.record}</span>
+          ${rankBadge}
+        </div>
+        <div class="flex items-center gap-1 sm:gap-1.5 flex-wrap">
+          ${badgesHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="crt-box rounded p-4 mb-6 ${isCrt ? 'bg-black/90 border-emerald-500 font-mono shadow-lg' : 'bg-white border-pink-300 font-sans shadow-md'}">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b ${isCrt ? 'border-emerald-800' : 'border-pink-200'} pb-2.5 mb-3">
+        <div>
+          <span class="text-[10px] ${isCrt ? 'text-emerald-400' : 'text-pink-600'} font-bold uppercase tracking-widest block">&gt;_ SEASON_FORM_HISTORY // REGULAR_SEASON_GAME_LOG</span>
+          <h3 class="text-base font-black ${isCrt ? 'text-emerald-300 crt-glow' : 'text-pink-700 font-fredoka'} mt-0.5">Regular Season Form &amp; Weekly Matchup Log</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] opacity-75 ${isCrt ? 'text-emerald-400 font-mono' : 'text-purple-600 font-sans'}">Hover for scores &amp; margins • Click to jump</span>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        ${rowsHtml}
+      </div>
+    </div>
+  `;
+}
+
+/**
  * Builds HTML for a manager's career franchise profile
  */
 export function buildFranchiseProfileHtml({
@@ -49,13 +264,24 @@ export function buildFranchiseProfileHtml({
   seasonData = {},
   draftProfiles = {},
   championships = [],
-  theme = CRT_THEME
+  theme = CRT_THEME,
+  allMatchups = []
 }) {
   if (!owner) return '';
   const isCrt = theme.name === 'crt';
 
   const st = allTimeStandings.find(s => s.ownerName === owner);
   if (!st) return '';
+
+  const seasonForms = computeManagerSeasonForm({
+    owner,
+    seasons,
+    seasonData,
+    allMatchups,
+    championships,
+    allTimeStandings
+  });
+  const seasonFormHistoryHtml = buildSeasonFormHistoryHtml(seasonForms, theme, owner);
 
   const scCount = st.championships ? (st.championships.scoringTitles || 0) : 0;
   const c = st.championships || {};
@@ -451,6 +677,8 @@ export function buildFranchiseProfileHtml({
         </div>
       </div>
     </div>
+
+    ${seasonFormHistoryHtml}
 
     <div class="crt-box rounded overflow-visible mb-6 ${isCrt ? '' : 'bg-white border-pink-300 shadow-md'}">
       <div class="${isCrt ? 'crt-box-header font-mono' : 'bg-pink-50 text-pink-700 border-b border-pink-200 font-fredoka text-sm'} px-4 py-2 font-bold text-xs">

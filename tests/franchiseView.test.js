@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { buildFranchiseProfileHtml, formatFinishRank } from '../src/components/franchiseView.js';
+import {
+  buildFranchiseProfileHtml,
+  formatFinishRank,
+  computeManagerSeasonForm,
+  buildSeasonFormHistoryHtml,
+  matchesOwner,
+  hasMadePlayoffs
+} from '../src/components/franchiseView.js';
 import { CRT_THEME, PRIDE_THEME } from '../src/theme/theme.js';
 
 describe('Franchise View Component', () => {
@@ -209,5 +216,167 @@ describe('Franchise View Component', () => {
     // 2026 should be completely hidden until season concludes
     expect(html).not.toContain('btn-franchise-draft-2026');
     expect(html).not.toMatch(/<td[^>]*>2026<\/td>/);
+  });
+
+  it('should compute manager season form for full regular season in reverse chronological order', () => {
+    const traceStandings = [
+      {
+        ownerName: 'Trace',
+        teamName: 'Gl Hf',
+        finishes: {
+          '1st': [{ year: 2022, rank: 1 }],
+          '2nd': [{ year: 2018, rank: 2 }]
+        }
+      }
+    ];
+
+    const mockSeasons = [2018, 2022, 2024, 2026];
+    const mockSeasonData = {
+      '2018': { standings: [{ ownerName: 'Trace', teamName: 'Gl Hf', rank: 2, wins: 9, losses: 5, playoffRecord: '1-1' }] },
+      '2022': { standings: [{ ownerName: 'Trace', teamName: 'Gl Hf', rank: 1, wins: 8, losses: 6, playoffRecord: '3-0' }] },
+      '2024': { standings: [{ ownerName: 'Trace', teamName: 'Gl Hf', rank: 10, wins: 3, losses: 11, playoffRecord: '0-0' }] },
+      '2026': { standings: [{ ownerName: 'Trace', teamName: 'Gl Hf', rank: 12, wins: 1, losses: 3, playoffRecord: '0-0' }] }
+    };
+
+    const mockMatchups = [
+      // 2018
+      { seasonYear: 2018, weekNumber: 1, homeOwner: 'Trace', homeScore: 120, awayOwner: 'Dylan', awayScore: 100, isPlayoff: false },
+      { seasonYear: 2018, weekNumber: 2, homeOwner: 'Trace', homeScore: 130, awayOwner: 'Phillip', awayScore: 90, isPlayoff: false },
+      { seasonYear: 2018, weekNumber: 3, homeOwner: 'Trace', homeScore: 115, awayOwner: 'Ryan', awayScore: 110, isPlayoff: false },
+      { seasonYear: 2018, weekNumber: 4, homeOwner: 'Trace', homeScore: 140, awayOwner: 'Casey', awayScore: 105, isPlayoff: false },
+      { seasonYear: 2018, weekNumber: 5, homeOwner: 'Trace', homeScore: 90, awayOwner: 'Mike', awayScore: 110, isPlayoff: false },
+
+      // 2022
+      { seasonYear: 2022, weekNumber: 1, homeOwner: 'Trace', homeScore: 125, awayOwner: 'Dylan', awayScore: 110, isPlayoff: false },
+      { seasonYear: 2022, weekNumber: 2, homeOwner: 'Trace', homeScore: 95, awayOwner: 'Phillip', awayScore: 105, isPlayoff: false },
+      { seasonYear: 2022, weekNumber: 3, homeOwner: 'Trace', homeScore: 88, awayOwner: 'Ryan', awayScore: 120, isPlayoff: false },
+      { seasonYear: 2022, weekNumber: 4, homeOwner: 'Trace', homeScore: 135, awayOwner: 'Casey', awayScore: 95, isPlayoff: false },
+
+      // 2024
+      { seasonYear: 2024, weekNumber: 1, homeOwner: 'Trace', homeScore: 100, awayOwner: 'Dustin', awayScore: 130, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 2, homeOwner: 'Trace', homeScore: 85, awayOwner: 'Casey', awayScore: 115, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 3, homeOwner: 'Trace', homeScore: 90, awayOwner: 'Mike', awayScore: 125, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 4, homeOwner: 'Trace', homeScore: 95, awayOwner: 'Ryan', awayScore: 110, isPlayoff: false },
+
+      // 2026: 1-3 active start
+      { seasonYear: 2026, weekNumber: 1, homeOwner: 'Trace', homeScore: 95, awayOwner: 'Alex', awayScore: 120, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 2, homeOwner: 'Trace', homeScore: 80, awayOwner: 'Ryan', awayScore: 130, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 3, homeOwner: 'Trace', homeScore: 88, awayOwner: 'Jasper', awayScore: 90, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 4, homeOwner: 'Trace', homeScore: 120, awayOwner: 'Mike', awayScore: 104, isPlayoff: false }
+    ];
+
+    const forms = computeManagerSeasonForm({
+      owner: 'Trace',
+      seasons: mockSeasons,
+      seasonData: mockSeasonData,
+      allMatchups: mockMatchups,
+      allTimeStandings: traceStandings
+    });
+
+    expect(forms).toBeDefined();
+    expect(forms.length).toBe(4);
+
+    // Sorted reverse chronological
+    expect(forms[0].year).toBe(2026);
+    expect(forms[0].isCurrent).toBe(true);
+    expect(forms[0].record).toBe('1-3');
+    expect(forms[0].formStr).toBe('LLLW');
+    expect(forms[0].games.length).toBe(4);
+
+    expect(forms[1].year).toBe(2024);
+    expect(forms[1].record).toBe('0-4');
+    expect(forms[1].formStr).toBe('LLLL');
+
+    expect(forms[2].year).toBe(2022);
+    expect(forms[2].record).toBe('2-2');
+    expect(forms[2].formStr).toBe('WLLW');
+    expect(forms[2].isChampion).toBe(true);
+
+    expect(forms[3].year).toBe(2018);
+    expect(forms[3].record).toBe('4-1');
+    expect(forms[3].formStr).toBe('WWWWL');
+    expect(forms[3].finalRank).toBe(2);
+
+    // Verify game details (margin, oppOwner)
+    const g1 = forms[0].games[0];
+    expect(g1.week).toBe(1);
+    expect(g1.result).toBe('L');
+    expect(g1.oppOwner).toBe('Alex');
+    expect(g1.margin).toBe(-25);
+
+    // Helper functions
+    expect(matchesOwner('The Big Dongler', 'Javier')).toBe(true);
+    expect(matchesOwner('Dylan', 'Dylan')).toBe(true);
+    expect(hasMadePlayoffs({ playoffRecord: '2-1' })).toBe(true);
+    expect(hasMadePlayoffs({ playoffRecord: '0-0' })).toBe(false);
+  });
+
+  it('should render single-column stacked season form history in franchise profile HTML', () => {
+    const traceStandings = [
+      {
+        ownerName: 'Trace',
+        teamName: 'Gl Hf (you’re gay)',
+        wins: 40,
+        losses: 40,
+        championships: { '1st': 1, '2nd': 1 }
+      }
+    ];
+
+    const seasons = [2024, 2026];
+    const seasonData = {
+      '2024': {
+        standings: [
+          { ownerName: 'Trace', teamName: 'Gl Hf (you’re gay)', rank: 10, wins: 3, losses: 11, pointsFor: 1500.0, coachingEfficiency: 88.0 }
+        ]
+      },
+      '2026': {
+        standings: [
+          { ownerName: 'Trace', teamName: 'Gl Hf (you’re gay)', rank: 12, wins: 1, losses: 3, pointsFor: 415.68 }
+        ]
+      }
+    };
+
+    const allMatchups = [
+      { seasonYear: 2024, weekNumber: 1, homeOwner: 'Trace', homeScore: 138.16, awayOwner: 'Dustin', awayScore: 169.76, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 2, homeOwner: 'Trace', homeScore: 107.06, awayOwner: 'Casey', awayScore: 157.41, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 3, homeOwner: 'Trace', homeScore: 74.18, awayOwner: 'Mike', awayScore: 132.28, isPlayoff: false },
+      { seasonYear: 2024, weekNumber: 4, homeOwner: 'Trace', homeScore: 112.5, awayOwner: 'Ryan', awayScore: 127.2, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 1, homeOwner: 'Trace', homeScore: 113.2, awayOwner: 'Alex', awayScore: 180.56, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 2, homeOwner: 'Trace', homeScore: 87.3, awayOwner: 'Ryan', awayScore: 166.22, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 3, homeOwner: 'Trace', homeScore: 95.12, awayOwner: 'Jasper', awayScore: 97.12, isPlayoff: false },
+      { seasonYear: 2026, weekNumber: 4, homeOwner: 'Trace', homeScore: 120.06, awayOwner: 'Mike', awayScore: 104.18, isPlayoff: false }
+    ];
+
+    const html = buildFranchiseProfileHtml({
+      owner: 'Trace',
+      allTimeStandings: traceStandings,
+      seasons,
+      seasonData,
+      allMatchups,
+      theme: CRT_THEME
+    });
+
+    // Verify Season Form History section
+    expect(html).toContain('SEASON_FORM_HISTORY // REGULAR_SEASON_GAME_LOG');
+    expect(html).toContain('Regular Season Form &amp; Weekly Matchup Log');
+    expect(html).toContain('2026 ACTIVE');
+    expect(html).toContain('2024');
+    expect(html).toContain('window.jumpToMatchup');
+
+    // Verify 9-column history table remains clean without START (W1-4) column
+    expect(html).toContain('FRANCHISE_HISTORY_EVOLUTION');
+    expect(html).not.toContain('START (W1-4)');
+
+    // Verify pride theme also renders cleanly
+    const prideHtml = buildFranchiseProfileHtml({
+      owner: 'Trace',
+      allTimeStandings: traceStandings,
+      seasons,
+      seasonData,
+      allMatchups,
+      theme: PRIDE_THEME
+    });
+    expect(prideHtml).toContain('SEASON_FORM_HISTORY // REGULAR_SEASON_GAME_LOG');
+    expect(prideHtml).toContain('2026 ACTIVE');
   });
 });
