@@ -148,6 +148,45 @@ describe('Matchups View Component', () => {
     expect(html).toContain('grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4');
   });
 
+  it('should hide Box Score & Best Ball button and drawer in preview mode, and show them in recap mode', () => {
+    const mockLineups = [
+      {
+        seasonYear: 2025,
+        week: 1,
+        homeTeam: { ownerName: 'Dustin', teamName: 'Dustin Team', actualScore: 110.0, optimalScore: 130.0, starters: [], bench: [] },
+        awayTeam: { ownerName: 'Ryan', teamName: 'Ryan Team', actualScore: 105.0, optimalScore: 125.0, starters: [], bench: [] }
+      }
+    ];
+
+    // Preview mode: MUST hide box score, best ball, and lineup expander
+    const previewHtml = buildWeeklyMatchupsGridHtml({
+      matchups: mockMatchups,
+      rankMap: mockRankMap,
+      season: 2025,
+      week: 1,
+      mode: 'preview',
+      lineups: mockLineups,
+      theme: CRT_THEME
+    });
+
+    expect(previewHtml).not.toContain('Box Score &amp; Best Ball');
+    expect(previewHtml).not.toContain('matchup-lineup-content-');
+
+    // Recap mode: MUST show box score, best ball, and lineup expander when lineups exist
+    const recapHtml = buildWeeklyMatchupsGridHtml({
+      matchups: mockMatchups,
+      rankMap: mockRankMap,
+      season: 2025,
+      week: 1,
+      mode: 'recap',
+      lineups: mockLineups,
+      theme: CRT_THEME
+    });
+
+    expect(recapHtml).toContain('Box Score &amp; Best Ball');
+    expect(recapHtml).toContain('matchup-lineup-content-');
+  });
+
   it('should render manager full-season game log', () => {
     const dylanGames = [
       { seasonYear: 2025, weekNumber: 1, homeOwner: 'Dylan', homeTeam: 'Globo Gym', homeScore: 150.1, awayOwner: 'Tess', awayTeam: 'Tess Team', awayScore: 120.0 },
