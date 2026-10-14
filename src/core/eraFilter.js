@@ -6,70 +6,9 @@
  * and playoff streaks to reflect the expanded 10+ team era.
  */
 
-/**
- * Computes authentic win streaks from H2H games
- * @param {Array} h2hData 
- * @returns {Array} Streaks list
- */
-export function computeStreaksFromH2H(h2hData) {
-  const streaks = [];
-  (h2hData || []).forEach(pair => {
-    const { owner1, owner2, games } = pair;
-    if (!games || games.length === 0) return;
+import { computeStreaksFromH2H } from '../analytics/h2h.js';
+export { computeStreaksFromH2H };
 
-    ['overall', 'regular', 'playoff'].forEach(type => {
-      let filteredGames = games;
-      if (type === 'regular') filteredGames = games.filter(g => !g.isPlayoff);
-      if (type === 'playoff') filteredGames = games.filter(g => g.isPlayoff);
-      if (filteredGames.length < 2) return;
-
-      let currentWinner = null;
-      let streakGames = [];
-
-      for (let idx = 0; idx < filteredGames.length; idx++) {
-        const g = filteredGames[idx];
-        const w = g.winner;
-        if (w === currentWinner) {
-          streakGames.push(g);
-        } else {
-          if (streakGames.length >= 2 && currentWinner && currentWinner !== 'Tie') {
-            const loser = currentWinner === owner1 ? owner2 : owner1;
-            streaks.push({
-              winner: currentWinner,
-              loser,
-              streak: streakGames.length,
-              startYear: streakGames[0].year,
-              startWeek: streakGames[0].week,
-              endYear: streakGames[streakGames.length - 1].year,
-              endWeek: streakGames[streakGames.length - 1].week,
-              active: false,
-              type,
-              games: [...streakGames]
-            });
-          }
-          currentWinner = w;
-          streakGames = (w && w !== 'Tie') ? [g] : [];
-        }
-      }
-      if (streakGames.length >= 2 && currentWinner && currentWinner !== 'Tie') {
-        const loser = currentWinner === owner1 ? owner2 : owner1;
-        streaks.push({
-          winner: currentWinner,
-          loser,
-          streak: streakGames.length,
-          startYear: streakGames[0].year,
-          startWeek: streakGames[0].week,
-          endYear: streakGames[streakGames.length - 1].year,
-          endWeek: streakGames[streakGames.length - 1].week,
-          active: true,
-          type,
-          games: [...streakGames]
-        });
-      }
-    });
-  });
-  return streaks;
-}
 
 /**
  * Filters NFL Player Championship rings by minYear

@@ -187,6 +187,59 @@ describe('Managerial Prowess Analytics Engine', () => {
       expect(dOh.dOhOccurred).toBe(false);
       expect(dOh.bestSwap).toBeNull();
     });
+
+    it('should detect kicker D\'Oh blunder when bench kicker outscores starting kicker enough to flip loss to win', () => {
+      const starters = [
+        { slot: 'QB', player: 'Josh Allen', position: 'QB', points: 20.0 },
+        { slot: 'K', player: 'Brandon Aubrey', position: 'K', points: 5.0 }
+      ];
+      const bench = [
+        { slot: 'BN', player: 'Evan McPherson', position: 'K', points: 15.0 }
+      ];
+      const actualScore = 25.0;
+      const oppScore = 32.0; // Deficit = 7.0 pts. Net gain = +10.0 pts -> 35.0 > 32.0 (Win by 3.0 pts)
+
+      const constraints = { QB: 1, RB: 2, WR: 3, TE: 1, FLEX: 1, K: 1, DEF: 1 };
+      const dOh = analyzeDOhMoment(starters, bench, oppScore, actualScore, constraints);
+
+      expect(dOh.dOhOccurred).toBe(true);
+      expect(dOh.bestSwap.starter).toBe('Brandon Aubrey');
+      expect(dOh.bestSwap.starterPosition).toBe('K');
+      expect(dOh.bestSwap.benchPlayer).toBe('Evan McPherson');
+      expect(dOh.bestSwap.benchPosition).toBe('K');
+      expect(dOh.bestSwap.netGain).toBe(10.0);
+      expect(dOh.bestSwap.winMargin).toBe(3.0);
+    });
+
+    it('should not detect a D\'Oh when bench kicker outscores starter but net gain is less than deficit', () => {
+      // Alex Week 5 case: Aubrey (5.10) vs McPherson (6.60), Casey = 162.94, Alex = 160.50
+      const starters = [
+        { slot: 'QB', player: 'Aaron Rodgers', position: 'QB', points: 28.0 },
+        { slot: 'RB1', player: 'Bijan Robinson', position: 'RB', points: 15.8 },
+        { slot: 'RB2', player: 'Rhamondre Stevenson', position: 'RB', points: 17.0 },
+        { slot: 'WR1', player: 'Garrett Wilson', position: 'WR', points: 22.4 },
+        { slot: 'WR2', player: 'Josh Downs', position: 'WR', points: 7.2 },
+        { slot: 'WR3', player: 'Malik Nabers', position: 'WR', points: 27.6 },
+        { slot: 'TE', player: 'Trey McBride', position: 'TE', points: 18.6 },
+        { slot: 'W/R/T', player: 'Will Shipley', position: 'RB', points: 7.8 },
+        { slot: 'K', player: 'Brandon Aubrey', position: 'K', points: 5.1 },
+        { slot: 'DEF', player: 'Browns', position: 'DEF', points: 11.0 }
+      ];
+      const bench = [
+        { slot: 'BN', player: 'Devaughn Vele', position: 'WR', points: 5.6 },
+        { slot: 'BN', player: 'Evan McPherson', position: 'K', points: 6.6 },
+        { slot: 'BN', player: 'Rams', position: 'DEF', points: 2.5 }
+      ];
+      const actualScore = 160.50;
+      const oppScore = 162.94; // Deficit = 2.44. McPherson gain = +1.50 -> 162.00 < 162.94
+
+      const constraints = { QB: 1, RB: 2, WR: 3, TE: 1, FLEX: 1, K: 1, DEF: 1 };
+      const dOh = analyzeDOhMoment(starters, bench, oppScore, actualScore, constraints);
+
+      // +1.50 net gain does not overcome the 2.44 pt deficit, so no win-flipping D'Oh occurred
+      expect(dOh.dOhOccurred).toBe(false);
+      expect(dOh.bestSwap).toBeNull();
+    });
   });
 
   describe('Seasonal Managerial Summary & Leaderboard', () => {

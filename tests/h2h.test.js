@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { calcStreak, calcMaxStreak, getH2HBreakdown } from '../src/analytics/h2h.js';
+import { calcStreak, calcMaxStreak, getH2HBreakdown, computeStreaksFromH2H, syncH2HDataAndStreaks } from '../src/analytics/h2h.js';
+
 
 describe('H2H Analytics Module', () => {
   it('should calculate active win streak correctly', () => {
@@ -75,4 +76,86 @@ describe('H2H Analytics Module', () => {
     expect(breakdown.o2TotalWins).toBe(0);
     expect(breakdown.games.length).toBe(1);
   });
+
+  describe('syncH2HDataAndStreaks & Active Streak Updates', () => {
+    it('should update active streaks to inactive when a new week game ends the streak', () => {
+      const mockLeagueData = {
+        allMatchups: [
+          // 3 wins in a row for Michael over Dylan
+          { seasonYear: 2024, weekNumber: 1, homeOwner: 'Michael Anderson', awayOwner: 'Dylan Soth', homeScore: 130.0, awayScore: 100.0, winner: 'Michael Anderson' },
+          { seasonYear: 2024, weekNumber: 8, homeOwner: 'Michael Anderson', awayOwner: 'Dylan Soth', homeScore: 125.0, awayScore: 110.0, winner: 'Michael Anderson' },
+          { seasonYear: 2025, weekNumber: 4, homeOwner: 'Dylan Soth', awayOwner: 'Michael Anderson', homeScore: 90.0, awayScore: 115.0, winner: 'Michael Anderson' },
+          // Week 4 2026: Dylan ends Michael's streak
+          { seasonYear: 2026, weekNumber: 4, homeOwner: 'Michael Anderson', awayOwner: 'Dylan Soth', homeScore: 96.0, awayScore: 115.0, winner: 'Dylan Soth' }
+        ],
+        h2hData: [
+          {
+            owner1: 'Dylan Soth',
+            owner2: 'Michael Anderson',
+            wins1: 0,
+            wins2: 3,
+            ties: 0,
+            games: [
+              { year: 2024, week: 1, homeOwner: 'Michael Anderson', awayOwner: 'Dylan Soth', homeScore: 130.0, awayScore: 100.0, winner: 'Michael Anderson', isPlayoff: false },
+              { year: 2024, week: 8, homeOwner: 'Michael Anderson', awayOwner: 'Dylan Soth', homeScore: 125.0, awayScore: 110.0, winner: 'Michael Anderson', isPlayoff: false },
+              { year: 2025, week: 4, homeOwner: 'Dylan Soth', awayOwner: 'Michael Anderson', homeScore: 90.0, awayScore: 115.0, winner: 'Michael Anderson', isPlayoff: false }
+            ]
+          }
+        ],
+        h2hStreaks: [
+          {
+            winner: 'Michael Anderson',
+            loser: 'Dylan Soth',
+            streak: 3,
+            startYear: 2024,
+            startWeek: 1,
+            endYear: 2025,
+            endWeek: 4,
+            active: true,
+            type: 'overall'
+          }
+        ]
+      };
+
+      // Before sync: streak is active
+      expect(mockLeagueData.h2hStreaks[0].active).toBe(true);
+
+      // Perform sync
+      syncH2HDataAndStreaks(mockLeagueData, true);
+
+      // After sync: 2026 game is added, Michael's streak is ended (active: false)
+      const pair = mockLeagueData.h2hData.find(p => p.owner1 === 'Dylan Soth' && p.owner2 === 'Michael Anderson');
+      expect(pair.games.length).toBe(4);
+      expect(pair.wins1).toBe(1);
+      expect(pair.wins2).toBe(3);
+
+      const michaelStreak = mockLeagueData.h2hStreaks.find(s => s.winner === 'Michael Anderson' && s.loser === 'Dylan Soth' && s.type === 'overall');
+      expect(michaelStreak).toBeDefined();
+      expect(michaelStreak.active).toBe(false);
+      expect(michaelStreak.streak).toBe(3);
+      expect(michaelStreak.endYear).toBe(2025);
+      expect(michaelStreak.endWeek).toBe(4);
+    });
+
+    it('should create new pair entries for rookie managers who have never played', () => {
+      const mockLeagueData = {
+        allMatchups: [
+          { seasonYear: 2026, weekNumber: 1, homeOwner: 'Alex', awayOwner: 'Trace', homeScore: 180.0, awayScore: 113.0, winner: 'Alex' }
+        ],
+        h2hData: [],
+        h2hStreaks: []
+      };
+
+      syncH2HDataAndStreaks(mockLeagueData, false);
+
+      expect(mockLeagueData.h2hData.length).toBe(1);
+      const pair = mockLeagueData.h2hData[0];
+      expect(pair.owner1).toBe('Alex');
+      expect(pair.owner2).toBe('Trace');
+      expect(pair.wins1).toBe(1);
+      expect(pair.wins2).toBe(0);
+      expect(pair.games.length).toBe(1);
+    });
+  });
 });
+
