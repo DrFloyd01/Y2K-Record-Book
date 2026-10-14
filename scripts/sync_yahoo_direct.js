@@ -11,6 +11,8 @@
 
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
+import { syncH2HDataAndStreaks } from '../src/analytics/h2h.js';
+
 
 // Canonical Y2K Team to Owner Mapping
 export const Y2K_TEAM_OWNER_MAP = {
@@ -621,6 +623,9 @@ export async function syncYahooLeague(leagueId = '501321', totalWeeks = 14) {
       // Filter out any entries that ended up with 0 active seasons
       leagueData.teams = leagueData.teams.filter(t => t.seasonsActive.length > 0);
     }
+
+    // Sync H2H matrix and win streaks from allMatchups
+    syncH2HDataAndStreaks(leagueData, false);
   }
 
   writeFileSync(dataPath, JSON.stringify(leagueData, null, 2), 'utf8');

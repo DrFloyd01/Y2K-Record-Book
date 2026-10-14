@@ -2792,7 +2792,8 @@ export function createLeagueApp(config) {
         seasonData: window.LEAGUE_DATA.seasonData,
         draftProfiles: window.LEAGUE_DATA.draftProfiles || {},
         championships: window.LEAGUE_DATA.championships || [],
-        theme: theme
+        theme: theme,
+        allMatchups: window.LEAGUE_DATA.allMatchups || []
       });
 
       let availableDraftYears = [];

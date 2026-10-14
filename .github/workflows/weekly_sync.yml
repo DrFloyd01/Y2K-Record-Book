@@ -54,6 +54,9 @@ jobs:
       - name: 5. Evaluate Y2K Weekly Bounty
         run: node scripts/evaluate_y2k_bounties.js
 
+      - name: 5b. Synchronize Head-to-Head & Win Streaks
+        run: node scripts/sync_h2h_streaks.js
+
       - name: 6. Generate Weekly Commentary Drafts
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GOOGLE_API_KEY }}

@@ -9,6 +9,8 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
+import { syncH2HDataAndStreaks } from '../src/analytics/h2h.js';
+
 
 // Load .env if present
 function loadEnv() {
@@ -479,6 +481,9 @@ async function updateEspnScores() {
         }
       });
     }
+
+    // Sync H2H matrix and win streaks from allMatchups
+    syncH2HDataAndStreaks(prideData, true);
   }
 
   writeFileSync(dataPath, JSON.stringify(prideData, null, 2), 'utf8');
