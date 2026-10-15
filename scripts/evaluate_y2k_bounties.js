@@ -184,6 +184,48 @@ export function evaluateWeek4(matchups) {
 }
 
 /**
+ * Evaluate Week 5: Lick My Nuts, Yahoo
+ * Team with the most points scored over their pre-game projected total
+ */
+export function evaluateWeek5(lineups) {
+  const w5Matches = (lineups || []).filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) === 5);
+  const diffs = [];
+
+  w5Matches.forEach(m => {
+    ['homeTeam', 'awayTeam'].forEach(side => {
+      const t = m[side];
+      if (!t) return;
+      const actual = Number(t.actualScore || 0);
+      const starters = t.starters || [];
+      const projected = Number(starters.reduce((acc, p) => acc + (Number(p.projectedPoints) || 0), 0).toFixed(2));
+      const diff = Number((actual - projected).toFixed(2));
+      diffs.push({
+        manager: normalizeManager(t.ownerName),
+        team: t.teamName,
+        actual,
+        projected,
+        diff
+      });
+    });
+  });
+
+  diffs.sort((a, b) => b.diff - a.diff);
+
+  return {
+    week: 5,
+    challenge: 'Lick My Nuts, Yahoo',
+    description: 'Team with the most points scored over their pre-game projected total',
+    winner: diffs[0],
+    runnerUp: diffs[1],
+    third: diffs[2],
+    diff: diffs[0]?.diff || 0,
+    runnerUpDiff: diffs[1]?.diff || 0,
+    thirdDiff: diffs[2]?.diff || 0,
+    standings: diffs
+  };
+}
+
+/**
  * Calculate ledger win summary across all evaluated weeks
  */
 export function computeLedgerSummary(bountyResults) {
@@ -303,7 +345,20 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   } else {
     text += `- **Week 04**: The Massacre — Largest blowout margin of victory in a weekly matchup\n`;
   }
-  text += `- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total\n`;
+
+  // Week 5
+  const w5 = bountyResults.find(r => r && r.week === 5);
+  if (w5) {
+    text += `- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total  \n`;
+    text += `  - 👑 **Winner**: **${w5.winner.manager}** (\`${w5.winner.team}\`) — **+${w5.diff.toFixed(2)} pts over projection** (${w5.winner.actual.toFixed(2)} actual vs ${w5.winner.projected.toFixed(2)} projected)  \n`;
+    text += `  - 💵 **Payout**: **$${(w5.payout || 0).toFixed(2)}** (${w5.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w5.runnerUp.manager} (\`${w5.runnerUp.team}\`) — +${w5.runnerUpDiff.toFixed(2)} pts over projection (${w5.runnerUp.actual.toFixed(2)} actual vs ${w5.runnerUp.projected.toFixed(2)} projected)  \n`;
+    if (w5.third) {
+      text += `  - 🥉 **3rd Place**: ${w5.third.manager} (\`${w5.third.team}\`) — +${w5.thirdDiff.toFixed(2)} pts over projection (${w5.third.actual.toFixed(2)} actual vs ${w5.third.projected.toFixed(2)} projected)\n`;
+    }
+  } else {
+    text += `- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total\n`;
+  }
   text += `- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)\n`;
   text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7\n`;
   text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns\n`;
@@ -385,6 +440,11 @@ export function updateIndexHtmlWeek4Bounty(winnerName, teamName, marginPts, payo
   return updateIndexHtmlCard(4, winnerName, teamName, resultHtml);
 }
 
+export function updateIndexHtmlWeek5Bounty(winnerName, teamName, diffPts, payoutNote) {
+  const resultHtml = `+${diffPts} pts <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(5, winnerName, teamName, resultHtml);
+}
+
 /**
  * Main Runner
  */
@@ -403,15 +463,17 @@ export function runBountyEvaluation() {
   const w2Result = evaluateWeek2(allMatchups);
 
   let w3Result = null;
+  let w5Result = null;
   const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
   if (existsSync(lineupsPath)) {
     const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
     w3Result = evaluateWeek3(lineups);
+    w5Result = evaluateWeek5(lineups);
   }
 
   const w4Result = evaluateWeek4(allMatchups);
 
-  const bountyResults = [w1Result, w2Result, w3Result, w4Result].filter(Boolean);
+  const bountyResults = [w1Result, w2Result, w3Result, w4Result, w5Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
 
   console.log(`✅ Week 1 Winner: ${w1Result.winner.manager} (${w1Result.winner.score} pts) -> ${w1Result.payoutNote}`);
@@ -428,6 +490,12 @@ export function runBountyEvaluation() {
     console.log(`✅ Week 4 Winner: ${w4Result.winner.manager} (+${w4Result.margin} pts) -> ${w4Result.payoutNote}`);
     console.log(`   Runner-Up: ${w4Result.runnerUp.manager} (+${w4Result.runnerUpMargin} pts)`);
     console.log(`   3rd Place: ${w4Result.third.manager} (+${w4Result.thirdMargin} pts)`);
+  }
+
+  if (w5Result) {
+    console.log(`✅ Week 5 Winner: ${w5Result.winner.manager} (+${w5Result.diff} pts) -> ${w5Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w5Result.runnerUp.manager} (+${w5Result.runnerUpDiff} pts)`);
+    console.log(`   3rd Place: ${w5Result.third.manager} (+${w5Result.thirdDiff} pts)`);
   }
 
   // Update Markdown Ledger
@@ -466,6 +534,19 @@ export function runBountyEvaluation() {
     );
     if (updatedW4) {
       console.log('🌐 Updated Week 04 Bounty Card in index.html');
+    }
+  }
+
+  if (w5Result) {
+    const badgeText = w5Result.payout > 0 ? `$${w5Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW5 = updateIndexHtmlWeek5Bounty(
+      w5Result.winner.manager,
+      w5Result.winner.team,
+      w5Result.diff.toFixed(2),
+      badgeText
+    );
+    if (updatedW5) {
+      console.log('🌐 Updated Week 05 Bounty Card in index.html');
     }
   }
 

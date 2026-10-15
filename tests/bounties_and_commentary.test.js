@@ -6,6 +6,7 @@ import {
   evaluateWeek2,
   evaluateWeek3,
   evaluateWeek4,
+  evaluateWeek5,
   computeLedgerSummary,
   BUY_IN_TIERS,
   normalizeManager
@@ -69,13 +70,29 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(res.thirdMargin).toBeCloseTo(31.34, 2);
   });
 
-  it('should compute correct ledger payouts and qualification status through Week 4', () => {
+  it('should correctly evaluate Week 5 Lick My Nuts, Yahoo (Most Points Over Projection)', () => {
+    const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
+    const res = evaluateWeek5(lineups);
+    expect(res).toBeDefined();
+    expect(res.winner.manager).toBe('Tess');
+    expect(res.winner.team).toBe('Tess Finesse');
+    expect(res.diff).toBeCloseTo(49.90, 2);
+
+    expect(res.runnerUp.manager).toBe('Casey');
+    expect(res.runnerUpDiff).toBeCloseTo(38.82, 2);
+
+    expect(res.third.manager).toBe('Dylan');
+    expect(res.thirdDiff).toBeCloseTo(25.58, 2);
+  });
+
+  it('should compute correct ledger payouts and qualification status through Week 5', () => {
     const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
     const w1 = evaluateWeek1(matchups);
     const w2 = evaluateWeek2(matchups);
     const w3 = evaluateWeek3(lineups);
     const w4 = evaluateWeek4(matchups);
-    const summary = computeLedgerSummary([w1, w2, w3, w4]);
+    const w5 = evaluateWeek5(lineups);
+    const summary = computeLedgerSummary([w1, w2, w3, w4, w5]);
 
     // Dylan has 1 win: qualifies, $0 payout, $5 repeat rate
     expect(summary['Dylan'].wins).toBe(1);
@@ -105,9 +122,17 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(w4.payout).toBe(0.0);
     expect(w4.payoutNote).toContain('Qualifies');
 
+    // Tess has 1 win (Week 5): qualifies in $5 Boost Tier, $0 payout, $10 repeat rate
+    expect(summary['Tess'].wins).toBe(1);
+    expect(summary['Tess'].isQualified).toBe(true);
+    expect(summary['Tess'].totalPayout).toBe(0.0);
+    expect(summary['Tess'].repeatRate).toBe(10.0);
+    expect(w5.payout).toBe(0.0);
+    expect(w5.payoutNote).toContain('Qualifies');
+
     // Unqualified managers
-    expect(summary['Tess'].wins).toBe(0);
-    expect(summary['Tess'].isQualified).toBe(false);
+    expect(summary['Alex'].wins).toBe(0);
+    expect(summary['Alex'].isQualified).toBe(false);
   });
 
   it('should ensure all 12 active managers are registered in BUY_IN_TIERS', () => {
@@ -131,7 +156,7 @@ describe('Commentary Draft Generation Suite', () => {
     expect(dylanTess.streak).toContain('Dylan');
   });
 
-  it('should generate Y2K drafts for Week 2 recap, Week 3 preview/recap, Week 4 preview/recap, and Week 5 preview', () => {
+  it('should generate Y2K drafts for Week 2-5 recaps and Week 3-6 previews', () => {
     const drafts = generateY2kDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -140,6 +165,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w4PreviewMatchups).toHaveLength(6);
     expect(drafts.w4RecapMatchups).toHaveLength(6);
     expect(drafts.w5PreviewMatchups).toHaveLength(6);
+    expect(drafts.w5RecapMatchups).toHaveLength(6);
+    expect(drafts.w6PreviewMatchups).toHaveLength(6);
 
     // Check specific matchups present
     const dylanTessRecap = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Tess');
@@ -166,11 +193,16 @@ describe('Commentary Draft Generation Suite', () => {
     expect(dylanTraceW5Preview).toBeDefined();
     expect(dylanTraceW5Preview.writeup).toContain('Clash of founding OGs');
 
-    const boazCooperW5Preview = drafts.w5PreviewMatchups.find(m => m.homeOwner === 'Boaz' && m.awayOwner === 'Cooper');
-    expect(boazCooperW5Preview).toBeDefined();
+    const dustinTessW5Recap = drafts.w5RecapMatchups.find(m => m.homeOwner === 'Dustin' && m.awayOwner === 'Tess');
+    expect(dustinTessW5Recap).toBeDefined();
+    expect(dustinTessW5Recap.writeup).toContain('Kryptonite Curse Broken');
+
+    const dylanPhilW6Preview = drafts.w6PreviewMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Phillip');
+    expect(dylanPhilW6Preview).toBeDefined();
+    expect(dylanPhilW6Preview.writeup).toContain('signature rivalry');
   });
 
-  it('should generate Pride Guys drafts for Week 2 recap, Week 3 preview/recap, Week 4 preview/recap, and Week 5 preview', () => {
+  it('should generate Pride Guys drafts for Week 2-5 recaps and Week 3-6 previews', () => {
     const drafts = generatePrideDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -179,6 +211,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w4PreviewMatchups).toHaveLength(6);
     expect(drafts.w4RecapMatchups).toHaveLength(6);
     expect(drafts.w5PreviewMatchups).toHaveLength(6);
+    expect(drafts.w5RecapMatchups).toHaveLength(6);
+    expect(drafts.w6PreviewMatchups).toHaveLength(6);
 
     const mikeTrace = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Michael Anderson' && m.awayOwner === 'Trace Bakulich');
     expect(mikeTrace).toBeDefined();
@@ -203,6 +237,14 @@ describe('Commentary Draft Generation Suite', () => {
     const brodieAustinW5Preview = drafts.w5PreviewMatchups.find(m => m.homeOwner === 'Brodie Pirtle' && m.awayOwner === 'Austin Geller');
     expect(brodieAustinW5Preview).toBeDefined();
     expect(brodieAustinW5Preview.writeup).toContain('Game of the Week');
+
+    const philMikeW5Recap = drafts.w5RecapMatchups.find(m => m.homeOwner === 'Phillip Busick' && m.awayOwner === 'Michael Anderson');
+    expect(philMikeW5Recap).toBeDefined();
+    expect(philMikeW5Recap.writeup).toContain('Cellar Desperation Bowl');
+
+    const tylerAidanW6Preview = drafts.w6PreviewMatchups.find(m => m.homeOwner === 'Tyler Hicks' && m.awayOwner === 'Aidan O\'Sullivan');
+    expect(tylerAidanW6Preview).toBeDefined();
+    expect(tylerAidanW6Preview.writeup).toContain('Game of the Week');
   });
 
   it('should verify draft files exist on disk in docs/', () => {
@@ -212,12 +254,16 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_6_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_2_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_6_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/Y2K_2026_COMMENTARY_BACKUP.json'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });
