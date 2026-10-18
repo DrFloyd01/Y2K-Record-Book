@@ -64,7 +64,11 @@
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $10.00/win)  
   - 🥈 **Runner-Up**: Dylan (`Globo Gym`) — +49.04 pt blowout (181.24 ➔ 132.20 over AARPFL)  
   - 🥉 **3rd Place**: Dustin (`Dusty’s Dingleberries`) — +31.34 pt blowout (154.50 ➔ 123.16 over Blue's Balls)
-- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total
+- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total  
+  - 👑 **Winner**: **Tess** (`Tess Finesse`) — **+49.90 pts over projection** (171.48 actual vs 121.58 projected)  
+  - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $10.00/win)  
+  - 🥈 **Runner-Up**: Casey (`AARPFL`) — +38.82 pts over projection (162.94 actual vs 124.12 projected)  
+  - 🥉 **3rd Place**: Dylan (`Globo Gym`) — +25.58 pts over projection (156.54 actual vs 130.96 projected)
 - **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)
 - **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7
 - **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns
@@ -77,15 +81,15 @@
 
 ---
 
-## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 4)
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 5)
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
 | **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
 | **Bo (Boaz)** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
+| **Tess** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
 | **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Mike** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
-| **Tess** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 | **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
