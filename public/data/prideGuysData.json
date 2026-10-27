@@ -704,8 +704,8 @@
           }
         ]
       },
-      "coachingEfficiency": 87.2,
-      "dOhs": 7,
+      "coachingEfficiency": 87,
+      "dOhs": 8,
       "dOhDetails": [
         {
           "year": 2022,
@@ -818,12 +818,28 @@
           "deficitNeeded": 23.5,
           "winMargin": 6.1,
           "projectedNewScore": 150.56
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "team": "L Central",
+          "starter": "Jalen Coker",
+          "starterPosition": "WR",
+          "starterSlot": "WR",
+          "starterPoints": 1.4,
+          "benchPlayer": "Rhamondre Stevenson",
+          "benchPosition": "RB",
+          "benchPoints": 20,
+          "netGain": 18.6,
+          "deficitNeeded": 13.28,
+          "winMargin": 5.32,
+          "projectedNewScore": 98.02
         }
       ],
-      "optPfg": 122.6,
-      "optimalPF": 7599.8,
-      "optimalPointsFor": 7599.8,
-      "dOhCount": 7
+      "optPfg": 122.3,
+      "optimalPF": 7704.5,
+      "optimalPointsFor": 7704.5,
+      "dOhCount": 8
     },
     {
       "ownerName": "Sean Belcher",
@@ -1396,7 +1412,7 @@
           }
         ]
       },
-      "coachingEfficiency": 91.3,
+      "coachingEfficiency": 91.4,
       "dOhs": 5,
       "dOhDetails": [
         {
@@ -1480,9 +1496,9 @@
           "projectedNewScore": 118.72
         }
       ],
-      "optPfg": 113.3,
-      "optimalPF": 7025,
-      "optimalPointsFor": 7025,
+      "optPfg": 113.2,
+      "optimalPF": 7129.3,
+      "optimalPointsFor": 7129.3,
       "dOhCount": 5
     },
     {
@@ -2068,7 +2084,7 @@
           }
         ]
       },
-      "coachingEfficiency": 87.5,
+      "coachingEfficiency": 87.6,
       "dOhs": 10,
       "dOhDetails": [
         {
@@ -2232,9 +2248,9 @@
           "projectedNewScore": 111.4
         }
       ],
-      "optPfg": 126,
-      "optimalPF": 7813.2,
-      "optimalPointsFor": 7813.2,
+      "optPfg": 125.9,
+      "optimalPF": 7929.7,
+      "optimalPointsFor": 7929.7,
       "dOhCount": 10
     },
     {
@@ -2927,8 +2943,8 @@
           }
         ]
       },
-      "coachingEfficiency": 89,
-      "dOhs": 4,
+      "coachingEfficiency": 88.8,
+      "dOhs": 5,
       "dOhDetails": [
         {
           "year": 2022,
@@ -2993,12 +3009,28 @@
           "deficitNeeded": 13.02,
           "winMargin": 22.28,
           "projectedNewScore": 160.54
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "team": "Justin Herbooty",
+          "starter": "Pierre Strong Jr.",
+          "starterPosition": "RB",
+          "starterSlot": "RB",
+          "starterPoints": 0,
+          "benchPlayer": "Quinshon Judkins",
+          "benchPosition": "RB",
+          "benchPoints": 22.9,
+          "netGain": 22.9,
+          "deficitNeeded": 7.86,
+          "winMargin": 15.04,
+          "projectedNewScore": 130.26
         }
       ],
-      "optPfg": 122.3,
-      "optimalPF": 7581.3,
-      "optimalPointsFor": 7581.3,
-      "dOhCount": 4
+      "optPfg": 122.5,
+      "optimalPF": 7716.5,
+      "optimalPointsFor": 7716.5,
+      "dOhCount": 5
     },
     {
       "ownerName": "Dylan Soth",
@@ -3336,7 +3368,7 @@
           }
         ]
       },
-      "coachingEfficiency": 86.2,
+      "coachingEfficiency": 86.4,
       "dOhs": 9,
       "dOhDetails": [
         {
@@ -3484,9 +3516,9 @@
           "projectedNewScore": 115.5
         }
       ],
-      "optPfg": 119.8,
-      "optimalPF": 7428.3,
-      "optimalPointsFor": 7428.3,
+      "optPfg": 120.1,
+      "optimalPF": 7565.7,
+      "optimalPointsFor": 7565.7,
       "dOhCount": 9
     },
     {
@@ -4177,9 +4209,9 @@
           "projectedNewScore": 123.72
         }
       ],
-      "optPfg": 122.7,
-      "optimalPF": 7605,
-      "optimalPointsFor": 7605,
+      "optPfg": 122.1,
+      "optimalPF": 7689.3,
+      "optimalPointsFor": 7689.3,
       "dOhCount": 6
     },
     {
@@ -4895,7 +4927,7 @@
           }
         ]
       },
-      "coachingEfficiency": 87.4,
+      "coachingEfficiency": 87.5,
       "dOhs": 8,
       "dOhDetails": [
         {
@@ -5027,9 +5059,9 @@
           "projectedNewScore": 100.74
         }
       ],
-      "optPfg": 122.1,
-      "optimalPF": 7568.6,
-      "optimalPointsFor": 7568.6,
+      "optPfg": 121.6,
+      "optimalPF": 7661,
+      "optimalPointsFor": 7661,
       "dOhCount": 8
     },
     {
@@ -5865,7 +5897,7 @@
           }
         ]
       },
-      "coachingEfficiency": 89.6,
+      "coachingEfficiency": 89.8,
       "dOhs": 9,
       "dOhDetails": [
         {
@@ -6014,8 +6046,8 @@
         }
       ],
       "optPfg": 116.6,
-      "optimalPF": 7230.3,
-      "optimalPointsFor": 7230.3,
+      "optimalPF": 7345.5,
+      "optimalPointsFor": 7345.5,
       "dOhCount": 9
     },
     {
@@ -6137,7 +6169,7 @@
         ],
         "7th_12th": []
       },
-      "coachingEfficiency": 91.3,
+      "coachingEfficiency": 91.2,
       "dOhs": 1,
       "dOhDetails": [
         {
@@ -6157,9 +6189,9 @@
           "projectedNewScore": 78.84
         }
       ],
-      "optPfg": 116.9,
-      "optimalPF": 2338.3,
-      "optimalPointsFor": 2338.3,
+      "optPfg": 116.7,
+      "optimalPF": 2450.3,
+      "optimalPointsFor": 2450.3,
       "dOhCount": 1
     },
     {
@@ -6483,7 +6515,7 @@
           }
         ]
       },
-      "coachingEfficiency": 84.5,
+      "coachingEfficiency": 84.6,
       "dOhs": 5,
       "dOhDetails": [
         {
@@ -6567,9 +6599,9 @@
           "projectedNewScore": 122.36
         }
       ],
-      "optPfg": 129.6,
-      "optimalPF": 6218.9,
-      "optimalPointsFor": 6218.9,
+      "optPfg": 129.8,
+      "optimalPF": 6362.3,
+      "optimalPointsFor": 6362.3,
       "dOhCount": 5
     },
     {
@@ -7112,7 +7144,7 @@
           }
         ]
       },
-      "coachingEfficiency": 87.8,
+      "coachingEfficiency": 88,
       "dOhs": 5,
       "dOhDetails": [
         {
@@ -7196,9 +7228,9 @@
           "projectedNewScore": 125.14
         }
       ],
-      "optPfg": 112.5,
-      "optimalPF": 3826.1,
-      "optimalPointsFor": 3826.1,
+      "optPfg": 112,
+      "optimalPF": 3920.9,
+      "optimalPointsFor": 3920.9,
       "dOhCount": 5
     }
   ],
@@ -41398,11 +41430,11 @@
         {
           "ownerName": "Tyler Hicks",
           "teamName": "South Memphis Football Club",
-          "wins": 6,
+          "wins": 7,
           "losses": 0,
           "ties": 0,
-          "pointsFor": 672.58,
-          "pointsAgainst": 519.9,
+          "pointsFor": 798.12,
+          "pointsAgainst": 620.1,
           "form": [
             "W",
             "W",
@@ -41411,9 +41443,9 @@
             "W"
           ],
           "expWins": 4,
-          "expLosses": 2,
-          "ovrWins": 39,
-          "ovrLosses": 27,
+          "expLosses": 3,
+          "ovrWins": 49,
+          "ovrLosses": 28,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 2,
@@ -41444,61 +41476,14 @@
           "toughestLosses": 0,
           "tlDetails": [],
           "winPct": 100,
-          "expRecord": "4-2",
-          "luck": 2,
-          "ovrWinPct": 59.1,
-          "ovrRecord": "39-27",
+          "expRecord": "4-3",
+          "luck": 3,
+          "ovrWinPct": 63.6,
+          "ovrRecord": "49-28",
           "rank": 1,
-          "coachingEfficiency": 85.8,
-          "optimalPF": 783.8,
-          "optimalPointsFor": 783.8,
-          "dOhs": 0,
-          "dOhCount": 0,
-          "dOhDetails": []
-        },
-        {
-          "ownerName": "Austin Geller",
-          "teamName": "Justin Herbooty",
-          "wins": 5,
-          "losses": 1,
-          "ties": 0,
-          "pointsFor": 767,
-          "pointsAgainst": 604.34,
-          "form": [
-            "W",
-            "W",
-            "W",
-            "L",
-            "W"
-          ],
-          "expWins": 5,
-          "expLosses": 1,
-          "ovrWins": 51,
-          "ovrLosses": 15,
-          "weeklyWins": 1,
-          "wwDetails": [
-            {
-              "year": 2026,
-              "week": 6,
-              "score": 138.44,
-              "teamName": "Justin Herbooty"
-            }
-          ],
-          "luckiestWins": 0,
-          "lwDetails": [],
-          "heartbreaks": 0,
-          "hbDetails": [],
-          "toughestLosses": 0,
-          "tlDetails": [],
-          "winPct": 83.3,
-          "expRecord": "5-1",
-          "luck": 0,
-          "ovrWinPct": 77.3,
-          "ovrRecord": "51-15",
-          "rank": 2,
-          "coachingEfficiency": 91.5,
-          "optimalPF": 838,
-          "optimalPointsFor": 838,
+          "coachingEfficiency": 86.1,
+          "optimalPF": 927.2,
+          "optimalPointsFor": 927.2,
           "dOhs": 0,
           "dOhCount": 0,
           "dOhDetails": []
@@ -41506,11 +41491,11 @@
         {
           "ownerName": "Brodie Pirtle",
           "teamName": "BloodSword2000",
-          "wins": 5,
+          "wins": 6,
           "losses": 1,
           "ties": 0,
-          "pointsFor": 762.56,
-          "pointsAgainst": 618.66,
+          "pointsFor": 869.94,
+          "pointsAgainst": 706.18,
           "form": [
             "W",
             "W",
@@ -41518,10 +41503,10 @@
             "W",
             "W"
           ],
-          "expWins": 4,
+          "expWins": 5,
           "expLosses": 2,
-          "ovrWins": 46,
-          "ovrLosses": 20,
+          "ovrWins": 54,
+          "ovrLosses": 23,
           "weeklyWins": 1,
           "wwDetails": [
             {
@@ -41548,15 +41533,15 @@
           "hbDetails": [],
           "toughestLosses": 0,
           "tlDetails": [],
-          "winPct": 83.3,
-          "expRecord": "4-2",
+          "winPct": 85.7,
+          "expRecord": "5-2",
           "luck": 1,
-          "ovrWinPct": 69.7,
-          "ovrRecord": "46-20",
-          "rank": 3,
-          "coachingEfficiency": 88.4,
-          "optimalPF": 862.6,
-          "optimalPointsFor": 862.6,
+          "ovrWinPct": 70.1,
+          "ovrRecord": "54-23",
+          "rank": 2,
+          "coachingEfficiency": 89.6,
+          "optimalPF": 971.3,
+          "optimalPointsFor": 971.3,
           "dOhs": 0,
           "dOhCount": 0,
           "dOhDetails": []
@@ -41564,11 +41549,11 @@
         {
           "ownerName": "Dylan Soth",
           "teamName": "Human Eros TDs",
-          "wins": 5,
+          "wins": 6,
           "losses": 1,
           "ties": 0,
-          "pointsFor": 619.14,
-          "pointsAgainst": 548.56,
+          "pointsFor": 751.52,
+          "pointsAgainst": 655.54,
           "form": [
             "W",
             "W",
@@ -41576,12 +41561,19 @@
             "W",
             "W"
           ],
-          "expWins": 3,
+          "expWins": 4,
           "expLosses": 3,
-          "ovrWins": 28,
+          "ovrWins": 39,
           "ovrLosses": 38,
-          "weeklyWins": 0,
-          "wwDetails": [],
+          "weeklyWins": 1,
+          "wwDetails": [
+            {
+              "year": 2026,
+              "week": 7,
+              "score": 132.38,
+              "teamName": "Human Eros TDs"
+            }
+          ],
           "luckiestWins": 1,
           "lwDetails": [
             {
@@ -41610,15 +41602,15 @@
           ],
           "toughestLosses": 0,
           "tlDetails": [],
-          "winPct": 83.3,
-          "expRecord": "3-3",
+          "winPct": 85.7,
+          "expRecord": "4-3",
           "luck": 2,
-          "ovrWinPct": 42.4,
-          "ovrRecord": "28-38",
-          "rank": 4,
-          "coachingEfficiency": 85.3,
-          "optimalPF": 725.9,
-          "optimalPointsFor": 725.9,
+          "ovrWinPct": 50.6,
+          "ovrRecord": "39-38",
+          "rank": 3,
+          "coachingEfficiency": 87.1,
+          "optimalPF": 863.3,
+          "optimalPointsFor": 863.3,
           "dOhs": 1,
           "dOhCount": 1,
           "dOhDetails": [
@@ -41641,24 +41633,185 @@
           ]
         },
         {
-          "ownerName": "Brendan Sanders",
-          "teamName": "Stroking my penix",
-          "wins": 4,
+          "ownerName": "Austin Geller",
+          "teamName": "Justin Herbooty",
+          "wins": 5,
           "losses": 2,
           "ties": 0,
-          "pointsFor": 711.16,
-          "pointsAgainst": 651.58,
+          "pointsFor": 874.36,
+          "pointsAgainst": 719.56,
           "form": [
+            "W",
+            "W",
             "L",
             "W",
+            "L"
+          ],
+          "expWins": 5,
+          "expLosses": 2,
+          "ovrWins": 58,
+          "ovrLosses": 19,
+          "weeklyWins": 1,
+          "wwDetails": [
+            {
+              "year": 2026,
+              "week": 6,
+              "score": 138.44,
+              "teamName": "Justin Herbooty"
+            }
+          ],
+          "luckiestWins": 0,
+          "lwDetails": [],
+          "heartbreaks": 1,
+          "hbDetails": [
+            {
+              "owner": "Austin Geller",
+              "team": "Justin Herbooty",
+              "score": 107.36,
+              "oppOwner": "Nathan Wells",
+              "oppScore": 115.22,
+              "margin": 7.86,
+              "year": 2026,
+              "week": 7
+            }
+          ],
+          "toughestLosses": 1,
+          "tlDetails": [
+            {
+              "owner": "Austin Geller",
+              "team": "Justin Herbooty",
+              "score": 107.36,
+              "oppOwner": "Nathan Wells",
+              "oppScore": 115.22,
+              "margin": 7.86,
+              "year": 2026,
+              "week": 7
+            }
+          ],
+          "winPct": 71.4,
+          "expRecord": "5-2",
+          "luck": 0,
+          "ovrWinPct": 75.3,
+          "ovrRecord": "58-19",
+          "rank": 4,
+          "coachingEfficiency": 89.8,
+          "optimalPF": 973.3,
+          "optimalPointsFor": 973.3,
+          "dOhs": 1,
+          "dOhCount": 1,
+          "dOhDetails": [
+            {
+              "year": 2026,
+              "week": 7,
+              "team": "Justin Herbooty",
+              "starter": "Pierre Strong Jr.",
+              "starterPosition": "RB",
+              "starterSlot": "RB",
+              "starterPoints": 0,
+              "benchPlayer": "Quinshon Judkins",
+              "benchPosition": "RB",
+              "benchPoints": 22.9,
+              "netGain": 22.9,
+              "deficitNeeded": 7.86,
+              "winMargin": 15.04,
+              "projectedNewScore": 130.26
+            }
+          ]
+        },
+        {
+          "ownerName": "Nathan Wells",
+          "teamName": "Defense Contractor #1",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 813.98,
+          "pointsAgainst": 729.68,
+          "form": [
             "W",
+            "W",
+            "L",
             "L",
             "W"
           ],
-          "expWins": 4,
+          "expWins": 5,
           "expLosses": 2,
-          "ovrWins": 46,
-          "ovrLosses": 20,
+          "ovrWins": 50,
+          "ovrLosses": 27,
+          "weeklyWins": 1,
+          "wwDetails": [
+            {
+              "year": 2026,
+              "week": 3,
+              "score": 149.56,
+              "teamName": "Defense Contractor #1"
+            }
+          ],
+          "luckiestWins": 0,
+          "lwDetails": [],
+          "heartbreaks": 1,
+          "hbDetails": [
+            {
+              "owner": "Nathan Wells",
+              "team": "Defense Contractor #1",
+              "score": 112,
+              "oppOwner": "Dylan Soth",
+              "oppScore": 113.62,
+              "margin": 1.62,
+              "year": 2026,
+              "week": 5
+            }
+          ],
+          "toughestLosses": 0,
+          "tlDetails": [],
+          "winPct": 57.1,
+          "expRecord": "5-2",
+          "luck": -1,
+          "ovrWinPct": 64.9,
+          "ovrRecord": "50-27",
+          "rank": 5,
+          "coachingEfficiency": 93.2,
+          "optimalPF": 873,
+          "optimalPointsFor": 873,
+          "dOhs": 1,
+          "dOhCount": 1,
+          "dOhDetails": [
+            {
+              "year": 2026,
+              "week": 5,
+              "team": "Defense Contractor #1",
+              "starter": "Michael Mayer",
+              "starterPosition": "TE",
+              "starterSlot": "FLEX",
+              "starterPoints": 0.7,
+              "benchPlayer": "Terry McLaurin",
+              "benchPosition": "WR",
+              "benchPoints": 10.2,
+              "netGain": 9.5,
+              "deficitNeeded": 1.62,
+              "winMargin": 7.88,
+              "projectedNewScore": 121.5
+            }
+          ]
+        },
+        {
+          "ownerName": "Brendan Sanders",
+          "teamName": "Stroking my penix",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 811.36,
+          "pointsAgainst": 777.12,
+          "form": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "expWins": 5,
+          "expLosses": 2,
+          "ovrWins": 50,
+          "ovrLosses": 27,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 0,
@@ -41689,15 +41842,15 @@
               "week": 5
             }
           ],
-          "winPct": 66.7,
-          "expRecord": "4-2",
-          "luck": 0,
-          "ovrWinPct": 69.7,
-          "ovrRecord": "46-20",
-          "rank": 5,
-          "coachingEfficiency": 91.8,
-          "optimalPF": 775.1,
-          "optimalPointsFor": 775.1,
+          "winPct": 57.1,
+          "expRecord": "5-2",
+          "luck": -1,
+          "ovrWinPct": 64.9,
+          "ovrRecord": "50-27",
+          "rank": 6,
+          "coachingEfficiency": 91.5,
+          "optimalPF": 887.1,
+          "optimalPointsFor": 887.1,
           "dOhs": 0,
           "dOhCount": 0,
           "dOhDetails": []
@@ -41706,21 +41859,21 @@
           "ownerName": "Aidan O'Sullivan",
           "teamName": "Aidan's Last Dance",
           "wins": 3,
-          "losses": 3,
+          "losses": 4,
           "ties": 0,
-          "pointsFor": 701.56,
-          "pointsAgainst": 721.88,
+          "pointsFor": 808.54,
+          "pointsAgainst": 854.26,
           "form": [
-            "W",
             "L",
             "L",
             "W",
+            "L",
             "L"
           ],
-          "expWins": 4,
+          "expWins": 5,
           "expLosses": 2,
-          "ovrWins": 44,
-          "ovrLosses": 22,
+          "ovrWins": 50,
+          "ovrLosses": 27,
           "weeklyWins": 2,
           "wwDetails": [
             {
@@ -41774,113 +41927,38 @@
               "week": 4
             }
           ],
-          "winPct": 50,
-          "expRecord": "4-2",
-          "luck": -1,
-          "ovrWinPct": 66.7,
-          "ovrRecord": "44-22",
-          "rank": 6,
-          "coachingEfficiency": 90.3,
-          "optimalPF": 777.1,
-          "optimalPointsFor": 777.1,
+          "winPct": 42.9,
+          "expRecord": "5-2",
+          "luck": -2,
+          "ovrWinPct": 64.9,
+          "ovrRecord": "50-27",
+          "rank": 7,
+          "coachingEfficiency": 90.5,
+          "optimalPF": 893.6,
+          "optimalPointsFor": 893.6,
           "dOhs": 0,
           "dOhCount": 0,
           "dOhDetails": []
         },
         {
-          "ownerName": "Nathan Wells",
-          "teamName": "Defense Contractor #1",
-          "wins": 3,
-          "losses": 3,
-          "ties": 0,
-          "pointsFor": 698.76,
-          "pointsAgainst": 622.32,
-          "form": [
-            "L",
-            "W",
-            "W",
-            "L",
-            "L"
-          ],
-          "expWins": 4,
-          "expLosses": 2,
-          "ovrWins": 41,
-          "ovrLosses": 25,
-          "weeklyWins": 1,
-          "wwDetails": [
-            {
-              "year": 2026,
-              "week": 3,
-              "score": 149.56,
-              "teamName": "Defense Contractor #1"
-            }
-          ],
-          "luckiestWins": 0,
-          "lwDetails": [],
-          "heartbreaks": 1,
-          "hbDetails": [
-            {
-              "owner": "Nathan Wells",
-              "team": "Defense Contractor #1",
-              "score": 112,
-              "oppOwner": "Dylan Soth",
-              "oppScore": 113.62,
-              "margin": 1.62,
-              "year": 2026,
-              "week": 5
-            }
-          ],
-          "toughestLosses": 0,
-          "tlDetails": [],
-          "winPct": 50,
-          "expRecord": "4-2",
-          "luck": -1,
-          "ovrWinPct": 62.1,
-          "ovrRecord": "41-25",
-          "rank": 7,
-          "coachingEfficiency": 92.2,
-          "optimalPF": 757.8,
-          "optimalPointsFor": 757.8,
-          "dOhs": 1,
-          "dOhCount": 1,
-          "dOhDetails": [
-            {
-              "year": 2026,
-              "week": 5,
-              "team": "Defense Contractor #1",
-              "starter": "Michael Mayer",
-              "starterPosition": "TE",
-              "starterSlot": "FLEX",
-              "starterPoints": 0.7,
-              "benchPlayer": "Terry McLaurin",
-              "benchPosition": "WR",
-              "benchPoints": 10.2,
-              "netGain": 9.5,
-              "deficitNeeded": 1.62,
-              "winMargin": 7.88,
-              "projectedNewScore": 121.5
-            }
-          ]
-        },
-        {
           "ownerName": "Trace Bakulich",
           "teamName": "ProudER",
           "wins": 2,
-          "losses": 4,
+          "losses": 5,
           "ties": 0,
-          "pointsFor": 616.96,
-          "pointsAgainst": 670.84,
+          "pointsFor": 694.48,
+          "pointsAgainst": 775.12,
           "form": [
-            "W",
+            "L",
             "L",
             "L",
             "L",
             "L"
           ],
           "expWins": 3,
-          "expLosses": 3,
+          "expLosses": 4,
           "ovrWins": 28,
-          "ovrLosses": 38,
+          "ovrLosses": 49,
           "weeklyWins": 1,
           "wwDetails": [
             {
@@ -41907,15 +41985,133 @@
               "week": 6
             }
           ],
-          "winPct": 33.3,
-          "expRecord": "3-3",
+          "winPct": 28.6,
+          "expRecord": "3-4",
           "luck": -1,
-          "ovrWinPct": 42.4,
-          "ovrRecord": "28-38",
+          "ovrWinPct": 36.4,
+          "ovrRecord": "28-49",
           "rank": 8,
-          "coachingEfficiency": 98.1,
-          "optimalPF": 628.7,
-          "optimalPointsFor": 628.7,
+          "coachingEfficiency": 97.4,
+          "optimalPF": 713,
+          "optimalPointsFor": 713,
+          "dOhs": 0,
+          "dOhCount": 0,
+          "dOhDetails": []
+        },
+        {
+          "ownerName": "Sean Belcher",
+          "teamName": "Milkshake Baddies",
+          "wins": 2,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 629.28,
+          "pointsAgainst": 754.52,
+          "form": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "W"
+          ],
+          "expWins": 2,
+          "expLosses": 5,
+          "ovrWins": 20,
+          "ovrLosses": 57,
+          "weeklyWins": 0,
+          "wwDetails": [],
+          "luckiestWins": 0,
+          "lwDetails": [],
+          "heartbreaks": 0,
+          "hbDetails": [],
+          "toughestLosses": 0,
+          "tlDetails": [],
+          "winPct": 28.6,
+          "expRecord": "2-5",
+          "luck": 0,
+          "ovrWinPct": 26,
+          "ovrRecord": "20-57",
+          "rank": 9,
+          "coachingEfficiency": 89.3,
+          "optimalPF": 704.9,
+          "optimalPointsFor": 704.9,
+          "dOhs": 1,
+          "dOhCount": 1,
+          "dOhDetails": [
+            {
+              "year": 2026,
+              "week": 4,
+              "team": "Milkshake Baddies",
+              "starter": "DJ Moore",
+              "starterPosition": "WR",
+              "starterSlot": "WR",
+              "starterPoints": 2.2,
+              "benchPlayer": "Brian Robinson Jr.",
+              "benchPosition": "RB",
+              "benchPoints": 25.2,
+              "netGain": 23,
+              "deficitNeeded": 21.94,
+              "winMargin": 1.06,
+              "projectedNewScore": 118.72
+            }
+          ]
+        },
+        {
+          "ownerName": "Phillip Busick",
+          "teamName": "Joey Chestnuts",
+          "wins": 2,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 552.08,
+          "pointsAgainst": 707.98,
+          "form": [
+            "L",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "expWins": 1,
+          "expLosses": 6,
+          "ovrWins": 9,
+          "ovrLosses": 68,
+          "weeklyWins": 0,
+          "wwDetails": [],
+          "luckiestWins": 2,
+          "lwDetails": [
+            {
+              "owner": "Phillip Busick",
+              "team": "Joey Chestnuts",
+              "score": 92.32,
+              "oppOwner": "Michael Anderson",
+              "oppScore": 84.54,
+              "margin": 7.78,
+              "year": 2026,
+              "week": 5
+            },
+            {
+              "owner": "Phillip Busick",
+              "team": "Joey Chestnuts",
+              "score": 92.7,
+              "oppOwner": "Andrew Wilson",
+              "oppScore": 79.42,
+              "margin": 13.28,
+              "year": 2026,
+              "week": 7
+            }
+          ],
+          "heartbreaks": 0,
+          "hbDetails": [],
+          "toughestLosses": 0,
+          "tlDetails": [],
+          "winPct": 28.6,
+          "expRecord": "1-6",
+          "luck": 1,
+          "ovrWinPct": 11.7,
+          "ovrRecord": "9-68",
+          "rank": 10,
+          "coachingEfficiency": 95.4,
+          "optimalPF": 578.5,
+          "optimalPointsFor": 578.5,
           "dOhs": 0,
           "dOhCount": 0,
           "dOhDetails": []
@@ -41924,21 +42120,21 @@
           "ownerName": "Andrew Wilson",
           "teamName": "L Central",
           "wins": 1,
-          "losses": 5,
+          "losses": 6,
           "ties": 0,
-          "pointsFor": 633.14,
-          "pointsAgainst": 737.8,
+          "pointsFor": 712.56,
+          "pointsAgainst": 830.5,
           "form": [
             "L",
             "L",
-            "L",
             "W",
+            "L",
             "L"
           ],
           "expWins": 3,
-          "expLosses": 3,
-          "ovrWins": 34,
-          "ovrLosses": 32,
+          "expLosses": 4,
+          "ovrWins": 35,
+          "ovrLosses": 42,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 0,
@@ -41969,17 +42165,17 @@
               "week": 1
             }
           ],
-          "winPct": 16.7,
-          "expRecord": "3-3",
+          "winPct": 14.3,
+          "expRecord": "3-4",
           "luck": -2,
-          "ovrWinPct": 51.5,
-          "ovrRecord": "34-32",
-          "rank": 9,
-          "coachingEfficiency": 86.1,
-          "optimalPF": 735.6,
-          "optimalPointsFor": 735.6,
-          "dOhs": 1,
-          "dOhCount": 1,
+          "ovrWinPct": 45.5,
+          "ovrRecord": "35-42",
+          "rank": 11,
+          "coachingEfficiency": 84.8,
+          "optimalPF": 840.4,
+          "optimalPointsFor": 840.4,
+          "dOhs": 2,
+          "dOhCount": 2,
           "dOhDetails": [
             {
               "year": 2026,
@@ -41996,125 +42192,33 @@
               "deficitNeeded": 23.5,
               "winMargin": 6.1,
               "projectedNewScore": 150.56
-            }
-          ]
-        },
-        {
-          "ownerName": "Sean Belcher",
-          "teamName": "Milkshake Baddies",
-          "wins": 1,
-          "losses": 5,
-          "ties": 0,
-          "pointsFor": 525,
-          "pointsAgainst": 677,
-          "form": [
-            "L",
-            "L",
-            "L",
-            "L",
-            "W"
-          ],
-          "expWins": 1,
-          "expLosses": 5,
-          "ovrWins": 15,
-          "ovrLosses": 51,
-          "weeklyWins": 0,
-          "wwDetails": [],
-          "luckiestWins": 0,
-          "lwDetails": [],
-          "heartbreaks": 0,
-          "hbDetails": [],
-          "toughestLosses": 0,
-          "tlDetails": [],
-          "winPct": 16.7,
-          "expRecord": "1-5",
-          "luck": 0,
-          "ovrWinPct": 22.7,
-          "ovrRecord": "15-51",
-          "rank": 10,
-          "coachingEfficiency": 87.4,
-          "optimalPF": 600.6,
-          "optimalPointsFor": 600.6,
-          "dOhs": 1,
-          "dOhCount": 1,
-          "dOhDetails": [
+            },
             {
               "year": 2026,
-              "week": 4,
-              "team": "Milkshake Baddies",
-              "starter": "DJ Moore",
+              "week": 7,
+              "team": "L Central",
+              "starter": "Jalen Coker",
               "starterPosition": "WR",
               "starterSlot": "WR",
-              "starterPoints": 2.2,
-              "benchPlayer": "Brian Robinson Jr.",
+              "starterPoints": 1.4,
+              "benchPlayer": "Rhamondre Stevenson",
               "benchPosition": "RB",
-              "benchPoints": 25.2,
-              "netGain": 23,
-              "deficitNeeded": 21.94,
-              "winMargin": 1.06,
-              "projectedNewScore": 118.72
+              "benchPoints": 20,
+              "netGain": 18.6,
+              "deficitNeeded": 13.28,
+              "winMargin": 5.32,
+              "projectedNewScore": 98.02
             }
           ]
-        },
-        {
-          "ownerName": "Phillip Busick",
-          "teamName": "Joey Chestnuts",
-          "wins": 1,
-          "losses": 5,
-          "ties": 0,
-          "pointsFor": 459.38,
-          "pointsAgainst": 628.56,
-          "form": [
-            "L",
-            "L",
-            "L",
-            "W",
-            "L"
-          ],
-          "expWins": 1,
-          "expLosses": 5,
-          "ovrWins": 6,
-          "ovrLosses": 60,
-          "weeklyWins": 0,
-          "wwDetails": [],
-          "luckiestWins": 1,
-          "lwDetails": [
-            {
-              "owner": "Phillip Busick",
-              "team": "Joey Chestnuts",
-              "score": 92.32,
-              "oppOwner": "Michael Anderson",
-              "oppScore": 84.54,
-              "margin": 7.78,
-              "year": 2026,
-              "week": 5
-            }
-          ],
-          "heartbreaks": 0,
-          "hbDetails": [],
-          "toughestLosses": 0,
-          "tlDetails": [],
-          "winPct": 16.7,
-          "expRecord": "1-5",
-          "luck": 0,
-          "ovrWinPct": 9.1,
-          "ovrRecord": "6-60",
-          "rank": 11,
-          "coachingEfficiency": 95,
-          "optimalPF": 483.7,
-          "optimalPointsFor": 483.7,
-          "dOhs": 0,
-          "dOhCount": 0,
-          "dOhDetails": []
         },
         {
           "ownerName": "Michael Anderson",
           "teamName": "CTESPN",
           "wins": 0,
-          "losses": 6,
+          "losses": 7,
           "ties": 0,
-          "pointsFor": 561.54,
-          "pointsAgainst": 727.34,
+          "pointsFor": 649.06,
+          "pointsAgainst": 834.72,
           "form": [
             "L",
             "L",
@@ -42123,9 +42227,9 @@
             "L"
           ],
           "expWins": 2,
-          "expLosses": 4,
-          "ovrWins": 18,
-          "ovrLosses": 48,
+          "expLosses": 5,
+          "ovrWins": 20,
+          "ovrLosses": 57,
           "weeklyWins": 0,
           "wwDetails": [],
           "luckiestWins": 0,
@@ -42167,14 +42271,14 @@
             }
           ],
           "winPct": 0,
-          "expRecord": "2-4",
+          "expRecord": "2-5",
           "luck": -2,
-          "ovrWinPct": 27.3,
-          "ovrRecord": "18-48",
+          "ovrWinPct": 26,
+          "ovrRecord": "20-57",
           "rank": 12,
-          "coachingEfficiency": 85.5,
-          "optimalPF": 657,
-          "optimalPointsFor": 657,
+          "coachingEfficiency": 86.6,
+          "optimalPF": 749.3,
+          "optimalPointsFor": 749.3,
           "dOhs": 2,
           "dOhCount": 2,
           "dOhDetails": [
@@ -42800,12 +42904,12 @@
           "matchupId": 37,
           "homeTeam": "Justin Herbooty",
           "homeOwner": "Austin Geller",
-          "homeScore": 0,
+          "homeScore": 107.36,
           "awayTeam": "Defense Contractor #1",
           "awayOwner": "Nathan Wells",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 115.22,
+          "winner": "Nathan Wells",
+          "margin": 7.86,
           "isPlayoff": false
         },
         {
@@ -42816,12 +42920,12 @@
           "matchupId": 38,
           "homeTeam": "Milkshake Baddies",
           "homeOwner": "Sean Belcher",
-          "homeScore": 0,
+          "homeScore": 104.28,
           "awayTeam": "ProudER",
           "awayOwner": "Trace Bakulich",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 77.52,
+          "winner": "Sean Belcher",
+          "margin": 26.76,
           "isPlayoff": false
         },
         {
@@ -42832,12 +42936,12 @@
           "matchupId": 39,
           "homeTeam": "Stroking my penix",
           "homeOwner": "Brendan Sanders",
-          "homeScore": 0,
+          "homeScore": 100.2,
           "awayTeam": "South Memphis Football Club",
           "awayOwner": "Tyler Hicks",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 125.54,
+          "winner": "Tyler Hicks",
+          "margin": 25.34,
           "isPlayoff": false
         },
         {
@@ -42848,12 +42952,12 @@
           "matchupId": 40,
           "homeTeam": "Aidan's Last Dance",
           "homeOwner": "Aidan O'Sullivan",
-          "homeScore": 0,
+          "homeScore": 106.98,
           "awayTeam": "Human Eros TDs",
           "awayOwner": "Dylan Soth",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 132.38,
+          "winner": "Dylan Soth",
+          "margin": 25.4,
           "isPlayoff": false
         },
         {
@@ -42864,12 +42968,12 @@
           "matchupId": 41,
           "homeTeam": "L Central",
           "homeOwner": "Andrew Wilson",
-          "homeScore": 0,
+          "homeScore": 79.42,
           "awayTeam": "Joey Chestnuts",
           "awayOwner": "Phillip Busick",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 92.7,
+          "winner": "Phillip Busick",
+          "margin": 13.28,
           "isPlayoff": false
         },
         {
@@ -42880,12 +42984,12 @@
           "matchupId": 42,
           "homeTeam": "BloodSword2000",
           "homeOwner": "Brodie Pirtle",
-          "homeScore": 0,
+          "homeScore": 107.38,
           "awayTeam": "CTESPN",
           "awayOwner": "Michael Anderson",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 87.52,
+          "winner": "Brodie Pirtle",
+          "margin": 19.86,
           "isPlayoff": false
         },
         {
@@ -46338,12 +46442,12 @@
           "matchupId": 37,
           "homeTeam": "Justin Herbooty",
           "homeOwner": "Austin Geller",
-          "homeScore": 0,
+          "homeScore": 107.36,
           "awayTeam": "Defense Contractor #1",
           "awayOwner": "Nathan Wells",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 115.22,
+          "winner": "Nathan Wells",
+          "margin": 7.86,
           "isPlayoff": false
         },
         {
@@ -46354,12 +46458,12 @@
           "matchupId": 38,
           "homeTeam": "Milkshake Baddies",
           "homeOwner": "Sean Belcher",
-          "homeScore": 0,
+          "homeScore": 104.28,
           "awayTeam": "ProudER",
           "awayOwner": "Trace Bakulich",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 77.52,
+          "winner": "Sean Belcher",
+          "margin": 26.76,
           "isPlayoff": false
         },
         {
@@ -46370,12 +46474,12 @@
           "matchupId": 39,
           "homeTeam": "Stroking my penix",
           "homeOwner": "Brendan Sanders",
-          "homeScore": 0,
+          "homeScore": 100.2,
           "awayTeam": "South Memphis Football Club",
           "awayOwner": "Tyler Hicks",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 125.54,
+          "winner": "Tyler Hicks",
+          "margin": 25.34,
           "isPlayoff": false
         },
         {
@@ -46386,12 +46490,12 @@
           "matchupId": 40,
           "homeTeam": "Aidan's Last Dance",
           "homeOwner": "Aidan O'Sullivan",
-          "homeScore": 0,
+          "homeScore": 106.98,
           "awayTeam": "Human Eros TDs",
           "awayOwner": "Dylan Soth",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 132.38,
+          "winner": "Dylan Soth",
+          "margin": 25.4,
           "isPlayoff": false
         },
         {
@@ -46402,12 +46506,12 @@
           "matchupId": 41,
           "homeTeam": "L Central",
           "homeOwner": "Andrew Wilson",
-          "homeScore": 0,
+          "homeScore": 79.42,
           "awayTeam": "Joey Chestnuts",
           "awayOwner": "Phillip Busick",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 92.7,
+          "winner": "Phillip Busick",
+          "margin": 13.28,
           "isPlayoff": false
         },
         {
@@ -46418,12 +46522,12 @@
           "matchupId": 42,
           "homeTeam": "BloodSword2000",
           "homeOwner": "Brodie Pirtle",
-          "homeScore": 0,
+          "homeScore": 107.38,
           "awayTeam": "CTESPN",
           "awayOwner": "Michael Anderson",
-          "awayScore": 0,
-          "winner": "TBD",
-          "margin": 0,
+          "awayScore": 87.52,
+          "winner": "Brodie Pirtle",
+          "margin": 19.86,
           "isPlayoff": false
         },
         {
@@ -62114,90 +62218,90 @@
       "weekNumber": 7,
       "homeOwner": "Austin Geller",
       "homeTeam": "Justin Herbooty",
-      "homeScore": 0,
+      "homeScore": 107.36,
       "awayOwner": "Nathan Wells",
       "awayTeam": "Defense Contractor #1",
-      "awayScore": 0,
+      "awayScore": 115.22,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Nathan Wells",
+      "margin": 7.86
     },
     {
       "seasonYear": 2026,
       "weekNumber": 7,
       "homeOwner": "Sean Belcher",
       "homeTeam": "Milkshake Baddies",
-      "homeScore": 0,
+      "homeScore": 104.28,
       "awayOwner": "Trace Bakulich",
       "awayTeam": "ProudER",
-      "awayScore": 0,
+      "awayScore": 77.52,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Sean Belcher",
+      "margin": 26.76
     },
     {
       "seasonYear": 2026,
       "weekNumber": 7,
       "homeOwner": "Brendan Sanders",
       "homeTeam": "Stroking my penix",
-      "homeScore": 0,
+      "homeScore": 100.2,
       "awayOwner": "Tyler Hicks",
       "awayTeam": "South Memphis Football Club",
-      "awayScore": 0,
+      "awayScore": 125.54,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Tyler Hicks",
+      "margin": 25.34
     },
     {
       "seasonYear": 2026,
       "weekNumber": 7,
       "homeOwner": "Aidan O'Sullivan",
       "homeTeam": "Aidan's Last Dance",
-      "homeScore": 0,
+      "homeScore": 106.98,
       "awayOwner": "Dylan Soth",
       "awayTeam": "Human Eros TDs",
-      "awayScore": 0,
+      "awayScore": 132.38,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Dylan Soth",
+      "margin": 25.4
     },
     {
       "seasonYear": 2026,
       "weekNumber": 7,
       "homeOwner": "Andrew Wilson",
       "homeTeam": "L Central",
-      "homeScore": 0,
+      "homeScore": 79.42,
       "awayOwner": "Phillip Busick",
       "awayTeam": "Joey Chestnuts",
-      "awayScore": 0,
+      "awayScore": 92.7,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Phillip Busick",
+      "margin": 13.28
     },
     {
       "seasonYear": 2026,
       "weekNumber": 7,
       "homeOwner": "Brodie Pirtle",
       "homeTeam": "BloodSword2000",
-      "homeScore": 0,
+      "homeScore": 107.38,
       "awayOwner": "Michael Anderson",
       "awayTeam": "CTESPN",
-      "awayScore": 0,
+      "awayScore": 87.52,
       "isPlayoff": false,
       "rawTier": "NONE",
       "stage": "Regular Season",
-      "winner": "TBD",
-      "margin": 0
+      "winner": "Brodie Pirtle",
+      "margin": 19.86
     },
     {
       "seasonYear": 2026,
@@ -64430,7 +64534,7 @@
     {
       "owner1": "Sean Belcher",
       "owner2": "Trace Bakulich",
-      "owner1Wins": 6,
+      "owner1Wins": 7,
       "owner2Wins": 8,
       "ties": 1,
       "games": [
@@ -64658,12 +64762,27 @@
           "winner": "Sean Belcher",
           "stage": "Regular Season",
           "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Sean Belcher",
+          "homeTeam": "Milkshake Baddies",
+          "homeScore": 104.28,
+          "awayOwner": "Trace Bakulich",
+          "awayTeam": "ProudER",
+          "awayScore": 77.52,
+          "owner1Score": 104.28,
+          "owner2Score": 77.52,
+          "winner": "Sean Belcher"
         }
       ],
-      "wins1": 6,
+      "wins1": 7,
       "wins2": 8,
-      "pf1": 1667.26,
-      "pf2": 1715.52
+      "pf1": 1771.54,
+      "pf2": 1793.04
     },
     {
       "owner1": "Javier",
@@ -71590,7 +71709,7 @@
       "owner1": "Austin Geller",
       "owner2": "Nathan Wells",
       "owner1Wins": 1,
-      "owner2Wins": 3,
+      "owner2Wins": 4,
       "ties": 0,
       "games": [
         {
@@ -71652,12 +71771,27 @@
           "winner": "Nathan Wells",
           "stage": "Regular Season",
           "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Austin Geller",
+          "homeTeam": "Justin Herbooty",
+          "homeScore": 107.36,
+          "awayOwner": "Nathan Wells",
+          "awayTeam": "Defense Contractor #1",
+          "awayScore": 115.22,
+          "owner1Score": 107.36,
+          "owner2Score": 115.22,
+          "winner": "Nathan Wells"
         }
       ],
       "wins1": 1,
-      "wins2": 3,
-      "pf1": 435.04,
-      "pf2": 452.56
+      "wins2": 4,
+      "pf1": 542.4,
+      "pf2": 567.78
     },
     {
       "owner1": "Andrew Wilson",
@@ -71899,7 +72033,7 @@
       "owner1": "Aidan O'Sullivan",
       "owner2": "Dylan Soth",
       "owner1Wins": 3,
-      "owner2Wins": 3,
+      "owner2Wins": 4,
       "ties": 0,
       "games": [
         {
@@ -71991,12 +72125,27 @@
           "winner": "Aidan O'Sullivan",
           "stage": "Regular Season",
           "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Aidan O'Sullivan",
+          "homeTeam": "Aidan's Last Dance",
+          "homeScore": 106.98,
+          "awayOwner": "Dylan Soth",
+          "awayTeam": "Human Eros TDs",
+          "awayScore": 132.38,
+          "owner1Score": 106.98,
+          "owner2Score": 132.38,
+          "winner": "Dylan Soth"
         }
       ],
       "wins1": 3,
-      "wins2": 3,
-      "pf1": 682,
-      "pf2": 635.56
+      "wins2": 4,
+      "pf1": 788.98,
+      "pf2": 767.94
     },
     {
       "owner1": "Dylan Soth",
@@ -72556,7 +72705,7 @@
       "owner1": "Andrew Wilson",
       "owner2": "Phillip Busick",
       "owner1Wins": 0,
-      "owner2Wins": 2,
+      "owner2Wins": 3,
       "ties": 0,
       "games": [
         {
@@ -72588,12 +72737,27 @@
           "winner": "Phillip Busick",
           "stage": "Regular Season",
           "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Andrew Wilson",
+          "homeTeam": "L Central",
+          "homeScore": 79.42,
+          "awayOwner": "Phillip Busick",
+          "awayTeam": "Joey Chestnuts",
+          "awayScore": 92.7,
+          "owner1Score": 79.42,
+          "owner2Score": 92.7,
+          "winner": "Phillip Busick"
         }
       ],
       "wins1": 0,
-      "wins2": 2,
-      "pf1": 172.3,
-      "pf2": 208.36
+      "wins2": 3,
+      "pf1": 251.72,
+      "pf2": 301.06
     },
     {
       "owner1": "Mike Petro",
@@ -73578,6 +73742,62 @@
           "awayScore": 97.12,
           "owner1Score": 97.12,
           "owner2Score": 84.02,
+          "winner": "Brodie Pirtle"
+        }
+      ]
+    },
+    {
+      "owner1": "Brendan Sanders",
+      "owner2": "Tyler Hicks",
+      "wins1": 0,
+      "wins2": 1,
+      "owner1Wins": 0,
+      "owner2Wins": 1,
+      "ties": 0,
+      "pf1": 100.2,
+      "pf2": 125.54,
+      "games": [
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Brendan Sanders",
+          "homeTeam": "Stroking my penix",
+          "homeScore": 100.2,
+          "awayOwner": "Tyler Hicks",
+          "awayTeam": "South Memphis Football Club",
+          "awayScore": 125.54,
+          "owner1Score": 100.2,
+          "owner2Score": 125.54,
+          "winner": "Tyler Hicks"
+        }
+      ]
+    },
+    {
+      "owner1": "Brodie Pirtle",
+      "owner2": "Michael Anderson",
+      "wins1": 1,
+      "wins2": 0,
+      "owner1Wins": 1,
+      "owner2Wins": 0,
+      "ties": 0,
+      "pf1": 107.38,
+      "pf2": 87.52,
+      "games": [
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Brodie Pirtle",
+          "homeTeam": "BloodSword2000",
+          "homeScore": 107.38,
+          "awayOwner": "Michael Anderson",
+          "awayTeam": "CTESPN",
+          "awayScore": 87.52,
+          "owner1Score": 107.38,
+          "owner2Score": 87.52,
           "winner": "Brodie Pirtle"
         }
       ]
@@ -78031,6 +78251,122 @@
       ]
     },
     {
+      "winner": "Nathan Wells",
+      "loser": "Austin Geller",
+      "streak": 3,
+      "startYear": 2024,
+      "startWeek": 8,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "homeOwner": "Austin Geller",
+          "awayOwner": "Nathan Wells",
+          "homeTeam": "HALL-QAEDA",
+          "awayTeam": "Defense Contractor #1",
+          "homeScore": 121.34,
+          "awayScore": 130.1,
+          "owner1Score": 121.34,
+          "owner2Score": 130.1,
+          "winner": "Nathan Wells",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "homeOwner": "Austin Geller",
+          "awayOwner": "Nathan Wells",
+          "homeTeam": "Hamas",
+          "awayTeam": "Defense Contractor #1",
+          "homeScore": 118.2,
+          "awayScore": 134.46,
+          "owner1Score": 118.2,
+          "owner2Score": 134.46,
+          "winner": "Nathan Wells",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Austin Geller",
+          "homeTeam": "Justin Herbooty",
+          "homeScore": 107.36,
+          "awayOwner": "Nathan Wells",
+          "awayTeam": "Defense Contractor #1",
+          "awayScore": 115.22,
+          "owner1Score": 107.36,
+          "owner2Score": 115.22,
+          "winner": "Nathan Wells"
+        }
+      ]
+    },
+    {
+      "winner": "Nathan Wells",
+      "loser": "Austin Geller",
+      "streak": 3,
+      "startYear": 2024,
+      "startWeek": 8,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "homeOwner": "Austin Geller",
+          "awayOwner": "Nathan Wells",
+          "homeTeam": "HALL-QAEDA",
+          "awayTeam": "Defense Contractor #1",
+          "homeScore": 121.34,
+          "awayScore": 130.1,
+          "owner1Score": 121.34,
+          "owner2Score": 130.1,
+          "winner": "Nathan Wells",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "homeOwner": "Austin Geller",
+          "awayOwner": "Nathan Wells",
+          "homeTeam": "Hamas",
+          "awayTeam": "Defense Contractor #1",
+          "homeScore": 118.2,
+          "awayScore": 134.46,
+          "owner1Score": 118.2,
+          "owner2Score": 134.46,
+          "winner": "Nathan Wells",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Austin Geller",
+          "homeTeam": "Justin Herbooty",
+          "homeScore": 107.36,
+          "awayOwner": "Nathan Wells",
+          "awayTeam": "Defense Contractor #1",
+          "awayScore": 115.22,
+          "owner1Score": 107.36,
+          "owner2Score": 115.22,
+          "winner": "Nathan Wells"
+        }
+      ]
+    },
+    {
       "winner": "Dylan Soth",
       "loser": "Phillip Busick",
       "streak": 3,
@@ -78375,6 +78711,122 @@
           "winner": "Aidan O'Sullivan",
           "stage": "Regular Season",
           "isPlayoff": false
+        }
+      ]
+    },
+    {
+      "winner": "Phillip Busick",
+      "loser": "Andrew Wilson",
+      "streak": 3,
+      "startYear": 2023,
+      "startWeek": 9,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "homeOwner": "Phillip Busick",
+          "awayOwner": "Andrew Wilson",
+          "homeTeam": "big cheeks",
+          "awayTeam": "L Central",
+          "homeScore": 107.5,
+          "awayScore": 105.5,
+          "owner1Score": 105.5,
+          "owner2Score": 107.5,
+          "winner": "Phillip Busick",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "homeOwner": "Andrew Wilson",
+          "awayOwner": "Phillip Busick",
+          "homeTeam": "L Central",
+          "awayTeam": "I Love Joey Chestnut",
+          "homeScore": 66.8,
+          "awayScore": 100.86,
+          "owner1Score": 66.8,
+          "owner2Score": 100.86,
+          "winner": "Phillip Busick",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Andrew Wilson",
+          "homeTeam": "L Central",
+          "homeScore": 79.42,
+          "awayOwner": "Phillip Busick",
+          "awayTeam": "Joey Chestnuts",
+          "awayScore": 92.7,
+          "owner1Score": 79.42,
+          "owner2Score": 92.7,
+          "winner": "Phillip Busick"
+        }
+      ]
+    },
+    {
+      "winner": "Phillip Busick",
+      "loser": "Andrew Wilson",
+      "streak": 3,
+      "startYear": 2023,
+      "startWeek": 9,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2023,
+          "week": 9,
+          "homeOwner": "Phillip Busick",
+          "awayOwner": "Andrew Wilson",
+          "homeTeam": "big cheeks",
+          "awayTeam": "L Central",
+          "homeScore": 107.5,
+          "awayScore": 105.5,
+          "owner1Score": 105.5,
+          "owner2Score": 107.5,
+          "winner": "Phillip Busick",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "homeOwner": "Andrew Wilson",
+          "awayOwner": "Phillip Busick",
+          "homeTeam": "L Central",
+          "awayTeam": "I Love Joey Chestnut",
+          "homeScore": 66.8,
+          "awayScore": 100.86,
+          "owner1Score": 66.8,
+          "owner2Score": 100.86,
+          "winner": "Phillip Busick",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Andrew Wilson",
+          "homeTeam": "L Central",
+          "homeScore": 79.42,
+          "awayOwner": "Phillip Busick",
+          "awayTeam": "Joey Chestnuts",
+          "awayScore": 92.7,
+          "owner1Score": 79.42,
+          "owner2Score": 92.7,
+          "winner": "Phillip Busick"
         }
       ]
     },
@@ -81812,6 +82264,92 @@
       ]
     },
     {
+      "winner": "Sean Belcher",
+      "loser": "Trace Bakulich",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 6,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "overall",
+      "games": [
+        {
+          "year": 2025,
+          "week": 6,
+          "homeOwner": "Sean Belcher",
+          "awayOwner": "Trace Bakulich",
+          "homeTeam": "Milkshake Baddies",
+          "awayTeam": "ProudER",
+          "homeScore": 140.58,
+          "awayScore": 128.46,
+          "owner1Score": 140.58,
+          "owner2Score": 128.46,
+          "winner": "Sean Belcher",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Sean Belcher",
+          "homeTeam": "Milkshake Baddies",
+          "homeScore": 104.28,
+          "awayOwner": "Trace Bakulich",
+          "awayTeam": "ProudER",
+          "awayScore": 77.52,
+          "owner1Score": 104.28,
+          "owner2Score": 77.52,
+          "winner": "Sean Belcher"
+        }
+      ]
+    },
+    {
+      "winner": "Sean Belcher",
+      "loser": "Trace Bakulich",
+      "streak": 2,
+      "startYear": 2025,
+      "startWeek": 6,
+      "endYear": 2026,
+      "endWeek": 7,
+      "active": true,
+      "type": "regular",
+      "games": [
+        {
+          "year": 2025,
+          "week": 6,
+          "homeOwner": "Sean Belcher",
+          "awayOwner": "Trace Bakulich",
+          "homeTeam": "Milkshake Baddies",
+          "awayTeam": "ProudER",
+          "homeScore": 140.58,
+          "awayScore": 128.46,
+          "owner1Score": 140.58,
+          "owner2Score": 128.46,
+          "winner": "Sean Belcher",
+          "stage": "Regular Season",
+          "isPlayoff": false
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "isPlayoff": false,
+          "stage": "Regular Season",
+          "homeOwner": "Sean Belcher",
+          "homeTeam": "Milkshake Baddies",
+          "homeScore": 104.28,
+          "awayOwner": "Trace Bakulich",
+          "awayTeam": "ProudER",
+          "awayScore": 77.52,
+          "owner1Score": 104.28,
+          "owner2Score": 77.52,
+          "winner": "Sean Belcher"
+        }
+      ]
+    },
+    {
       "winner": "Jeffrey Belcher",
       "loser": "Andrew Hullett",
       "streak": 2,
@@ -83661,92 +84199,6 @@
       ]
     },
     {
-      "winner": "Nathan Wells",
-      "loser": "Austin Geller",
-      "streak": 2,
-      "startYear": 2024,
-      "startWeek": 8,
-      "endYear": 2025,
-      "endWeek": 8,
-      "active": true,
-      "type": "overall",
-      "games": [
-        {
-          "year": 2024,
-          "week": 8,
-          "homeOwner": "Austin Geller",
-          "awayOwner": "Nathan Wells",
-          "homeTeam": "HALL-QAEDA",
-          "awayTeam": "Defense Contractor #1",
-          "homeScore": 121.34,
-          "awayScore": 130.1,
-          "owner1Score": 121.34,
-          "owner2Score": 130.1,
-          "winner": "Nathan Wells",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        },
-        {
-          "year": 2025,
-          "week": 8,
-          "homeOwner": "Austin Geller",
-          "awayOwner": "Nathan Wells",
-          "homeTeam": "Hamas",
-          "awayTeam": "Defense Contractor #1",
-          "homeScore": 118.2,
-          "awayScore": 134.46,
-          "owner1Score": 118.2,
-          "owner2Score": 134.46,
-          "winner": "Nathan Wells",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        }
-      ]
-    },
-    {
-      "winner": "Nathan Wells",
-      "loser": "Austin Geller",
-      "streak": 2,
-      "startYear": 2024,
-      "startWeek": 8,
-      "endYear": 2025,
-      "endWeek": 8,
-      "active": true,
-      "type": "regular",
-      "games": [
-        {
-          "year": 2024,
-          "week": 8,
-          "homeOwner": "Austin Geller",
-          "awayOwner": "Nathan Wells",
-          "homeTeam": "HALL-QAEDA",
-          "awayTeam": "Defense Contractor #1",
-          "homeScore": 121.34,
-          "awayScore": 130.1,
-          "owner1Score": 121.34,
-          "owner2Score": 130.1,
-          "winner": "Nathan Wells",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        },
-        {
-          "year": 2025,
-          "week": 8,
-          "homeOwner": "Austin Geller",
-          "awayOwner": "Nathan Wells",
-          "homeTeam": "Hamas",
-          "awayTeam": "Defense Contractor #1",
-          "homeScore": 118.2,
-          "awayScore": 134.46,
-          "owner1Score": 118.2,
-          "owner2Score": 134.46,
-          "winner": "Nathan Wells",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        }
-      ]
-    },
-    {
       "winner": "Dylan Soth",
       "loser": "Andrew Wilson",
       "streak": 2,
@@ -83999,92 +84451,6 @@
           "owner1Score": 94.58,
           "owner2Score": 81.16,
           "winner": "Austin Geller",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        }
-      ]
-    },
-    {
-      "winner": "Phillip Busick",
-      "loser": "Andrew Wilson",
-      "streak": 2,
-      "startYear": 2023,
-      "startWeek": 9,
-      "endYear": 2025,
-      "endWeek": 6,
-      "active": true,
-      "type": "overall",
-      "games": [
-        {
-          "year": 2023,
-          "week": 9,
-          "homeOwner": "Phillip Busick",
-          "awayOwner": "Andrew Wilson",
-          "homeTeam": "big cheeks",
-          "awayTeam": "L Central",
-          "homeScore": 107.5,
-          "awayScore": 105.5,
-          "owner1Score": 105.5,
-          "owner2Score": 107.5,
-          "winner": "Phillip Busick",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        },
-        {
-          "year": 2025,
-          "week": 6,
-          "homeOwner": "Andrew Wilson",
-          "awayOwner": "Phillip Busick",
-          "homeTeam": "L Central",
-          "awayTeam": "I Love Joey Chestnut",
-          "homeScore": 66.8,
-          "awayScore": 100.86,
-          "owner1Score": 66.8,
-          "owner2Score": 100.86,
-          "winner": "Phillip Busick",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        }
-      ]
-    },
-    {
-      "winner": "Phillip Busick",
-      "loser": "Andrew Wilson",
-      "streak": 2,
-      "startYear": 2023,
-      "startWeek": 9,
-      "endYear": 2025,
-      "endWeek": 6,
-      "active": true,
-      "type": "regular",
-      "games": [
-        {
-          "year": 2023,
-          "week": 9,
-          "homeOwner": "Phillip Busick",
-          "awayOwner": "Andrew Wilson",
-          "homeTeam": "big cheeks",
-          "awayTeam": "L Central",
-          "homeScore": 107.5,
-          "awayScore": 105.5,
-          "owner1Score": 105.5,
-          "owner2Score": 107.5,
-          "winner": "Phillip Busick",
-          "stage": "Regular Season",
-          "isPlayoff": false
-        },
-        {
-          "year": 2025,
-          "week": 6,
-          "homeOwner": "Andrew Wilson",
-          "awayOwner": "Phillip Busick",
-          "homeTeam": "L Central",
-          "awayTeam": "I Love Joey Chestnut",
-          "homeScore": 66.8,
-          "awayScore": 100.86,
-          "owner1Score": 66.8,
-          "owner2Score": 100.86,
-          "winner": "Phillip Busick",
           "stage": "Regular Season",
           "isPlayoff": false
         }
