@@ -35,3 +35,4 @@ h2h: 0-0
 streak: 0
 playoffs: 0-0
 Inaugural clash for a spot on the midseason podium! Boaz (4-3, 918.16 PF, 4th place) and rookie sensation Alex (4-3, 957.84 PF, 3rd place) meet for the first time in league history with sole possession of 3rd place on the line. Boaz gave undefeated Dylan everything he could handle in Week 7 behind Drake Maye's 30.44 pts and Josh Jacobs (20.10). Alex enters looking to regroup after Phillip's 150-pt barrage halted his two-game winning streak. Alex showcases a fearsome young core drafted with elite capital—Bijan Robinson (1.1), Trey McBride (2.24), and Malik Nabers—against Boaz's disciplined scoring machine featuring Puka Nacua and D'Andre Swift. Boaz ($5 Boost Tier) is eyeing a $10.00 repeat bounty win, while Alex seeks his maiden bounty crown to qualify his franchise in the Week 8 Vulture Award.
+

@@ -188,7 +188,7 @@ describe('Commentary Draft Generation Suite', () => {
     expect(dylanTess.streak).toContain('Dylan');
   });
 
-  it('should generate Y2K drafts for Week 2-5 recaps and Week 3-6 previews', () => {
+  it('should generate Y2K drafts for Week 2-7 recaps and Week 3-8 previews', () => {
     const drafts = generateY2kDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -199,6 +199,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w5PreviewMatchups).toHaveLength(6);
     expect(drafts.w5RecapMatchups).toHaveLength(6);
     expect(drafts.w6PreviewMatchups).toHaveLength(6);
+    expect(drafts.w7RecapMatchups).toHaveLength(6);
+    expect(drafts.w8PreviewMatchups).toHaveLength(6);
 
     // Check specific matchups present
     const dylanTessRecap = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Tess');
@@ -232,9 +234,17 @@ describe('Commentary Draft Generation Suite', () => {
     const dylanPhilW6Preview = drafts.w6PreviewMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Phillip');
     expect(dylanPhilW6Preview).toBeDefined();
     expect(dylanPhilW6Preview.writeup).toContain('signature rivalry');
+
+    const dylanBoazW7Recap = drafts.w7RecapMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Boaz');
+    expect(dylanBoazW7Recap).toBeDefined();
+    expect(dylanBoazW7Recap.writeup).toContain('Halftime Bonus');
+
+    const dylanDustinW8Preview = drafts.w8PreviewMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Dustin');
+    expect(dylanDustinW8Preview).toBeDefined();
+    expect(dylanDustinW8Preview.writeup).toContain('The Vulture Award');
   });
 
-  it('should generate Pride Guys drafts for Week 2-5 recaps and Week 3-6 previews', () => {
+  it('should generate Pride Guys drafts for Week 2-7 recaps and Week 3-8 previews', () => {
     const drafts = generatePrideDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -245,6 +255,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w5PreviewMatchups).toHaveLength(6);
     expect(drafts.w5RecapMatchups).toHaveLength(6);
     expect(drafts.w6PreviewMatchups).toHaveLength(6);
+    expect(drafts.w7RecapMatchups).toHaveLength(6);
+    expect(drafts.w8PreviewMatchups).toHaveLength(6);
 
     const mikeTrace = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Michael Anderson' && m.awayOwner === 'Trace Bakulich');
     expect(mikeTrace).toBeDefined();
@@ -277,6 +289,14 @@ describe('Commentary Draft Generation Suite', () => {
     const tylerAidanW6Preview = drafts.w6PreviewMatchups.find(m => m.homeOwner === 'Tyler Hicks' && m.awayOwner === 'Aidan O\'Sullivan');
     expect(tylerAidanW6Preview).toBeDefined();
     expect(tylerAidanW6Preview.writeup).toContain('Game of the Week');
+
+    const austinNathanW7Recap = drafts.w7RecapMatchups.find(m => m.homeOwner === 'Austin Geller' && m.awayOwner === 'Nathan Wells');
+    expect(austinNathanW7Recap).toBeDefined();
+    expect(austinNathanW7Recap.writeup).toContain('Quinshon Judkins');
+
+    const nathanBrodieW8Preview = drafts.w8PreviewMatchups.find(m => m.homeOwner === 'Nathan Wells' && m.awayOwner === 'Brodie Pirtle');
+    expect(nathanBrodieW8Preview).toBeDefined();
+    expect(nathanBrodieW8Preview.writeup).toContain('Game of the Week');
   });
 
   it('should verify draft files exist on disk in docs/', () => {
@@ -288,6 +308,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_5_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_6_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_7_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_2_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'))).toBe(true);
@@ -296,6 +318,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_5_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_6_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_7_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/Y2K_2026_COMMENTARY_BACKUP.json'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });
