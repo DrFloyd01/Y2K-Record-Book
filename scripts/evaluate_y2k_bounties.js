@@ -226,6 +226,85 @@ export function evaluateWeek5(lineups) {
 }
 
 /**
+ * Evaluate Week 6: I’m Sorry for Earlier Yahoo, I love you
+ * Team closest to their exact pre-game projected score (over or under)
+ */
+export function evaluateWeek6(lineups) {
+  const w6Matches = (lineups || []).filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) === 6);
+  const diffs = [];
+
+  w6Matches.forEach(m => {
+    ['homeTeam', 'awayTeam'].forEach(side => {
+      const t = m[side];
+      if (!t) return;
+      const actual = Number(t.actualScore || 0);
+      const starters = t.starters || [];
+      const projected = Number(starters.reduce((acc, p) => acc + (Number(p.projectedPoints) || 0), 0).toFixed(2));
+      const diff = Number(Math.abs(actual - projected).toFixed(2));
+      diffs.push({
+        manager: normalizeManager(t.ownerName),
+        team: t.teamName,
+        actual,
+        projected,
+        diff,
+        rawDiff: Number((actual - projected).toFixed(2))
+      });
+    });
+  });
+
+  diffs.sort((a, b) => a.diff - b.diff);
+
+  return {
+    week: 6,
+    challenge: 'I’m Sorry for Earlier Yahoo, I love you',
+    description: 'Team closest to their exact pre-game projected score (over or under)',
+    winner: diffs[0],
+    runnerUp: diffs[1],
+    third: diffs[2],
+    diff: diffs[0]?.diff || 0,
+    runnerUpDiff: diffs[1]?.diff || 0,
+    thirdDiff: diffs[2]?.diff || 0,
+    standings: diffs
+  };
+}
+
+/**
+ * Evaluate Week 7: Halftime Bonus
+ * #1 overall manager on the standings table through Week 7
+ */
+export function evaluateWeek7(standings) {
+  const topTeams = [...(standings || [])].sort((a, b) => (a.rank || 99) - (b.rank || 99) || b.wins - a.wins || (b.pointsFor || 0) - (a.pointsFor || 0));
+  const winner = topTeams[0];
+  const runnerUp = topTeams[1];
+  const third = topTeams[2];
+
+  return {
+    week: 7,
+    challenge: 'Halftime Bonus',
+    description: '#1 overall manager on the standings table through Week 7',
+    winner: {
+      manager: normalizeManager(winner.ownerName),
+      team: winner.teamName,
+      record: `${winner.wins}-${winner.losses}`,
+      pointsFor: Number((winner.pointsFor || 0).toFixed(2))
+    },
+    runnerUp: {
+      manager: normalizeManager(runnerUp.ownerName),
+      team: runnerUp.teamName,
+      record: `${runnerUp.wins}-${runnerUp.losses}`,
+      pointsFor: Number((runnerUp.pointsFor || 0).toFixed(2))
+    },
+    third: {
+      manager: normalizeManager(third.ownerName),
+      team: third.teamName,
+      record: `${third.wins}-${third.losses}`,
+      pointsFor: Number((third.pointsFor || 0).toFixed(2))
+    },
+    standings: topTeams
+  };
+}
+
+/**
  * Calculate ledger win summary across all evaluated weeks
  */
 export function computeLedgerSummary(bountyResults) {
@@ -359,8 +438,33 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   } else {
     text += `- **Week 05**: Lick My Nuts, Yahoo — Team with the most points scored over their pre-game projected total\n`;
   }
-  text += `- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)\n`;
-  text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7\n`;
+  // Week 6
+  const w6 = bountyResults.find(r => r && r.week === 6);
+  if (w6) {
+    text += `- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)  \n`;
+    text += `  - 👑 **Winner**: **${w6.winner.manager}** (\`${w6.winner.team}\`) — **±${w6.diff.toFixed(2)} pts off projection** (${w6.winner.actual.toFixed(2)} actual vs ${w6.winner.projected.toFixed(2)} projected)  \n`;
+    text += `  - 💵 **Payout**: **$${(w6.payout || 0).toFixed(2)}** (${w6.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w6.runnerUp.manager} (\`${w6.runnerUp.team}\`) — ±${w6.runnerUpDiff.toFixed(2)} pts off projection (${w6.runnerUp.actual.toFixed(2)} actual vs ${w6.runnerUp.projected.toFixed(2)} projected)  \n`;
+    if (w6.third) {
+      text += `  - 🥉 **3rd Place**: ${w6.third.manager} (\`${w6.third.team}\`) — ±${w6.thirdDiff.toFixed(2)} pts off projection (${w6.third.actual.toFixed(2)} actual vs ${w6.third.projected.toFixed(2)} projected)\n`;
+    }
+  } else {
+    text += `- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)\n`;
+  }
+
+  // Week 7
+  const w7 = bountyResults.find(r => r && r.week === 7);
+  if (w7) {
+    text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7  \n`;
+    text += `  - 👑 **Winner**: **${w7.winner.manager}** (\`${w7.winner.team}\`) — **#1 Overall Seed (${w7.winner.record}, ${w7.winner.pointsFor.toFixed(2)} PF)**  \n`;
+    text += `  - 💵 **Payout**: **$${(w7.payout || 0).toFixed(2)}** (${w7.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w7.runnerUp.manager} (\`${w7.runnerUp.team}\`) — #2 Overall Seed (${w7.runnerUp.record}, ${w7.runnerUp.pointsFor.toFixed(2)} PF)  \n`;
+    if (w7.third) {
+      text += `  - 🥉 **3rd Place**: ${w7.third.manager} (\`${w7.third.team}\`) — #3 Overall Seed (${w7.third.record}, ${w7.third.pointsFor.toFixed(2)} PF)\n`;
+    }
+  } else {
+    text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7\n`;
+  }
   text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns\n`;
   text += `- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench\n`;
   text += `- **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)\n`;
@@ -445,6 +549,16 @@ export function updateIndexHtmlWeek5Bounty(winnerName, teamName, diffPts, payout
   return updateIndexHtmlCard(5, winnerName, teamName, resultHtml);
 }
 
+export function updateIndexHtmlWeek6Bounty(winnerName, teamName, diffPts, payoutNote) {
+  const resultHtml = `±${diffPts} pts <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(6, winnerName, teamName, resultHtml);
+}
+
+export function updateIndexHtmlWeek7Bounty(winnerName, teamName, record, pointsFor, payoutNote) {
+  const resultHtml = `${record} (${pointsFor} PF) <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(7, winnerName, teamName, resultHtml);
+}
+
 /**
  * Main Runner
  */
@@ -464,16 +578,20 @@ export function runBountyEvaluation() {
 
   let w3Result = null;
   let w5Result = null;
+  let w6Result = null;
   const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
   if (existsSync(lineupsPath)) {
     const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
     w3Result = evaluateWeek3(lineups);
     w5Result = evaluateWeek5(lineups);
+    w6Result = evaluateWeek6(lineups);
   }
 
   const w4Result = evaluateWeek4(allMatchups);
+  const standings = leagueData.seasonData?.['2026']?.standings || [];
+  const w7Result = evaluateWeek7(standings);
 
-  const bountyResults = [w1Result, w2Result, w3Result, w4Result, w5Result].filter(Boolean);
+  const bountyResults = [w1Result, w2Result, w3Result, w4Result, w5Result, w6Result, w7Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
 
   console.log(`✅ Week 1 Winner: ${w1Result.winner.manager} (${w1Result.winner.score} pts) -> ${w1Result.payoutNote}`);
@@ -496,6 +614,18 @@ export function runBountyEvaluation() {
     console.log(`✅ Week 5 Winner: ${w5Result.winner.manager} (+${w5Result.diff} pts) -> ${w5Result.payoutNote}`);
     console.log(`   Runner-Up: ${w5Result.runnerUp.manager} (+${w5Result.runnerUpDiff} pts)`);
     console.log(`   3rd Place: ${w5Result.third.manager} (+${w5Result.thirdDiff} pts)`);
+  }
+
+  if (w6Result) {
+    console.log(`✅ Week 6 Winner: ${w6Result.winner.manager} (±${w6Result.diff} pts) -> ${w6Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w6Result.runnerUp.manager} (±${w6Result.runnerUpDiff} pts)`);
+    console.log(`   3rd Place: ${w6Result.third.manager} (±${w6Result.thirdDiff} pts)`);
+  }
+
+  if (w7Result) {
+    console.log(`✅ Week 7 Winner: ${w7Result.winner.manager} (${w7Result.winner.record}, ${w7Result.winner.pointsFor} PF) -> ${w7Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w7Result.runnerUp.manager} (${w7Result.runnerUp.record}, ${w7Result.runnerUp.pointsFor} PF)`);
+    console.log(`   3rd Place: ${w7Result.third.manager} (${w7Result.third.record}, ${w7Result.third.pointsFor} PF)`);
   }
 
   // Update Markdown Ledger
@@ -547,6 +677,33 @@ export function runBountyEvaluation() {
     );
     if (updatedW5) {
       console.log('🌐 Updated Week 05 Bounty Card in index.html');
+    }
+  }
+
+  if (w6Result) {
+    const badgeText = w6Result.payout > 0 ? `$${w6Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW6 = updateIndexHtmlWeek6Bounty(
+      w6Result.winner.manager,
+      w6Result.winner.team,
+      w6Result.diff.toFixed(2),
+      badgeText
+    );
+    if (updatedW6) {
+      console.log('🌐 Updated Week 06 Bounty Card in index.html');
+    }
+  }
+
+  if (w7Result) {
+    const badgeText = w7Result.payout > 0 ? `$${w7Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW7 = updateIndexHtmlWeek7Bounty(
+      w7Result.winner.manager,
+      w7Result.winner.team,
+      w7Result.winner.record,
+      w7Result.winner.pointsFor.toFixed(2),
+      badgeText
+    );
+    if (updatedW7) {
+      console.log('🌐 Updated Week 07 Bounty Card in index.html');
     }
   }
 
