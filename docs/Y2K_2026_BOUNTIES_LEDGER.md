@@ -69,8 +69,16 @@
   - 💵 **Payout**: **$0.00** (Win #1 Qualifies franchise; future wins pay $10.00/win)  
   - 🥈 **Runner-Up**: Casey (`AARPFL`) — +38.82 pts over projection (162.94 actual vs 124.12 projected)  
   - 🥉 **3rd Place**: Dylan (`Globo Gym`) — +25.58 pts over projection (156.54 actual vs 130.96 projected)
-- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)
-- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7
+- **Week 06**: I’m Sorry for Earlier Yahoo, I love you — Team closest to their exact pre-game projected score (over or under)  
+  - 👑 **Winner**: **Mike** (`IRked`) — **±3.50 pts off projection** (113.84 actual vs 110.34 projected)  
+  - 💵 **Payout**: **$5.00** (Win #2 pays $5.00)  
+  - 🥈 **Runner-Up**: Ryan (`Donkey Squad`) — ±3.70 pts off projection (84.20 actual vs 87.90 projected)  
+  - 🥉 **3rd Place**: Cooper (`Trenches cooper`) — ±4.01 pts off projection (89.94 actual vs 93.95 projected)
+- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7  
+  - 👑 **Winner**: **Dylan** (`Globo Gym`) — **#1 Overall Seed (7-0, 1071.62 PF)**  
+  - 💵 **Payout**: **$5.00** (Win #2 pays $5.00)  
+  - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — #2 Overall Seed (5-2, 1053.80 PF)  
+  - 🥉 **3rd Place**: Alex (`Darnold Schwarzenegger`) — #3 Overall Seed (4-3, 957.84 PF)
 - **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns
 - **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench
 - **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)
@@ -81,15 +89,15 @@
 
 ---
 
-## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 5)
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 7)
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
+| **Dylan** | 2 | $5.00 | **Qualified** (Next win pays $5.00) |
+| **Mike** | 2 | $5.00 | **Qualified** (Next win pays $5.00) |
 | **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
 | **Bo (Boaz)** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
 | **Tess** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
-| **Dylan** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
-| **Mike** | 1 | $0.00 | **Qualified** (Next win pays $5.00) |
 | **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
 | **Jasper** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
