@@ -238,7 +238,7 @@ describe('E2E DOM Integration Test', () => {
     window.switchTab('matchups');
 
     const heading = document.getElementById('matchup-title-heading');
-    expect(heading.textContent).toMatch(/2026 Y2K LEAGUE: WEEK 5 (PREVIEW|RECAP)/);
+    expect(heading.textContent).toMatch(/2026 Y2K LEAGUE: WEEK \d+ (PREVIEW|RECAP)/);
 
     window.switchMatchupWeek(2);
     expect(heading.textContent).toContain('2026 Y2K LEAGUE: WEEK 2 RECAP');

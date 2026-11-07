@@ -1086,13 +1086,12 @@ export function buildManagerSeasonGameLogHtml({
 
 /**
  * Determines the default matchup week and view mode (preview vs recap)
- * driven directly by uploaded weekly commentary:
- * - When a recap is uploaded (mode: 'recap'), defaults to that recap.
- * - When a preview is uploaded (mode: 'preview'), defaults to that preview.
- * - No day-of-week tracking is required.
- * - Fallbacks if commentary is absent:
- *   - Pre-season (0 games completed): defaults to Week 1 preview.
- *   - Concluded / in-progress season: defaults to latest completed week recap.
+ * automatically based on completed games and day of the week:
+ * - Pre-season (0 games completed): defaults to Week 1 preview.
+ * - Concluded season (all weeks completed or historical season): defaults to final completed week recap.
+ * - Active in-progress season:
+ *   - Tuesday (day === 2) and Wednesday (day === 3): defaults to latest completed week recap (Week N Recap).
+ *   - Thursday (day === 4) through Monday (day === 1): defaults to upcoming week preview (Week N+1 Preview).
  */
 export function getWeeklyMatchupDefaultState({
   season = 2026,
@@ -1105,10 +1104,14 @@ export function getWeeklyMatchupDefaultState({
   // 1. Identify weeks with completed games in schedule
   const schedule = seasonData.schedule || seasonData.schedule2026 || [];
   const completedWeeks = new Set();
+  let maxScheduleWeek = Number(regularSeasonWeeks) || 14;
   schedule.forEach(m => {
     const sH = Number(m.homeScore || 0);
     const sA = Number(m.awayScore || 0);
     const wk = Number(m.weekNumber || m.week || 0);
+    if (wk > maxScheduleWeek) {
+      maxScheduleWeek = wk;
+    }
     if ((sH > 0 || sA > 0) && wk > 0) {
       completedWeeks.add(wk);
     }
@@ -1116,23 +1119,7 @@ export function getWeeklyMatchupDefaultState({
 
   const maxCompletedWeek = completedWeeks.size > 0 ? Math.max(...completedWeeks) : 0;
 
-  // 2. Check for commentary on the active season
-  const comm = commentary || weeklyCommentary?.[season] || (typeof window !== 'undefined' && window.LEAGUE_DATA?.weeklyCommentary?.[season]) || null;
-  if (comm && typeof comm === 'object') {
-    const commWeeks = Object.keys(comm)
-      .map(k => Number(k))
-      .filter(k => !isNaN(k) && comm[k] && typeof comm[k] === 'object' && comm[k].mode);
-    if (commWeeks.length > 0) {
-      const maxCommWeek = Math.max(...commWeeks);
-      const entry = comm[maxCommWeek];
-      return {
-        week: maxCommWeek,
-        mode: entry.mode === 'preview' ? 'preview' : 'recap'
-      };
-    }
-  }
-
-  // Pre-season (0 weeks completed)
+  // 2. Pre-season (0 weeks completed)
   if (maxCompletedWeek === 0) {
     return {
       week: 1,
@@ -1140,10 +1127,30 @@ export function getWeeklyMatchupDefaultState({
     };
   }
 
-  // Default to latest completed week recap
+  // 3. Concluded or historical season
+  if (maxCompletedWeek >= maxScheduleWeek || Number(season) < 2026) {
+    return {
+      week: maxCompletedWeek,
+      mode: 'recap'
+    };
+  }
+
+  // 4. Active in-progress season:
+  // Tuesday (2) & Wednesday (3) -> Week N Recap
+  // Thursday (4), Friday (5), Saturday (6), Sunday (0), Monday (1) -> Week N+1 Preview
+  const parsedNow = (now instanceof Date && !isNaN(now)) ? now : new Date(now);
+  const day = !isNaN(parsedNow) ? parsedNow.getDay() : new Date().getDay();
+
+  if (day === 2 || day === 3) {
+    return {
+      week: maxCompletedWeek,
+      mode: 'recap'
+    };
+  }
+
   return {
-    week: maxCompletedWeek,
-    mode: 'recap'
+    week: Math.min(maxCompletedWeek + 1, maxScheduleWeek),
+    mode: 'preview'
   };
 }
 
