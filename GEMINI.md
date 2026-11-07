@@ -50,13 +50,13 @@ When writing weekly matchup previews, power rankings, or league editorial conten
 - **Schema Parity**: All commentary must adhere to the standardized schema across all leagues:
   `weeklyCommentary[year][week] = { mode: 'preview'|'recap', title: string, matchups: [{ homeOwner, awayOwner, writeup, h2h, streak, playoffs }] }`.
 
-## 6. Matchups Tab Default Commentary View Rules
-- Driven directly by uploaded weekly commentary:
-  - Whenever a **recap** is uploaded (`mode: 'recap'`), default the Matchups tab to that recap.
-  - Whenever a **preview** is uploaded (`mode: 'preview'`), default the Matchups tab to that preview.
-  - No need to track day of the week (Tuesday–Saturday); commentary ingestion directly sets the active focus.
-  - Fallbacks when commentary is absent: defaults to latest completed week recap, or Week 1 preview in pre-season.
-- Logic is centralized in `getWeeklyMatchupDefaultState({ season, seasonData, weeklyCommentary, commentary })` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
+## 6. Matchups Tab Default View Rules
+- Automatically determined at runtime in the browser from completed schedule data (`maxCompletedWeek`) and the current day of the week (`now.getDay()`), regardless of whether weekly commentary has been pushed:
+  - **Tuesday (`day === 2`) and Wednesday (`day === 3`)**: Defaults to the just-completed week's **Recap** (`week: maxCompletedWeek, mode: 'recap'`).
+  - **Thursday (`day === 4`), Friday (`day === 5`), Saturday (`day === 6`), Sunday (`day === 0`), and Monday (`day === 1`)**: Automatically advances to the upcoming/current week's **Preview** (`week: maxCompletedWeek + 1, mode: 'preview'`).
+  - **Pre-season (`maxCompletedWeek === 0`)**: Defaults to `Week 1 Preview`.
+  - **Concluded or historical seasons (`maxCompletedWeek >= totalSeasonWeeks` or `season < 2026`)**: Defaults to the final completed week's `Recap`.
+- Logic is centralized in `getWeeklyMatchupDefaultState({ season, seasonData, weeklyCommentary, commentary, now, regularSeasonWeeks })` within `src/components/matchupsView.js` and maintained with dual-site parity across `src/app.js` and `src/pride_app.js` (tab switch, season switch, initial load).
 - **Dynamic Standing Badges & Ordering**:
   - In Week 1 Preview: `#STANDING` badges and card sort order must reset to pre-season rankings (`0-0` records) preserved in `seasonData[year].preSeasonStandings`.
   - In Week N Preview (`N > 1`): `#STANDING` badges and card sort order reflect standings entering the week (calculated strictly from games `< N`).
