@@ -79,7 +79,11 @@
   - 💵 **Payout**: **$5.00** (Win #2 pays $5.00)  
   - 🥈 **Runner-Up**: Dustin (`Dusty’s Dingleberries`) — #2 Overall Seed (5-2, 1053.80 PF)  
   - 🥉 **3rd Place**: Alex (`Darnold Schwarzenegger`) — #3 Overall Seed (4-3, 957.84 PF)
-- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns
+- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns  
+  - 👑 **Winner**: **Boaz** (`Aaron codger`) — **Josh Jacobs (52 yds, 2 TDs, 21.70 pts)**  
+  - 💵 **Payout**: **$10.00** (Win #2 pays $10.00)  
+  - 🥈 **Runner-Up**: Boaz (`Aaron codger`) — D'Andre Swift (79 yds, 3 TDs, 28.40 pts)  
+  - 🥉 **3rd Place**: Cooper (`Trenches cooper`) — Brock Bowers (92 yds, 2 TDs, 26.20 pts)
 - **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench
 - **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)
 - **Week 11**: Ground & Pound — Highest combined points from starting Running Backs (RB1 + RB2)
@@ -89,14 +93,14 @@
 
 ---
 
-## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 7)
+## 🏆 2026 WIN COUNT & PAYOUT SUMMARY (Through Week 8)
 
 | Manager | Wins | Total Payout | Status |
 | :--- | :---: | :---: | :--- |
+| **Bo (Boaz)** | 2 | $10.00 | **Qualified** (Next win pays $10.00) |
 | **Dylan** | 2 | $5.00 | **Qualified** (Next win pays $5.00) |
 | **Mike** | 2 | $5.00 | **Qualified** (Next win pays $5.00) |
 | **Dusty (Dustin)** | 1 | $0.00 | **Qualified** (Next win pays $25.00) |
-| **Bo (Boaz)** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
 | **Tess** | 1 | $0.00 | **Qualified** (Next win pays $10.00) |
 | **Trace** | 0 | $0.00 | Needs Win #1 to qualify ($10.00 repeat rate) |
 | **Phillip** | 0 | $0.00 | Needs Win #1 to qualify ($5.00 repeat rate) |
