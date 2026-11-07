@@ -120,6 +120,8 @@ async function ingestSeasonLineups(seasonYear, leagueId, s2, swid) {
   }
 
   const metaData = await metaRes.json();
+  const currentWeek = metaData.status?.currentMatchupPeriod || metaData.scoringPeriodId || totalWeeks + 1;
+  const maxCompletedWeek = seasonYear === 2026 ? Math.min(totalWeeks, currentWeek - 1) : totalWeeks;
   const memberMap = {};
   metaData.members?.forEach(m => {
     const rawName = `${m.firstName} ${m.lastName}`.trim();
@@ -145,7 +147,7 @@ async function ingestSeasonLineups(seasonYear, leagueId, s2, swid) {
     K: 0
   };
 
-  for (let wk = 1; wk <= totalWeeks; wk++) {
+  for (let wk = 1; wk <= maxCompletedWeek; wk++) {
     const boxUrl = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/${leagueId}?scoringPeriodId=${wk}&view=mBoxscore&view=mMatchup`;
     const res = await fetch(boxUrl, { headers });
     if (!res.ok) continue;

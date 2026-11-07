@@ -117,12 +117,12 @@ export async function fetchWeekMatchups(leagueId, week, currentWeek = null) {
       const scores = [...itemHtml.matchAll(/<div class=['"]Fz-lg\s*[^'"]*['"]>([0-9.]+)<\/div>/gi)].map(m => parseFloat(m[1]));
 
       if (teams.length >= 2) {
-        const s1 = scores[0] !== undefined ? scores[0] : 0.0;
-        const s2 = scores[1] !== undefined ? scores[1] : 0.0;
+        const isFinal = currentWeek !== null ? (week < currentWeek) : itemHtml.includes('Fw-b');
+        const s1 = isFinal && scores[0] !== undefined ? scores[0] : 0.0;
+        const s2 = isFinal && scores[1] !== undefined ? scores[1] : 0.0;
         const o1 = resolveY2kOwner(teams[0].teamId, teams[0].teamName);
         const o2 = resolveY2kOwner(teams[1].teamId, teams[1].teamName);
 
-        const isFinal = (currentWeek !== null && week < currentWeek) || itemHtml.includes('Fw-b');
         const winner = isFinal
           ? (s1 > s2 ? o1 : (s2 > s1 ? o2 : (s1 > 0 && s2 > 0 ? 'Tie' : 'TBD')))
           : 'TBD';

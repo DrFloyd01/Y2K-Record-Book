@@ -9,6 +9,7 @@ import {
   evaluateWeek5,
   evaluateWeek6,
   evaluateWeek7,
+  evaluateWeek8,
   computeLedgerSummary,
   BUY_IN_TIERS,
   normalizeManager
@@ -104,7 +105,7 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
 
   it('should correctly evaluate Week 7 Halftime Bonus (#1 on Standings through Week 7)', () => {
     const standings = leagueData.seasonData?.['2026']?.standings || [];
-    const res = evaluateWeek7(standings);
+    const res = evaluateWeek7(standings, matchups);
     expect(res).toBeDefined();
     expect(res.winner.manager).toBe('Dylan');
     expect(res.winner.team).toBe('Globo Gym');
@@ -118,7 +119,29 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(res.third.record).toBe('4-3');
   });
 
-  it('should compute correct ledger payouts and qualification status through Week 7', () => {
+  it('should correctly evaluate Week 8 The Vulture Award (Lowest Yards with 2+ TDs)', () => {
+    const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
+    const res = evaluateWeek8(lineups);
+    expect(res).toBeDefined();
+    expect(res.winner.manager).toBe('Boaz');
+    expect(res.winner.team).toBe('Aaron codger');
+    expect(res.winner.player).toBe('Josh Jacobs');
+    expect(res.winner.yards).toBe(52);
+    expect(res.winner.tds).toBe(2);
+    expect(res.winner.points).toBeCloseTo(21.70, 2);
+
+    expect(res.runnerUp.manager).toBe('Boaz');
+    expect(res.runnerUp.player).toBe("D'Andre Swift");
+    expect(res.runnerUp.yards).toBe(79);
+    expect(res.runnerUp.tds).toBe(3);
+
+    expect(res.third.manager).toBe('Cooper');
+    expect(res.third.player).toBe('Brock Bowers');
+    expect(res.third.yards).toBe(92);
+    expect(res.third.tds).toBe(2);
+  });
+
+  it('should compute correct ledger payouts and qualification status through Week 8', () => {
     const lineups = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json'), 'utf8'));
     const standings = leagueData.seasonData?.['2026']?.standings || [];
     const w1 = evaluateWeek1(matchups);
@@ -127,8 +150,9 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     const w4 = evaluateWeek4(matchups);
     const w5 = evaluateWeek5(lineups);
     const w6 = evaluateWeek6(lineups);
-    const w7 = evaluateWeek7(standings);
-    const summary = computeLedgerSummary([w1, w2, w3, w4, w5, w6, w7]);
+    const w7 = evaluateWeek7(standings, matchups);
+    const w8 = evaluateWeek8(lineups);
+    const summary = computeLedgerSummary([w1, w2, w3, w4, w5, w6, w7, w8]);
 
     // Dylan has 2 wins (W1, W7): qualifies in W1, W7 pays $5.00
     expect(summary['Dylan'].wins).toBe(2);
@@ -144,17 +168,18 @@ describe('Y2K Weekly Bounties Evaluation Suite', () => {
     expect(summary['Mike'].repeatRate).toBe(5.0);
     expect(w6.payout).toBe(5.0);
 
+    // Boaz has 2 wins (W4, W8): qualifies in W4, W8 pays $10.00 ($5 Boost Tier)
+    expect(summary['Boaz'].wins).toBe(2);
+    expect(summary['Boaz'].isQualified).toBe(true);
+    expect(summary['Boaz'].totalPayout).toBe(10.0);
+    expect(summary['Boaz'].repeatRate).toBe(10.0);
+    expect(w8.payout).toBe(10.0);
+
     // Dustin has 1 win (W2): qualifies, $0 payout, $25 repeat rate
     expect(summary['Dustin'].wins).toBe(1);
     expect(summary['Dustin'].isQualified).toBe(true);
     expect(summary['Dustin'].totalPayout).toBe(0.0);
     expect(summary['Dustin'].repeatRate).toBe(25.0);
-
-    // Boaz has 1 win (W4): qualifies, $0 payout, $10 repeat rate
-    expect(summary['Boaz'].wins).toBe(1);
-    expect(summary['Boaz'].isQualified).toBe(true);
-    expect(summary['Boaz'].totalPayout).toBe(0.0);
-    expect(summary['Boaz'].repeatRate).toBe(10.0);
 
     // Tess has 1 win (W5): qualifies, $0 payout, $10 repeat rate
     expect(summary['Tess'].wins).toBe(1);
@@ -188,7 +213,7 @@ describe('Commentary Draft Generation Suite', () => {
     expect(dylanTess.streak).toContain('Dylan');
   });
 
-  it('should generate Y2K drafts for Week 2-7 recaps and Week 3-8 previews', () => {
+  it('should generate Y2K drafts for Week 2-8 recaps and Week 3-9 previews', () => {
     const drafts = generateY2kDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -201,6 +226,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w6PreviewMatchups).toHaveLength(6);
     expect(drafts.w7RecapMatchups).toHaveLength(6);
     expect(drafts.w8PreviewMatchups).toHaveLength(6);
+    expect(drafts.w8RecapMatchups).toHaveLength(6);
+    expect(drafts.w9PreviewMatchups).toHaveLength(6);
 
     // Check specific matchups present
     const dylanTessRecap = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Tess');
@@ -242,9 +269,17 @@ describe('Commentary Draft Generation Suite', () => {
     const dylanDustinW8Preview = drafts.w8PreviewMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Dustin');
     expect(dylanDustinW8Preview).toBeDefined();
     expect(dylanDustinW8Preview.writeup).toContain('The Vulture Award');
+
+    const boazAlexW8Recap = drafts.w8RecapMatchups.find(m => m.homeOwner === 'Boaz' && m.awayOwner === 'Alex');
+    expect(boazAlexW8Recap).toBeDefined();
+    expect(boazAlexW8Recap.writeup).toContain('Josh Jacobs');
+
+    const dylanCooperW9Preview = drafts.w9PreviewMatchups.find(m => m.homeOwner === 'Dylan' && m.awayOwner === 'Cooper');
+    expect(dylanCooperW9Preview).toBeDefined();
+    expect(dylanCooperW9Preview.writeup).toContain('12th Man (Bench Hero)');
   });
 
-  it('should generate Pride Guys drafts for Week 2-7 recaps and Week 3-8 previews', () => {
+  it('should generate Pride Guys drafts for Week 2-8 recaps and Week 3-9 previews', () => {
     const drafts = generatePrideDrafts();
     expect(drafts).toBeDefined();
     expect(drafts.w2RecapMatchups).toHaveLength(6);
@@ -257,6 +292,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(drafts.w6PreviewMatchups).toHaveLength(6);
     expect(drafts.w7RecapMatchups).toHaveLength(6);
     expect(drafts.w8PreviewMatchups).toHaveLength(6);
+    expect(drafts.w8RecapMatchups).toHaveLength(6);
+    expect(drafts.w9PreviewMatchups).toHaveLength(6);
 
     const mikeTrace = drafts.w2RecapMatchups.find(m => m.homeOwner === 'Michael Anderson' && m.awayOwner === 'Trace Bakulich');
     expect(mikeTrace).toBeDefined();
@@ -297,6 +334,14 @@ describe('Commentary Draft Generation Suite', () => {
     const nathanBrodieW8Preview = drafts.w8PreviewMatchups.find(m => m.homeOwner === 'Nathan Wells' && m.awayOwner === 'Brodie Pirtle');
     expect(nathanBrodieW8Preview).toBeDefined();
     expect(nathanBrodieW8Preview.writeup).toContain('Game of the Week');
+
+    const nathanBrodieW8Recap = drafts.w8RecapMatchups.find(m => m.homeOwner === 'Nathan Wells' && m.awayOwner === 'Brodie Pirtle');
+    expect(nathanBrodieW8Recap).toBeDefined();
+    expect(nathanBrodieW8Recap.writeup).toContain('345.64-point');
+
+    const austinTylerW9Preview = drafts.w9PreviewMatchups.find(m => m.homeOwner === 'Austin Geller' && m.awayOwner === 'Tyler Hicks');
+    expect(austinTylerW9Preview).toBeDefined();
+    expect(austinTylerW9Preview.writeup).toContain('Game of the Week');
   });
 
   it('should verify draft files exist on disk in docs/', () => {
@@ -310,6 +355,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_6_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_7_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_9_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_2_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md'))).toBe(true);
@@ -320,6 +367,8 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_6_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_7_RECAP.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_PREVIEW.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_RECAP.md'))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_9_PREVIEW.md'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/Y2K_2026_COMMENTARY_BACKUP.json'))).toBe(true);
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });

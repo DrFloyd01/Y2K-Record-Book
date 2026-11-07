@@ -334,7 +334,7 @@ export function generateY2kDrafts() {
     }
   ];
 
-  // 3. Week 3-7 Recaps & Week 4-8 Previews
+  // 3. Week 3-8 Recaps & Week 4-9 Previews
   const w3RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_3_RECAP.md');
   const w4PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_PREVIEW.md');
   const w4RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_4_RECAP.md');
@@ -343,6 +343,8 @@ export function generateY2kDrafts() {
   const w6PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_6_PREVIEW.md');
   const w7RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_7_RECAP.md');
   const w8PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_PREVIEW.md');
+  const w8RecapPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_RECAP.md');
+  const w9PreviewPath = resolve(process.cwd(), 'docs/Y2K_2026_WEEK_9_PREVIEW.md');
 
   const y2kStandings = leagueData?.seasonData?.['2026']?.standings || [];
   const y2kRankMap = {};
@@ -424,7 +426,26 @@ export function generateY2kDrafts() {
     };
   });
 
-  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups, w5RecapMatchups, w6PreviewMatchups, w7RecapMatchups, w8PreviewMatchups };
+  const w8RecapMatchups = parseMatchupMarkdown(w8RecapPath, Y2K_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w9PreviewMatchups = parseMatchupMarkdown(w9PreviewPath, Y2K_TEAM_OWNERS).map(m => {
+    const liveMatch = (leagueData?.weeklyCommentary?.['2026']?.['9']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    const homeRank = liveMatch?.homeRank || y2kRankMap[m.homeOwner?.toLowerCase()] || null;
+    const awayRank = liveMatch?.awayRank || y2kRankMap[m.awayOwner?.toLowerCase()] || null;
+    return {
+      ...m,
+      homeRank,
+      awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups, w5RecapMatchups, w6PreviewMatchups, w7RecapMatchups, w8PreviewMatchups, w8RecapMatchups, w9PreviewMatchups };
 }
 
 /**
@@ -598,7 +619,7 @@ export function generatePrideDrafts() {
     }
   ];
 
-  // 3. Week 3-7 Recaps & Week 4-8 Previews
+  // 3. Week 3-8 Recaps & Week 4-9 Previews
   const w3RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_3_RECAP.md');
   const w4PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_PREVIEW.md');
   const w4RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_4_RECAP.md');
@@ -607,6 +628,8 @@ export function generatePrideDrafts() {
   const w6PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_6_PREVIEW.md');
   const w7RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_7_RECAP.md');
   const w8PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_PREVIEW.md');
+  const w8RecapPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_RECAP.md');
+  const w9PreviewPath = resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_9_PREVIEW.md');
 
   const prideStandings = prideData?.seasonData?.['2026']?.standings || [];
   const prideRankMap = {};
@@ -688,7 +711,26 @@ export function generatePrideDrafts() {
     };
   });
 
-  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups, w5RecapMatchups, w6PreviewMatchups, w7RecapMatchups, w8PreviewMatchups };
+  const w8RecapMatchups = parseMatchupMarkdown(w8RecapPath, PRIDE_TEAM_OWNERS).map(m => ({
+    ...m,
+    recapWriteup: m.writeup
+  }));
+
+  const w9PreviewMatchups = parseMatchupMarkdown(w9PreviewPath, PRIDE_TEAM_OWNERS).map(m => {
+    const liveMatch = (prideData?.weeklyCommentary?.['2026']?.['9']?.matchups || []).find(lm =>
+      lm.homeOwner === m.homeOwner && lm.awayOwner === m.awayOwner
+    );
+    const homeRank = liveMatch?.homeRank || prideRankMap[m.homeOwner?.toLowerCase()] || null;
+    const awayRank = liveMatch?.awayRank || prideRankMap[m.awayOwner?.toLowerCase()] || null;
+    return {
+      ...m,
+      homeRank,
+      awayRank,
+      previewWriteup: m.writeup
+    };
+  });
+
+  return { w2RecapMatchups, w3PreviewMatchups, w3RecapMatchups, w4PreviewMatchups, w4RecapMatchups, w5PreviewMatchups, w5RecapMatchups, w6PreviewMatchups, w7RecapMatchups, w8PreviewMatchups, w8RecapMatchups, w9PreviewMatchups };
 }
 
 /**
@@ -778,6 +820,18 @@ export function runDraftGeneration() {
       console.log('📄 Generated docs/Y2K_2026_WEEK_8_PREVIEW.md');
     }
 
+    if (y2k.w8RecapMatchups?.length) {
+      const y2kRecapMd = formatY2kMarkdown('🏈 2026 Y2K: Week 8 Matchup Recaps', y2k.w8RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_8_RECAP.md'), y2kRecapMd, 'utf8');
+      console.log('📄 Generated docs/Y2K_2026_WEEK_8_RECAP.md');
+    }
+
+    if (y2k.w9PreviewMatchups?.length) {
+      const y2kPreviewMd = formatY2kMarkdown('🏈 2026 Y2K: Week 9 Matchup Previews', y2k.w9PreviewMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/Y2K_2026_WEEK_9_PREVIEW.md'), y2kPreviewMd, 'utf8');
+      console.log('📄 Generated docs/Y2K_2026_WEEK_9_PREVIEW.md');
+    }
+
     // Update Backup JSON
     const y2kBackupPath = resolve(draftsDir, 'Y2K_2026_COMMENTARY_BACKUP.json');
     const existingBackup = loadJson(y2kBackupPath) || {};
@@ -814,6 +868,20 @@ export function runDraftGeneration() {
         mode: 'preview',
         title: '🏈 2026 Y2K: Week 8 Matchup Previews',
         matchups: y2k.w8PreviewMatchups
+      };
+    }
+    if (y2k.w8RecapMatchups?.length) {
+      existingBackup['8'] = {
+        mode: 'recap',
+        title: '🏈 2026 Y2K: Week 8 Matchup Recaps',
+        matchups: y2k.w8RecapMatchups
+      };
+    }
+    if (y2k.w9PreviewMatchups?.length) {
+      existingBackup['9'] = {
+        mode: 'preview',
+        title: '🏈 2026 Y2K: Week 9 Matchup Previews',
+        matchups: y2k.w9PreviewMatchups
       };
     }
     writeFileSync(y2kBackupPath, JSON.stringify(existingBackup, null, 2), 'utf8');
@@ -865,6 +933,18 @@ export function runDraftGeneration() {
       console.log('📄 Generated docs/PRIDE_2026_WEEK_8_PREVIEW.md');
     }
 
+    if (pride.w8RecapMatchups?.length) {
+      const prideRecapMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 8 Matchup Recaps', pride.w8RecapMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_8_RECAP.md'), prideRecapMd, 'utf8');
+      console.log('📄 Generated docs/PRIDE_2026_WEEK_8_RECAP.md');
+    }
+
+    if (pride.w9PreviewMatchups?.length) {
+      const pridePreviewMd = formatPrideMarkdown('🌈 2026 Pride Guys: Week 9 Matchup Previews', pride.w9PreviewMatchups);
+      writeFileSync(resolve(process.cwd(), 'docs/PRIDE_2026_WEEK_9_PREVIEW.md'), pridePreviewMd, 'utf8');
+      console.log('📄 Generated docs/PRIDE_2026_WEEK_9_PREVIEW.md');
+    }
+
     // Update Backup JSON
     const prideBackupPath = resolve(draftsDir, 'PRIDE_2026_COMMENTARY_BACKUP.json');
     const existingPrideBackup = loadJson(prideBackupPath) || {};
@@ -901,6 +981,20 @@ export function runDraftGeneration() {
         mode: 'preview',
         title: '🌈 2026 Pride Guys: Week 8 Matchup Previews',
         matchups: pride.w8PreviewMatchups
+      };
+    }
+    if (pride.w8RecapMatchups?.length) {
+      existingPrideBackup['8'] = {
+        mode: 'recap',
+        title: '🌈 2026 Pride Guys: Week 8 Matchup Recaps',
+        matchups: pride.w8RecapMatchups
+      };
+    }
+    if (pride.w9PreviewMatchups?.length) {
+      existingPrideBackup['9'] = {
+        mode: 'preview',
+        title: '🌈 2026 Pride Guys: Week 9 Matchup Previews',
+        matchups: pride.w9PreviewMatchups
       };
     }
     writeFileSync(prideBackupPath, JSON.stringify(existingPrideBackup, null, 2), 'utf8');

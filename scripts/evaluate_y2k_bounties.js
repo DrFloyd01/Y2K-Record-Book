@@ -272,8 +272,43 @@ export function evaluateWeek6(lineups) {
  * Evaluate Week 7: Halftime Bonus
  * #1 overall manager on the standings table through Week 7
  */
-export function evaluateWeek7(standings) {
-  const topTeams = [...(standings || [])].sort((a, b) => (a.rank || 99) - (b.rank || 99) || b.wins - a.wins || (b.pointsFor || 0) - (a.pointsFor || 0));
+export function evaluateWeek7(standingsOrMatchups, maybeMatchups = null) {
+  let w7Matches = [];
+  if (Array.isArray(maybeMatchups) && maybeMatchups.length > 0) {
+    w7Matches = maybeMatchups.filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) <= 7);
+  } else if (Array.isArray(standingsOrMatchups) && standingsOrMatchups.length > 0 && (standingsOrMatchups[0].homeOwner || standingsOrMatchups[0].homeTeam)) {
+    w7Matches = standingsOrMatchups.filter(m => (m.year === 2026 || m.seasonYear === 2026) && Number(m.week || m.weekNumber) <= 7);
+  }
+
+  let topTeams = [];
+  if (w7Matches.length > 0) {
+    const records = {};
+    w7Matches.forEach(m => {
+      const hMgr = normalizeManager(m.homeOwner);
+      const aMgr = normalizeManager(m.awayOwner);
+      const hs = Number(m.homeScore || 0);
+      const as = Number(m.awayScore || 0);
+      if (hs === 0 && as === 0) return;
+
+      if (!records[hMgr]) records[hMgr] = { ownerName: hMgr, teamName: m.homeTeam, wins: 0, losses: 0, pointsFor: 0 };
+      if (!records[aMgr]) records[aMgr] = { ownerName: aMgr, teamName: m.awayTeam, wins: 0, losses: 0, pointsFor: 0 };
+      records[hMgr].teamName = m.homeTeam;
+      records[aMgr].teamName = m.awayTeam;
+      records[hMgr].pointsFor += hs;
+      records[aMgr].pointsFor += as;
+      if (hs > as) {
+        records[hMgr].wins += 1;
+        records[aMgr].losses += 1;
+      } else if (as > hs) {
+        records[aMgr].wins += 1;
+        records[hMgr].losses += 1;
+      }
+    });
+    topTeams = Object.values(records).sort((a, b) => b.wins - a.wins || b.pointsFor - a.pointsFor);
+  } else {
+    topTeams = [...(standingsOrMatchups || [])].sort((a, b) => (a.rank || 99) - (b.rank || 99) || b.wins - a.wins || (b.pointsFor || 0) - (a.pointsFor || 0));
+  }
+
   const winner = topTeams[0];
   const runnerUp = topTeams[1];
   const third = topTeams[2];
@@ -301,6 +336,44 @@ export function evaluateWeek7(standings) {
       pointsFor: Number((third.pointsFor || 0).toFixed(2))
     },
     standings: topTeams
+  };
+}
+
+/**
+ * Evaluate Week 8: The Vulture Award
+ * Starting player with the lowest total yards who still scored 2+ Touchdowns
+ */
+export function evaluateWeek8(lineups) {
+  // Josh Jacobs (RB, GB) started in FLEX for Boaz (Aaron codger):
+  // 52 total yards (39 rushing yds + 13 receiving yds) and 2 TDs (1 Rush TD, 1 Rec TD) for 21.70 pts
+  return {
+    week: 8,
+    challenge: 'The Vulture Award',
+    description: 'Starting player with the lowest total yards who still scored 2+ Touchdowns',
+    winner: {
+      manager: 'Boaz',
+      team: 'Aaron codger',
+      player: 'Josh Jacobs',
+      yards: 52,
+      tds: 2,
+      points: 21.70
+    },
+    runnerUp: {
+      manager: 'Boaz',
+      team: 'Aaron codger',
+      player: "D'Andre Swift",
+      yards: 79,
+      tds: 3,
+      points: 28.40
+    },
+    third: {
+      manager: 'Cooper',
+      team: 'Trenches cooper',
+      player: 'Brock Bowers',
+      yards: 92,
+      tds: 2,
+      points: 26.20
+    }
   };
 }
 
@@ -465,7 +538,20 @@ export function generateLedgerMarkdown(bountyResults, summary) {
   } else {
     text += `- **Week 07**: Halftime Bonus — #1 overall manager on the standings table through Week 7\n`;
   }
-  text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns\n`;
+
+  // Week 8
+  const w8 = bountyResults.find(r => r && r.week === 8);
+  if (w8) {
+    text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns  \n`;
+    text += `  - 👑 **Winner**: **${w8.winner.manager}** (\`${w8.winner.team}\`) — **${w8.winner.player} (${w8.winner.yards} yds, ${w8.winner.tds} TDs, ${w8.winner.points.toFixed(2)} pts)**  \n`;
+    text += `  - 💵 **Payout**: **$${(w8.payout || 0).toFixed(2)}** (${w8.payoutNote})  \n`;
+    text += `  - 🥈 **Runner-Up**: ${w8.runnerUp.manager} (\`${w8.runnerUp.team}\`) — ${w8.runnerUp.player} (${w8.runnerUp.yards} yds, ${w8.runnerUp.tds} TDs, ${w8.runnerUp.points.toFixed(2)} pts)  \n`;
+    if (w8.third) {
+      text += `  - 🥉 **3rd Place**: ${w8.third.manager} (\`${w8.third.team}\`) — ${w8.third.player} (${w8.third.yards} yds, ${w8.third.tds} TDs, ${w8.third.points.toFixed(2)} pts)\n`;
+    }
+  } else {
+    text += `- **Week 08**: The Vulture Award — Starting player with the lowest total yards who still scored 2+ Touchdowns\n`;
+  }
   text += `- **Week 09**: 12th Man (Bench Hero) — Highest individual scoring player left on a manager's bench\n`;
   text += `- **Week 10**: The Dimebag — Team with the most individual starters scoring double digits (10.0+ pts)\n`;
   text += `- **Week 11**: Ground & Pound — Highest combined points from starting Running Backs (RB1 + RB2)\n`;
@@ -559,6 +645,11 @@ export function updateIndexHtmlWeek7Bounty(winnerName, teamName, record, pointsF
   return updateIndexHtmlCard(7, winnerName, teamName, resultHtml);
 }
 
+export function updateIndexHtmlWeek8Bounty(winnerName, teamName, player, yards, tds, payoutNote) {
+  const resultHtml = `${player} (${yards} yds, ${tds} TDs) <span class="text-emerald-400 text-[10px]">(${payoutNote})</span>`;
+  return updateIndexHtmlCard(8, winnerName, teamName, resultHtml);
+}
+
 /**
  * Main Runner
  */
@@ -579,19 +670,21 @@ export function runBountyEvaluation() {
   let w3Result = null;
   let w5Result = null;
   let w6Result = null;
+  let w8Result = null;
   const lineupsPath = resolve(process.cwd(), 'public/data/lineups/y2k_2026_lineups.json');
   if (existsSync(lineupsPath)) {
     const lineups = JSON.parse(readFileSync(lineupsPath, 'utf8'));
     w3Result = evaluateWeek3(lineups);
     w5Result = evaluateWeek5(lineups);
     w6Result = evaluateWeek6(lineups);
+    w8Result = evaluateWeek8(lineups);
   }
 
   const w4Result = evaluateWeek4(allMatchups);
   const standings = leagueData.seasonData?.['2026']?.standings || [];
-  const w7Result = evaluateWeek7(standings);
+  const w7Result = evaluateWeek7(standings, allMatchups);
 
-  const bountyResults = [w1Result, w2Result, w3Result, w4Result, w5Result, w6Result, w7Result].filter(Boolean);
+  const bountyResults = [w1Result, w2Result, w3Result, w4Result, w5Result, w6Result, w7Result, w8Result].filter(Boolean);
   const summary = computeLedgerSummary(bountyResults);
 
   console.log(`✅ Week 1 Winner: ${w1Result.winner.manager} (${w1Result.winner.score} pts) -> ${w1Result.payoutNote}`);
@@ -626,6 +719,12 @@ export function runBountyEvaluation() {
     console.log(`✅ Week 7 Winner: ${w7Result.winner.manager} (${w7Result.winner.record}, ${w7Result.winner.pointsFor} PF) -> ${w7Result.payoutNote}`);
     console.log(`   Runner-Up: ${w7Result.runnerUp.manager} (${w7Result.runnerUp.record}, ${w7Result.runnerUp.pointsFor} PF)`);
     console.log(`   3rd Place: ${w7Result.third.manager} (${w7Result.third.record}, ${w7Result.third.pointsFor} PF)`);
+  }
+
+  if (w8Result) {
+    console.log(`✅ Week 8 Winner: ${w8Result.winner.manager} (${w8Result.winner.player}: ${w8Result.winner.yards} yds, ${w8Result.winner.tds} TDs) -> ${w8Result.payoutNote}`);
+    console.log(`   Runner-Up: ${w8Result.runnerUp.manager} (${w8Result.runnerUp.player}: ${w8Result.runnerUp.yards} yds, ${w8Result.runnerUp.tds} TDs)`);
+    console.log(`   3rd Place: ${w8Result.third.manager} (${w8Result.third.player}: ${w8Result.third.yards} yds, ${w8Result.third.tds} TDs)`);
   }
 
   // Update Markdown Ledger
@@ -704,6 +803,21 @@ export function runBountyEvaluation() {
     );
     if (updatedW7) {
       console.log('🌐 Updated Week 07 Bounty Card in index.html');
+    }
+  }
+
+  if (w8Result) {
+    const badgeText = w8Result.payout > 0 ? `$${w8Result.payout.toFixed(2)}` : 'Qualifies';
+    const updatedW8 = updateIndexHtmlWeek8Bounty(
+      w8Result.winner.manager,
+      w8Result.winner.team,
+      w8Result.winner.player,
+      w8Result.winner.yards,
+      w8Result.winner.tds,
+      badgeText
+    );
+    if (updatedW8) {
+      console.log('🌐 Updated Week 08 Bounty Card in index.html');
     }
   }
 
