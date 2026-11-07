@@ -763,6 +763,22 @@ export function formatPrideMarkdown(title, matchups) {
   return text;
 }
 
+function mergePreviewAndRecap(previewMatchups = [], recapMatchups = []) {
+  return recapMatchups.map(rm => {
+    const pm = previewMatchups.find(p =>
+      (p.homeOwner === rm.homeOwner && p.awayOwner === rm.awayOwner) ||
+      (p.homeOwner === rm.awayOwner && p.awayOwner === rm.homeOwner)
+    );
+    return {
+      ...rm,
+      homeRank: rm.homeRank ?? pm?.homeRank,
+      awayRank: rm.awayRank ?? pm?.awayRank,
+      previewWriteup: pm?.previewWriteup || pm?.writeup || rm.previewWriteup,
+      recapWriteup: rm.recapWriteup || rm.writeup
+    };
+  });
+}
+
 /**
  * Main Runner
  */
@@ -839,14 +855,14 @@ export function runDraftGeneration() {
       existingBackup['4'] = {
         mode: 'recap',
         title: '🏈 2026 Y2K: Week 4 Matchup Recaps',
-        matchups: y2k.w4RecapMatchups
+        matchups: mergePreviewAndRecap(y2k.w4PreviewMatchups, y2k.w4RecapMatchups)
       };
     }
     if (y2k.w5RecapMatchups?.length) {
       existingBackup['5'] = {
         mode: 'recap',
         title: '🏈 2026 Y2K: Week 5 Matchup Recaps',
-        matchups: y2k.w5RecapMatchups
+        matchups: mergePreviewAndRecap(y2k.w5PreviewMatchups, y2k.w5RecapMatchups)
       };
     }
     if (y2k.w6PreviewMatchups?.length) {
@@ -874,7 +890,7 @@ export function runDraftGeneration() {
       existingBackup['8'] = {
         mode: 'recap',
         title: '🏈 2026 Y2K: Week 8 Matchup Recaps',
-        matchups: y2k.w8RecapMatchups
+        matchups: mergePreviewAndRecap(y2k.w8PreviewMatchups, y2k.w8RecapMatchups)
       };
     }
     if (y2k.w9PreviewMatchups?.length) {
@@ -952,14 +968,14 @@ export function runDraftGeneration() {
       existingPrideBackup['4'] = {
         mode: 'recap',
         title: '🌈 2026 Pride Guys: Week 4 Matchup Recaps',
-        matchups: pride.w4RecapMatchups
+        matchups: mergePreviewAndRecap(pride.w4PreviewMatchups, pride.w4RecapMatchups)
       };
     }
     if (pride.w5RecapMatchups?.length) {
       existingPrideBackup['5'] = {
         mode: 'recap',
         title: '🌈 2026 Pride Guys: Week 5 Matchup Recaps',
-        matchups: pride.w5RecapMatchups
+        matchups: mergePreviewAndRecap(pride.w5PreviewMatchups, pride.w5RecapMatchups)
       };
     }
     if (pride.w6PreviewMatchups?.length) {
@@ -987,7 +1003,7 @@ export function runDraftGeneration() {
       existingPrideBackup['8'] = {
         mode: 'recap',
         title: '🌈 2026 Pride Guys: Week 8 Matchup Recaps',
-        matchups: pride.w8RecapMatchups
+        matchups: mergePreviewAndRecap(pride.w8PreviewMatchups, pride.w8RecapMatchups)
       };
     }
     if (pride.w9PreviewMatchups?.length) {

@@ -373,28 +373,48 @@ describe('Commentary Draft Generation Suite', () => {
     expect(existsSync(resolve(process.cwd(), 'docs/drafts/PRIDE_2026_COMMENTARY_BACKUP.json'))).toBe(true);
   });
 
-  it('should verify live published commentary has Week 2, 3 & 4 recaps and Week 5 previews live', () => {
+  it('should verify live published commentary has Weeks 2-8 recaps/previews and Week 9 previews live', () => {
     const liveY2k = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/leagueData.json'), 'utf8'));
     const livePride = JSON.parse(readFileSync(resolve(process.cwd(), 'public/data/prideGuysData.json'), 'utf8'));
 
-    // Live Y2K week 2, 3 & 4 are published in mode: recap, week 5 in mode: preview
+    // Live Y2K weeks 2-8 & week 9 preview published
     expect(liveY2k.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
     expect(liveY2k.weeklyCommentary['2026']['3'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
     expect(liveY2k.weeklyCommentary['2026']['4'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['4'].matchups.length).toBe(6);
-    expect(liveY2k.weeklyCommentary['2026']['5'].mode).toBe('preview');
+    expect(liveY2k.weeklyCommentary['2026']['5'].mode).toBe('recap');
     expect(liveY2k.weeklyCommentary['2026']['5'].matchups.length).toBe(6);
+    expect(liveY2k.weeklyCommentary['2026']['6'].mode).toBe('preview');
+    expect(liveY2k.weeklyCommentary['2026']['6'].matchups.length).toBe(6);
+    expect(liveY2k.weeklyCommentary['2026']['7'].mode).toBe('recap');
+    expect(liveY2k.weeklyCommentary['2026']['7'].matchups.length).toBe(6);
+    expect(liveY2k.weeklyCommentary['2026']['8'].mode).toBe('recap');
+    expect(liveY2k.weeklyCommentary['2026']['8'].matchups.length).toBe(6);
+    expect(liveY2k.weeklyCommentary['2026']['8'].matchups[0].previewWriteup).toBeTruthy();
+    expect(liveY2k.weeklyCommentary['2026']['8'].matchups[0].recapWriteup).toBeTruthy();
+    expect(liveY2k.weeklyCommentary['2026']['9'].mode).toBe('preview');
+    expect(liveY2k.weeklyCommentary['2026']['9'].matchups.length).toBe(6);
 
-    // Live Pride has week 2, 3 & 4 recaps and week 5 preview published live
+    // Live Pride weeks 2-8 & week 9 preview published
     expect(livePride.weeklyCommentary['2026']['2'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['2'].matchups.length).toBe(6);
     expect(livePride.weeklyCommentary['2026']['3'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['3'].matchups.length).toBe(6);
     expect(livePride.weeklyCommentary['2026']['4'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['4'].matchups.length).toBe(6);
-    expect(livePride.weeklyCommentary['2026']['5'].mode).toBe('preview');
+    expect(livePride.weeklyCommentary['2026']['5'].mode).toBe('recap');
     expect(livePride.weeklyCommentary['2026']['5'].matchups.length).toBe(6);
+    expect(livePride.weeklyCommentary['2026']['6'].mode).toBe('preview');
+    expect(livePride.weeklyCommentary['2026']['6'].matchups.length).toBe(6);
+    expect(livePride.weeklyCommentary['2026']['7'].mode).toBe('recap');
+    expect(livePride.weeklyCommentary['2026']['7'].matchups.length).toBe(6);
+    expect(livePride.weeklyCommentary['2026']['8'].mode).toBe('recap');
+    expect(livePride.weeklyCommentary['2026']['8'].matchups.length).toBe(6);
+    expect(livePride.weeklyCommentary['2026']['8'].matchups[0].previewWriteup).toBeTruthy();
+    expect(livePride.weeklyCommentary['2026']['8'].matchups[0].recapWriteup).toBeTruthy();
+    expect(livePride.weeklyCommentary['2026']['9'].mode).toBe('preview');
+    expect(livePride.weeklyCommentary['2026']['9'].matchups.length).toBe(6);
   });
 });
